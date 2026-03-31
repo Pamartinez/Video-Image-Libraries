@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Dark base theme: forces the window background to black and status/nav bars to
+        transparent with white icons. This ensures the app looks the same on every device
+        (including Samsung One UI) from the very first frame — no white flash or Samsung
+        light-theme overrides before Compose renders.
+    -->
+    <style name="Theme.ImageLibrary" parent="android:Theme.Material.NoActionBar">
+        <!-- Dark window background matching our Compose dark theme (#121212) -->
+        <item name="android:windowBackground">@color/app_background_dark</item>
+
+        <!-- Edge-to-edge: transparent status and navigation bars -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <!-- White icons (dark theme = no light-coloured bars) -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Disable Samsung/OEM automatic contrast enforcement on system bars -->
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!--
+        Foreground matching MAUI appiconfg.svg at ForegroundScale=0.65
+        SVG 512×512 → scaled 65% → 70.2dp centered in 108dp canvas
+        offset = (108 − 70.2) / 2 = 18.9, scale = 70.2 / 512 ≈ 0.13711
+    -->
+
+    <!-- White rounded rectangle (video player shape) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38.1,40.3 h31.8 a5.5,5.5,0,0,1,5.5,5.5 v16.4 a5.5,5.5,0,0,1,-5.5,5.5 h-31.8 a5.5,5.5,0,0,1,-5.5,-5.5 v-16.4 a5.5,5.5,0,0,1,5.5,-5.5 z" />
+
+    <!-- Purple play button triangle -->
+    <path
+        android:fillColor="#67239B"
+        android:pathData="M49.1,47.1 L49.1,60.9 L60.0,54.0 z" />
+</vector>
