@@ -46,7 +46,6 @@ fun ImageCarouselScreen(
     onBack: () -> Unit,
     onShare: (ImageItem) -> Unit = {},
     onDelete: (ImageItem) -> Unit = {},
-    onEdit: (ImageItem) -> Unit = {},
     onCopy: (ImageItem) -> Unit = {},
     onMove: (ImageItem) -> Unit = {},
     onDetails: (ImageItem) -> Unit = {},
@@ -165,13 +164,11 @@ fun ImageCarouselScreen(
                 onMove    = { currentImage?.let(onMove) },
                 onShare   = { currentImage?.let(onShare) },
                 onDelete  = { currentImage?.let(onDelete) },
-                onEdit    = { currentImage?.let(onEdit) },
                 onDetails = { currentImage?.let(onDetails) },
                 onOpenLocation = { currentImage?.let(onOpenLocation) },
                 showAllActions   = true,
                 showDetails      = true,
                 showShare        = true,
-                showEdit         = true,
                 showOpenLocation = true,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )

@@ -20,7 +20,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DriveFileMove
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.CreateNewFolder
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
@@ -70,9 +69,7 @@ fun BottomActionBar(
     showGroup: Boolean = false,
     showMove: Boolean = false,
     showShare: Boolean = false,
-    onShare: () -> Unit = {},
-    onEdit: () -> Unit = {},
-    showEdit: Boolean = false
+    onShare: () -> Unit = {}
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -90,8 +87,12 @@ fun BottomActionBar(
             tonalElevation  = 0.dp
         ) {
             Row(
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 10.dp),
-                horizontalArrangement = Arrangement.spacedBy(0.dp),
+                // Samsung Gallery dimens:
+                //   bottom_bar_layout_container_padding_horizontal = 10 dp
+                //   bottom_menu_list_circle_item_horizontal_gap    =  4 dp
+                // Items are self-contained at 58 dp height → no vertical padding needed.
+                modifier = Modifier.padding(horizontal = 10.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment     = Alignment.CenterVertically
             ) {
                 if (showGroup) {
@@ -105,9 +106,6 @@ fun BottomActionBar(
                 }
                 if (showShare) {
                     BottomBarItem(icon = Icons.Default.Share,                   label = "Share",   onClick = onShare)
-                }
-                if (showEdit) {
-                    BottomBarItem(icon = Icons.Default.Edit,                    label = "Edit",    onClick = onEdit)
                 }
                 BottomBarItem(icon = Icons.Outlined.Delete, label = "Delete", onClick = onDelete)
 
@@ -176,11 +174,12 @@ fun BottomActionBar(
  * Fixed size (72 × 58 dp) so every bar has the same height regardless of
  * how many buttons it contains.
  *
- * Samsung Gallery reference:
- *   bottom_bar_floating_height = 58 dp
- *   bottom_menu_list_circle_item_icon_size = 24 dp
- *   bottom_menu_list_view_holder_text_size = 12 sp
- *   bottom_menu_list_circle_item_text_margin_top = 4 dp
+ * Samsung Gallery reference dimens:
+ *   bottom_bar_floating_height                      = 58 dp  (total item height)
+ *   bottom_menu_list_dummy_circle_item_width        = 72 dp  (total item width)
+ *   bottom_menu_list_circle_item_icon_size          = 24 dp
+ *   bottom_menu_list_circle_item_text_margin_top    =  4 dp  (gap between icon and label)
+ *   bottom_menu_list_view_holder_text_size          = 12 sp  (label text size)
  */
 @Composable
 fun BottomBarItem(
@@ -199,12 +198,12 @@ fun BottomBarItem(
             icon,
             contentDescription = label,
             tint     = Color.White,
-            modifier = Modifier.size(24.dp)
+            modifier = Modifier.size(24.dp)  // bottom_menu_list_circle_item_icon_size
         )
-        Spacer(modifier = Modifier.height(0.dp))
+        Spacer(modifier = Modifier.height(4.dp))  // bottom_menu_list_circle_item_text_margin_top
         Text(
             text       = label,
-            fontSize   = 10.sp,
+            fontSize   = 12.sp,              // bottom_menu_list_view_holder_text_size
             fontWeight = FontWeight.Medium,
             maxLines   = 1,
             color      = Color.White

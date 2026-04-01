@@ -1,6 +1,9 @@
 package com.imagelibrary.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
@@ -34,6 +37,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -146,13 +150,19 @@ fun CarouselTopBar(
 /**
  * Samsung Gallery–style horizontal thumbnail filmstrip.
  *
- * Reference Samsung Gallery dimens (filmstrip3 / viewer):
- *   film_strip3_view_height         = 49 dp  (outer container)
- *   film_strip_item_height          = 44 dp  (item height — focused state)
- *   film_strip_image_width          = 31 dp  (non-focused width)
- *   film_strip_focused_image_width  = 37 dp  (focused / selected width)
+ * Exact dimens from Samsung Gallery resources (filmstrip3 / viewer):
+ *   film_strip3_view_height         = 49 dp  (outer container height)
+ *   film_strip_focused_height       = 44 dp  (focused item height)
+ *   film_strip_item_height          = 36 dp  (non-focused item height)
+ *   film_strip_focused_image_width  = 37 dp  (focused item width)
+ *   film_strip_image_width          = 31 dp  (non-focused item width)
  *   film_strip_item_corner_radius   = 2 dp
  *   film_strip_item_gap             = 4 dp
+ *
+ * Behaviour matching Samsung FilmStripLayoutManager + FoldAnimation + ItemSetHeightAnimation:
+ *   1. Selected thumbnail is always centred in the strip (via contentPadding).
+ *   2. Both width and height animate smoothly when focus changes (FoldAnimation equivalent).
+ *   3. Items are vertically centred inside the 49 dp container (Alignment.CenterVertically).
  */
 @Composable
 fun CarouselThumbnailStrip(
@@ -164,6 +174,13 @@ fun CarouselThumbnailStrip(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+
+    // Samsung FilmStripLayoutManager.getMidPoint() = viewWidth / 2.
+    // We replicate this by setting contentPadding so that scrollToItem(n) always
+    // positions item n at (screenWidth/2 - focusedWidth/2) → perfectly centred.
+    val screenWidthDp = LocalConfiguration.current.screenWidthDp.dp
+    val focusedWidth  = 37.dp  // film_strip_focused_image_width
+    val centerPadding = (screenWidthDp - focusedWidth) / 2
 
     AnimatedVisibility(
         visible = visible,
@@ -181,19 +198,29 @@ fun CarouselThumbnailStrip(
         ) {
             LazyRow(
                 state = thumbnailListState,
-                contentPadding = PaddingValues(horizontal = 8.dp),
+                // centrePadding ensures animateScrollToItem(n) always centres item n
+                contentPadding = PaddingValues(horizontal = centerPadding),
                 horizontalArrangement = Arrangement.spacedBy(4.dp), // film_strip_item_gap
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 4.dp)  // total row height ≈ 49 dp
+                    .height(49.dp) // film_strip3_view_height
             ) {
                 itemsIndexed(images, key = { _, img -> img.id }) { index, img ->
                     val isSelected = index == currentPage
 
-                    // film_strip_focused_image_width = 37 dp, film_strip_image_width = 31 dp
-                    val itemWidth  = if (isSelected) 37.dp else 31.dp
-                    val itemHeight = 44.dp // film_strip_item_height / focused_height
+                    // Animated width: 31 dp → 37 dp (FoldAnimation equivalent)
+                    val itemWidth by animateDpAsState(
+                        targetValue    = if (isSelected) 37.dp else 31.dp,
+                        animationSpec  = tween(durationMillis = 150, easing = FastOutSlowInEasing),
+                        label          = "film_strip_width"
+                    )
+                    // Animated height: 36 dp → 44 dp (ItemSetHeightAnimation equivalent)
+                    val itemHeight by animateDpAsState(
+                        targetValue    = if (isSelected) 44.dp else 36.dp,
+                        animationSpec  = tween(durationMillis = 150, easing = FastOutSlowInEasing),
+                        label          = "film_strip_height"
+                    )
 
                     Box(
                         modifier = Modifier
