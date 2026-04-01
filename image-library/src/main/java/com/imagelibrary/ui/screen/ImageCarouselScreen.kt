@@ -1,27 +1,11 @@
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = null
-                        if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
-                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
-                    },
-                contentAlignment = Alignment.Center
-    // Keep thumbnail strip centred on the current page
 package com.imagelibrary.ui.screen
 
 import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.rememberLazyListState
-import com.example.common.ui.components.ZoomableImageContainer
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.*
@@ -37,6 +21,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.common.ui.components.BottomActionBar
+import com.example.common.ui.components.ZoomableImageContainer
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.ui.components.CarouselThumbnailStrip
 import com.imagelibrary.ui.components.CarouselTopBar
@@ -47,9 +32,10 @@ import kotlinx.coroutines.launch
  *
  * - HorizontalPager for swiping between images
  * - Tap to toggle overlay (immersive mode + UI bars)
- * - Top bar  : back button
- * - Middle   : thumbnail filmstrip (synced to current page)
- * - Bottom   : pill action bar with Share and Delete
+ * - Top bar  : back button + page counter (e.g. "3 / 15") + overflow menu
+ * - Middle   : thumbnail filmstrip (synced to current page, Samsung Gallery specs)
+ * - Bottom   : pill action bar with Share, Edit, Delete and More
+ * - Pinch-to-zoom / double-tap zoom via ZoomableImageContainer
  * - Back press exits the carousel
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -60,6 +46,7 @@ fun ImageCarouselScreen(
     onBack: () -> Unit,
     onShare: (ImageItem) -> Unit = {},
     onDelete: (ImageItem) -> Unit = {},
+    onEdit: (ImageItem) -> Unit = {},
     onCopy: (ImageItem) -> Unit = {},
     onMove: (ImageItem) -> Unit = {},
     onDetails: (ImageItem) -> Unit = {},
@@ -69,7 +56,11 @@ fun ImageCarouselScreen(
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
+
     var barsVisible by remember { mutableStateOf(initialBarsVisible) }
+
+    // Track whether the current page image is zoomed in; disables pager swiping while true
+    var isCurrentPageZoomed by remember { mutableStateOf(false) }
 
     // Insets controller — hide system bars on entry, restore on leave
     val insetsController = remember(view) {
@@ -81,12 +72,8 @@ fun ImageCarouselScreen(
 
     DisposableEffect(Unit) {
         if (initialBarsVisible) {
-    // Track whether the current page image is zoomed in; disables pager swiping while true
-    var isCurrentPageZoomed by remember { mutableStateOf(false) }
-
-    // Keep thumbnail strip centred on the current page and reset zoom state on navigation
+            insetsController.show(WindowInsetsCompat.Type.systemBars())
         } else {
-        isCurrentPageZoomed = false
             insetsController.hide(WindowInsetsCompat.Type.systemBars())
         }
         onDispose { insetsController.show(WindowInsetsCompat.Type.systemBars()) }
@@ -100,12 +87,28 @@ fun ImageCarouselScreen(
 
     val thumbnailListState = rememberLazyListState()
 
-    // Keep thumbnail strip centred on the current page
-            // Disable page-swiping while the image is zoomed in
-            userScrollEnabled = !isCurrentPageZoomed,
+    // Keep thumbnail strip centred on the current page and reset zoom state on navigation
     LaunchedEffect(pagerState.currentPage) {
+        isCurrentPageZoomed = false
         thumbnailListState.animateScrollToItem(pagerState.currentPage)
     }
+
+    val currentImage = images.getOrNull(pagerState.currentPage)
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+    ) {
+        // ── Full-screen pager ───────────────────────────────────────────
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize(),
+            userScrollEnabled = !isCurrentPageZoomed,
+            key = { images.getOrNull(it)?.id ?: it }
+        ) { page ->
+            val image = images.getOrNull(page) ?: return@HorizontalPager
+
             ZoomableImageContainer(
                 modifier = Modifier.fillMaxSize(),
                 // Single-tap: toggle overlay bars (immersive mode)
@@ -117,22 +120,7 @@ fun ImageCarouselScreen(
                 // Notify parent so it can lock/unlock the pager
                 onScaleChanged = { newScale ->
                     isCurrentPageZoomed = newScale > 1f
-                },
-            key = { images.getOrNull(it)?.id ?: it }
-        ) { page ->
-            val image = images.getOrNull(page) ?: return@HorizontalPager
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = null
-                    ) {
-                        barsVisible = !barsVisible
-                        if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
-                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
-                    },
-                contentAlignment = Alignment.Center
+                }
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(context)
@@ -146,14 +134,16 @@ fun ImageCarouselScreen(
             }
         }
 
-        // ── Top bar: back button ────────────────────────────────────────
+        // ── Top bar: back button + page counter + overflow ──────────────
         CarouselTopBar(
             visible = barsVisible,
             onBack = onBack,
+            currentPage = pagerState.currentPage,
+            totalPages = images.size,
             modifier = Modifier.align(Alignment.TopStart)
         )
 
-        // ── Bottom: thumbnail strip + action bar ────────────────────────
+        // ── Bottom: thumbnail filmstrip + action bar ────────────────────
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -175,11 +165,13 @@ fun ImageCarouselScreen(
                 onMove    = { currentImage?.let(onMove) },
                 onShare   = { currentImage?.let(onShare) },
                 onDelete  = { currentImage?.let(onDelete) },
+                onEdit    = { currentImage?.let(onEdit) },
                 onDetails = { currentImage?.let(onDetails) },
                 onOpenLocation = { currentImage?.let(onOpenLocation) },
-                showAllActions  = true,
-                showDetails     = true,
-                showShare       = true,
+                showAllActions   = true,
+                showDetails      = true,
+                showShare        = true,
+                showEdit         = true,
                 showOpenLocation = true,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )

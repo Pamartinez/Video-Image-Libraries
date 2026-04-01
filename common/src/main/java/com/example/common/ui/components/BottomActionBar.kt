@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DriveFileMove
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.CreateNewFolder
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
@@ -69,7 +70,9 @@ fun BottomActionBar(
     showGroup: Boolean = false,
     showMove: Boolean = false,
     showShare: Boolean = false,
-    onShare: () -> Unit = {}
+    onShare: () -> Unit = {},
+    onEdit: () -> Unit = {},
+    showEdit: Boolean = false
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -102,6 +105,9 @@ fun BottomActionBar(
                 }
                 if (showShare) {
                     BottomBarItem(icon = Icons.Default.Share,                   label = "Share",   onClick = onShare)
+                }
+                if (showEdit) {
+                    BottomBarItem(icon = Icons.Default.Edit,                    label = "Edit",    onClick = onEdit)
                 }
                 BottomBarItem(icon = Icons.Outlined.Delete, label = "Delete", onClick = onDelete)
 
