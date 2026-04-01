@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="horizontal" android:id="@+id/header_layout" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:id="@+id/item_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_category_shortcut_header_container_top_margin" android:layout_marginBottom="@dimen/search_category_shortcut_header_container_bottom_margin" android:weightSum="1" android:layout_marginHorizontal="@dimen/search_category_shortcut_card_list_horizontal_margin_small">
+        <include android:id="@+id/recent_item" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.25" android:layout_marginHorizontal="@dimen/search_category_shortcut_item_side_margin" layout="@layout/recycler_category_item_shortcut_button_layout"/>
+        <include android:id="@+id/favorite_item" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.25" android:layout_marginHorizontal="@dimen/search_category_shortcut_item_side_margin" layout="@layout/recycler_category_item_shortcut_button_layout"/>
+        <include android:id="@+id/video_item" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.25" android:layout_marginHorizontal="@dimen/search_category_shortcut_item_side_margin" layout="@layout/recycler_category_item_shortcut_button_layout"/>
+        <include android:id="@+id/trash_item" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.25" android:layout_marginHorizontal="@dimen/search_category_shortcut_item_side_margin" layout="@layout/recycler_category_item_shortcut_button_layout"/>
+    </LinearLayout>
+</LinearLayout>

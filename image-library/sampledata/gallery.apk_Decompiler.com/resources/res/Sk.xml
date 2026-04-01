@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="oval">
+    <size android:height="@dimen/story_highlight_deco_filter_icon_btn_size" android:width="@dimen/story_highlight_deco_filter_icon_btn_size"/>
+    <solid android:color="@color/story_highlight_deco_background_color"/>
+    <stroke android:width="@dimen/story_highlight_deco_view_background_border" android:color="@color/story_highlight_deco_background_stroke_color"/>
+</shape>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:insetLeft="0dp" android:insetRight="0dp" android:insetTop="-2dp" android:insetBottom="3dp">
+    <shape>
+        <stroke android:width="0.5dp" android:color="@color/album_border_color"/>
+        <padding android:left="@dimen/albums_pane_folder_drawable_start_end_padding" android:top="5dp" android:right="@dimen/albums_pane_folder_drawable_start_end_padding" android:bottom="14dp"/>
+        <corners android:bottomLeftRadius="18dp" android:bottomRightRadius="18dp"/>
+    </shape>
+</inset>

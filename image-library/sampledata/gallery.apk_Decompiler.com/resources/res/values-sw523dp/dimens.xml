@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="remaster_viewer_content_height_ratio">0.764</dimen>
+    <dimen name="search_creature_slideshow_circle_thumb_top_margin">218.81dp</dimen>
+    <dimen name="search_creature_slideshow_height">282dp</dimen>
+    <dimen name="search_creature_slideshow_width">479dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v80">198dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v85">192dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v80">270dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v85">270dp</dimen>
+    <dimen name="stories_category_transitory_side_margin_v80">36dp</dimen>
+    <dimen name="stories_category_transitory_side_queue_margin_v80">46dp</dimen>
+    <dimen name="stories_top_color_effect_view_height">315dp</dimen>
+</resources>

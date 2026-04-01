@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <shortcut android:icon="@drawable/shortcut_quick_option_search" android:enabled="true" android:shortcutId="search_shortcut" android:shortcutShortLabel="@string/quickoption_search_gallery" android:shortcutLongLabel="@string/quickoption_search_gallery" android:shortcutDisabledMessage="@string/shortcut_destination_not_available">
+        <intent android:targetPackage="com.sec.android.gallery3d" android:action="com.android.gallery.action.SEARCH_SHORTCUT_VIEW" android:targetClass="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity"/>
+    </shortcut>
+    <shortcut android:icon="@drawable/shortcut_quick_option_recent" android:enabled="true" android:shortcutId="recent_album_shortcut" android:shortcutShortLabel="@string/recently_added" android:shortcutLongLabel="@string/recently_added" android:shortcutDisabledMessage="@string/shortcut_destination_not_available">
+        <intent android:targetPackage="com.sec.android.gallery3d" android:action="com.android.gallery.action.RECENT_ALBUM_SHORTCUT_VIEW" android:targetClass="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity">
+            <extra android:name="key-album-type" android:value="3"/>
+            <extra android:name="IS_VIRTUAL_ALBUM" android:value="true"/>
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/shortcut_quick_option_favorites" android:enabled="true" android:shortcutId="favorite_album_shortcut" android:shortcutShortLabel="@string/favorite" android:shortcutLongLabel="@string/favorite" android:shortcutDisabledMessage="@string/shortcut_destination_not_available">
+        <intent android:targetPackage="com.sec.android.gallery3d" android:action="com.android.gallery.action.FAVORITE_ALBUM_SHORTCUT_VIEW" android:targetClass="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity">
+            <extra android:name="key-album-type" android:value="3"/>
+            <extra android:name="IS_VIRTUAL_ALBUM" android:value="true"/>
+        </intent>
+    </shortcut>
+</shortcuts>

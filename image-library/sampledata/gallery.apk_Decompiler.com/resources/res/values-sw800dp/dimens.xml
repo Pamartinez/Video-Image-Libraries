@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lang_code_button_margin">20dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v80">343dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v80">466dp</dimen>
+    <dimen name="stories_category_transitory_side_margin_v80">84dp</dimen>
+</resources>

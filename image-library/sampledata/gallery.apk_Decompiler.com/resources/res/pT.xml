@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:id="@+id/live_effect_gyro_button" android:background="@drawable/liveeffect_gyro_bg" android:visibility="gone" android:layout_width="@dimen/gyro_button_size" android:layout_height="@dimen/gyro_button_size" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/gyro" android:tooltipText="@string/gyro">
+    <ImageView android:gravity="center" android:id="@+id/gyro_icon" android:layout_width="@dimen/gyro_icon_size" android:layout_height="@dimen/gyro_icon_size" android:src="@drawable/ic_motion_phone_rotate_on"/>
+</LinearLayout>

@@ -383,6 +383,8 @@ fun VideoListScreen(
             FolderPickerScreen(
                 title                   = "Move to",
                 folders                 = state.folders,
+                groups                  = state.rootGroups + state.currentGroupSubGroups,
+                orderedMixedItems       = state.orderedMixedItems,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
@@ -392,6 +394,8 @@ fun VideoListScreen(
             FolderPickerScreen(
                 title                   = "Copy to",
                 folders                 = state.folders,
+                groups                  = state.rootGroups + state.currentGroupSubGroups,
+                orderedMixedItems       = state.orderedMixedItems,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
@@ -443,6 +447,8 @@ fun VideoListScreen(
         FolderPickerScreen(
             title                   = "Move to",
             folders                 = state.folders,
+            groups                  = state.rootGroups + state.currentGroupSubGroups,
+            orderedMixedItems       = state.orderedMixedItems,
             onFolderSelected        = { viewModel.moveSelectedVideos(it) },
             onBack                  = { viewModel.dismissMoveFolderPicker() },
             onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
@@ -453,6 +459,8 @@ fun VideoListScreen(
         FolderPickerScreen(
             title                   = "Copy to",
             folders                 = state.folders,
+            groups                  = state.rootGroups + state.currentGroupSubGroups,
+            orderedMixedItems       = state.orderedMixedItems,
             onFolderSelected        = { viewModel.copySelectedVideos(it) },
             onBack                  = { viewModel.dismissCopyFolderPicker() },
             onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }

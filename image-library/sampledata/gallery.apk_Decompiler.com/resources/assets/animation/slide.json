@@ -1,0 +1,13 @@
+{
+  "name": "Slide",
+  "sort_order": 250,
+  "keyframes": [
+    { "time": 0.0, "camera_eye_x": 0.25, "camera_eye_z": 2.75, "camera_dir_x": -0.077, "depth_intensity": 0.19, "fov": 37.9 },
+    { "time": 0.5, "camera_eye_x": 0.0, "camera_eye_z": 2.45, "camera_dir_x": 0.0, "depth_intensity": 0.28, "fov": 37.9 },
+    { "time": 1.0, "camera_eye_x": -0.25, "camera_eye_z": 2.75, "camera_dir_x": 0.077, "depth_intensity": 0.19, "fov": 37.9 }
+  ],
+  "transition": "path", "transition_value": [[0.22, 0.0], [0.78, 1.0]],
+  "movement": "bezier",
+  "mode": "bounce",
+  "speed_factor": 1.8
+}

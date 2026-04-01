@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:inset="0dp">
+    <selector>
+        <item android:state_enabled="false">
+            <nine-patch android:src="@drawable/tw_common_textfield_default_mtrl_alpha" android:tint="@color/moreinfo_edit_normal_color_blur"/>
+        </item>
+        <item android:state_focused="true">
+            <nine-patch android:src="@drawable/tw_common_textfield_activated_mtrl_alpha" android:tint="@color/moreinfo_content_editor_color_blur"/>
+        </item>
+        <item android:state_pressed="true">
+            <nine-patch android:src="@drawable/tw_common_textfield_activated_mtrl_alpha" android:tint="@color/moreinfo_content_editor_color_blur"/>
+        </item>
+        <item>
+            <nine-patch android:src="@drawable/tw_common_textfield_default_mtrl_alpha" android:tint="@color/moreinfo_edit_normal_color_blur"/>
+        </item>
+    </selector>
+</inset>

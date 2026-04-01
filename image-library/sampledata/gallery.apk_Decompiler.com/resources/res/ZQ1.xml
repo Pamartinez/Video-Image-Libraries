@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ViewStub android:id="@+id/dialog_title" android:layout="@layout/alert_dialog_title" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="@dimen/edit_dialog_padding_top" android:paddingBottom="@dimen/edit_dialog_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.TextInputLayoutCompat android:id="@+id/text_input_compat" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <LinearLayout android:orientation="vertical" android:id="@+id/select_storage_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="18dp" android:paddingEnd="24dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+                    <TextView android:textSize="@dimen/list_item_header_text_size" android:textColor="@color/dialog_content_sub_text_color" android:gravity="left|center_vertical|center_horizontal|center|start" android:id="@+id/save_location_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/save_location" android:paddingStart="6dp" android:paddingEnd="0dp" style="@style/OneUiRobotoSemiBold"/>
+                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatSpinner android:id="@+id/select_storage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

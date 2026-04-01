@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Cuir %d néalmhír leis an albam comhroinnte?</item>
+        <item quantity="two">Cuir %d néalmhír leis an albam comhroinnte?</item>
+        <item quantity="few">Cuir %d néalmhír leis an albam comhroinnte?</item>
+        <item quantity="many">Cuir %d néalmhír leis an albam comhroinnte?</item>
+        <item quantity="other">Cuir %d néalmhír leis an albam comhroinnte?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní foláir duit a bheith %d bhliain d&apos;aois ar a laghad le gnéithe intleachta a úsáid.</item>
+        <item quantity="two">Ní foláir duit a bheith %d bhliain d&apos;aois ar a laghad le gnéithe intleachta a úsáid.</item>
+        <item quantity="few">Ní foláir duit a bheith %d bliana d&apos;aois ar a laghad le gnéithe intleachta a úsáid.</item>
+        <item quantity="many">Ní foláir duit a bheith %d mbliana d&apos;aois ar a laghad le gnéithe intleachta a úsáid.</item>
+        <item quantity="other">Ní foláir duit a bheith %d bliain d&apos;aois ar a laghad le gnéithe intleachta a úsáid.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d phictiúr</item>
+        <item quantity="two">%d phictiúr</item>
+        <item quantity="few">%d phictiúr</item>
+        <item quantity="many">%d bpictiúr</item>
+        <item quantity="other">%d pictiúr</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d fhíseán a chur le postáil Meitu.</item>
+        <item quantity="two">Ní féidir níos mó ná %d fhíseán a chur le postáil Meitu.</item>
+        <item quantity="few">Ní féidir níos mó ná %d fhíseán a chur le postáil Meitu.</item>
+        <item quantity="many">Ní féidir níos mó ná %d bhfíseán a chur le postáil Meitu.</item>
+        <item quantity="other">Ní féidir níos mó ná %d físeán a chur le postáil Meitu.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d íomhá %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d íomhá %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d íomhá %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d n-íomhá %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d íomhá %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d mhír %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d mhír %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d mhír %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d mír %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d mír %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d fhíseán %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d fhíseán %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d fhíseán %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d bhfíseán %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d físeán %2$s a scriosadh. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d mhír a áireamh i bpostáil Meitu.</item>
+        <item quantity="two">Ní féidir níos mó ná %d mhír a áireamh i bpostáil Meitu.</item>
+        <item quantity="few">Ní féidir níos mó ná %d mhír a áireamh i bpostáil Meitu.</item>
+        <item quantity="many">Ní féidir níos mó ná %d mír a áireamh i bpostáil Meitu.</item>
+        <item quantity="other">Ní féidir níos mó ná %d mír a áireamh i bpostáil Meitu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d íomhá %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d íomhá %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d íomhá %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d n-íomhá %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d íomhá %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d mhír %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d mhír %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d mhír %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d mír %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d mír %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir %1$d fhíseán %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Ní féidir %1$d fhíseán %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Ní féidir %1$d fhíseán %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Ní féidir %1$d bhfíseán %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Ní féidir %1$d físeán %2$s a aischur. Tá do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d mhír a chur leis ag an am céanna.</item>
+        <item quantity="two">Ní féidir níos mó ná %d mhír a chur leis ag an am céanna.</item>
+        <item quantity="few">Ní féidir níos mó ná %d mhír a chur leis ag an am céanna.</item>
+        <item quantity="many">Ní féidir níos mó ná %d mír a chur leis ag an am céanna.</item>
+        <item quantity="other">Ní féidir níos mó ná %d mír a chur leis ag an am céanna.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d mhír a chur le scéal.</item>
+        <item quantity="two">Ní féidir níos mó ná %d mhír a chur le scéal.</item>
+        <item quantity="few">Ní féidir níos mó ná %d mhír a chur le scéal.</item>
+        <item quantity="many">Ní féidir níos mó ná %d mír a chur le scéal.</item>
+        <item quantity="other">Ní féidir níos mó ná %d mír a chur le scéal.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d chathair</item>
+        <item quantity="two">%d chathair</item>
+        <item quantity="few">%d chathair</item>
+        <item quantity="many">%d gcathair</item>
+        <item quantity="other">%d cathair</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %1$d íomhá a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="two">Níorbh fhéidir %1$d íomhá a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="few">Níorbh fhéidir %1$d íomhá a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="many">Níorbh fhéidir %1$d n-íomhá a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="other">Níorbh fhéidir %1$d íomhá a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %1$d mhír a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="two">Níorbh fhéidir %1$d mhír a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="few">Níorbh fhéidir %1$d mhír a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="many">Níorbh fhéidir %1$d mír a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="other">Níorbh fhéidir %1$d mír a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %1$d fhíseán a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="two">Níorbh fhéidir %1$d fhíseán a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="few">Níorbh fhéidir %1$d fhíseán a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="many">Níorbh fhéidir %1$d bhfíseán a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+        <item quantity="other">Níorbh fhéidir %1$d físeán a aischur. Glan roinnt spáis in %2$s, ansin triail arís.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %1$d fhíseán a aischur. Rinneadh an físeán sin a aischur nó a scriosadh san fheidhmchlár %2$s.</item>
+        <item quantity="two">Níorbh fhéidir %1$d fhíseán a aischur. Rinneadh na físeáin sin a aischur nó a scriosadh san fheidhmchlár %2$s.</item>
+        <item quantity="few">Níorbh fhéidir %1$d fhíseán a aischur. Rinneadh na físeáin sin a aischur nó a scriosadh san fheidhmchlár %2$s.</item>
+        <item quantity="many">Níorbh fhéidir %1$d bhfíseán a aischur. Rinneadh na físeáin sin a aischur nó a scriosadh san fheidhmchlár %2$s.</item>
+        <item quantity="other">Níorbh fhéidir %1$d físeán a aischur. Rinneadh na físeáin sin a aischur nó a scriosadh san fheidhmchlár %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %d mhír a bhaint. Triail arís.</item>
+        <item quantity="two">Níorbh fhéidir %d mhír a bhaint. Triail arís.</item>
+        <item quantity="few">Níorbh fhéidir %d mhír a bhaint. Triail arís.</item>
+        <item quantity="many">Níorbh fhéidir %d mír a bhaint. Triail arís.</item>
+        <item quantity="other">Níorbh fhéidir %d mír a bhaint. Triail arís.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d albam comhroinnte</item>
+        <item quantity="two">%d albam chomhroinnte</item>
+        <item quantity="few">%d albam chomhroinnte</item>
+        <item quantity="many">%d n-albam chomhroinnte</item>
+        <item quantity="other">%d albam chomhroinnte</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d scéal</item>
+        <item quantity="two">%d scéal</item>
+        <item quantity="few">%d scéal</item>
+        <item quantity="many">%d scéal</item>
+        <item quantity="other">%d scéal</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis faoin dáta agus am athraithe i %d íomhá.</item>
+        <item quantity="two">Faisnéis faoin dáta agus am athraithe i %d íomhá.</item>
+        <item quantity="few">Faisnéis faoin dáta agus am athraithe i %d íomhá.</item>
+        <item quantity="many">Faisnéis faoin dáta agus am athraithe i %d n-íomhá.</item>
+        <item quantity="other">Faisnéis faoin dáta agus am athraithe i %d íomhá.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis faoin dáta agus am athraithe i %d mhír.</item>
+        <item quantity="two">Faisnéis faoin dáta agus am athraithe i %d mhír.</item>
+        <item quantity="few">Faisnéis faoin dáta agus am athraithe i %d mhír.</item>
+        <item quantity="many">Faisnéis faoin dáta agus am athraithe i %d mír.</item>
+        <item quantity="other">Faisnéis faoin dáta agus am athraithe i %d mír.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis faoin dáta agus am athraithe i %d fhíseán.</item>
+        <item quantity="two">Faisnéis faoin dáta agus am athraithe i %d fhíseán.</item>
+        <item quantity="few">Faisnéis faoin dáta agus am athraithe i %d fhíseán.</item>
+        <item quantity="many">Faisnéis faoin dáta agus am athraithe i %d bhfíseán.</item>
+        <item quantity="other">Faisnéis faoin dáta agus am athraithe i %d físeán.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d albam?</item>
+        <item quantity="two">Scrios %d albam?</item>
+        <item quantity="few">Scrios %d albam?</item>
+        <item quantity="many">Scrios %d n-albam?</item>
+        <item quantity="other">Scrios %d albam?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios 1 ghrúpa, %d albam agus an 1 mhír atá iontu?</item>
+        <item quantity="two">Scrios 1 ghrúpa, %d albam agus an 1 mhír atá iontu?</item>
+        <item quantity="few">Scrios 1 ghrúpa, %d albam agus an 1 mhír atá iontu?</item>
+        <item quantity="many">Scrios 1 ghrúpa, %d n-albam agus an 1 mhír atá iontu?</item>
+        <item quantity="other">Scrios 1 ghrúpa, %d albam agus an 1 mhír atá iontu?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d ghrúpa?</item>
+        <item quantity="two">Scrios %d ghrúpa?</item>
+        <item quantity="few">Scrios %d ghrúpa?</item>
+        <item quantity="many">Scrios %d ngrúpa?</item>
+        <item quantity="other">Scrios %d grúpa?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d íomhá?</item>
+        <item quantity="two">Scrios %d íomhá?</item>
+        <item quantity="few">Scrios %d íomhá?</item>
+        <item quantity="many">Scrios %d n-íomhá?</item>
+        <item quantity="other">Scrios %d íomhá?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d mhír?</item>
+        <item quantity="two">Scrios %d mhír?</item>
+        <item quantity="few">Scrios %d mhír?</item>
+        <item quantity="many">Scrios %d mír?</item>
+        <item quantity="other">Scrios %d mír?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d ghrúpa íomhánna comhchosúla?</item>
+        <item quantity="two">Scrios %d ghrúpa íomhánna comhchosúla?</item>
+        <item quantity="few">Scrios %d ghrúpa íomhánna comhchosúla?</item>
+        <item quantity="many">Scrios %d ngrúpa íomhánna comhchosúla?</item>
+        <item quantity="other">Scrios %d grúpa íomhánna comhchosúla?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d ghrúpa íomhánna comhchosúla agus 1 mhír eile?</item>
+        <item quantity="two">Scrios %d ghrúpa íomhánna comhchosúla agus 1 mhír eile?</item>
+        <item quantity="few">Scrios %d ghrúpa íomhánna comhchosúla agus 1 mhír eile?</item>
+        <item quantity="many">Scrios %d ngrúpa íomhánna comhchosúla agus 1 mhír eile?</item>
+        <item quantity="other">Scrios %d grúpa íomhánna comhchosúla agus 1 mhír eile?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios 1 ghrúpa íomhánna comhchosúla agus %d mhír eile?</item>
+        <item quantity="two">Scrios 1 ghrúpa íomhánna comhchosúla agus %d mhír eile?</item>
+        <item quantity="few">Scrios 1 ghrúpa íomhánna comhchosúla agus %d mhír eile?</item>
+        <item quantity="many">Scrios 1 ghrúpa íomhánna comhchosúla agus %d mír eile?</item>
+        <item quantity="other">Scrios 1 ghrúpa íomhánna comhchosúla agus %d mír eile?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d mhír ón tsraith seo?</item>
+        <item quantity="two">Scrios %d mhír ón tsraith seo?</item>
+        <item quantity="few">Scrios %d mhír ón tsraith seo?</item>
+        <item quantity="many">Scrios %d mír ón tsraith seo?</item>
+        <item quantity="other">Scrios %d mír ón tsraith seo?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios an ghearrthóg físe ó %d ghrianghraf gluaisne?</item>
+        <item quantity="two">Scrios an ghearrthóg físe ó %d ghrianghraf gluaisne?</item>
+        <item quantity="few">Scrios an ghearrthóg físe ó %d ghrianghraf gluaisne?</item>
+        <item quantity="many">Scrios an ghearrthóg físe ó %d ngrianghraf gluaisne?</item>
+        <item quantity="other">Scrios an ghearrthóg físe ó %d grianghraf gluaisne?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d phictiúr ón tsraith seo?</item>
+        <item quantity="two">Scrios %d phictiúr ón tsraith seo?</item>
+        <item quantity="few">Scrios %d phictiúr ón tsraith seo?</item>
+        <item quantity="many">Scrios %d bpictiúr ón tsraith seo?</item>
+        <item quantity="other">Scrios %d pictiúr ón tsraith seo?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d sraith Téiceanna aonair chuig an mBruscar?</item>
+        <item quantity="two">Scrios %d shraith Téiceanna aonair?</item>
+        <item quantity="few">Scrios %d shraith Téiceanna aonair?</item>
+        <item quantity="many">Scrios %d sraith Téiceanna aonair?</item>
+        <item quantity="other">Scrios %d sraith Téiceanna aonair?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d fhíseán?</item>
+        <item quantity="two">Scrios %d fhíseán?</item>
+        <item quantity="few">Scrios %d fhíseán?</item>
+        <item quantity="many">Scrios %d bhfíseán?</item>
+        <item quantity="other">Scrios %d físeán?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Is féidir leat amharc ar an inneachar seo %d uair eile. Amharc air anois?</item>
+        <item quantity="two">Is féidir leat amharc ar an inneachar seo %d uair eile. Amharc air anois?</item>
+        <item quantity="few">Is féidir leat amharc ar an inneachar seo %d huaire eile. Amharc air anois?</item>
+        <item quantity="many">Is féidir leat amharc ar an inneachar seo %d n-uaire eile. Amharc air anois?</item>
+        <item quantity="other">Is féidir leat amharc ar an inneachar seo %d uair eile. Amharc air anois?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar %d albam folamh gan gabháil chuig an mBruscar.</item>
+        <item quantity="two">Scriosfar %d albam fholmha gan gabháil chuig an mBruscar.</item>
+        <item quantity="few">Scriosfar %d albam fholmha gan gabháil chuig an mBruscar.</item>
+        <item quantity="many">Scriosfar %d n-albam fholmha gan gabháil chuig an mBruscar.</item>
+        <item quantity="other">Scriosfar %d albam folamh gan gabháil chuig an mBruscar.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar na míreanna sa Bhruscar go buan tar éis %d lae.</item>
+        <item quantity="two">Scriosfar na míreanna sa Bhruscar go buan tar éis %d lá.</item>
+        <item quantity="few">Scriosfar na míreanna sa Bhruscar go buan tar éis %d lá.</item>
+        <item quantity="many">Scriosfar na míreanna sa Bhruscar go buan tar éis %d lá.</item>
+        <item quantity="other">Scriosfar na míreanna sa Bhruscar go buan tar éis %d lá.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d íomhá scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis an gcóip atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="two">%d íomhá scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="few">%d íomhá scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="many">%d n-íomhá scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="other">%d íomhá scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis an gcóip atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="two">%d mhír scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="few">%d mhír scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="many">%d mír scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="other">%d mír scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fhíseán scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis an gcóip atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="two">%d fhíseán scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="few">%d fhíseán scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="many">%d bhfíseán scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+        <item quantity="other">%d físeán scriosta go buan ó d&apos;fhón. Gabh chuig OneDrive leis na cóipeanna atá sa Bhosca Athchúrsála ann a scriosadh.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d íomhá scriosta go buan.</item>
+        <item quantity="two">%d íomhá scriosta go buan.</item>
+        <item quantity="few">%d íomhá scriosta go buan.</item>
+        <item quantity="many">%d n-íomhá scriosta go buan.</item>
+        <item quantity="other">%d íomhá scriosta go buan.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír scriosta go buan.</item>
+        <item quantity="two">%d mhír scriosta go buan.</item>
+        <item quantity="few">%d mhír scriosta go buan.</item>
+        <item quantity="many">%d mír scriosta go buan.</item>
+        <item quantity="other">%d mír scriosta go buan.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fhíseán scriosta go buan.</item>
+        <item quantity="two">%d fhíseán scriosta go buan.</item>
+        <item quantity="few">%d fhíseán scriosta go buan.</item>
+        <item quantity="many">%d bhfíseán scriosta go buan.</item>
+        <item quantity="other">%d físeán scriosta go buan.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Amharc greille le %d mhionsamhail i ngach ró</item>
+        <item quantity="two">Amharc greille le %d mhionsamhail i ngach ró</item>
+        <item quantity="few">Amharc greille le %d mhionsamhail i ngach ró</item>
+        <item quantity="many">Amharc greille le %d mionsamhail i ngach ró</item>
+        <item quantity="other">Amharc greille le %d mionsamhail i ngach ró</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ghrúpa 1 albam</item>
+        <item quantity="two">%d ghrúpa 1 albam</item>
+        <item quantity="few">%d ghrúpa 1 albam</item>
+        <item quantity="many">%d ngrúpa 1 albam</item>
+        <item quantity="other">%d grúpa 1 albam</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d íomhá íoslódáilte ón néal.</item>
+        <item quantity="two">%d íomhá íoslódáilte ón néal.</item>
+        <item quantity="few">%d íomhá íoslódáilte ón néal.</item>
+        <item quantity="many">%d n-íomhá íoslódáilte ón néal.</item>
+        <item quantity="other">%d íomhá íoslódáilte ón néal.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Íomhánna aischurtha. Níorbh fhéidir %1$d íomhá %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Íomhánna aischurtha. Níorbh fhéidir %1$d íomhá %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Íomhánna aischurtha. Níorbh fhéidir %1$d íomhá %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Íomhánna aischurtha. Níorbh fhéidir %1$d n-íomhá %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Íomhánna aischurtha. Níorbh fhéidir %1$d íomhá %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír sábháilte.</item>
+        <item quantity="two">%d mhír sábháilte.</item>
+        <item quantity="few">%d mhír sábháilte.</item>
+        <item quantity="many">%d mír sábháilte.</item>
+        <item quantity="other">%d mír sábháilte.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír íoslódáilte ón néal.</item>
+        <item quantity="two">%d mhír íoslódáilte ón néal.</item>
+        <item quantity="few">%d mhír íoslódáilte ón néal.</item>
+        <item quantity="many">%d mír íoslódáilte ón néal.</item>
+        <item quantity="other">%d mír íoslódáilte ón néal.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Míreanna aischurtha. Níorbh fhéidir %1$d mhír %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Míreanna aischurtha. Níorbh fhéidir %1$d mhír %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Míreanna aischurtha. Níorbh fhéidir %1$d mhír %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Míreanna aischurtha. Níorbh fhéidir %1$d mír %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Míreanna aischurtha. Níorbh fhéidir %1$d mír %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis suímh athraithe i %d íomhá.</item>
+        <item quantity="two">Faisnéis suímh athraithe i %d íomhá.</item>
+        <item quantity="few">Faisnéis suímh athraithe i %d íomhá.</item>
+        <item quantity="many">Faisnéis suímh athraithe i %d n-íomhá.</item>
+        <item quantity="other">Faisnéis suímh athraithe i %d íomhá.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis suímh athraithe i %d mhír.</item>
+        <item quantity="two">Faisnéis suímh athraithe i %d mhír.</item>
+        <item quantity="few">Faisnéis suímh athraithe i %d mhír.</item>
+        <item quantity="many">Faisnéis suímh athraithe i %d mír.</item>
+        <item quantity="other">Faisnéis suímh athraithe i %d mír.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Faisnéis suímh athraithe i %d fhíseán.</item>
+        <item quantity="two">Faisnéis suímh athraithe i %d fhíseán.</item>
+        <item quantity="few">Faisnéis suímh athraithe i %d fhíseán.</item>
+        <item quantity="many">Faisnéis suímh athraithe i %d bhfíseán.</item>
+        <item quantity="other">Faisnéis suímh athraithe i %d físeán.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d suíomh</item>
+        <item quantity="two">%d shuíomh</item>
+        <item quantity="few">%d shuíomh</item>
+        <item quantity="many">%d suíomh</item>
+        <item quantity="other">%d suíomh</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d charachtar a iontráil.</item>
+        <item quantity="two">Ní féidir níos mó ná %d charachtar a iontráil.</item>
+        <item quantity="few">Ní féidir níos mó ná %d charachtar a iontráil.</item>
+        <item quantity="many">Ní féidir níos mó ná %d gcarachtar a iontráil.</item>
+        <item quantity="other">Ní féidir níos mó ná %d carachtar a iontráil.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Gearrthóg físe ó %d ghrianghraf gluaisne sábháilte.</item>
+        <item quantity="two">Gearrthóga físe ó %d ghrianghraf gluaisne sábháilte.</item>
+        <item quantity="few">Gearrthóga físe ó %d ghrianghraf gluaisne sábháilte.</item>
+        <item quantity="many">Gearrthóga físe ó %d ngrianghraf gluaisne sábháilte.</item>
+        <item quantity="other">Gearrthóga físe ó %d grianghraf gluaisne sábháilte.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d seat pléasctha chuig an mBruscar?</item>
+        <item quantity="two">Bog %d sheat phléasctha chuig an mBruscar?</item>
+        <item quantity="few">Bog %d sheat phléasctha chuig an mBruscar?</item>
+        <item quantity="many">Bog %d seat phléasctha chuig an mBruscar?</item>
+        <item quantity="other">Bog %d seat pléasctha chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d seat pléasctha chuig an mBruscar?</item>
+        <item quantity="two">Bog %d sheat phléasctha chuig an mBruscar?</item>
+        <item quantity="few">Bog %d sheat phléasctha chuig an mBruscar?</item>
+        <item quantity="many">Bog %d seat phléasctha chuig an mBruscar?</item>
+        <item quantity="other">Bog %d seat pléasctha chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog 1 ghrúpa, 1 albam agus an %d mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="two">Bog 1 ghrúpa, 1 albam agus an %d mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="few">Bog 1 ghrúpa, 1 albam agus na %d mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="many">Bog 1 ghrúpa, 1 albam agus na %d mír atá iontu chuig an mBruscar?</item>
+        <item quantity="other">Bog 1 ghrúpa, 1 albam agus na %d mír atá iontu chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog 1 ghrúpa, %d albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="two">Bog 1 ghrúpa, %d albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="few">Bog 1 ghrúpa, %d albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="many">Bog 1 ghrúpa, %d n-albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="other">Bog 1 ghrúpa, %d albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d ghrúpa, 1 albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="two">Bog %d ghrúpa, 1 albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="few">Bog %d ghrúpa, 1 albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="many">Bog %d ngrúpa, 1 albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+        <item quantity="other">Bog %d grúpa, 1 albam agus an 1 mhír atá iontu chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="two">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="few">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="many">Bog %d bpictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="other">Bog %d pictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="two">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="few">Bog %d phictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="many">Bog %d bpictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+        <item quantity="other">Bog %d pictiúr ón seat pléasctha seo chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d íomhá chuig an mBruscar?</item>
+        <item quantity="two">Bog %d íomhá chuig an mBruscar?</item>
+        <item quantity="few">Bog %d íomhá chuig an mBruscar?</item>
+        <item quantity="many">Bog %d n-íomhá chuig an mBruscar?</item>
+        <item quantity="other">Bog %d íomhá chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d mhír chuig an mBruscar?</item>
+        <item quantity="two">Bog %d mhír chuig an mBruscar?</item>
+        <item quantity="few">Bog %d mhír chuig an mBruscar?</item>
+        <item quantity="many">Bog %d mír chuig an mBruscar?</item>
+        <item quantity="other">Bog %d mír chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír</item>
+        <item quantity="two">%d mhír</item>
+        <item quantity="few">%d mhír</item>
+        <item quantity="many">%d mír</item>
+        <item quantity="other">%d mír</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d ghrúpa íomhánna comhchosúla chuig an mBruscar?</item>
+        <item quantity="two">Bog %d ghrúpa íomhánna comhchosúla chuig an mBruscar?</item>
+        <item quantity="few">Bog %d ghrúpa íomhánna comhchosúla chuig an mBruscar?</item>
+        <item quantity="many">Bog %d ngrúpa íomhánna comhchosúla chuig an mBruscar?</item>
+        <item quantity="other">Bog %d grúpa íomhánna comhchosúla chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d ghrúpa íomhánna comhchosúla agus 1 mhír eile chuig an mBruscar?</item>
+        <item quantity="two">Bog %d ghrúpa íomhánna comhchosúla agus 1 mhír eile chuig an mBruscar?</item>
+        <item quantity="few">Bog %d ghrúpa íomhánna comhchosúla agus 1 mhír eile chuig an mBruscar?</item>
+        <item quantity="many">Bog %d ngrúpa íomhánna comhchosúla agus 1 mhír eile chuig an mBruscar?</item>
+        <item quantity="other">Bog %d grúpa íomhánna comhchosúla agus 1 mhír eile chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog 1 ghrúpa íomhánna comhchosúla agus %d mhír eile chuig an mBruscar?</item>
+        <item quantity="two">Bog 1 ghrúpa íomhánna comhchosúla agus %d mhír eile chuig an mBruscar?</item>
+        <item quantity="few">Bog 1 ghrúpa íomhánna comhchosúla agus %d mhír eile chuig an mBruscar?</item>
+        <item quantity="many">Bog 1 ghrúpa íomhánna comhchosúla agus %d mír eile chuig an mBruscar?</item>
+        <item quantity="other">Bog 1 ghrúpa íomhánna comhchosúla agus %d mír eile chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d mhír ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="two">Bog %d mhír ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="few">Bog %d mhír ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="many">Bog %d mír ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="other">Bog %d mír ón tsraith seo chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d phictiúr ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="two">Bog %d phictiúr ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="few">Bog %d phictiúr ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="many">Bog %d bpictiúr ón tsraith seo chuig an mBruscar?</item>
+        <item quantity="other">Bog %d pictiúr ón tsraith seo chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d sraith Téiceanna aonair chuig an mBruscar?</item>
+        <item quantity="two">Bog %d shraith Téiceanna aonair chuig an mBruscar?</item>
+        <item quantity="few">Bog %d shraith Téiceanna aonair chuig an mBruscar?</item>
+        <item quantity="many">Bog %d sraith Téiceanna aonair chuig an mBruscar?</item>
+        <item quantity="other">Bog %d sraith Téiceanna aonair chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d mhír chuig albam príobháideach?</item>
+        <item quantity="two">Bog %d mhír chuig albam príobháideach?</item>
+        <item quantity="few">Bog %d mhír chuig albam príobháideach?</item>
+        <item quantity="many">Bog %d mír chuig albam príobháideach?</item>
+        <item quantity="other">Bog %d mír chuig albam príobháideach?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %1$d chomhad %2$s a bhogadh chuig %3$s. Íoslódáil an comhad sin, ansin triail arís.</item>
+        <item quantity="two">Níorbh fhéidir %1$d chomhad %2$s a bhogadh chuig %3$s. Íoslódáil na comhaid sin, ansin triail arís.</item>
+        <item quantity="few">Níorbh fhéidir %1$d chomhad %2$s a bhogadh chuig %3$s. Íoslódáil na comhaid sin, ansin triail arís.</item>
+        <item quantity="many">Níorbh fhéidir %1$d gcomhad %2$s a bhogadh chuig %3$s. Íoslódáil na comhaid sin, ansin triail arís.</item>
+        <item quantity="other">Níorbh fhéidir %1$d comhad %2$s a bhogadh chuig %3$s. Íoslódáil na comhaid sin, ansin triail arís.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %d fhíseán chuig an mBruscar?</item>
+        <item quantity="two">Bog %d fhíseán chuig an mBruscar?</item>
+        <item quantity="few">Bog %d fhíseán chuig an mBruscar?</item>
+        <item quantity="many">Bog %d bhfíseán chuig an mBruscar?</item>
+        <item quantity="other">Bog %d físeán chuig an mBruscar?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír á bogadh chuig an mBruscar…</item>
+        <item quantity="two">%d mhír á mbogadh chuig an mBruscar…</item>
+        <item quantity="few">%d mhír á mbogadh chuig an mBruscar…</item>
+        <item quantity="many">%d mír á mbogadh chuig an mBruscar…</item>
+        <item quantity="other">%d mír á mbogadh chuig an mBruscar…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Tá %d albam a bhfuil an t-ainm céanna air cumaiscthe.</item>
+        <item quantity="two">Tá %d albam a bhfuil an t-ainm céanna orthu cumaiscthe.</item>
+        <item quantity="few">Tá %d albam a bhfuil an t-ainm céanna orthu cumaiscthe.</item>
+        <item quantity="many">Tá %d n-albam a bhfuil an t-ainm céanna orthu cumaiscthe.</item>
+        <item quantity="other">Tá %d albam a bhfuil an t-ainm céanna orthu cumaiscthe.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d lá</item>
+        <item quantity="two">%d lá</item>
+        <item quantity="few">%d lá</item>
+        <item quantity="many">%d lá</item>
+        <item quantity="other">%d lá</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d lá fágtha go dtí go scriosfar scéal</item>
+        <item quantity="two">%d lá fágtha go dtí go scriosfar scéal</item>
+        <item quantity="few">%d lá fágtha go dtí go scriosfar scéal</item>
+        <item quantity="many">%d lá fágtha go dtí go scriosfar scéal</item>
+        <item quantity="other">%d lá fágtha go dtí go scriosfar scéal</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d albam?</item>
+        <item quantity="two">Scrios %d albam?</item>
+        <item quantity="few">Scrios %d albam?</item>
+        <item quantity="many">Scrios %d n-albam?</item>
+        <item quantity="other">Scrios %d albam?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d íomhá curtha le ceanáin.</item>
+        <item quantity="two">%d íomhá curtha le ceanáin.</item>
+        <item quantity="few">%d íomhá curtha le ceanáin.</item>
+        <item quantity="many">%d n-íomhá curtha le ceanáin.</item>
+        <item quantity="other">%d íomhá curtha le ceanáin.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d chuireadh</item>
+        <item quantity="two">%d chuireadh</item>
+        <item quantity="few">%d chuireadh</item>
+        <item quantity="many">%d gcuireadh</item>
+        <item quantity="other">%d cuireadh</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír curtha le ceanáin.</item>
+        <item quantity="two">%d mhír curtha le ceanáin.</item>
+        <item quantity="few">%d mhír curtha le ceanáin.</item>
+        <item quantity="many">%d mír curtha le ceanáin.</item>
+        <item quantity="other">%d mír curtha le ceanáin.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d duine roghnaithe</item>
+        <item quantity="two">%d dhuine roghnaithe</item>
+        <item quantity="few">%d dhuine roghnaithe</item>
+        <item quantity="many">%d nduine roghnaithe</item>
+        <item quantity="other">%d duine roghnaithe</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d roghnaithe</item>
+        <item quantity="two">%d roghnaithe</item>
+        <item quantity="few">%d roghnaithe</item>
+        <item quantity="many">%d roghnaithe</item>
+        <item quantity="other">%d roghnaithe</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d albam comhroinnte, 1 chuireadh</item>
+        <item quantity="two">%d albam chomhroinnte, 1 chuireadh</item>
+        <item quantity="few">%d albam chomhroinnte, 1 chuireadh</item>
+        <item quantity="many">%d n-albam chomhroinnte, 1 chuireadh</item>
+        <item quantity="other">%d albam comhroinnte, 1 chuireadh</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">D&apos;aimsíomar %d phictiúr nua go mb&apos;fhéidir gur mhaith leat a chur leis an albam seo.</item>
+        <item quantity="two">D&apos;aimsíomar %d phictiúr nua go mb&apos;fhéidir gur mhaith leat a chur leis an albam seo.</item>
+        <item quantity="few">D&apos;aimsíomar %d phictiúr nua go mb&apos;fhéidir gur mhaith leat a chur leis an albam seo.</item>
+        <item quantity="many">D&apos;aimsíomar %d bpictiúr nua go mb&apos;fhéidir gur mhaith leat a chur leis an albam seo.</item>
+        <item quantity="other">D&apos;aimsíomar %d pictiúr nua go mb&apos;fhéidir gur mhaith leat a chur leis an albam seo.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fhíseán curtha le ceanáin.</item>
+        <item quantity="two">%d fhíseán curtha le ceanáin.</item>
+        <item quantity="few">%d fhíseán curtha le ceanáin.</item>
+        <item quantity="many">%d bhfíseán curtha le ceanáin.</item>
+        <item quantity="other">%d físeán curtha le ceanáin.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d bhliain ó shin</item>
+        <item quantity="two">%1$s %2$d bhliain ó shin</item>
+        <item quantity="few">%1$s %2$d bliana ó shin</item>
+        <item quantity="many">%1$s %2$d mbliana ó shin</item>
+        <item quantity="other">%1$s %2$d bliain ó shin</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d albam</item>
+        <item quantity="two">%d albam</item>
+        <item quantity="few">%d albam</item>
+        <item quantity="many">%d n-albam</item>
+        <item quantity="other">%d albam</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír íoslódáilte. Tapáil anseo le hamharc uirthi.</item>
+        <item quantity="two">%d mhír íoslódáilte. Tapáil anseo le hamharc orthu.</item>
+        <item quantity="few">%d mhír íoslódáilte. Tapáil anseo le hamharc orthu.</item>
+        <item quantity="many">%d mír íoslódáilte. Tapáil anseo le hamharc orthu.</item>
+        <item quantity="other">%d mír íoslódáilte. Tapáil anseo le hamharc orthu.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ghrúpa</item>
+        <item quantity="two">%d ghrúpa</item>
+        <item quantity="few">%d ghrúpa</item>
+        <item quantity="many">%d ngrúpa</item>
+        <item quantity="other">%d grúpa</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú san fhón seo d&apos;íomhánna HEIF.</item>
+        <item quantity="two">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú san fhón seo d&apos;íomhánna HEIF.</item>
+        <item quantity="few">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú san fhón seo d&apos;íomhánna HEIF.</item>
+        <item quantity="many">Níorbh fhéidir %d gcomhad a íoslódáil. Níl tacú san fhón seo d&apos;íomhánna HEIF.</item>
+        <item quantity="other">Níorbh fhéidir %d comhad a íoslódáil. Níl tacú san fhón seo d&apos;íomhánna HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú sa táibléad seo d&apos;íomhánna HEIF.</item>
+        <item quantity="two">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú sa táibléad seo d&apos;íomhánna HEIF.</item>
+        <item quantity="few">Níorbh fhéidir %d chomhad a íoslódáil. Níl tacú sa táibléad seo d&apos;íomhánna HEIF.</item>
+        <item quantity="many">Níorbh fhéidir %d gcomhad a íoslódáil. Níl tacú sa táibléad seo d&apos;íomhánna HEIF.</item>
+        <item quantity="other">Níorbh fhéidir %d comhad a íoslódáil. Níl tacú sa táibléad seo d&apos;íomhánna HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d bhall</item>
+        <item quantity="two">%d bhall</item>
+        <item quantity="few">%d bhall</item>
+        <item quantity="many">%d mball</item>
+        <item quantity="other">%d ball</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d ghreamán a chur leis. Gabh chuig an eagarthóir grianghraf i nGailearaí le greamáin a bhaint.</item>
+        <item quantity="two">Ní féidir níos mó ná %d ghreamán a chur leis. Gabh chuig an eagarthóir grianghraf i nGailearaí le greamáin a bhaint.</item>
+        <item quantity="few">Ní féidir níos mó ná %d ghreamán a chur leis. Gabh chuig an eagarthóir grianghraf i nGailearaí le greamáin a bhaint.</item>
+        <item quantity="many">Ní féidir níos mó ná %d ngreamán a chur leis. Gabh chuig an eagarthóir grianghraf i nGailearaí le greamáin a bhaint.</item>
+        <item quantity="other">Ní féidir níos mó ná %d greamán a chur leis. Gabh chuig an eagarthóir grianghraf i nGailearaí le greamáin a bhaint.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ghrúpa %d albam</item>
+        <item quantity="two">1 ghrúpa %d albam</item>
+        <item quantity="few">1 ghrúpa %d albam</item>
+        <item quantity="many">1 ghrúpa %d n-albam</item>
+        <item quantity="other">1 ghrúpa %d albam</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 albam comhroinnte, %d chuireadh</item>
+        <item quantity="two">1 albam comhroinnte, %d chuireadh</item>
+        <item quantity="few">1 albam comhroinnte, %d chuireadh</item>
+        <item quantity="many">1 albam comhroinnte, %d gcuireadh</item>
+        <item quantity="other">1 albam comhroinnte, %d cuireadh</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d íomhá go buan?</item>
+        <item quantity="two">Scrios %d íomhá go buan?</item>
+        <item quantity="few">Scrios %d íomhá go buan?</item>
+        <item quantity="many">Scrios %d n-íomhá go buan?</item>
+        <item quantity="other">Scrios %d íomhá go buan?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d mhír go buan?</item>
+        <item quantity="two">Scrios %d mhír go buan?</item>
+        <item quantity="few">Scrios %d mhír go buan?</item>
+        <item quantity="many">Scrios %d mír go buan?</item>
+        <item quantity="other">Scrios %d mír go buan?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scrios %d fhíseán go buan?</item>
+        <item quantity="two">Scrios %d fhíseán go buan?</item>
+        <item quantity="few">Scrios %d fhíseán go buan?</item>
+        <item quantity="many">Scrios %d bhfíseán go buan?</item>
+        <item quantity="other">Scrios %d físeán go buan?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar %d íomhá go buan.</item>
+        <item quantity="two">Scriosfar %d íomhá go buan.</item>
+        <item quantity="few">Scriosfar %d íomhá go buan.</item>
+        <item quantity="many">Scriosfar %d n-íomhá go buan.</item>
+        <item quantity="other">Scriosfar %d íomhá go buan.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar %d mhír go buan.</item>
+        <item quantity="two">Scriosfar %d mhír go buan.</item>
+        <item quantity="few">Scriosfar %d mhír go buan.</item>
+        <item quantity="many">Scriosfar %d mír go buan.</item>
+        <item quantity="other">Scriosfar %d mír go buan.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar %d fhíseán go buan.</item>
+        <item quantity="two">Scriosfar %d fhíseán go buan.</item>
+        <item quantity="few">Scriosfar %d fhíseán go buan.</item>
+        <item quantity="many">Scriosfar %d bhfíseán go buan.</item>
+        <item quantity="other">Scriosfar %d físeán go buan.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d phictiúr sábháilte.</item>
+        <item quantity="two">%d phictiúr sábháilte.</item>
+        <item quantity="few">%d phictiúr sábháilte.</item>
+        <item quantity="many">%d bpictiúr sábháilte.</item>
+        <item quantity="other">%d pictiúr sábháilte.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Cuairt tugtha air ar feadh %1$d lae in %2$s</item>
+        <item quantity="two">Cuairt tugtha air ar feadh %1$d lá in %2$s</item>
+        <item quantity="few">Cuairt tugtha air ar feadh %1$d lá in %2$s</item>
+        <item quantity="many">Cuairt tugtha air ar feadh %1$d lá in %2$s</item>
+        <item quantity="other">Cuairt tugtha air ar feadh %1$d lá in %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d bhliain ó shin</item>
+        <item quantity="two">%d bhliain ó shin</item>
+        <item quantity="few">%d bliana ó shin</item>
+        <item quantity="many">%d mbliana ó shin</item>
+        <item quantity="other">%d bliain ó shin</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mholadh bainte.</item>
+        <item quantity="two">%d mholadh bainte.</item>
+        <item quantity="few">%d mholadh bainte.</item>
+        <item quantity="many">%d moladh bainte.</item>
+        <item quantity="other">%d moladh bainte.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d íomhá ón albam comhroinnte seo?</item>
+        <item quantity="two">Bain %d íomhá ón albam comhroinnte seo?</item>
+        <item quantity="few">Bain %d íomhá ón albam comhroinnte seo?</item>
+        <item quantity="many">Bain %d n-íomhá ón albam comhroinnte seo?</item>
+        <item quantity="other">Bain %d íomhá ón albam comhroinnte seo?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d íomhá ón albam?</item>
+        <item quantity="two">Bain %d íomhá ón albam?</item>
+        <item quantity="few">Bain %d íomhá ón albam?</item>
+        <item quantity="many">Bain %d n-íomhá ón albam?</item>
+        <item quantity="other">Bain %d íomhá ón albam?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d mhír ón albam?</item>
+        <item quantity="two">Bain %d mhír ón albam?</item>
+        <item quantity="few">Bain %d mhír ón albam?</item>
+        <item quantity="many">Bain %d mír ón albam?</item>
+        <item quantity="other">Bain %d mír ón albam?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d mhír ón scéal?</item>
+        <item quantity="two">Bain %d mhír ón scéal?</item>
+        <item quantity="few">Bain %d mhír ón scéal?</item>
+        <item quantity="many">Bain %d mír ón scéal?</item>
+        <item quantity="other">Bain %d mír ón scéal?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d íomhá ó do mholtaí albaim?</item>
+        <item quantity="two">Bain %d íomhá ó do mholtaí albaim?</item>
+        <item quantity="few">Bain %d íomhá ó do mholtaí albaim?</item>
+        <item quantity="many">Bain %d n-íomhá ó do mholtaí albaim?</item>
+        <item quantity="other">Bain %d íomhá ó do mholtaí albaim?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d mhír ó do mholtaí albaim?</item>
+        <item quantity="two">Bain %d mhír ó do mholtaí albaim?</item>
+        <item quantity="few">Bain %d mhír ó do mholtaí albaim?</item>
+        <item quantity="many">Bain %d mír ó do mholtaí albaim?</item>
+        <item quantity="other">Bain %d mír ó do mholtaí albaim?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d fhíseán ó do mholtaí albaim?</item>
+        <item quantity="two">Bain %d fhíseán ó do mholtaí albaim?</item>
+        <item quantity="few">Bain %d fhíseán ó do mholtaí albaim?</item>
+        <item quantity="many">Bain %d bhfíseán ó do mholtaí albaim?</item>
+        <item quantity="other">Bain %d físeán ó do mholtaí albaim?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d fhíseán ón albam?</item>
+        <item quantity="two">Bain %d fhíseán ón albam?</item>
+        <item quantity="few">Bain %d fhíseán ón albam?</item>
+        <item quantity="many">Bain %d bhfíseán ón albam?</item>
+        <item quantity="other">Bain %d físeán ón albam?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bain %d fhíseán ón albam comhroinnte seo?</item>
+        <item quantity="two">Bain %d fhíseán ón albam comhroinnte seo?</item>
+        <item quantity="few">Bain %d fhíseán ón albam comhroinnte seo?</item>
+        <item quantity="many">Bain %d bhfíseán ón albam comhroinnte seo?</item>
+        <item quantity="other">Bain %d físeán ón albam comhroinnte seo?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Sábháil %1$d mhír ón %2$s seo?</item>
+        <item quantity="two">Sábháil %1$d mhír ón %2$s seo?</item>
+        <item quantity="few">Sábháil %1$d mhír ón %2$s seo?</item>
+        <item quantity="many">Sábháil %1$d mír ón %2$s seo?</item>
+        <item quantity="other">Sábháil %1$d mír ón %2$s seo?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Sábháil %1$d phictiúr ón %2$s seo?</item>
+        <item quantity="two">Sábháil %1$d phictiúr ón %2$s seo?</item>
+        <item quantity="few">Sábháil %1$d phictiúr ón %2$s seo?</item>
+        <item quantity="many">Sábháil %1$d bpictiúr ón %2$s seo?</item>
+        <item quantity="other">Sábháil %1$d pictiúr ón %2$s seo?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %1$d íomhá chuig %2$s?</item>
+        <item quantity="two">Bog %1$d íomhá chuig %2$s?</item>
+        <item quantity="few">Bog %1$d íomhá chuig %2$s?</item>
+        <item quantity="many">Bog %1$d n-íomhá chuig %2$s?</item>
+        <item quantity="other">Bog %1$d íomhá chuig %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %1$d mhír chuig %2$s?</item>
+        <item quantity="two">Bog %1$d mhír chuig %2$s?</item>
+        <item quantity="few">Bog %1$d mhír chuig %2$s?</item>
+        <item quantity="many">Bog %1$d mír chuig %2$s?</item>
+        <item quantity="other">Bog %1$d mír chuig %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bog %1$d fhíseán chuig %2$s?</item>
+        <item quantity="two">Bog %1$d fhíseán chuig %2$s?</item>
+        <item quantity="few">Bog %1$d fhíseán chuig %2$s?</item>
+        <item quantity="many">Bog %1$d bhfíseán chuig %2$s?</item>
+        <item quantity="other">Bog %1$d físeán chuig %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Grúpa %d íomhá chomhchosúil</item>
+        <item quantity="two">Grúpa %d íomhá chomhchosúla</item>
+        <item quantity="few">Grúpa %d íomhá chomhchosúla</item>
+        <item quantity="many">Grúpa %d n-íomhá chomhchosúla</item>
+        <item quantity="other">Grúpa %d íomhá chomhchosúla</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mhír roghnaithe</item>
+        <item quantity="two">%d mhír roghnaithe</item>
+        <item quantity="few">%d mhír roghnaithe</item>
+        <item quantity="many">%d mír roghnaithe</item>
+        <item quantity="other">%d mír roghnaithe</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">An duine seo %d bhliain ó shin</item>
+        <item quantity="two">An duine seo %d bhliain ó shin</item>
+        <item quantity="few">An duine seo %d bliana ó shin</item>
+        <item quantity="many">An duine seo %d mbliana ó shin</item>
+        <item quantity="other">An duine seo %d bliain ó shin</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fhíseán íoslódáilte ón néal.</item>
+        <item quantity="two">%d fhíseán íoslódáilte ón néal.</item>
+        <item quantity="few">%d fhíseán íoslódáilte ón néal.</item>
+        <item quantity="many">%d bhfíseán íoslódáilte ón néal.</item>
+        <item quantity="other">%d físeán íoslódáilte ón néal.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Físeán aischurtha. Níorbh fhéidir %1$d fhíseán %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="two">Físeán aischurtha. Níorbh fhéidir %1$d fhíseán %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="few">Físeán aischurtha. Níorbh fhéidir %1$d fhíseán %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="many">Físeán aischurtha. Níorbh fhéidir %1$d bhfíseán %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+        <item quantity="other">Físeán aischurtha. Níorbh fhéidir %1$d físeán %2$s a aischur mar go bhfuil do %3$s glasáilte de bharr go bhfuarthas iarratas ar shonraí pearsanta.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ní féidir níos mó ná %d mhír a áireamh i gcolláis.</item>
+        <item quantity="two">Ní féidir níos mó ná %d mhír a áireamh i gcolláis.</item>
+        <item quantity="few">Ní féidir níos mó ná %d mhír a áireamh i gcolláis.</item>
+        <item quantity="many">Ní féidir níos mó ná %d mír a áireamh i gcolláis.</item>
+        <item quantity="other">Ní féidir níos mó ná %d mír a áireamh i gcolláis.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Scriosfar i gceann %d lae é</item>
+        <item quantity="two">Scriosfar i gceann %d lá é</item>
+        <item quantity="few">Scriosfar i gceann %d lá é</item>
+        <item quantity="many">Scriosfar i gceann %d lá é</item>
+        <item quantity="other">Scriosfar i gceann %d lá é</item>
+    </plurals>
+</resources>

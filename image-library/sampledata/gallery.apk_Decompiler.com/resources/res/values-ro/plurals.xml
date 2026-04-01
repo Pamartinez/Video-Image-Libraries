@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ad. %d element cloud în albumul partajat?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ad. %d elemente cloud în albumul partajat?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ad. %d elemente cloud în albumul partajat?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trebuie să aveți cel puțin %d an pentru a utiliza caracteristicile inteligente.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trebuie să aveți cel puțin %d ani pentru a utiliza caracteristicile inteligente.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Trebuie să aveți cel puțin %d ani pentru a utiliza caracteristicile inteligente.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate adăuga mai mult de %d videoclip la o postare Meitu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot adăuga mai mult de %d videoclipuri la o postare Meitu.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot adăuga mai mult de %d videoclipuri la o postare Meitu.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate șterge %1$d %2$s imagine. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot șterge %1$d %2$s imagini. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot șterge %1$d %2$s imagini. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate șterge %1$d %2$s element. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot șterge %1$d %2$s elemente. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot șterge %1$d %2$s elemente. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate șterge %1$d %2$s videoclip. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot șterge %1$d %2$s videoclipuri. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot șterge %1$d %2$s videoclipuri. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate include mai mult de %d element într-o postare Meitu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot include mai mult de %d elemente într-o postare Meitu.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot include mai mult de %d elemente într-o postare Meitu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate restabili %1$d %2$s imagine. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot restabili %1$d %2$s imagini. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot restabili %1$d %2$s imagini. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate restabili %1$d %2$s element. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot restabili %1$d %2$s elemente. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot restabili %1$d %2$s elemente. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate restabili %1$d %2$s videoclip. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot restabili %1$d %2$s videoclipuri. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot restabili %1$d %2$s videoclipuri. %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate adăuga mai mult de %d element simultan.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot adăuga mai mult de %d elemente simultan.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot adăuga mai mult de %d elemente simultan.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate adăuga mai mult de %d element la o poveste.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot adăuga mai mult de %d elemente la o poveste.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot adăuga mai mult de %d elemente la o poveste.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d oraș</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d orașe</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d orașe</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut restabili %1$d imagine. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut restabili %1$d imagini. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut restabili %1$d imagini. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut restabili %1$d element. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut restabili %1$d elemente. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut restabili %1$d elemente. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut restabili %1$d videoclip. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut restabili %1$d videoclipuri. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut restabili %1$d videoclipuri. Eliberați spațiu în %2$s, apoi încercați din nou.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut restabili %1$d videoclip. Acest videoclip a fost restabilit sau șters în aplicația %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut restabili %1$d videoclipuri. Aceste videoclipuri au fost restabilite sau șterse în aplicația %2$s.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut restabili %1$d videoclipuri. Aceste videoclipuri au fost restabilite sau șterse în aplicația %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut elimina %d element. Încercați din nou.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut elimina %d elemente. Încercați din nou.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut elimina %d elemente. Încercați din nou.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album partajat</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albume partajate</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albume partajate</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d poveste</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d povești</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d povești</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind data și ora au fost modificate pentru %d imagine.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informațiile privind data și ora au fost modificate pentru %d imagini.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informațiile privind data și ora au fost modificate pentru %d imagini.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind data și ora au fost modificate pentru %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informațiile privind data și ora au fost modificate pentru %d elemente.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informațiile privind data și ora au fost modificate pentru %d elemente.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind data și ora au fost modificate pentru %d videoclip.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informațiile privind data și ora au fost modificate pentru %d videoclipuri.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informațiile privind data și ora au fost modificate pentru %d videoclipuri.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d albume?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d albume?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți 1 grup, %d album și elementul (1) din acestea?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți 1 grup, %d albume și elementul (1) din acestea?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți 1 grup, %d albume și elementul (1) din acestea?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d grup?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d grupuri?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d grupuri?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d imagine?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d imagini?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d imagini?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d elemente?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d elemente?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d grup de imagini similare?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d grupuri de imagini similare?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d grupuri de imagini similare?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d grup de imagini similare și încă 1 element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d grupuri de imagini similare și încă 1 element?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d grupuri de imagini similare și încă 1 element?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți 1 grup de imagini similare și încă %d element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți 1 grup de imagini similare și încă %d elemente?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți 1 grup de imagini similare și încă %d elemente?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d element din acest set?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d elemente din acest set?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d elemente din acest set?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți videoclipul din %d fotografie în mișcare?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți videoclipurile din %d fotografii în mișcare?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți videoclipurile din %d fotografii în mișcare?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d imagine din acest set?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d imagini din acest set?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d imagini din acest set?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d set Filmare unică?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d seturi Filmare unică?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d seturi Filmare unică?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d videoclip?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d videoclipuri?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d videoclipuri?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Puteți vizualiza acest conținut încă %d dată. Îl vizualizați acum?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Puteți vizualiza acest conținut de încă %d ori. Îl vizualizați acum?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Puteți vizualiza acest conținut de încă %d ori. Îl vizualizați acum?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album gol va fi șters, fără a se duce în Coșul de gunoi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albume goale vor fi șterse, fără a se duce în Coșul de gunoi.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albume goale vor fi șterse, fără a se duce în Coșul de gunoi.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elementele din Coșul de gunoi vor fi șterse definitiv după %d zi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Elementele din Coșul de gunoi vor fi șterse definitiv %d zile.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Elementele din Coșul de gunoi vor fi șterse definitiv %d zile.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine ștearsă definitiv de pe telefon. Accesați OneDrive pentru a șterge copia din Coșul de reciclare de acolo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element șters definitiv de pe telefon. Accesați OneDrive pentru a șterge copia din Coșul de reciclare de acolo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d videoclip șters definitiv de pe telefon. Accesați OneDrive pentru a șterge copia din Coșul de reciclare de acolo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videoclipuri șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoclipuri șterse definitiv de pe telefon. Accesați OneDrive pentru a șterge copiile din Coșul de reciclare de acolo.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine ștearsă definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini șterse definitiv.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element șters definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente șterse definitiv.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d videoclip șters definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videoclipuri șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoclipuri șterse definitiv.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vizualizare grilă cu %d miniatură pe fiecare rând</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vizualizare grilă cu %d miniaturi pe fiecare rând</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vizualizare grilă cu %d miniaturi pe fiecare rând</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grup 1 album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupuri 1 album</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d grupuri 1 album</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine descărcată din cloud.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini descărcate din cloud.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini descărcate din cloud.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Imagini restabilite. %1$d %2$s imagine nu s-a putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Imagini restabilite. %1$d %2$s imagini nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Imagini restabilite. %1$d %2$s imagini nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element salvat.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente salvate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente salvate.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element descărcat din cloud.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente descărcate din cloud.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente descărcate din cloud.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elemente restabilite. %1$d %2$s element nu s-a putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Elemente restabilite. %1$d %2$s elemente nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Elemente restabilite. %1$d %2$s elemente nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind locația au fost modificate pentru %d imagine.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informațiile privind locația au fost modificate pentru %d imagini.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informațiile privind locația au fost modificate pentru %d imagini.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind locația au fost modificate pentru %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informațiile privind locația au fost modificate pentru %d elemente.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informațiile privind locația au fost modificate pentru %d elemente.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informațiile privind locația au fost modificate pentru %d videoclip.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Info. privind locația au fost modificate pentru %d videoclipuri.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Info. privind locația au fost modificate pentru %d videoclipuri.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d locație</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d locații</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d locații</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu se poate introduce mai mult de %d caracter.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu se pot introduce mai mult de %d caractere.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu se pot introduce mai mult de %d caractere.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Videoclipul din %d fotografie în mișcare a fost salvat.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Videoclipurile din %d fotografii în mișcare au fost salvate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Videoclipurile din %d fotografii în mișcare au fost salvate.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d fotografieri continue în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d fotografieri continue în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d fotografieri continue în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d fotografieri continue în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați 1 grup, 1 album și elementul (%d) din acestea în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați 1 grup, 1 album și cele %d elemente din acestea în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați 1 grup, 1 album și cele %d elemente din acestea în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați 1 grup, %d album și elementul (1) din acestea în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați 1 grup, %d albume și elementul (1) din acestea în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați 1 grup, %d albume și elementul (1) din acestea în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d grup, 1 album și elementul (1) din acestea în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d grupuri, 1 album și elementul (1) din acestea în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d grupuri, 1 album și elementul (1) din acestea în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d imagine din această fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d imagini din această fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d imagini din această fotografiere continuă în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d imagine din această fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d imagini din această fotografiere continuă în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d imagini din această fotografiere continuă în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d imagine în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d imagini în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d imagini în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d element în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d elemente în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d elemente în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d grup de imagini similare în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d grupuri de imagini similare în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d grupuri de imagini similare în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d grup de imagini similare și încă 1 element în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d grupuri de imagini similare și încă 1 element în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d grupuri de imagini similare și încă 1 element în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați 1 grup de imagini similare și încă %d element în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați 1 grup de imagini similare și încă %d elemente în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați 1 grup de imagini similare și încă %d elemente în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d element din acest set în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d elemente din acest set în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d elemente din acest set în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d imagine din acest set în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d imagini din acest set în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d imagini din acest set în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d set Filmare unică în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d seturi Filmare unică în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d seturi Filmare unică în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d element în albumul privat?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d elemente în albumul privat?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d elemente în albumul privat?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut muta %1$d fișier din %2$s în %3$s. Descărcați acest fișier, apoi încercați din nou.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut muta %1$d fișiere din %2$s în %3$s. Descărcați aceste fișiere, apoi încercați din nou.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut muta %1$d fișiere din %2$s în %3$s. Descărcați aceste fișiere, apoi încercați din nou.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %d videoclip în Coșul de gunoi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %d videoclipuri în Coșul de gunoi?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %d videoclipuri în Coșul de gunoi?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Se mută %d element în Coșul de gunoi…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Se mută %d elemente în Coșul de gunoi…</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Se mută %d elemente în Coșul de gunoi…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d notificare nouă</item>
+        <item quantity="few">%d notificări noi</item>
+        <item quantity="other">%d de notificări noi</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album cu același nume a fost îmbinat.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albume cu același nume au fost îmbinate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albume cu același nume au fost îmbinate.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zi</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zi până când povestea este ștearsă</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zile până când povestea este ștearsă</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d zile până când povestea este ștearsă</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți %d albume?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți %d albume?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine adăugată la preferate.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini adăugate la preferate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini adăugate la preferate.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d invitație</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d invitații</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d invitații</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element adăugat la preferate.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente adăugate la preferate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente adăugate la preferate.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d persoană selectată</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d persoane selectate</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d persoane selectate</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">S-a selectat %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">S-au selectat %d</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">S-au selectat %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album partajat, 1 invitație</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albume partajate, 1 invitație</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albume partajate, 1 invitație</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Am găsit %d imagine nouă pe care ați putea să o adăugați la acest album.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Am găsit %d imagini noi pe care le-ați putea adăuga la acest album.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Am găsit %d imagini noi pe care le-ați putea adăuga la acest album.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d videoclip adăugat la preferate.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videoclipuri adăugate la preferate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoclipuri adăugate la preferate.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s acum %2$d an</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s acum %2$d ani</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s acum %2$d ani</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albume</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albume</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element descărcat. Atingeți aici pentru a-l vizualiza.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente descărcate. Atingeți aici pentru a le vizualiza.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente descărcate. Atingeți aici pentru a le vizualiza.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grup</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupuri</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d grupuri</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut descărca %d fișier. Imaginile HEIF nu sunt acceptate de acest telefon.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut descărca %d fișiere. Imaginile HEIF nu sunt acceptate de acest telefon.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut descărca %d fișiere. Imaginile HEIF nu sunt acceptate de acest telefon.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu s-a putut descărca %d fișier. Imaginile HEIF nu sunt acceptate de această tabletă.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu s-au putut descărca %d fișiere. Imaginile HEIF nu sunt acceptate de această tabletă.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu s-au putut descărca %d fișiere. Imaginile HEIF nu sunt acceptate de această tabletă.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d membru</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d membri</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d membri</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu puteți adăuga mai mult de %d abțibild. Accesați editorul foto din Galerie pentru a elimina abțibilduri.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu puteți adăuga mai mult de %d abțibilduri. Accesați editorul foto din Galerie pentru a elimina abțibilduri.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu puteți adăuga mai mult de %d abțibilduri. Accesați editorul foto din Galerie pentru a elimina abțibilduri.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 grup %d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 grup %d albume</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 grup %d albume</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 album partajat, %d invitație</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 album partajat, %d invitații</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 album partajat, %d invitații</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți definitiv %d imagine?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți definitiv %d imagini?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți definitiv %d imagini?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți definitiv %d element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți definitiv %d elemente?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți definitiv %d elemente?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ștergeți definitiv %d videoclip?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ștergeți definitiv %d videoclipuri?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ștergeți definitiv %d videoclipuri?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine va fi ștearsă definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini vor fi șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini vor fi șterse definitiv.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element va fi șters definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente vor fi șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente vor fi șterse definitiv.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d videoclip va fi șters definitiv.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videoclipuri vor fi șterse definitiv.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoclipuri vor fi șterse definitiv.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imagine salvată.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d imagini salvate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imagini salvate.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vizitat timp de %1$d zi în %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vizitat timp de %1$d zile în %2$s</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vizitat timp de %1$d zile în %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Acum %d an</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Acum %d ani</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Acum %d ani</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d sugestie eliminată.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d sugestii eliminate.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d sugestii eliminate.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d imagine din acest album partajat?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d imagini din acest album partajat?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d imagini din acest album partajat?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d imagine din album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d imagini din album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d imagini din album?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d element din album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d elemente din album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d elemente din album?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d element din poveste?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d elemente din poveste?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d elemente din poveste?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d imagine din sugestiile pentru album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d imagini din sugestiile pentru album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d imagini din sugestiile pentru album?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d element din sugestiile pentru album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d elemente din sugestiile pentru album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d elemente din sugestiile pentru album?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d videoclip din sugestiile pentru album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d videoclipuri din sugestiile pentru album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d videoclipuri din sugestiile pentru album?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d videoclip din album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d videoclipuri din album?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d videoclipuri din album?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eliminați %d videoclip din acest album partajat?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Eliminați %d videoclipuri din acest album partajat?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Eliminați %d videoclipuri din acest album partajat?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Salvați %1$d element din %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Salvați %1$d elemente din %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Salvați %1$d elemente din %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Salvați %1$d imagine din această %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Salvați %1$d imagini din această %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Salvați %1$d imagini din această %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %1$d imagine în %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %1$d imagini în %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %1$d imagini în %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %1$d element în %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %1$d elemente în %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %1$d elemente în %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mutați %1$d videoclip în %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Mutați %1$d videoclipuri în %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mutați %1$d videoclipuri în %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Grup de %d imagine similară</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Grup de %d imagini similare</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Grup de %d imagini similare</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element selectat</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elemente selectate</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d elemente selectate</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Această persoană acum %d an</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Această persoană acum %d ani</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Această persoană acum %d ani</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d videoclip descărcat din cloud.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videoclipuri descărcate din cloud.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoclipuri descărcate din cloud.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Videoclip restabilit. %1$d %2$s videoclip nu s-a putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Videoclip restabilit. %1$d %2$s videoclipuri nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Videoclip restabilit. %1$d %2$s videoclipuri nu s-au putut restabili, deoarece %3$s este blocat din cauza unei solicitări privind datele cu caracter personal.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nu puteți include mai mult de %d element într-un colaj.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nu puteți include mai mult de %d elemente într-un colaj.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nu puteți include mai mult de %d elemente într-un colaj.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Se va șterge peste %d zi</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Se va șterge peste %d zile</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Se va șterge peste %d zile</item>
+    </plurals>
+</resources>

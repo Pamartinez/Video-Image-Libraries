@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.gallery.widget.fastoption2.FastOptionView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/fast_option_view" android:background="@color/viewer_floating_menu_background_color" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="match_parent" android:layout_height="@dimen/fast_menu_imageview_height"/>

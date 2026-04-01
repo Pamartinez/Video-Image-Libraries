@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ViewStub android:id="@+id/dialog_title" android:layout="@layout/alert_dialog_title" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <com.samsung.android.gallery.widget.TextInputLayoutCompat android:id="@+id/text_input_compat" android:paddingTop="@dimen/edit_dialog_padding_top" android:paddingBottom="@dimen/edit_dialog_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

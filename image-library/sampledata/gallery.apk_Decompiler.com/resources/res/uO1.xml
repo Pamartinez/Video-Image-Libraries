@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="@dimen/story_motion_top_gradient_height" android:shape="rectangle">
+    <gradient android:startColor="@color/stories_thumbnail_gradient_staggered_end_color" android:endColor="@color/stories_thumbnail_gradient_staggered_start_color" android:angle="90"/>
+</shape>

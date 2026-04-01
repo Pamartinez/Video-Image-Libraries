@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/black_color" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/bottom_navigation_height">
+        <com.samsung.android.gallery.widget.photoview.PhotoPreView android:id="@+id/viewer_preview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" android:contentDescription="@null" android:importantForAccessibility="no"/>
+        <com.samsung.android.gallery.widget.photoview.CropPhotoView android:id="@+id/photo_view" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:adjustViewBounds="true" android:layout_centerVertical="true" android:importantForAccessibility="no" app:blockPinchShrink="true"/>
+        <com.samsung.android.gallery.widget.crop.CropViewImpl android:id="@+id/crop_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignBaseline="@+id/photo_view" android:layout_alignTop="@+id/photo_view" android:contentDescription="@string/pinch_or_spread_with_two_fingers_to_resize"/>
+    </RelativeLayout>
+    <androidx.appcompat.widget.SeslProgressBar android:layout_gravity="center" android:id="@+id/progressCircle" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/ProgressCircle.Mono"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_gravity="bottom" android:id="@+id/edit_bottom_navigation" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="@dimen/bottom_navigation_height" style="@style/BottomNavigationViewDarkStyle.Text"/>
+</FrameLayout>

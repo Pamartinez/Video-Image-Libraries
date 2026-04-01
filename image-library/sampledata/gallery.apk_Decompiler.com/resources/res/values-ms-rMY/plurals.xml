@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tambah %d item cloud kpd album dikongsi?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Anda perlu berumur sekurang-kurangnya %d tahun untuk menggunakan ciri pintar.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d gambar</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menambahkan lebih daripada %d video kepada siaran Meitu.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memadamkan %1$d imej %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memadamkan %1$d item %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memadamkan %1$d video %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menyertakan lebih daripada %d item dalam siaran Meitu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d imej %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d item %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d video %2$s. %3$s anda dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menambahkan lebih daripada %d item pada masa yang sama.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menambahkan lebih daripada %d item pada cerita.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d bandar</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d imej. Kosongkan sedikit ruang dalam %2$s, kemudian cuba lagi.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d item. Kosongkan sedikit ruang dalam %2$s, kemudian cuba lagi.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d video. Kosongkan sedikit ruang dalam %2$s, kemudian cuba lagi.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memulihkan %1$d video. Video ini telah dipulihkan atau dipadamkan dalam aplikasi %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat mengalih keluar %d item. Cuba lagi.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d album dikongsi</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d cerita</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat tarikh dan masa diubah dalam %d imej.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat tarikh dan masa diubah dalam %d item.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat tarikh dan masa diubah dalam %d video.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d album?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam 1 kumpulan, %d album, dan 1 item dalamnya?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d kumpulan?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d imej?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padamkan %d item?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d kumpulan bagi imej serupa?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d kumpulan bagi imej serupa dan 1 item lain?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam 1 kumpulan bagi imej serupa dan %d item lain?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d item daripada set ini?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam klip video daripada %d foto gerakan?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d gambar daripada set ini?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d Set tangkapan tunggal?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d video?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Anda boleh melihat kandungan ini %d kali lagi. Lihat sekarang?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d album kosong akan dipadamkan tanpa pergi ke Sampah.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Item dalam Sampah akan dipadamkan secara kekal selepas %d hari.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imej dipadamkan secara kekal daripada telefon anda. Pergi ke OneDrive untuk memadamkan salinan dalam Tong Kitar Semula di situ.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item dipadamkan secara kekal daripada telefon anda. Pergi ke OneDrive untuk memadamkan salinan dalam Tong Kitar Semula di situ.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d video dipadamkan secara kekal daripada telefon anda. Pergi ke OneDrive untuk memadamkan salinan dalam Tong Kitar Semula di situ.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imej dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d video dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Paparan grid dengan %d imej kecil dalam setiap baris</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d kumpulan 1 album</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imej dimuat turun daripada cloud.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Imej dipulihkan. %1$d %2$s imej tidak dapat dipulihkan kerana %3$s anda dikunci disebabkan permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item disimpan.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item dimuat turun daripada cloud.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Item dipulihkan. %1$d item %2$s tidak dapat dipulihkan kerana %3$s anda telah dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat lokasi diubah dalam %d imej.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat lokasi diubah dalam %d item.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maklumat lokasi diubah dalam %d video.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d lokasi</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memasukkan lebih daripada %d aksara.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Klip video daripada foto gerakan %d disimpan.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %d tangkapan pecah ke Sampah?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %d tangkapan pecah ke Sampah?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan 1 kumpulan, 1 album, dan %d item dalamnya ke Sampah?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan 1 kumpulan, %d album, dan 1 item dalamnya ke Sampah?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d kumpulan, 1 album, dan 1 item dalamnya ke Sampah?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d gambar daripada tangkapan pecah ini ke Sampah?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d gambar daripada tangkapan pecah ini ke Sampah?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %d imej ke Sampah?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d item ke Sampah?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d kumpulan bagi imej serupa ke Sampah?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d kumpulan bagi imej serupa dan 1 item lain ke Sampah?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan 1 kumpulan bagi imej serupa dan %d item lain ke Sampah?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d item daripada set ini ke Sampah?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d gambar daripada set ini ke Sampah?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d Set tangkapan tunggal ke Tunggal?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d item kepada album peribadi?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat mengalihkan %1$d fail %2$s ke %3$s. Muat turun fail ini, kemudian cuba lagi.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alihkan %d video ke Sampah?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mengalihkan %d item ke Sampah…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d album dengan nama yang sama telah digabungkan.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d hari</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d hari hingga cerita dipadamkan</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d album?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imej ditambahkan pada kegemaran.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d jemputan</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item ditambahkan pada kegemaran.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d orang dipilih</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d dipilih</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d album dikongsi, 1 jemputan</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Kami telah menemui %d gambar baru yang mungkin ingin anda tambahkan kepada album ini.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d video ditambahkan pada kegemaran.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s %2$d tahun yang lalu</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d album</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item dimuat turun. Ketik untuk melihat item.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d kumpulan</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memuat turun %d fail. Imej HEIF tidak disokong pada telefon ini.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat memuat turun %d fail. Imej HEIF tidak disokong pada tablet ini.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ahli</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menambahkan lebih daripada %d pelekat. Pergi ke photo editor dalam Galeri untuk mengalih keluar pelekat.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 kumpulan %d album</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 album dikongsi, %d jemputan</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d imej secara kekal?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d item secara kekal?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Padam %d video secara kekal?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imej akan dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item akan dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d video akan dipadamkan secara kekal.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d gambar disimpan.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Dilawati sebanyak %1$d hari pada %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d tahun yang lalu</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d cadangan dialih keluar.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d imej daripada album kongsi ini?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d imej daripada album?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d item daripada album?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d item daripada cerita?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d imej daripada cadangan album anda?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d item pada cadangan album anda?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d video daripada cadangan album anda?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d video daripada album?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih keluar %d video daripada album kongsi ini?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Simpan %1$d item daripada %2$s ini?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Simpan %1$d gambar daripada %2$s ini?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %1$d imej kepada %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %1$d item kepada %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Alih %1$d video kepada %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Sekumpulan %d imej serupa</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d item dipilih</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Orang ini %d tahun yang lalu</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d video dimuat turun daripada cloud.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video dipulihkan. %1$d video %2$s tidak dapat dipulihkan kerana %3$s anda telah dikunci kerana permintaan data peribadi.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tidak dapat menyertakan lebih daripada %d imej dalam satu kolaj.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Akan dipadamkan dalam %d hari</item>
+    </plurals>
+</resources>

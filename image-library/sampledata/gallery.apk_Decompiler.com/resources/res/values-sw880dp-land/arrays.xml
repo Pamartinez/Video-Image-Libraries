@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="albums_column_count">
+        <item>1</item>
+        <item>7</item>
+        <item>6</item>
+    </array>
+    <array name="albums_column_count_split">
+        <item>1</item>
+        <item>6</item>
+        <item>5</item>
+    </array>
+    <array name="stories_pinch_column_count_oneui_60">
+        <item>4</item>
+    </array>
+    <array name="stories_split_column_count_oneui_60">
+        <item>3</item>
+    </array>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:color="@color/language_layout_ripple_color_default_dark">
+    <item android:id="@+id/button_bg">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/lang_code_button_radius"/>
+            <solid android:color="@color/language_layout_background_default_dark"/>
+        </shape>
+    </item>
+</ripple>

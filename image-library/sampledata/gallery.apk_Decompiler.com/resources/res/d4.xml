@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:focusable="false" android:clickable="false" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/date_location_body_divider_height" android:importantForAccessibility="no">
+    <FrameLayout android:id="@+id/divider_layout" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+            <include layout="@layout/recycler_item_pictures_timeline_merge_layout"/>
+        </RelativeLayout>
+    </FrameLayout>
+</FrameLayout>

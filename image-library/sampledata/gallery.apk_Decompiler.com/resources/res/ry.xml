@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:checkedButton="@+id/radio_created_time" android:paddingHorizontal="18dp">
+            <RadioGroup android:orientation="vertical" android:id="@+id/radio_group" android:layout_width="match_parent" android:layout_height="wrap_content" android:divider="?android:attr/listDividerAlertDialog" android:checkedButton="@+id/radio_button_name">
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_button_name" android:text="@string/city_name" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_button_count" android:text="@string/sort_by_count" style="@style/DialogRadioButtonListStyle"/>
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

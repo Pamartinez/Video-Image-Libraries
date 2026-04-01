@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/gallery_ic_bottombar_restore" android:id="@+id/action_fix_datetime" android:title="@string/fix_datetime" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_details_date" android:id="@+id/action_change_date" android:title="@string/edit_date" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_details_location" android:id="@+id/action_change_location" android:title="@string/edit_location" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_search_filtered_action" android:id="@+id/action_scan_media" android:title="@string/scan_media" app:showAsAction="ifRoom"/>
+    </group>
+</menu>

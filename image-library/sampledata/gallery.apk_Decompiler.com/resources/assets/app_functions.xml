@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appfunctions>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#createAlbum</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>createAlbum</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#findAlbums</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>findAlbums</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#showAlbum</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>showAlbum</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#findMediaItems</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>findMediaItems</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#getMediaItemContentUris</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>getMediaItemContentUris</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#showMediaItem</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>showMediaItem</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#updateMediaItem</function_id>
+        <schema_category>photos</schema_category>
+        <schema_name>updateMediaItem</schema_name>
+        <schema_version>1</schema_version>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+    <appfunction>
+        <function_id>com.samsung.android.gallery.crossapp.function.SearchFunctions#findPhotos</function_id>
+        <enabled_by_default>true</enabled_by_default>
+    </appfunction>
+</appfunctions>
+

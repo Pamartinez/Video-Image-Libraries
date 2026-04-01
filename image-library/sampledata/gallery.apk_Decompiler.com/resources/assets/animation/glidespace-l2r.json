@@ -1,0 +1,11 @@
+{
+  "name": "Glide-L2R",
+  "sort_order": 12,
+  "keyframes": [
+    { "time": 0.0, "layer_position[0]": [ -0.02, 0.0, 0.0 ], "layer_position[1]": [ 0.0, 0.0, 0.1 ], "camera_eye": [ -0.07, 0.0, 1.9 ], "camera_dir" : [0.04, 0.0, -1], "depth_intensity": 0.1, "fov": 51.0 },
+    { "time": 1.0, "layer_position[0]": [ 0.02, 0.0, 0.0 ], "layer_position[1]": [ 0.0, 0.0, 0.6 ], "camera_eye": [ 0.22, 0.0, 1.75 ], "camera_dir" : [-0.14, 0.0, -1], "depth_intensity": 0.1, "fov": 51.0 }
+  ],
+  "transition": "ease",
+  "mode": "bounce",
+  "speed_factor": 1.7
+}

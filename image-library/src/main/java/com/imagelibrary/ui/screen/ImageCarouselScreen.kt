@@ -1,3 +1,14 @@
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                        if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
+                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                    },
+                contentAlignment = Alignment.Center
+    // Keep thumbnail strip centred on the current page
 package com.imagelibrary.ui.screen
 
 import android.app.Activity
@@ -6,8 +17,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.rememberLazyListState
+import com.example.common.ui.components.ZoomableImageContainer
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.*
@@ -67,8 +81,12 @@ fun ImageCarouselScreen(
 
     DisposableEffect(Unit) {
         if (initialBarsVisible) {
-            insetsController.show(WindowInsetsCompat.Type.systemBars())
+    // Track whether the current page image is zoomed in; disables pager swiping while true
+    var isCurrentPageZoomed by remember { mutableStateOf(false) }
+
+    // Keep thumbnail strip centred on the current page and reset zoom state on navigation
         } else {
+        isCurrentPageZoomed = false
             insetsController.hide(WindowInsetsCompat.Type.systemBars())
         }
         onDispose { insetsController.show(WindowInsetsCompat.Type.systemBars()) }
@@ -83,21 +101,23 @@ fun ImageCarouselScreen(
     val thumbnailListState = rememberLazyListState()
 
     // Keep thumbnail strip centred on the current page
+            // Disable page-swiping while the image is zoomed in
+            userScrollEnabled = !isCurrentPageZoomed,
     LaunchedEffect(pagerState.currentPage) {
         thumbnailListState.animateScrollToItem(pagerState.currentPage)
     }
-
-    val currentImage = images.getOrNull(pagerState.currentPage)
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-    ) {
-        // ── Full-screen image pager ─────────────────────────────────────
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxSize(),
+            ZoomableImageContainer(
+                modifier = Modifier.fillMaxSize(),
+                // Single-tap: toggle overlay bars (immersive mode)
+                onSingleTap = {
+                    barsVisible = !barsVisible
+                    if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
+                    else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                },
+                // Notify parent so it can lock/unlock the pager
+                onScaleChanged = { newScale ->
+                    isCurrentPageZoomed = newScale > 1f
+                },
             key = { images.getOrNull(it)?.id ?: it }
         ) { page ->
             val image = images.getOrNull(page) ?: return@HorizontalPager

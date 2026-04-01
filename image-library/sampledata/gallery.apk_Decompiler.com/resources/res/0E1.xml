@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:height="@dimen/bottom_search_toolbar_close_button_bg_size" android:width="@dimen/bottom_search_toolbar_close_button_bg_size">
+        <shape android:shape="oval">
+            <solid android:color="@color/new_search_bar_close_button_bg"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:tint="@color/new_search_bar_close_button_color" android:height="@dimen/bottom_search_toolbar_close_button_icon_size" android:width="@dimen/bottom_search_toolbar_close_button_icon_size" android:drawable="@drawable/ic_cancel_close_xmark"/>
+</layer-list>

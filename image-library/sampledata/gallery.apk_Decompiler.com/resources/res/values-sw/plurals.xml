@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ongeza kipengee %d cha wingu kwenye albamu inayoshirikiwa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ongeza vipengee %d vya wingu kwenye albamu inayoshirikiwa?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Unahitaji kuwa na angalau umri wa mwaka %d ili kutumia vipengele mahiri.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Unahitaji kuwa na angalau umri wa miaka %d ili kutumia vipengele mahiri.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kuongeza zaidi ya video %d kwenye chapisho la Meitu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kuongeza zaidi ya video %d kwenye chapisho la Meitu.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kufuta picha %1$d ya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kufuta picha %1$d za %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kufuta kipengee %1$d cha %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kufuta vipengee %1$d vya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kufuta video %1$d ya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kufuta video %1$d za %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kujumuisha zaidi ya kipengee %d kwenye chapisho la Meitu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kujumuisha zaidi ya vipengee %d kwenye chapisho la Meitu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kurejesha picha %1$d ya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kurejesha picha %1$d za %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kurejesha kipengee %1$d cha %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kurejesha vipengee %1$d vya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kurejesha video %1$d ya %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kurejesha video %1$d za %2$s. %3$s yako imefungwa kwa sababu ya ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kuongeza zaidi ya kipengee %d kwa wakati mmoja.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kuongeza zaidi ya vipengee %d kwa wakati mmoja.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kuongeza zaidi ya kipengee %d kwenye simulizi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kuongeza zaidi ya vipengee %d kwenye simulizi.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Jiji %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Miji %d</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kurejesha picha %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kurejesha picha %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kurejesha kipengee %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kurejesha vipengee %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kurejesha video %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kurejesha video %1$d. Futa baadhi ya nafasi kwenya %2$s, kisha ujaribu tena.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Imeshindwa kurejesha video %1$d. Video hii ilirejeshwa au ilifutwa kwenye programu ya %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kurejesha video %1$d. Video hizi zimerejeshwa au zimefutwa kwenye programu ya %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kuondoa kipengee %d. Jaribu tena.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kuondoa vipengee %d. Jaribu tena.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu %d inayoshirikiwa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu %d zinazoshirikiwa</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hadithi %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hadithi %d</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya tarehe na saa yamebadilishwa katika picha %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya tarehe na saa yamebadilishwa katika picha %d.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya tarehe na saa yamebadilishwa katika kipengee %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya tarehe na saa yamebadilishwa katika vipengee %d.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya tarehe na saa yamebadilishwa katika video %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya tarehe na saa yamebadilishwa katika video %d.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta albamu %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta albamu %d?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kikundi 1, albamu %d na kipengee 1 kilichomo ndani yao?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta kikundi 1, albamu %d na kipengee 1 kilichomo ndani yao?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kikundi %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta vikundi %d?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta picha %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta picha %d?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kipengee %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta vipengee %d?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kikundi %d cha picha zinazofanana?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta vikundi %d vya picha zinazofanana?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kikundi %d cha picha zinazofanana na kipengee kingine 1?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta vikundi %d vya picha zinazofanana na kipengee kingine 1?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta kikundi 1 cha picha zinazofanana na kipengee kingine %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta kikundi 1 cha picha zinazofanana na vipengee vingine %d?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Je, ungependa kufuta kipengee %d kutoka kwenye seti hii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Je, ungependa kufuta vipengee %d kutoka kwenye seti hii?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta klipu ya video kutoka kwenye picha %d ya mwendo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta klipu za video kutoka kwenye picha %d za mwendo?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Je, ungependa kufuta picha %d kutoka kwenye seti hii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Je, ungependa kufuta picha %d kutoka kwenye seti hii?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta seti %d ya Upigaji mmoja?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta seti %d za Upigaji mmoja?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta video %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta video %d?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Unaweza kuangalia maudhui haya mara %d zaidi. Angalia sasa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Unaweza kuangalia maudhui haya mara %d zaidi. Angalia sasa?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu %d tupu itafutwa bila kwenda kwenye Tupio.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu %d tupu zitafutwa bila kwenda kwenye Tupio.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vipengee vilivyo kwenye Tupio vitafutwa kabisa baada ya siku %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee vilivyo kwenye Tupio vitafutwa kabisa baada ya siku %d.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d imefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala yake kwenye Kijalala huko.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d zimefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala zao kwenye Kijalala huko.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala yake kwenye Kijalala huko.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala zao kwenye Kijalala huko.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video %d imefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala yake kwenye Kijalala huko.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video %d zimefutwa kabisa kutoka kwenye simu yako. Nenda kwenye OneDrive ili kufuta nakala zao kwenye Kijalala huko.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mwonekano wa gridi na kijipicha %d katika kila safu mlalo</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mwonekano wa gridi na vijipicha %d katika kila safu mlalo</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kikundi %d albamu 1</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vikundi %d albamu 1</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d imepakuliwa kutoka kwenye wingu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d zimepakuliwa kutoka kwenye wingu.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha zimerejeshwa. Picha %1$d ya %2$s haikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha zimerejeshwa. Picha %1$d za %2$s hazikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimehifadhiwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimehifadhiwa.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimepakuliwa kutoka kwenye wingu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimepakuliwa kutoka kwenye wingu.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vipengee vimerejeshwa. Kipengee %1$d cha %2$s hakikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee vimerejeshwa. Vipengee %1$d vya %2$s havikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya eneo yamebadilishwa katika picha %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya eneo yamebadilishwa katika picha %d.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya eneo yamebadilishwa katika kipengee %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya eneo yamebadilishwa katika vipengee %d.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Maelezo ya eneo yamebadilishwa katika video %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maelezo ya eneo yamebadilishwa katika video %d.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Eneo %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Maeneo %d</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kuingiza zaidi ya herufi %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kuingiza zaidi ya herufi %d.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Imehifadhi klipu ya video kutoka picha mwendo %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Imehifadhi klipu za video kutoka picha mwendo %d.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha upigaji mlipuko %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha upigaji mlipuko %d hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha upigaji mlipuko %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha upigaji mlipuko %d hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi 1, albamu 1 na kipengee %d kilichomo ndani yao hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha kikundi 1, albamu 1 na vipengee %d vilivyomo ndani yao hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi 1, albamu %d na kipengee 1 kilichomo ndani yao hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha kikundi 1, albamu %d na kipengee 1 kilichomo ndani yao hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi %d, albamu 1 na kipengee 1 kilichomo ndani yao hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha vikundi %d, albamu 1 na kipengee 1 kilichomo ndani yao hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hamisha picha %d kutoka kwenye huu upigaji mlipuko hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamisha picha %d kutoka kwenye huu upigaji mlipuko hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hamisha picha %d kutoka kwenye huu upigaji mlipuko hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamisha picha %d kutoka kwenye huu upigaji mlipuko hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha picha %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha picha %d hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kipengee %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamishia vipengee %d kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi %d cha picha zinazofanana hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha vikundi %d vya picha zinazofanana hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi %d cha picha zinazofanana na kipengee kingine 1 kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha vikundi %d vya picha zinazofanana na kipengee kingine 1 kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kikundi 1 cha picha zinazofanana na kipengee kingine %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha kikundi 1 cha picha zinazofanana na vipengee vingine %d hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hamisha kipengee %d kutoka kwenye seti hii hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamisha vipengee %d kutoka kwenye seti hii hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hamisha picha %d kutoka kwenye seti hii hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamisha picha %d kutoka kwenye seti hii hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Hamisha seti %d ya Upigaji mmoja hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Hamisha seti %d za Upigaji mmoja hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kipengee %d hadi kwenye albamu ya faragha?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha vipengee %d hadi kwenye albamu ya faragha?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kuhamisha faili %1$d ya %2$s hadi kwenye %3$s. Pakua faili hii, kisha ujaribu tena.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kuhamisha faili %1$d za %2$s hadi kwenye %3$s. Pakua faili hizi, kisha ujaribu tena.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha video %d hadi kwenye Tupio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha video %d hadi kwenye Tupio?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Inahamishia kipengee %d hadi kwenye Tupio…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Inahamishia vipengee %d hadi kwenye Tupio…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">Arifa %d mpya</item>
+        <item quantity="other">Arifa %d mpya</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu %d yenye jina sawa imeunganishwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu %d zenye jina sawa zimeunganishwa.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Siku %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Siku %d</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Imesalia siku %d hadi hadithi kufutwa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Zimesalia siku %d hadi hadithi kufutwa</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta albamu %d?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kufuta albamu %d?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d imeongezwa kwenye vipendwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d zimeongezwa kwenye vipendwa.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mwaliko %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mialiko %d</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimeongezwa kwenye vipendwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimeongezwa kwenye vipendwa.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mtu %d amechaguliwa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Watu %d wamechaguliwa</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d imechaguliwa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d imechaguliwa</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu %d inayoshirikiwa, mwaliko 1</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu %d zinazoshirikiwa, mwaliko 1</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Tumepata picha %d mpya unayoweza kutaka kuongeza kwenye albamu hii.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tumepata picha %d mpya unazoweza kutaka kuongeza kwenye albamu hii.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video %d imeongezwa kwenye vipendwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video %d zimeongezwa kwenye vipendwa.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s mwaka %2$d uliopita</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s miaka %2$d iliyopita</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu %d</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimepakuliwa. Bonyeza hapa ili kukiona.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimepakuliwa. Bonyeza hapa ili kuviona.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kikundi %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vikundi %d</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kupakua faili %d. Picha za HEIF hazitumiki kwenye simu hii.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kupakua faili %d. Picha za HEIF hazitumiki kwenye simu hii.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haikuweza kupakua faili %d. Picha za HEIF hazitumiki kwenye kishikwambi hiki.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haikuweza kupakua faili %d. Picha za HEIF hazitumiki kwenye kishikwambi hiki.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mshiriki %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Washiriki %d</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kuongeza zaidi ya kibandiko %d. Nenda kwenye kihariri picha kwenye Matunzio ili kuondoa vibandiko.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kuongeza zaidi ya vibandiko %d. Nenda kwenye kihariri picha kwenye Matunzio ili kuondoa vibandiko.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kikundi 1 albamu %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Kikundi 1 albamu %d</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Albamu 1 inayoshirikiwa, mwaliko %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Albamu 1 inayoshirikiwa, mwaliko %d</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kufuta picha %d kabisa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Je, ungependa kufuta kabisa picha %d?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Je, ungependa kufuta kipengee %d kabisa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Je, ungependa kufuta vipengee %d kabisa?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Je, ungependa kufuta video %d kabisa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Je, ungependa kufuta video %d kabisa?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d itafutwa kabisa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d zitafutwa kabisa.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kitafutwa kabisa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vitafutwa kabisa.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video %d itafutwa kabisa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video %d zitafutwa kabisa.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Picha %d imehifadhiwa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Picha %d zimehifadhiwa.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ulitembelea siku %1$d mnamo %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ulitembelea siku %1$d mnamo %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mwaka %d uliopita</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Miaka %d iliyopita</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pendekezo %d limeondolewa.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mapendekezo %d yameondolewa.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa picha %d kwenye albamu hii ya kushiriki?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa picha %d kwenye albamu hii ya kushiriki?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa picha %d kwenye albamu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa picha %d kwenye albamu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa kipengee %d kwenye albamu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa vipengee %d kwenye albamu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa kipengee %d kwenye simulizi?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa vipengee %d kwenye simulizi?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa picha %d kwenye mapendekezo ya albamu yako?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa picha %d kwenye mapendekezo ya albamu yako?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa kipengee %d kwenye mapendekezo ya albamu yako?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa vipengee %d kwenye mapendekezo ya albamu yako?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa video %d kwenye mapendekezo ya albamu yako?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa video %d kwenye mapendekezo ya albamu yako?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa video %d kwenye albamu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa video %d kwenye albamu?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuondoa video %d kwenye albamu hii ya kushiriki?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuondoa video %d kwenye albamu hii ya kushiriki?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhifadhi kipengee %1$d kutoka kwenye %2$s hii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhifadhi vipengee %1$d kutoka kwenye %2$s hii?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhifadhi picha %1$d kutoka kwenye %2$s hii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhifadhi picha %1$d kutoka kwenye %2$s hii?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha picha %1$d hadi kwenye %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha picha %1$d hadi kwenye %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha kipengee %1$d hadi kwenye %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha vipengee %1$d hadi kwenye %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ungependa kuhamisha video %1$d hadi kwenye %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ungependa kuhamisha video %1$d hadi kwenye %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kikundi cha picha %d iinayofanana</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Kikundi cha picha %d zinazofanana</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kipengee %d kimechaguliwa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vipengee %d vimechaguliwa</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Mtu huyu mwaka %d uliopita</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mtu huyu miaka %d iliyopita</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video %d imepakuliwa kutoka kwenye wingu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video %d zimepakuliwa kutoka kwenye wingu.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video imerejeshwa. Video %1$d ya %2$s haikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video imerejeshwa. Video %1$d za %2$s hazikuweza kurejeshwa kwa sababu %3$s yako imefungwa kutokana na ombi la data ya binafsi.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Haiwezi kujumuisha zaidi ya kipengee %d kwenye kolagi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Haiwezi kujumuisha zaidi ya vipengee %d kwenye kolagi.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Itafutwa baada ya siku %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Itafutwa baada ya siku %d</item>
+    </plurals>
+</resources>

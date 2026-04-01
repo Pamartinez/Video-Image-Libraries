@@ -1,6 +1,7 @@
 package com.videolibrary.ui.screen
 
 import android.os.Environment
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,6 +34,9 @@ import coil.compose.AsyncImage
 import coil.decode.VideoFrameDecoder
 import coil.request.ImageRequest
 import com.example.common.data.model.FolderItem
+import com.example.common.data.model.GroupItem
+import com.example.common.data.model.MixedItem
+import com.videolibrary.ui.components.GroupGridItem
 import com.videolibrary.ui.theme.LocalVideoColors
 import java.io.File
 
@@ -41,6 +45,8 @@ import java.io.File
 fun FolderPickerScreen(
     title: String,
     folders: List<FolderItem>,
+    groups: List<GroupItem> = emptyList(),
+    orderedMixedItems: List<Any> = emptyList(),
     onFolderSelected: (String) -> Unit,
     onBack: () -> Unit,
     onCreateFolderAndSelect: ((String) -> Unit)? = null,
@@ -52,6 +58,45 @@ fun FolderPickerScreen(
     // ── Selection state ──
     var isSelectionMode by remember { mutableStateOf(false) }
     var selectedIds by remember { mutableStateOf(setOf<Int>()) }
+    var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
+
+    val currentBrowseGroupId = browseStack.lastOrNull()?.first
+    val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId) {
+        if (currentBrowseGroupId != null) {
+            val browsedGroup = groups.find { it.groupId == currentBrowseGroupId }
+            val memberFolders = (browsedGroup?.memberBucketIds ?: emptyList())
+                .mapNotNull { bid -> folders.find { it.bucketId == bid } }
+            val subGroups = groups.filter { it.parentGroupId == currentBrowseGroupId }
+            buildList {
+                subGroups.forEach { add(MixedItem.Group(it)) }
+                memberFolders.forEach { add(MixedItem.Folder(it)) }
+            }
+        } else {
+            val fromOrder = orderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem -> if (item.parentGroupId == null) MixedItem.Group(item) else null
+                    is FolderItem -> MixedItem.Folder(item)
+                    else -> null
+                }
+            }
+            if (fromOrder.isNotEmpty()) {
+                fromOrder
+            } else {
+                val groupedBucketIds = groups.flatMap { it.memberBucketIds }.toSet()
+                val ungroupedFolders = folders.filter { it.bucketId !in groupedBucketIds }
+                val rootGroups = groups.filter { it.parentGroupId == null }
+                buildList {
+                    rootGroups.forEach { add(MixedItem.Group(it)) }
+                    ungroupedFolders.forEach { add(MixedItem.Folder(it)) }
+                }
+            }
+        }
+    }
+    val visibleFolders = remember(displayItems) { displayItems.mapNotNull { (it as? MixedItem.Folder)?.folder } }
+
+    BackHandler {
+        if (browseStack.isNotEmpty()) browseStack = browseStack.dropLast(1) else onBack()
+    }
 
     fun toggleSelection(id: Int) {
         val newSet = selectedIds.toMutableSet()
@@ -61,11 +106,11 @@ fun FolderPickerScreen(
     }
 
     fun selectAll() {
-        if (selectedIds.size == folders.size) {
+        if (selectedIds.size == visibleFolders.size) {
             selectedIds = emptySet()
             isSelectionMode = false
         } else {
-            selectedIds = folders.map { it.bucketId }.toSet()
+            selectedIds = visibleFolders.map { it.bucketId }.toSet()
             isSelectionMode = true
         }
     }
@@ -150,7 +195,9 @@ fun FolderPickerScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Back chevron
-                IconButton(onClick = onBack) {
+                IconButton(onClick = {
+                    if (browseStack.isNotEmpty()) browseStack = browseStack.dropLast(1) else onBack()
+                }) {
                     Icon(
                         Icons.AutoMirrored.Filled.ArrowBackIos,
                         contentDescription = "Back",
@@ -159,7 +206,15 @@ fun FolderPickerScreen(
                     )
                 }
 
-                Spacer(modifier = Modifier.weight(1f))
+                Text(
+                    text = browseStack.lastOrNull()?.second ?: title,
+                    color = Color.White,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f)
+                )
 
                 // Create button
                 TextButton(onClick = { showCreateDialog = true }) {
@@ -174,7 +229,7 @@ fun FolderPickerScreen(
         }
 
         // ── Folder grid ──
-        if (folders.isEmpty()) {
+        if (displayItems.isEmpty()) {
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -201,23 +256,36 @@ fun FolderPickerScreen(
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(folders, key = { it.bucketId }) { folder ->
-                    val isSelected = selectedIds.contains(folder.bucketId)
-                    FolderPickerGridItem(
-                        folder = folder,
-                        isSelected = isSelected,
-                        isSelectionMode = isSelectionMode,
-                        onClick = {
-                            if (isSelectionMode) {
-                                toggleSelection(folder.bucketId)
-                            } else {
-                                onFolderSelected(folder.path)
-                            }
-                        },
-                        onLongClick = {
-                            toggleSelection(folder.bucketId)
+                items(displayItems, key = { it.uniqueKey }) { item ->
+                    when (item) {
+                        is MixedItem.Folder -> {
+                            val folder = item.folder
+                            val isSelected = selectedIds.contains(folder.bucketId)
+                            FolderPickerGridItem(
+                                folder = folder,
+                                isSelected = isSelected,
+                                isSelectionMode = isSelectionMode,
+                                onClick = {
+                                    if (isSelectionMode) toggleSelection(folder.bucketId)
+                                    else onFolderSelected(folder.path)
+                                },
+                                onLongClick = { toggleSelection(folder.bucketId) }
+                            )
                         }
-                    )
+                        is MixedItem.Group -> {
+                            GroupGridItem(
+                                group = item.group,
+                                isSelected = false,
+                                isSelectionMode = false,
+                                onClick = {
+                                    browseStack = browseStack + (item.group.groupId to item.group.name)
+                                },
+                                onLongClick = {
+                                    browseStack = browseStack + (item.group.groupId to item.group.name)
+                                }
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -236,7 +304,7 @@ fun FolderPickerScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     // Circle checkbox (select all)
-                    val allSelected = selectedIds.size == folders.size && folders.isNotEmpty()
+                    val allSelected = selectedIds.size == visibleFolders.size && visibleFolders.isNotEmpty()
                     Box(
                         modifier = Modifier
                             .size(28.dp)

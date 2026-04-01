@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d neues Cloud-Element für freigeg. Album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d neue Cloud-Elemente für freigeg. Album?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Du musst mindestens %d Jahr alt sein, um intelligente Funktionen zu verwenden.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Du musst mindestens %d Jahre alt sein, um intelligente Funktionen zu verwenden.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Einem Meitu-Beitrag kann nicht mehr als %d Video hinzugefügt werden.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Einem Meitu-Beitrag können nicht mehr als %d Videos hinzugefügt werden.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Bild kann nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Bilder können nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Element kann nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Elemente können nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Video kann nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Videos können nicht gelöscht werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">In einem Meitu-Beitrag kann nicht mehr als %d Element enthalten sein.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">In einem Meitu-Beitrag können nicht mehr als %d Elemente enthalten sein.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Bild kann nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Bilder können nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Element kann nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Elemente können nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Video kann nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Videos können nicht wiederhergestellt werden. Deine %3$s ist aufgrund einer Anforderung bezüglich persönlicher Daten gesperrt.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Es kann nur %d Element hinzugefügt werden.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Es können nur %d Elemente hinzugefügt werden.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Einer Story kann maximal %d Element hinzufügt werden.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Einer Story können maximal %d Elemente hinzufügt werden.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Stadt</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Städte</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Bild konnte nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Bilder konnten nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Element konnte nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Elemente konnten nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Video konnte nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Videos konnten nicht wiederhergestellt werden. Gib Platz in %2$s frei und versuche es erneut.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Video konnte nicht wiederhergestellt werden. Dieses Video wurde in der %2$s-App wiederhergestellt oder gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Videos konnten nicht wiederhergestellt werden. Diese Videos wurden in der %2$s-App wiederhergestellt oder gelöscht.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element konnte nicht entfernt werden. Versuche es erneut.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente konnten nicht entfernt werden. Versuche es erneut.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d freigegebenes Album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d freigegebene Alben</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Story</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Storys</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Datums- und Uhrzeitinformationen in %d Bild geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Datums- und Uhrzeitinformationen in %d Bildern geändert.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Datums- und Uhrzeitinformationen in %d Element geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Datums- und Uhrzeitinformationen in %d Elementen geändert.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Datums- und Uhrzeitinformationen in %d Video geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Datums- und Uhrzeitinformationen in %d Videos geändert.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Album löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Alben löschen?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe, %d Album und das 1 Element darin löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe, %d Alben und das 1 Element darin löschen?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen löschen?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder löschen?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente löschen?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe mit ähnlichen Bildern löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen mit ähnlichen Bildern löschen?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe mit darin enthaltenen ähnlichen Bildern und 1 anderen Element löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen mit darin enthaltenen ähnlichen Bildern und 1 anderen Element löschen?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe mit darin enthaltenen ähnlichen Bildern und %d anderen Element löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe mit darin enthaltenen ähnlichen Bildern und %d anderen Elementen löschen?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element in diesem Satz löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente in diesem Satz löschen?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Videoaufnahme aus %d Bewegungsfoto löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Videoaufnahmen aus %d Bewegungsfotos löschen?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus diesem Satz löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus diesem Satz löschen?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Single Take-Gruppen löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Single Take-Gruppen löschen?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos löschen?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Du kannst dir diesen Inhalt noch %d-mal ansehen. Jetzt ansehen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Du kannst dir diesen Inhalt noch %d-mal ansehen. Jetzt ansehen?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d leeres Album wird gelöscht, ohne in den Papierkorb zu kommen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d leere Alben werden gelöscht, ohne in den Papierkorb zu kommen.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elemente im Papierkorb werden nach %d Tag endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Elemente im Papierkorb werden nach %d Tagen endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopie im Papierkorb zu löschen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopien im Papierkorb zu löschen.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopie im Papierkorb zu löschen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopien im Papierkorb zu löschen.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopie im Papierkorb zu löschen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos endgültig auf deinem Telefon gelöscht. Wechsle zu OneDrive, um dort die Kopien im Papierkorb zu löschen.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Rasteransicht mit %d Miniaturbild in jeder Reihe</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Rasteransicht mit %d Miniaturbildern in jeder Reihe</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe, 1 Album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen, 1 Album</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus der Cloud heruntergeladen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus der Cloud heruntergeladen.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bilder wiederhergestellt. %1$d %2$s-Bild konnte nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Bilder wiederhergestellt. %1$d %2$s-Bilder konnten nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element gespeichert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente gespeichert.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element aus der Cloud heruntergeladen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente aus der Cloud heruntergeladen.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elemente wiederhergestellt. %1$d %2$s-Element konnte nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Elemente wiederhergestellt. %1$d %2$s-Elemente konnten nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Standortinformationen in %d Bild geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Standortinformationen in %d Bildern geändert.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Standortinformationen in %d Element geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Standortinformationen in %d Elementen geändert.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Standortinformationen in %d Video geändert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Standortinformationen in %d Videos geändert.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Standort</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Standorte</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Es kann höchstens %d Zeichen eingegeben werden.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Es können höchstens %d Zeichen eingegeben werden.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Videoaufnahme aus %d Bewegungsaufnahme gespeichert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Videoaufnahmen aus %d Bewegungsaufnahmen gespeichert.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Serienbild in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Serienbilder in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Serienbild in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Serienbilder in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe, 1 Album und das %d Element darin in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe, 1 Album und die %d Elemente darin in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe, %d Album und das 1 Element darin in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe, %d Alben und das 1 Element darin in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe, 1 Album und das 1 Element darin in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen, 1 Album und das 1 Element darin in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus diesem Serienbild in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus diesem Serienbild in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus diesem Serienbild in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus diesem Serienbild in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe mit ähnlichen Bildern in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen mit ähnlichen Bildern in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe mit darin enthaltenen ähnlichen Bildern und 1 anderen Element in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen mit darin enthaltenen ähnlichen Bildern und 1 anderen Element in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe mit darin enthaltenen ähnlichen Bildern und %d anderen Element in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe mit darin enthaltenen ähnlichen Bildern und %d anderen Elementen in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element aus diesem Satz in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente aus diesem Satz in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus diesem Satz in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus diesem Satz in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Single Take-Gruppe in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Single Take-Aufnahmen in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element in privates Album verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente in privates Album verschieben?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s-Datei konnte nicht zu %3$s verschoben werden. Lade diese Datei herunter und versuche es erneut.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s-Dateien konnten nicht zu %3$s verschoben werden. Lade diese Dateien herunter und versuche es erneut.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video in den Papierkorb verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos in den Papierkorb verschieben?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element wird in den Papierkorb verschoben…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente werden in den Papierkorb verschoben…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d neue Benachrichtigung</item>
+        <item quantity="other">%d neue Benachrichtigungen</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Album mit dem gleichen Namen wurde zusammengeführt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Alben mit den gleichen Namen wurden zusammengeführt.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Tag</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Tag bis zum Löschen der Story</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Tage bis zum Löschen der Story</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Album löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Alben löschen?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild zu Favoriten hinzugefügt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder zu Favoriten hinzugefügt.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Einladung</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Einladungen</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element zu Favoriten hinzugefügt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente zu Favoriten hinzugefügt.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Person ausgewählt</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Personen ausgewählt</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ausgewählt</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ausgewählt</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d freigegebenes Album, 1 Einladung</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d freigegebene Alben, 1 Einladung</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Es wurde %d neues Bild gefunden, das du möglicherweise in deinem Album hinzufügen möchtest.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Es wurden %d neue Bilder gefunden, die du möglicherweise in deinem Album hinzufügen möchtest.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video zu Favoriten hinzugefügt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos zu Favoriten hinzugefügt.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s vor %2$d Jahr</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s vor %2$d Jahren</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Alben</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element heruntergeladen. Hier tippen, um es anzuzeigen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente heruntergeladen. Hier tippen, um sie anzuzeigen.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Gruppe</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Gruppen</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Datei konnte nicht heruntergeladen werden. HEIF-Bilder werden auf diesem Telefon nicht unterstützt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Dateien konnten nicht heruntergeladen werden. HEIF-Bilder werden auf diesem Telefon nicht unterstützt.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Datei konnte nicht heruntergeladen werden. HEIF-Bilder werden auf diesem Tablet nicht unterstützt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Dateien konnten nicht heruntergeladen werden. HEIF-Bilder werden auf diesem Tablet nicht unterstützt.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Mitglied</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Mitglieder</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Es kann höchstens %d Sticker hinzugefügt werden. Entferne Sticker im Foto-Editor der Galerie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Es können höchstens %d Sticker hinzugefügt werden. Entferne Sticker im Foto-Editor der Galerie.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 Gruppe, %d Album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 Gruppe, %d Alben</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 freigegebenes Album, %d Einladung</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 freigegebenes Album, %d Einladungen</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild endgültig löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder endgültig löschen?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element endgültig löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente endgültig löschen?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video endgültig löschen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos endgültig löschen?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild wird endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder werden endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element wird endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente werden endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video wird endgültig gelöscht.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos werden endgültig gelöscht.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild gespeichert.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder gespeichert.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Im Jahr %2$s %1$d Tag lang besucht</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Im Jahr %2$s %1$d Tage lang besucht</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vor %d Jahr</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vor %d Jahren</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Vorschlag entfernt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Vorschläge entfernt.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus dem geteilten Album entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus dem geteilten Album entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus dem Album entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus dem Album entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element aus dem Album entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente aus dem Album entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element aus der Story entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente aus der Story entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Bild aus deinen Albumvorschlägen entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Bilder aus deinen Albumvorschlägen entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element aus deinen Albumvorschlägen entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente aus deinen Albumvorschlägen entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video aus deinen Albumvorschlägen entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos aus deinen Albumvorschlägen entfernen?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video aus dem Album entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos aus dem Album entfernen?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video aus dem geteilten Album entfernen?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos aus dem geteilten Album entfernen?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Element aus %2$s speichern?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Elemente aus %2$s speichern?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Bild aus diesem/r %2$s speichern?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Bilder aus diesem/r %2$s speichern?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Bild zu %2$s verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Bilder zu %2$s verschieben?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Element zu %2$s verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Elemente zu %2$s verschieben?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d Video zu %2$s verschieben?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d Videos zu %2$s verschieben?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Gruppe mit %d ähnlichem Bild</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Gruppe mit %d ähnlichen Bildern</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Element ausgewählt</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Elemente ausgewählt</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Diese Person vor %d Jahr</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Diese Person vor %d Jahren</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d Video aus der Cloud heruntergeladen.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d Videos aus der Cloud heruntergeladen.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video wiederhergestellt. %1$d %2$s-Video konnte nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Video wiederhergestellt. %1$d %2$s-Videos konnten nicht wiederhergestellt werden, da deine %3$s aufgrund einer Anfrage bezüglich persönlicher Daten gesperrt ist.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">In einer Collage kann höchstens %d Element enthalten sein.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">In einer Collage können höchstens %d Elemente enthalten sein.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wird in %d Tag gelöscht</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Wird in %d Tagen gelöscht</item>
+    </plurals>
+</resources>

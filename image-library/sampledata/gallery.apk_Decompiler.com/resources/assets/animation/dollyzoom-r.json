@@ -1,0 +1,12 @@
+{
+  "name": "Dolly-R",
+  "sort_order": 51,
+  "keyframes": [
+    { "time": 0.0, "layer_position[0]": [ 0.0, 0.0, 0.0 ], "layer_direction[0]": [ -0.02, 0.0, 1.0 ], "camera_eye_z": 1.75, "depth_intensity": 0.23, "bokeh_focus_range": 0.2, "bokeh_intensity": 0.0 },
+    { "time": 1.0, "layer_position[0]": [ -0.09, 0.0, 0.0 ], "layer_direction[0]": [ 0.02, 0.0, 1.0 ], "camera_eye_z": 1.35, "depth_intensity": 0.15, "bokeh_focus_range": 0.1, "bokeh_intensity": 3.0, "camera_dir": "auto" }
+  ],
+  "bokeh": true,
+  "transition": "ease",
+  "mode": "bounce",
+  "speed_factor": 1.8
+}

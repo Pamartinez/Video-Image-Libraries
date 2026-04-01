@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Добавить %d файл из облака в общий альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Добавить %d файла из облака в общий альбом?</item>
+        <item quantity="many">Добавить %d файлов из облака в общий альбом?</item>
+        <item quantity="other">Добавить %d файла из облака в общий альбом?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Смарт-функции могут использовать только люди, которым исполнился %d год.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Смарт-функции могут использовать только люди, которым исполнилось %d года.</item>
+        <item quantity="many">Смарт-функции могут использовать только люди, которым исполнилось %d лет.</item>
+        <item quantity="other">Смарт-функции могут использовать только люди, которым исполнилось %d года.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d фото</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d фото</item>
+        <item quantity="many">%d фото</item>
+        <item quantity="other">%d фото</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно добавить в запись Meitu более %d видео.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно добавить в запись Meitu более %d видео.</item>
+        <item quantity="many">Невозможно добавить в запись Meitu более %d видео.</item>
+        <item quantity="other">Невозможно добавить в запись Meitu более %d видео.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно удалить %1$d изображение из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно удалить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно удалить %1$d изображений из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно удалить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно удалить %1$d объект из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно удалить %1$d элемента из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно удалить %1$d элементов из %2$s. Ваш %3$s заблокировано в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно удалить %1$d элемента из %2$s. Ваш %3$s заблокировано в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно удалить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно удалить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно удалить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно удалить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно включить в запись Meitu более %d элемента.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно включить в запись Meitu более %d элементов.</item>
+        <item quantity="many">Невозможно включить в запись Meitu более %d элементов.</item>
+        <item quantity="other">Невозможно включить в запись Meitu более %d элемента.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно восстановить %1$d изображение из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно восстановить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно восстановить %1$d изображений из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно восстановить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно восстановить %1$d объект из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно восстановить %1$d элемента из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно восстановить %1$d элементов из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно восстановить %1$d элемента из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно восстановить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно восстановить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Невозможно восстановить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Невозможно восстановить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">За один раз можно добавить не более %d элемента.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">За один раз можно добавить не более %d элементов.</item>
+        <item quantity="many">За один раз можно добавить не более %d элементов.</item>
+        <item quantity="other">За один раз можно добавить не более %d элемента.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно добавить больше %d элемента в историю.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно добавить больше %d элементов в историю.</item>
+        <item quantity="many">Невозможно добавить больше %d элементов в историю.</item>
+        <item quantity="other">Невозможно добавить больше %d элемента в историю.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d город</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d города</item>
+        <item quantity="many">%d городов</item>
+        <item quantity="other">%d города</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось восстановить %1$d изображение. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось восстановить %1$d изображения. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="many">Не удалось восстановить %1$d изображений. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="other">Не удалось восстановить %1$d изображения. Освободите место в %2$s и повторите попытку.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось восстановить %1$d элемент. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось восстановить %1$d элемента. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="many">Не удалось восстановить %1$d элементов. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="other">Не удалось восстановить %1$d элемента. Освободите место в %2$s и повторите попытку.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось восстановить %1$d видео. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось восстановить %1$d видео. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="many">Не удалось восстановить %1$d видео. Освободите место в %2$s и повторите попытку.</item>
+        <item quantity="other">Не удалось восстановить %1$d видео. Освободите место в %2$s и повторите попытку.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось восстановить %1$d видео. Это видео было восстановлено или удалено в приложении %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось восстановить %1$d видео. Эти видео были восстановлены или удалены в приложении %2$s.</item>
+        <item quantity="many">Не удалось восстановить %1$d видео. Эти видео были восстановлены или удалены в приложении %2$s.</item>
+        <item quantity="other">Не удалось восстановить %1$d видео. Эти видео были восстановлены или удалены в приложении %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось удалить %d элемент. Повторите попытку.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось удалить %d элемента. Повторите попытку.</item>
+        <item quantity="many">Не удалось удалить %d элементов. Повторите попытку.</item>
+        <item quantity="other">Не удалось удалить %d элемента. Повторите попытку.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d общий альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d общих альбома</item>
+        <item quantity="many">%d общих альбомов</item>
+        <item quantity="other">%d общего альбома</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d история</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d истории</item>
+        <item quantity="many">%d историй</item>
+        <item quantity="other">%d истории</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d изображении изменилась информация даты и времени.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d изображениях изменилась информация даты и времени.</item>
+        <item quantity="many">В %d изображениях изменилась информация даты и времени.</item>
+        <item quantity="other">В %d изображения изменилась информация даты и времени.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d элементе изменилась информация даты и времени.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d элементах изменилась информация даты и времени.</item>
+        <item quantity="many">В %d элементах изменилась информация даты и времени.</item>
+        <item quantity="other">В %d элемента изменилась информация даты и времени.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d видео изменилась информация даты и времени.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d видео изменилась информация даты и времени.</item>
+        <item quantity="many">В %d видео изменилась информация даты и времени.</item>
+        <item quantity="other">В %d видео изменилась информация даты и времени.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d альбома?</item>
+        <item quantity="many">Удалить %d альбомов?</item>
+        <item quantity="other">Удалить %d альбома?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить 1 группу, %d альбом и 1 элемент, который они содержат?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить 1 группу, %d альбома и 1 элемент, который они содержат?</item>
+        <item quantity="many">Удалить 1 группу, %d альбомов и 1 элемент, который они содержат?</item>
+        <item quantity="other">Удалить 1 группу, %d альбома и 1 элемент, который они содержат?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d группу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d группы?</item>
+        <item quantity="many">Удалить %d групп?</item>
+        <item quantity="other">Удалить %d группы?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d изображение?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d изображения?</item>
+        <item quantity="many">Удалить %d изображений?</item>
+        <item quantity="other">Удалить %d изображения?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d элемента?</item>
+        <item quantity="many">Удалить %d элементов?</item>
+        <item quantity="other">Удалить %d элемента?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d группу похожих изображений?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d группы похожих изображений?</item>
+        <item quantity="many">Удалить %d групп похожих изображений?</item>
+        <item quantity="other">Удалить %d группы похожих изображений?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d группу похожих изображений и еще 1 элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d группы похожих изображений и еще 1 элемент?</item>
+        <item quantity="many">Удалить %d групп похожих изображений и еще 1 элемент?</item>
+        <item quantity="other">Удалить %d группы похожих изображений и еще 1 элемент?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить 1 группу похожих изображений и еще %d элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить 1 группу похожих изображений и еще %d элемента?</item>
+        <item quantity="many">Удалить 1 группу похожих изображений и еще %d элементов?</item>
+        <item quantity="other">Удалить 1 группу похожих изображений и еще %d элемента?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d элемент из этого набора?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d элемента из этого набора?</item>
+        <item quantity="many">Удалить %d элементов из этого набора?</item>
+        <item quantity="other">Удалить %d элемента из этого набора?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить видеоклипы из %d анимированного фото?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить видеоклипы из %d анимированных фото?</item>
+        <item quantity="many">Удалить видеоклипы из %d анимированных фото?</item>
+        <item quantity="other">Удалить видеоклипы из %d анимированного фото?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d фото из группы?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d фото из группы?</item>
+        <item quantity="many">Удалить %d фото из группы?</item>
+        <item quantity="other">Удалить %d фото из группы?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d набор фото, снятых в режиме “Мультикадр”?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d набора фото, снятых в режиме “Мультикадр”?</item>
+        <item quantity="many">Удалить %d наборов фото, снятых в режиме “Мультикадр”?</item>
+        <item quantity="other">Удалить %d набора фото, снятых в режиме “Мультикадр”?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d видео?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d видео?</item>
+        <item quantity="many">Удалить %d видео?</item>
+        <item quantity="other">Удалить %d видео?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Вы можете просмотреть это содержимое еще %d раз. Просмотреть сейчас?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Вы можете просмотреть это содержимое еще %d раза. Просмотреть сейчас?</item>
+        <item quantity="many">Вы можете просмотреть это содержимое еще %d раз. Просмотреть сейчас?</item>
+        <item quantity="other">Вы можете просмотреть это содержимое еще %d раза. Просмотреть сейчас?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d пустой альбом будет безвозвратно удален.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d пустых альбома будут безвозвратно удалены.</item>
+        <item quantity="many">%d пустых альбомов будут безвозвратно удалены.</item>
+        <item quantity="other">%d пустого альбома будет безвозвратно удалено.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Элементы в корзине будут окончательно удалены через %d день.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Элементы в корзине будут окончательно удалены через %d дня.</item>
+        <item quantity="many">Элементы в корзине будут окончательно удалены через %d дней.</item>
+        <item quantity="other">Элементы в корзине будут окончательно удалены через %d дня.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">С телефона окончательно удалено %d изображение. Перейдите в OneDrive, чтобы удалить копию из корзины.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">С телефона окончательно удалено %d изображения. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="many">С телефона окончательно удалено %d изображений. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="other">С телефона окончательно удалено %d изображения. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">С телефона окончательно удален %d элемент. Перейдите в OneDrive, чтобы удалить копию из корзины.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">С телефона окончательно удалено %d элемента. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="many">С телефона окончательно удалено %d элементов. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="other">С телефона окончательно удалено %d элемента. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">С телефона окончательно удалено %d видео. Перейдите в OneDrive, чтобы удалить копию из корзины.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">С телефона окончательно удалено %d видео. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="many">С телефона окончательно удалено %d видео. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+        <item quantity="other">С телефона окончательно удалено %d видео. Перейдите в OneDrive, чтобы удалить их копии из корзины.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Окончательно удалено %d изображение.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Окончательно удалено %d изображения.</item>
+        <item quantity="many">Окончательно удалено %d изображений.</item>
+        <item quantity="other">Окончательно удалено %d изображения.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Окончательно удален %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Окончательно удалено %d элемента.</item>
+        <item quantity="many">Окончательно удалено %d элементов.</item>
+        <item quantity="other">Окончательно удалено %d элемента.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Окончательно удалено %d видео.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Окончательно удалено %d видео.</item>
+        <item quantity="many">Окончательно удалено %d видео.</item>
+        <item quantity="other">Окончательно удалено %d видео.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Вид “Сетка” с %d эскизом в каждом ряду</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Вид “Сетка” с %d эскизами в каждом ряду</item>
+        <item quantity="many">Вид “Сетка” с %d эскизами в каждом ряду</item>
+        <item quantity="other">Вид “Сетка” с %d эскиза в каждом ряду</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d группа, 1 альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d группы, 1 альбом</item>
+        <item quantity="many">%d групп, 1 альбом</item>
+        <item quantity="other">%d группы, 1 альбом</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d изображение загружено из облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d изображения загружено из облака.</item>
+        <item quantity="many">%d изображений загружено из облака.</item>
+        <item quantity="other">%d изображения загружено из облака.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Изображения восстановлены. Не удалось восстановить %1$d изображение из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Изображения восстановлены. Не удалось восстановить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Изображения восстановлены. Не удалось восстановить %1$d изображений из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Изображения восстановлены. Не удалось восстановить %1$d изображения из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сохранен %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сохранено %d элемента.</item>
+        <item quantity="many">Сохранено %d элементов.</item>
+        <item quantity="other">Сохранено %d элемента.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент загружен из облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элемента загружено из облака.</item>
+        <item quantity="many">%d элементов загружено из облака.</item>
+        <item quantity="other">%d элемента загружено из облака.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Объекты восстановлены. Не удалось восстановить %1$d объект из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Элементы восстановлены. Не удалось восстановить %1$d элемента из %2$s: ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Элементы восстановлены. Не удалось восстановить %1$d элементов из %2$s: ваш %3$s заблокировано в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Объекты восстановлены. Не удалось восстановить %1$d объекта из %2$s: ваш %3$s заблокировано в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d изображении изменилась информация о местоположении.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d изображениях изменилась информация о местоположении.</item>
+        <item quantity="many">В %d изображениях изменилась информация о местоположении.</item>
+        <item quantity="other">В %d изображения изменилась информация о местоположении.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d элементе изменилась информация о местоположении.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d элементах изменилась информация о местоположении.</item>
+        <item quantity="many">В %d элементах изменилась информация о местоположении.</item>
+        <item quantity="other">В %d элемента изменилась информация о местоположении.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">В %d видео изменилась информация о местоположении.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">В %d видео изменилась информация о местоположении.</item>
+        <item quantity="many">В %d видео изменилась информация о местоположении.</item>
+        <item quantity="other">В %d видео изменилась информация о местоположении.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d место</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d места</item>
+        <item quantity="many">%d мест</item>
+        <item quantity="other">%d места</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно ввести более %d символа.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно ввести более %d символов.</item>
+        <item quantity="many">Невозможно ввести более %d символов.</item>
+        <item quantity="other">Невозможно ввести более %d символа.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видеоклип из %d анимированного фото сохранен.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видеоклипы из %d анимированных фото сохранены.</item>
+        <item quantity="many">Видеоклипы из %d анимированных фото сохранены.</item>
+        <item quantity="other">Видеоклипы из %d анимированного фото сохранены.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="many">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="other">Переместить %d фото серийной съемки в корзину?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="many">Переместить %d фото серийной съемки в корзину?</item>
+        <item quantity="other">Переместить %d фото серийной съемки в корзину?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить 1 группу, 1 альбом и %d элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить 1 группу, 1 альбом и %d элемента в корзину?</item>
+        <item quantity="many">Переместить 1 группу, 1 альбом и %d элементов в корзину?</item>
+        <item quantity="other">Переместить 1 группу, 1 альбом и %d элемента в корзину?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить 1 группу, %d альбом и 1 элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить 1 группу, %d альбома и 1 элемент в корзину?</item>
+        <item quantity="many">Переместить 1 группу, %d альбомов и 1 элемент в корзину?</item>
+        <item quantity="other">Переместить 1 группу, %d альбома и 1 элемент в корзину?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d группу, 1 альбом и 1 элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d группы, 1 альбом и 1 элемент в корзину?</item>
+        <item quantity="many">Переместить %d групп, 1 альбом и 1 элемент в корзину?</item>
+        <item quantity="other">Переместить %d группы, 1 альбом и 1 элемент в корзину?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d фотографию серийной съемки в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d фотографии серийной съемки в корзину?</item>
+        <item quantity="many">Переместить %d фотографий серийной съемки в корзину?</item>
+        <item quantity="other">Переместить %d фотографии серийной съемки в корзину?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d фотографию серийной съемки в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d фотографии серийной съемки в корзину?</item>
+        <item quantity="many">Переместить %d фотографий серийной съемки в корзину?</item>
+        <item quantity="other">Переместить %d фотографии серийной съемки в корзину?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d изображение в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d изображения в корзину?</item>
+        <item quantity="many">Переместить %d изображений в корзину?</item>
+        <item quantity="other">Переместить %d изображения в корзину?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d элемента в корзину?</item>
+        <item quantity="many">Переместить %d элементов в корзину?</item>
+        <item quantity="other">Переместить %d элемента в корзину?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элемента</item>
+        <item quantity="many">%d элементов</item>
+        <item quantity="other">%d элемента</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d группу похожих изображений в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d группы похожих изображений в корзину?</item>
+        <item quantity="many">Переместить %d групп похожих изображений в корзину?</item>
+        <item quantity="other">Переместить %d группы похожих изображений в корзину?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d группу похожих изображений и еще 1 элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d группы похожих изображений и еще 1 элемент в корзину?</item>
+        <item quantity="many">Переместить %d групп похожих изображений и еще 1 элемент в корзину?</item>
+        <item quantity="other">Переместить %d группы похожих изображений и еще 1 элемент в корзину?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить 1 группу похожих изображений и еще %d элемент в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить 1 группу похожих изображений и еще %d элемента в корзину?</item>
+        <item quantity="many">Переместить 1 группу похожих изображений и еще %d элементов в корзину?</item>
+        <item quantity="other">Переместить 1 группу похожих изображений и еще %d элемента в корзину?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d элемент из этого набора в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d элемента из этого набора в корзину?</item>
+        <item quantity="many">Переместить %d элементов из этого набора в корзину?</item>
+        <item quantity="other">Переместить %d элемента из этого набора в корзину?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d фото из группы в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d фото из группы в корзину?</item>
+        <item quantity="many">Переместить %d фото из группы в корзину?</item>
+        <item quantity="other">Переместить %d фото из группы в корзину?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d набор фото, снятых в режиме “Мультикадр”, в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d набора фото, снятых в режиме “Мультикадр”, в корзину?</item>
+        <item quantity="many">Переместить %d наборов фото, снятых в режиме “Мультикадр”, в корзину?</item>
+        <item quantity="other">Переместить %d набора фото, снятых в режиме “Мультикадр”, в корзину?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d объект в личный альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d объекта в личный альбом?</item>
+        <item quantity="many">Переместить %d объектов в личный альбом?</item>
+        <item quantity="other">Переместить %d объекта в личный альбом?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось переместить %1$d файл с %2$s на %3$s. Загрузите этот файл и повторите попытку.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось переместить %1$d файла с %2$s на %3$s. Загрузите эти файлы и повторите попытку.</item>
+        <item quantity="many">Не удалось переместить %1$d файлов с %2$s на %3$s. Загрузите эти файлы и повторите попытку.</item>
+        <item quantity="other">Не удалось переместить %1$d файла с %2$s на %3$s. Загрузите эти файлы и повторите попытку.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %d видео в корзину?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %d видео в корзину?</item>
+        <item quantity="many">Переместить %d видео в корзину?</item>
+        <item quantity="other">Переместить %d видео в корзину?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перемещение %d элемента в корзину…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перемещение %d элементов в корзину…</item>
+        <item quantity="many">Перемещение %d элементов в корзину…</item>
+        <item quantity="other">Перемещение %d элемента в корзину…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d новое уведомление</item>
+        <item quantity="few">%d новых уведомления</item>
+        <item quantity="many">%d новых уведомлений</item>
+        <item quantity="other">%d нового уведомления</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Объединен %d альбом с одинаковым названием.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Объединены %d альбома с одинаковым названием.</item>
+        <item quantity="many">Объединены %d альбомов с одинаковым названием.</item>
+        <item quantity="other">Объединены %d альбома с одинаковым названием.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d день</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дня</item>
+        <item quantity="many">%d дней</item>
+        <item quantity="other">%d дня</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d день до удаления истории</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дня до удаления истории</item>
+        <item quantity="many">%d дней до удаления истории</item>
+        <item quantity="other">%d дня до удаления истории</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d альбома?</item>
+        <item quantity="many">Удалить %d альбомов?</item>
+        <item quantity="other">Удалить %d альбома?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d изображение добавлено в избранное.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d изображения добавлены в избранное.</item>
+        <item quantity="many">%d изображений добавлено в избранное.</item>
+        <item quantity="other">%d изображения добавлено в избранное.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d приглашение</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d приглашения</item>
+        <item quantity="many">%d приглашений</item>
+        <item quantity="other">%d приглашения</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент добавлен в избранное.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элемента добавлены в избранное.</item>
+        <item quantity="many">%d элементов добавлено в избранное.</item>
+        <item quantity="other">%d элемента добавлено в избранное.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбран %d человек</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбрано %d человека</item>
+        <item quantity="many">Выбрано %d человек</item>
+        <item quantity="other">Выбрано %d человека</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбрано: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбрано: %d</item>
+        <item quantity="many">Выбрано: %d</item>
+        <item quantity="other">Выбрано: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d общий альбом, 1 приглашение</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d общих альбома, 1 приглашение</item>
+        <item quantity="many">%d общих альбомов, 1 приглашение</item>
+        <item quantity="other">%d общего альбома, 1 приглашение</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Найдено %d новое фото, которое, возможно, следует добавить в этот альбом.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Найдено %d новых фото, которые, возможно, следует добавить в этот альбом.</item>
+        <item quantity="many">Найдено %d новых фото, которые, возможно, следует добавить в этот альбом.</item>
+        <item quantity="other">Найдено %d нового фото, которое, возможно, следует добавить в этот альбом.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d видео добавлено в избранное.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d видео добавлены в избранное.</item>
+        <item quantity="many">%d видео добавлено в избранное.</item>
+        <item quantity="other">%d видео добавлено в избранное.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s, %2$d год назад</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s, %2$d года назад</item>
+        <item quantity="many">%1$s, %2$d лет назад</item>
+        <item quantity="other">%1$s, %2$d года назад</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d альбома</item>
+        <item quantity="many">%d альбомов</item>
+        <item quantity="other">%d альбома</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Загружен %d элемент. Чтобы просмотреть его, коснитесь здесь.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Загружены %d элемента. Чтобы просмотреть их, коснитесь здесь.</item>
+        <item quantity="many">Загружено %d элементов. Чтобы просмотреть их, коснитесь здесь.</item>
+        <item quantity="other">Загружено %d элемента. Чтобы просмотреть, коснитесь здесь.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d группа</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d группы</item>
+        <item quantity="many">%d групп</item>
+        <item quantity="other">%d группы</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось загрузить %d файл. Формат изображений HEIF не поддерживается на этом телефоне.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось загрузить %d файла. Формат изображений HEIF не поддерживается на этом телефоне.</item>
+        <item quantity="many">Не удалось загрузить %d файлов. Формат изображений HEIF не поддерживается на этом телефоне.</item>
+        <item quantity="other">Не удалось загрузить %d файла. Формат изображений HEIF не поддерживается на этом телефоне.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не удалось загрузить %d файл. Формат изображений HEIF не поддерживается на этом планшете.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не удалось загрузить %d файла. Формат изображений HEIF не поддерживается на этом планшете.</item>
+        <item quantity="many">Не удалось загрузить %d файлов. Формат изображений HEIF не поддерживается на этом планшете.</item>
+        <item quantity="other">Не удалось загрузить %d файла. Формат изображений HEIF не поддерживается на этом планшете.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d участник</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d участника</item>
+        <item quantity="many">%d участников</item>
+        <item quantity="other">%d участника</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно добавить больше %d стикера. Чтобы удалить стикеры, откройте фоторедактор в “Галерее”.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно добавить больше %d стикеров. Чтобы удалить стикеры, откройте фоторедактор в “Галерее”.</item>
+        <item quantity="many">Невозможно добавить больше %d стикеров. Чтобы удалить стикеры, откройте фоторедактор в “Галерее”.</item>
+        <item quantity="other">Невозможно добавить больше %d стикера. Чтобы удалить стикеры, откройте фоторедактор в “Галерее”.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 группа, %d альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 группа, %d альбома</item>
+        <item quantity="many">1 группа, %d альбомов</item>
+        <item quantity="other">1 группа, %d альбома</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 общий альбом, %d приглашение</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 общий альбом, %d приглашения</item>
+        <item quantity="many">1 общий альбом, %d приглашений</item>
+        <item quantity="other">1 общий альбом, %d приглашения</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d изображение навсегда?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d изображения навсегда?</item>
+        <item quantity="many">Удалить %d изображений навсегда?</item>
+        <item quantity="other">Удалить %d изображения навсегда?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Окончательно удалить %d элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Окончательно удалить %d элемента?</item>
+        <item quantity="many">Окончательно удалить %d элементов?</item>
+        <item quantity="other">Окончательно удалить %d элемента?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d видео навсегда?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d видео навсегда?</item>
+        <item quantity="many">Удалить %d видео навсегда?</item>
+        <item quantity="other">Удалить %d видео навсегда?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d изображение будет окончательно удалено.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d изображения будут окончательно удалены.</item>
+        <item quantity="many">%d изображений будут окончательно удалены.</item>
+        <item quantity="other">%d изображения будут окончательно удалены.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d объект будет удален окончательно.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d объекта будет удалено окончательно.</item>
+        <item quantity="many">%d объектов будет удалено окончательно.</item>
+        <item quantity="other">%d объекта будет удалено окончательно.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d видео будет окончательно удалено.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d видео будут окончательно удалены.</item>
+        <item quantity="many">%d видео будут окончательно удалены.</item>
+        <item quantity="other">%d видео будут окончательно удалены.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сохранена %d фотография.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сохранено %d фотографии.</item>
+        <item quantity="many">Сохранено %d фотографий.</item>
+        <item quantity="other">Сохранено %d фотографии.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d день в %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$d дня в %2$s</item>
+        <item quantity="many">%1$d дней в %2$s</item>
+        <item quantity="other">%1$d дня в %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d год назад</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d года назад</item>
+        <item quantity="many">%d лет назад</item>
+        <item quantity="other">%d года назад</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалена %d рекомендация.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалены %d рекомендации.</item>
+        <item quantity="many">Удалены %d рекомендаций.</item>
+        <item quantity="other">Удалены %d рекомендации.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d изображение из этого общего альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d изображения из этого общего альбома?</item>
+        <item quantity="many">Удалить %d изображений из этого общего альбома?</item>
+        <item quantity="other">Удалить %d изображения из этого общего альбома?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d изображение из альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d изображения из альбома?</item>
+        <item quantity="many">Удалить %d изображений из альбома?</item>
+        <item quantity="other">Удалить %d изображения из альбома?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d элемент из альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d элемента из альбома?</item>
+        <item quantity="many">Удалить %d элементов из альбома?</item>
+        <item quantity="other">Удалить %d элемента из альбома?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d элемент из истории?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d элемента из истории?</item>
+        <item quantity="many">Удалить %d элементов из истории?</item>
+        <item quantity="other">Удалить %d элемента из истории?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d изображение из альбома рекомендаций?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d изображения из альбома рекомендаций?</item>
+        <item quantity="many">Удалить %d изображений из альбома рекомендаций?</item>
+        <item quantity="other">Удалить %d изображения из альбома рекомендаций?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d элемент из альбома рекомендаций?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d элемента из альбома рекомендаций?</item>
+        <item quantity="many">Удалить %d элементов из альбома рекомендаций?</item>
+        <item quantity="other">Удалить %d элемента из альбома рекомендаций?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d видео из альбома рекомендаций?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d видео из альбома рекомендаций?</item>
+        <item quantity="many">Удалить %d видео из альбома рекомендаций?</item>
+        <item quantity="other">Удалить %d видео из альбома рекомендаций?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d видео из альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d видео из альбома?</item>
+        <item quantity="many">Удалить %d видео из альбома?</item>
+        <item quantity="other">Удалить %d видео из альбома?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Удалить %d видео из этого общего альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Удалить %d видео из этого общего альбома?</item>
+        <item quantity="many">Удалить %d видео из этого общего альбома?</item>
+        <item quantity="other">Удалить %d видео из этого общего альбома?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сохранить %1$d элемент из серии, снятой в режиме “%2$s”?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сохранить %1$d элемента из серии, снятой в режиме “%2$s”?</item>
+        <item quantity="many">Сохранить %1$d элементов из серии, снятой в режиме “%2$s”?</item>
+        <item quantity="other">Сохранить %1$d элемента из серии, снятой в режиме “%2$s”?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сохранить %1$d фото, которое содержит %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сохранить %1$d фото, которые содержит %2$s?</item>
+        <item quantity="many">Сохранить %1$d фото, которые содержит %2$s?</item>
+        <item quantity="other">Сохранить %1$d фото, которые содержит %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %1$d изображение в “%2$s”?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %1$d изображения в “%2$s”?</item>
+        <item quantity="many">Переместить %1$d изображений в “%2$s”?</item>
+        <item quantity="other">Переместить %1$d изображения в “%2$s”?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %1$d элемент в “%2$s”?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %1$d элемента в “%2$s”?</item>
+        <item quantity="many">Переместить %1$d элементов в “%2$s”?</item>
+        <item quantity="other">Переместить %1$d элемента в “%2$s”?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Переместить %1$d видео в “%2$s”?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Переместить %1$d видео в “%2$s”?</item>
+        <item quantity="many">Переместить %1$d видео в “%2$s”?</item>
+        <item quantity="other">Переместить %1$d видео в “%2$s”?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Группа из %d похожего изображения</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Группа из %d похожих изображений</item>
+        <item quantity="many">Группа из %d похожих изображений</item>
+        <item quantity="other">Группа из %d похожего изображения</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбран %d элемент</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбраны %d элемента</item>
+        <item quantity="many">Выбрано %d элементов</item>
+        <item quantity="other">Выбрано %d элемента</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Этот пользователь %d год назад</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Этот пользователь %d года назад</item>
+        <item quantity="many">Этот пользователь %d лет назад</item>
+        <item quantity="other">Этот пользователь %d года назад</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d видео загружено из облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d видео загружено из облака.</item>
+        <item quantity="many">%d видео загружено из облака.</item>
+        <item quantity="other">%d видео загружено из облака.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видео восстановлено. Не удалось восстановить %1$d видео из %2$s. Ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видео восстановлено. Не удалось восстановить %1$d видео из %2$s: ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="many">Видео восстановлено. Не удалось восстановить %1$d видео из %2$s: ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+        <item quantity="other">Видео восстановлено. Не удалось восстановить %1$d видео из %2$s: ваш %3$s заблокирован в связи с запросом по поводу личных данных.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Невозможно добавить в коллаж более %d элемента.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Невозможно добавить в коллаж более %d элементов.</item>
+        <item quantity="many">Невозможно добавить в коллаж более %d элементов.</item>
+        <item quantity="other">Невозможно добавить в коллаж более %d элемента.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Будет удалено через %d день</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Будет удалено через %d дня</item>
+        <item quantity="many">Будет удалено через %d дней</item>
+        <item quantity="other">Будет удалено через %d дня</item>
+    </plurals>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="albums_column_count">
+        <item>1</item>
+        <item>6</item>
+        <item>5</item>
+    </array>
+    <array name="albums_column_count_split">
+        <item>1</item>
+        <item>5</item>
+        <item>4</item>
+    </array>
+    <array name="creature_cover_choice_column_count">
+        <item>7</item>
+    </array>
+    <array name="hide_rule_scene_column_count">
+        <item>8</item>
+    </array>
+    <array name="highlight_column_count">
+        <item>6</item>
+    </array>
+    <array name="highlight_pictures_column_count">
+        <item>5</item>
+    </array>
+    <array name="oneui30_suggestion_column_count">
+        <item>6</item>
+    </array>
+    <array name="pinch_remaster_pictures_column_count">
+        <item>4</item>
+        <item>3</item>
+    </array>
+    <array name="portrait_pictures_column_count">
+        <item>5</item>
+    </array>
+    <array name="remaster_pictures_column_count">
+        <item>3</item>
+    </array>
+    <array name="search_column_count">
+        <item>7</item>
+    </array>
+    <array name="search_pictures_column_count">
+        <item>11</item>
+        <item>8</item>
+        <item>7</item>
+        <item>1</item>
+    </array>
+    <array name="sharing_pictures_column_count">
+        <item>11</item>
+        <item>8</item>
+        <item>7</item>
+        <item>1</item>
+    </array>
+    <array name="stories_legacy_column_count">
+        <item>2</item>
+    </array>
+    <array name="stories_split_column_count">
+        <item>2</item>
+    </array>
+    <array name="stories_staggered_layout_column_count">
+        <item>4</item>
+    </array>
+    <array name="story_pictures_legacy_column_count">
+        <item>5</item>
+        <item>1</item>
+    </array>
+    <array name="virtual_album_peoples_column_count">
+        <item>5</item>
+        <item>7</item>
+    </array>
+    <array name="visual_search_documents_item_column_count">
+        <item>6</item>
+    </array>
+    <array name="visual_search_location_item_column_count">
+        <item>5</item>
+    </array>
+    <array name="visual_search_location_max_item_count">
+        <item>5</item>
+    </array>
+    <array name="visual_search_scenes_item_column_count">
+        <item>6</item>
+    </array>
+    <array name="visual_search_scenes_item_column_count_expansion">
+        <item>5</item>
+    </array>
+    <array name="visual_search_shot_mode_item_column_count">
+        <item>6</item>
+    </array>
+</resources>

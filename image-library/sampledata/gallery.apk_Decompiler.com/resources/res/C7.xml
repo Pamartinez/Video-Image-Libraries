@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:key="top_level_gallery_settings_main_screen">
+    <PreferenceCategory android:layout="@layout/preference_category_dummy_layout" android:key="setting_tip_card_category" app:isPreferenceVisible="false">
+        <PreferenceCategory android:order="100"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_category_dummy_layout" android:key="cloud_category">
+        <com.samsung.android.gallery.settings.widget.SwitchExSummaryPreference android:title="@string/sync_with_one_drive" android:key="cloud_sync" android:defaultValue="false" app:isPreferenceVisible="false"/>
+        <Preference android:title="@string/back_up_sd_card_to_one_drive" android:key="back_up_sd_card_to_one_drive" app:isPreferenceVisible="false"/>
+        <Preference android:title="@string/att_cloud" android:key="att_cloud"/>
+        <Preference android:title="@string/baidu_cloud" android:key="baidu_cloud"/>
+        <Preference android:title="@string/tencent_cloud" android:key="tencent_cloud"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_category_dummy_layout" android:key="samsung_cloud_category">
+        <com.samsung.android.gallery.settings.widget.SwitchExSummaryPreference android:key="samsung_cloud_sync" android:summary="@string/cloud_sync_description" android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="intelligent_features_category">
+        <Preference android:title="@string/intelligent_features" android:key="intelligent_features"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/viewing" android:key="viewing_category">
+        <SwitchPreferenceCompat android:title="@string/super_hdr" android:key="photo_hdr" android:summary="@string/super_hdr_summary" android:defaultValue="true"/>
+        <SwitchPreferenceCompat android:title="@string/auto_play_motion_photo" android:key="auto_play_motion_photo" android:defaultValue="true"/>
+        <SwitchPreferenceCompat android:title="@string/open_in_video_player" android:key="open_in_video_player" android:defaultValue="false"/>
+        <SwitchPreferenceCompat android:title="@string/add_meitu_options_to_gallery" android:key="meitu" android:summary="@string/meitu_summary" android:defaultValue="true"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/editing" android:key="editing_category">
+        <Preference android:title="@string/photo_assist" android:key="photo_assist"/>
+        <Preference android:title="@string/audio_eraser_settings" android:key="audio_eraser"/>
+        <Preference android:title="@string/edit_suggestions" android:key="ai_edit_suggestions"/>
+        <Preference android:title="@string/detail_enhancer" android:key="detail_enhancer"/>
+        <Preference android:title="@string/photo_editor_settings" android:key="photo_editor_settings"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_stories_category" android:key="event_settings">
+        <SwitchPreferenceCompat android:title="@string/auto_create_event" android:key="auto_create_event" android:defaultValue="true"/>
+        <Preference android:title="@string/customization_service" android:key="go_to_rubin"/>
+        <SwitchPreferenceCompat android:title="@string/story_notification" android:key="story_notification"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/shared_albums" android:key="albums_setting">
+        <SwitchPreferenceCompat android:title="@string/essential_album_setting" android:key="select_essential_albums" android:summary="@string/select_essential_albums_summary" android:defaultValue="true"/>
+        <SwitchPreferenceCompat android:title="@string/merge_albums" android:key="merge_albums" android:summary="@string/merge_albums_description" android:defaultValue="true"/>
+        <SeslSwitchPreferenceScreen android:title="@string/share_notification" android:key="shared_album_notification" android:defaultValue="true"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="advanced_setting">
+        <SwitchPreferenceCompat android:title="@string/trash" android:key="trash" android:summary="@string/trash_summary_30_days" android:defaultValue="true"/>
+        <SwitchPreferenceCompat android:title="@string/cmh_provider_permission_title" android:key="cmh_provider" android:summary="@string/cmh_provider_permission_summary" android:defaultValue="false"/>
+        <SwitchPreferenceCompat android:title="@string/show_place_names" android:key="location_auth" android:defaultValue="false"/>
+        <SwitchPreferenceCompat android:title="@string/heif_auto_conversion_title" android:key="detail_view_heif_auto_conversion" android:defaultValue="false"/>
+        <SwitchPreferenceCompat android:title="@string/hdr10plus_auto_conversion_title" android:key="detail_view_hdr10plus_auto_conversion" android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/privacy" android:key="privacy_category">
+        <Preference android:title="@string/privacy_policy" android:key="privacy_policy"/>
+        <Preference android:title="@string/permissions" android:key="permission"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:key="about_gallery_page">
+        <Preference android:title="@string/about_gallery_setting" android:key="about_page"/>
+        <Preference android:title="@string/contact_us" android:key="contact_us"/>
+    </PreferenceCategory>
+    <PreferenceCategory/>
+    <PreferenceCategory android:layout="@layout/preference_category_footer_layout" android:order="7fffffff">
+        <PreferenceCategory/>
+    </PreferenceCategory>
+</PreferenceScreen>

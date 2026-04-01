@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.oneui.floatingactioncontainer.FloatingToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/sesl_floating_toolbar_layout" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:clipToOutline="false" app:layout_anchor="@+id/appbar" app:layout_anchorGravity="30">
+    <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:layout_gravity="bottom" android:id="@+id/toolbar" android:background="@color/transparent" app:background="@color/transparent" app:layout_collapseMode="1" style="@style/ToolbarStyle"/>
+</com.google.android.material.oneui.floatingactioncontainer.FloatingToolbarLayout>

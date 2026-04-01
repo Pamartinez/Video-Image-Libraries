@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_gravity="center" android:id="@+id/transitory_cat_layout" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include layout="@layout/stories_category_item_header_layout"/>
+        <FrameLayout android:layout_gravity="center_horizontal" android:id="@+id/transitory_container" android:paddingTop="10dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:layout_gravity="center_horizontal" android:id="@+id/transitory_content" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.samsung.android.gallery.widget.livemotion.ViewPagerContainer android:id="@+id/viewpager_parent" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no">
+                    <androidx.viewpager2.widget.ViewPager2 android:id="@+id/transitory_viewpager" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                </com.samsung.android.gallery.widget.livemotion.ViewPagerContainer>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

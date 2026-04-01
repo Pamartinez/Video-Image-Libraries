@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="oval">
+    <size android:height="@dimen/play_btn_size" android:width="@dimen/play_btn_size"/>
+    <solid android:color="@color/viewer_play_btn_color"/>
+    <stroke android:width="@dimen/play_btn_outline_stroke" android:color="@color/viewer_play_btn_stroke_color"/>
+</shape>

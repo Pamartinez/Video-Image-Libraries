@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/photo_id_background_color"/>
+            <stroke android:width="@dimen/photo_id_stroke_width" android:color="@color/photo_id_stroke_color"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:drawable="@drawable/gallery_ic_search_input_name"/>
+</layer-list>

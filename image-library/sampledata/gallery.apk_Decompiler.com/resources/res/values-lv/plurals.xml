@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">Vai kopīg.alb. pievienot %d mākoņobjektus?</item>
+        <item quantity="one">Vai kopīg. alb. pievienot %d mākoņobjektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai kopīg.alb. pievienot %d mākoņobjektus?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">Lai izmantotu intelektiskās funkcijas, tev jābūt vismaz %d gadus vecam.</item>
+        <item quantity="one">Lai izmantotu intelektiskās funkcijas, tev jābūt vismaz %d gadu vecam.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Lai izmantotu intelektiskās funkcijas, tev jābūt vismaz %d gadus vecam.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">%d attēli</item>
+        <item quantity="one">%d attēls</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d attēli</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">Meitu ziņai var pievienot ne vairāk kā %d videoklipus.</item>
+        <item quantity="one">Meitu ziņai var pievienot ne vairāk kā %d videoklipu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu ziņai var pievienot ne vairāk kā %d videoklipus.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">Nevar izdzēst %1$d %2$s attēlus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar izdzēst %1$d %2$s attēlu. %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar izdzēst %1$d %2$s attēlus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">Nevar izdzēst %1$d %2$s objektus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar izdzēst %1$d %2$s objektu. %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar izdzēst %1$d %2$s objektus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">Nevar izdzēst %1$d %2$s videoklipus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar izdzēst %1$d %2$s videoklipu. %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar izdzēst %1$d %2$s videoklipus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">Meitu ziņā var iekļaut ne vairāk kā %d vienumus.</item>
+        <item quantity="one">Meitu ziņā var iekļaut ne vairāk kā %d vienumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu ziņā var iekļaut ne vairāk kā %d vienumus.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">Nevar atjaunot %1$d %2$s attēlus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar atjaunot %1$d %2$s attēlu. %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar atjaunot %1$d %2$s attēlus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">Nevar atjaunot %1$d %2$s objektus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar atjaunot %1$d %2$s objektu. %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar atjaunot %1$d %2$s objektus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">Nevar atjaunot %1$d %2$s videoklipus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Nevar atjaunot %1$d %2$s videoklipu. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevar atjaunot %1$d %2$s videoklipus. Jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">Vienlaikus var pievienot ne vairāk kā %d vienumus.</item>
+        <item quantity="one">Vienlaikus var pievienot ne vairāk kā %d vienumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vienlaikus var pievienot ne vairāk kā %d vienumus.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">Stāstam var pievienot ne vairāk kā %d objektus.</item>
+        <item quantity="one">Stāstam var pievienot ne vairāk kā %d objektu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Stāstam var pievienot ne vairāk kā %d objektus.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">%d pilsētas</item>
+        <item quantity="one">%d pilsēta</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d pilsētas</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">Nevarēja atjaunot %1$d attēlus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="one">Nevarēja atjaunot %1$d attēlu. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja atjaunot %1$d attēlus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">Nevarēja atjaunot %1$d objektus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="one">Nevarēja atjaunot %1$d objektu. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja atjaunot %1$d objektus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">Nevarēja atjaunot %1$d videoklipus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="one">Nevarēja atjaunot %1$d videoklipu. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja atjaunot %1$d videoklipus. Atbrīvojiet vietu %2$s krātuvē un pēc tam mēģiniet vēlreiz.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">Nevarēja atjaunot %1$d videoklipus. Šie videoklipi tika atjaunoti vai izdzēsti programmā %2$s.</item>
+        <item quantity="one">Nevarēja atjaunot %1$d videoklipu. Šis videoklips tika atjaunots vai izdzēsts programmā %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja atjaunot %1$d videoklipus. Šie videoklipi tika atjaunoti vai izdzēsti programmā %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">Nevarēja noņemt %d objektus. Mēģiniet vēlreiz.</item>
+        <item quantity="one">Nevarēja noņemt %d objektu. Mēģiniet vēlreiz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja noņemt %d objektus. Mēģiniet vēlreiz.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">%d kopīgoti albumi</item>
+        <item quantity="one">%d kopīgots albums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d kopīgoti albumi</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">%d stāsti</item>
+        <item quantity="one">%d stāsts</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d stāsti</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">Informācija par datumu un laiku ir mainīta %d attēlos.</item>
+        <item quantity="one">Informācija par datumu un laiku ir mainīta %d attēlā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informācija par datumu un laiku ir mainīta %d attēlos.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">Informācija par datumu un laiku ir mainīta %d objektos.</item>
+        <item quantity="one">Informācija par datumu un laiku ir mainīta %d objektā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informācija par datumu un laiku ir mainīta %d objektos.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">Informācija par datumu un laiku ir mainīta %d videoklipos.</item>
+        <item quantity="one">Informācija par datumu un laiku ir mainīta %d videoklipā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Informācija par datumu un laiku ir mainīta %d videoklipos.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">Vai izdzēst %d albumus?</item>
+        <item quantity="one">Vai izdzēst %d albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d albumus?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">Vai izdzēst 1 grupu, %d albumus un 1 tajos esošu objektu?</item>
+        <item quantity="one">Vai izdzēst 1 grupu, %d albumu un 1 tajos esošu objektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst 1 grupu, %d albumus un 1 tajos esošu objektu?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">Vai izdzēst %d grupas?</item>
+        <item quantity="one">Vai izdzēst %d grupu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d grupas?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">Vai izdzēst %d attēlus?</item>
+        <item quantity="one">Vai izdzēst %d attēlu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d attēlus?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">Vai izdzēst %d objektu?</item>
+        <item quantity="one">Vai izdzēst %d objektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d objektus?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">Vai izdzēst %d grupas ar līdzīgiem attēliem?</item>
+        <item quantity="one">Vai izdzēst %d grupu ar līdzīgiem attēliem?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d grupas ar līdzīgiem attēliem?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">Vai izdzēst %d grupas ar līdzīgiem attēliem un vēl 1 objektu?</item>
+        <item quantity="one">Vai izdzēst %d grupu ar līdzīgiem attēliem un vēl 1 objektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d grupas ar līdzīgiem attēliem un vēl 1 objektu?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">Vai izdzēst 1 grupu ar līdzīgiem attēliem un vēl %d objektus?</item>
+        <item quantity="one">Vai izdzēst 1 grupu ar līdzīgiem attēliem un vēl %d objektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst 1 grupu ar līdzīgiem attēliem un vēl %d objektus?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">Vai izdzēst %d objektus no šī komplekta?</item>
+        <item quantity="one">Vai izdzēst %d objektu no šī komplekta?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d objektus no šī komplekta?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">Vai izdzēst videoklipus no %d kustības fotoattēliem?</item>
+        <item quantity="one">Vai izdzēst videoklipu no %d kustības fotoattēla?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst videoklipus no %d kustības fotoattēliem?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">Vai izdzēst %d attēlus no šī komplekta?</item>
+        <item quantity="one">Vai izdzēst %d attēlu no šī komplekta?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d attēlus no šī komplekta?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">Vai izdzēst %d viena fotouzņēmuma komplektus?</item>
+        <item quantity="one">Vai izdzēst %d viena fotouzņēmuma komplektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d viena fotouzņēmuma komplektus?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">Vai izdzēst %d videoklipus?</item>
+        <item quantity="one">Vai izdzēst %d videoklipu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d videoklipus?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">Šo saturu jūs varat skatīt vēl %d reizes. Vai skatīt tūlīt?</item>
+        <item quantity="one">Šo saturu jūs varat skatīt vēl %d reizi. Vai skatīt tūlīt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Šo saturu jūs varat skatīt vēl %d reizes. Vai skatīt tūlīt?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">%d tukši albumi tiks izdzēsti, nepārvietojot tos uz atkritni.</item>
+        <item quantity="one">%d tukšs albums tiks izdzēsts, nepārvietojot to uz atkritni.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d tukši albumi tiks izdzēsti, nepārvietojot tos uz atkritni.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">Atkritnē esošie objekti pēc %d dienām tiks neatgriezeniski izdzēsti.</item>
+        <item quantity="one">Atkritnē esošie objekti pēc %d dienas tiks neatgriezeniski izdzēsti.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Atkritnē esošie objekti pēc %d dienām tiks neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">%d attēli ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+        <item quantity="one">%d attēls ir neatgriezeniski izdzēsts no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošo kopiju.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d attēli ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">%d objekti ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+        <item quantity="one">%d objekts ir neatgriezeniski izdzēsts no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošo kopiju.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d objekti ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">%d videoklipi ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+        <item quantity="one">%d videoklips ir neatgriezeniski izdzēsts no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošo kopiju.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoklipi ir neatgriezeniski izdzēsti no jūsu tālruņa. Dodieties uz OneDrive, lai izdzēstu atkritnē esošās kopijas.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">%d attēli ir neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d attēls ir neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d attēli ir neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">%d objekti ir neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d objekts ir neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d objekti ir neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">%d videoklipi ir neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d videoklips ir neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoklipi ir neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">Režģa skats ar %d sīktēliem katrā rindā</item>
+        <item quantity="one">Režģa skats ar %d sīktēlu katrā rindā</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Režģa skats ar %d sīktēliem katrā rindā</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">%d grupas, 1 albums</item>
+        <item quantity="one">%d grupa, 1 albums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d grupas, 1 albums</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">No mākoņa lejupielādēti %d attēli.</item>
+        <item quantity="one">No mākoņa lejupielādēts %d attēls.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">No mākoņa lejupielādēti %d attēli.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">Attēli ir atjaunoti. %1$d %2$s attēlus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Attēli ir atjaunoti. %1$d %2$s attēlu nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Attēli ir atjaunoti. %1$d %2$s attēlus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">Saglabāti %d objekti.</item>
+        <item quantity="one">Saglabāts %d objekts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Saglabāti %d objekti.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">No mākoņa lejupielādēti %d objekti.</item>
+        <item quantity="one">No mākoņa lejupielādēts %d objekts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">No mākoņa lejupielādēti %d objekti.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">Objekti ir atjaunoti. %1$d %2$s objektus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Objekti ir atjaunoti. %1$d %2$s objektu nevar atjaunot, jo %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Objekti ir atjaunoti. %1$d %2$s objektus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">Atrašanās vietas informācija ir mainīta %d attēlos.</item>
+        <item quantity="one">Atrašanās vietas informācija ir mainīta %d attēlā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Atrašanās vietas informācija ir mainīta %d attēlos.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">Atrašanās vietas informācija ir mainīta %d objektos.</item>
+        <item quantity="one">Atrašanās vietas informācija ir mainīta %d objektā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Atrašanās vietas informācija ir mainīta %d objektos.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">Atrašanās vietas informācija ir mainīta %d videoklipos.</item>
+        <item quantity="one">Atrašanās vietas informācija ir mainīta %d videoklipā.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Atrašanās vietas informācija ir mainīta %d videoklipos.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">%d atrašanās vietas</item>
+        <item quantity="one">%d atrašanās vieta</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d atrašanās vietas</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">Var ievadīt ne vairāk kā %d rakstzīmju.</item>
+        <item quantity="one">Var ievadīt ne vairāk kā %d rakstzīmi.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Var ievadīt ne vairāk kā %d rakstzīmes.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">Saglabāti videoklipi no %d kustības fotoattēliem.</item>
+        <item quantity="one">Saglabāts videoklips no %d kustības fotoattēla.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Saglabāti videoklipi no %d kustības fotoattēliem.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d sērijveida fotoattēlus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d sērijveida fotoattēlu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d sērijveida fotoattēlus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">Vai pārvietot %d sērijveida fotoattēlus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d sērijveida fotoattēlu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d sērijveida fotoattēlus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">Vai pārvietot 1 grupu, 1 albumu un %d tajos esošus objektus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot 1 grupu, 1 albumu un %d tajos esošu objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot 1 grupu, 1 albumu un %d tajos esošus objektus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">Vai pārvietot 1 grupu, %d albumus un 1 tajos esošu objektu uz atkritni?</item>
+        <item quantity="one">Vai pārvietot 1 grupu, %d albumu un 1 tajos esošu objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot 1 grupu, %d albumus un 1 tajos esošu objektu uz atkritni?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">Vai pārvietot %d grupas, 1 albumu un 1 tajos esošu objektu uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d grupu, 1 albumu un 1 tajos esošu objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d grupas, 1 albumu un 1 tajos esošu objektu uz atkritni?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d attēlus no šī sērijveida foto uz Atkritni?</item>
+        <item quantity="one">Vai pārvietot %d attēlu no šī sērijveida foto uz Atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d attēlus no šī sērijveida foto uz Atkritni?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">Vai pārvietot %d attēlus no šī sērijveida foto uz Atkritni?</item>
+        <item quantity="one">Vai pārvietot %d attēlu no šī sērijveida foto uz Atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d attēlus no šī sērijveida foto uz Atkritni?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d attēlus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d attēlu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d attēlus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d objektus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d objektus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">%d objekti</item>
+        <item quantity="one">%d objekts</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d objekti</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">Vai pārvietot %d grupas ar līdzīgiem attēliem uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d grupu ar līdzīgiem attēliem uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d grupas ar līdzīgiem attēliem uz atkritni?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">Vai pārvietot %d grupas ar līdzīgiem attēliem un vēl 1 objektu uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d grupu ar līdzīgiem attēliem un vēl 1 objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d grupas ar līdzīgiem attēliem un vēl 1 objektu uz atkritni?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">Vai pārvietot 1 grupu ar līdzīgiem attēliem un vēl %d objektus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot 1 grupu ar līdzīgiem attēliem un vēl %d objektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot 1 grupu ar līdzīgiem attēliem un vēl %d objektus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d objektus no šī komplekta uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d objektu no šī komplekta uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d objektus no šī komplekta uz atkritni?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d attēlus no šī komplekta uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d attēlu no šī komplekta uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d attēlus no šī komplekta uz atkritni?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d viena fotouzņēmuma komplektus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d viena fotouzņēmuma komplektu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d viena fotouzņēmuma komplektus uz atkritni?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">Vai pārvietot %d vienumus uz privāto albumu?</item>
+        <item quantity="one">Vai pārvietot %d vienumu uz privāto albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d vienumus uz privāto albumu?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">Nevarēja pārvietot %1$d %2$s failus uz %3$s. Lejupielādējiet šos failus un mēģiniet vēlreiz.</item>
+        <item quantity="one">Nevarēja pārvietot %1$d %2$s failu uz %3$s. Lejupielādējiet šo failu un mēģiniet vēlreiz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja pārvietot %1$d %2$s failus uz %3$s. Lejupielādējiet šos failus un mēģiniet vēlreiz.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">Vai pārvietot %d videoklipus uz atkritni?</item>
+        <item quantity="one">Vai pārvietot %d videoklipu uz atkritni?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %d videoklipus uz atkritni?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">Pārvieto %d vienumus uz atkritni…</item>
+        <item quantity="one">Pārvieto %d vienumu uz atkritni…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Pārvieto %d vienumus uz atkritni…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="zero">%d jaunu paziņojumu</item>
+        <item quantity="one">%d jauns paziņojums</item>
+        <item quantity="other">%d jauni paziņojumi</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">%d albumi ar tādu pašu nosaukumu ir apvienoti.</item>
+        <item quantity="one">%d albums ar tādu pašu nosaukumu ir apvienots.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albumi ar tādu pašu nosaukumu ir apvienoti.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">%d d.</item>
+        <item quantity="one">%d diena</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d d.</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">%d dienas līdz stāsta dzēšanai</item>
+        <item quantity="one">%d diena līdz stāsta dzēšanai</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d dienas līdz stāsta dzēšanai</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">Vai izdzēst %d albumus?</item>
+        <item quantity="one">Vai izdzēst %d albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai izdzēst %d albumus?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">Izlasei ir pievienoti %d attēli.</item>
+        <item quantity="one">Izlasei ir pievienots %d attēls.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izlasei ir pievienoti %d attēli.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">%d ielūgumi</item>
+        <item quantity="one">%d ielūgums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ielūgumi</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">Izlasei ir pievienoti %d vienumi.</item>
+        <item quantity="one">Izlasei ir pievienots %d vienums.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izlasei ir pievienoti %d vienumi.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">Izvēlētas %d personas</item>
+        <item quantity="one">Izvēlēta %d persona</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izvēlētas %d personas</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">Izvēlēti %d</item>
+        <item quantity="one">Izvēlēts %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izvēlēti %d vienumi</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">%d kopīgoti albumi, 1 ielūgums</item>
+        <item quantity="one">%d kopīgots albums, 1 ielūgums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d kopīgoti albumi, 1 ielūgums</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">Mēs atradām %d jaunus attēlus, ko, iespējams, vēlēsities pievienot šim albumam.</item>
+        <item quantity="one">Mēs atradām %d jaunu attēlu, ko, iespējams, vēlēsities pievienot šim albumam.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Mēs atradām %d jaunus attēlus, ko, iespējams, vēlēsities pievienot šim albumam.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">Izlasei ir pievienoti %d videoklipi.</item>
+        <item quantity="one">Izlasei ir pievienots %d videoklips.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izlasei ir pievienoti %d videoklipi.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">%1$s pirms %2$d gadiem</item>
+        <item quantity="one">%1$s pirms %2$d gada</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s pirms %2$d gadiem</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">%d albumi</item>
+        <item quantity="one">%d albums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d albumi</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">Lejupielādēti %d objekti. Pieskarieties šeit, lai tos skatītu.</item>
+        <item quantity="one">Lejupielādēts %d objekts. Pieskarieties šeit, lai to skatītu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Lejupielādēti %d objekti. Pieskarieties šeit, lai tos skatītu.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">%d grupas</item>
+        <item quantity="one">%d grupa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d grupas</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">Nevarēja lejupielādēt %d failus. Šis tālrunis neatbalsta HEIF attēlus.</item>
+        <item quantity="one">Nevarēja lejupielādēt %d failu. Šis tālrunis neatbalsta HEIF attēlus.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja lejupielādēt %d failus. Šis tālrunis neatbalsta HEIF attēlus.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">Nevarēja lejupielādēt %d failus. Šis planšetdators neatbalsta HEIF attēlus.</item>
+        <item quantity="one">Nevarēja lejupielādēt %d failu. Šis planšetdators neatbalsta HEIF attēlus.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Nevarēja lejupielādēt %d failus. Šis planšetdators neatbalsta HEIF attēlus.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">%d dalībnieki</item>
+        <item quantity="one">%d dalībnieks</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d dalībnieki</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">Var pievienot ne vairāk kā %d uzlīmes. Lai noņemtu uzlīmes, atveriet fotoattēlu redaktoru programmā Galerija.</item>
+        <item quantity="one">Var pievienot ne vairāk kā %d uzlīmi. Lai noņemtu uzlīmes, atveriet fotoattēlu redaktoru programmā Galerija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Var pievienot ne vairāk kā %d uzlīmes. Lai noņemtu uzlīmes, atveriet fotoattēlu redaktoru programmā Galerija.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">1 grupa, %d albumi</item>
+        <item quantity="one">1 grupa, %d albums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 grupa, %d albumi</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">1 kopīgots albums, %d ielūgumi</item>
+        <item quantity="one">1 kopīgots albums, %d ielūgums</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 kopīgots albums, %d ielūgumi</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">Vai neatgriezeniski izdzēst %d attēlus?</item>
+        <item quantity="one">Vai neatgriezeniski izdzēst %d attēlu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai neatgriezeniski izdzēst %d attēlus?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">Vai neatgriezeniski izdzēst %d objektus?</item>
+        <item quantity="one">Vai neatgriezeniski izdzēst %d objektu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai neatgriezeniski izdzēst %d objektus?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">Vai neatgriezeniski izdzēst %d videoklipus?</item>
+        <item quantity="one">Vai neatgriezeniski izdzēst %d videoklipu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai neatgriezeniski izdzēst %d videoklipus?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">%d attēli tiks neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d attēls tiks neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d attēli tiks neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">%d objekti tiks neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d objekts tiks neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d objekti tiks neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">%d videoklipi tiks neatgriezeniski izdzēsti.</item>
+        <item quantity="one">%d videoklips tiks neatgriezeniski izdzēsts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d videoklipi tiks neatgriezeniski izdzēsti.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">Saglabāti %d attēli.</item>
+        <item quantity="one">Saglabāts %d attēls.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Saglabāti %d attēli.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">Apmeklēts %1$d dienas %2$s. gadā</item>
+        <item quantity="one">Apmeklēts %1$d dienu %2$s. gadā</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Apmeklēts %1$d dienas %2$s. gadā</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">Pirms %d gadiem</item>
+        <item quantity="one">Pirms %d gada</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Pirms %d gadiem</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">%d ieteikumi ir noņemti.</item>
+        <item quantity="one">%d ieteikums ir noņemts.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ieteikumi ir noņemti.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">Vai noņemt %d attēlus no šī kopīgotā albuma?</item>
+        <item quantity="one">Vai noņemt %d attēlu no šī kopīgotā albuma?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d attēlus no šī kopīgotā albuma?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">Vai noņemt %d attēlus no albuma?</item>
+        <item quantity="one">Vai noņemt %d attēlu no albuma?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d attēlus no albuma?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">Vai noņemt %d vienumus no albuma?</item>
+        <item quantity="one">Vai noņemt %d vienumu no albuma?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d vienumus no albuma?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">Vai noņemt %d vienumus no stāsta?</item>
+        <item quantity="one">Vai noņemt %d vienumu no stāsta?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d vienumus no stāsta?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">Vai noņemt %d attēlus no albumu ieteikumiem?</item>
+        <item quantity="one">Vai noņemt %d attēlu no albumu ieteikumiem?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d attēlus no albumu ieteikumiem?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">Vai noņemt %d vienumus no albumu ieteikumiem?</item>
+        <item quantity="one">Vai noņemt %d vienumu no albumu ieteikumiem?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d vienumus no albumu ieteikumiem?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">Vai noņemt %d videoklipus no albumu ieteikumiem?</item>
+        <item quantity="one">Vai noņemt %d videoklipu no albumu ieteikumiem?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d videoklipus no albumu ieteikumiem?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">Vai noņemt %d videoklipus no albuma?</item>
+        <item quantity="one">Vai noņemt %d videoklipu no albuma?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d videoklipus no albuma?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">Vai noņemt %d videoklipus no šī kopīgotā albuma?</item>
+        <item quantity="one">Vai noņemt %d videoklipu no šī kopīgotā albuma?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai noņemt %d videoklipus no šī kopīgotā albuma?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">Vai saglabāt %1$d objektus no šī %2$s?</item>
+        <item quantity="one">Vai saglabāt %1$d objektu no šī %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai saglabāt %1$d objektus no šī %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">Vai saglabāt %1$d attēlus no šī %2$s?</item>
+        <item quantity="one">Vai saglabāt %1$d attēlu no šī %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai saglabāt %1$d attēlus no šī %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">Vai pārvietot %1$d attēlus uz %2$s?</item>
+        <item quantity="one">Vai pārvietot %1$d attēlu uz %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %1$d attēlus uz %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">Vai pārvietot %1$d objektus uz %2$s?</item>
+        <item quantity="one">Vai pārvietot %1$d objektu uz %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %1$d objektus uz %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">Vai pārvietot %1$d videoklipus uz %2$s?</item>
+        <item quantity="one">Vai pārvietot %1$d videoklipu uz %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Vai pārvietot %1$d videoklipus uz %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">%d līdzīgu attēlu grupa</item>
+        <item quantity="one">%d līdzīga attēla grupa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d līdzīgu attēlu grupa</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">Izvēlēti %d objekti</item>
+        <item quantity="one">Izvēlēts %d objekts</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Izvēlēti %d objekti</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">Šī persona pirms %d gadiem</item>
+        <item quantity="one">Šī persona pirms %d gada</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Šī persona pirms %d gadiem</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">No mākoņa lejupielādēti %d videoklipi.</item>
+        <item quantity="one">No mākoņa lejupielādēts %d videoklips.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">No mākoņa lejupielādēti %d videoklipi.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">Videoklips ir atjaunots. %1$d %2$s videoklipus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+        <item quantity="one">Videoklips ir atjaunots. %1$d %2$s videoklipu nevar atjaunot, jo %3$s ir bloķēts personas datu pieprasījuma dēļ.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Videoklips ir atjaunots. %1$d %2$s videoklipus nevarēja atjaunot, jo jūsu %3$s krātuve ir bloķēta personas datu pieprasījuma dēļ.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">Kolāžā var iekļaut ne vairāk kā %d vienumus.</item>
+        <item quantity="one">Kolāžā var iekļaut ne vairāk kā %d vienumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Kolāžā var iekļaut ne vairāk kā %d vienumus.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">Tiks izdzēsts pēc %d dienām</item>
+        <item quantity="one">Tiks izdzēsts pēc %d dienas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Tiks izdzēsts pēc %d dienām</item>
+    </plurals>
+</resources>

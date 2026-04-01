@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/image360_holder" android:background="@color/daynight_default_background" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"/>
+    <ViewStub android:id="@+id/bitmap_transition_stub" android:background="@color/daynight_default_background" android:layout="@layout/gallery360bitmap_viewer" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <RelativeLayout android:id="@+id/image360_toolparent" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" style="@style/Toolbar360ViewerStyle"/>
+        <com.samsung.android.gallery.image360.widget.Image360FastOptionView android:id="@+id/image_360_fast_option_view" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/gallery360viewer_fast_option_bg_height" android:layout_alignParentBottom="true" android:layout_alignParentStart="true">
+            <ImageView android:id="@+id/auto_play" android:background="@drawable/fastoptionview_item_ripple_autoplay_background" android:focusable="true" android:clickable="true" android:layout_width="@dimen/gallery360viewer_auto_play_width" android:layout_height="@dimen/gallery360viewer_auto_play_height" android:layout_marginBottom="@dimen/gallery360viewer_auto_play_margin_bottom" android:src="@drawable/gallery_ic_photoviewer_360pause" android:contentDescription="@string/gallery360viewer_pause" android:layout_marginStart="@dimen/gallery360viewer_auto_play_margin_left"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <View android:id="@+id/status_bar_bg_view" android:background="@color/viewer_status_bar_background_color" android:layout_width="match_parent" android:layout_height="0dp" android:layout_alignParentTop="true"/>
+    <View android:id="@+id/navigation_bar_bg_view" android:background="@color/viewer_navigation_bar_background_color" android:layout_width="match_parent" android:layout_height="0dp" android:layout_alignParentBottom="true"/>
+</RelativeLayout>

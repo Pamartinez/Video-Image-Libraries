@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <translate android:interpolator="@android:anim/accelerate_interpolator" android:duration="300" android:fromYDelta="@dimen/textextraction_dialog_animation_enter_start_translate" android:toYDelta="@dimen/textextraction_dialog_animation_enter_end_translate"/>
+    <alpha android:duration="300" android:fromAlpha="@dimen/textextraction_dialog_animation_enter_start_alpha" android:toAlpha="@dimen/textextraction_dialog_animation_enter_end_alpha"/>
+</set>

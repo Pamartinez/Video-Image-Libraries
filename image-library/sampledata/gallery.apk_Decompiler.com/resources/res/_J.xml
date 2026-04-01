@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:paddingBottom="@dimen/remaster_item_view_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/title_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/remaster_item_title_layout_margin_bottom" android:paddingStart="@dimen/remaster_item_view_side_gap">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/remaster_item_title_size" android:textColor="@color/remaster_item_title_color" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Upscale" android:textFontWeight="500" style="@style/OneUiRobotoBold"/>
+            <TextView android:textSize="@dimen/remaster_item_sub_title_size" android:textColor="@color/remaster_item_sub_title_color" android:layout_gravity="bottom" android:id="@+id/count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="56" android:layout_marginStart="@dimen/remaster_item_sub_title_margin_start" android:textFontWeight="400" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:scrollbarStyle="insideInset" android:id="@+id/listview" android:scrollbars="horizontal" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/remaster_item_view_side_gap"/>
+</LinearLayout>

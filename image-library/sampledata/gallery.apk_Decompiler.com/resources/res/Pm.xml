@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.SeslProgressBar xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_gravity="center" android:id="@+id/progressCircle" android:visibility="gone" android:layout_width="22dp" android:layout_height="22dp" android:layout_marginEnd="4dp" style="@style/ProgressCircle"/>

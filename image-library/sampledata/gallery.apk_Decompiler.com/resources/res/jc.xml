@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/daynight_default_background" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.viewpager2.widget.ViewPager2 android:id="@+id/view_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"/>
+    <RelativeLayout android:id="@+id/main_layout" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@+id/viewer_toolbar" layout="@layout/toolbar_viewer"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <solid android:color="@android:color/transparent"/>
+    <stroke android:width="@dimen/album_view_border_thickness" android:color="@color/album_border_color"/>
+    <padding android:left="@dimen/album_view_border_thickness" android:top="@dimen/album_view_border_thickness" android:right="@dimen/album_view_border_thickness" android:bottom="@dimen/album_view_border_thickness"/>
+    <corners android:radius="@dimen/albums_pane_border_corner_radius_non_selected"/>
+</shape>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.gallery.widget.listview.TouchParentLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/story_root_layout" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@+id/story_layout" android:background="@color/memory_pictures_background_color" android:layoutAnimation="@anim/story_layout_anim" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.toolbar.StoryCoverAppbarLayout android:id="@+id/appbar" android:paddingBottom="0dp" android:layout_width="match_parent" android:layout_height="@dimen/story_pictures_cover_thumbnail_height" android:touchscreenBlocksFocus="false" app:customHeight="@dimen/story_pictures_cover_thumbnail_height" app:keepExpand="true" app:seslUseCustomHeight="true" app:seslUseCustomPadding="true" style="@style/StoryAppBarLayoutStyle">
+            <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_scrollFlags="10003" app:statusBarScrim="@android:color/transparent">
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@+id/cover_container" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_collapseMode="2"/>
+                <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:id="@+id/toolbar" android:alpha="0" android:touchscreenBlocksFocus="false" app:layout_collapseMode="1" style="@style/StoryToolbarStyle"/>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.samsung.android.gallery.widget.toolbar.StoryCoverAppbarLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <RelativeLayout android:id="@+id/empty_view" style="@style/EmptyViewDefaultStyle">
+                <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:description="@string/empty_set_description_picture_no_item_vi" app:label="@string/empty_set_description_no_items"/>
+            </RelativeLayout>
+            <include android:layout_gravity="center_horizontal" android:id="@+id/list_container" android:background="@color/story_list_bg_color" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</com.samsung.android.gallery.widget.listview.TouchParentLayout>

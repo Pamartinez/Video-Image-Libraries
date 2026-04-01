@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:key="labs_preference_screen">
+    <PreferenceCategory android:key="labs_cat_search_bar">
+        <com.samsung.android.gallery.settings.widget.SearchPreference android:key="labs_search_bar" android:summary="@string/search"/>
+    </PreferenceCategory>
+</PreferenceScreen>

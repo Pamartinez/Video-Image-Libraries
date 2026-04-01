@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingVertical="@dimen/third_party_access_category_layout_padding_vertical">
+    <TextView android:textSize="@dimen/third_party_access_layout_category_title_text_size" android:textColor="@color/third_party_access_layout_category_title_text_color" android:id="@+id/category_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" style="@style/OneUiRobotoRegular"/>
+</LinearLayout>

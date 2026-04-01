@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/recycler_view_item" android:paddingBottom="@dimen/story_pictures_item_bottom_margin" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/speak_button" android:importantForAccessibility="yes">
+    <RelativeLayout android:background="@color/story_pictures_view_bg_color" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="@dimen/story_pictures_image_time_view_text_size" android:textColor="@color/story_pictures_time_view_text_color" android:id="@+id/time_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_centerVertical="true" android:paddingStart="20dp" android:paddingEnd="20dp" style="@style/OneUiRobotoLight"/>
+        <FrameLayout android:id="@+id/item_container" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:foreground="@drawable/thumbnail_selector" android:layout_centerVertical="true" android:importantForAccessibility="no">
+            <FrameLayout android:id="@+id/thumbnail_preview_layout" style="@style/ThumbnailPreviewLayoutStyle">
+                <ImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" style="@style/ThumbnailStyle"/>
+            </FrameLayout>
+            <FrameLayout android:id="@+id/deco_view_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+                <ViewStub android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/tag_view_stub" android:layout="@layout/story_pictures_tag_view_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="7dp"/>
+                <ViewStub android:layout_gravity="bottom|right|center_vertical|center_horizontal|center|end" android:id="@+id/expandViewStub" android:layout="@layout/expand_button" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <ViewStub android:id="@+id/checkboxViewStub" android:layout="@layout/thumbnail_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <ViewStub android:id="@+id/visualCueViewStub" android:layout="@layout/visual_cue" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            </FrameLayout>
+        </FrameLayout>
+    </RelativeLayout>
+    <ViewStub android:layout_gravity="end" android:id="@+id/story_card_option_view_stub" android:layout="@layout/story_card_option_view" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</FrameLayout>

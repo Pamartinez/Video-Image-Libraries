@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:id="@+id/moreinfo_memory" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include layout="@layout/details_divider"/>
+    <com.samsung.android.gallery.widget.UtlTextView android:ellipsize="end" android:id="@+id/moreinfo_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/details_item_margin_bw_divider_and_title" android:layout_marginBottom="@dimen/moreinfo_item_vertical_margin" android:text="@string/tab_tag_events" android:maxLines="2" style="@style/MoreInfoDetailsHeaderTextStyleV3"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/moreinfo_item_listview" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

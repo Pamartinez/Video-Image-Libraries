@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/search_app_bar_layout"/>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.progressbar.SearchProgressCircle android:id="@+id/progressCircle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/ProgressCircle"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_search_pictures_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <androidx.core.widget.NestedScrollView android:id="@+id/cluster_result_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:id="@+id/result_header_container" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <include layout="@layout/search_cluster_results_container_layout"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <LinearLayout android:id="@+id/list_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+        </LinearLayout>
+        <ViewStub android:id="@+id/autocomplete_list_view_container" android:layout="@layout/search_filter_autocomplete_layout" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

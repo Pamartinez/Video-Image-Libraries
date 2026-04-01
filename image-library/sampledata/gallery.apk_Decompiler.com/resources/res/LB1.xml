@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <View android:id="@+id/center_indexer" android:background="@drawable/film_strip_seek_index" android:visibility="gone" android:layout_width="@dimen/film_strip3_video_index_width" android:layout_height="match_parent" android:layout_centerHorizontal="true"/>
+    <RelativeLayout android:id="@+id/border_view" android:layout_width="@dimen/film_strip_video_frame_width" android:layout_height="match_parent" android:layout_centerHorizontal="true">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/progress_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentEnd="true">
+            <View android:id="@+id/indexer" android:background="@drawable/film_strip_seek_index" android:layout_width="@dimen/film_strip3_video_index_width" android:layout_height="match_parent"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

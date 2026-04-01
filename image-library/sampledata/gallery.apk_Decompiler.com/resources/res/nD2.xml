@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/appbar_container" layout="@layout/toolbar_normal_with_bottom_margin"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recycler_list" android:layoutAnimation="@anim/layout_anim_scale_alpha" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:overScrollMode="never" android:layout_marginStart="10dp" android:layout_marginEnd="10dp"/>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:id="@+id/empty_view" style="@style/EmptyViewDefaultStyle">
+            <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:description="@string/empty_set_description_no_pictures_and_videos" app:label="@string/empty_set_description_no_pictures_and_videos"/>
+        </RelativeLayout>
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+    </RelativeLayout>
+</LinearLayout>

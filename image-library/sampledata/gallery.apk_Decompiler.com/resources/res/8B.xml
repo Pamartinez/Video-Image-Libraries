@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/rating_dialog_side_padding" android:paddingEnd="@dimen/rating_dialog_side_padding">
+        <TextView android:textAppearance="@style/TextAppearance.Theme.Dialog" android:id="@+id/rating_dialog_body_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rating_dialog_body_text_margin_top" android:layout_marginBottom="@dimen/rating_dialog_body_text_margin_bottom" android:lineSpacingExtra="4sp" android:textAlignment="viewStart"/>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/rate_it_now_box" android:background="@drawable/app_rating_ripple_btn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/rating_dialog_margin_bottom">
+            <ImageView android:gravity="center" android:layout_gravity="center_horizontal" android:background="@drawable/gallery_ic_rating" android:layout_width="@dimen/rating_dialog_star_width" android:layout_height="@dimen/rating_dialog_star_height" android:layout_marginTop="@dimen/rating_dialog_star_margine_top"/>
+            <TextView android:textSize="@dimen/rating_dialog_rating_button_text_size" android:textColor="@color/dialog_content_sub_text_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/dialog_rating_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/rating_dialog_rating_button_margin_top" android:layout_marginBottom="@dimen/rating_dialog_rating_button_margin_bottom" android:text="@string/app_rating_popup_rate_it_now" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

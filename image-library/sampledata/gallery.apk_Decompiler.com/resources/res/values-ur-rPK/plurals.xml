@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d کلاؤڈ شئے کو شیئر کردہ البم میں شامل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d کلاؤڈ اشیاء کو شیئر کردہ البم میں شامل کریں؟</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">انٹیلی جنٹ خصوصیات کا استعمال کرنے کیلئے، آپ کی عمر کم از کم %d برس ہونی چاہئے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">انٹیلی جنٹ خصوصیات کا استعمال کرنے کیلئے، آپ کی عمر کم از کم %d برس ہونی چاہئے۔</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ایک Meitu پوسٹ میں %d سے زیادہ ویڈیو شامل نہیں کر سکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ایک Meitu پوسٹ میں %d سے زیادہ ویڈیوز شامل نہیں کر سکتے۔</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d%2$s تصویر حذف نہیں کرسکتے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s تصاویر حذف نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d%2$s شئے حذف نہیں کرسکتے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s اشیاء حذف نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d%2$s ویڈیو حذف نہیں کرسکتے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ویڈیوز حذف نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ایک Meitu پوسٹ میں %d سے زیادہ آئٹم شامل نہیں کر سکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ایک Meitu پوسٹ میں %d سے زیادہ آئٹمز شامل نہیں کر سکتے۔</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d%2$s تصویر بحال نہیں کرسکتے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s تصاویر بحال نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d%2$s شئے بحال نہیں کرسکتے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s اشیاء بحال نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ویڈیو بحال نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگيا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ویڈیوز بحال نہیں کرسکتے۔ آپ کے ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے۔</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ایک ہی وقت میں %d سے زیادہ آئٹم شامل نہیں کر سکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ایک ہی وقت میں %d سے زیادہ آئٹمز شامل نہیں کر سکتے۔</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اسٹوری میں %d سے زیادہ شئے شامل نہیں کرسکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اسٹوری میں %d سے زیادہ اشیاء شامل نہیں کرسکتے۔</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شہر</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d شہر</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d تصویر بحال نہیں کی جاسکی۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d تصاویر بحال نہیں کی جاسکیں۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d شئے بحال نہیں کی جاسکی۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d اشیاء بحال نہیں کی جاسکیں۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ویڈیو بحال نہیں کیا جاسکا۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ویڈیوز بحال نہیں کیے جاسکے۔ %2$s میں کچھ جگہ خالی کریں، پھر دوبارہ کوشش کریں۔</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ویڈیو بحال نہیں کیا جاسکا۔ یہ ویڈیو %2$s ایپلیکیشن میں بحال کردیا گیا یا حذف کردیا گیا تھا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ویڈیوز بحال نہیں کیے جاسکے۔ یہ ویڈیوز %2$s ایپلیکیشن میں بحال کردیے گئے یا حذف کردیے گئے تھے۔</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے نہیں ہٹائی جاسکی۔ دوبارہ کوشش کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء نہیں ہٹائے جاسکے۔ دوبارہ کوشش کریں۔</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d نے البم شیئر کیا</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d شیئر کردہ البمز</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d اسٹوری</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اسٹوریز</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز میں تاریخ اور وقت کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d البم کو حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d البمز کو حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ، %d البم، اور ان میں موجود 1 شئے حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ، %d البمز، اور ان میں موجود 1 شئے حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">مماثل تصاویر والے %d گروپ حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">مماثل تصاویر والے %d گروپس حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ اور اس میں موجود مماثل تصاویر اور 1 دوسری شئے کو حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس اور اس میں موجود مماثل تصاویر اور 1 دوسری شئے کو حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ اور اس میں موجود مماثل تصاویر اور %d دوسری شئے کو حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ اور اس میں موجود مماثل تصاویر اور %d دوسرے اشیاء کو حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس سیٹ سے %d آئٹم حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس سیٹ سے %d آئٹمز حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d متحرک تصویر سے ویڈیو کلپ حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d متحرک تصاویر سے ویڈیو کلپس حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس سیٹ سے %d تصویر حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس سیٹ سے %d تصاویر حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d سنگل ٹیک سیٹ حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d سنگل ٹیک سیٹس حذف کریں؟</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز حذف کریں؟</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ یہ مواد %d بار اور دیکھ سکتے ہیں۔ ابھی دیکھیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ یہ مواد %d بار اور دیکھ سکتے ہیں۔ ابھی دیکھیں؟</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d خالی البم کو ٹریش میں گئے بغیر حذف کردیا جائے گا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d خالی البمز کو ٹریش میں گئے بغیر حذف کردیے جائيں گے۔</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ٹریش میں موجود اشیاء %d دن کے بعد ہمیشہ کے لیے حذف کردی جائیں گی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ٹریش میں موجود اشیاء %d دن کے بعد ہمیشہ کے لیے حذف کردی جائیں گی۔</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے فون سے %d تصویر مستقل طور پر حذف کی گئی۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپی حذف کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے فون سے %d تصاویر مستقل طور پر حذف کی گئیں۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپیاں حذف کریں۔</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے فون سے %d آئٹم مستقل طور پر حذف کیا گیا۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپی حذف کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے فون سے %d آئٹمز مستقل طور پر حذف کئے گئے۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپیاں حذف کریں۔</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے فون سے %d ویڈیو مستقل طور پر حذف کی گئی۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپی حذف کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے فون سے %d ویڈیوز مستقل طور پر حذف کی گئیں۔ OneDrive پر جائیں اور وہاں ری سائکل بن میں کاپیاں حذف کریں۔</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر مستقل طور پر حذف کر دی گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر مستقل طور پر حذف کر دی گئیں۔</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم مستقل طور پر حذف کیا گیا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز مستقل طور پر حذف کئے گئے۔</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو مستقل طور پر حذف کی گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز مستقل طور پر حذف کی گئیں۔</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ہر قطار میں %d تھمب نیل کے ساتھ گرِڈ منظر</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ہر قطار میں %d تھمب نیلز کے ساتھ گرِڈ منظر</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ 1 البم</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس 1 البم</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">کلاؤڈ سے %d تصویر ڈاؤن لوڈ کی گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">کلاؤڈ سے %d تصاویر ڈاؤن لوڈ کی گئیں۔</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">تصاویر بحال ہوگئیں۔ %1$d %2$s تصویر بحال نہیں کیا جاسکتا کیوں کہ آپ کا %3$s کسی ذاتی ڈیٹا کی درخواست کی وجہ سے لاک کردیا گیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">تصاویر بحال ہوگئیں۔ %1$d %2$s تصاویر بحال نہیں کی جاسکتیں کیوں کہ آپ کا %3$s کسی ذاتی ڈیٹا کی درخواست کی وجہ سے لاک کردیا گیا ہے۔</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم محفوظ کیا گیا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز محفوظ کئے گئے۔</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">کلاؤڈ سے %d شئے ڈاؤن لوڈ کی گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">کلاؤڈ سے %d اشیاء ڈاؤن لوڈ کیے گئے۔</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اشیاء بحال ہوگئیں۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے اسی وجہ سے %1$d %2$s شئے بحالی نہیں کی جاسکی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اشیاء بحال ہوگئی۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوجانے کی وجہ سے %1$d %2$s اشیاء کو بحال نہیں کیا جاسکا۔</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز میں مقام کی معلومات تبدیل ہو گئی ہے۔</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d مقام</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d مقامات</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d حرف سے زائد درج نہیں کرسکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d حروف سے زائد درج نہیں کرسکتے۔</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d موشن تصویر کی ویڈیو کلپ کو محفوظ کیا گیا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d موشن تصاویر کی ویڈیو کلپس کو محفوظ کیا گیا۔</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d برسٹ شاٹ کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d برسٹ شاٹس کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d برسٹ شاٹ کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d برسٹ شاٹس کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ، 1 البم، اور ان میں موجود %d شئے کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ، 1 البم، اور ان میں موجود %d اشیاء کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ، %d البم، اور ان میں موجود 1 شئے کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ، %d البمز، اور ان میں موجود 1 شئے کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ، 1 البم، اور ان میں موجود 1 شئے کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس، 1 البم، اور ان میں موجود 1 شئے کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس برسٹ شاٹ سے ٹریش میں %d تصویر منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس برسٹ شاٹ سے ٹریش میں %d تصاویر منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس برسٹ شاٹ سے ٹریش میں %d تصویر منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس برسٹ شاٹ سے ٹریش میں %d تصاویر منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ اور اس میں موجود مماثل تصاویر ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس اور مماثل تصاویر کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ اور ان میں موجود 1 مماثل تصاویر اور 1 دیگر شئے کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس اور اس میں موجود 1 مماثل تصاویر اور 1 دیگر شئے کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ اور اس میں موجود 1 مماثل تصاویر اور %d دیگر شئے کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ اور اس میں موجود 1 مماثل تصاویر اور %d دیگر اشیاء کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس سیٹ سے ٹریش میں %d آئٹم منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس سیٹ سے ٹریش میں %d آئٹمز منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس سیٹ سے ٹریش میں %d تصویر منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس سیٹ سے ٹریش میں %d تصاویر منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d سنگل ٹیک سیٹ کو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d سنگل ٹیک سیٹس کو ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم کو نجی البم میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز کو نجی البم میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s فائل %3$s میں منتقل نہ ہو سکی۔ یہ فائل ڈاؤن لوڈ کریں، پھر دوبارہ کوشش کریں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s فائلیں %3$s میں منتقل نہ ہو سکیں۔ یہ فائلیں ڈاؤن لوڈ کریں، پھر دوبارہ کوشش کریں۔</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو ٹریش میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز ٹریش میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم کو ٹریش میں منتقل کیا جا رہا ہے…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز کو ٹریش میں منتقل کیا جا رہا ہے…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ایک ہی نام کے %d البم کو ضم کر دیا گیا ہے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ایک ہی نام کے %d البمز کو ضم کر دیا گیا ہے۔</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d دن</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d دن</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">کہانی حذف ہونے میں %d دن باقی ہے</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">کہانی حذف ہونے میں %d دن باقی ہیں</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d البم کو حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d البمز کو حذف کریں؟</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر کو پسندیدہ میں شامل کیا گیا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر کو پسندیدہ میں شامل کیا گیا۔</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d دعوت نامہ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d دعوت نامے</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم کو پسندیدہ میں شامل کیا گیا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز کو پسندیدہ میں شامل کیا گیا۔</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شخص کا انتخاب کیا گیا</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d لوگوں کا انتخاب کیا گیا</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d منتخب ہوگیا</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d منتخب ہوگیا</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d اشتراک کردہ البم، 1 دعوت نامہ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشتراک کردہ البمز، 1 دعوت نامہ</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ہمیں ایسی %d نئی تصویر ملی ہے جسے ہو سکتا ہے آپ اس البم میں شامل کرنا چاہیں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ہمیں ایسی %d نئی تصاویر ملی ہیں جنہیں ہو سکتا ہے آپ اس البم میں شامل کرنا چاہیں۔</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو کو پسندیدہ میں شامل کیا گيا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز کو پسندیدہ میں شامل کیا گيا۔</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d سال پہلے</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s %2$d سال پہلے</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d البم</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d البمز</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے ڈاؤن لوڈ ہوگئی۔ اسے دیکھنے کے لیے یہاں تھپکی دیں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء ڈاؤن لوڈ ہوگئیں۔ انہیں دیکھنے کے لیے یہاں تھپکی دیں۔</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d گروپ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d گروپس</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d فائل ڈاؤن لوڈ نہیں کی جاسکی۔ HEIF تصاویر اس فون کے کے ذریعے تعاون یافتہ نہیں ہیں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d فائلیں ڈاؤن لوڈ نہیں کی جاسکی۔ HEIF تصاویر اس فون کے کے ذریعے تعاون یافتہ نہیں ہیں۔</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d فائل ڈاؤن لوڈ نہیں کی جاسکی۔ HEIF تصاویر اس ٹیبلیٹ کے کے ذریعے تعاون یافتہ نہیں ہیں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d فائلیں ڈاؤن لوڈ نہیں کی جاسکی۔ HEIF تصاویر اس ٹیبلیٹ کے کے ذریعے تعاون یافتہ نہیں ہیں۔</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d رکن</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اراکین</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d سے زیادہ اسٹکر شامل نہیں کر سکتے۔ اسٹکرز ہٹانے کیلئے، گیلری میں فوٹو ایڈیٹر پر جائیں۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d سے زیادہ اسٹکرز شامل نہیں کر سکتے۔ اسٹکرز ہٹانے کیلئے، گیلری میں فوٹو ایڈیٹر پر جائیں۔</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 گروپ %d البم</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 گروپ %d البمز</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 اشتراک کردہ البم، %d دعوت نامہ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 اشتراک کردہ البم، %d دعوت نامے</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر کو مستقل طور پر خذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر کو مستقل طور پر خذف کریں؟</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے ہمیشہ کے لیے حذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء ہمیشہ کے لیے حذف کریں؟</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو کو مستقل طور پر خذف کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز کو مستقل طور پر خذف کریں؟</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر کو مستقل طور پر حذف کر دیا جائے گا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر کو مستقل طور پر حذف کر دیا جائے گا۔</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شئے مستقل طورپر حذف کردیا جائے گا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء کو مستقل طورپر حذف کردیے جائیں گے۔</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو کو مستقل طور پر حذف کر دیا جائے گا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز کو مستقل طور پر حذف کر دیا جائے گا۔</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر محفوظ ہو گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر محفوظ ہو گئیں۔</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s میں %1$d دن دورہ کیا</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s میں %1$d دن دورہ کیا</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d سال پہلے</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d سال پہلے</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تجویز ہٹائی گئی۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تجاویز ہٹائی گئیں۔</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس مشترکہ البم سے %d تصویر ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس مشترکہ البم سے %d تصاویر ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d تصویر کو البم سے ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d تصاویر کو البم سے ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d آئٹم کو البم سے ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d آئٹمز کو البم سے ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">کہانی سے %d آئٹم ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">کہانی سے %d آئٹمز ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے البم کی تجاویز سے %d تصویر ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے البم کی تجاویز سے %d تصاویر ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے البم کی تجاویز سے %d آئٹم ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے البم کی تجاویز سے %d آئٹمز ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">آپ کے البم کی تجاویز سے %d ویڈیو ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">آپ کے البم کی تجاویز سے %d ویڈیوز ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ویڈیو کو البم سے ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ویڈیوز کو البم سے ہٹائیں؟</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">اس مشترکہ البم سے %d ویڈیو ہٹائیں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">اس مشترکہ البم سے %d ویڈیوز ہٹائیں؟</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d شئے کو اس %2$s سے محفوظ کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d اشیاء کو اس %2$s سے محفوظ کریں؟</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d تصویر کو اس %2$s سے محفوظ کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d تصاویر کو اس %2$s سے محفوظ کریں؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d تصویر %2$s پر منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d تصاویر %2$s پر منتقل کریں؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d آئٹم %2$s میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d آئٹمز %2$s میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ویڈیو %2$s میں منتقل کریں؟</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ویڈیوز %2$s میں منتقل کریں؟</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ملتی جلتی تصویر کا گروپ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ملتی جلتی تصاویر کا گروپ</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d شے منتخب ہوگئی</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d اشیاء منتخب ہوگئی</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">یہ شخص %d سال پہلے</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">یہ شخص %d سال پہلے</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">کلاؤڈ سے %d ویڈیو ڈاؤن لوڈ کیا گيا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">کلاؤڈ سے %d ویڈیوز ڈاؤن لوڈ کیے گئے۔</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ویڈیوز بحال ہوگئے۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوگیا ہے اسی وجہ سے %1$d %2$s ویڈیو بحالی نہیں کیا جاسکا۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ویڈیو بحال ہوگیا۔ ذاتی ڈیٹا کی درخواست کرنے کی وجہ سے آپ کا %3$s لاک ہوجانے کی وجہ سے %1$d %2$s ویڈیوز کو بحال نہیں کیا جاسکا۔</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ایک کولاج میں %d سے زیادہ آئٹمز شامل نہیں کر سکتے۔</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ایک کولاج میں %d سے زیادہ آئٹمز شامل نہیں کر سکتے۔</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d دن میں حذف ہو جائے گا</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d دن میں حذف ہو جائے گا</item>
+    </plurals>
+</resources>

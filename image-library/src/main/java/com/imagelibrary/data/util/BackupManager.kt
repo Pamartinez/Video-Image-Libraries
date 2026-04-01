@@ -44,6 +44,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("imageSortOption",        prefs.imageSortOption.id)
             put("sortType",               prefs.sortType.id)
             put("sortOrder",              prefs.sortOrder.id)
+            put("independentSortEnabled", prefs.independentSortEnabled)
             put("carouselShowBarsOnOpen", prefs.carouselShowBarsOnOpen)
             put("customAlbumOrder",       JSONArray(prefs.customAlbumOrder))
         }
@@ -73,6 +74,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.sortType = SortType.fromId(settings.getInt("sortType"))
         if (settings.has("sortOrder"))
             prefs.sortOrder = SortOrder.fromId(settings.getInt("sortOrder"))
+        if (settings.has("independentSortEnabled"))
+            prefs.independentSortEnabled = settings.getBoolean("independentSortEnabled")
         if (settings.has("carouselShowBarsOnOpen"))
             prefs.carouselShowBarsOnOpen = settings.getBoolean("carouselShowBarsOnOpen")
         if (settings.has("customAlbumOrder")) {

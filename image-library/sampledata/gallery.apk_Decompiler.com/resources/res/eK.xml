@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:id="@+id/moreinfo_exif" android:background="@android:color/transparent" android:paddingTop="@dimen/details_item_default_top_margin" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:id="@+id/details_item_title" android:paddingTop="@dimen/moreinfo_item_title_margin_bottom" android:paddingBottom="@dimen/moreinfo_item_title_margin_bottom" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="13dp" android:textColor="@color/moreInfo_details_header_text_color" android:ellipsize="end" android:gravity="top|left|center_vertical|center_horizontal|center|start" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Embedded information (EXIF)" android:textIsSelectable="false"/>
+        <ImageButton android:id="@+id/item_arrow" android:background="@color/transparent" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/recoil_ripple_oval" android:layout_centerVertical="true" android:rotation="90" android:layout_alignParentEnd="true" style="@style/SearchCategoryArrowStyle"/>
+    </RelativeLayout>
+    <ViewStub android:id="@+id/moreinfo_debug" android:layout="@layout/details_item_debug_expanded" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <View android:layout_width="wrap_content" android:layout_height="26dp"/>
+</LinearLayout>

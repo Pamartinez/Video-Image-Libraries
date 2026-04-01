@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:id="@+id/map_container" android:focusable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/map"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@+id/floating_toolbar_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include layout="@layout/floating_standalone_toolbar_layout"/>
+        <include layout="@layout/clustering_map_bottom_sheet_v2"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

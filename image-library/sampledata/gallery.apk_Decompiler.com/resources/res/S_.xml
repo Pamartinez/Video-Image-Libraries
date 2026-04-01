@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:label="@string/app_name" android:hint="Person, Time, Location" android:searchSuggestAuthority="com.sec.android.gallery3d.provider.GallerySearchProvider" android:searchSuggestIntentAction="com.android.gallery.action.SEARCH_VIEW" android:searchSuggestIntentData="content://com.sec.android.gallery3d.provider.GallerySearchProvider/gallery" android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" android:imeOptions="actionUnspecified|actionNone|actionGo|actionSearch|flagNoExtractUi" android:searchSuggestThreshold="1" android:includeInGlobalSearch="false">
+    <extra-attr android:name="includeInInsightSearch" android:value="true"/>
+    <extra-attr android:name="searchLayoutStyle" android:value="suggest_template_content_image"/>
+    <extra-attr android:name="includeInAppSearch" android:value="false"/>
+    <extra-attr android:name="advancedSearchType" android:value="tagSearch|timeSpan"/>
+    <extra-attr android:name="tagFilters" android:value="location|people|scenetype"/>
+    <extra-attr android:name="categoryFilters" android:value="images|videos"/>
+    <extra-attr android:name="tagProviderUri" android:value="content://media/external/images/media"/>
+</searchable>

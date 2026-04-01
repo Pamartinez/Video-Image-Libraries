@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/app_bar_group">
+        <item android:id="@+id/menu_app_bar_cancel" android:title="@string/cancel" android:contentDescription="@string/cancel" android:showAsAction="always"/>
+        <item android:id="@+id/menu_app_bar_save" android:title="@string/save" android:contentDescription="@string/save" android:showAsAction="always"/>
+    </group>
+</menu>

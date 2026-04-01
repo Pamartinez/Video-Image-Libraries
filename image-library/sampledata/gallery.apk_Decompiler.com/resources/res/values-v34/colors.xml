@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="m3_sys_color_dynamic_dark_error">@android:color/datepicker_default_header_selector_background_holo_light</color>
+    <color name="m3_sys_color_dynamic_dark_error_container">@android:color/datepicker_default_header_dayofweek_background_color_holo_light</color>
+    <color name="m3_sys_color_dynamic_dark_on_error">@android:color/datepicker_default_header_selector_background_holo_dark</color>
+    <color name="m3_sys_color_dynamic_dark_on_error_container">@android:color/datepicker_default_header_dayofweek_background_color_holo_dark</color>
+    <color name="m3_sys_color_dynamic_light_error">@android:color/bright_foreground_inverse_holo_light</color>
+    <color name="m3_sys_color_dynamic_light_error_container">@android:color/dim_foreground_disabled_holo_dark</color>
+    <color name="m3_sys_color_dynamic_light_on_error">@android:color/dim_foreground_holo_dark</color>
+    <color name="m3_sys_color_dynamic_light_on_error_container">@android:color/dim_foreground_inverse_holo_dark</color>
+    <color name="material_dynamic_color_dark_error">@color/m3_sys_color_dynamic_dark_error</color>
+    <color name="material_dynamic_color_dark_error_container">@color/m3_sys_color_dynamic_dark_error_container</color>
+    <color name="material_dynamic_color_dark_on_error">@color/m3_sys_color_dynamic_dark_on_error</color>
+    <color name="material_dynamic_color_dark_on_error_container">@color/m3_sys_color_dynamic_dark_on_error_container</color>
+    <color name="material_dynamic_color_light_error">@color/m3_sys_color_dynamic_light_error</color>
+    <color name="material_dynamic_color_light_error_container">@color/m3_sys_color_dynamic_light_error_container</color>
+    <color name="material_dynamic_color_light_on_error">@color/m3_sys_color_dynamic_light_on_error</color>
+    <color name="material_dynamic_color_light_on_error_container">@color/m3_sys_color_dynamic_light_on_error_container</color>
+</resources>

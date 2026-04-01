@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:layout_gravity="bottom" android:id="@+id/toolbar" style="@style/ToolbarStyle"/>
+        <RelativeLayout android:layout_gravity="center" android:layout_width="204dp" android:layout_height="204dp" android:layout_marginBottom="10dp">
+            <ImageView android:id="@+id/header_image" android:background="@drawable/merge_creature_header_thumb_background" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="@null"/>
+            <FrameLayout android:id="@+id/header_name_area" android:paddingTop="29dp" android:paddingBottom="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignBottom="@+id/header_image" android:layout_centerHorizontal="true" android:paddingHorizontal="6dp">
+                <TextView android:textSize="14sp" android:textColor="#fafaff" android:ellipsize="end" android:gravity="center" android:id="@+id/header_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:textIsSelectable="false" style="@style/OneUiRobotoSemiBold"/>
+            </FrameLayout>
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/creature_list" android:paddingTop="10dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="@dimen/merge_people_dialog_list_horizontal_margin"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

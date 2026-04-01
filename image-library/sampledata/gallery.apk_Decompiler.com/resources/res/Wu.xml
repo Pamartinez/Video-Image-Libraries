@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/last_page_save_story_layout" android:layout_width="wrap_content" android:layout_height="match_parent">
+    <FrameLayout android:layout_gravity="center" android:id="@+id/save_story_parent_layout_in_page" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/save_story_layout_in_page" android:background="@drawable/story_highlight_related_sub_button_bg" android:layout_width="@dimen/story_highlight_related_sub_button_width" android:layout_height="@dimen/story_highlight_related_sub_button_height" android:foreground="@drawable/recoil_ripple_rect_story_highlight" android:stateListAnimator="?attr/seslSmallTouchAnimator" android:paddingHorizontal="@dimen/story_highlight_related_sub_button_horizontal_padding" android:paddingVertical="@dimen/story_highlight_related_sub_button_vertical_padding">
+            <TextView android:textSize="14dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save_as_story" android:layout_marginEnd="4dp" style="@style/OneUiRobotoBold"/>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

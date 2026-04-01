@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/video_instant_slow_mo_save_clip_margin_top" android:paddingHorizontal="@dimen/select_pictures_icon_container_side_margin">
+    <RelativeLayout android:gravity="center_vertical" android:id="@+id/instant_slow_mo_save_clip_layout" android:background="@drawable/instant_slow_mo_save_clip_layout_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="1dp" android:elevation="1dp">
+        <TextView android:textSize="13dp" android:textColor="@color/instant_slow_mo_save_clip_title_color" android:ellipsize="none" android:id="@+id/save_title" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save_instant_slow_mo_clip" android:maxLines="1" android:includeFontPadding="false" android:layout_centerVertical="true" android:contentDescription="@string/save_instant_slow_mo_clip" android:layout_marginStart="42dp" android:layout_marginEnd="10dp" style="@style/OneUiRobotoRegular"/>
+        <FrameLayout android:orientation="horizontal" android:id="@+id/save_clip_layout_bg" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@+id/circle_thumb" android:background="@drawable/circular_thumb_background" android:visibility="visible" android:layout_width="30dp" android:layout_height="30dp" android:layout_margin="3dp" android:scaleType="centerCrop"/>
+            <FrameLayout android:layout_gravity="left|center_vertical|center_horizontal|center|start" android:id="@+id/save_icon_layout" android:padding="3dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_gravity="center" android:id="@+id/save_icon_dim" android:background="@drawable/circular_thumb_dim" android:layout_width="30dp" android:layout_height="30dp" android:scaleType="fitCenter" android:contentDescription="@null"/>
+                <ImageView android:layout_gravity="center" android:id="@+id/save_icon" android:background="@drawable/gallery_ic_detail_save_for_instant_slow" android:visibility="visible" android:layout_width="20dp" android:layout_height="20dp" android:scaleType="fitCenter" android:contentDescription="@null"/>
+            </FrameLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_PHEADER_ADD_PD_CLOUD_ITEMS_TO_SHARED_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">PLURAL_ZERO_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+        <item quantity="one">PLURAL_ONE_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+        <item quantity="two">PLURAL_TWO_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+        <item quantity="few">PLURAL_FEW_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+        <item quantity="many">PLURAL_MANY_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+        <item quantity="other">PLURAL_OTHER_IDLE_BODY_YOU_NEED_TO_BE_AT_LEAST_PD_YEARS_OLD_TO_USE_INTELLIGENT_FEATURES %d</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_PICTURES_ABB %d</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_VIDEOS_TO_A_MEITU_POST %d</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_DELETE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_MEITU_POST %d</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_IMAGES_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_ITEMS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_RESTORE_P1SD_P2SS_VIDEOS_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_ITEMS_AT_ONCE %d</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_ADD_MORE_THAN_PD_ITEMS_TO_A_STORY %d</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_OPT_PD_CITIES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_OPT_PD_CITIES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_OPT_PD_CITIES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_OPT_PD_CITIES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_OPT_PD_CITIES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_OPT_PD_CITIES %d</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_RESTORE_P1SD_IMAGES_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_RESTORE_P1SD_ITEMS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_CLEAR_SOME_SPACE_IN_P2SS_THEN_TRY_AGAIN %1$d %2$s</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_RESTORE_P1SD_VIDEOS_THESE_VIDEOS_WERE_RESTORED_OR_DELETED_IN_THE_P2SS_APP %1$d %2$s</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_REMOVE_PD_ITEMS_TRY_AGAIN %d</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_SBODY_PD_SHARED_ALBUMS %d</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_STORIES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_STORIES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_STORIES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_STORIES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_STORIES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_STORIES %d</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_IMAGES %d</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_ITEMS %d</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DATE_AND_TIME_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_Q %d</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_GROUPS_Q %d</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_IMAGES_Q %d</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_ITEMS_Q %d</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_Q %d</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_Q %d</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_Q %d</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_ITEMS_FROM_THIS_SET_Q %d</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_Q %d</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_PICTURES_FROM_THIS_SET_Q %d</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_SINGLE_TAKE_SETS_Q %d</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_DELETE_PD_VIDEOS_Q %d</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_YOU_CAN_VIEW_THIS_CONTENT_PD_MORE_TIMES_VIEW_NOW_Q %d</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_EMPTY_ALBUMS_WILL_BE_DELETED_WITHOUT_GOING_TO_THE_TRASH %d</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_ITEMS_IN_THE_TRASH_WILL_BE_PERMANENTLY_DELETED_AFTER_PD_DAYS %d</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED_FROM_YOUR_PHONE_GO_TO_ONEDRIVE_TO_DELETE_THE_COPIES_IN_THE_RECYCLE_BIN_THERE %d</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_IMAGES_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ITEMS_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_VIDEOS_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_GRID_VIEW_WITH_PD_THUMBNAILS_IN_EACH_ROW %d</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_GROUPS_1_ALBUM %d</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_PD_IMAGES_DOWNLOADED_FROM_THE_CLOUD %d</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_IMAGES_RESTORED_P1SD_P2SS_IMAGES_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_PD_ITEMS_SAVED %d</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_PD_ITEMS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_ITEMS_RESTORED_P1SD_P2SS_ITEMS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_IMAGES %d</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_ITEMS %d</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_LOCATION_INFO_CHANGED_IN_PD_VIDEOS %d</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_LOCATIONS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_LOCATIONS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_LOCATIONS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_LOCATIONS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_LOCATIONS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_LOCATIONS %d</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_CANT_ENTER_MORE_THAN_PD_CHARACTERS %d</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_VIDEO_CLIPS_FROM_PD_MOTION_PHOTOS_SAVED %d</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_BURST_SHOTS_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_1_GROUP_1_ALBUM_AND_THE_PD_ITEMS_IN_THEM_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_1_GROUP_PD_ALBUMS_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_GROUPS_1_ALBUM_AND_THE_1_ITEM_IN_THEM_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_BURST_SHOT_TO_THE_TRASH_Q_M_TRANSLITERATE %d</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_IMAGES_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_ITEMS_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ITEMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ITEMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ITEMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ITEMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ITEMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ITEMS %d</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_GROUPS_OF_SIMILAR_IMAGES_AND_1_OTHER_ITEM_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_1_GROUP_OF_SIMILAR_IMAGES_AND_PD_OTHER_ITEMS_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_ITEMS_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_PICTURES_FROM_THIS_SET_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_SINGLE_TAKE_SETS_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_MOVE_PD_ITEMS_TO_PRIVATE_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_MOVE_P1SD_P2SS_FILES_TO_P3SS_DOWNLOAD_THESE_FILES_THEN_TRY_AGAIN %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_PD_VIDEOS_TO_THE_TRASH_Q %d</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVING_PD_ITEMS_TO_THE_TRASH_ING %d</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ALBUMS_WITH_THE_SAME_NAME_HAVE_BEEN_MERGED %d</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_OPT_PD_DAYS_ABB2 %d</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_PD_DAYS_UNTIL_STORY_IS_DELETED %d</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_PHEADER_DELETE_PD_ALBUMS_Q %d</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_IMAGES_ADDED_TO_FAVORITES %d</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_PD_INVITATIONS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_PD_INVITATIONS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_PD_INVITATIONS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_PD_INVITATIONS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_PD_INVITATIONS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_PD_INVITATIONS %d</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ITEMS_ADDED_TO_FAVORITES %d</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_PD_PEOPLE_SELECTED %d</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">PLURAL_ZERO_IDLE_HEADER_PD_SELECTED %d</item>
+        <item quantity="one">PLURAL_ONE_IDLE_HEADER_PD_SELECTED %d</item>
+        <item quantity="two">PLURAL_TWO_IDLE_HEADER_PD_SELECTED %d</item>
+        <item quantity="few">PLURAL_FEW_IDLE_HEADER_PD_SELECTED %d</item>
+        <item quantity="many">PLURAL_MANY_IDLE_HEADER_PD_SELECTED %d</item>
+        <item quantity="other">PLURAL_OTHER_IDLE_HEADER_PD_SELECTED %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_PD_SHARED_ALBUMS_1_INVITATION %d</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_WE_FOUND_PD_NEW_PICTURES_YOU_MAY_WANT_TO_ADD_TO_THIS_ALBUM %d</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_VIDEOS_ADDED_TO_FAVORITES %d</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_P1SS_P2SD_YEARS_AGO %1$s %2$d</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ALBUMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ALBUMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ALBUMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ALBUMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ALBUMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ALBUMS %d</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_SBODY_PD_ITEMS_DOWNLOADED_TAP_HERE_TO_SEE_THEM %d</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_GROUPS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_GROUPS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_GROUPS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_GROUPS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_GROUPS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_GROUPS %d</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_PHONE %d</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_COULDNT_DOWNLOAD_PD_FILES_HEIF_IMAGES_ARENT_SUPPORTED_BY_THIS_TABLET %d</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_PD_MEMBERS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_PD_MEMBERS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_PD_MEMBERS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_PD_MEMBERS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_PD_MEMBERS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_PD_MEMBERS %d</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_CANT_ADD_MORE_THAN_PD_STICKERS_GO_TO_THE_PHOTO_EDITOR_IN_GALLERY_TO_REMOVE_STICKERS %d</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_1_GROUP_PD_ALBUMS %d</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_1_SHARED_ALBUM_PD_INVITATIONS %d</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PERMANENTLY_DELETE_PD_IMAGES_Q %d</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PERMANENTLY_DELETE_PD_ITEMS_Q %d</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PERMANENTLY_DELETE_PD_VIDEOS_Q %d</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_IMAGES_WILL_BE_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_ITEMS_WILL_BE_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_VIDEOS_WILL_BE_PERMANENTLY_DELETED %d</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_PD_PICTURES_SAVED %d</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_OPT_VISITED_FOR_P1SD_DAYS_IN_P2SS %1$d %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_PD_YEARS_AGO %d</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_PD_SUGGESTIONS_REMOVED %d</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_THIS_SHARED_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_STORY_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_IMAGES_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_ITEMS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_YOUR_ALBUM_SUGGESTIONS_Q %d</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_REMOVE_PD_VIDEOS_FROM_THIS_SHARED_ALBUM_Q %d</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_SAVE_P1SD_ITEMS_FROM_THIS_P2SS_Q %1$d %2$s</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_SAVE_P1SD_PICTURES_FROM_THIS_P2SS_Q %1$d %2$s</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_P1SD_IMAGES_TO_P2SS_Q %1$d %2$s</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_P1SD_ITEMS_TO_P2SS_Q %1$d %2$s</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_MOVE_P1SD_VIDEOS_TO_P2SS_Q %1$d %2$s</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_GROUP_OF_PD_SIMILAR_IMAGES %d</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_PD_ITEMS_SELECTED %d</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_HEADER_THIS_PERSON_PD_YEARS_AGO %d</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_PD_VIDEOS_DOWNLOADED_FROM_THE_CLOUD %d</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TPOP_VIDEO_RESTORED_P1SD_P2SS_VIDEOS_COULDNT_BE_RESTORED_BECAUSE_YOUR_P3SS_IS_LOCKED_DUE_TO_A_PERSONAL_DATA_REQUEST %1$d %2$s %3$s</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_BODY_CANT_INCLUDE_MORE_THAN_PD_ITEMS_IN_A_COLLAGE %d</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">PLURAL_ZERO_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+        <item quantity="one">PLURAL_ONE_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+        <item quantity="two">PLURAL_TWO_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+        <item quantity="few">PLURAL_FEW_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+        <item quantity="many">PLURAL_MANY_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+        <item quantity="other">PLURAL_OTHER_GALLERY_TBOPT_WILL_BE_DELETED_IN_PD_DAYS %d</item>
+    </plurals>
+</resources>

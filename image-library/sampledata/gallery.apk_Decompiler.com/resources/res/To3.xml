@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:left="@dimen/photo_strip_view_frame_stroke" android:top="@dimen/photo_strip_view_frame_stroke" android:right="@dimen/photo_strip_view_frame_stroke" android:bottom="@dimen/photo_strip_view_frame_stroke">
+        <shape>
+            <stroke android:width="@dimen/photo_strip_view_frame_padding" android:color="@color/photo_strip_view_frame_solid_color"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <stroke android:width="@dimen/photo_strip_view_frame_stroke" android:color="@color/photo_strip_view_frame_stroke_color"/>
+        </shape>
+    </item>
+</layer-list>

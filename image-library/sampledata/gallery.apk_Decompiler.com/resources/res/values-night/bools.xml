@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="gallery_window_light_navigation_bar">false</bool>
+    <bool name="isNightTheme">true</bool>
+    <bool name="isTabletDpi">false</bool>
+    <bool name="is_light_status_bar">false</bool>
+</resources>

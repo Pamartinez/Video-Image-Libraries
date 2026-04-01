@@ -1,0 +1,16 @@
+package com.samsung.android.gallery.app.ui.list.search.suggestionview;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public enum SuggesterType {
+    NORMAL,
+    HIERARCHICAL_SUGGESTION,
+    RELATIONSHIP_SUGGESTION,
+    SUGGESTED_ACTION,
+    TAG_ME_SUGGESTION,
+    SELECT_ME_SUGGESTION,
+    FACE_CLUSTER_MERGE_SUGGESTION,
+    SCS_SETTING_ACTION,
+    LANGUAGE_PACK_DOWNLOAD_ACTION,
+    FUZZY_KEYWORD,
+    ANALYSIS_TIP_CARD
+}

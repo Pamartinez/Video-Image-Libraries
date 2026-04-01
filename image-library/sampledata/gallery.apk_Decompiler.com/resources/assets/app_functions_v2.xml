@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appfunctions>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#createAlbum</id>
+        <enabledByDefault>true</enabledByDefault>
+        <parameters>
+            <dataTypeMetadata>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.CreateAlbumParams</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>createAlbumParams</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.Album</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>createAlbum</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.AlbumFunctions#createAlbum</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#findAlbums</id>
+        <enabledByDefault>true</enabledByDefault>
+        <parameters>
+            <dataTypeMetadata>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.FindAlbumsParams</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>findAlbumsParams</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <itemType>
+                    <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.Album</dataTypeReference>
+                    <id>unused</id>
+                    <isNullable>false</isNullable>
+                    <type>11</type>
+                </itemType>
+                <type>10</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>findAlbums</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.AlbumFunctions#findAlbums</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.AlbumFunctions#showAlbum</id>
+        <enabledByDefault>true</enabledByDefault>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>albumId</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>13</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>showAlbum</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.AlbumFunctions#showAlbum</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#findMediaItems</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>**Note**: Please use the findPhotos function instead, which provides enhanced search capabilities
+ and better integration with the MediaCollection schema for UI rendering.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.FindMediaItemsParams</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>findMediaItemsParams</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <itemType>
+                    <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.MediaItem</dataTypeReference>
+                    <id>unused</id>
+                    <isNullable>false</isNullable>
+                    <type>11</type>
+                </itemType>
+                <type>10</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>findMediaItems</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.PhotoFunctions#findMediaItems</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#getMediaItemContentUris</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>**Note**: Please use the findPhotos function instead, which provides enhanced search capabilities
+ and better integration with the MediaCollection schema for UI rendering.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <itemType>
+                    <id>unused</id>
+                    <isNullable>false</isNullable>
+                    <type>8</type>
+                </itemType>
+                <type>10</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>mediaItemIds</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <itemType>
+                    <dataTypeReference>android.net.Uri</dataTypeReference>
+                    <id>unused</id>
+                    <isNullable>false</isNullable>
+                    <type>11</type>
+                </itemType>
+                <type>10</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>getMediaItemContentUris</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.PhotoFunctions#getMediaItemContentUris</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#showMediaItem</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>**Note**: Please use the findPhotos function instead, which provides enhanced search capabilities
+ and better integration with the MediaCollection schema for UI rendering.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>mediaItemId</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>13</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>showMediaItem</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.PhotoFunctions#showMediaItem</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.PhotoFunctions#updateMediaItem</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>**Note**: Please use the findPhotos function instead, which provides enhanced search capabilities
+ and better integration with the MediaCollection schema for UI rendering.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.UpdateMediaItemParams</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>updateMediaItemParams</name>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <dataTypeReference>com.google.android.appfunctions.schema.photos.v1.MediaItem</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </valueType>
+        </response>
+        <schemaCategory>photos</schemaCategory>
+        <schemaName>updateMediaItem</schemaName>
+        <schemaVersion>1</schemaVersion>
+        <deprecation>
+            <id>unused</id>
+            <message>This function is deprecated and will be removed in future versions.</message>
+        </deprecation>
+        <functionId>com.samsung.android.gallery.crossapp.function.PhotoFunctions#updateMediaItem</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.samsung.android.gallery.crossapp.function.SearchFunctions#findPhotos</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>Searches for images and videos based on a user's text query.
+ This function is designed to parse the user's request for specific details like dates, time ranges, and locations (city and country) to perform a refined search.
+ For optimal results, you should extract these details into the corresponding optional fields (startTime, endTime, city, country, countryCode) whenever they are mentioned, in addition to creating a detailed queryString.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>queryString</name>
+            <description>(Required) Contains only the part of the user's utterance or input relevant to photo search. This should contain only the descriptive part of the user's request that relates to the photos or videos being searched for, including modifiers like location, time, subjects, and other qualifying attributes. Command words like "find", "show", "get" should be excluded, keeping only the content description. Examples: - "photos I took in Paris last year" (from "Find photos I took in Paris last year") - "pictures from my trip to Tokyo in December" (from "Show me pictures from my trip to Tokyo in December") - "videos of my dog playing in the park yesterday" (from "Videos of my dog playing in the park yesterday") - "sunset photos from my vacation in Hawaii" (from "Find sunset photos from my vacation in Hawaii")</description>
+        </parameters>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <type>7</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>false</isRequired>
+            <name>maxCount</name>
+            <description>(Optional) The maximum number of results requested.</description>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <dataTypeReference>com.samsung.android.gallery.crossapp.function.FindPhotosResponse</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </valueType>
+            <description>FindPhotosResponse The found content's response with media items and resources (MAX = 50) </description>
+        </response>
+        <functionId>com.samsung.android.gallery.crossapp.function.SearchFunctions#findPhotos</functionId>
+    </appfunction>
+    <AppFunctionComponentMetadataDocument>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.CreateAlbumParams</objectQualifiedName>
+                <description>The parameters for creating an album. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The title of the album. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>title</name>
+                </properties>
+                <required>title</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.CreateAlbumParams</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.Date</objectQualifiedName>
+                <description>A date. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The year. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>year</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The month. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>month</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The day. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>day</name>
+                </properties>
+                <required>year</required>
+                <required>month</required>
+                <required>day</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.Date</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.TimeOfDay</objectQualifiedName>
+                <description>A time of day. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The hours. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>hours</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The minutes. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>minutes</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The seconds. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>seconds</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The nanoseconds. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>nanos</name>
+                </properties>
+                <required>hours</required>
+                <required>minutes</required>
+                <required>seconds</required>
+                <required>nanos</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.TimeOfDay</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.DateTime</objectQualifiedName>
+                <description>A date and time. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The time zone. Formatted as an IANA Time Zone Database name (e.g. "Europe/Zurich"). </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>timeZone</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.Date</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The date. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>date</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.TimeOfDay</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The time. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>timeOfDay</name>
+                </properties>
+                <required>timeZone</required>
+                <required>date</required>
+                <required>timeOfDay</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.DateTime</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.Album</objectQualifiedName>
+                <description>An album entity. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The ID of the album. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>id</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The title of the album. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>title</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.DateTime</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The date and time the album was created. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>dateCreated</name>
+                </properties>
+                <required>id</required>
+                <required>title</required>
+                <required>dateCreated</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.Album</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.FindAlbumsParams</objectQualifiedName>
+                <description>
+ The parameters for finding albums. A null value means that there is no restriction on the given
+ field. If all fields are null, it returns all the albums (up to [maxCount]).
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>
+ The query to search for albums. A null value means to query all albums.
+
+ This parameter is analogous to the caller typing a query into a search box. The app providing
+ the app function has full control over how the query is interpreted and processed; for example
+ by name matching or semantic analysis.
+</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>query</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The maximum number of albums to return. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>maxCount</name>
+                </properties>
+                <required>maxCount</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.FindAlbumsParams</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.FindMediaItemsParams</objectQualifiedName>
+                <description>
+ The parameters for finding media items. A null value means that there is no restriction on the
+ given field. If all fields are null, it returns all the media items (up to [maxCount]).
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.DateTime</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>
+ The [DateTime] on or after which a media item must have been modified to be included in the
+ results.
+
+ Acts as a lower bound for filtering media items based on their modification item. A `null`
+ value means no lower bound is applied.
+
+ If [startTime] is equal to [endTime], an empty list will be returned.
+
+ [androidx.appfunctions.AppFunctionInvalidArgumentException] should be thrown if [startTime] is
+ specified and is after [endTime].
+</description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>startTime</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.DateTime</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>
+ The [DateTime] before which a media item must have been modified to be included in the results.
+
+ Acts as a strict upper bound for filtering media items based on their modification itemstamp. A
+ `null` value means no upper bound is applied.
+
+ If [startTime] is equal to [endTime], an empty list will be returned.
+
+ [androidx.appfunctions.AppFunctionInvalidArgumentException] should be thrown if [startTime] is
+ specified and is after [endTime].
+</description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>endTime</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>
+ The search query to be processed. A null value means to query all media items with the
+ remaining parameters.
+
+ This parameter is analogous to the caller typing a query into a search box. The app providing
+ the app function has full control over how the query is interpreted and processed; for example
+ by name matching or semantic analysis.
+</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>query</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The geographical location where the media items were taken in natural language. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>location</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>Whether the media items are starred. </description>
+                        <type>1</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>starred</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>An [Album.id] of an album to restrict the search to. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>albumId</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The maximum number of media items to return. </description>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>maxCount</name>
+                </properties>
+                <required>maxCount</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.FindMediaItemsParams</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.MediaItem</objectQualifiedName>
+                <description>A media item, eg. a photo or a video. </description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The ID of the media item. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>id</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The type of the media item. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>type</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.DateTime</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The date and time the media item was created. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>dateCreated</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The title of the media item. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>title</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>Whether the media item is starred. </description>
+                        <type>1</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>starred</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The geographical location where the media item was taken in natural language. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>location</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The [Album.id] of the album the media item is in, if any. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>albumId</name>
+                </properties>
+                <required>id</required>
+                <required>type</required>
+                <required>dateCreated</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.MediaItem</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>android.net.Uri</objectQualifiedName>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>uri</name>
+                </properties>
+                <required>uri</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>android.net.Uri</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String&gt;</objectQualifiedName>
+                <description>
+ An interface for [@Document] classes that carry a decision to set a field of the given type in an
+ entity. These `Set*Field` classes are used as properties of `Upgrade*Params` classes, always
+ nullable. The convention is that when the property is set to `null`, the field of the entity is
+ not modified. Otherwise, it is set to the value carried by the `Set*Field` object. In particular,
+ for a nullable field, that value could be `null` which allows setting a field of the entity to
+ `null`.
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>value</name>
+                </properties>
+                <required>value</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String&gt;</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.Boolean?&gt;</objectQualifiedName>
+                <description>
+ An interface for [@Document] classes that carry a decision to set a field of the given type in an
+ entity. These `Set*Field` classes are used as properties of `Upgrade*Params` classes, always
+ nullable. The convention is that when the property is set to `null`, the field of the entity is
+ not modified. Otherwise, it is set to the value carried by the `Set*Field` object. In particular,
+ for a nullable field, that value could be `null` which allows setting a field of the entity to
+ `null`.
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <type>1</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>value</name>
+                </properties>
+                <required>value</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.Boolean?&gt;</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String?&gt;</objectQualifiedName>
+                <description>
+ An interface for [@Document] classes that carry a decision to set a field of the given type in an
+ entity. These `Set*Field` classes are used as properties of `Upgrade*Params` classes, always
+ nullable. The convention is that when the property is set to `null`, the field of the entity is
+ not modified. Otherwise, it is set to the value carried by the `Set*Field` object. In particular,
+ for a nullable field, that value could be `null` which allows setting a field of the entity to
+ `null`.
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>value</name>
+                </properties>
+                <required>value</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String?&gt;</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.google.android.appfunctions.schema.photos.v1.UpdateMediaItemParams</objectQualifiedName>
+                <description>
+ The parameters for updating a media item.
+
+ For each field, if the corresponding [SetField] is not null, the media item's field will be
+ updated. The value within the [SetField] will be used to update the original value. Fields with a
+ null [SetField] will not be updated.
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The ID of the media item to update. </description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>mediaItemId</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String&gt;</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The new title of the media item, if it should be updated. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>title</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.Boolean?&gt;</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>Whether the media item is starred, if it should be updated. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>starred</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>com.google.android.appfunctions.schema.types.v1.SetField&lt;kotlin.String?&gt;</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>true</isNullable>
+                        <description>The new [Album.id] of the album the media item is in, if it should be updated. </description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>albumId</name>
+                </properties>
+                <required>mediaItemId</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.google.android.appfunctions.schema.photos.v1.UpdateMediaItemParams</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>androidx.appfunctions.AppFunctionTextResource</objectQualifiedName>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>mimeType</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>content</name>
+                </properties>
+                <required>mimeType</required>
+                <required>content</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>androidx.appfunctions.AppFunctionTextResource</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>androidx.appfunctions.AppFunctionUriGrant</objectQualifiedName>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>android.net.Uri</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>uri</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <type>7</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>modeFlags</name>
+                </properties>
+                <required>uri</required>
+                <required>modeFlags</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>androidx.appfunctions.AppFunctionUriGrant</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.samsung.android.gallery.crossapp.function.MediaItem</objectQualifiedName>
+                <description>
+ Represents a single media item (photo or video) in the search results.
+</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>
+ The description of the media item.
+ Typically the display name or title of the photo/video file (e.g., "vacation.jpg", "sunset_video.mp4").
+ This helps the AI agent understand and describe the media content in conversation.
+</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>description</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <dataTypeReference>androidx.appfunctions.AppFunctionUriGrant</dataTypeReference>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>
+ The URI grant for accessing the media item.
+ Contains the content URI with read permission already granted, allowing the caller to access the actual media file.
+</description>
+                        <type>11</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>uri</name>
+                </properties>
+                <required>description</required>
+                <required>uri</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.samsung.android.gallery.crossapp.function.MediaItem</name>
+        </dataTypes>
+        <dataTypes>
+            <dataTypeMetadata>
+                <allOf>
+                    <id>unused</id>
+                    <isNullable>true</isNullable>
+                    <objectQualifiedName>androidx.appfunctions.AppFunctionResourceContainer</objectQualifiedName>
+                    <description>
+ The response containing found photos and videos.
+</description>
+                    <properties>
+                        <dataTypeMetadata>
+                            <id>unused</id>
+                            <isNullable>false</isNullable>
+                            <itemType>
+                                <dataTypeReference>androidx.appfunctions.AppFunctionTextResource</dataTypeReference>
+                                <id>unused</id>
+                                <isNullable>false</isNullable>
+                                <type>11</type>
+                            </itemType>
+                            <type>10</type>
+                        </dataTypeMetadata>
+                        <id>unused</id>
+                        <name>resources</name>
+                    </properties>
+                    <required>resources</required>
+                    <type>3</type>
+                </allOf>
+                <allOf>
+                    <id>unused</id>
+                    <isNullable>true</isNullable>
+                    <objectQualifiedName>com.samsung.android.gallery.crossapp.function.FindPhotosResponse</objectQualifiedName>
+                    <description>
+ The response containing found photos and videos.
+</description>
+                    <properties>
+                        <dataTypeMetadata>
+                            <id>unused</id>
+                            <isNullable>false</isNullable>
+                            <itemType>
+                                <dataTypeReference>com.samsung.android.gallery.crossapp.function.MediaItem</dataTypeReference>
+                                <id>unused</id>
+                                <isNullable>false</isNullable>
+                                <type>11</type>
+                            </itemType>
+                            <description>
+ The list of found media items (photos or videos) with their descriptions and URIs.
+ Each item contains a description (file name or title) and a URI grant for accessing the media.
+</description>
+                            <type>10</type>
+                        </dataTypeMetadata>
+                        <id>unused</id>
+                        <name>mediaItems</name>
+                    </properties>
+                    <required>mediaItems</required>
+                    <type>3</type>
+                </allOf>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.samsung.android.gallery.crossapp.function.FindPhotosResponse</objectQualifiedName>
+                <description>
+ The response containing found photos and videos.
+</description>
+                <type>12</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.samsung.android.gallery.crossapp.function.FindPhotosResponse</name>
+        </dataTypes>
+        <id>unused</id>
+    </AppFunctionComponentMetadataDocument>
+</appfunctions>
+

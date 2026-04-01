@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pridať %d cloud. položku do zdieľ. albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pridať %d cloud. položky do zdieľ. albumu?</item>
+        <item quantity="many">Pridať %d cloud. položky do zdieľ. albumu?</item>
+        <item quantity="other">Pridať %d cloud. položiek do zdieľ. albumu?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ak chcete používať inteligentné funkcie, musíte mať aspoň %d rok.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ak chcete používať inteligentné funkcie, musíte mať aspoň %d roky.</item>
+        <item quantity="many">Ak chcete používať inteligentné funkcie, musíte mať aspoň %d roka.</item>
+        <item quantity="other">Ak chcete používať inteligentné funkcie, musíte mať aspoň %d rokov.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fotogr.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d fotogr.</item>
+        <item quantity="many">%d fotogr.</item>
+        <item quantity="other">%d fotogr.</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do príspevku v službe Meitu sa nedá pridať viac než %d video.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do príspevku v službe Meitu sa nedajú pridať viac než %d videá.</item>
+        <item quantity="many">Do príspevku v službe Meitu sa nedá pridať viac než %d videa.</item>
+        <item quantity="other">Do príspevku v službe Meitu sa nedá pridať viac než %d videí.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa odstrániť %1$d fotografia z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa odstrániť %1$d fotografie z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa odstrániť %1$d fotografie z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa odstrániť %1$d fotografií z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa odstrániť %1$d položka z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa odstrániť %1$d položky z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa odstrániť %1$d položky z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa odstrániť %1$d položiek z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa odstrániť %1$d video z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa odstrániť %1$d videá z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa odstrániť %1$d videa z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa odstrániť %1$d videí z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do príspevku v službe Meitu sa nedá zahrnúť viac než %d položka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do príspevku v službe Meitu sa nedajú zahrnúť viac než %d položky.</item>
+        <item quantity="many">Do príspevku v službe Meitu sa nedá zahrnúť viac než %d položky.</item>
+        <item quantity="other">Do príspevku v službe Meitu sa nedá zahrnúť viac než %d položiek.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa obnoviť %1$d fotografia z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa obnoviť %1$d fotografie z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa obnoviť %1$d fotografie z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa obnoviť %1$d fotografií z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa obnoviť %1$d položka z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa obnoviť %1$d položky z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa obnoviť %1$d položky z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa obnoviť %1$d položiek z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa obnoviť %1$d video z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa obnoviť %1$d videá z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Nedá sa obnoviť %1$d videa z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Nedá sa obnoviť %1$d videí z úložiska %2$s. Vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Naraz sa nedá pridať viac než %d položka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Naraz sa nedajú pridať viac než %d položky.</item>
+        <item quantity="many">Naraz sa nedá pridať viac než %d položky.</item>
+        <item quantity="other">Naraz sa nedá pridať viac než %d položiek.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do príbehu nie je možné pridať viac než %d položku.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do príbehu nie je možné pridať viac než %d položky.</item>
+        <item quantity="many">Do príbehu nie je možné pridať viac než %d položky.</item>
+        <item quantity="other">Do príbehu nie je možné pridať viac než %d položiek.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d mesto</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d mestá</item>
+        <item quantity="many">%d mesta</item>
+        <item quantity="other">%d miest</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa obnoviť %1$d fotografiu. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo obnoviť %1$d fotografie. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="many">Nepodarilo obnoviť %1$d fotografie. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="other">Nepodarilo obnoviť %1$d fotografií. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa obnoviť %1$d položku. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa obnoviť %1$d položky. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="many">Nepodarilo sa obnoviť %1$d položky. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="other">Nepodarilo sa obnoviť %1$d položiek. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa obnoviť %1$d video. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa obnoviť %1$d videá. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="many">Nepodarilo sa obnoviť %1$d videa. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+        <item quantity="other">Nepodarilo sa obnoviť %1$d videí. Uvoľnite miesto v úložisku %2$s a potom to skúste znova.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa obnoviť %1$d video. Toto video bolo obnovené alebo odstránené v aplikácii %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa obnoviť %1$d videá. Tieto videá boli obnovené alebo odstránené v aplikácii %2$s.</item>
+        <item quantity="many">Nepodarilo sa obnoviť %1$d videa. Tieto videá boli obnovené alebo odstránené v aplikácii %2$s.</item>
+        <item quantity="other">Nepodarilo sa obnoviť %1$d videí. Tieto videá boli obnovené alebo odstránené v aplikácii %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa odstrániť %d položku. Skúste to znova.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa odstrániť %d položky. Skúste to znova.</item>
+        <item quantity="many">Nepodarilo sa odstrániť %d položky. Skúste to znova.</item>
+        <item quantity="other">Nepodarilo sa odstrániť %d položiek. Skúste to znova.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zdieľaný album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zdieľané albumy</item>
+        <item quantity="many">%d zdieľaného albumu</item>
+        <item quantity="other">%d zdieľaných albumov</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d príbeh</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d príbehy</item>
+        <item quantity="many">%d príbehu</item>
+        <item quantity="other">%d príbehov</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o dátume a čase %d fotografie boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o dátume a čase %d fotografií boli zmenené.</item>
+        <item quantity="many">Informácie o dátume a čase %d fotografie boli zmenené.</item>
+        <item quantity="other">Informácie o dátume a čase %d fotografií boli zmenené.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o dátume a čase %d položky boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o dátume a čase %d položiek boli zmenené.</item>
+        <item quantity="many">Informácie o dátume a čase %d položky boli zmenené.</item>
+        <item quantity="other">Informácie o dátume a čase %d položiek boli zmenené.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o dátume a čase %d videa boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o dátume a čase %d videí boli zmenené.</item>
+        <item quantity="many">Informácie o dátume a čase %d videa boli zmenené.</item>
+        <item quantity="other">Informácie o dátume a čase %d videí boli zmenené.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d albumy?</item>
+        <item quantity="many">Odstrániť %d albumu?</item>
+        <item quantity="other">Odstrániť %d albumov?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vykonať odstránenie 1 skupiny, %d albumu a 1 položky v nich?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vykonať odstránenie 1 skupiny, %d albumov a 1 položky v nich?</item>
+        <item quantity="many">Vykonať odstránenie 1 skupiny, %d albumov a 1 položky v nich?</item>
+        <item quantity="other">Vykonať odstránenie 1 skupiny, %d albumov a 1 položky v nich?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d skupinu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d skupiny?</item>
+        <item quantity="many">Odstrániť %d skupiny?</item>
+        <item quantity="other">Odstrániť %d skupín?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d fotografiu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d fotografie?</item>
+        <item quantity="many">Odstrániť %d fotografie?</item>
+        <item quantity="other">Odstrániť %d fotografií?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d položku?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d položky?</item>
+        <item quantity="many">Odstrániť %d položky?</item>
+        <item quantity="other">Odstrániť %d položiek?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d skupinu podobných fotografií?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d skupiny podobných fotografií?</item>
+        <item quantity="many">Odstrániť %d skupiny podobných fotografií?</item>
+        <item quantity="other">Odstrániť %d skupín podobných fotografií?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d skupinu podobných fotografií a 1 ďalšiu položku?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d skupiny podobných fotografií a 1 ďalšiu položku?</item>
+        <item quantity="many">Odstrániť %d skupiny podobných fotografií a 1 ďalšiu položku?</item>
+        <item quantity="other">Odstrániť %d skupín podobných fotografií a 1 ďalšiu položku?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť 1 skupinu podobných fotografií a %d ďalšiu položku?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť 1 skupinu podobných fotografií a %d ďalšie položky?</item>
+        <item quantity="many">Odstrániť 1 skupinu podobných fotografií a %d ďalšej položky?</item>
+        <item quantity="other">Odstrániť 1 skupinu podobných fotografií a %d ďalších položiek?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d položku z tejto skupiny?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d položky z tejto skupiny?</item>
+        <item quantity="many">Odstrániť %d položky z tejto skupiny?</item>
+        <item quantity="other">Odstrániť %d položiek z tejto skupiny?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť videoklip z %d fotografie pohybu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť videoklipy z %d fotografií pohybu?</item>
+        <item quantity="many">Odstrániť videoklipy z %d fotografie pohybu?</item>
+        <item quantity="other">Odstrániť videoklipy z %d fotografií pohybu?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d fotografiu z tejto skupiny?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d fotografie z tejto skupiny?</item>
+        <item quantity="many">Odstrániť %d fotografie z tejto skupiny?</item>
+        <item quantity="other">Odstrániť %d fotografií z tejto skupiny?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d súpravu jednotlivých snímaní?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d súpravy jednotlivých snímaní?</item>
+        <item quantity="many">Odstrániť %d súpravy jednotlivých snímaní?</item>
+        <item quantity="other">Odstrániť %d súprav jednotlivých snímaní?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d video?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d videá?</item>
+        <item quantity="many">Odstrániť %d videa?</item>
+        <item quantity="other">Odstrániť %d videí?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Tento obsah si môžete pozrieť ešte %d-krát. Chcete si ho teraz pozrieť?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Tento obsah si môžete pozrieť ešte %d-krát. Chcete si ho teraz pozrieť?</item>
+        <item quantity="many">Tento obsah si môžete pozrieť ešte %d-krát. Chcete si ho teraz pozrieť?</item>
+        <item quantity="other">Tento obsah si môžete pozrieť ešte %d-krát. Chcete si ho teraz pozrieť?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d prázdny album sa odstráni bez premiestnenia do Koša.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d prázdne albumy sa odstránia bez premiestnenia do Koša.</item>
+        <item quantity="many">%d prázdneho albumu sa odstráni bez premiestnenia do Koša.</item>
+        <item quantity="other">%d prázdnych albumov sa odstráni bez premiestnenia do Koša.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Položky v Koši sa za %d deň natrvalo odstránia.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Položky v Koši sa za %d dni natrvalo odstránia.</item>
+        <item quantity="many">Položky v Koši sa za %d dňa natrvalo odstránia.</item>
+        <item quantity="other">Položky v Koši sa za %d dní natrvalo odstránia.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fotografia bola natrvalo odstránená z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópiu z Koša.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d fotografie boli natrvalo odstránené z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="many">%d fotografie bolo natrvalo odstránenej z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="other">%d fotografií bolo natrvalo odstránených z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka bola natrvalo odstránené z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópiu z Koša.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky boli natrvalo odstránené z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="many">%d položky bolo natrvalo odstránenej z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="other">%d položiek bolo natrvalo odstránených z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d video bolo natrvalo odstránené z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópiu z Koša.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videá boli natrvalo odstránené z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="many">%d videa bolo natrvalo odstráneného z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+        <item quantity="other">%d videí bolo natrvalo odstránených z telefónu. Prejdite do úložiska OneDrive a odstráňte v ňom kópie z Koša.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fotografia bola natrvalo odstránená.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d fotografie boli natrvalo odstránené.</item>
+        <item quantity="many">%d fotografie bolo natrvalo odstránenej.</item>
+        <item quantity="other">%d fotografií bolo natrvalo odstránených.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka bola natrvalo odstránená.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky boli natrvalo odstránené.</item>
+        <item quantity="many">%d položky bolo natrvalo odstránenej.</item>
+        <item quantity="other">%d položiek bolo natrvalo odstránených.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d video bolo natrvalo odstránené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videá boli natrvalo odstránené.</item>
+        <item quantity="many">%d videa bolo natrvalo odstráneného.</item>
+        <item quantity="other">%d videí bolo natrvalo odstránených.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zobrazenie mriežky s %d miniatúrou v každom riadku</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zobrazenie mriežky s %d miniatúrami v každom riadku</item>
+        <item quantity="many">Zobrazenie mriežky s %d miniatúrou v každom riadku</item>
+        <item quantity="other">Zobrazenie mriežky s %d miniatúrami v každom riadku</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d skupina, 1 album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d skupiny, 1 album</item>
+        <item quantity="many">%d skupiny, 1 album</item>
+        <item quantity="other">%d skupín, 1 album</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fotografia bola stiahnutá z cloudu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d fotografie boli stiahnuté z cloudu.</item>
+        <item quantity="many">%d fotografie bolo stiahnutej z cloudu.</item>
+        <item quantity="other">%d fotografií bolo stiahnutých z cloudu.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Fotografie boli obnovené. %1$d fotografiu z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Fotografie boli obnovené. %1$d fotografie z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Fotografie boli obnovené. %1$d fotografie z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Fotografie boli obnovené. %1$d fotografií z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bola uložená %d položka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Boli uložené %d položky.</item>
+        <item quantity="many">Bolo uloženej %d položky.</item>
+        <item quantity="other">Bolo uložených %d položiek.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka bola stiahnutá z cloudu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky boli stiahnuté z cloudu.</item>
+        <item quantity="many">%d položky bolo stiahnutej z cloudu.</item>
+        <item quantity="other">%d položiek bolo stiahnutých z cloudu.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Položky boli obnovené. %1$d položku z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Položky boli obnovené. %1$d položky z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Položky boli obnovené. %1$d položky z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Položky boli obnovené. %1$d položiek z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o polohe %d fotografie boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o polohe %d fotografií boli zmenené.</item>
+        <item quantity="many">Informácie o polohe %d fotografie boli zmenené.</item>
+        <item quantity="other">Informácie o polohe %d fotografií boli zmenené.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o polohe %d položky boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o polohe %d položiek boli zmenené.</item>
+        <item quantity="many">Informácie o polohe %d položky boli zmenené.</item>
+        <item quantity="other">Informácie o polohe %d položiek boli zmenené.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Informácie o polohe %d videa boli zmenené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Informácie o polohe %d videí boli zmenené.</item>
+        <item quantity="many">Informácie o polohe %d videa boli zmenené.</item>
+        <item quantity="other">Informácie o polohe %d videí boli zmenené.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d miesto</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d miesta</item>
+        <item quantity="many">%d miesta</item>
+        <item quantity="other">%d miest</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa zadať viac než %d znak.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa zadať viac než %d znaky.</item>
+        <item quantity="many">Nedá sa zadať viac než %d znaku.</item>
+        <item quantity="other">Nedá sa zadať viac než %d znakov.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bol uložený videoklip z %d fotografie pohybu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Boli uložené videoklipy z %d fotografií pohybu.</item>
+        <item quantity="many">Boli uložené videoklipy z %d fotografie pohybu.</item>
+        <item quantity="other">Boli uložené videoklipy z %d fotografií pohybu.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d sériovú snímku do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d sériové snímky do Koša?</item>
+        <item quantity="many">Premiestniť %d sériovej snímky do Koša?</item>
+        <item quantity="other">Premiestniť %d sériových snímok do Koša?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d sériovú snímku do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d sériové snímky do Koša?</item>
+        <item quantity="many">Premiestniť %d sériovej snímky do Koša?</item>
+        <item quantity="other">Premiestniť %d sériových snímok do Koša?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vykonať premiestnenie 1 skupiny, 1 albumu a %d položky v nich do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vykonať premiestnenie 1 skupiny, 1 albumu a %d položiek v nich do Koša?</item>
+        <item quantity="many">Vykonať premiestnenie 1 skupiny, 1 albumu a %d položiek v nich do Koša?</item>
+        <item quantity="other">Vykonať premiestnenie 1 skupiny, 1 albumu a %d položiek v nich do Koša?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vykonať premiestnenie 1 skupiny, %d albumu a 1 položky v nich do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vykonať premiestnenie 1 skupiny, %d albumov a 1 položky v nich do Koša?</item>
+        <item quantity="many">Vykonať premiestnenie 1 skupiny, %d albumov a 1 položky v nich do Koša?</item>
+        <item quantity="other">Vykonať premiestnenie 1 skupiny, %d albumov a 1 položky v nich do Koša?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vykonať premiestnenie %d skupiny, 1 albumu a 1 položky v nich do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vykonať premiestnenie %d skupín, 1 albumu a 1 položky v nich do Koša?</item>
+        <item quantity="many">Vykonať premiestnenie %d skupín, 1 albumu a 1 položky v nich do Koša?</item>
+        <item quantity="other">Vykonať premiestnenie %d skupín, 1 albumu a 1 položky v nich do Koša?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d fotografiu z tejto sériovej snímky do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d fotografie z tejto sériovej snímky do Koša?</item>
+        <item quantity="many">Premiestniť %d fotografie z tejto sériovej snímky do Koša?</item>
+        <item quantity="other">Premiestniť %d fotografií z tejto sériovej snímky do Koša?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d fotografiu z tejto sériovej snímky do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d fotografie z tejto sériovej snímky do Koša?</item>
+        <item quantity="many">Premiestniť %d fotografie z tejto sériovej snímky do Koša?</item>
+        <item quantity="other">Premiestniť %d fotografií z tejto sériovej snímky do Koša?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d fotografiu do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d fotografie do Koša?</item>
+        <item quantity="many">Premiestniť %d fotografie do Koša?</item>
+        <item quantity="other">Premiestniť %d fotografií do Koša?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d položku do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d položky do Koša?</item>
+        <item quantity="many">Premiestniť %d položky do Koša?</item>
+        <item quantity="other">Premiestniť %d položiek do Koša?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky</item>
+        <item quantity="many">%d položky</item>
+        <item quantity="other">%d položiek</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d skupinu podobných fotografií do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d skupiny podobných fotografií do Koša?</item>
+        <item quantity="many">Premiestniť %d skupiny podobných fotografií do Koša?</item>
+        <item quantity="other">Premiestniť %d skupín podobných fotografií do Koša?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d skupinu podobných fotografií a 1 ďalšiu položku do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d skupiny podobných fotografií a 1 ďalšiu položku do Koša?</item>
+        <item quantity="many">Premiestniť %d skupiny podobných fotografií a 1 ďalšiu položku do Koša?</item>
+        <item quantity="other">Premiestniť %d skupín podobných fotografií a 1 ďalšiu položku do Koša?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť 1 skupinu podobných fotografií a %d ďalšiu položku do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť 1 skupinu podobných fotografií a %d ďalšie položky do Koša?</item>
+        <item quantity="many">Premiestniť 1 skupinu podobných fotografií a %d ďalšej položky do Koša?</item>
+        <item quantity="other">Premiestniť 1 skupinu podobných fotografií a %d ďalších položiek do Koša?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d položku z tejto skupiny do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d položky z tejto skupiny do Koša?</item>
+        <item quantity="many">Premiestniť %d položky z tejto skupiny do Koša?</item>
+        <item quantity="other">Premiestniť %d položiek z tejto skupiny do Koša?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d fotografiu z tejto skupiny do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d fotografie z tejto skupiny do Koša?</item>
+        <item quantity="many">Premiestniť %d fotografie z tejto skupiny do Koša?</item>
+        <item quantity="other">Premiestniť %d fotografií z tejto skupiny do Koša?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d súpravu jednotlivých snímaní do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d súpravy jednotlivých snímaní do Koša?</item>
+        <item quantity="many">Premiestniť %d súpravy jednotlivých snímaní do Koša?</item>
+        <item quantity="other">Premiestniť %d súprav jednotlivých snímaní do Koša?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d položku do súkromného albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d položky do súkromného albumu?</item>
+        <item quantity="many">Premiestniť %d položky do súkromného albumu?</item>
+        <item quantity="other">Premiestniť %d položiek do súkromného albumu?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa premiestniť %1$d súbor z úložiska %2$s na %3$s. Stiahnite si tento súbor a potom to skúste znova.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa premiestniť %1$d súbory z úložiska %2$s na %3$s. Stiahnite si tieto súbory a potom to skúste znova.</item>
+        <item quantity="many">Nepodarilo sa premiestniť %1$d súboru z úložiska %2$s na %3$s. Stiahnite si tieto súbory a potom to skúste znova.</item>
+        <item quantity="other">Nepodarilo sa premiestniť %1$d súborov z úložiska %2$s na %3$s. Stiahnite si tieto súbory a potom to skúste znova.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %d video do Koša?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %d videá do Koša?</item>
+        <item quantity="many">Premiestniť %d videa do Koša?</item>
+        <item quantity="other">Premiestniť %d videí do Koša?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestňuje sa %d položka do Koša…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestňujú sa %d položky do Koša…</item>
+        <item quantity="many">Premiestňuje sa %d položky do Koša…</item>
+        <item quantity="other">Premiestňuje sa %d položiek do Koša…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d nové upozornenie</item>
+        <item quantity="few">%d nové upozornenia</item>
+        <item quantity="many">%d new notifications</item>
+        <item quantity="other">%d nových upozornení</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album s rovnakým názvom bol zlúčený.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albumy s rovnakým názvom boli zlúčené.</item>
+        <item quantity="many">%d albumu s rovnakým názvom bolo zlúčených.</item>
+        <item quantity="other">%d albumov s rovnakým názvom bolo zlúčených.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d deň</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dňa</item>
+        <item quantity="other">%d dní</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do odstránenia príbehu zostáva %d deň</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do odstránenia príbehu zostávajú %d dni</item>
+        <item quantity="many">Do odstránenia príbehu zostáva %d dňa</item>
+        <item quantity="other">Do odstránenia príbehu zostáva %d dní</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d albumy?</item>
+        <item quantity="many">Odstrániť %d albumu?</item>
+        <item quantity="other">Odstrániť %d albumov?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d fotografia bola pridaná medzi obľúbené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d fotografie boli pridané medzi obľúbené.</item>
+        <item quantity="many">%d fotografie bolo pridanej medzi obľúbené.</item>
+        <item quantity="other">%d fotografií bolo pridaných medzi obľúbené.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d pozvánka</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d pozvánky</item>
+        <item quantity="many">%d pozvánky</item>
+        <item quantity="other">%d pozvánok</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka bola pridaná medzi obľúbené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky boli pridané medzi obľúbené.</item>
+        <item quantity="many">%d položky bolo pridanej medzi obľúbené.</item>
+        <item quantity="other">%d položiek bolo pridaných medzi obľúbené.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bola vybratá %d osoba</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Boli vybraté %d osoby</item>
+        <item quantity="many">Bolo vybratej %d osoby</item>
+        <item quantity="other">Bolo vybratých %d osôb</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vybraté: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vybraté: %d</item>
+        <item quantity="many">Vybraté: %d</item>
+        <item quantity="other">Vybraté: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zdieľaný album, 1 pozvánka</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zdieľané albumy, 1 pozvánka</item>
+        <item quantity="many">%d zdieľaného albumu, 1 pozvánka</item>
+        <item quantity="other">%d zdieľaných albumov, 1 pozvánka</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Našli sme %d novú fotografiu, ktorú by ste možno chceli pridať do tohto albumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Našli sme %d nové fotografie, ktoré by ste možno chceli pridať do tohto albumu.</item>
+        <item quantity="many">Našli sme %d novej fotografie, ktoré by ste možno chceli pridať do tohto albumu.</item>
+        <item quantity="other">Našli sme %d nových fotografií, ktoré by ste možno chceli pridať do tohto albumu.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d video bolo pridané medzi obľúbené.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videá boli pridané medzi obľúbené.</item>
+        <item quantity="many">%d videa bolo pridaného medzi obľúbené.</item>
+        <item quantity="other">%d videí bolo pridaných medzi obľúbené.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s pred %2$d rokom</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s pred %2$d rokmi</item>
+        <item quantity="many">%1$s pred %2$d rokom</item>
+        <item quantity="other">%1$s pred %2$d rokmi</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albumy</item>
+        <item quantity="many">%d albumu</item>
+        <item quantity="other">%d albumov</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Stiahla sa %d položka. Ťuknutím sem ju môžete zobraziť.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Stiahli sa %d položky. Ťuknutím sem ich môžete zobraziť.</item>
+        <item quantity="many">Stiahlo sa %d položky. Ťuknutím sem ich môžete zobraziť.</item>
+        <item quantity="other">Stiahlo sa %d položiek. Ťuknutím sem ich môžete zobraziť.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d skupina</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d skupiny</item>
+        <item quantity="many">%d skupiny</item>
+        <item quantity="other">%d skupín</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa stiahnuť %d súbor. Tento telefón nepodporuje fotografie HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa stiahnuť %d súbory. Tento telefón nepodporuje fotografie HEIF.</item>
+        <item quantity="many">Nepodarilo sa stiahnuť %d súboru. Tento telefón nepodporuje fotografie HEIF.</item>
+        <item quantity="other">Nepodarilo sa stiahnuť %d súborov. Tento telefón nepodporuje fotografie HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepodarilo sa stiahnuť %d súbor. Tento tablet nepodporuje fotografie HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepodarilo sa stiahnuť %d súbory. Tento tablet nepodporuje fotografie HEIF.</item>
+        <item quantity="many">Nepodarilo sa stiahnuť %d súboru. Tento tablet nepodporuje fotografie HEIF.</item>
+        <item quantity="other">Nepodarilo sa stiahnuť %d súborov. Tento tablet nepodporuje fotografie HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d člen</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d členovia</item>
+        <item quantity="many">%d člena</item>
+        <item quantity="other">%d členov</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nedá sa pridať viac než %d nálepka. Ak chcete odstrániť nálepky, prejdite do editora fotografií v Galérii.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nedajú sa pridať viac než %d nálepky. Ak chcete odstrániť nálepky, prejdite do editora fotografií v Galérii.</item>
+        <item quantity="many">Nedá sa pridať viac než %d nálepky. Ak chcete odstrániť nálepky, prejdite do editora fotografií v Galérii.</item>
+        <item quantity="other">Nedá sa pridať viac než %d nálepiek. Ak chcete odstrániť nálepky, prejdite do editora fotografií v Galérii.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 skupina, %d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 skupina, %d albumy</item>
+        <item quantity="many">1 skupina, %d albumu</item>
+        <item quantity="other">1 skupina, %d albumov</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 zdieľaný album, %d pozvánka</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 zdieľaný album, %d pozvánky</item>
+        <item quantity="many">1 zdieľaný album, %d pozvánky</item>
+        <item quantity="other">1 zdieľaný album, %d pozvánok</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Natrvalo odstrániť %d fotografiu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Natrvalo odstrániť %d fotografie?</item>
+        <item quantity="many">Natrvalo odstrániť %d fotografie?</item>
+        <item quantity="other">Natrvalo odstrániť %d fotografií?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Natrvalo odstrániť %d položku?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Natrvalo odstrániť %d položky?</item>
+        <item quantity="many">Natrvalo odstrániť %d položky?</item>
+        <item quantity="other">Natrvalo odstrániť %d položiek?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Natrvalo odstrániť %d video?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Natrvalo odstrániť %d videá?</item>
+        <item quantity="many">Natrvalo odstrániť %d videa?</item>
+        <item quantity="other">Natrvalo odstrániť %d videí?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Natrvalo sa odstráni %d fotografia.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Natrvalo sa odstránia %d fotografie.</item>
+        <item quantity="many">Natrvalo sa odstráni %d fotografie.</item>
+        <item quantity="other">Natrvalo sa odstráni %d fotografií.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d položka sa natrvalo odstráni.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d položky sa natrvalo odstránia.</item>
+        <item quantity="many">%d položky sa natrvalo odstráni.</item>
+        <item quantity="other">%d položiek sa natrvalo odstráni.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Natrvalo sa odstráni %d video.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Natrvalo sa odstránia %d videá.</item>
+        <item quantity="many">Natrvalo sa odstráni %d videa.</item>
+        <item quantity="other">Natrvalo sa odstráni %d videí.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bola uložená %d fotografia.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Boli uložené %d fotografie.</item>
+        <item quantity="many">Bolo uloženej %d fotografie.</item>
+        <item quantity="other">Bolo uložených %d fotografií.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Navštívené %1$d deň v roku %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Navštívené %1$d dni v roku %2$s</item>
+        <item quantity="many">Navštívené %1$d dňa v roku %2$s</item>
+        <item quantity="other">Navštívené %1$d dní v roku %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pred %d rokom</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pred %d rokmi</item>
+        <item quantity="many">Pred %d rokom</item>
+        <item quantity="other">Pred %d rokmi</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d návrh bol odstránený.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d návrhy boli odstránené.</item>
+        <item quantity="many">%d návrhu bolo odstráneného.</item>
+        <item quantity="other">%d návrhov bolo odstránených.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d fotografiu z tohto zdieľaného albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d fotografie z tohto zdieľaného albumu?</item>
+        <item quantity="many">Odstrániť %d fotografie z tohto zdieľaného albumu?</item>
+        <item quantity="other">Odstrániť %d fotografií z tohto zdieľaného albumu?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d fotografiu z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d fotografie z albumu?</item>
+        <item quantity="many">Odstrániť %d fotografie z albumu?</item>
+        <item quantity="other">Odstrániť %d fotografií z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d položku z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d položky z albumu?</item>
+        <item quantity="many">Odstrániť %d položky z albumu?</item>
+        <item quantity="other">Odstrániť %d položiek z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d položku z príbehu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d položky z príbehu?</item>
+        <item quantity="many">Odstrániť %d položky z príbehu?</item>
+        <item quantity="other">Odstrániť %d položiek z príbehu?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d fotografiu z návrhov albumov?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d fotografie z návrhov albumov?</item>
+        <item quantity="many">Odstrániť %d fotografie z návrhov albumov?</item>
+        <item quantity="other">Odstrániť %d fotografií z návrhov albumov?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d položku z návrhov albumov?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d položky z návrhov albumov?</item>
+        <item quantity="many">Odstrániť %d položky z návrhov albumov?</item>
+        <item quantity="other">Odstrániť %d položiek z návrhov albumov?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d video z návrhov albumov?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d videá z návrhov albumov?</item>
+        <item quantity="many">Odstrániť %d videa z návrhov albumov?</item>
+        <item quantity="other">Odstrániť %d videí z návrhov albumov?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d video z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d videá z albumu?</item>
+        <item quantity="many">Odstrániť %d videa z albumu?</item>
+        <item quantity="other">Odstrániť %d videí z albumu?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstrániť %d video z tohto zdieľaného albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstrániť %d videá z tohto zdieľaného albumu?</item>
+        <item quantity="many">Odstrániť %d videa z tohto zdieľaného albumu?</item>
+        <item quantity="other">Odstrániť %d videí z tohto zdieľaného albumu?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Uložiť %1$d položku z %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Uložiť %1$d položky z %2$s?</item>
+        <item quantity="many">Uložiť %1$d položky z %2$s?</item>
+        <item quantity="other">Uložiť %1$d položiek z %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Uložiť %1$d fotografiu z tejto %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Uložiť %1$d fotografie z tejto %2$s?</item>
+        <item quantity="many">Uložiť %1$d fotografie z tejto %2$s?</item>
+        <item quantity="other">Uložiť %1$d fotografií z tejto %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %1$d fotografiu do priečinka %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %1$d fotografie do priečinka %2$s?</item>
+        <item quantity="many">Premiestniť %1$d fotografie do priečinka %2$s?</item>
+        <item quantity="other">Premiestniť %1$d fotografií do priečinka %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %1$d položku do priečinka %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %1$d položky do priečinka %2$s?</item>
+        <item quantity="many">Premiestniť %1$d položky do priečinka %2$s?</item>
+        <item quantity="other">Premiestniť %1$d položiek do priečinka %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Premiestniť %1$d video do priečinka %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Premiestniť %1$d videá do priečinka %2$s?</item>
+        <item quantity="many">Premiestniť %1$d videa do priečinka %2$s?</item>
+        <item quantity="other">Premiestniť %1$d videí do priečinka %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Skupina %d podobnej fotografie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Skupina %d podobných fotografií</item>
+        <item quantity="many">Skupina %d podobnej fotografie</item>
+        <item quantity="other">Skupina %d podobných fotografií</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bola vybratá %d položka</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Boli vybraté %d položky</item>
+        <item quantity="many">Bolo vybratej %d položky</item>
+        <item quantity="other">Bolo vybratých %d položiek</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Táto osoba pred %d rokom</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Táto osoba pred %d rokmi</item>
+        <item quantity="many">Táto osoba pred %d rokom</item>
+        <item quantity="other">Táto osoba pred %d rokmi</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d video bolo stiahnuté z cloudu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d videá boli stiahnuté z cloudu.</item>
+        <item quantity="many">%d videa bolo stiahnutého z cloudu.</item>
+        <item quantity="other">%d videí bolo stiahnutých z cloudu.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Video bolo obnovené. %1$d video z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Video bolo obnovené. %1$d videá z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="many">Video bolo obnovené. %1$d videa z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+        <item quantity="other">Video bolo obnovené. %1$d videí z úložiska %2$s sa nepodarilo obnoviť, pretože vaše úložisko %3$s je zamknuté z dôvodu žiadosti týkajúcej sa osobných údajov.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do koláže nie je možné zahrnúť viac než %d položku.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do koláže nie je možné zahrnúť viac než %d položky.</item>
+        <item quantity="many">Do koláže nie je možné zahrnúť viac než %d položky.</item>
+        <item quantity="other">Do koláže nie je možné zahrnúť viac než %d položiek.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Odstránenie sa vykoná o %d deň</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Odstránenie sa vykoná o %d dni</item>
+        <item quantity="many">Odstránenie sa vykoná o %d dňa</item>
+        <item quantity="other">Odstránenie sa vykoná sa o %d dní</item>
+    </plurals>
+</resources>

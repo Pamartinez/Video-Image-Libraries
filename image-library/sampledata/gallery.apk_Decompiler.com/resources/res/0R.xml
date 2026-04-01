@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_count_header_margin_top" android:layout_marginBottom="@dimen/search_count_header_margin_bottom" android:layout_marginHorizontal="@dimen/search_count_header_margin_horizontal" android:paddingVertical="@dimen/search_filter_results_title_vertical_padding">
+        <View android:id="@+id/item_count_line" android:background="@color/search_count_header_background_line_color" android:layout_width="match_parent" android:layout_height="@dimen/search_count_header_background_line" android:layout_centerInParent="true"/>
+        <TextView android:id="@+id/item_count" style="@style/SearchCountHeaderTextStyle"/>
+    </RelativeLayout>
+</RelativeLayout>

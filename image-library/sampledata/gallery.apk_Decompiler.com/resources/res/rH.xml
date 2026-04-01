@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:paddingTop="16dp" android:paddingBottom="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:textSize="14sp" android:textColor="@color/story_highlight_theme_selected_title_color" android:id="@+id/headerContent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/spice_up_your_stories" android:lineSpacingExtra="4sp" android:textDirection="locale" android:paddingHorizontal="@dimen/tip_card_text_layout_padding_start"/>
+    <LinearLayout android:layout_gravity="end" android:orientation="horizontal" android:paddingBottom="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="@dimen/tip_card_button_layout_padding_end">
+        <com.samsung.android.gallery.widget.TightTextView android:textColor="@color/story_highlight_bgm_unselected_title_color" android:gravity="center" android:id="@+id/not_now_view" android:text="@string/not_now" style="@style/TipCardStartButtonStyle"/>
+        <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.TightTextView android:textColor="@color/story_highlight_bgm_unselected_title_color" android:gravity="center" android:id="@+id/download_all_view" android:text="@string/download_all" style="@style/TipCardEndButtonStyle"/>
+            <androidx.appcompat.widget.SeslProgressBar android:layout_gravity="center" android:id="@+id/progress_circle" android:visibility="gone" android:layout_width="@dimen/story_hide_rule_date_item_remove_btn_size" android:layout_height="@dimen/story_hide_rule_date_item_remove_btn_size" style="@style/ProgressCircleLarge"/>
+        </FrameLayout>
+    </LinearLayout>
+    <View android:background="#14000000" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="@dimen/tip_card_text_layout_padding_start"/>
+</LinearLayout>

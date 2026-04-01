@@ -1,0 +1,10 @@
+package com.google.protobuf;
+
+import N2.j;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final class r0 extends IllegalArgumentException {
+    public r0(int i2, int i7) {
+        super(j.b(i2, i7, "Unpaired surrogate at index ", " of "));
+    }
+}

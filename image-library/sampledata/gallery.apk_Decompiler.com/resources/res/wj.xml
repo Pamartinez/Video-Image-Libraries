@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/group_1">
+        <item android:icon="@drawable/gallery_ic_story_highlight_share" android:id="@+id/action_share_menu" android:title="@string/share_short" app:showAsAction="always"/>
+        <item android:id="@+id/action_delete_story" android:title="@string/delete_story" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/group_2">
+        <item android:id="@+id/action_save_story" android:title="@string/save_as_video" android:showAsAction="never"/>
+        <item android:id="@+id/action_add_to_shared_album" android:title="@string/add_to_shared_album" android:showAsAction="never"/>
+    </group>
+</menu>

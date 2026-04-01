@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.samsung.android.app.sdk.deepsky.textextraction.capsule.ui.CapsuleFrameLayout android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0">
+        <HorizontalScrollView android:layout_gravity="left|center_vertical|center_horizontal|center|start" android:id="@+id/capsule_scroll_view" android:scrollbars="none" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:requiresFadingEdge="horizontal">
+            <LinearLayout android:layout_gravity="end" android:orientation="horizontal" android:id="@+id/capsule_parent" android:paddingBottom="@dimen/capsule_layout_padding_bottom" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/capsule_layout_margin_start" android:paddingEnd="@dimen/capsule_layout_margin_end"/>
+        </HorizontalScrollView>
+    </com.samsung.android.app.sdk.deepsky.textextraction.capsule.ui.CapsuleFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

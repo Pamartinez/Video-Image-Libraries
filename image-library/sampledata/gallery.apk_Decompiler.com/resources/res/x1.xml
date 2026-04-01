@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/$hourglass__0">
+    <target android:name="s1s2" android:animation="@drawable/$hourglass__1"/>
+    <target android:name="s2pg1p10" android:animation="@drawable/$hourglass__6"/>
+    <target android:name="s1" android:animation="@drawable/$hourglass__25"/>
+</animated-vector>

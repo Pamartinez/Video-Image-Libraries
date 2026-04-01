@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:color="@color/gallery_color_primary">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp"/>
+            <solid android:color="@color/app_rating_dialog_rate_it_now_bg_color"/>
+            <stroke android:width="@dimen/actionbar_bottom_line_width" android:color="@color/app_rating_dialog_rate_it_now_bg_stroke_color"/>
+        </shape>
+    </item>
+</ripple>

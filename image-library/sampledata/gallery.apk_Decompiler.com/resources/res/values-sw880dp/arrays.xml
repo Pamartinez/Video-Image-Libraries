@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="albums_column_count">
+        <item>1</item>
+        <item>5</item>
+        <item>4</item>
+    </array>
+    <array name="albums_column_count_split">
+        <item>1</item>
+        <item>4</item>
+        <item>3</item>
+    </array>
+</resources>

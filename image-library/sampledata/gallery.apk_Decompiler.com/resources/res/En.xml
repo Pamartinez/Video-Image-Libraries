@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/default_fw_background" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:layout_gravity="bottom" android:id="@+id/toolbar" style="@style/ToolbarFrameworkStyle"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/relationship_list" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</LinearLayout>

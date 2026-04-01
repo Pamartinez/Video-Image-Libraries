@@ -1,0 +1,51 @@
+package androidx.picker;
+
+import com.sec.android.gallery3d.R;
+
+public abstract class R$styleable {
+    public static final int[] DatePicker = {16843132, 16843133, 16843581, R.attr.buttonTintColor, R.attr.dayNumberDisabledAlpha, R.attr.dayNumberTextColor, R.attr.dayTextColor, R.attr.headerTextColor, R.attr.pickerLayoutMode, R.attr.selectedDayNumberTextColor, R.attr.sundayTextColor};
+    public static final int DatePicker_android_endYear = 1;
+    public static final int DatePicker_android_firstDayOfWeek = 2;
+    public static final int DatePicker_android_startYear = 0;
+    public static final int DatePicker_buttonTintColor = 3;
+    public static final int DatePicker_dayNumberDisabledAlpha = 4;
+    public static final int DatePicker_dayNumberTextColor = 5;
+    public static final int DatePicker_dayTextColor = 6;
+    public static final int DatePicker_headerTextColor = 7;
+    public static final int DatePicker_selectedDayNumberTextColor = 9;
+    public static final int DatePicker_sundayTextColor = 10;
+    public static final int[] NumberPicker = {R.attr.internalMaxHeight, R.attr.internalMaxWidth, R.attr.internalMinHeight, R.attr.internalMinWidth};
+    public static final int NumberPicker_internalMaxHeight = 0;
+    public static final int NumberPicker_internalMaxWidth = 1;
+    public static final int NumberPicker_internalMinHeight = 2;
+    public static final int NumberPicker_internalMinWidth = 3;
+    public static final int[] SeslPeoplePickerView = {R.attr.maxHeight};
+    public static final int[] SeslSleepTimePicker = {R.attr.sleepPicker_horizontalPadding};
+    public static final int[] TimePicker = {R.attr.dateTimeMode, R.attr.timeLayoutMode};
+    public static final int TimePicker_dateTimeMode = 0;
+    public static final int TimePicker_timeLayoutMode = 1;
+    public static final int[] seslCircularSeekBar = {R.attr.CircleStyle, R.attr.csCircleColor, R.attr.csCircleFill, R.attr.csCircleGridMediumColor, R.attr.csCircleGridSmallColor, R.attr.csCircleProgressColor, R.attr.csCircleStrokeWidth, R.attr.csCircleXRadius, R.attr.csCircleYRadius, R.attr.csEndAngle, R.attr.csFirstPointerColor, R.attr.csFirstPointerHaloColor, R.attr.csHideProgressWhenEmpty, R.attr.csIconWidth, R.attr.csLockEnabled, R.attr.csMaintainEqualCircle, R.attr.csMax, R.attr.csMiddleColor, R.attr.csMoveOutsideCircle, R.attr.csPointerAlphaOnTouch, R.attr.csPointerAngle, R.attr.csPointerHaloBorderWidth, R.attr.csPointerHaloWidth, R.attr.csPointerStrokeWidth, R.attr.csProgress, R.attr.csSecondPointerColor, R.attr.csSecondPointerHaloColor, R.attr.csStartAngle, R.attr.csUseCustomRadii};
+    public static final int seslCircularSeekBar_CircleStyle = 0;
+    public static final int seslCircularSeekBar_csCircleColor = 1;
+    public static final int seslCircularSeekBar_csCircleFill = 2;
+    public static final int seslCircularSeekBar_csCircleGridMediumColor = 3;
+    public static final int seslCircularSeekBar_csCircleGridSmallColor = 4;
+    public static final int seslCircularSeekBar_csCircleStrokeWidth = 6;
+    public static final int seslCircularSeekBar_csEndAngle = 9;
+    public static final int seslCircularSeekBar_csFirstPointerColor = 10;
+    public static final int seslCircularSeekBar_csFirstPointerHaloColor = 11;
+    public static final int seslCircularSeekBar_csHideProgressWhenEmpty = 12;
+    public static final int seslCircularSeekBar_csIconWidth = 13;
+    public static final int seslCircularSeekBar_csLockEnabled = 14;
+    public static final int seslCircularSeekBar_csMaintainEqualCircle = 15;
+    public static final int seslCircularSeekBar_csMax = 16;
+    public static final int seslCircularSeekBar_csMiddleColor = 17;
+    public static final int seslCircularSeekBar_csMoveOutsideCircle = 18;
+    public static final int seslCircularSeekBar_csPointerAngle = 20;
+    public static final int seslCircularSeekBar_csPointerHaloWidth = 22;
+    public static final int seslCircularSeekBar_csPointerStrokeWidth = 23;
+    public static final int seslCircularSeekBar_csProgress = 24;
+    public static final int seslCircularSeekBar_csSecondPointerColor = 25;
+    public static final int seslCircularSeekBar_csSecondPointerHaloColor = 26;
+    public static final int seslCircularSeekBar_csStartAngle = 27;
+}

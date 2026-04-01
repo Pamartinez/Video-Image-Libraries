@@ -1,0 +1,48 @@
+package androidx.core;
+
+public abstract class R$id {
+    public static final int accessibility_action_clickable_span = 2131296288;
+    public static final int accessibility_custom_action_0 = 2131296289;
+    public static final int accessibility_custom_action_1 = 2131296290;
+    public static final int accessibility_custom_action_10 = 2131296291;
+    public static final int accessibility_custom_action_11 = 2131296292;
+    public static final int accessibility_custom_action_12 = 2131296293;
+    public static final int accessibility_custom_action_13 = 2131296294;
+    public static final int accessibility_custom_action_14 = 2131296295;
+    public static final int accessibility_custom_action_15 = 2131296296;
+    public static final int accessibility_custom_action_16 = 2131296297;
+    public static final int accessibility_custom_action_17 = 2131296298;
+    public static final int accessibility_custom_action_18 = 2131296299;
+    public static final int accessibility_custom_action_19 = 2131296300;
+    public static final int accessibility_custom_action_2 = 2131296301;
+    public static final int accessibility_custom_action_20 = 2131296302;
+    public static final int accessibility_custom_action_21 = 2131296303;
+    public static final int accessibility_custom_action_22 = 2131296304;
+    public static final int accessibility_custom_action_23 = 2131296305;
+    public static final int accessibility_custom_action_24 = 2131296306;
+    public static final int accessibility_custom_action_25 = 2131296307;
+    public static final int accessibility_custom_action_26 = 2131296308;
+    public static final int accessibility_custom_action_27 = 2131296309;
+    public static final int accessibility_custom_action_28 = 2131296310;
+    public static final int accessibility_custom_action_29 = 2131296311;
+    public static final int accessibility_custom_action_3 = 2131296312;
+    public static final int accessibility_custom_action_30 = 2131296313;
+    public static final int accessibility_custom_action_31 = 2131296314;
+    public static final int accessibility_custom_action_4 = 2131296315;
+    public static final int accessibility_custom_action_5 = 2131296316;
+    public static final int accessibility_custom_action_6 = 2131296317;
+    public static final int accessibility_custom_action_7 = 2131296318;
+    public static final int accessibility_custom_action_8 = 2131296319;
+    public static final int accessibility_custom_action_9 = 2131296320;
+    public static final int tag_accessibility_actions = 2131298511;
+    public static final int tag_accessibility_clickable_spans = 2131298512;
+    public static final int tag_accessibility_heading = 2131298513;
+    public static final int tag_accessibility_pane_title = 2131298514;
+    public static final int tag_compat_insets_dispatch = 2131298518;
+    public static final int tag_on_receive_content_listener = 2131298529;
+    public static final int tag_on_receive_content_mime_types = 2131298530;
+    public static final int tag_screen_reader_focusable = 2131298531;
+    public static final int tag_state_description = 2131298533;
+    public static final int tag_system_bar_state_monitor = 2131298534;
+    public static final int tag_window_insets_animation_callback = 2131298543;
+}

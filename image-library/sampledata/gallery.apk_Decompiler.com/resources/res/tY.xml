@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/empty_view" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/no_item_view_container" style="@style/ExtendedEmptyViewStyle">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.samsung.android.gallery.widget.NoItemView android:id="@+id/no_item_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:description="@string/empty_set_description_no_collections" app:label="@string/no_collections"/>
+                <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" layout="@layout/edit_collection_button_layout"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

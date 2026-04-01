@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ամպ. տարր ավելացնե՞լ համօգտ. ալբոմին:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ամպ. տարր ավելացնե՞լ համօգտ. ալբոմին:</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Խելացի գործառական հնարավորություններ օգտագործելու համար պետք է լինեք առնվազն %d տարեկան:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Խելացի գործառական հնարավորություններ օգտագործելու համար պետք է լինեք առնվազն %d տարեկան:</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d նկար</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d նկար</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ %d տեսանյութից ավելի շատ ավելացնել փակցվածքին Meitu-ում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ %d տեսանյութից ավելի շատ ավելացնել փակցվածքին Meitu-ում:</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերացնել %1$d %2$s պատկեր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերացնել %1$d %2$s պատկեր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերացնել %1$d %2$s տարր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերացնել %1$d %2$s տարր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերացնել %1$d %2$s տեսանյութ: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերացնել %1$d %2$s տեսանյութ: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ %d տարրից ավելի շատ ներառել Meitu-ում փակցվածքի մեջ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ %d տարրից ավելի շատ ներառել Meitu-ում փակցվածքի մեջ:</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերականգնել %1$d %2$s պատկեր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերականգնել %1$d %2$s պատկեր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերականգնել %1$d %2$s տարր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերականգնել %1$d %2$s տարր: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ վերականգնել %1$d %2$s տեսանյութ: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ վերականգնել %1$d %2$s տեսանյութ: Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ միանգամից ավելացնել %d տարրից ավելի:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ միանգամից ավելացնել %d տարրից ավելի:</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ %d տարրից ավելի շատ ավելացնել պատմությանը:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ %d տարրից ավելի շատ ավելացնել պատմությանը:</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d քաղաք</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d քաղաք</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց վերականգնել %1$d պատկեր: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց վերականգնել %1$d պատկեր: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց վերականգնել %1$d տարր: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց վերականգնել %1$d տարր: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց վերականգնել %1$d տեսանյութ: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց վերականգնել %1$d տեսանյութ: Որոշ տարածք մաքրեք %2$s-ում, հետո նորից փորձեք:</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց վերականգնել %1$d տեսանյութ: Այս տեսանյութը վերականգնվել կամ վերացվել էր %2$s ծրագրում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց վերականգնել %1$d տեսանյութ: Այս տեսանյութերը վերականգնվել կամ վերացվել էին %2$s ծրագրում:</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց հեռացնել %d տարր: Նորից փորձեք:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց հեռացնել %d տարր: Նորից փորձեք:</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d համօգտագործվող ալբոմ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d համօգտագործվող ալբոմ</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատմություն</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատմություն</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ամսաթվի և ժամի տվյալները փոխվել են %d պատկերում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ամսաթվի և ժամի տվյալները փոխվել են %d պատկերում:</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ամսաթվի և ժամի տվյալները փոխվել են %d տարրում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ամսաթվի և ժամի տվյալները փոխվել են %d տարրում:</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ամսաթվի և ժամի տվյալները փոխվել են %d տեսանյութում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ամսաթվի և ժամի տվյալները փոխվել են %d տեսանյութում:</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d ալբոմ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d ալբոմ:</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ 1 խումբ, %d ալբոմ և 1 տարր դրանցում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ 1 խումբ, %d ալբոմ և 1 տարր դրանցում:</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d խումբ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d խումբ:</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d պատկեր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d պատկեր:</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d տարր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d տարր:</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ նման պատկերների %d խումբ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ նման պատկերների %d խումբ:</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ նման պատկերների %d խումբ և 1 այլ տարր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ նման պատկերների %d խումբ և 1 այլ տարր:</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ նման պատկերների 1 խումբ և %d այլ տարր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ նման պատկերների 1 խումբ և %d այլ տարր:</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր վերացնե՞լ այս հավաքածուից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր վերացնե՞լ այս հավաքածուից:</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տեսահոլովակը վերացնե՞լ %d շարժանկարից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տեսահոլովակները վերացնե՞լ %d շարժանկարից:</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d նկար այս հավաքածուից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d նկար այս հավաքածուից:</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ Մեկ նկարահանման %d լրակազմ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ Մեկ նկարահանման %d լրակազմ:</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d տեսանյութ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d տեսանյութ:</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Դուք կարող եք այս բովանդակությունը դիտել ևս %d անգամ. դիտե՞լ հիմա:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Դուք կարող եք այս բովանդակությունը դիտել ևս %d անգամ. դիտե՞լ հիմա:</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d դատարկ ալբոմ կվերացվի առանց Աղբարկղում հայտնվելու:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d դատարկ ալբոմներ կվերացվեն առանց Աղբարկղում հայտնվելու:</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Աղբարկղի տարրերն ընդմիշտ կվերացվեն %d օր հետո:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Աղբարկղի տարրերն ընդմիշտ կվերացվեն %d օր հետո:</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենը վերացնեք այնտեղի Աղբամանից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենները վերացնեք այնտեղի Աղբամանից:</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենը վերացնեք այնտեղի Աղբամանից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենները վերացնեք այնտեղի Աղբամանից:</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենը վերացնեք այնտեղի Աղբամանից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ ընդմիշտ վերացվեց Ձեր հեռախոսից: Գնացեք OneDrive, որպեսզի պատճենները վերացնեք այնտեղի Աղբամանից:</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր ընդմիշտ վերացվեց:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր ընդմիշտ վերացվեց:</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ընդմիշտ վերացվեց:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր ընդմիշտ վերացվեց:</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ ընդմիշտ վերացվեց:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ ընդմիշտ վերացվեց:</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վանդակացանցի տեսք՝ յուրաքանչյուր տողում %d մանրապատկերով</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վանդակացանցի տեսք՝ յուրաքանչյուր տողում %d մանրապատկերով</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d խումբ, 1 ալբոմ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d խումբ, 1 ալբոմ</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր ներբեռնվեց ամպային պահոցից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր ներբեռնվեց ամպային պահոցից:</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Պատկերները վերականգնվեցին: Չհաջողվեց վերականգնել %1$d %2$s պատկեր, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Պատկերները վերականգնվեցին: Չհաջողվեց վերականգնել %1$d %2$s պատկեր, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Պահպանվել է %d տարր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Պահպանվել է %d տարր:</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ներբեռնվեց ամպային պահոցից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր ներբեռնվեց ամպային պահոցից:</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տարրերը վերականգնվեցին: Չհաջողվեց վերականգնել %1$d %2$s տարր, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տարրերը վերականգնվեցին: Չհաջողվեց վերականգնել %1$d %2$s տարր, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տեղի մասին տեղեկատվությունը փոխվել է %d պատկերում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տեղի մասին տեղեկատվությունը փոխվել է %d պատկերում:</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տեղի մասին տեղեկատվությունը փոխվել է %d տարրում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տեղի մասին տեղեկատվությունը փոխվել է %d տարրում:</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տեղի մասին տեղեկատվությունը փոխվել է %d տեսանյութում:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տեղի մասին տեղեկատվությունը փոխվել է %d տեսանյութում:</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեղ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեղ</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ մուտքագրել %d նիշից ավելի:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ մուտքագրել %d նիշից ավելի:</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Պահպանվել է տեսահոլովակ %d շարժանկարից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Պահպանվել են տեսահոլովակներ %d շարժանկարից:</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d նկարաշարք տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d նկարաշարք տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d նկարաշարք տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d նկարաշարք տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 խումբ, 1 ալբոմ և դրանցում առկա %d տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 խումբ, 1 ալբոմ և դրանցում առկա %d տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 խումբ, %d ալբոմ և դրանցում առկա 1 տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 խումբ, %d ալբոմ և դրանցում առկա 1 տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d խումբ, 1 ալբոմ և դրանցում առկա 1 տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d խումբ, 1 ալբոմ և դրանցում առկա 1 տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս նկարաշարքից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս նկարաշարքից:</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս նկարաշարքից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս նկարաշարքից:</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Նման պատկերների %d խումբ տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Նման պատկերների %d խումբ տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Նման պատկերների %d խումբ և 1 այլ տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Նման պատկերների %d խումբ և 1 այլ տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Նման պատկերների 1 խումբ և %d այլ տարր տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Նման պատկերների 1 խումբ և %d այլ տարր տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Աղբարկղի մեջ տեղափոխե՞լ %d տարր այս հավաքածուից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Աղբարկղի մեջ տեղափոխե՞լ %d տարր այս հավաքածուից:</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս հավաքածուից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Աղբարկղի մեջ տեղափոխե՞լ %d նկար այս հավաքածուից:</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Մեկ նկարահանման %d լրակազմ տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Մեկ նկարահանման %d լրակազմ տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր տեղափոխե՞լ գաղտնի ալբոմ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր տեղափոխե՞լ գաղտնի ալբոմ:</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց %1$d %2$s ֆայլ տեղափոխել %3$s: Ներբեռնեք այս ֆայլը, հետո նորից փորձեք:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց %1$d %2$s ֆայլ տեղափոխել %3$s: Ներբեռնեք այս ֆայլերը, հետո նորից փորձեք:</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ տեղափոխե՞լ Աղբարկղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ տեղափոխե՞լ Աղբարկղ:</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարրի տեղափոխում Աղբարկղ…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարրի տեղափոխում Աղբարկղ…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Նույն անունով %d ալբոմ է միավորվել:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Նույն անունով %d ալբոմ է միավորվել:</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d օր</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d օր</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d օր մինչև պատմության վերացում</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d օր մինչև պատմության վերացում</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Վերացնե՞լ %d ալբոմ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Վերացնե՞լ %d ալբոմ:</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր ավելացվել է սիրվածներին:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր ավելացվել է սիրվածներին:</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d հրավեր</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d հրավեր</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ավելացվել է սիրվածներին:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր ավելացվել է սիրվածներին:</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d անձ է ընտրվել</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d անձ է ընտրվել</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ընտրված</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ընտրված</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d համօգտագործվող ալբոմ, 1 հրավեր</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d համօգտագործվող ալբոմ, 1 հրավեր</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Մենք գտել ենք %d նոր նկար, որը գուցե ցանկանաք ավելացնել այս ալբոմին:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Մենք գտել ենք %d նոր նկար, որոնք գուցե ցանկանաք ավելացնել այս ալբոմին:</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ ավելացվել է սիրվածներին:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ ավելացվել է սիրվածներին:</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d տարի առաջ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s %2$d տարի առաջ</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ալբոմ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ալբոմ</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ներբեռնվեց: Այն տեսնելու համար թակեք այստեղ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարրեր ներբեռնվեցին: Դրանք տեսնելու համար թակեք այստեղ:</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d խումբ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d խումբ</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց ներբեռնել %d ֆայլ: Այս հեռախոսը չի ապահովում HEIF պատկերներ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց ներբեռնել %d ֆայլ: Այս հեռախոսը չի ապահովում HEIF պատկերներ:</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Չհաջողվեց ներբեռնել %d ֆայլ: Այս պլանշետը չի ապահովում HEIF պատկերներ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Չհաջողվեց ներբեռնել %d ֆայլ: Այս պլանշետը չի ապահովում HEIF պատկերներ:</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d անդամ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d անդամ</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ ավելացնել %d կպչուն պիտակից ավելի: Պատկերասրահում բացեք ֆոտոխմբագրիչը՝ կպչուն պիտակներ հեռացնելու համար:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ ավելացնել %d կպչուն պիտակից ավելի: Պատկերասրահում բացեք ֆոտոխմբագրիչը՝ կպչուն պիտակներ հեռացնելու համար:</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 խումբ, %d ալբոմ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 խումբ, %d ալբոմ</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 համօգտագործվող ալբոմ, %d հրավեր</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 համօգտագործվող ալբոմ, %d հրավեր</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ընդմիշտ վերացնե՞լ %d պատկեր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ընդմիշտ վերացնե՞լ %d պատկեր:</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ընդմիշտ վերացնե՞լ %d տարր:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ընդմիշտ վերացնե՞լ %d տարր:</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ընդմիշտ վերացնե՞լ %d տեսանյութ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ընդմիշտ վերացնե՞լ %d տեսանյութ:</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր ընդմիշտ կվերացվի:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր ընդմիշտ կվերացվի:</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր ընդմիշտ կվերացվի:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր ընդմիշտ կվերացվի:</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ ընդմիշտ կվերացվի:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ ընդմիշտ կվերացվի:</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d նկար պահպանվեց:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d նկար պահպանվեց:</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Այցելվել է %1$d օր %2$s թվականին</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Այցելվել է %1$d օր %2$s թվականին</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարի առաջ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարի առաջ</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d առաջարկ հեռացված է:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d առաջարկ հեռացված է:</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր հեռացնե՞լ այս համօգտագործվող ալբոմից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր հեռացնե՞լ այս համօգտագործվող ալբոմից:</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր հեռացնե՞լ ալբոմից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր հեռացնե՞լ ալբոմից:</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր հեռացնե՞լ ալբոմից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր հեռացնե՞լ ալբոմից:</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր հեռացնե՞լ պատմությունից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր հեռացնե՞լ պատմությունից:</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d պատկեր հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d պատկեր հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ հեռացնե՞լ Ձեր ալբոմների առաջարկներից:</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ հեռացնե՞լ ալբոմից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ հեռացնե՞լ ալբոմից:</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ հեռացնե՞լ այս համօգտագործվող ալբոմից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ հեռացնե՞լ այս համօգտագործվող ալբոմից:</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Պահպանե՞լ %1$d տարր այս %2$s-ից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Պահպանե՞լ %1$d տարր այս %2$s-ից:</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Պահպանե՞լ %1$d նկար այս %2$s-ից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Պահպանե՞լ %1$d նկար այս %2$s-ից:</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d պատկեր տեղափոխե՞լ %2$s:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d պատկեր տեղափոխե՞լ %2$s:</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d տարր տեղափոխե՞լ %2$s:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d տարր տեղափոխե՞լ %2$s:</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d տեսանյութ տեղափոխե՞լ %2$s:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d տեսանյութ տեղափոխե՞լ %2$s:</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Խումբ՝ կազմված %d նման պատկերից</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Խումբ՝ կազմված %d նման պատկերից</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տարր է ընտրվել</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տարր է ընտրվել</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Այս անձը %d տարի առաջ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Այս անձը %d տարի առաջ</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d տեսանյութ ներբեռնվեց ամպային պահոցից:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d տեսանյութ ներբեռնվեց ամպային պահոցից:</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Տեսանյութը վերականգնվեց: Չհաջողվեց վերականգնել %1$d %2$s տեսանյութ, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Տեսանյութը վերականգնվեց: Չհաջողվեց վերականգնել %1$d %2$s տեսանյութ, որովհետև Ձեր %3$s-ը կողպված է՝ անձնական տվյալների վերաբերյալ պահանջով պայմանավորված:</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Հնարավոր չէ %d տարրից ավելի ներառել կոլաժի մեջ:</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Հնարավոր չէ %d տարրից ավելի ներառել կոլաժի մեջ:</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Կվերացվի %d օրից</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Կվերացվի %d օրից</item>
+    </plurals>
+</resources>

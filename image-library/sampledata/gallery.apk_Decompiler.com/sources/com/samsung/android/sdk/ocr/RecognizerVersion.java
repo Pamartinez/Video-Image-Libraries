@@ -1,0 +1,10 @@
+package com.samsung.android.sdk.ocr;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public enum RecognizerVersion {
+    RECOGNIZER_FOR_FW_ONEUI41,
+    RECOGNIZER_FOR_FW_ONEUI411,
+    RECOGNIZER_FOR_FW_LATEST,
+    RECOGNIZER_FOR_DATA_PROVIDER_SERVICE,
+    RECOGNIZER_FOR_UNKNOWN
+}

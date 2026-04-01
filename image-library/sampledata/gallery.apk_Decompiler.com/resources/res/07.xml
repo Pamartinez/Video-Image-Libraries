@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="horizontal" android:id="@+id/recycler_view_item" android:background="@drawable/recoil_list_ripple" android:focusable="true" android:clickable="false" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/list_album_item_height" android:stateListAnimator="?attr/seslLargeTouchAnimator">
+    <FrameLayout android:layout_gravity="center_vertical" android:id="@+id/frame_view" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/list_album_view_thumbnail_size" android:layout_height="@dimen/list_album_view_thumbnail_size" android:layout_marginTop="1dp" android:layout_marginBottom="1dp" android:layout_marginHorizontal="@dimen/list_hide_album_horizontal_gap">
+        <com.samsung.android.gallery.widget.SquareImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <ViewStub android:id="@+id/folderViewStub" android:layout="@layout/dynamic_folder_view" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <ViewStub android:layout_gravity="center" android:id="@+id/emptyAlbumViewStub" android:layout="@layout/empty_album_view_layout" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <LinearLayout android:layout_gravity="bottom|left|center_vertical|center_horizontal|center|start" android:id="@+id/album_type_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_type_layout_margin_start_list">
+            <ViewStub android:id="@+id/album_type_stub" android:layout="@layout/stub_album_type" android:layout_width="wrap_content" android:layout_height="@dimen/album_type_icon_size"/>
+        </LinearLayout>
+    </FrameLayout>
+    <com.samsung.android.gallery.widget.SquareImageView android:layout_gravity="center_vertical" android:id="@+id/border" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="@dimen/list_album_view_thumbnail_size" android:layout_height="@dimen/list_album_view_thumbnail_size" android:layout_marginTop="1dp" android:layout_marginBottom="1dp" android:layout_marginHorizontal="@dimen/list_hide_album_horizontal_gap"/>
+    <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginHorizontal="@dimen/list_hide_album_horizontal_gap">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/list_album_title_side_margin" android:layout_toStartOf="@+id/extraItemLayout" android:layout_alignParentStart="true">
+            <TextView android:textSize="@dimen/album_list_title_text_size" android:textColor="@color/one_ui_album_title_text_color" android:ellipsize="end" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:textIsSelectable="false" style="@style/OneUiRobotoRegular"/>
+            <TextView android:textSize="@dimen/album_list_count_text_size" android:textColor="@color/one_ui_album_sub_title_text_color" android:id="@+id/count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:lines="1" android:textIsSelectable="false" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/extraItemLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+            <ViewStub android:id="@+id/newLabel" android:layout="@layout/stub_new_label" android:inflatedId="@+id/newLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/switch_album" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:layout_marginEnd="14dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

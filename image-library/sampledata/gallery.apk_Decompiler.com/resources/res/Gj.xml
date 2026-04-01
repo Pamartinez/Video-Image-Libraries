@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/recycler_view_item" android:focusable="true" android:clickable="true" android:layout_width="@dimen/stories_pin_recycler_view_size_for_transitory" android:layout_height="@dimen/stories_pin_recycler_view_size_for_transitory" android:layout_marginEnd="@dimen/stories_pin_recycler_item_margin_end">
+    <FrameLayout android:id="@+id/thumbnail_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" android:contentDescription="@null" style="@style/ThumbnailStyle"/>
+        <View android:id="@+id/gradient_view" android:background="@drawable/stories_pin_bottom_gradient" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </FrameLayout>
+    <ViewStub android:id="@+id/checkboxViewStub" android:layout="@layout/thumbnail_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_gravity="bottom|left|center_vertical|center_horizontal|center|start" android:id="@+id/title_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:layout_marginStart="10dp" android:layout_marginEnd="10dp">
+        <com.samsung.android.gallery.widget.GalleryTextView android:textSize="12sp" android:textColor="#ffffff" android:ellipsize="end" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:textIsSelectable="false" style="@style/OneUiRobotoSemiBold"/>
+    </LinearLayout>
+</FrameLayout>

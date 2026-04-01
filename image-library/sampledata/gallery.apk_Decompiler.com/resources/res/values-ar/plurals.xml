@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">أتريد إضافة %d عنصر من السحابة إلى الألبوم المشترك؟</item>
+        <item quantity="one">أتريد إضافة عنصر واحد من السحابة إلى الألبوم المشترك؟</item>
+        <item quantity="two">أتريد إضافة عنصرَين من السحابة إلى الألبوم المشترك؟</item>
+        <item quantity="few">أتريد إضافة %d عناصر من السحابة إلى الألبوم المشترك؟</item>
+        <item quantity="many">أتريد إضافة %d عنصراً من السحابة إلى الألبوم المشترك؟</item>
+        <item quantity="other">أتريد إضافة %d عنصر من السحابة إلى الألبوم المشترك؟</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">يجب أن يكون عمرك ‏‎%d سنة على الأقل لاستخدام الميزات الذكية.</item>
+        <item quantity="one">يجب أن يكون عمرك سنة واحدة على الأقل لاستخدام الميزات الذكية.</item>
+        <item quantity="two">يجب أن يكون عمرك ‏‎سنتين على الأقل لاستخدام الميزات الذكية.</item>
+        <item quantity="few">يجب أن يكون عمرك ‏‎%d سنوات على الأقل لاستخدام الميزات الذكية.</item>
+        <item quantity="many">يجب أن يكون عمرك ‏‎%d سنةً على الأقل لاستخدام الميزات الذكية.</item>
+        <item quantity="other">يجب أن يكون عمرك ‏‎%d سنة على الأقل لاستخدام الميزات الذكية.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">%d صورة</item>
+        <item quantity="one">صورة واحدة</item>
+        <item quantity="two">صورتان</item>
+        <item quantity="few">%d صور</item>
+        <item quantity="many">%d صورة</item>
+        <item quantity="other">%d صورة</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">تتعذر إضافة أكثر من %d مقطع فيديو إلى ‏‫منشور على Meitu‬.</item>
+        <item quantity="one">تتعذر إضافة أكثر من مقطع فيديو واحد إلى ‏‫منشور على Meitu‬.</item>
+        <item quantity="two">تتعذر إضافة أكثر من مقطعي فيديو إلى ‏‫منشور على Meitu‬.</item>
+        <item quantity="few">تتعذر إضافة أكثر من %d مقاطع فيديو إلى ‏‫منشور على Meitu‬.</item>
+        <item quantity="many">تتعذر إضافة أكثر من %d مقطع فيديو إلى ‏‫منشور على Meitu‬.</item>
+        <item quantity="other">تتعذر إضافة أكثر من %d مقطع فيديو إلى ‏‫منشور على Meitu‬.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">يتعذر حذف %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">يتعذر حذف صورة واحدة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">يتعذر حذف صورتَين من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">يتعذر حذف %1$d صور من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">يتعذر حذف %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">يتعذر حذف %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">يتعذر حذف %1$d عنصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">يتعذر حذف عنصر واحد من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">يتعذر حذف عنصرَين من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">يتعذر حذف %1$d عناصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">يتعذر حذف %1$d عنصراً من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">يتعذر حذف %1$d عنصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">يتعذر حذف %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">يتعذر حذف مقطع فيديو واحد من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">يتعذر حذف مقطعَي فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">يتعذر حذف %1$d مقاطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">يتعذر حذف %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">يتعذر حذف %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">يتعذر تضمين أكثر من %d عنصر في ‏‫منشور على Meitu‬.</item>
+        <item quantity="one">يتعذر تضمين أكثر من عنصر واحد في ‏‫منشور على Meitu‬.</item>
+        <item quantity="two">يتعذر تضمين أكثر من عنصرين في ‏‫منشور على Meitu‬.</item>
+        <item quantity="few">يتعذر تضمين أكثر من %d عناصر في ‏‫منشور على Meitu‬.</item>
+        <item quantity="many">يتعذر تضمين أكثر من %d عنصراً في ‏‫منشور على Meitu‬.</item>
+        <item quantity="other">يتعذر تضمين أكثر من %d عنصر في ‏‫منشور على Meitu‬.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">تتعذر استعادة %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تتعذر استعادة صورة واحدة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تتعذر استعادة صورتَين من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تتعذر استعادة %1$d صور من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تتعذر استعادة %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تتعذر استعادة %1$d صورة من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">تتعذر استعادة %1$d عنصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تتعذر استعادة عنصر واحد من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تتعذر استعادة عنصرَين من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تتعذر استعادة %1$d عناصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تتعذر استعادة %1$d عنصراً من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تتعذر استعادة %1$d عنصر من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">تتعذر استعادة %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تتعذر استعادة فيديو واحد من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تتعذر استعادة مقطعَي فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تتعذر استعادة %1$d مقاطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تتعذر استعادة %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تتعذر استعادة %1$d مقطع فيديو من نوع %2$s. سيتم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">تتعذر إضافة أكثر من %d عنصر دفعة واحدة.</item>
+        <item quantity="one">تتعذر إضافة أكثر من عنصر واحد دفعة واحدة.</item>
+        <item quantity="two">تتعذر إضافة أكثر من عنصرين دفعة واحدة.</item>
+        <item quantity="few">تتعذر إضافة أكثر من %d عناصر دفعة واحدة.</item>
+        <item quantity="many">تتعذر إضافة أكثر من %d عنصراً دفعة واحدة.</item>
+        <item quantity="other">تتعذر إضافة أكثر من %d عنصر دفعة واحدة.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">تتعذر إضافة أكثر من %d عنصر إلى قصة.</item>
+        <item quantity="one">تتعذر إضافة أكثر من عنصر واحد إلى قصة.</item>
+        <item quantity="two">تتعذر إضافة أكثر من عنصرَين إلى قصة.</item>
+        <item quantity="few">تتعذر إضافة أكثر من %d عناصر إلى قصة.</item>
+        <item quantity="many">تتعذر إضافة أكثر من %d عنصراً إلى قصة.</item>
+        <item quantity="other">تتعذر إضافة أكثر من %d عنصر إلى قصة.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">%d مدينة</item>
+        <item quantity="one">مدينة واحدة</item>
+        <item quantity="two">مدينتان</item>
+        <item quantity="few">%d مدن</item>
+        <item quantity="many">%d مدينةً</item>
+        <item quantity="other">%d مدينة</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">تعذّرت استعادة %1$d صورة. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="one">تعذّرت استعادة صورة واحدة. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="two">تعذّرت استعادة صورتًين. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="few">تعذّرت استعادة %1$d صور. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="many">تعذّرت استعادة %1$d صورة. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="other">تعذّرت استعادة %1$d صورة. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">تعذّرت استعادة %1$d عنصر. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="one">تعذّرت استعادة عنصر واحد. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="two">تعذّرت استعادة عنصرَين. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="few">تعذّرت استعادة %1$d عناصر. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="many">تعذّرت استعادة %1$d عنصراً. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="other">تعذّرت استعادة %1$d عنصر. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">تعذّرت استعادة %1$d فيديو. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="one">تعذّرت استعادة فيديو واحد. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="two">تعذّرت استعادة مقطعَي فيديو. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="few">تعذّرت استعادة %1$d مقاطع فيديو. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="many">تعذّرت استعادة %1$d مقطع فيديو. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+        <item quantity="other">تعذّرت استعادة %1$d مقطع فيديو. قم بتحرير بعض المساحة في %2$s، ثم حاول مرة أخرى.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">تعذرت استعادة %1$d مقطع فيديو. تمت استعادة مقاطع الفيديو هذه أو حذفها في تطبيق %2$s.</item>
+        <item quantity="one">تعذرت استعادة مقطع فيديو واحد. تمت استعادة هذا الفيديو أو حذفه في تطبيق %2$s.</item>
+        <item quantity="two">تعذرت استعادة مقطعَي فيديو. تمت استعادة مقطعَي الفيديو هذَين أو حذفهما في تطبيق %2$s.</item>
+        <item quantity="few">تعذرت استعادة %1$d مقاطع فيديو. تمت استعادة مقاطع الفيديو هذه أو حذفها في تطبيق %2$s.</item>
+        <item quantity="many">تعذرت استعادة %1$d مقطع فيديو. تمت استعادة مقاطع الفيديو هذه أو حذفها في تطبيق %2$s.</item>
+        <item quantity="other">تعذرت استعادة %1$d مقطع فيديو. تمت استعادة مقاطع الفيديو هذه أو حذفها في تطبيق %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">تعذرت إزالة %d عنصر. حاول مرة أخرى.</item>
+        <item quantity="one">تعذرت إزالة عنصر واحد. حاول مرة أخرى.</item>
+        <item quantity="two">تعذرت إزالة عنصرَين. حاول مرة أخرى.</item>
+        <item quantity="few">تعذرت إزالة %d عناصر. حاول مرة أخرى.</item>
+        <item quantity="many">تعذرت إزالة %d عنصراً. حاول مرة أخرى.</item>
+        <item quantity="other">تعذرت إزالة %d عنصر. حاول مرة أخرى.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">%d ألبوم تمت مشاركته</item>
+        <item quantity="one">ألبوم واحد تمت مشاركته</item>
+        <item quantity="two">ألبومان تمت مشاركتهما</item>
+        <item quantity="few">%d ألبومات تمت مشاركتها</item>
+        <item quantity="many">%d ألبوماً تمت مشاركته</item>
+        <item quantity="other">%d ألبوم تمت مشاركته</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">%d قصة</item>
+        <item quantity="one">قصة واحدة</item>
+        <item quantity="two">قصتان</item>
+        <item quantity="few">%d قصص</item>
+        <item quantity="many">%d قصة</item>
+        <item quantity="other">%d قصة</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">تم تغيير معلومات التاريخ والوقت في %d صورة.</item>
+        <item quantity="one">تم تغيير معلومات التاريخ والوقت في صورة واحدة.</item>
+        <item quantity="two">تم تغيير معلومات التاريخ والوقت في صورتين.</item>
+        <item quantity="few">تم تغيير معلومات التاريخ والوقت في %d صور.</item>
+        <item quantity="many">تم تغيير معلومات التاريخ والوقت في %d صورةً.</item>
+        <item quantity="other">تم تغيير معلومات التاريخ والوقت في %d صورة.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">تم تغيير معلومات التاريخ والوقت في %d عنصر.</item>
+        <item quantity="one">تم تغيير معلومات التاريخ والوقت في عنصر واحد.</item>
+        <item quantity="two">تم تغيير معلومات التاريخ والوقت في عنصرين.</item>
+        <item quantity="few">تم تغيير معلومات التاريخ والوقت في %d عناصر.</item>
+        <item quantity="many">تم تغيير معلومات التاريخ والوقت في %d عنصراً.</item>
+        <item quantity="other">تم تغيير معلومات التاريخ والوقت في %d عنصر.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">تم تغيير معلومات التاريخ والوقت في %d مقطع فيديو.</item>
+        <item quantity="one">تم تغيير معلومات التاريخ والوقت في مقطع فيديو واحد.</item>
+        <item quantity="two">تم تغيير معلومات التاريخ والوقت في مقطعي فيديو.</item>
+        <item quantity="few">تم تغيير معلومات التاريخ والوقت في %d مقاطع فيديو.</item>
+        <item quantity="many">تم تغيير معلومات التاريخ والوقت في %d مقطع فيديو.</item>
+        <item quantity="other">تم تغيير معلومات التاريخ والوقت في %d مقطع فيديو.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">هل تريد حذف %d ألبوم؟</item>
+        <item quantity="one">هل تريد حذف ألبوم واحد؟</item>
+        <item quantity="two">هل تريد حذف ألبومَين؟</item>
+        <item quantity="few">هل تريد حذف %d ألبومات؟</item>
+        <item quantity="many">هل تريد حذف %d ألبوماً؟</item>
+        <item quantity="other">هل تريد حذف %d ألبوم؟</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">أتريد حذف مجموعة واحدة و%d ألبوم وعنصر واحد فيها؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة وألبوم واحد والعنصر فيهما؟</item>
+        <item quantity="two">أتريد حذف مجموعة واحدة وألبومَين وعنصر واحد فيها؟</item>
+        <item quantity="few">أتريد حذف مجموعة واحدة و%d ألبومات وعنصر واحد فيها؟</item>
+        <item quantity="many">أتريد حذف مجموعة واحدة و%d ألبوماً وعنصر واحد فيها؟</item>
+        <item quantity="other">أتريد حذف مجموعة واحدة و%d ألبوم وعنصر واحد فيها؟</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">أتريد حذف %d مجموعة؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة؟</item>
+        <item quantity="two">أتريد حذف مجموعتَين؟</item>
+        <item quantity="few">أتريد حذف %d مجموعات؟</item>
+        <item quantity="many">هل تريد حذف %d مجموعة؟</item>
+        <item quantity="other">أتريد حذف %d مجموعة؟</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">هل تريد حذف %d صورة؟</item>
+        <item quantity="one">هل تريد حذف صورة واحدة؟</item>
+        <item quantity="two">هل تريد حذف صورتَين؟</item>
+        <item quantity="few">هل تريد حذف %d صور؟</item>
+        <item quantity="many">هل تريد حذف %d صورة؟</item>
+        <item quantity="other">هل تريد حذف %d صورة؟</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">هل تريد حذف %d عنصر؟</item>
+        <item quantity="one">هل تريد حذف عنصر واحد؟</item>
+        <item quantity="two">هل تريد حذف عنصرين؟</item>
+        <item quantity="few">هل تريد حذف %d عناصر؟</item>
+        <item quantity="many">هل تريد حذف %d عنصراً؟</item>
+        <item quantity="other">هل تريد حذف %d عنصر؟</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">أتريد حذف %d مجموعة تتضمن صوراً مشابهة؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة؟</item>
+        <item quantity="two">أتريد حذف مجموعتَين تتضمنان صوراً مشابهة؟</item>
+        <item quantity="few">أتريد حذف %d مجموعات تتضمن صوراً مشابهة؟</item>
+        <item quantity="many">أتريد حذف %d مجموعة تتضمن صوراً مشابهة؟</item>
+        <item quantity="other">أتريد حذف %d مجموعة تتضمن صوراً مشابهة؟</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">أتريد حذف %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="two">أتريد حذف مجموعتَين تتضمنان صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="few">أتريد حذف %d مجموعات تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="many">أتريد حذف %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="other">أتريد حذف %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة و%d عنصر آخر؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة وعنصر واحد آخر؟</item>
+        <item quantity="two">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة وعنصرَين آخرَين؟</item>
+        <item quantity="few">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة و%d عناصر أخرى؟</item>
+        <item quantity="many">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة و%d عنصراً آخر؟</item>
+        <item quantity="other">أتريد حذف مجموعة واحدة تتضمن صوراً مشابهة و%d عنصر آخر؟</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">أتريد حذف %d عنصر من هذه المجموعة؟</item>
+        <item quantity="one">أتريد حذف عنصر واحد من هذه المجموعة؟</item>
+        <item quantity="two">أتريد حذف صورتَين من هذه المجموعة؟</item>
+        <item quantity="few">أتريد حذف %d عناصر من هذه المجموعة؟</item>
+        <item quantity="many">أتريد حذف %d عنصراً من هذه المجموعة؟</item>
+        <item quantity="other">أتريد حذف %d عنصر من هذه المجموعة؟</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">هل تريد حذف مقاطع فيديو من %d صورة متحركة؟</item>
+        <item quantity="one">هل تريد حذف مقطع فيديو من صورة متحركة واحدة؟</item>
+        <item quantity="two">هل تريد حذف مقاطع فيديو من صورتين متحركتين؟</item>
+        <item quantity="few">هل تريد حذف مقاطع فيديو من %d صور متحركة؟</item>
+        <item quantity="many">هل تريد حذف مقاطع فيديو من %d صورةً متحركةً؟</item>
+        <item quantity="other">هل تريد حذف مقاطع فيديو من %d صورة متحركة؟</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">أتريد حذف %d صورة من هذه المجموعة؟</item>
+        <item quantity="one">أتريد حذف صورة واحدة من هذه المجموعة؟</item>
+        <item quantity="two">أتريد حذف صورتَين من هذه المجموعة؟</item>
+        <item quantity="few">أتريد حذف %d صور من هذه المجموعة؟</item>
+        <item quantity="many">أتريد حذف %d صورة من هذه المجموعة؟</item>
+        <item quantity="other">أتريد حذف %d صورة من هذه المجموعة؟</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">أتريد حذف %d مجموعة من اللقطات الواحدة؟</item>
+        <item quantity="one">أتريد حذف مجموعة واحدة من اللقطات الواحدة؟</item>
+        <item quantity="two">أتريد حذف مجموعتَين من اللقطات الواحدة؟</item>
+        <item quantity="few">أتريد حذف %d مجموعات من اللقطات الواحدة؟</item>
+        <item quantity="many">أتريد حذف %d مجموعة من اللقطات الواحدة؟</item>
+        <item quantity="other">أتريد حذف %d مجموعة من اللقطات الواحدة؟</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">أتريد حذف %d مقطع فيديو؟</item>
+        <item quantity="one">أتريد حذف مقطع فيديو واحد؟</item>
+        <item quantity="two">أتريد حذف مقطعَي فيديو؟</item>
+        <item quantity="few">أتريد حذف %d مقاطع فيديو؟</item>
+        <item quantity="many">أتريد حذف %d مقطع فيديو؟</item>
+        <item quantity="other">أتريد حذف %d مقطع فيديو؟</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">يمكنك عرض هذا المحتوى %d مرة أخرى. هل تريد عرضه الآن؟</item>
+        <item quantity="one">يمكنك عرض هذا المحتوى مرة أخرى. هل تريد عرضه الآن؟</item>
+        <item quantity="two">يمكنك عرض هذا المحتوى مرتين أخريين. هل تريد عرضه الآن؟</item>
+        <item quantity="few">يمكنك عرض هذا المحتوى %d مرات أخرى. هل تريد عرضه الآن؟</item>
+        <item quantity="many">يمكنك عرض هذا المحتوى %d مرةً أخرى. هل تريد عرضه الآن؟</item>
+        <item quantity="other">يمكنك عرض هذا المحتوى %d مرة أخرى. هل تريد عرضه الآن؟</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">سيتم حذف %d ألبوم فارغ من دون الانتقال إلى سلة المحذوفات.</item>
+        <item quantity="one">سيتم حذف ألبوم فارغ واحد من دون الانتقال إلى سلة المحذوفات.</item>
+        <item quantity="two">سيتم حذف ألبومَين فارغَين من دون الانتقال إلى سلة المحذوفات.</item>
+        <item quantity="few">سيتم حذف %d ألبومات فارغة من دون الانتقال إلى سلة المحذوفات.</item>
+        <item quantity="many">سيتم حذف %d ألبوماً فارغاً من دون الانتقال إلى سلة المحذوفات.</item>
+        <item quantity="other">سيتم حذف %d ألبوم فارغ من دون الانتقال إلى سلة المحذوفات.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد %d يوم.</item>
+        <item quantity="one">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد يوم واحد.</item>
+        <item quantity="two">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد يومَين.</item>
+        <item quantity="few">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد %d أيام.</item>
+        <item quantity="many">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد %d يوماً.</item>
+        <item quantity="other">سيتم حذف العناصر الموجودة في سلة المحذوفات نهائياً بعد %d يوم.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">تم حذف %d صورة نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="one">تم حذف صورة واحدة نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="two">تم حذف صورتين نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="few">تم حذف %d صور نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="many">تم حذف %d صورةً نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="other">تم حذف %d صورة نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">تم حذف %d عنصر نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="one">تم حذف عنصر واحد نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="two">تم حذف عنصرين نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="few">تم حذف %d عناصر نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="many">تم حذف %d عنصراً نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="other">تم حذف %d عنصر نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">تم حذف %d مقطع فيديو نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="one">تم حذف مقطع فيديو واحد نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="two">تم حذف مقطعي فيديو نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="few">تم حذف %d مقاطع فيديو نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="many">تم حذف %d مقطع فيديو نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+        <item quantity="other">تم حذف %d مقطع فيديو نهائياً من هاتفك. انتقل إلى OneDrive لحذف النسخ الموجودة في سلة المحذوفات هناك.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">تم حذف %d صورة نهائياً.</item>
+        <item quantity="one">تم حذف صورة واحدة نهائياً.</item>
+        <item quantity="two">تم حذف صورتين نهائياً.</item>
+        <item quantity="few">تم حذف %d صور نهائياً.</item>
+        <item quantity="many">تم حذف %d صورةً نهائياً.</item>
+        <item quantity="other">تم حذف %d صورة نهائياً.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">تم حذف %d عنصر نهائياً.</item>
+        <item quantity="one">تم حذف عنصر واحد نهائياً.</item>
+        <item quantity="two">تم حذف عنصرين نهائياً.</item>
+        <item quantity="few">تم حذف %d عناصر نهائياً.</item>
+        <item quantity="many">تم حذف %d عنصراً نهائياً.</item>
+        <item quantity="other">تم حذف %d عنصر نهائياً.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">تم حذف %d مقطع فيديو نهائياً.</item>
+        <item quantity="one">تم حذف مقطع فيديو واحد نهائياً.</item>
+        <item quantity="two">تم حذف مقطعي فيديو نهائياً.</item>
+        <item quantity="few">تم حذف %d مقاطع فيديو نهائياً.</item>
+        <item quantity="many">تم حذف %d مقطع فيديو نهائياً.</item>
+        <item quantity="other">تم حذف %d مقطع فيديو نهائياً.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">عرض الشبكة مع %d صورة مصغرة في كل صف</item>
+        <item quantity="one">عرض الشبكة مع صورة مصغرة واحدة في كل صف</item>
+        <item quantity="two">عرض الشبكة مع صورتين مصغرتين في كل صف</item>
+        <item quantity="few">عرض الشبكة مع %d صور مصغرة في كل صف</item>
+        <item quantity="many">عرض الشبكة مع %d صورةً مصغرةً في كل صف</item>
+        <item quantity="other">عرض الشبكة مع %d صورة مصغرة في كل صف</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">%d مجموعة ألبوم واحد</item>
+        <item quantity="one">مجموعة واحدة ألبوم واحد</item>
+        <item quantity="two">مجموعتان ألبوم واحد</item>
+        <item quantity="few">%d مجموعات ألبوم واحد</item>
+        <item quantity="many">%d مجموعة ألبوم واحد</item>
+        <item quantity="other">%d مجموعة ألبوم واحد</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">تم تنزيل %d صورة من السحابة.</item>
+        <item quantity="one">تم تنزيل صورة واحدة من السحابة.</item>
+        <item quantity="two">تم تنزيل صورتَين من السحابة.</item>
+        <item quantity="few">تم تنزيل %d صور من السحابة.</item>
+        <item quantity="many">تم تنزيل %d صورة من السحابة.</item>
+        <item quantity="other">تم تنزيل %d صورة من السحابة.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">تمت استعادة الصور. تعذرت استعادة %1$d صورة على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تمت استعادة الصور. تعذرت استعادة صورة واحدة على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تمت استعادة الصور. تعذرت استعادة صورتَين على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تمت استعادة الصور. تعذرت استعادة %1$d صور على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تمت استعادة الصور. تعذرت استعادة %1$d صورة على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تمت استعادة الصور. تعذرت استعادة %1$d صورة على %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">تم حفظ %d عنصر.</item>
+        <item quantity="one">تم حفظ عنصر واحد.</item>
+        <item quantity="two">تم حفظ عنصرين.</item>
+        <item quantity="few">تم حفظ %d عناصر.</item>
+        <item quantity="many">تم حفظ %d عنصراً.</item>
+        <item quantity="other">تم حفظ %d عنصر.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">تم تنزيل %d عنصر من السحابة.</item>
+        <item quantity="one">تم تنزيل عنصر واحد من السحابة.</item>
+        <item quantity="two">تم تنزيل عنصرَين من السحابة.</item>
+        <item quantity="few">تم تنزيل %d عناصر من السحابة.</item>
+        <item quantity="many">تم تنزيل %d عنصراً من السحابة.</item>
+        <item quantity="other">تم تنزيل %d عنصر من السحابة.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">تمت استعادة العناصر. تعذرت استعادة %1$d عنصر من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تمت استعادة العناصر. تعذرت استعادة عنصر واحد من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تمت استعادة العناصر. تعذرت استعادة عنصرَين من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تمت استعادة العناصر. تعذرت استعادة %1$d عناصر من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تمت استعادة العناصر. تعذرت استعادة %1$d عنصراً من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تمت استعادة العناصر. تعذرت استعادة %1$d عنصر من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">تم تغيير معلومات الموقع في %d صورة.</item>
+        <item quantity="one">تم تغيير معلومات الموقع في صورة واحدة.</item>
+        <item quantity="two">تم تغيير معلومات الموقع في صورتين.</item>
+        <item quantity="few">تم تغيير معلومات الموقع في %d صور.</item>
+        <item quantity="many">تم تغيير معلومات الموقع في %d صورةً.</item>
+        <item quantity="other">تم تغيير معلومات الموقع في %d صورة.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">تم تغيير معلومات الموقع في %d عنصر.</item>
+        <item quantity="one">تم تغيير معلومات الموقع في عنصر واحد.</item>
+        <item quantity="two">تم تغيير معلومات الموقع في عنصرين.</item>
+        <item quantity="few">تم تغيير معلومات الموقع في %d عناصر.</item>
+        <item quantity="many">تم تغيير معلومات الموقع في %d عنصراً.</item>
+        <item quantity="other">تم تغيير معلومات الموقع في %d عنصر.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">تم تغيير معلومات الموقع في %d مقطع فيديو.</item>
+        <item quantity="one">تم تغيير معلومات الموقع في مقطع فيديو واحد.</item>
+        <item quantity="two">تم تغيير معلومات الموقع في مقطعي فيديو.</item>
+        <item quantity="few">تم تغيير معلومات الموقع في %d مقاطع فيديو.</item>
+        <item quantity="many">تم تغيير معلومات الموقع في %d مقطع فيديو.</item>
+        <item quantity="other">تم تغيير معلومات الموقع في %d مقطع فيديو.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">%d موقع</item>
+        <item quantity="one">موقع واحد</item>
+        <item quantity="two">موقعان</item>
+        <item quantity="few">%d مواقع</item>
+        <item quantity="many">%d موقعاً</item>
+        <item quantity="other">%d موقع</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">يتعذر إدخال أكثر من %d حرف.</item>
+        <item quantity="one">يتعذر إدخال أكثر من حرف واحد.</item>
+        <item quantity="two">يتعذر إدخال أكثر من حرفين.</item>
+        <item quantity="few">يتعذر إدخال أكثر من %d أحرف.</item>
+        <item quantity="many">يتعذر إدخال أكثر من %d حرفاً.</item>
+        <item quantity="other">يتعذر إدخال أكثر من %d حرف.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">تم حفظ مقاطع فيديو من %d صورة متحركة.</item>
+        <item quantity="one">تم حفظ مقطع فيديو من صورة متحركة واحدة.</item>
+        <item quantity="two">تم حفظ مقاطع فيديو من صورتين متحركتين.</item>
+        <item quantity="few">تم حفظ مقاطع فيديو من %d صور متحركة.</item>
+        <item quantity="many">تم حفظ مقاطع فيديو من %d صورةً متحركةً.</item>
+        <item quantity="other">تم حفظ مقاطع فيديو من %d صورة متحركة.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="one">هل تريد نقل صورة متلاحقة واحدة إلى سلة المحذوفات؟</item>
+        <item quantity="two">هل تريد نقل صورتَين متلاحقتَين إلى سلة المحذوفات؟</item>
+        <item quantity="few">هل تريد نقل %d صور متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="many">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="other">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="one">هل تريد نقل صورة متلاحقة واحدة إلى سلة المحذوفات؟</item>
+        <item quantity="two">هل تريد نقل صورتَين متلاحقتَين إلى سلة المحذوفات؟</item>
+        <item quantity="few">هل تريد نقل %d صور متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="many">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="other">هل تريد نقل %d صورة متلاحقة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">أتريد نقل مجموعة واحدة وألبوم واحد و%d عنصر فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة وألبوم واحد وعنصر واحد فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعة واحدة وألبوم واحد وعنصرَين فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل مجموعة واحدة وألبوم واحد و%d عناصر فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل مجموعة واحدة وألبوم واحد و%d عنصراً فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل مجموعة واحدة وألبوم واحد و%d عنصر فيهما إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">أتريد نقل مجموعة واحدة و%d ألبوم وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة وألبوم واحد والعنصر فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعة واحدة وألبومَين والعنصر فيها إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل مجموعة واحدة و%d ألبومات وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل مجموعة واحدة و%d ألبوماً وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل مجموعة واحدة و%d ألبوم وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">أتريد نقل %d مجموعة وألبوم واحد والعنصر فيه إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة وألبوم واحد والعنصر فيهما إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعتَين وألبوم واحد والعنصر فيها إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d مجموعات وألبوم واحد وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d مجموعة وألبوم واحد وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d مجموعة وألبوم واحد وعنصر واحد فيها إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="one">هل تريد نقل صورة واحدة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="two">هل تريد نقل صورتين من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="few">هل تريد نقل %d صور من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="many">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="other">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="one">هل تريد نقل صورة واحدة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="two">هل تريد نقل صورتين من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="few">هل تريد نقل %d صور من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="many">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+        <item quantity="other">هل تريد نقل %d صورة من هذه اللقطة المتلاحقة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">هل تريد نقل %d صورة إلى سلة المحذوفات؟</item>
+        <item quantity="one">هل تريد نقل صورة واحدة إلى سلة المحذوفات؟</item>
+        <item quantity="two">هل تريد نقل صورتين إلى سلة المحذوفات؟</item>
+        <item quantity="few">هل تريد نقل %d صور إلى سلة المحذوفات؟</item>
+        <item quantity="many">هل تريد نقل %d صورةً إلى سلة المحذوفات؟</item>
+        <item quantity="other">هل تريد نقل %d صورة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">أتريد نقل %d عنصر إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل عنصر واحد إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل عنصرين إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d عناصر إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d عنصراً إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d عنصر إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">%d عنصر</item>
+        <item quantity="one">عنصر واحد</item>
+        <item quantity="two">عنصران</item>
+        <item quantity="few">%d عناصر</item>
+        <item quantity="many">%d عنصراً</item>
+        <item quantity="other">%d عنصر</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">أتريد نقل %d مجموعة تتضمن صوراً مشابهة إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعتَين تتضمنان صوراً مشابهة إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d مجموعات تتضمن صوراً مشابهة إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d مجموعة تتضمن صوراً مشابهة إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d مجموعة تتضمن صوراً مشابهة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">أتريد نقل %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعتَين تتضمنان صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d مجموعات تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d مجموعة تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة و%d عنصر آخر إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة وعنصر واحد آخر إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة وعنصرَين آخرَين إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة و%d عناصر أخرى إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة و%d عنصراً آخر إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل مجموعة واحدة تتضمن صوراً مشابهة و%d عنصر آخر إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">أتريد نقل %d عنصر من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل عنصر واحد من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل عنصرَين من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d عناصر من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d عنصراً من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d عنصر من هذه المجموعة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">أتريد نقل %d صورة من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل صورة واحدة من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل صورتَين من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d صور من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d صورة من هذه المجموعة إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d صورة من هذه المجموعة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">أتريد نقل %d مجموعة من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مجموعة واحدة من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مجموعتَين من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d مجموعات من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d مجموعة من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d مجموعة من اللقاطات الواحدة إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">هل تريد نقل %d عنصر إلى الألبوم الخاص؟</item>
+        <item quantity="one">هل تريد نقل عنصر واحد إلى الألبوم الخاص؟</item>
+        <item quantity="two">هل تريد نقل عنصرين إلى الألبوم الخاص؟</item>
+        <item quantity="few">هل تريد نقل %d عناصر إلى الألبوم الخاص؟</item>
+        <item quantity="many">هل تريد نقل %d عنصراً إلى الألبوم الخاص؟</item>
+        <item quantity="other">هل تريد نقل %d عنصر إلى الألبوم الخاص؟</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">تعذر نقل %1$d ملف في %2$s إلى %3$s. قم بتنزيل هذه الملفات ثم حاول مجدداً.</item>
+        <item quantity="one">تعذر نقل ملف واحد في %2$s إلى %3$s. قم بتنزيل هذا الملف ثم حاول مجدداً.</item>
+        <item quantity="two">تعذر نقل ملفَين في %2$s إلى %3$s. قم بتنزيل هذَين الملفَين ثم حاول مجدداً.</item>
+        <item quantity="few">تعذر نقل %1$d ملفات في %2$s إلى %3$s. قم بتنزيل هذه الملفات ثم حاول مجدداً.</item>
+        <item quantity="many">تعذر نقل %1$d ملفاً في %2$s إلى %3$s. قم بتنزيل هذه الملفات ثم حاول مجدداً.</item>
+        <item quantity="other">تعذر نقل %1$d ملف في %2$s إلى %3$s. قم بتنزيل هذه الملفات ثم حاول مجدداً.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">أتريد نقل %d مقطع فيديو إلى سلة المحذوفات؟</item>
+        <item quantity="one">أتريد نقل مقطع فيديو واحد إلى سلة المحذوفات؟</item>
+        <item quantity="two">أتريد نقل مقطعَي فيديو إلى سلة المحذوفات؟</item>
+        <item quantity="few">أتريد نقل %d مقاطع فيديو إلى سلة المحذوفات؟</item>
+        <item quantity="many">أتريد نقل %d مقطع فيديو إلى سلة المحذوفات؟</item>
+        <item quantity="other">أتريد نقل %d مقطع فيديو إلى سلة المحذوفات؟</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">جارٍ نقل %d عنصر إلى سلة المحذوفات…</item>
+        <item quantity="one">جارٍ نقل عنصر واحد إلى سلة المحذوفات…</item>
+        <item quantity="two">جارٍ نقل عنصرين إلى سلة المحذوفات…</item>
+        <item quantity="few">جارٍ نقل %d عناصر إلى سلة المحذوفات…</item>
+        <item quantity="many">جارٍ نقل %d عنصراً إلى سلة المحذوفات…</item>
+        <item quantity="other">جارٍ نقل %d عنصر إلى سلة المحذوفات…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="zero">%d إشعار جديد</item>
+        <item quantity="one">إشعار جديد واحد (%d)</item>
+        <item quantity="two">إشعاران جديدان (%d)</item>
+        <item quantity="few">%d إشعارات جديدة</item>
+        <item quantity="many">%d إشعارًا جديدًا</item>
+        <item quantity="other">%d إشعار جديد</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">تم دمج %d ألبوم يحمل الاسم نفسه.</item>
+        <item quantity="one">تم دمج ألبوم واحد يحمل الاسم نفسه.</item>
+        <item quantity="two">تم دمج ألبومين يحملان الاسم نفسه.</item>
+        <item quantity="few">تم دمج %d ألبومات تحمل الاسم نفسه.</item>
+        <item quantity="many">تم دمج %d ألبوماً يحمل الاسم نفسه.</item>
+        <item quantity="other">تم دمج %d ألبوم يحمل الاسم نفسه.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">%d يوم</item>
+        <item quantity="one">يوم واحد</item>
+        <item quantity="two">يومان</item>
+        <item quantity="few">%d أيام</item>
+        <item quantity="many">%d يوماً</item>
+        <item quantity="other">%d يوم</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">يتبقى %d يوم حتى يتم حذف القصة</item>
+        <item quantity="one">يتبقى يوم واحد حتى يتم حذف القصة</item>
+        <item quantity="two">يتبقى يومان حتى يتم حذف القصة</item>
+        <item quantity="few">يتبقى %d أيام حتى يتم حذف القصة</item>
+        <item quantity="many">يتبقى %d يوماً حتى يتم حذف القصة</item>
+        <item quantity="other">يتبقى %d يوم حتى يتم حذف القصة</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">هل تريد حذف %d ألبوم؟</item>
+        <item quantity="one">هل تريد حذف ألبوم واحد؟</item>
+        <item quantity="two">هل تريد حذف ألبومَين؟</item>
+        <item quantity="few">هل تريد حذف %d ألبومات؟</item>
+        <item quantity="many">هل تريد حذف %d ألبوماً؟</item>
+        <item quantity="other">هل تريد حذف %d ألبوم؟</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">تمت إضافة %d صورة إلى المفضلة.</item>
+        <item quantity="one">تمت إضافة صورة واحدة إلى المفضلة.</item>
+        <item quantity="two">تمت إضافة صورتين إلى المفضلة.</item>
+        <item quantity="few">تمت إضافة %d صور إلى المفضلة.</item>
+        <item quantity="many">تمت إضافة %d صورةً إلى المفضلة.</item>
+        <item quantity="other">تمت إضافة %d صورة إلى المفضلة.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">%d دعوة</item>
+        <item quantity="one">دعوة واحدة</item>
+        <item quantity="two">دعوتان</item>
+        <item quantity="few">%d دعوات</item>
+        <item quantity="many">%d دعوةً</item>
+        <item quantity="other">%d دعوة</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">تمت إضافة %d عنصر إلى المفضلة.</item>
+        <item quantity="one">تمت إضافة عنصر واحد إلى المفضلة.</item>
+        <item quantity="two">تمت إضافة عنصرين إلى المفضلة.</item>
+        <item quantity="few">تمت إضافة %d عناصر إلى المفضلة.</item>
+        <item quantity="many">تمت إضافة %d عنصراً إلى المفضلة.</item>
+        <item quantity="other">تمت إضافة %d عنصر إلى المفضلة.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">تم تحديد %d شخص</item>
+        <item quantity="one">تم تحديد شخص واحد</item>
+        <item quantity="two">تم تحديد شخصين</item>
+        <item quantity="few">تم تحديد %d أشخاص</item>
+        <item quantity="many">تم تحديد %d شخصاً</item>
+        <item quantity="other">تم تحديد %d شخص</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">تم تحديد %d</item>
+        <item quantity="one">تم تحديد %d</item>
+        <item quantity="two">تم تحديد %d</item>
+        <item quantity="few">تم تحديد %d</item>
+        <item quantity="many">تم تحديد %d</item>
+        <item quantity="other">تم تحديد %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">%d ألبوم مشترك، دعوة واحدة</item>
+        <item quantity="one">ألبوم واحد مشترك، دعوة واحدة</item>
+        <item quantity="two">ألبومان مشتركان، دعوة واحدة</item>
+        <item quantity="few">%d ألبومات مشتركة، دعوة واحدة</item>
+        <item quantity="many">%d ألبوماً مشتركاً، دعوة واحدة</item>
+        <item quantity="other">%d ألبوم مشترك، دعوة واحدة</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">عثرنا على %d صورة جديدة قد تحتاج إلى إضافتها إلى هذا الألبوم.</item>
+        <item quantity="one">عثرنا على صورة واحدة جديدة قد تحتاج إلى إضافتها إلى هذا الألبوم.</item>
+        <item quantity="two">عثرنا على صورتين جديدتين قد تحتاج إلى إضافتهما إلى هذا الألبوم.</item>
+        <item quantity="few">عثرنا على %d صور جديدة قد تحتاج إلى إضافتها إلى هذا الألبوم.</item>
+        <item quantity="many">عثرنا على %d صورةً جديدةً قد تحتاج إلى إضافتها إلى هذا الألبوم.</item>
+        <item quantity="other">عثرنا على %d صورة جديدة قد تحتاج إلى إضافتها إلى هذا الألبوم.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">تمت إضافة %d مقطع فيديو إلى المفضلة.</item>
+        <item quantity="one">تمت إضافة مقطع فيديو واحد إلى المفضلة.</item>
+        <item quantity="two">تمت إضافة مقطعي فيديو إلى المفضلة.</item>
+        <item quantity="few">تمت إضافة %d مقاطع فيديو إلى المفضلة.</item>
+        <item quantity="many">تمت إضافة %d مقطع فيديو إلى المفضلة.</item>
+        <item quantity="other">تمت إضافة %d مقطع فيديو إلى المفضلة.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">%1$s منذ %2$d سنة</item>
+        <item quantity="one">%1$s منذ سنة واحدة</item>
+        <item quantity="two">%1$s منذ سنتين</item>
+        <item quantity="few">%1$s منذ %2$d سنوات</item>
+        <item quantity="many">%1$s منذ %2$d سنةً</item>
+        <item quantity="other">%1$s منذ %2$d سنة</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">%d ألبوم</item>
+        <item quantity="one">ألبوم واحد</item>
+        <item quantity="two">ألبومان</item>
+        <item quantity="few">%d ألبومات</item>
+        <item quantity="many">%d ألبوماً</item>
+        <item quantity="other">%d ألبوم</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">تم تنزيل %d عنصر. انقر هنا لرؤيتها.</item>
+        <item quantity="one">تم تنزيل عنصر واحد. انقر هنا لرؤيته.</item>
+        <item quantity="two">تم تنزيل عنصرَين. انقر هنا لرؤيتهما.</item>
+        <item quantity="few">تم تنزيل %d عناصر. انقر هنا لرؤيتها.</item>
+        <item quantity="many">تم تنزيل %d عنصراً. انقر هنا لرؤيتها.</item>
+        <item quantity="other">تم تنزيل %d عنصر. انقر هنا لرؤيتها.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">%d مجموعة</item>
+        <item quantity="one">مجموعة واحد</item>
+        <item quantity="two">مجموعتان</item>
+        <item quantity="few">%d مجموعات</item>
+        <item quantity="many">%d مجموعة</item>
+        <item quantity="other">%d مجموعة</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">تعذر تنزيل %d ملف. لا يدعم هذا الهاتف صور HEIF.</item>
+        <item quantity="one">تعذر تنزيل ملف واحد. لا يدعم هذا الهاتف صور HEIF.</item>
+        <item quantity="two">تعذر تنزيل ملفَين. لا يدعم هذا الهاتف صور HEIF.</item>
+        <item quantity="few">تعذر تنزيل %d ملفات. لا يدعم هذا الهاتف صور HEIF.</item>
+        <item quantity="many">تعذر تنزيل %d ملفاً. لا يدعم هذا الهاتف صور HEIF.</item>
+        <item quantity="other">تعذر تنزيل %d ملف. لا يدعم هذا الهاتف صور HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">تعذر تنزيل %d ملف. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+        <item quantity="one">تعذر تنزيل ملف واحد. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+        <item quantity="two">تعذر تنزيل ملفَين. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+        <item quantity="few">تعذر تنزيل %d ملفات. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+        <item quantity="many">تعذر تنزيل %d ملفاً. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+        <item quantity="other">تعذر تنزيل %d ملف. لا يدعم هذا الجهاز اللوحي صور HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">%d عضو</item>
+        <item quantity="one">عضو واحد</item>
+        <item quantity="two">عضوان</item>
+        <item quantity="few">%d أعضاء</item>
+        <item quantity="many">%d عضواً</item>
+        <item quantity="other">%d عضو</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">‏‫تتعذر إضافة أكثر من %d ملصق.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+        <item quantity="one">‏‫تتعذر إضافة أكثر من ملصق واحد.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+        <item quantity="two">‏‫تتعذر إضافة أكثر من ملصقين.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+        <item quantity="few">‏‫تتعذر إضافة أكثر من %d ملصقات.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+        <item quantity="many">‏‫تتعذر إضافة أكثر من %d ملصقاً.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+        <item quantity="other">‏‫تتعذر إضافة أكثر من %d ملصق.‬ انتقل إلى محرر الصور في الاستوديو لإزالة الملصقات.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">مجموعة واحدة %d ألبوم</item>
+        <item quantity="one">مجموعة واحدة ألبوم واحد</item>
+        <item quantity="two">مجموعة واحدة ألبومان</item>
+        <item quantity="few">مجموعة واحدة %d ألبومات</item>
+        <item quantity="many">مجموعة واحدة %d ألبوماً</item>
+        <item quantity="other">مجموعة واحدة %d ألبوم</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">ألبوم واحد مشترك، %d دعوة</item>
+        <item quantity="one">ألبوم واحد مشترك، دعوة واحدة</item>
+        <item quantity="two">ألبوم واحد مشترك، دعوتان</item>
+        <item quantity="few">ألبوم واحد مشترك، %d دعوات</item>
+        <item quantity="many">ألبوم واحد مشترك، %d دعوةً</item>
+        <item quantity="other">ألبوم واحد مشترك، %d دعوة</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">هل تريد حذف %d صورة بشكل دائم؟</item>
+        <item quantity="one">هل تريد حذف صورة واحدة بشكل دائم؟</item>
+        <item quantity="two">هل تريد حذف صورتين بشكل دائم؟</item>
+        <item quantity="few">هل تريد حذف %d صور بشكل دائم؟</item>
+        <item quantity="many">هل تريد حذف %d صورةً بشكل دائم؟</item>
+        <item quantity="other">هل تريد حذف %d صورة بشكل دائم؟</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">أتريد حذف %d عنصر نهائياً؟</item>
+        <item quantity="one">أتريد حذف عنصر واحد نهائياً؟</item>
+        <item quantity="two">أتريد حذف عنصرَين نهائياً؟</item>
+        <item quantity="few">أتريد حذف %d عناصر نهائياً؟</item>
+        <item quantity="many">أتريد حذف %d عنصراً نهائياً؟</item>
+        <item quantity="other">أتريد حذف %d عنصر نهائياً؟</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">هل تريد حذف %d مقطع فيديو بشكل دائم؟</item>
+        <item quantity="one">هل تريد حذف مقطع فيديو واحد بشكل دائم؟</item>
+        <item quantity="two">هل تريد حذف مقطعي فيديو بشكل دائم؟</item>
+        <item quantity="few">هل تريد حذف %d مقاطع فيديو بشكل دائم؟</item>
+        <item quantity="many">هل تريد حذف %d مقطع فيديو بشكل دائم؟</item>
+        <item quantity="other">هل تريد حذف %d مقطع فيديو بشكل دائم؟</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">سيتم حذف %d صورة نهائياً.</item>
+        <item quantity="one">سيتم حذف صورة واحدة نهائياً.</item>
+        <item quantity="two">سيتم حذف صورتين نهائياً.</item>
+        <item quantity="few">سيتم حذف %d صور نهائياً.</item>
+        <item quantity="many">سيتم حذف %d صورةً نهائياً.</item>
+        <item quantity="other">سيتم حذف %d صورة نهائياً.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">سيتم حذف %d عنصر بشكلٍ دائم.</item>
+        <item quantity="one">سيتم حذف عنصر واحد بشكلٍ دائم.</item>
+        <item quantity="two">سيتم حذف عنصرَين بشكلٍ دائم.</item>
+        <item quantity="few">سيتم حذف %d عناصر بشكلٍ دائم.</item>
+        <item quantity="many">سيتم حذف %d عنصراً بشكلٍ دائم.</item>
+        <item quantity="other">سيتم حذف %d عنصر بشكلٍ دائم.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">سيتم حذف %d مقطع فيديو نهائياً.</item>
+        <item quantity="one">سيتم حذف مقطع فيديو واحد نهائياً.</item>
+        <item quantity="two">سيتم حذف مقطعي فيديو نهائياً.</item>
+        <item quantity="few">سيتم حذف %d مقاطع فيديو نهائياً.</item>
+        <item quantity="many">سيتم حذف %d مقطع فيديو نهائياً.</item>
+        <item quantity="other">سيتم حذف %d مقطع فيديو نهائياً.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">تم حفظ %d صورة.</item>
+        <item quantity="one">تم حفظ صورة واحدة.</item>
+        <item quantity="two">تم حفظ صورتَين.</item>
+        <item quantity="few">تم حفظ %d صور.</item>
+        <item quantity="many">تم حفظ %d صورة.</item>
+        <item quantity="other">تم حفظ %d صورة.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">تمت الزيارة لمدة %1$d يوم في %2$s</item>
+        <item quantity="one">تمت الزيارة لمدة يوم واحد في %2$s</item>
+        <item quantity="two">تمت الزيارة لمدة يومين في %2$s</item>
+        <item quantity="few">تمت الزيارة لمدة %1$d أيام في %2$s</item>
+        <item quantity="many">تمت الزيارة لمدة %1$d يوماً في %2$s</item>
+        <item quantity="other">تمت الزيارة لمدة %1$d يوم في %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">منذ %d سنة</item>
+        <item quantity="one">منذ سنة واحدة</item>
+        <item quantity="two">منذ سنتَين</item>
+        <item quantity="few">منذ %d سنوات</item>
+        <item quantity="many">منذ %d سنة</item>
+        <item quantity="other">منذ %d سنة</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">تمت إزالة %d اقتراح.</item>
+        <item quantity="one">تمت إزالة اقتراح واحد.</item>
+        <item quantity="two">تمت إزالة اقتراحين.</item>
+        <item quantity="few">تمت إزالة %d اقتراحات.</item>
+        <item quantity="many">تمت إزالة %d اقتراحاً.</item>
+        <item quantity="other">تمت إزالة %d اقتراح.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">هل تريد إزالة %d صورة من هذا الألبوم المشترك؟</item>
+        <item quantity="one">هل تريد إزالة صورة واحدة من هذا الألبوم المشترك؟</item>
+        <item quantity="two">هل تريد إزالة صورتين من هذا الألبوم المشترك؟</item>
+        <item quantity="few">هل تريد إزالة %d صور من هذا الألبوم المشترك؟</item>
+        <item quantity="many">هل تريد إزالة %d صورةً من هذا الألبوم المشترك؟</item>
+        <item quantity="other">هل تريد إزالة %d صورة من هذا الألبوم المشترك؟</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">هل تريد إزالة %d صورة من الألبوم؟</item>
+        <item quantity="one">هل تريد إزالة صورة واحدة من الألبوم؟</item>
+        <item quantity="two">هل تريد إزالة صورتين من الألبوم؟</item>
+        <item quantity="few">هل تريد إزالة %d صور من الألبوم؟</item>
+        <item quantity="many">هل تريد إزالة %d صورةً من الألبوم؟</item>
+        <item quantity="other">هل تريد إزالة %d صورة من الألبوم؟</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">هل تريد إزالة %d عنصر من الألبوم؟</item>
+        <item quantity="one">هل تريد إزالة عنصر واحد من الألبوم؟</item>
+        <item quantity="two">هل تريد إزالة عنصرين من الألبوم؟</item>
+        <item quantity="few">هل تريد إزالة %d عناصر من الألبوم؟</item>
+        <item quantity="many">هل تريد إزالة %d عنصراً من الألبوم؟</item>
+        <item quantity="other">هل تريد إزالة %d عنصر من الألبوم؟</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">هل تريد إزالة %d عنصر من القصة؟</item>
+        <item quantity="one">هل تريد إزالة عنصر واحد من القصة؟</item>
+        <item quantity="two">هل تريد إزالة عنصرين من القصة؟</item>
+        <item quantity="few">هل تريد إزالة %d عناصر من القصة؟</item>
+        <item quantity="many">هل تريد إزالة %d عنصراً من القصة؟</item>
+        <item quantity="other">هل تريد إزالة %d عنصر من القصة؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">هل تريد إزالة %d صورة من مقترحات ألبومك؟</item>
+        <item quantity="one">هل تريد إزالة صورة واحدة من مقترحات ألبومك؟</item>
+        <item quantity="two">هل تريد إزالة صورتين من مقترحات ألبومك؟</item>
+        <item quantity="few">هل تريد إزالة %d صور من مقترحات ألبومك؟</item>
+        <item quantity="many">هل تريد إزالة %d صورةً من مقترحات ألبومك؟</item>
+        <item quantity="other">هل تريد إزالة %d صورة من مقترحات ألبومك؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">هل تريد إزالة %d عنصر من مقترحات ألبومك؟</item>
+        <item quantity="one">هل تريد إزالة عنصر واحد من مقترحات ألبومك؟</item>
+        <item quantity="two">هل تريد إزالة عنصرين من مقترحات ألبومك؟</item>
+        <item quantity="few">هل تريد إزالة %d عناصر من مقترحات ألبومك؟</item>
+        <item quantity="many">هل تريد إزالة %d عنصراً من مقترحات ألبومك؟</item>
+        <item quantity="other">هل تريد إزالة %d عنصر من مقترحات ألبومك؟</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">هل تريد إزالة %d مقطع فيديو من مقترحات ألبومك؟</item>
+        <item quantity="one">هل تريد إزالة مقطع فيديو واحد من مقترحات ألبومك؟</item>
+        <item quantity="two">هل تريد إزالة مقطعي فيديو من مقترحات ألبومك؟</item>
+        <item quantity="few">هل تريد إزالة %d مقاطع فيديو من مقترحات ألبومك؟</item>
+        <item quantity="many">هل تريد إزالة %d مقطع فيديو من مقترحات ألبومك؟</item>
+        <item quantity="other">هل تريد إزالة %d مقطع فيديو من مقترحات ألبومك؟</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">هل تريد إزالة %d مقطع فيديو من الألبوم؟</item>
+        <item quantity="one">هل تريد إزالة مقطع فيديو واحد من الألبوم؟</item>
+        <item quantity="two">هل تريد إزالة مقطعي فيديو من الألبوم؟</item>
+        <item quantity="few">هل تريد إزالة %d مقاطع فيديو من الألبوم؟</item>
+        <item quantity="many">هل تريد إزالة %d مقطع فيديو من الألبوم؟</item>
+        <item quantity="other">هل تريد إزالة %d مقطع فيديو من الألبوم؟</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">هل تريد إزالة %d مقطع فيديو من هذا الألبوم المشترك؟</item>
+        <item quantity="one">هل تريد إزالة مقطع فيديو واحد من هذا الألبوم المشترك؟</item>
+        <item quantity="two">هل تريد إزالة مقطعي فيديو من هذا الألبوم المشترك؟</item>
+        <item quantity="few">هل تريد إزالة %d مقاطع فيديو من هذا الألبوم المشترك؟</item>
+        <item quantity="many">هل تريد إزالة %d مقطع فيديو من هذا الألبوم المشترك؟</item>
+        <item quantity="other">هل تريد إزالة %d مقطع فيديو من هذا الألبوم المشترك؟</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">أتريد حفظ %1$d عنصر من %2$s هذه؟</item>
+        <item quantity="one">أتريد حفظ عنصر واحد من %2$s هذه؟</item>
+        <item quantity="two">أتريد حفظ عنصرَين من %2$s هذه؟</item>
+        <item quantity="few">أتريد حفظ %1$d عناصر من %2$s هذه؟</item>
+        <item quantity="many">أتريد حفظ %1$d عنصراً من %2$s هذه؟</item>
+        <item quantity="other">أتريد حفظ %1$d عنصر من %2$s هذه؟</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">أتريد حفظ %1$d صورة من %2$s هذه؟</item>
+        <item quantity="one">أتريد حفظ صورة واحدة من %2$s هذه؟</item>
+        <item quantity="two">أتريد حفظ صورتَين من %2$s هذه؟</item>
+        <item quantity="few">أتريد حفظ %1$d صور من %2$s هذه؟</item>
+        <item quantity="many">أتريد حفظ %1$d صورة من %2$s هذه؟</item>
+        <item quantity="other">أتريد حفظ %1$d صورة من %2$s هذه؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">هل تريد نقل %1$d صورة إلى %2$s؟</item>
+        <item quantity="one">هل تريد نقل صورة واحدة إلى %2$s؟</item>
+        <item quantity="two">هل تريد نقل صورتين إلى %2$s؟</item>
+        <item quantity="few">هل تريد نقل %1$d صور إلى %2$s؟</item>
+        <item quantity="many">هل تريد نقل %1$d صورةً إلى %2$s؟</item>
+        <item quantity="other">هل تريد نقل %1$d صورة إلى %2$s؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">هل تريد نقل %1$d عنصر إلى %2$s؟</item>
+        <item quantity="one">هل تريد نقل عنصر واحد إلى %2$s؟</item>
+        <item quantity="two">هل تريد نقل عنصرين إلى %2$s؟</item>
+        <item quantity="few">هل تريد نقل %1$d عناصر إلى %2$s؟</item>
+        <item quantity="many">هل تريد نقل %1$d عنصراً إلى %2$s؟</item>
+        <item quantity="other">هل تريد نقل %1$d عنصر إلى %2$s؟</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">هل تريد نقل %1$d مقطع فيديو إلى %2$s؟</item>
+        <item quantity="one">هل تريد نقل مقطع فيديو واحد إلى %2$s؟</item>
+        <item quantity="two">هل تريد نقل مقطعي فيديو إلى %2$s؟</item>
+        <item quantity="few">هل تريد نقل %1$d مقاطع فيديو إلى %2$s؟</item>
+        <item quantity="many">هل تريد نقل %1$d مقطع فيديو إلى %2$s؟</item>
+        <item quantity="other">هل تريد نقل %1$d مقطع فيديو إلى %2$s؟</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">مجموعة من %d صورة مشابهة</item>
+        <item quantity="one">مجموعة من صورة مشابهة واحدة</item>
+        <item quantity="two">مجموعة من صورتين مشابهتين</item>
+        <item quantity="few">مجموعة من %d صور مشابهة</item>
+        <item quantity="many">مجموعة من %d صورةً مشابهةً</item>
+        <item quantity="other">مجموعة من %d صورة مشابهة</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">%d عنصر محدد</item>
+        <item quantity="one">عنصر واحد محدد</item>
+        <item quantity="two">عنصران محددان</item>
+        <item quantity="few">%d عناصر محددة</item>
+        <item quantity="many">%d عنصراً محدداً</item>
+        <item quantity="other">%d عنصر محدد</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">هذا الشخص منذ %d سنة</item>
+        <item quantity="one">هذا الشخص منذ سنة واحدة</item>
+        <item quantity="two">هذا الشخص منذ سنتين</item>
+        <item quantity="few">هذا الشخص منذ %d سنوات</item>
+        <item quantity="many">هذا الشخص منذ %d سنةً</item>
+        <item quantity="other">هذا الشخص منذ %d سنة</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">تم تنزيل %d مقطع فيديو من السحابة.</item>
+        <item quantity="one">تم تنزيل فيديو واحد من السحابة.</item>
+        <item quantity="two">تم تنزيل مقطعَي فيديو من السحابة.</item>
+        <item quantity="few">تم تنزيل %d مقاطع فيديو من السحابة.</item>
+        <item quantity="many">تم تنزيل %d مقطع فيديو من السحابة.</item>
+        <item quantity="other">تم تنزيل %d مقطع فيديو من السحابة.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">تمت استعادة الفيديو. تعذرت استعادة %1$d مقطع فيديو من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="one">تمت استعادة مقطع الفيديو. تعذرت استعادة مقطع فيديو واحد من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="two">تمت استعادة الفيديو. تعذرت استعادة مقطعَي فيديو من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="few">تمت استعادة الفيديو. تعذرت استعادة %1$d مقاطع فيديو من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="many">تمت استعادة الفيديو. تعذرت استعادة %1$d مقطع فيديو من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+        <item quantity="other">تمت استعادة الفيديو. تعذرت استعادة %1$d مقطع فيديو من نوع %2$s لأنه تم إقفال %3$s بسبب طلب بيانات شخصية.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">يتعذر تضمين أكثر من %d عنصر في عمل تصويري.</item>
+        <item quantity="one">يتعذر تضمين أكثر من عنصر واحد في عمل تصويري.</item>
+        <item quantity="two">يتعذر تضمين أكثر من عنصرين في عمل تصويري.</item>
+        <item quantity="few">يتعذر تضمين أكثر من %d عناصر في عمل تصويري.</item>
+        <item quantity="many">يتعذر تضمين أكثر من %d عنصراً في عمل تصويري.</item>
+        <item quantity="other">يتعذر تضمين أكثر من %d عنصر في عمل تصويري.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">سيتم الحذف خلال %d يوم</item>
+        <item quantity="one">سيتم الحذف خلال يوم واحد</item>
+        <item quantity="two">سيتم الحذف خلال يومين</item>
+        <item quantity="few">سيتم الحذف خلال %d أيام</item>
+        <item quantity="many">سيتم الحذف خلال %d يوماً</item>
+        <item quantity="other">سيتم الحذف خلال %d يوم</item>
+    </plurals>
+</resources>

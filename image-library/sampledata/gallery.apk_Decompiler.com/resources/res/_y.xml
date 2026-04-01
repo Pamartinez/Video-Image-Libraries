@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <com.samsung.android.gallery.settings.widget.MainSwitchPreference android:key="sharing_service_enabler"/>
+    <PreferenceCategory android:key="cat_shared_album_notification">
+        <SeslSwitchPreferenceScreen android:title="@string/share_notification" android:key="shared_album_notification" android:defaultValue="true"/>
+    </PreferenceCategory>
+    <PreferenceCategory/>
+</PreferenceScreen>

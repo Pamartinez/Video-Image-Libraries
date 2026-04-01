@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <objectAnimator android:interpolator="@anim/sine_out_60" android:duration="350" android:valueFrom="0" android:valueTo="1" android:propertyName="alpha"/>
+    <objectAnimator android:interpolator="@anim/path_interpolator_022_025_0_1" android:duration="350" android:valueFrom="-37f" android:valueTo="0" android:propertyName="translationX"/>
+</set>

@@ -324,10 +324,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
         val ordered   = saved.mapNotNull { groupMap[it] ?: folderMap[it] }
         val savedSet  = saved.toSet()
-        // New groups → prepend (first in list); new folders → append (end of list)
+        // New groups and folders are prepended at the beginning (now matches expected behavior)
         val newGroups: List<Any>  = groups.filter  { "g_${it.groupId}"  !in savedSet }
         val newFolders: List<Any> = folders.filter { "f_${it.bucketId}" !in savedSet }
-        val result: List<Any> = newGroups + ordered + newFolders
+        val result: List<Any> = newGroups + newFolders + ordered
 
         preferences.customMixedOrder = result.map {
             if (it is GroupItem) "g_${it.groupId}" else "f_${(it as FolderItem).bucketId}"
@@ -467,7 +467,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val savedSet   = saved.toSet()
         val newGroups: List<Any>  = groups.filter  { "g_${it.groupId}"  !in savedSet }
         val newFolders: List<Any> = folders.filter { "f_${it.bucketId}" !in savedSet }
-        return newGroups + ordered + newFolders
+        return ordered + newGroups + newFolders
     }
 
     /**
@@ -1299,7 +1299,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             it.copy(albumCreationCurrentBucketId = bucketId, albumCreationCurrentBucketName = name)
         }
         viewModelScope.launch {
-            val videos = repository.getVideos(_uiState.value.videoSortOption, bucketId = bucketId)
+            val sortOption = getEffectiveFolderSortOption(bucketId)
+            val videos = repository.getVideos(sortOption, bucketId = bucketId)
             _uiState.update { it.copy(albumCreationBrowsedVideos = videos) }
         }
     }

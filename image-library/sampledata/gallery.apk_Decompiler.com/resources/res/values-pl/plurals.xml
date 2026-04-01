@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodać %d element chmury do udost. albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodać %d elementy chmury do udost. albumu?</item>
+        <item quantity="many">Dodać %d elementów chmury do udost.albumu?</item>
+        <item quantity="other">Dodać %d elementów chmury do udost.albumu?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Aby korzystać z inteligentnych funkcji, musisz mieć co najmniej %d rok.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Aby korzystać z inteligentnych funkcji, musisz mieć co najmniej %d lata.</item>
+        <item quantity="many">Aby korzystać z inteligentnych funkcji, musisz mieć co najmniej %d lat.</item>
+        <item quantity="other">Aby korzystać z inteligentnych funkcji, musisz mieć co najmniej %d roku.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d obraz</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d obrazy</item>
+        <item quantity="many">%d obrazów</item>
+        <item quantity="other">%d obrazów</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="many">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="other">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można usunąć %1$d obrazu usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można usunąć %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można usunąć %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można usunąć %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można usunąć %1$d elementu usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można usunąć %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można usunąć %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można usunąć %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można usunąć %1$d filmu wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można usunąć %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można usunąć %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można usunąć %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">W poście Meitu można umieścić maksymalnie %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">W poście Meitu można umieścić maksymalnie %d elementy.</item>
+        <item quantity="many">W poście Meitu można umieścić maksymalnie %d elementów.</item>
+        <item quantity="other">W poście Meitu można umieścić maksymalnie %d elementu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można przywrócić %1$d obrazu usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można przywrócić %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można przywrócić %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można przywrócić %1$d obrazów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można przywrócić %1$d elementu usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można przywrócić %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można przywrócić %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można przywrócić %1$d elementów usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można przywrócić %1$d filmu wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można przywrócić %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Nie można przywrócić %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Nie można przywrócić %1$d filmów wideo usługi %2$s. Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można dodać więcej niż %d element jednocześnie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można dodać więcej niż %d elementy jednocześnie.</item>
+        <item quantity="many">Nie można dodać więcej niż %d elementów jednocześnie.</item>
+        <item quantity="other">Nie można dodać więcej niż %d elementu jednocześnie.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do historii można dodać maksymalnie %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do historii można dodać maksymalnie %d elementy.</item>
+        <item quantity="many">Do historii można dodać maksymalnie %d elementów.</item>
+        <item quantity="other">Do historii można dodać maksymalnie %d elementu.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d miasto</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d miasta</item>
+        <item quantity="many">%d miast</item>
+        <item quantity="other">%d miasta</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd przywracania %1$d obrazu. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd przywracania %1$d obrazów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="many">Błąd przywracania %1$d obrazów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="other">Błąd przywracania %1$d obrazów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd przywracania %1$d elementu. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd przywracania %1$d elementów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="many">Błąd przywracania %1$d elementów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="other">Błąd przywracania %1$d elementów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd przywracania %1$d filmu. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd przywracania %1$d filmów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="many">Błąd przywracania %1$d filmów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+        <item quantity="other">Błąd przywracania %1$d filmów. Wyczyść trochę miejsca w %2$s, a następnie spróbuj ponownie.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd przywracania %1$d filmu. Ten film został przywrócony lub usunięty w aplikacji %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd przywracania %1$d filmów. Te filmy zostały przywrócone lub usunięte w aplikacji %2$s.</item>
+        <item quantity="many">Błąd przywracania %1$d filmów. Te filmy zostały przywrócone lub usunięte w aplikacji %2$s.</item>
+        <item quantity="other">Błąd przywracania %1$d filmów. Te filmy zostały przywrócone lub usunięte w aplikacji %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd usuwania %d elementu. Spróbuj ponownie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd usuwania %d elementów. Spróbuj ponownie.</item>
+        <item quantity="many">Błąd usuwania %d elementów. Spróbuj ponownie.</item>
+        <item quantity="other">Błąd usuwania %d elementów. Spróbuj ponownie.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d udostępniony album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d udostępnione albumy</item>
+        <item quantity="many">%d udostępnionych albumów</item>
+        <item quantity="other">%d udostępnionych albumów</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d historia</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d historie</item>
+        <item quantity="many">%d historii</item>
+        <item quantity="other">%d historii</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d obrazie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d obrazach.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d obrazach.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d obrazu.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d elemencie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d elementach.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d elementach.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d elementu.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d wideo.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d albumy?</item>
+        <item quantity="many">Usunąć %d albumów?</item>
+        <item quantity="other">Usunąć %d albumów?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć 1 grupę, %d album i 1 element w nich?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć 1 grupę, %d albumy i 1 element w nich?</item>
+        <item quantity="many">Usunąć 1 grupę, %d albumów i 1 element w nich?</item>
+        <item quantity="other">Usunąć 1 grupę, %d albumów i 1 element w nich?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d grupę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d grupy?</item>
+        <item quantity="many">Usunąć %d grup?</item>
+        <item quantity="other">Usunąć %d grup?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy?</item>
+        <item quantity="many">Usunąć %d obrazów?</item>
+        <item quantity="other">Usunąć %d obrazów?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy?</item>
+        <item quantity="many">Usunąć %d elementów?</item>
+        <item quantity="other">Usunąć %d elementów?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d grupę zawierającą podobne obrazy?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d grupy zawierające podobne obrazy?</item>
+        <item quantity="many">Usunąć %d grup zawierających podobne obrazy?</item>
+        <item quantity="other">Usunąć %d grup zawierających podobne obrazy?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d grupę zawierającą podobne obrazy i 1 inny element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d grupy zawierające podobne obrazy i 1 inny element?</item>
+        <item quantity="many">Usunąć %d grup zawierających podobne obrazy i 1 inny element?</item>
+        <item quantity="other">Usunąć %d grup zawierających podobne obrazy i 1 inny element?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć 1 grupę zawierającą podobne obrazy i %d inny element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć 1 grupę zawierającą podobne obrazy i %d inne elementy?</item>
+        <item quantity="many">Usunąć 1 grupę zawierającą podobne obrazy i %d innych elementów?</item>
+        <item quantity="other">Usunąć 1 grupę zawierającą podobne obrazy i %d innych elementów?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z tego zestawu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z tego zestawu?</item>
+        <item quantity="many">Usunąć %d elementów z tego zestawu?</item>
+        <item quantity="other">Usunąć %d elementu z tego zestawu?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć klipy wideo z %d zdjęcia w ruchu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć klipy wideo z %d zdjęć w ruchu?</item>
+        <item quantity="many">Usunąć klipy wideo z %d zdjęć w ruchu?</item>
+        <item quantity="other">Usunąć klipy wideo z %d zdjęcia w ruchu?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z tego zestawu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z tego zestawu?</item>
+        <item quantity="many">Usunąć %d obrazów z tego zestawu?</item>
+        <item quantity="other">Usunąć %d obrazów z tego zestawu?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d zestaw Jedno ujęcie?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d zestawy Jedno ujęcie?</item>
+        <item quantity="many">Usunąć %d zestawów Jedno ujęcie?</item>
+        <item quantity="other">Usunąć %d zestawu Jedno ujęcie?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo?</item>
+        <item quantity="many">Usunąć %d wideo?</item>
+        <item quantity="other">Usunąć %d wideo?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Możesz wyświetlić tę zawartość jeszcze %d raz. Wyświetlić teraz?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Możesz wyświetlić tę zawartość jeszcze %d razy. Wyświetlić teraz?</item>
+        <item quantity="many">Możesz wyświetlić tę zawartość jeszcze %d razy. Wyświetlić teraz?</item>
+        <item quantity="other">Możesz wyświetlić tę zawartość jeszcze %d raza. Wyświetlić teraz?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d pusty album zostanie usunięty bez przenoszenia do Kosza.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d puste albumy zostaną usunięte bez przenoszenia do Kosza.</item>
+        <item quantity="many">%d pustych albumów zostanie usuniętych bez przenoszenia do Kosza.</item>
+        <item quantity="other">%d pustych albumów zostanie usuniętych bez przenoszenia do Kosza.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elementy znajdujące się w Koszu zostaną trwale usunięte za %d dzień.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Elementy znajdujące się w Koszu zostaną trwale usunięte za %d dni.</item>
+        <item quantity="many">Elementy znajdujące się w Koszu zostaną trwale usunięte za %d dni.</item>
+        <item quantity="other">Elementy znajdujące się w Koszu zostaną trwale usunięte za %d dnia.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d obraz z Twojego telefonu. Przejdź do OneDrive, aby usunąć jego kopię z Kosza.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d obrazy z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="many">Trwale usunięto %d obrazów z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="other">Trwale usunięto %d obrazu z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d element z Twojego telefonu. Przejdź do OneDrive, aby usunąć jego kopię z Kosza.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d elementy z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="many">Trwale usunięto %d elementów z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="other">Trwale usunięto %d elementu z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d wideo z Twojego telefonu. Przejdź do OneDrive, aby usunąć jego kopię z Kosza.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d wideo z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="many">Trwale usunięto %d wideo z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+        <item quantity="other">Trwale usunięto %d wideo z Twojego telefonu. Przejdź do OneDrive, aby usunąć ich kopie z Kosza.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d obraz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d obrazy.</item>
+        <item quantity="many">Trwale usunięto %d obrazów.</item>
+        <item quantity="other">Trwale usunięto %d obrazu.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d elementy.</item>
+        <item quantity="many">Trwale usunięto %d elementów.</item>
+        <item quantity="other">Trwale usunięto %d elementu.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunięto %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunięto %d wideo.</item>
+        <item quantity="many">Trwale usunięto %d wideo.</item>
+        <item quantity="other">Trwale usunięto %d wideo.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Widok siatki z %d miniaturą w każdym wierszu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Widok siatki z %d miniaturami w każdym wierszu</item>
+        <item quantity="many">Widok siatki z %d miniaturami w każdym wierszu</item>
+        <item quantity="other">Widok siatki z %d miniatury w każdym wierszu</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupa, 1 album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupy, 1 album</item>
+        <item quantity="many">%d grup, 1 album</item>
+        <item quantity="other">%d grup, 1 album</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pobrano %d obraz z chmury.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pobrano %d obrazy z chmury.</item>
+        <item quantity="many">Pobrano %d obrazów z chmury.</item>
+        <item quantity="other">Pobrano %d obrazów z chmury.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przywrócono obrazy. Nie można przywrócić %1$d obrazu usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przywrócono obrazy. Nie można przywrócić %1$d obrazów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Przywrócono obrazy. Nie można przywrócić %1$d obrazów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Przywrócono obrazy. Nie można przywrócić %1$d obrazów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zapisano %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zapisano %d elementy.</item>
+        <item quantity="many">Zapisano %d elementów.</item>
+        <item quantity="other">Zapisano %d elementu.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pobrano %d element z chmury.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pobrano %d elementy z chmury.</item>
+        <item quantity="many">Pobrano %d elementów z chmury.</item>
+        <item quantity="other">Pobrano %d elementów z chmury.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przywrócono elementy. Nie można przywrócić %1$d elementu usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przywrócono elementy. Nie można przywrócić %1$d elementów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Przywrócono elementy. Nie można przywrócić %1$d elementów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Przywrócono elementy. Nie można przywrócić %1$d elementów usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d obrazie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d obrazach.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d obrazach.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d obrazu.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d elemencie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d elementach.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d elementach.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d elementu.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d wideo.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d lokalizacja</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d lokalizacje</item>
+        <item quantity="many">%d lokalizacji</item>
+        <item quantity="other">%d lokalizacji</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można wprowadzić więcej niż %d znaku.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można wprowadzić więcej niż %d znaków.</item>
+        <item quantity="many">Nie można wprowadzić więcej niż %d znaków.</item>
+        <item quantity="other">Nie można wprowadzić więcej niż %d znaków.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Klip wideo z %d ruchomego zdjęcia został zapisany.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Klip wideo z %d ruchomych zdjęć został zapisany.</item>
+        <item quantity="many">Klip wideo z %d ruchomych zdjęć został zapisany.</item>
+        <item quantity="other">Klip wideo z %d ruchomego zdjęcia został zapisany.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d zdjęcie seryjne do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d zdjęcia seryjne do Kosza?</item>
+        <item quantity="many">Przenieść %d zdjęć seryjnych do Kosza?</item>
+        <item quantity="other">Przenieść %d zdjęć seryjnych do Kosza?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d zdjęcie seryjne do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d zdjęcia seryjne do Kosza?</item>
+        <item quantity="many">Przenieść %d zdjęć seryjnych do Kosza?</item>
+        <item quantity="other">Przenieść %d zdjęć seryjnych do Kosza?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść 1 grupę, 1 album i %d element w nich do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść 1 grupę, 1 album i %d elementy w nich do Kosza?</item>
+        <item quantity="many">Przenieść 1 grupę, 1 album i %d elementów w nich do Kosza?</item>
+        <item quantity="other">Przenieść 1 grupę, 1 album i %d elementów w nich do Kosza?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść 1 grupę, %d album i 1 element w nich do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść 1 grupę, %d albumy i 1 element w nich do Kosza?</item>
+        <item quantity="many">Przenieść 1 grupę, %d albumów i 1 element w nich do Kosza?</item>
+        <item quantity="other">Przenieść 1 grupę, %d albumów i 1 element w nich do Kosza?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d grupę, 1 album i 1 element w nich do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d grupy, 1 album i 1 element w nich do Kosza?</item>
+        <item quantity="many">Przenieść %d grup, 1 album i 1 element w nich do Kosza?</item>
+        <item quantity="other">Przenieść %d grup, 1 album i 1 element w nich do Kosza?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d obraz z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d obrazy z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="many">Przenieść %d obrazów z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="other">Przenieść %d obrazów z tego zdjęcia seryjnego do Kosza?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d obraz z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d obrazy z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="many">Przenieść %d obrazów z tego zdjęcia seryjnego do Kosza?</item>
+        <item quantity="other">Przenieść %d obrazów z tego zdjęcia seryjnego do Kosza?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d obraz do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d obrazy do Kosza?</item>
+        <item quantity="many">Przenieść %d obrazów do Kosza?</item>
+        <item quantity="other">Przenieść %d obrazu do Kosza?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d element do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d elementy do Kosza?</item>
+        <item quantity="many">Przenieść %d elementów do Kosza?</item>
+        <item quantity="other">Przenieść %d elementów do Kosza?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementów</item>
+        <item quantity="other">%d elementów</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d grupę zawierającą podobne obrazy do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d grupy zawierające podobne obrazy do Kosza?</item>
+        <item quantity="many">Przenieść %d grup zawierających podobne obrazy do Kosza?</item>
+        <item quantity="other">Przenieść %d grup zawierających podobne obrazy do Kosza?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d grupę zawierającą podobne obrazy i 1 inny element do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d grupy zawierające podobne obrazy i 1 inny element do Kosza?</item>
+        <item quantity="many">Przenieść %d grup zawierających podobne obrazy i 1 inny element do Kosza?</item>
+        <item quantity="other">Przenieść %d grup zawierających podobne obrazy i 1 inny element do Kosza?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść 1 grupę zawierającą podobne obrazy i %d inny element do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść 1 grupę zawierającą podobne obrazy i %d inne elementy do Kosza?</item>
+        <item quantity="many">Przenieść 1 grupę zawierającą podobne obrazy i %d innych elementów do Kosza?</item>
+        <item quantity="other">Przenieść 1 grupę zawierającą podobne obrazy i %d innych elementów do Kosza?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d element z tego zestawu do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d elementy z tego zestawu do Kosza?</item>
+        <item quantity="many">Przenieść %d elementów z tego zestawu do Kosza?</item>
+        <item quantity="other">Przenieść %d elementu z tego zestawu do Kosza?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d obraz z tego zestawu do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d obrazy z tego zestawu do Kosza?</item>
+        <item quantity="many">Przenieść %d obrazów z tego zestawu do Kosza?</item>
+        <item quantity="other">Przenieść %d obrazów z tego zestawu do Kosza?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d zestaw Jedno ujęcie do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d zestawy Jedno ujęcie do Kosza?</item>
+        <item quantity="many">Przenieść %d zestawów Jedno ujęcie do Kosza?</item>
+        <item quantity="other">Przenieść %d zestawu Jedno ujęcie do Kosza?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d element do prywatnego albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d elementy do prywatnego albumu?</item>
+        <item quantity="many">Przenieść %d elementów do prywatnego albumu?</item>
+        <item quantity="other">Przenieść %d elementu do prywatnego albumu?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Błąd przenoszenia %1$d pliku z usługi %2$s do %3$s. Pobierz ten plik, a następnie spróbuj ponownie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Błąd przenoszenia %1$d plików z usługi %2$s do %3$s. Pobierz te pliki, a następnie spróbuj ponownie.</item>
+        <item quantity="many">Błąd przenoszenia %1$d plików z usługi %2$s do %3$s. Pobierz te pliki, a następnie spróbuj ponownie.</item>
+        <item quantity="other">Błąd przenoszenia %1$d plików z usługi %2$s do %3$s. Pobierz te pliki, a następnie spróbuj ponownie.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d wideo do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d wideo do Kosza?</item>
+        <item quantity="many">Przenieść %d wideo do Kosza?</item>
+        <item quantity="other">Przenieść %d wideo do Kosza?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenoszenie %d elementu do Kosza…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenoszenie %d elementów do Kosza…</item>
+        <item quantity="many">Przenoszenie %d elementów do Kosza…</item>
+        <item quantity="other">Przenoszenie %d elementu do Kosza…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d nowe powiadomienie</item>
+        <item quantity="few">%d nowe powiadomienia</item>
+        <item quantity="many">%d nowych powiadomień</item>
+        <item quantity="other">%d nowego powiadomienia</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Połączono %d album o tej samej nazwie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Połączono %d albumy o tej samej nazwie.</item>
+        <item quantity="many">Połączono %d albumów o tej samej nazwie.</item>
+        <item quantity="other">Połączono %d albumu o tej samej nazwie.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d dzień</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dnia</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d dzień do usunięcia historii</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dni do usunięcia historii</item>
+        <item quantity="many">%d dni do usunięcia historii</item>
+        <item quantity="other">%d dnia do usunięcia historii</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d album?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d albumy?</item>
+        <item quantity="many">Usunąć %d albumów?</item>
+        <item quantity="other">Usunąć %d albumów?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d obraz do ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d obrazy do ulubionych.</item>
+        <item quantity="many">Dodano %d obrazów do ulubionych.</item>
+        <item quantity="other">Dodano %d obrazu do ulubionych.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zaproszenia</item>
+        <item quantity="many">%d zaproszeń</item>
+        <item quantity="other">%d zaproszenia</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d element do ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d elementy do ulubionych.</item>
+        <item quantity="many">Dodano %d elementów do ulubionych.</item>
+        <item quantity="other">Dodano %d elementu do ulubionych.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wybrano %d osobę</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wybrano %d osoby</item>
+        <item quantity="many">Wybrano %d osób</item>
+        <item quantity="other">Wybrano %d osoby</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wybranych: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wybranych: %d</item>
+        <item quantity="many">Wybranych: %d</item>
+        <item quantity="other">Wybranych: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d udostępniony album, 1 zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d udostępnione albumy, 1 zaproszenie</item>
+        <item quantity="many">%d udostępnionych albumów, 1 zaproszenie</item>
+        <item quantity="other">%d udostępnionego albumu, 1 zaproszenie</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Znaleźliśmy %d nowe zdjęcie, które możesz dodać do tego albumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Znaleźliśmy %d nowe zdjęcia, które możesz dodać do tego albumu.</item>
+        <item quantity="many">Znaleźliśmy %d nowych zdjęć, które możesz dodać do tego albumu.</item>
+        <item quantity="other">Znaleźliśmy %d nowego zdjęcia, które możesz dodać do tego albumu.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d wideo do ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d wideo do ulubionych.</item>
+        <item quantity="many">Dodano %d wideo do ulubionych.</item>
+        <item quantity="other">Dodano %d wideo do ulubionych.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d rok temu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s %2$d lata temu</item>
+        <item quantity="many">%1$s %2$d lat temu</item>
+        <item quantity="other">%1$s %2$d roku temu</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albumy</item>
+        <item quantity="many">%d albumów</item>
+        <item quantity="other">%d albumów</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pobrano %d element. Dotknij tutaj, aby go zobaczyć.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pobrano %d elementy. Dotknij tutaj, aby je zobaczyć.</item>
+        <item quantity="many">Pobrano %d elementów. Dotknij tutaj, aby je zobaczyć.</item>
+        <item quantity="other">Pobrano %d elementów. Dotknij tutaj, aby je zobaczyć.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupy</item>
+        <item quantity="many">%d grup</item>
+        <item quantity="other">%d grup</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można pobrać %d pliku. Ten telefon nie obsługuje obrazów HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można pobrać %d plików. Ten telefon nie obsługuje obrazów HEIF.</item>
+        <item quantity="many">Nie można pobrać %d plików. Ten telefon nie obsługuje obrazów HEIF.</item>
+        <item quantity="other">Nie można pobrać %d plików. Ten telefon nie obsługuje obrazów HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można pobrać %d pliku. Ten tablet nie obsługuje obrazów HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można pobrać %d plików. Ten tablet nie obsługuje obrazów HEIF.</item>
+        <item quantity="many">Nie można pobrać %d plików. Ten tablet nie obsługuje obrazów HEIF.</item>
+        <item quantity="other">Nie można pobrać %d plików. Ten tablet nie obsługuje obrazów HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d członek</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d członków</item>
+        <item quantity="many">%d członków</item>
+        <item quantity="other">%d członka</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Można dodać maksymalnie %d naklejkę. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Można dodać maksymalnie %d naklejki. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="many">Można dodać maksymalnie %d naklejek. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="other">Można dodać maksymalnie %d naklejki. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 grupa %d album</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 grupa %d albumy</item>
+        <item quantity="many">1 grupa %d albumów</item>
+        <item quantity="other">1 grupa %d albumów</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 udostępniony album, %d zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 udostępniony album, %d zaproszenia</item>
+        <item quantity="many">1 udostępniony album, %d zaproszeń</item>
+        <item quantity="other">1 udostępniony album, %d zaproszenia</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć trwale %d obraz?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć trwale %d obrazy?</item>
+        <item quantity="many">Usunąć trwale %d obrazów?</item>
+        <item quantity="other">Usunąć trwale %d obrazu?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trwale usunąć %d element?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trwale usunąć %d elementy?</item>
+        <item quantity="many">Trwale usunąć %d elementów?</item>
+        <item quantity="other">Trwale usunąć %d elementów?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć trwale %d wideo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć trwale %d wideo?</item>
+        <item quantity="many">Usunąć trwale %d wideo?</item>
+        <item quantity="other">Usunąć trwale %d wideo?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d obraz zostanie trwale usunięty.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d obrazy zostaną trwale usunięte.</item>
+        <item quantity="many">%d obrazów zostanie trwale usuniętych.</item>
+        <item quantity="other">%d obrazu zostanie trwale usunięte.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d element zostanie trwale usunięty.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementy zostaną trwale usunięte.</item>
+        <item quantity="many">%d elementów zostanie trwale usuniętych.</item>
+        <item quantity="other">%d elementów zostanie trwale usuniętych.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d wideo zostanie trwale usunięte.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d wideo zostaną trwale usunięte.</item>
+        <item quantity="many">%d wideo zostanie trwale usuniętych.</item>
+        <item quantity="other">%d wideo zostanie trwale usunięte.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zapisano %d obraz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zapisano %d obrazy.</item>
+        <item quantity="many">Zapisano %d obrazów.</item>
+        <item quantity="other">Zapisano %d obrazów.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s: wizyta trwała %1$d dzień</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%2$s: wizyta trwała %1$d dni</item>
+        <item quantity="many">%2$s: wizyta trwała %1$d dni</item>
+        <item quantity="other">%2$s: wizyta trwała %1$d dnia</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d rok temu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d lata temu</item>
+        <item quantity="many">%d lat temu</item>
+        <item quantity="other">%d roku temu</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunięto %d sugestię.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunięto %d sugestie.</item>
+        <item quantity="many">Usunięto %d sugestii.</item>
+        <item quantity="other">Usunięto %d sugestii.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z albumu udostępnionego?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z albumu udostępnionego?</item>
+        <item quantity="many">Usunąć %d obrazów z albumu udostępnionego?</item>
+        <item quantity="other">Usunąć %d obrazu z albumu udostępnionego?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z albumu?</item>
+        <item quantity="many">Usunąć %d obrazów z albumu?</item>
+        <item quantity="other">Usunąć %d obrazu z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z albumu?</item>
+        <item quantity="many">Usunąć %d elementów z albumu?</item>
+        <item quantity="other">Usunąć %d elementu z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z historii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z historii?</item>
+        <item quantity="many">Usunąć %d elementów z historii?</item>
+        <item quantity="other">Usunąć %d elementu z historii?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d obrazów z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d obrazu z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d elementów z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d elementu z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d wideo z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z albumu?</item>
+        <item quantity="many">Usunąć %d wideo z albumu?</item>
+        <item quantity="other">Usunąć %d wideo z albumu?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="many">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="other">Usunąć %d wideo z albumu udostępnionego?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zapisać %1$d element z tego %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zapisać %1$d elementy z tego %2$s?</item>
+        <item quantity="many">Zapisać %1$d elementów z tego %2$s?</item>
+        <item quantity="other">Zapisać %1$d elementu z tego %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zapisać %1$d obraz z tego zdjęcia %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zapisać %1$d obrazy z tego zdjęcia %2$s?</item>
+        <item quantity="many">Zapisać %1$d obrazów z tego zdjęcia %2$s?</item>
+        <item quantity="other">Zapisać %1$d obrazów z tego zdjęcia %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %1$d obraz do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %1$d obrazy do folderu %2$s?</item>
+        <item quantity="many">Przenieść %1$d obrazów do folderu %2$s?</item>
+        <item quantity="other">Przenieść %1$d obrazu do folderu %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %1$d element do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %1$d elementy do folderu %2$s?</item>
+        <item quantity="many">Przenieść %1$d elementów do folderu %2$s?</item>
+        <item quantity="other">Przenieść %1$d elementu do folderu %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %1$d wideo do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %1$d wideo do folderu %2$s?</item>
+        <item quantity="many">Przenieść %1$d wideo do folderu %2$s?</item>
+        <item quantity="other">Przenieść %1$d wideo do folderu %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Grupa %d podobnego obrazu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Grupa %d podobnych obrazów</item>
+        <item quantity="many">Grupa %d podobnych obrazów</item>
+        <item quantity="other">Grupa %d podobnego obrazu</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d wybrany element</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d wybrane elementy</item>
+        <item quantity="many">%d wybranych elementów</item>
+        <item quantity="other">%d wybranych elementów</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ta osoba %d rok temu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ta osoba %d lata temu</item>
+        <item quantity="many">Ta osoba %d lat temu</item>
+        <item quantity="other">Ta osoba %d roku temu</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pobrano %d film z chmury.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pobrano %d filmy z chmury.</item>
+        <item quantity="many">Pobrano %d filmów z chmury.</item>
+        <item quantity="other">Pobrano %d filmów z chmury.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przywrócono film wideo. Nie można przywrócić %1$d filmu wideo usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przywrócono film wideo. Nie można przywrócić %1$d filmów wideo usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="many">Przywrócono film wideo. Nie można przywrócić %1$d filmów wideo usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+        <item quantity="other">Przywrócono film wideo. Nie można przywrócić %1$d filmów wideo usługi %2$s, ponieważ Twoja usługa %3$s została zablokowana z powodu żądania dotyczącego danych osobistych.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można umieścić więcej niż %d element w kolażu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można umieścić więcej niż %d elementy w kolażu.</item>
+        <item quantity="many">Nie można umieścić więcej niż %d elementów w kolażu.</item>
+        <item quantity="other">Nie można umieścić więcej niż %d elementu w kolażu.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunięcie nastąpi za %d dzień</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunięcie nastąpi za %d dni</item>
+        <item quantity="many">Usunięcie nastąpi za %d dni</item>
+        <item quantity="other">Usunięcie nastąpi za %d dnia</item>
+    </plurals>
+</resources>

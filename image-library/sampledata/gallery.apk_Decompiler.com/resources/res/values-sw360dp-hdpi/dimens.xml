@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionbar_bottom_line_width">2px</dimen>
+    <dimen name="album_divider_padding">1px</dimen>
+    <dimen name="single_item_text_size">19dp</dimen>
+    <dimen name="thumbnail_stroke_width">2px</dimen>
+</resources>

@@ -303,10 +303,10 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val savedSet   = savedOrder.toSet()
         // Items in their saved position (skip keys whose item was deleted)
         val ordered    = savedOrder.mapNotNull { key -> groupMap[key] ?: folderMap[key] }
-        // New items not yet in the saved order — append at the end
+        // New items not yet in the saved order — prepend at the beginning
         val newGroups  = groups.filter  { "g_${it.groupId}"  !in savedSet }
         val newFolders = folders.filter { "f_${it.bucketId}" !in savedSet }
-        val result: List<Any> = ordered + newGroups + newFolders
+        val result: List<Any> = newGroups + newFolders + ordered
 
         // Persist the pruned + extended order so new items survive next launch
         preferences.customMixedOrder = result.map { item ->

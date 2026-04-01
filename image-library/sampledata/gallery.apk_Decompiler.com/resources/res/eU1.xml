@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="wrap_content" android:layout_height="match_parent">
+    <FrameLayout android:id="@+id/moreinfo_remove_icon" android:background="@drawable/details_item_oneui_60_people_tag_bg" android:layout_width="@dimen/moreinfo_item_tag_view_height" android:layout_height="@dimen/moreinfo_item_tag_view_height" android:layout_alignParentBottom="true" android:layout_marginStart="@dimen/more_info_item_people_name_text_side_padding" android:layout_marginEnd="@dimen/details_list_horizontal_margin">
+        <ImageView android:layout_gravity="center" android:layout_width="@dimen/moreinfo_item_tag_view_image_size" android:layout_height="@dimen/moreinfo_item_tag_view_image_size" android:src="@drawable/tag_ic_details_editor_edit"/>
+    </FrameLayout>
+</RelativeLayout>

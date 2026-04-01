@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:icon="@drawable/bottom_tab_ic_pictures" android:enabled="true" android:id="@+id/action_timeline" android:title="@string/pictures"/>
+    <item android:icon="@drawable/bottom_tab_ic_albums" android:enabled="true" android:id="@+id/action_albums" android:title="@string/tab_tag_albums"/>
+    <item android:icon="@drawable/bottom_tab_ic_stories" android:enabled="true" android:id="@+id/action_stories" android:title="@string/tab_tag_events"/>
+    <item android:icon="@drawable/bottom_tab_ic_stories" android:enabled="true" android:id="@+id/action_collection" android:title="@string/collection"/>
+    <item android:icon="@drawable/bottom_tab_ic_mtp" android:enabled="true" android:id="@+id/action_mtp" android:visible="false" android:title="@string/set_label_mtp_devices"/>
+    <item android:icon="@drawable/tab_ic_menu" android:enabled="true" android:id="@+id/action_menu_list" android:title="@string/tab_tag_menu"/>
+</menu>

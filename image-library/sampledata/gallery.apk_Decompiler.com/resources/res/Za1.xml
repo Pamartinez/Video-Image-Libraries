@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="6dp"/>
+            <size android:height="20dp" android:width="24dp"/>
+            <solid android:color="@color/content_type_container_background"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/gallery_ic_thumbnail_burst" android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="4dp"/>
+</layer-list>

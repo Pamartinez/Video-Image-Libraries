@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ViewStub android:id="@+id/folderView" android:layout="@layout/dynamic_folder_view_child_container" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <ViewStub android:id="@+id/folder_empty_background" android:layout="@layout/layer_folder_view_child_container" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <com.samsung.android.gallery.widget.SquareImageView android:id="@+id/folder_background" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</FrameLayout>

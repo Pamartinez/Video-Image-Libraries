@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:scrollbars="none" android:fadingEdgeLength="28dp" android:layout_width="match_parent" android:layout_height="@dimen/play_button_view_height" android:layout_marginLeft="16dp" android:requiresFadingEdge="horizontal">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.PlayButtonTextView android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="@dimen/play_button_view_height" android:layout_marginEnd="20dp"/>
+        <com.samsung.android.gallery.widget.PlayButtonTextView android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="@dimen/play_button_view_height"/>
+    </LinearLayout>
+</HorizontalScrollView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/search_clusters_result_container" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/search_cluster_results_margin_bottom">
+    <ViewStub android:id="@+id/top_results_cluster_view_stub" android:layout="@layout/search_cluster_results_layout" android:inflatedId="@+id/top_results_cluster_view_stub" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <include layout="@layout/search_cluster_result_pictures_layout"/>
+    <ViewStub android:id="@+id/carousel_cluster_view_stub" android:layout="@layout/search_cluster_results_carousel_layout" android:inflatedId="@+id/carousel_cluster_view_stub" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <ViewStub android:id="@+id/stories_cluster_view_stub" android:layout="@layout/search_cluster_results_stories_layout" android:inflatedId="@+id/stories_cluster_view_stub" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

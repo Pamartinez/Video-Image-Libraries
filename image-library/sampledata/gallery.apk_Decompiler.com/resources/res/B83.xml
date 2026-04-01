@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:color="@color/fastoptionview_item_ripple_color">
+    <item android:gravity="center_horizontal" android:id="@android:id/mask">
+        <selector>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/daynight_default_background"/>
+                </shape>
+            </item>
+            <item>
+                <color android:color="@android:color/transparent"/>
+            </item>
+        </selector>
+    </item>
+</ripple>

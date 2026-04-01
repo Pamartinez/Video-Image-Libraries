@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/ic_gallery_ic_shared_action_bar" android:id="@+id/action_show_group_detail" android:visible="true" android:title="@string/shared_group_members" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_add_mtrl" android:id="@+id/action_add_content_to_sharing" android:visible="true" android:title="@string/add" app:showAsAction="always"/>
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_change_sharing_cover_image" android:title="@string/change_cover_image" android:showAsAction="never"/>
+        <item android:id="@+id/action_delete_shared_album" android:visible="false" android:title="@string/delete_button_label" android:showAsAction="never"/>
+        <item android:id="@+id/action_rename_shared_album" android:visible="false" android:title="@string/rename_album_shared" android:showAsAction="never"/>
+        <item android:id="@+id/action_leave_shared_album" android:visible="false" android:title="@string/leave_album" app:showAsAction="never"/>
+        <item android:id="@+id/action_preview_suggestion_to_add" android:visible="false" android:title="@string/suggested_pictures_and_videos" android:showAsAction="never"/>
+        <item android:id="@+id/action_sortby" android:visible="false" android:title="@string/sort" app:showAsAction="never"/>
+        <item android:id="@+id/action_view_as" android:title="@string/view_as" android:showAsAction="never"/>
+        <item android:id="@+id/action_share_link_to_album" android:title="@string/share_link_to_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_slideshow" android:title="@string/slideshow" android:showAsAction="never"/>
+        <item android:id="@+id/action_album_settings" android:title="@string/sharing_album_setting" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_download" android:id="@+id/action_download_in_sharing_album" android:title="@string/download" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_bottombar_remove" android:id="@+id/action_remove" android:title="@string/remove_from_album" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:icon="@drawable/ic_gallery_ic_shared_action_bar" android:id="@+id/action_show_group_detail" android:visible="true" android:title="@string/shared_group_members" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_add_mtrl" android:id="@+id/action_add_content_to_sharing" android:visible="false" android:title="@string/add" app:showAsAction="always"/>
+        <item android:id="@+id/action_delete_shared_album" android:visible="false" android:title="@string/delete_button_label" android:showAsAction="never"/>
+        <item android:id="@+id/action_rename_shared_album" android:visible="false" android:title="@string/rename_album_shared" android:showAsAction="never"/>
+        <item android:id="@+id/action_leave_shared_album" android:visible="false" android:title="@string/leave_album" app:showAsAction="never"/>
+        <item android:id="@+id/action_preview_suggestion_to_add" android:visible="false" android:title="@string/suggested_pictures_and_videos" android:showAsAction="never"/>
+        <item android:id="@+id/action_album_settings" android:title="@string/sharing_album_setting" android:showAsAction="never"/>
+    </group>
+</menu>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:orientation="vertical" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:gravity="center" android:id="@+id/fragment_container" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <ViewStub android:layout_gravity="bottom" android:id="@+id/bottom_tab_layout_view_stub" android:layout="@layout/bottom_tab_layout" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <ViewStub android:id="@+id/drawer_tab_layout_view_stub" android:layout="@layout/drawer_tab_layout" android:layout_width="@dimen/drawer_tab_layout_width" android:layout_height="match_parent" app:layout_behavior="com.samsung.android.gallery.widget.behavior.DrawerTabBehavior"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/recycler_view_item" android:focusable="true" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/frame_view" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:id="@+id/item_container" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:foreground="@drawable/thumbnail_selector" android:layout_centerVertical="true" android:contentDescription="@string/speak_button" android:importantForAccessibility="yes">
+            <ImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" style="@style/ThumbnailStyle"/>
+            <FrameLayout android:id="@+id/deco_view_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+                <ViewStub android:id="@+id/checkboxViewStub" android:layout="@layout/thumbnail_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </FrameLayout>
+        </FrameLayout>
+        <LinearLayout android:layout_gravity="end" android:orientation="vertical" android:id="@+id/title_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="@dimen/suggestion_highlight_pictures_item_title_height" android:layout_marginTop="@dimen/suggestion_highlight_pictures_title_margin_top" android:layout_marginHorizontal="@dimen/suggestion_highlight_pictures_title_margin_horizontal">
+            <TextView android:textSize="12dp" android:textColor="@color/revitalized_card_title_color" android:ellipsize="end" android:id="@+id/title" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

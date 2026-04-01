@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">မွ်ေဝထားသည့္ အယ္လ္ဘမ္ထဲသို႔ ကေလာက္ထဲရွိ အိုင္တမ္ %d ခုကို ထည့္မလား?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဉာဏ္ရည္ျမင့္လုပ္ေဆာင္ခ်က္မ်ားကို အသုံးျပဳရန္ အနည္းဆုံးအသက္ %d ႏွစ္ျဖစ္ရမည္။</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပံု</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu ပို႔စ္တစ္ခုတြင္ ဗီဒီယို %d ခုထက္ ပိုထည့္၍မရပါ။</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ႐ုပ္ပုံမ်ားကို ဖ်က္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s အိုင္တမ္မ်ားကို ဖ်က္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ဗီဒီယိုမ်ားကို ဖ်က္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu ပို႔စ္တစ္ခုတြင္ အိုင္တမ္ %d ခုထက္ ပိုပါ၍မရပါ။</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ႐ုပ္ပုံမ်ားကို သိုေလွာင္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s အိုင္တမ္မ်ားကို သိုေလွာင္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ဗီဒီယိုမ်ားကို သိုေလွာင္၍မရပါ။ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္လိုက္ပါသည္။</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">တစ္ၿပိဳင္တည္း %d ခုထက္ပုိၿပီး ထည့္၍ မရပါ။</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">စတိုရီတြင္ အိုင္တမ္ %d ခုထက္ ပိုထည့္၍မရပါ။</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ၿမိဳ႕</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">႐ုပ္ပုံ %1$d ပုံကို နဂိုအတိုင္း ျပန္ထား၍ မရႏိုင္ပါ။ %2$s တြင္ ေနရာအခ်ိဳ႕ကို ရွင္းၿပီး ထပ္မံႀကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %1$d ခုကို နဂိုအတိုင္း ျပန္ထား၍ မရႏိုင္ပါ။ %2$s တြင္ ေနရာအခ်ိဳ႕ကို ရွင္းၿပီး ထပ္မံႀကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %1$d ခုကို နဂိုအတိုင္းျပန္ထား၍မရပါ။ %2$s တြင္ ေနရာအခ်ိဳ႕ကို ရွင္းၿပီး ထပ္မံႀကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ဗီဒီယိုမ်ားကို နဂိုေနရာျပန္ထား၍မရပါ။ ဤဗီဒီယိုမ်ားကို %2$s အက္ပ္တြင္ နဂိုေနရာျပန္ထားခဲ့သည္ (သို႔) ဖ်က္ခဲ့သည္။</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကို ဖယ္ရွား၍မရပါ။ ထပ္မံႀကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">မွ်ေဝထားသည့္ အယ္လဘမ္ %d ခု</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">သတင္းေဆာင္းပါး %d ခု</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပံုတြင္ ရက္စြဲႏွင့္ အခ်ိန္ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d အုိင္တမ္ ရက္စြဲႏွင့္ အခ်ိန္ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုတြင္ ရက္စြဲႏွင့္ အခ်ိန္ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လဘမ္ %d ခုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု ၁ ခု၊ အယ္လ္ဘမ္ %d ခုႏွင့္ ၎တို႔ထဲရွိ အိုင္တမ္ ၁ ခုကို ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု %d စုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ပံုကိုဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ခုကို ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု %d စုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု %d စုႏွင့္ အျခားအိုင္တမ္ ၁ ခုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု ၁ စုႏွင့္ အျခားအိုင္တမ္ %d ခုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤေနရာမွ အရာ %d ခုကို ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">လႈပ္ရွားဓာတ္ပုံ %d ခုမွ ဗီဒီယိုအပိုင္းမ်ားကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤေနရာမွ ပုံ %d ပုံကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">တစ္ခ်က္တည္း႐ိုက္ပုံ %d ခုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ကားကို ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤအေၾကာင္းအရာကို ေနာက္ထပ္ %d ႀကိမ္ ၾကည့္ႏိုင္သည္။ ယခု ၾကည့္လုိပါသလား?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လဘမ္အလြတ္ %d ခုကို အမႈိက္ပုံးထဲ မထည့္ေတာ့ဘဲ ဖ်က္ပါမည္။</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အမႈိက္ပုံးထဲရွိ အိုင္တမ္မ်ားကို ရက္ %d ၾကာၿပီးေနာက္ အၿပီးဖ်က္ပါမည္။</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပံု %d ပံုကို သင့္ဖုန္းမွ အၿပီး ဖ်က္လိုက္သည္။ OneDrive အမႈိက္ပံုးထဲရွိ ေကာ္ပီမ်ားကို ဖ်က္ရန္ ထိုေနရာသို႔ သြားပါ။</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကို သင့္ဖုန္းမွ အၿပီး ဖ်က္လုိက္သည္။ OneDrive အမႈိက္ပံုးထဲရွိ ေကာ္ပီမ်ားကို ဖ်က္ရန္ ထိုေနရာသို႔ သြားပါ။</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုကို သင့္ဖုန္းမွ အၿပီး ဖ်က္လိုက္သည္။ OneDrive အမႈိက္ပံုးထဲရွိ ေကာ္ပီမ်ားကို ဖ်က္ရန္ ထိုေနရာသို႔ သြားပါ။</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပံု %d ပံုကုိ အၿပီး ဖ်က္လုိက္သည္။</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုိင္တမ္ %d ခုကုိ အၿပီး ဖ်က္လုိက္သည္။</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုကုိ အၿပီး ဖ်က္လုိက္သည္။</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အတန္းတိုင္းတြင္ ပုံေသး %d ခုပါရွိေသာ ေလးေထာင့္ကြက္ပုံစံျမင္ကြင္း</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု %d ခု အယ္လ္ဘမ္ ၁ ခု</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">႐ုပ္ပံု %d ပံုကုိ ကေလာက္မွ ေဒါင္းလုတ္လုပ္ၿပီးၿပီ။</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">႐ုပ္ပုံမ်ား နဂိုေနရာျပန္ထားၿပီးၿပီ။ %1$d %2$s ႐ုပ္ပုံမ်ားကို နဂိုေနရာျပန္ထား၍မရပါ၊ အေၾကာင္းမွာ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္ထားလို႔ပါ။</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကို သိမ္းလိုက္ၿပီ။</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကုိ ကေလာက္မွ ေဒါင္းလုတ္လုပ္ၿပီးၿပီ။</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္မ်ားကို နဂိုေနရာျပန္ထားၿပီးၿပီ။ %1$d %2$s အိုင္တမ္မ်ားကို နဂိုေနရာျပန္ထား၍မရပါ၊ အေၾကာင္းမွာ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္ထားလို႔ပါ။</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပံုတြင္ တည္ေနရာ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d အုိင္တမ္ တည္ေနရာ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုတြင္ တည္ေနရာ အခ်က္အလက္ကို ေျပာင္းထားသည္။</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">တည္ေနရာ %d ခု</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အကၡရာ %d လုံးထက္ ပိုၿပီး ထည့္သြင္း၍မရပါ။</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">လႈပ္ရွား ဓာတ္ပုံ %d ပုံမွ ဗီဒီယို အပိုင္းတိုမ်ားကို သိမ္းဆည္းထားသည္။</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆက္တုိက္႐ိုက္ခ်က္ %d ခုကို အမိႈက္ပံုးထဲသုိ႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆက္တုိက္႐ိုက္ခ်က္ %d ခုကို အမိႈက္ပံုးထဲသုိ႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု ၁ ခု၊ အယ္လ္ဘမ္ ၁ ခုႏွင့္ ၎တို႔ထဲရွိ အိုင္တမ္ %d ခုကို အမႈိက္ပံုးထဲသို႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု ၁ ခု၊ အယ္လ္ဘမ္ %d ခုႏွင့္ ၎တို႔ထဲရွိ အိုင္တမ္ ၁ ခုကို အမိႈက္ပံုးထဲသို႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု %d ခု၊ အယ္လ္ဘမ္ ၁ ခုႏွင့္ ၎တို႔ထဲရွိ အိုင္တမ္ ၁ ခုကို အမိႈက္ပံုးသို႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤဆကၱိဳက္႐ိုကၡ္က္ေနရာ႐ြိ ပုံ %d ခုကို အမႈိကၸဳံးထဲ ေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤဆကၱိဳက္႐ိုကၡ္က္ေနရာ႐ြိ ပုံ %d ခုကို အမႈိကၸဳံးထဲ ေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပံုကို အမႈိက္ပုံးသို႔ ေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကို အမႈိက္ပုံးသို႔ ေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုိင္တမ္ %d ခု</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု %d စုကို အမႈိက္ပုံးသို႔ ေျပာင္းေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု %d စုႏွင့္ အျခားအိုင္တမ္ ၁ ခုကို အမႈိက္ပုံးသို႔ ေျပာင္းေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဆင္တူ႐ုပ္ပုံမ်ားရွိ အုပ္စု ၁ စုႏွင့္ အျခားအိုင္တမ္ %d ခုကို အမႈိက္ပုံးသို႔ ေျပာင္းေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤေနရာမွ အရာ %d ခုကို အမွိုက္ပုံးသို႔ ေျပာင္းေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤေနရာမွ ပုံ %d ပုံကို အမႈိက္ပုံးသို႔ ေျပာင္းေရႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">တစ္ခ်က္တည္း႐ိုက္ပုံ %d ခုကို အမႈိက္ပုံးထဲ ေျပာင္းေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ခုကို သီးသန႔္ အယ္လ္ဘမ္သို႔ ေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ဖိုင္မ်ားကို %3$s သို႔ ေရႊ႕၍မရပါ။ ဤဖိုင္မ်ားကို ေဒါင္းလုတ္လုပ္ၿပီး ထပ္မံႀကိဳးစားပါ။</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ကားကို အမႈိက္ပုံးသို႔ ေ႐ႊ႕မလား?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုိင္တမ္ %d ခုကုိ အမိႈက္ပံုးသုိ႔ ေရႊ႕ေနသည္…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">နာမည္တူ အယ္လဘမ္ %d ခုကို ေပါင္းထားသည္။</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ရက္</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">စတိုရီကို ဖ်က္ရန္ %d ရက္အလို</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လဘမ္ %d ခုကို ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အႀကိဳက္ဆုံးမ်ားတြင္ ပုံ %d ပုံ ထည့္လိုက္ၿပီ။</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဖိတ္ၾကားခ်က္ %d ခု</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အႀကိဳက္ဆုံးမ်ားတြင္ %d ခု ထည့္လိုက္ၿပီ။</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d လူကုိ ေရြးခ်ယ္ၿပီးျဖစ္သည္</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ကို ေ႐ြးထားသည္</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">မွ်ေဝထားေသာ အယ္လ္ဘမ္ %d ခု၊ ဖိတ္ၾကားခ်က္ ၁ ခု</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤအယ္လ္ဘမ္သို႔ သင္ထည့္လိုေသာ ပုံအသစ္ %d ပုံကို ကြၽႏ္ုပ္တို႔ ေတြ႕ရွိခဲ့သည္။</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အႀကိဳက္ဆုံးမ်ားတြင္ ဗီဒီယို %d ခု ထည့္လိုက္ၿပီ။</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">လြန္ခဲ့ေသာ %1$s %2$d ႏွစ္က</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လ္ဘမ္ %d ခု</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခု ေဒါင္းလုတ္ လုပ္ၿပီးပါၿပီ။ ၎တုိ႔ကုိ ၾကည့္ရန္ ဤေနရာတြင္ ႏွိပ္ပါ။</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု %d စု</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဖိုင္ %d ဖုိင္ကို ေဒါင္းလုဒ္လုပ္၍မရႏိုင္ပါ။ HEIF ႐ုပ္ပုံမ်ားကို ဤဖုန္းက ပံ့ပိုးမေပးပါ။</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဖိုင္ %d ဖုိင္ကို ေဒါင္းလုဒ္လုပ္၍မရႏိုင္ပါ။ HEIF ႐ုပ္ပုံမ်ားကို ဤတက္ဘလက္က ပံ့ပိုးမေပးပါ။</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အဖြဲ႔ဝင္ %d ဦး</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">စတစ္ကာ %d ခုထက္ ပိုထည့္၍မရပါ။ စတစ္ကာမ်ားကို ဖယ္ရွားရန္ ျပခန္းရွိ ဓာတ္ပုံ တည္းျဖတ္သို႔ သြားပါ။</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုပ္စု ၁ ခု အယ္လ္ဘမ္ %d ခု</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">မွ်ေဝထားေသာ အယ္လ္ဘမ္ ၁ ခု၊ ဖိတ္ၾကားခ်က္ %d ခု</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပုံကို အၿပီးတိုင္ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %d ခုကို အၿပီးသတ္ ဖ်က္ပစ္မလား?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုကို အၿပီးတိုင္ဖ်က္မလား?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပုံ %d ပုံကုိ အၿပီး ဖ်က္ပစ္ပါမည္။</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုိင္တမ္ %d ခုကုိ အၿပီးသတ္ ဖ်က္ပစ္ပါမည္။</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုကုိ အၿပီး ဖ်က္ပစ္ပါမည္။</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ရုပ္ပုံ %d ပံုကို သိမ္းထားသည္။</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s တြင္ %1$d ရက္ၾကာ လည္ပတ္ခဲ့သည္</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">လြန္ခဲ့ေသာ %d ႏွစ္က</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အၾကံျပဳခ်က္ %d ခုကို ဖယ္ရွားထားသည္။</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤမွ်ေဝထားသည့္ အယ္လ္ဘမ္မွ ပံု %d ပံုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လ္ဘမ္ထဲမွ ပံု %d ပံုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လ္ဘမ္ထဲမွ %d ခုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d အိုင္တမ္မ်ားကို မွတ္တမ္းထဲမွ ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">သင့္အယ္လ္ဘမ္ အၾကံျပဳခ်က္မ်ားမွ ပံု %d ပံုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">သင့္အယ္လ္ဘမ္ အၾကံျပဳခ်က္မ်ားမွ အရာဝတၳဳ %d ခုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">သင့္အယ္လ္ဘမ္ အၾကံျပဳခ်က္မ်ားမွ ဗီဒီယို %d ခုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အယ္လ္ဘမ္ထဲမွ ဗီဒီယို %d ခုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤမွ်ေဝထားသည့္ အယ္လ္ဘမ္မွ ဗီဒီယို %d ခုကို ဖယ္ရွားမလား?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤ %2$s မွ အုိင္တမ္ %1$d ခုကို သိမ္းဆည္းမလား?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဤ %2$s မွ ႐ုပ္ပုံ %1$d ခုကို သိမ္းဆည္းမလား?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ပံု %1$d ပံုကို %2$s သို႔ ေရႊ႕ေျပာင္းမလာ?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အိုင္တမ္ %1$d ခုကို %2$s သို႔ ေရႊ႕ေျပာင္းမလာ?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %1$d ကို %2$s သို႔ ေရႊ႕ေျပာင္းမလာ?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အလားတူ ပံု %d ပံုပါေသာ အုပ္စု</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">အုိင္တမ္ %d ခုကုိ ေရြးခ်ယ္ထားသည္</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">လြန္ခဲ့ေသာ %d ႏွစ္က ဤလူ</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယို %d ခုကုိ ကေလာက္မွ ေဒါင္းလုတ္လုပ္ၿပီးၿပီ။</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ဗီဒီယိုကို နဂိုေနရာျပန္ထားၿပီးၿပီ။ %1$d %2$s ဗီဒီယိုမ်ားကို နဂိုေနရာျပန္ထား၍မရပါ၊ အေၾကာင္းမွာ သင္၏ %3$s ကို ကိုယ္ေရးေဒတာ ေတာင္းဆိုခ်က္ေၾကာင့္ ေသာ့ခတ္ထားလို႔ပါ။</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ျဖတ္ညႇပ္ကပ္ပုံတစ္ခုတြင္ %d ခုထက္ ပို၍ မထည့္သြင္းႏိုင္ပါ။</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">N/A</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ရက္အတြင္း ဖ်က္ပါမည္</item>
+    </plurals>
+</resources>

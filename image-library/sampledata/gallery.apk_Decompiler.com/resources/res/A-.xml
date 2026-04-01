@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/search_recommend_header_margin_top">
+    <com.samsung.android.gallery.widget.progressbar.SearchProgressCircle android:id="@+id/progressCircle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/ProgressCircle"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/background_layer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_background_image" android:scaleType="centerCrop"/>
+        <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:roundedCorner="true" app:useFrameworkBgColor="true"/>
+    </FrameLayout>
+</RelativeLayout>

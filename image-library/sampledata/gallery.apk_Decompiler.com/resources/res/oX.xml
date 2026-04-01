@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="@dimen/stories_theme_list_height">
+    <com.samsung.android.gallery.widget.RoundedFrameLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/title_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/recoil_ripple_oval" android:minHeight="36dp" android:stateListAnimator="?attr/seslSmallTouchAnimator">
+        <TextView android:textSize="15sp" android:textColor="@color/story_highlight_theme_unselected_title_color" android:layout_gravity="center_vertical" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textDirection="locale" android:textAlignment="center" android:paddingHorizontal="@dimen/stories_theme_title_horizontal_padding_port" style="@style/OneUiRobotoRegular"/>
+    </com.samsung.android.gallery.widget.RoundedFrameLayout>
+</LinearLayout>

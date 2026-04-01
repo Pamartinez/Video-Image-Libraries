@@ -1,0 +1,21 @@
+{
+    "name": "Static",
+    "sort_order": 260,
+    "keyframes": [
+        {"camera_eye": [ 0.0, 0.35, 10.5 ], "camera_dir": [ 0.0, -0.035, -1.0 ], "fov": 10.0},
+        {"camera_eye": [ -0.35, 0.0, 10.5 ], "camera_dir": [ 0.035, 0.0, -1.0 ], "fov": 10.0},
+        {"camera_eye": [ 0.0, -0.35, 10.5 ], "camera_dir": [ 0.0, 0.035, -1.0 ], "fov": 10.0},
+        {"camera_eye": [ 0.35, 0.0, 10.5 ], "camera_dir": [ -0.035, 0.0, -1.0 ], "fov": 10.0},
+        {"camera_eye": [ 0.0, 0.35, 10.5 ], "camera_dir": [ 0.0, -0.035, -1.0 ], "fov": 10.0}
+    ],
+    "transition": "linear",
+    "movement": "circle",
+    "mode": "loop",
+    "speed_factor": 0.8,
+    "dynamic_offset": "damped_oscillation",
+    "dynamic_offset_options": {
+        "foreground_only": false,
+        "embossing_z": 0.0,
+        "dynamics_intensity": 3
+    }
+}

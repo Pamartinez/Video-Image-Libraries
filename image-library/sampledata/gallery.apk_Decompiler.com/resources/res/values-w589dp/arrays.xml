@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="visual_search_people_item_column_count">
+        <item>6</item>
+    </array>
+    <array name="visual_search_people_item_column_count_expansion">
+        <item>6</item>
+    </array>
+</resources>

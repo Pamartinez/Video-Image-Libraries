@@ -1,0 +1,39 @@
+package v7;
+
+import com.samsung.android.gallery.app.ui.viewer2.contentviewer.viewerobject.DecorLayoutHandler;
+import com.samsung.android.gallery.support.actioninvoker.ActionInvokeListener;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final /* synthetic */ class g implements ActionInvokeListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ int f2723a;
+    public final /* synthetic */ DecorLayoutHandler b;
+
+    public /* synthetic */ g(DecorLayoutHandler decorLayoutHandler, int i2) {
+        this.f2723a = i2;
+        this.b = decorLayoutHandler;
+    }
+
+    public final void onHandle(Object[] objArr) {
+        int i2 = this.f2723a;
+        DecorLayoutHandler decorLayoutHandler = this.b;
+        switch (i2) {
+            case 0:
+                decorLayoutHandler.initView(objArr);
+                return;
+            case 1:
+                decorLayoutHandler.lambda$addActionInvokeListener$0(objArr);
+                return;
+            case 2:
+                decorLayoutHandler.lambda$addActionInvokeListener$1(objArr);
+                return;
+            case 3:
+                decorLayoutHandler.lambda$addActionInvokeListener$2(objArr);
+                return;
+            default:
+                decorLayoutHandler.updateBottomLayoutVisibility(objArr);
+                return;
+        }
+    }
+}

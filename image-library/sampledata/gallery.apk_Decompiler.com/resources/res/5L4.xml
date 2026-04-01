@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <objectAnimator android:interpolator="@drawable/$avd_duplicate_header_icon__4" android:duration="1217" android:startOffset="0" android:propertyName="translateXY" android:pathData="M 143.167,144C 156.401,136.391 207.167,166 207.167,166" android:propertyXName="translateX" android:propertyYName="translateY"/>
+</set>

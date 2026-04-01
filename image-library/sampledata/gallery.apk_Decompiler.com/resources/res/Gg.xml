@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/zoom_in_out_icon_bg_radius_color"/>
+            <corners android:radius="@dimen/zoom_in_out_icon_radius"/>
+            <stroke android:width="@dimen/zoom_in_out_stroke_width" android:color="@color/zoom_in_out_icon_stroke_color"/>
+            <size android:height="@dimen/zoom_in_out_icon_size" android:width="@dimen/zoom_in_out_icon_size"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="@dimen/zoom_in_out_icon_size" android:width="@dimen/zoom_in_out_icon_size" android:drawable="@drawable/photo_knox_ic_zoom_in"/>
+</layer-list>

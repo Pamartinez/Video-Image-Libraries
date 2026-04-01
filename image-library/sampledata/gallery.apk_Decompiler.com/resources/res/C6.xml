@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/recycler_view_item" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <FrameLayout android:id="@+id/deco_view_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.SquareImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" app:aspect_ratio="1.245" style="@style/ThumbnailStyle"/>
+        <ViewStub android:layout_gravity="center_vertical" android:id="@+id/visualCueViewStub" android:layout="@layout/visual_cue" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/detail_c2pa_layout" android:background="@color/details_background_color" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:id="@+id/overlay_toolbar" app:navigationContentDescription="@string/navigate_up" app:navigationIcon="@drawable/tw_ic_ab_back_mtrl_detailview" app:title="@string/c2pa_header" style="@style/ToolbarMainViewerStyle"/>
+    <TextView android:id="@+id/c2pa_edit_title" android:paddingTop="24dp" android:paddingBottom="1dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/c2pa_edit_history" android:layout_marginStart="@dimen/details_c2pa_title_margin" style="@style/C2paTextViewBoldStyle"/>
+    <ListView android:id="@+id/c2pa_edit_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:listSelector="@android:color/transparent" android:divider="@null" android:dividerHeight="0dp"/>
+</LinearLayout>

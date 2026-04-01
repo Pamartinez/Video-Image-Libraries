@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <size android:height="@dimen/suggestions_card_recycler_item_play_icon_bg_size" android:width="@dimen/suggestions_card_recycler_item_play_icon_bg_size"/>
+    <solid android:color="@color/suggestions_card_video_play_icon_bg_color"/>
+    <corners android:radius="3dp"/>
+</shape>

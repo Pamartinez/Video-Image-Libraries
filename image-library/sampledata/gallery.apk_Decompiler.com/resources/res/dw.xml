@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/menu_image360Viewer" android:visible="true">
+        <item android:id="@+id/gear_vr" android:visible="false" android:title="@string/gallery360viewer_view_on_gear_vr" android:showAsAction="ifRoom"/>
+        <item android:id="@+id/capture_view" android:visible="true" android:title="@string/gallery360viewer_capture_view" android:showAsAction="ifRoom"/>
+        <item android:id="@+id/playback" android:visible="true" android:title="@string/gallery360viewer_default_playback_direction"/>
+    </group>
+</menu>

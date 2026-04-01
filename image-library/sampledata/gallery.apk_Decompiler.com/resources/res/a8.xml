@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:tag="new_search_toolbar_containable" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/search_toolbar_area" android:tag="legacy_search_toolbar_containable" android:visibility="gone" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:layout_marginTop="10dp" android:layout_marginBottom="2dp" style="@style/ToolbarStyle"/>
+    <RelativeLayout android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/search_toolbar_area" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_search_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:nestedScrollingEnabled="false"/>
+    </RelativeLayout>
+</RelativeLayout>

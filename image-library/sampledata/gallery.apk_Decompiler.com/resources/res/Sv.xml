@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/moreinfo_related" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include layout="@layout/details_divider"/>
+    <LinearLayout android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:paddingBottom="@dimen/moreinfo_oneui5x_item_related_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/details_item_margin_bw_divider_and_title">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/moreinfo_related_title_layout" android:background="?android:attr/selectableItemBackground" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.UtlTextView android:ellipsize="end" android:gravity="start" android:id="@+id/moreinfo_item_title" android:focusable="false" android:layout_width="0dp" android:layout_height="wrap_content" android:maxLines="2" android:layout_weight="1" android:textIsSelectable="false" style="@style/DetailsTextViewBoldStyle"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/moreinfo_item_listview" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/moreinfo_related_list_margin_top" android:overScrollMode="never" android:layout_marginEnd="@dimen/moreinfo_related_button_margin_end"/>
+    </LinearLayout>
+</LinearLayout>

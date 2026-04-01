@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/story_hide_scene_selection_dialog_padding_horizontal">
+        <androidx.recyclerview.widget.RecyclerView android:scrollbarStyle="insideInset" android:layout_gravity="center" android:id="@+id/scene_listview" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_hide_scene_selection_dialog_listview_padding_top" android:layout_marginBottom="@dimen/story_hide_scene_selection_dialog_listview_padding_bottom"/>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/story_hide_scene_selection_dialog_radio_padding_start">
+            <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_hide_this" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="@dimen/story_hide_scene_selection_dialog_radio_parring_end"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="14dp">
+                <TextView android:textSize="@dimen/story_hide_scene_selection_dialog_title_size" android:textColor="@color/dialog_content_main_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hide_scene_selection_dialog_hide_this_button" android:textFontWeight="700" style="@style/OneUiRobotoBold"/>
+                <TextView android:textSize="@dimen/story_hide_scene_selection_dialog_sub_title_size" android:textColor="@color/dialog_content_sub_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hide_scene_selection_dialog_hide_this_button_description" android:textFontWeight="400" style="@style/OneUiRobotoRegular"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/story_hide_scene_selection_dialog_radio_padding_start">
+            <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_hide_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="@dimen/story_hide_scene_selection_dialog_radio_parring_end"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="@dimen/story_hide_scene_selection_dialog_title_padding_vertical">
+                <TextView android:textSize="@dimen/story_hide_scene_selection_dialog_title_size" android:textColor="@color/dialog_content_main_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hide_scene_selection_dialog_hide_all_button" android:textFontWeight="700" style="@style/OneUiRobotoBold"/>
+                <TextView android:textSize="@dimen/story_hide_scene_selection_dialog_sub_title_size" android:textColor="@color/dialog_content_sub_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hide_scene_selection_dialog_hide_all_button_description" android:textFontWeight="400" style="@style/OneUiRobotoRegular"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.oneui.floatingactioncontainer.FloatingBottomLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_gravity="bottom" android:id="@+id/divider_button_floating_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.google.android.material.oneui.dividerbuttonlayout.DividerButtonLayout android:layout_gravity="center_horizontal" android:id="@+id/divider_button_layout" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="@dimen/divider_button_layout_height"/>
+</com.google.android.material.oneui.floatingactioncontainer.FloatingBottomLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="?android:attr/colorBackground" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ViewStub android:id="@+id/appbar" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp"/>
+    <FrameLayout android:id="@android:id/action_menu_presenter" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ListView android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@android:id/list" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:drawSelectorOnTop="false" android:cacheColorHint="@android:color/transparent" style="?attr/preferenceFragmentListStyle"/>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

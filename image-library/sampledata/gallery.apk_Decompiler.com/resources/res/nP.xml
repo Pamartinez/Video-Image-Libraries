@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/container" android:background="@color/daynight_default_background" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+    <com.samsung.android.gallery.plugins.compare.GridView android:id="@+id/gridView" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:animateLayoutChanges="true" android:rowCount="4" android:columnCount="1" android:useDefaultMargins="true">
+        <include android:id="@+id/image_view1" android:layout_width="0dp" android:layout_height="0dp" layout="@layout/compare_photo_layout"/>
+        <include android:id="@+id/image_view2" android:layout_width="0dp" android:layout_height="0dp" layout="@layout/compare_photo_layout"/>
+        <include android:id="@+id/image_view3" android:layout_width="0dp" android:layout_height="0dp" layout="@layout/compare_photo_layout"/>
+        <include android:id="@+id/image_view4" android:layout_width="0dp" android:layout_height="0dp" layout="@layout/compare_photo_layout"/>
+    </com.samsung.android.gallery.plugins.compare.GridView>
+    <FrameLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/list" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingEnd="50dp"/>
+        <ImageButton android:layout_gravity="right|center_vertical|center_horizontal|center" android:id="@+id/add_button" android:background="@color/photo_id_selected_bg_color" android:layout_width="30dp" android:layout_height="30dp" android:src="@drawable/gallery_detail_ic_create" android:layout_marginEnd="20dp"/>
+    </FrameLayout>
+</LinearLayout>

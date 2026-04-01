@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/black_color" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/dlna_activity" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include layout="@layout/toolbar_viewer_dark"/>
+        <ImageView android:id="@+id/lock_icon" android:clickable="true" android:layout_width="@dimen/smart_view_dlna_lock_icon_width" android:layout_height="@dimen/smart_view_dlna_lock_icon_height" android:src="@drawable/gallery_ic_detail_smart_view_dark" android:layout_centerInParent="true" android:contentDescription="@string/send_original_contents_dlna"/>
+    </RelativeLayout>
+</RelativeLayout>

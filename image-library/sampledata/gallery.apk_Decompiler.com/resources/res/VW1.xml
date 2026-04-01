@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape>
+            <stroke android:width="@dimen/photo_strip_view_frame_stroke" android:color="@color/photo_strip_view_frame_stroke_color"/>
+            <padding android:left="@dimen/photo_strip_view_frame_padding" android:top="@dimen/photo_strip_view_frame_padding" android:right="@dimen/photo_strip_view_frame_padding" android:bottom="@dimen/photo_strip_view_frame_padding"/>
+        </shape>
+    </item>
+</layer-list>

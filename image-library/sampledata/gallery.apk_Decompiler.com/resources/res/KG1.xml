@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <corners android:radius="@dimen/select_pictures_icon_container_radius"/>
+    <solid android:color="@color/select_pictures_button_view_background_color"/>
+    <stroke android:width="@dimen/select_pictures_icon_container_stroke" android:color="@color/select_pictures_button_view_stroke_color"/>
+</shape>

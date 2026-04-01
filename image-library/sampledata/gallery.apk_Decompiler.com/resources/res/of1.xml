@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_download" android:id="@+id/action_download_in_sharing_album" android:title="@string/download" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_remove" android:title="@string/remove_from_album" app:showAsAction="ifRoom"/>
+    </group>
+</menu>

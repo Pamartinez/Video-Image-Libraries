@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="album_divider_padding">2px</dimen>
+    <dimen name="filter_detail_text_height">30dp</dimen>
+    <dimen name="single_item_text_size">22dp</dimen>
+    <dimen name="thumbnail_stroke_width">2px</dimen>
+</resources>

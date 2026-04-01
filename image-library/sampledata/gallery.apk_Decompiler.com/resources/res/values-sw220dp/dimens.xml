@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionbar_bottom_line_width">1px</dimen>
+    <dimen name="album_divider_padding">2px</dimen>
+    <dimen name="check_box_height">32dp</dimen>
+    <dimen name="check_box_width">32dp</dimen>
+    <dimen name="filter_detail_text_height">30dp</dimen>
+    <dimen name="gallery_main_edge_icon_size">200px</dimen>
+    <dimen name="gallery_main_edge_view_icon_size">130px</dimen>
+    <dimen name="gallery_sub_edge_icon_size">21dp</dimen>
+    <dimen name="list_item_header_text_size">14sp</dimen>
+    <dimen name="mapview_marker_thumbnail_list_thumb_size">55dp</dimen>
+    <dimen name="moreinfo_addtags_margin_start">18dp</dimen>
+    <dimen name="new_album_view_title_height">48sp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_bottom_padding">21dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_height">32dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_img_layout_size">32dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_img_size">20dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_text_bottom_padding">3dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_text_padding">8dp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_row_text_size">16sp</dimen>
+    <dimen name="request_permission_rationale_popup_listview_top_padding">8dp</dimen>
+    <dimen name="request_permission_rationale_popup_padding">24dp</dimen>
+    <dimen name="request_permission_rationale_popup_text_linespace">4dp</dimen>
+    <dimen name="request_permission_rationale_popup_text_size">17sp</dimen>
+    <dimen name="search_detail_tag_stroke">1dp</dimen>
+    <dimen name="select_tv_row_height">54dp</dimen>
+    <dimen name="sesl_date_picker_selected_day_circle_radius">12dp</dimen>
+    <dimen name="single_item_text_size">19dp</dimen>
+    <dimen name="thumbnail_stroke_width">2px</dimen>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:paddingBottom="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:expanded="false" app:seslUseCustomHeight="true" app:seslUseCustomPadding="true" style="@style/AppBarLayoutStyle">
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" android:background="@android:color/transparent" app:background="@android:color/transparent" app:subtitle="@null" app:title="@string/search" style="@style/CollapsingToolBarStyle">
+            <include layout="@layout/floating_toolbar_dummy_view"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.progressbar.SearchProgressCircle android:id="@+id/progressCircle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/ProgressCircle"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_search_pictures_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <androidx.core.widget.NestedScrollView android:id="@+id/cluster_result_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@+id/cluster_result_nested" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:id="@+id/result_header_container" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <include layout="@layout/search_cluster_results_container_layout_71"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <LinearLayout android:id="@+id/list_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+        </LinearLayout>
+        <ViewStub android:id="@+id/autocomplete_list_view_container" android:layout="@layout/search_filter_autocomplete_layout" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </RelativeLayout>
+    <include layout="@layout/floating_toolbar_layout"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

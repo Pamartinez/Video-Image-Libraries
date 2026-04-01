@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/default_fw_background" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/toolbar_normal"/>
+    <ImageView android:id="@+id/background_layer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/default_background_image" android:scaleType="centerCrop"/>
+    <androidx.core.widget.NestedScrollView android:id="@+id/add_tag_scroll_view" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:id="@+id/add_tag_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+            <FrameLayout android:background="@color/default_background" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <EditText android:textColor="@color/time_view_title_color" android:textColorHint="#ff9c9c9c" android:id="@+id/add_tag_edit" android:background="@drawable/edit_tag_dialog_edittext_selector_blur" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/moreinfo_addtags_mytags_margin_bottom" android:hint="@string/add_tag" android:inputType="textCapSentences" android:privateImeOptions="disableSticker=true;disableGifKeyboard=true;disableLiveMessage=true;disableEmoticonInput=true;" android:imeOptions="actionUnspecified|actionGo|actionSend|actionDone|flagNoFullscreen" android:textCursorDrawable="@drawable/edittext_cursor" android:layout_marginStart="@dimen/moreinfo_addtags_margin_start" android:layout_marginEnd="@dimen/moreinfo_addtags_edittext_padding_end" android:backgroundTint="@color/gallery_color_primary"/>
+            </FrameLayout>
+            <include android:id="@+id/my_tags_header" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/recommendation_list"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_gravity="bottom" android:id="@+id/edit_bottom_navigation" android:layout_width="match_parent" android:layout_height="@dimen/bottom_tab_height" app:itemTextColor="@color/actionbar_menu_text_enabled" app:menu="@menu/menu_bottom_appbar_edit_done" style="@style/BottomNavigationViewStyle.Text"/>
+</FrameLayout>

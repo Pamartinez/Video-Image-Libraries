@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d የደመና ዝርዝር ነገር ወደ የተጋራ አልበም ይታከል?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d የደመና ዝርዝር ነገሮች ወደ የተጋራ አልበም ይታከል?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">የማከናወን ችሎታ ባህሪያትን ለመጠቀም ቢያንስ %d አመት መሆን ያስፈልግዎታል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">የማከናወን ችሎታ ባህሪያትን ለመጠቀም ቢያንስ %d አመታት መሆን ያስፈልግዎታል።</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ%d ቪድዮ በላይ ወደ Meitu ልጥፍ ማከል አይቻልም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ%d ቪድዮዎች በላይ ወደ Meitu ልጥፍ ማከል አይቻልም።</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ምስል መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ምስሎች መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ዝርዝር ነገር መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ዝርዝር ነገሮች መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ቪድዮ መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ቪድዮዎች መሰረዝ አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በMeitu ልጥፍ ውስጥ ከ%d ዝርዝር ነገር በላይ ማካተት አይቻልም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በMeitu ልጥፍ ውስጥ ከ%d ዝርዝር ነገሮች በላይ ማካተት አይቻልም።</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ምስል እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ምስሎች እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ዝርዝር ነገር እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ዝርዝር ነገሮች እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ቪድዮ እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ቪድዮዎች እንደገና መልሶ ማምጣት አይቻልም። የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በአንድ ጊዜ ከ%d ዝርዝር ነገር በላይ ማከል አይቻልም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በአንድ ጊዜ ከ%d ዝርዝር ነገሮች በላይ ማከል አይቻልም።</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ%d ዝርዝር ነገር በላይ ወደ ታሪክ ማከል አይቻልም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ%d ዝርዝር ነገሮች በላይ ወደ ታሪክ ማከል አይቻልም።</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ከተማ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ከተሞች</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ምስል መልሶ ማስመጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ምስሎች መልሶ ማስመጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ዝርዝር ነገር እንደገና መልሶ ማምጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ዝርዝር ነገሮች እንደገና መልሶ ማምጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ቪድዮ እንደገና መልሶ ማምጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ቪድዮዎች እንደገና መልሶ ማምጣት አልተቻለም። በ%2$s ውስጥ የተወሰነ ቦታ ያጽዱ፣ ከዚያ እንደገና ይሞክሩ።</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ቪድዮ እንደገና መልሶ ማምጣት አልተቻለም። ይህ ቪድዮ በ%2$s መተግበሪያ ውስጥ እንደገና ወደ ቦታ ተመልሷል ወይም ተሰርዟል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ቪድዮዎች እንደገና መልሶ ማምጣት አልተቻለም። እነዚህ ቪድዮዎች በ%2$s መተግበሪያ ውስጥ እንደገና ወደ ቦታ ተመልሷል ወይም ተሰርዟል።</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ማስወገድ አልተቻለም። እንደገና ይሞክሩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮችን ማስወገድ አልተቻለም። እንደገና ይሞክሩ።</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d የተጋራ አልበም</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d የተጋሩ አልበሞች</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ታሪክ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ታሪኮች</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ምስል የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ምስሎች የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ዝርዝር ነገር የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ዝርዝር ነገሮች የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ቪድዮ የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ቪድዮዎች የቀን እና የሰዓት መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d አልበም ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d አልበሞች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ቡድን፣ %d አልበም እና በውስጣቸው ያለው 1 ዝርዝር ነገር ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ቡድን፣ %d አልበሞች እና በውስጣቸው ያለው 1 ዝርዝር ነገር ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቡድን ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቡድኖች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ሰርዝ?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመሳሳይ ምስሎች ቡድን ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመሳሳይ ምስሎች ቡድኖች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመሳሳይ ምስሎች ቡድን እና 1 ሌላ ዝርዝር ነገር ይሰረዙ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመሳሳይ ምስሎች ቡድኖች እና 1 ሌላ ዝርዝር ነገር ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ተመሳሳይ ምስሎች ቡድን እና %d ሌላ ዝርዝር ነገር ይሰረዙ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ተመሳሳይ ምስሎች ቡድን እና %d ሌላ ዝርዝር ነገሮች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ከዚህ ስብስብ ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከዚህ ስብስብ ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">የቪድዮ ክሊፕ ከ%d የእንቅስቃሴ ፎቶ ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">የቪድዮ ክሊፖች ከ%d የእንቅስቃሴ ፎቶዎች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከዚህ ስብስብ ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከዚህ ስብስብ ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ነጠላ የሚወሰድ ስብስብ ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ነጠላ የሚወሰድ ስብስቦች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ይህን ይዘት %d ተጨማሪ ጊዜ ማየት ይችላሉ። አሁን ይመልከቱ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ይህን ይዘት %d ተጨማሪ ጊዜዎችን ማየት ይችላሉ። አሁን ይመልከቱ?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ባዶ አልበም ወደ መጣያ ሳይሄድ ይሰረዛል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ባዶ አልበሞች ወደ መጣያ ሳይሄዱ ይሰረዛሉ።</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በመጣያው ውስጥ ያሉ ዝርዝር ነገሮች ከ%d ቀን በኋላ እስከመጨረሻው ይሰረዛሉ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በመጣያው ውስጥ ያሉ ዝርዝር ነገሮች ከ%d ቀናት በኋላ እስከመጨረሻው ይሰረዛሉ።</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያለውን ቅጂ ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያሉትን ቅጂዎች ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያለውን ቅጂ ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያሉትን ቅጂዎች ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያለውን ቅጂ ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ከስልክዎ እስከመጨረሻው ተሰርዟል። በሪሳይክል ቢን ውስጥ ያሉትን ቅጂዎች ለመሰረዝ ወደ OneDrive ይሂዱ።</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በእያንዳንዱ ረድፍ %d ድንክዬ ያለው የፍርግርግ እይታ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በእያንዳንዱ ረድፍ %d ድንክዬዎች ያለው የፍርግርግ እይታ</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቡድን 1 አልበም</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቡድኖች 1 አልበም</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከደመናው ወርዷል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከደመናው ወርዷል።</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ምስሎች እንደገና ወደ ቦታ ተመልሰዋል። የ%1$d %2$s ምስል እንደገና ወደ ቦታ ሊመለስ አልቻለም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ምስሎች እንደገና ወደ ቦታ ተመልሰዋል። የ%1$d %2$s ምስሎች እንደገና ወደ ቦታ ሊመለሱ አልቻሉም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ተቀምጧል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ተቀምጧል።</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ከደመናው ወርዷል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከደመናው ወርዷል።</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ዝርዝር ነገሮች እንደገና ወደ ቦታ ተመልሰዋል። የ%1$d %2$s ዝርዝር ነገር እንደገና ወደ ቦታ ሊመለስ አልቻለም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ዝርዝር ነገሮች እንደገና ወደ ቦታ ተመልሰዋል። የ%1$d %2$s ዝርዝር ነገሮች እንደገና ወደ ቦታ ሊመለስ አልቻለም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ምስል የቦታ መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ምስሎች የቦታ መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ዝርዝር ነገር የቦታ መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ዝርዝር ነገሮች የቦታ መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ቪድዮ የቦታ መረጃ ተቀይሯል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ቪድዮዎች የቦታ መረጃ ተቀይሯል።</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቦታ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቦታዎች</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ%d በላይ ቁምፊ ማስገባት አይችሉም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ%d በላይ ቁምፊዎች ማስገባት አይችሉም።</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ %d የእንቅስቃሴ ፎቶ የቪዲዮ ክሊፕ ተቀምጧል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ %d የእንቅስቃሴ ፎቶዎች የቪዲዮ ክሊፖች ተቀምጠዋል።</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d በፍጥነት የተነሳ ፎቶ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d በፍጥነት የተነሱ በርካታ ፎቶዎችን ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d በፍጥነት የተነሳ ፎቶ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d በፍጥነት የተነሱ በርካታ ፎቶዎችን ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ቡድን፣ 1 አልበም እና በውስጣቸው ያለው %d ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ቡድን፣ 1 አልበም እና በውስጣቸው ያሉ %d ዝርዝር ነገሮች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ቡድን፣ %d አልበም እና በውስጣቸው ያለው 1 ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ቡድን፣ %d አልበሞች እና በውስጣቸው ያለው 1 ዝርዝር ነገር ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቡድን፣ 1 አልበም እና በውስጣቸው ያለው 1 ዝርዝር ነገር ወደ መጣያ ይወሰዱ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቡድኖች፣ 1 አልበም እና በውስጣቸው ያለው 1 ዝርዝር ነገር ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከዚህ በፍጥነት ከተነሱት በርካታ ፎቶዎች ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከዚህ በፍጥነት ከተነሱት በርካታ ፎቶዎች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከዚህ በፍጥነት ከተነሱት በርካታ ፎቶዎች ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከዚህ በፍጥነት ከተነሱት በርካታ ፎቶዎች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ወደ መጣያ ይወሰድ?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">የ%d ዝርዝር ነገሮች</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመሳሳይ ምስሎች ቡድን ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመሳሳይ ምስሎች ቡድኖች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመሳሳይ ምስሎች ቡድን እና 1 ሌላ ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመሳሳይ ምስሎች ቡድኖች እና 1 ሌላ ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ተመሳሳይ ምስሎች ቡድን እና %d ሌላ ዝርዝር ነገር ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ተመሳሳይ ምስሎች ቡድን እና %d ሌላ ዝርዝር ነገሮች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ከዚህ ስብስብ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከዚህ ስብስብ ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከዚህ ስብስብ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከዚህ ስብስብ ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ነጠላ የመውሰጃ ስብስብ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ነጠላ የመውሰጃ ስብስቦች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ወደ የግል አልበም ይወሰዱ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ወደ የግል አልበም ይውሰዱ?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ፋይል ወደ %3$s መውሰድ አልተቻለም። ይህን ፋይል ያውርዱ እና እንደገና ይሞክሩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ፋይሎችን ወደ %3$s መውሰድ አልተቻለም። እነዚህን ፋይሎች ያውርዱ እና እንደገና ይሞክሩ።</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ወደ መጣያ ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ወደ መጣያ ይወሰዱ?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ወደ መጣያ በመውሰድ ላይ…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ወደ መጣያ በመውሰድ ላይ…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d አዲስ ማሳወቂያዎች</item>
+        <item quantity="other">%d አዲስ ማሳወቂያዎች</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመሳሳይ ስም ያለው አልበም ተዋህዷል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመሳሳይ ስም ያላቸው አልበሞች ተዋህዷል።</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቀን</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቀናት</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ስቶሪ እስኪሰረዝ ድረስ %d ቀን</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ስቶሪ እስኪሰረዝ ድረስ %d ቀናት</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d አልበም ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d አልበሞች ይሰረዙ?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ወደ ተመራጮች ታክሏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ወደ ተመራጮች ታክለዋል።</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ግብዣ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ግብዣዎች</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ወደ ተመራጮች ታክሏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ወደ ተመራጮች ታክለዋል።</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ሰው ተመርጧል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ሰዎች ተመርጧል</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ተመርጧል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ተመርጧል</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d የተጋራ አልበም፣ 1 ግብዣ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d የተጋሩ አልበሞች፣ 1 ግብዣ</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ወደዚህ አልበም ማከል የምትፈልጉትን %d አዲስ ምስል አግኝተናል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ወደዚህ አልበም ማከል የምትፈልጉትን %d አዲስ ምስሎች አግኝተናል።</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ወደ ተመራጮች ታክሏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪዲዮዎች ወደ ተመራጮች ታክለዋል።</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ %1$s %2$d ዓመት በፊት</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s %2$d ዓመታት በፊት</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d አልበም</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d አልበሞች</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ወርዷል። ለማየት እዚህ ይንኩ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ወርዷል። እነሱን ለማየት እዚህ መታ ያድርጉ።</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቡድን</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቡድኖች</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ፋይል ማውረድ አልተቻለም። የHEIF ምስሎች በዚህ ስልክ አይደገፉም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ፋይሎች ማውረድ አልተቻለም። የHEIF ምስሎች በዚህ ስልክ አይደገፉም።</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ፋይል ማውረድ አልተቻለም። የHEIF ምስሎች በዚህ ታብሌት አይደገፉም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ፋይሎች ማውረድ አልተቻለም። የHEIF ምስሎች በዚህ ታብሌት አይደገፉም።</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d አባል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d አባላት</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ%d ተለጣፊ በላይ ማከል አይቻልም። ተለጣፊዎችን ለማስወገድ በጋለሪ ውስጥ ወዳለው የፎቶ ኤዲተር ይሂዱ።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ%d ተለጣፊዎች በላይ ማከል አይቻልም። ተለጣፊዎችን ለማስወገድ በጋለሪ ውስጥ ወዳለው የፎቶ ኤዲተር ይሂዱ።</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 ቡድን %d አልበም</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 ቡድን %d አልበሞች</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 የተጋራ አልበም፣ %d ግብዣ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 የተጋራ አልበም፣ %d ግብዣዎች</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል እስከመጨረሻው ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች እስከመጨረሻው ይሰረዙ?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር እስከመጨረሻው ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች እስከመጨረሻው ይሰረዙ?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ እስከመጨረሻው ይሰረዝ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች እስከመጨረሻው ይሰረዙ?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል እስከመጨረሻው ይሰረዛል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች እስከመጨረሻው ይሰረዛሉ።</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር እስከመጨረሻው ይሰረዛል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች እስከመጨረሻው ይሰረዛል።</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ እስከመጨረሻው ይሰረዛል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች እስከመጨረሻው ይሰረዛሉ።</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ተቀምጧል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%dምስሎች ተቀምጧል።</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ %2$s ውስጥ ለ %1$d ቀን ጎብኝተዋል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ %2$s ውስጥ ለ %1$d ቀናት ጎብኝተዋል</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከ%d ዓመት በፊት</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከ%d ዓመታት በፊት</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ጥቆማ ተወግዷል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ጥቆማዎች ተወግዷል።</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከዚህ የተጋራ አልበም ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከዚህ የተጋራ አልበም ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ምስል ከአልበም ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ምስሎች ከአልበም ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ከአልበም ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከአልበም ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገሮ ከታሪክ ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ከታሪክ ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከአልበም ጥቆማዎችዎ ውስጥ %d ምስል ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከአልበም ጥቆማዎችዎ ውስጥ %d ምስሎች ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከአልበም ጥቆማዎችዎ ውስጥ %d ዝርዝር ነገር ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከአልበም ጥቆማዎችዎ ውስጥ %d ዝርዝር ነገሮች ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከአልበም ጥቆማዎችዎ ውስጥ %d ቪድዮ ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከአልበም ጥቆማዎችዎ ውስጥ %d ቪድዮዎች ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ከአልበም ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ከአልበም ይወገዱ?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ከዚህ የተጋራ አልበም ይወገድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ከዚህ የተጋራ አልበም ይወገዱ?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከዚህ %2$s %1$d ዝርዝር ነገር ይቀመጥ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከዚህ %2$s %1$d ዝርዝር ነገሮች ይቀመጡ?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ከዚህ %2$s %1$d ምስል ይቀመጥ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ከዚህ %2$s %1$d ምስሎች ይቀመጡ?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ምስል ወደ %2$s ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ምስሎች ወደ %2$s ይወሰዱ?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ዝርዝር ነገር ወደ %2$s ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ዝርዝር ነገሮች ወደ %2$s ይወሰዱ?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d ቪድዮ ወደ %2$s ይወሰድ?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d ቪድዮዎች ወደ %2$s ይወሰዱ?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">የ%d ተመሳሳይ ምስል ቡድን</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">የ%d ተመሳሳይ ምስልሎች ቡድን</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ዝርዝር ነገር ተመርጧል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ዝርዝር ነገሮች ተመርጧል</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ይህ ሰው ከ %d ዓመት በፊት</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ይህ ሰው ከ%d ዓመታት በፊት</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ቪድዮ ከደመናው ወርዷል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ቪድዮዎች ከደመናው ወርዷል።</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ቪድዮ እንደገና ወደ ቦታ ተመልሰዋል። %1$d %2$s ቪድዮ እንደገና ወደ ቦታ ሊመለስ አልቻለም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ቪድዮ እንደገና ወደ ቦታ ተመልሰዋል። %1$d %2$s ቪድዮዎች እንደገና ወደ ቦታ ሊመለስ አልቻለም ምክንያቱም የእርስዎ %3$s በግል ውሂብ ጥያቄ ምክንያት ተቆልፏል።</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በኮላዥ ውስጥ ከ %d በላይ ዝርዝር ነገር ማካተት አይቻልም።</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በኮላጅ ውስጥ ከ %d በላይ ዝርዝር ነገሮች ማካተት አይቻልም።</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">በ%d ቀን ውስጥ ይሰረዛል</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">በ%d ቀናት ውስጥ ይሰረዛሉ</item>
+    </plurals>
+</resources>

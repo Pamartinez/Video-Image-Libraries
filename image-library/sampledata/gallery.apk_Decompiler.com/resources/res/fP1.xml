@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="583" android:valueFrom="0.329" android:valueTo="0.329" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__58" android:duration="750" android:valueFrom="0.329" android:valueTo="1.428" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__59" android:duration="166" android:valueFrom="1.428" android:valueTo="1.319" android:propertyName="scaleX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="583" android:valueFrom="0.329" android:valueTo="0.329" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__60" android:duration="750" android:valueFrom="0.329" android:valueTo="1.428" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__61" android:duration="166" android:valueFrom="1.428" android:valueTo="1.319" android:propertyName="scaleY"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="583" android:valueFrom="56.785" android:valueTo="56.785" android:propertyName="translateX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__62" android:duration="916" android:valueFrom="56.785" android:valueTo="120.955" android:propertyName="translateX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="583" android:valueFrom="49.956" android:valueTo="49.956" android:propertyName="translateY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__63" android:duration="916" android:valueFrom="49.956" android:valueTo="99.621" android:propertyName="translateY"/>
+    </set>
+</set>

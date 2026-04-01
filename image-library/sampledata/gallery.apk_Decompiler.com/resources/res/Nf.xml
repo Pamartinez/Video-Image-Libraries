@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <objectAnimator android:interpolator="@drawable/$avd_duplicate_header_icon__6" android:duration="1217" android:startOffset="0" android:valueFrom="1" android:valueTo="0.86" android:valueType="floatType" android:propertyName="scaleX"/>
+    <objectAnimator android:interpolator="@drawable/$avd_duplicate_header_icon__7" android:duration="1217" android:startOffset="0" android:valueFrom="1" android:valueTo="0.86" android:valueType="floatType" android:propertyName="scaleY"/>
+</set>

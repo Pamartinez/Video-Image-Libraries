@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <stroke android:width="0.25dp" android:color="@color/search_floating_suggestion_item_background_stroke_color"/>
+    <corners android:radius="@dimen/search_filter_result_radius"/>
+    <solid android:color="@color/search_floating_suggestion_item_bg_color"/>
+</shape>

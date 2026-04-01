@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <ImageView android:id="@+id/btn_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/custom_bottom_navigation_view_button_icon_title_gap"/>
+    <TextView android:textSize="14dp" android:textColor="@color/face_merge_different_icon_color" android:ellipsize="end" android:layout_gravity="center" android:id="@+id/btn_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" style="@style/OneUiRobotoSemiBold"/>
+</LinearLayout>

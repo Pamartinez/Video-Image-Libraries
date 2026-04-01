@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:color="@color/divider_location_ripple_color">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/live_focus_radius"/>
+            <solid android:color="@color/divider_location_ripple_color"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/live_focus_radius"/>
+            <stroke android:width="@dimen/story_pictures_header_video_button_stroke" android:color="@color/story_pictures_header_video_button_stroke_color"/>
+        </shape>
+    </item>
+</ripple>

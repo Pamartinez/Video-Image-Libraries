@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ক্লাউড আইটেম শ্বেয়াৰ কৰা এলবামত যোগ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ক্লাউড আইটেম শ্বেয়াৰ কৰা এলবামত যোগ কৰিবনে?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ইণ্টেলিজেণ্ট সুবিধাসমূহ ব্যৱহাৰ কৰিবলৈ আপুনি কমেও %d বছৰ বয়সীয়া হ&apos;ব লাগিব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ইণ্টেলিজেণ্ট সুবিধাসমূহ ব্যৱহাৰ কৰিবলৈ আপুনি কমেও %d বছৰ বয়সীয়া হ&apos;ব লাগিব।</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন চিত্ৰ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন চিত্ৰ</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এটা Meitu পোষ্টত %d টাতকৈ অধিক ভিডিঅ&apos; যোগ কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এটা Meitu পোষ্টত %d টাতকৈ অধিক ভিডিঅ&apos; যোগ কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s প্ৰতিচ্ছবি বিলোপ কৰিব নোৱাৰে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ কাৰণে লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d খন %2$s প্ৰতিচ্ছবি বিলোপ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s আইটেম বিলোপ কৰিব নোৱাৰে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ কাৰণে লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা %2$s আইটেম বিলোপ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ভিডিঅ&apos; বিলোপ কৰিব নোৱাৰে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ কাৰণে লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা %2$s ভিডিঅ&apos; বিলোপ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এটা Meitu পোষ্টত %d টা আইটেমতকৈ অধিক অন্তৰ্ভুক্ত কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এটা Meitu পোষ্টত %d টা আইটেমতকৈ অধিক অন্তৰ্ভুক্ত কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s প্ৰতিচ্ছবি পুনঃসংগ্ৰহ কৰিব নোৱাৰে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ কাৰণে লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d খন %2$s প্ৰতিচ্ছবি পুনঃসংগ্ৰহ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s আইটেম পুনঃসংগ্ৰহ কৰিব নোৱাৰে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ কাৰণে লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা %2$s আইটেম পুনঃসংগ্ৰহ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d টা %2$s ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা %2$s ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব নোৱাৰে। এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এবাৰত %d টাতকৈ অধিক আইটেম যোগ কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এবাৰত %d টাতকৈ অধিক আইটেম যোগ কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এটা গল্পত %d টাতকৈ অধিক আইটেম যোগ কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এটা গল্পত %d টাতকৈ অধিক আইটেম যোগ কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন চহৰ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন চহৰ</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d খন প্ৰতিচ্ছবি পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d খন প্ৰতিচ্ছবি পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d টা আইটেম পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা আইটেম পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d টা ভিডিঅ&apos; পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা ভিডিঅ&apos; পুনঃস্থাপন কৰিব পৰা নগ&apos;ল। %2$sত কিছু স্থান পৰিষ্কাৰ কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d টা ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল। এই ভিডিঅ&apos;টো %2$s এপ্প্‌টোত পুনঃসংগ্ৰহ বা বিলোপ কৰা হৈছিল।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d টা ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল। এই ভিডিঅ&apos;সমূহ %2$s এপ্প্‌টোত পুনঃসংগ্ৰহ বা বিলোপ কৰা হৈছিল।</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা এপ্প্‌ আঁতৰাব পৰা নগ&apos;ল। পুনঃচেষ্টা কৰক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা এপ্প্‌ আঁতৰাব পৰা নগ&apos;ল। পুনঃচেষ্টা কৰক।</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা শ্বেয়াৰ কৰা এলবাম</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা শ্বেয়াৰ কৰা এলবাম</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা গল্প</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা গল্প</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবিত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবিত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেমত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেমত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos;ত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos;ত তাৰিখ আৰু সময় পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা এলবাম বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা এলবাম বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 টা গোট, %d টা এলবাম আৰু তাত থকা 1 টা আইটেম বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 টা গোট, %d টা এলবাম আৰু তাত থকা 1 টা আইটেম বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা গোট বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা গোট বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবি বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবি বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ থকা %d টা গোট বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ থকা %d টা গোট বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু 1 টা অন্য আইটেম থকা %d টা গোট বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু 1 টা অন্য আইটেম থকা %d টা গোট বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু %d টা অন্য আইটেম থকা 1 টা গোট বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু %d টা অন্য আইটেম থকা 1 টা গোট বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ছেটৰ পৰা %d টা আইটেম বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ছেটৰ পৰা %d টা আইটেম বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন সঞ্চালন ফটোৰ পৰা ভিডিঅ&apos; ক্লিপ বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন সঞ্চালন ফটোৰ পৰা ভিডিঅ&apos; ক্লিপসমূহ বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ছেটৰ পৰা %d খন চিত্ৰ বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ছেটৰ পৰা %d খন চিত্ৰ বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা চিংগল টেকৰ ছেট বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা চিংগল টেকৰ ছেট বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos; বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos; বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপুনি আৰু %d বাৰ এই সমল চাব পাৰে। এতিয়া চাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপুনি আৰু %d বাৰ এই সমল চাব পাৰে। এতিয়া চাবনে?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ নোযোৱাকৈ %d টা খালী এলবাম বিলোপ কৰা হ&apos;ব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ নোযোৱাকৈ %d টা খালী এলবাম বিলোপ কৰা হ&apos;ব।</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচত থকা আইটেমসমূহ %d দিনৰ পিছত স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচত থকা আইটেমসমূহ %d দিনৰ পিছত স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ ফোনৰ পৰা %d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিটো বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ ফোনৰ পৰা %d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিসমূহ বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ ফোনৰ পৰা %d টা আইটেম স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিটো বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ ফোনৰ পৰা %d টা আইটেম স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিসমূহ বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ ফোনৰ পৰা %d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিটো বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ ফোনৰ পৰা %d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হৈছে। ৰিচাইকেল বিনত থকা প্ৰতিলিপিসমূহ বিলোপ কৰিবলৈ OneDrive-লৈ যাওক।</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হৈছে।</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">প্ৰতিটো শাৰীত %d টা থাম্বনেইলৰ সৈতে গ্ৰীড দৰ্শন</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">প্ৰতিটো শাৰীত %d টা থাম্বনেইলৰ সৈতে গ্ৰীড দৰ্শন</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা গোট, 1 টা এলবাম</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা গোট, 1 টা এলবাম</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ক্লাউডৰ পৰা %d খন প্ৰতিচ্ছবি ডাউনলোড হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ক্লাউডৰ পৰা %d খন প্ৰতিচ্ছবি ডাউনলোড হৈছে।</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">প্ৰতিচ্ছবিসমূহ পুনঃসংগ্ৰহ কৰা হ&apos;ল। এক ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হোৱাৰ বাবে %1$d %2$s প্ৰতিচ্ছবি পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">প্ৰতিচ্ছবিসমূহ পুনঃসংগ্ৰহ কৰা হ&apos;ল। এক ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হোৱাৰ বাবে %1$d %2$s প্ৰতিচ্ছবি পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল।</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম সংৰক্ষণ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম সংৰক্ষণ হৈছে।</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ক্লাউডৰ পৰা %d টা আইটেম ডাউনলোড হৈছ।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ক্লাউডৰ পৰা %d টা আইটেম ডাউনলোড হৈছ।</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আইটেমসমূহ পুনঃসংগ্ৰহ হৈছে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ বাবে লক হোৱাৰ কাৰণে %1$d %2$s আইটেম পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আইটেমসমূহ পুনঃসংগ্ৰহ কৰা হ&apos;ল। %1$d টা %2$s আইটেম পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল কাৰণ এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবিত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবিত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেমত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেমত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos;ত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos;ত অৱস্থান তথ্য পৰিৱৰ্তন হৈছে।</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা অৱস্থান</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা অৱস্থান</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা বৰ্ণতকৈ অধিক প্ৰৱিষ্ট কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা বৰ্ণতকৈ অধিক প্ৰৱিষ্ট কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন ম&apos;শ্বন ফটোৰ পৰা ভিডিঅ&apos; ক্লিপ সংৰক্ষণ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন ম&apos;শ্বন ফটোৰ পৰা ভিডিঅ&apos; ক্লিপ সংৰক্ষণ হৈছে।</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা বাৰ্ষ্ট শ্ব&apos;ট ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা বাৰ্ষ্ট শ্ব&apos;ট ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা বাৰ্ষ্ট শ্ব&apos;ট ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা বাৰ্ষ্ট শ্ব&apos;ট ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 টা গোট, 1 টা এলবাম আৰু তাত থকা %d টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 টা গোট, 1 টা এলবাম আৰু তাত থকা %d টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 টা গোট, %d টা এলবাম আৰু তাত থকা 1 টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 টা গোট, %d টা এলবাম আৰু তাত থকা 1 টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা গোট, 1 টা এলবাম আৰু তাত থকা 1 টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা গোট, 1 টা এলবাম আৰু তাত থকা 1 টা আইটেম ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ব্ৰাষ্ট শ্ব&apos;টটোৰ পৰা %d খন চিত্ৰ ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ব্ৰাষ্ট শ্ব&apos;টটোৰ পৰা %d খন চিত্ৰ ট্ৰেচলৈ লৈ যাবনে?​</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ব্ৰাষ্ট শ্ব&apos;টটোৰ পৰা %d খন চিত্ৰ ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ব্ৰাষ্ট শ্ব&apos;টটোৰ পৰা %d খন চিত্ৰ ট্ৰেচলৈ লৈ যাবনে?​</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ %d খন প্ৰতিচ্ছবি লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ %d খন প্ৰতিচ্ছবি লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ %d টা আইটেম লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ %d টা আইটেম লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ থকা %d টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ থকা %d টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু 1 টা অন্য আইটেম থকা %d টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু 1 টা অন্য আইটেম থকা %d টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু %d টা অন্য আইটেম থকা 1 টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একেধৰণৰ প্ৰতিচ্ছবিসমূহ আৰু %d টা অন্য আইটেম থকা 1 টা গোট ট্ৰেচলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ছেটৰ পৰা ট্ৰেচলৈ %d টা আইটেম লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ছেটৰ পৰা ট্ৰেচলৈ %d টা আইটেম লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই ছেটৰ পৰা ট্ৰেচলৈ %d খন চিত্ৰ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই ছেটৰ পৰা ট্ৰেচলৈ %d খন চিত্ৰ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ %d টা চিংগল-টেকৰ ছেট লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ %d টা চিংগল-টেকৰ ছেট লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম গোপনীয় এলবামলৈ লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম গোপনীয় এলবামলৈ লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%3$sত %1$d টা %2$s ফাইল লৈ যাব পৰা নগ&apos;ল। এই ফাইলটো ডাউনলোড কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%3$sত %1$d টা %2$s ফাইল লৈ যাব পৰা নগ&apos;ল। এই ফাইলসমূহ ডাউনলোড কৰক, তাৰপিছত পুনঃচেষ্টা কৰক।</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ %d টা ভিডিঅ&apos; লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ %d টা ভিডিঅ&apos; লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ট্ৰেচলৈ %d টা আইটেম লৈ গৈ আছে…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ট্ৰেচলৈ %d টা আইটেম লৈ গৈ আছে…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">একে নামৰ %d টা এলবাম মাৰ্জ কৰা হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">একে নামৰ %d টা এলবাম মাৰ্জ কৰা হৈছে।</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d দিন</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d দিন</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ষ্ট&apos;ৰী বিলোপ নোহোৱালৈকে %d দিন</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ষ্ট&apos;ৰী বিলোপ নোহোৱালৈকে %d দিন</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা এলবাম বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা এলবাম বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">প্ৰিয়সমূহত %d খন প্ৰতিচ্ছবি যোগ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">প্ৰিয়সমূহত %d খন প্ৰতিচ্ছবি যোগ হৈছে।</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা নিমন্ত্ৰণ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা নিমন্ত্ৰণ</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">প্ৰিয়সমূহত %d টা আইটেম যোগ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">প্ৰিয়সমূহত %d টা আইটেম যোগ হৈছে।</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d জন ব্যক্তি চয়ন কৰিছে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d জন ব্যক্তি চয়ন কৰিছে</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা চয়ন কৰা হৈছে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা চয়ন কৰা হৈছে</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা শ্বেয়াৰ কৰা এলবাম, 1 টা নিমন্ত্ৰণ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা শ্বেয়াৰ কৰা এলবাম, 1 টা নিমন্ত্ৰণ</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপুনি এই এলবামত যোগ কৰিবলৈ বিচাৰিব পৰা %d খন নতুন চিত্ৰ আমি বিচাৰি পালো।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপুনি এই এলবামত যোগ কৰিবলৈ বিচাৰিব পৰা %d খন নতুন চিত্ৰ আমি বিচাৰি পালো।</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">প্ৰিয়সমূহত %d টা ভিডিঅ&apos; যোগ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">প্ৰিয়সমূহত %d টা ভিডিঅ&apos; যোগ হৈছে।</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d বছৰ পূৰ্বে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s %2$d বছৰ পূৰ্বে</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা এলবাম</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা এলবাম</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম ডাউনলোড হৈছে। ইয়াক চাবলৈ ইয়াত টিপক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম ডাউনলোড হৈছে। ইয়াক চাবলৈ ইয়াত টিপক।</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা গোট</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা গোট</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ফাইল ডাউনলোড কৰিব নোৱাৰিলে। HEIF প্ৰতিচ্ছবিসমূহ এই ফোনৰ দ্বাৰা সমৰ্থিত নহয়।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ফাইল ডাউনলোড কৰিব নোৱাৰিলে। HEIF প্ৰতিচ্ছবিসমূহ এই ফোনৰ দ্বাৰা সমৰ্থিত নহয়।</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ফাইল ডাউনলোড কৰিব নোৱাৰিলে। HEIF প্ৰতিচ্ছবিসমূহ এই টেবলেটৰ দ্বাৰা সমৰ্থিত নহয়।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ফাইল ডাউনলোড কৰিব নোৱাৰিলে। HEIF প্ৰতিচ্ছবিসমূহ এই টেবলেটৰ দ্বাৰা সমৰ্থিত নহয়।</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d জন সদস্য</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d জন সদস্য</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ষ্টিকাৰতকৈ অধিক যোগ কৰিব নোৱাৰে। ষ্টিকাৰসমূহ আঁতৰাবলৈ গেলাৰীত ফটো সম্পাদকলৈ যাওক।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ষ্টিকাৰতকৈ অধিক যোগ কৰিব নোৱাৰে। ষ্টিকাৰসমূহ আঁতৰাবলৈ গেলাৰীত ফটো সম্পাদকলৈ যাওক।</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 টা গোট, %d টা এলবাম</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 টা গোট, %d টা এলবাম</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 টা শ্বেয়াৰ কৰা এলবাম, %d টা নিমন্ত্ৰণ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 টা শ্বেয়াৰ কৰা এলবাম, %d টা নিমন্ত্ৰণ</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰিবনে?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন প্ৰতিচ্ছবি স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম স্থায়ীভাৱে বিলোপ হ&apos;ব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম স্থায়ীভাৱে বিলোপ হ&apos;ব।</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা ভিডিঅ&apos; স্থায়ীভাৱে বিলোপ কৰা হ&apos;ব।</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন চিত্ৰ সংৰক্ষণ হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন চিত্ৰ সংৰক্ষণ হৈছে।</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-ত %1$d দিন ভ্ৰমণ কৰিছে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-ত %1$d দিন ভ্ৰমণ কৰিছে</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d বছৰ পূৰ্বে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d বছৰ পূৰ্বে</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা পৰামৰ্শ আঁতৰোৱা হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা পৰামৰ্শ আঁতৰোৱা হৈছে।</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই শ্বেয়াৰ এলবামৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই শ্বেয়াৰ কৰা এলবামৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এলবামৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এলবামৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এলবামৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এলবামৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ষ্ট&apos;ৰীৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ষ্ট&apos;ৰীৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d খন প্ৰতিচ্ছবি আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d টা আইটেম আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">আপোনাৰ এলবামৰ পৰামৰ্শৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এলবামৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এলবামৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই শ্বেয়াৰ কৰা এলবামৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই শ্বেয়াৰ কৰা এলবামৰ পৰা %d টা ভিডিঅ&apos; আঁতৰাবনে?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই %2$s-ৰ পৰা %1$d টা আইটেম সংৰক্ষণ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই %2$s-ৰ পৰা %1$d টা আইটেম সংৰক্ষণ কৰিবনে?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এই %2$s-ৰ পৰা %1$d খন চিত্ৰ সংৰক্ষণ কৰিবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এই %2$s-ৰ পৰা %1$d খন চিত্ৰ সংৰক্ষণ কৰিবনে?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-লৈ %1$d খন প্ৰতিচ্ছবি লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-লৈ %1$d খন প্ৰতিচ্ছবি লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-লৈ %1$d টা আইটেম লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-লৈ %1$d টা আইটেম লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-লৈ %1$d টা ভিডিঅ&apos; লৈ যাবনে?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-লৈ %1$d টা ভিডিঅ&apos; লৈ যাবনে?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d খন একেধৰণৰ প্ৰতিচ্ছবিৰ গ্ৰুপ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d খন একেধৰণৰ প্ৰতিচ্ছবিৰ গোট</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d টা আইটেম চয়ন কৰিছে</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d টা আইটেম চয়ন কৰিছে</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d বছৰ পূৰ্বে এই ব্যক্তিজন</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d বছৰ পূৰ্বে এই ব্যক্তিজন</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ক্লাউডৰ পৰা %d টা ভিডিঅ&apos; ডাউনলোড হৈছে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ক্লাউডৰ পৰা %d টা ভিডিঅ&apos; ডাউনলোড হৈছে।</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ভিডিঅ&apos; পুনঃসংগ্ৰহ হৈছে। আপোনাৰ %3$s এটা ব্যক্তিগত ডাটা অনুৰোধৰ বাবে লক হোৱাৰ কাৰণে %1$d %2$s ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰা হ&apos;ল। %1$d টা %2$s ভিডিঅ&apos; পুনঃসংগ্ৰহ কৰিব পৰা নগ&apos;ল কাৰণ এটা ব্যক্তিগত ডাটাৰ অনুৰোধৰ বাবে আপোনাৰ %3$s লক হৈছে।</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">এটা ক&apos;লাজত %d টাতকৈ অধিক অন্তৰ্ভুক্ত কৰিব নোৱাৰে।</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">এটা ক&apos;লাজত %d টাতকৈ অধিক অন্তৰ্ভুক্ত কৰিব নোৱাৰে।</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d দিনত বিলোপ কৰা হ&apos;ব</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d দিনত বিলোপ কৰা হ&apos;ব</item>
+    </plurals>
+</resources>

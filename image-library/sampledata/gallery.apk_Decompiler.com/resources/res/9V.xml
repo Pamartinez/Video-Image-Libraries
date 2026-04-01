@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/gallery_ic_actionbar_create" android:id="@+id/action_create_albums" android:visible="false" android:title="@string/move_mode_create" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_view_as" android:title="@string/view_as" android:showAsAction="never"/>
+        <item android:id="@+id/action_sortby_album" android:title="@string/sort" android:showAsAction="never"/>
+        <item android:id="@+id/action_verizon_cloud" android:visible="false" android:title="@string/verizon_cloud" android:showAsAction="never"/>
+        <item android:id="@+id/action_tianyi_cloud" android:visible="false" android:title="@string/tianyi_cloud" android:showAsAction="never"/>
+        <item android:id="@+id/action_album_view_new_album" android:visible="false" android:title="@string/new_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_folder_add_folder" android:visible="false" android:title="@string/create_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_manage_albums" android:visible="false" android:title="@string/select_essential_albums" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_album" android:title="@string/hide_albums" android:showAsAction="never"/>
+        <item android:id="@+id/action_delete_duplicate_pictures" android:visible="false" android:title="@string/suggestions_title_delete_duplicate_pictures" android:showAsAction="never"/>
+        <item android:id="@+id/action_trash" android:visible="false" android:title="@string/trash" android:showAsAction="never"/>
+        <item android:id="@+id/action_settings" android:visible="false" android:title="@string/more_options_setting" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_group" android:id="@+id/action_folder_grouping" android:title="@string/grouping" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_ungroup" android:id="@+id/action_folder_ungrouping" android:title="@string/ungrouping" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_move" android:id="@+id/action_move" android:title="@string/move" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_share" android:id="@+id/action_share_album" android:title="@string/share_short" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete_album_in_list" android:title="@string/delete" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_remove_from_essential_albums" android:visible="false" android:title="@string/move_from_albums_tab_to_view_all" app:showAsAction="never"/>
+        <item android:id="@+id/action_rename_album_folder" android:visible="false" android:title="@string/rename" app:showAsAction="never"/>
+        <item android:id="@+id/action_change_cover_image" android:title="@string/change_cover_image" android:showAsAction="never"/>
+        <item android:id="@+id/action_lock_album" android:visible="false" android:title="@string/lock_album" app:showAsAction="never"/>
+        <item android:id="@+id/action_delete_shared_album_in_list" android:visible="false" android:title="@string/delete" app:showAsAction="never"/>
+        <item android:id="@+id/action_leave_shared_album_in_list" android:visible="false" android:title="@string/leave" app:showAsAction="never"/>
+        <item android:id="@+id/action_rename_shared_album_in_list" android:visible="false" android:title="@string/rename" app:showAsAction="never"/>
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode_knox">
+        <item android:id="@+id/action_move_to_knox" android:visible="false" android:title="@string/move_to_knox" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_from_knox" android:visible="false" android:title="@string/remove_from_knox" android:showAsAction="never"/>
+        <item android:id="@+id/action_move_to_secure_folder" android:visible="false" android:title="@string/move_to_secure_folder" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_from_secure_folder" android:visible="false" android:title="@string/move_out_of_secure_folder" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:icon="@drawable/gallery_ic_actionbar_create" android:id="@+id/action_create_albums" android:visible="false" android:title="@string/move_mode_create" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_verizon_cloud" android:visible="false" android:title="@string/verizon_cloud" android:showAsAction="never"/>
+        <item android:id="@+id/action_album_view_new_album" android:visible="false" android:title="@string/new_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_folder_add_folder" android:visible="false" android:title="@string/create_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_album" android:title="@string/hide_albums" android:showAsAction="never"/>
+        <item android:id="@+id/action_trash" android:visible="false" android:title="@string/trash" android:showAsAction="never"/>
+        <item android:id="@+id/action_settings" android:visible="false" android:title="@string/more_options_setting" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/move_mode">
+        <item android:id="@+id/action_folder_add_folder" android:visible="false" android:title="@string/move_mode_create" android:showAsAction="always"/>
+    </group>
+</menu>

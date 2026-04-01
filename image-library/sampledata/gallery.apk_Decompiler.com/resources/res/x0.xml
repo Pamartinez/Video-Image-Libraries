@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/story_pictures_map_view" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_pictures_header_map_top_margin" android:layout_marginBottom="@dimen/story_pictures_header_layout_top_margin">
+    <FrameLayout android:id="@+id/map_view" android:background="@color/map_ready_bg_color" android:layout_width="match_parent" android:layout_height="@dimen/story_pictures_header_map_height" android:contentDescription="@null"/>
+</LinearLayout>

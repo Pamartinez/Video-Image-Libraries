@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/default_background" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no">
+    <LinearLayout android:id="@+id/text_divider" android:paddingTop="@dimen/stories_header_divider_top_padding" android:paddingBottom="@dimen/stories_header_divider_bottom_padding_2_depth" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18sp" android:textColor="@color/one_ui_header_title_text_color" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/explore_stories" android:importantForAccessibility="yes" android:textFontWeight="500" style="@style/OneUiRobotoBold"/>
+    </LinearLayout>
+</LinearLayout>

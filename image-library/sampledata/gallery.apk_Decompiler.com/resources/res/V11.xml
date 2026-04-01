@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__11" android:duration="583" android:valueFrom="0.018" android:valueTo="0.329" android:propertyName="scaleX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__12" android:duration="583" android:valueFrom="0.018" android:valueTo="0.329" android:propertyName="scaleY"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__13" android:duration="583" android:valueFrom="89.273" android:valueTo="56.785" android:propertyName="translateX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_gallery_remaster_loader__14" android:duration="583" android:valueFrom="75.101" android:valueTo="49.956" android:propertyName="translateY"/>
+    </set>
+</set>

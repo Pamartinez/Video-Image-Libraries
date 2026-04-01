@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__53" android:duration="150" android:valueFrom="4" android:valueTo="2" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__54" android:duration="150" android:valueFrom="2" android:valueTo="6" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__55" android:duration="166" android:valueFrom="6" android:valueTo="3.75" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__56" android:duration="200" android:valueFrom="3.75" android:valueTo="4.25" android:propertyName="scaleX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__57" android:duration="233" android:valueFrom="4.25" android:valueTo="4" android:propertyName="scaleX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__58" android:duration="150" android:valueFrom="4" android:valueTo="2" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__59" android:duration="150" android:valueFrom="2" android:valueTo="6" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__60" android:duration="166" android:valueFrom="6" android:valueTo="3.75" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__61" android:duration="200" android:valueFrom="3.75" android:valueTo="4.25" android:propertyName="scaleY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__62" android:duration="233" android:valueFrom="4.25" android:valueTo="4" android:propertyName="scaleY"/>
+    </set>
+</set>

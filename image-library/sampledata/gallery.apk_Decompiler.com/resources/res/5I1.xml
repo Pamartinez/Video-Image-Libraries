@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:fromDegrees="90" android:toDegrees="90">
+    <shape android:shape="ring" android:useLevel="true" android:thickness="@dimen/story_highlight_related_countdown_oval_stroke_width">
+        <solid android:color="@color/story_highlight_related_countdown_progress_color"/>
+    </shape>
+</rotate>

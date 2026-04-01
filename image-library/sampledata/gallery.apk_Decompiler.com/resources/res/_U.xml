@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/last_page_empty_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="14dp" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center" android:background="@drawable/story_highlight_related_sub_button_bg" android:layout_width="@dimen/story_highlight_related_sub_button_width" android:layout_height="@dimen/story_highlight_related_sub_button_height" android:foreground="@drawable/recoil_ripple_rect_story_highlight" android:text="empty page" android:stateListAnimator="?attr/seslSmallTouchAnimator" style="@style/OneUiRobotoBold"/>
+</FrameLayout>

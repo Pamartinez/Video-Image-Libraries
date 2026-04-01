@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="20dp" android:width="20dp" android:viewportWidth="20" android:viewportHeight="20">
+    <path android:fillColor="@drawable/$search_video_shortcut_icon__0" android:pathData="M17,0.667C18.289,0.667 19.333,1.711 19.333,3V17C19.333,18.289 18.289,19.333 17,19.333H3C1.711,19.333 0.667,18.289 0.667,17V3C0.667,1.711 1.711,0.667 3,0.667H17ZM7.312,5.213C6.96,5.213 6.603,5.486 6.603,6.008V13.751C6.603,14.274 6.96,14.547 7.312,14.547C7.472,14.547 7.63,14.495 7.786,14.395L13.695,10.572C13.953,10.406 14.1,10.153 14.1,9.88C14.1,9.606 13.953,9.352 13.695,9.188L7.786,5.364C7.632,5.263 7.472,5.213 7.312,5.213Z"/>
+</vector>

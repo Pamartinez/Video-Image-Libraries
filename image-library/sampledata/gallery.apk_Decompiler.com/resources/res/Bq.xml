@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_people_and_pets" android:title="@string/hidden_faces" android:showAsAction="never"/>
+        <item android:id="@+id/action_select_done" android:title="@string/done" app:showAsAction="always"/>
+        <item android:id="@+id/action_edit_done" android:title="@string/done" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/gallery_ic_search_edit" android:id="@+id/action_add_name" android:title="@string/add_name" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_menu_group" android:id="@+id/action_merge_creature" android:title="@string/merge_face_group" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/ic_button_remove_minus_circle" android:id="@+id/action_hide_creature_bottom" android:title="@string/remove_from_list" app:showAsAction="ifRoom"/>
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+</menu>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:background="@android:color/transparent" android:paddingBottom="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:expanded="false" app:seslUseCustomPadding="true" style="@style/AppBarLayoutStyle">
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" android:background="@android:color/transparent" style="@style/CollapsingToolBarStyle"/>
+        <include layout="@layout/floating_toolbar_dummy_view"/>
+    </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+    <com.samsung.android.gallery.widget.listview.TouchParentLayout android:id="@+id/floating_recommendation_layout" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.core.widget.NestedScrollView android:id="@+id/floating_recommendation_view" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <include layout="@layout/floating_suggestion_layout"/>
+                <include android:id="@+id/floating_shortcut_layout" layout="@layout/floating_recommendation_item_layout"/>
+                <include layout="@layout/floating_history_layout"/>
+                <include android:id="@+id/floating_activity_layout" layout="@layout/floating_recommendation_item_layout"/>
+                <include android:id="@+id/floating_shot_types_layout" layout="@layout/floating_recommendation_item_layout"/>
+                <include android:id="@+id/floating_my_tag_layout" layout="@layout/floating_recommendation_item_layout"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.samsung.android.gallery.widget.listview.TouchParentLayout>
+    <include layout="@layout/floating_toolbar_layout"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

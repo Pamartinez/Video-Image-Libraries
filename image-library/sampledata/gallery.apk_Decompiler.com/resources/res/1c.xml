@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no">
+    <LinearLayout android:layout_gravity="top" android:orientation="horizontal" android:id="@+id/remaster_header_view" android:background="@drawable/remaster_header_text_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/remaster_viewer_header_top_margin" android:minWidth="@dimen/remaster_viewer_header_min_width" android:minHeight="@dimen/remaster_viewer_header_min_height" android:layoutDirection="ltr">
+        <TextView android:id="@+id/before_text" android:text="@string/remaster_before_upscale" style="@style/RemasterHeaderTextStyle"/>
+        <TextView android:id="@+id/after_text" android:text="@string/remaster_after_upscale" style="@style/RemasterHeaderTextStyle"/>
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/vertical_line" android:layout_width="2dp" android:layout_height="@dimen/remaster_viewer_photo_view_height" android:layout_centerHorizontal="true">
+        <ImageView android:id="@+id/vertical_line_up" android:background="@drawable/remaster_handler_vertical_line" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentTop="true"/>
+        <ImageView android:id="@+id/vertical_line_bottom" android:background="@color/remaster_viewer_handler_color" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <FrameLayout android:id="@+id/circle_handler" android:background="@drawable/effect_viewer_handler" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/remaster_viewer2_circle_handler_size" android:layout_height="@dimen/remaster_viewer2_circle_handler_size" android:layout_below="@+id/vertical_line" android:layout_centerHorizontal="true" android:contentDescription="@string/remaster_handle_description" android:elevation="3dp">
+        <ImageView android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/gallery_ic_remaster_viewer_handler"/>
+    </FrameLayout>
+</RelativeLayout>

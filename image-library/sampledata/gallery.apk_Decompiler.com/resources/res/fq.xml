@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/photo_background" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:tint="@color/story_view_bg_tint_color"/>
+    <com.samsung.android.gallery.widget.photoview.PhotoPreView android:id="@+id/photo_preview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" android:contentDescription="@null"/>
+    <androidx.viewpager2.widget.ViewPager2 android:id="@+id/view_pager" android:focusable="true" android:visibility="invisible" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no"/>
+    <View android:id="@+id/top_gradient_view" android:background="@drawable/gallery_story_motion_top_gradient" android:layout_width="match_parent" android:layout_height="@dimen/story_motion_top_gradient_height" android:layout_alignParentTop="true"/>
+    <View android:id="@+id/bottom_gradient_view" android:background="@drawable/gallery_story_motion_bottom_gradient" android:layout_width="match_parent" android:layout_height="@dimen/story_motion_bottom_gradient_height" android:layout_alignParentBottom="true"/>
+    <RelativeLayout android:id="@+id/main_layout" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:id="@+id/viewer_toolbar" layout="@layout/toolbar_viewer_dark"/>
+        <ViewStub android:id="@+id/viewer_panel" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </RelativeLayout>
+</RelativeLayout>

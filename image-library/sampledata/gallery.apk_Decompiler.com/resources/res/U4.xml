@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <solid android:color="@android:color/transparent"/>
+    <stroke android:width="1px" android:color="@color/thumbnail_border_color"/>
+    <padding android:left="1px" android:top="1px" android:right="1px" android:bottom="1px"/>
+    <corners android:radius="12dp"/>
+</shape>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="delete_duplicate_button_layout_margin_bottom">44.5dp</dimen>
+    <dimen name="remaster_viewer_content_height_ratio">0.52</dimen>
+    <dimen name="stories_bgm_sheet_horizontal_margin">220dp</dimen>
+    <dimen name="stories_header_divider_bottom_padding_1_depth">8dp</dimen>
+    <dimen name="stories_header_divider_bottom_padding_drawer">9dp</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_1_depth">0.048</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_1_depth_60">0.028</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_drawer">0.048</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_drawer_60">0.027</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_1_depth">0.055</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_1_depth_60">0.019</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_drawer">0.045</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_drawer_60">0.018</dimen>
+    <dimen name="stories_item_width_ratio_drawer">0.25</dimen>
+    <dimen name="stories_view_duration_text_size_1_depth_60">12dp</dimen>
+    <dimen name="stories_view_favorite_padding_1_depth">20dp</dimen>
+    <dimen name="stories_view_favorite_start_margin_1_depth">-18dp</dimen>
+    <dimen name="stories_view_recycler_item_side_padding_drawer">9dp</dimen>
+    <dimen name="stories_view_side_offset_1_depth">16dp</dimen>
+    <dimen name="stories_view_side_offset_drawer">15dp</dimen>
+    <dimen name="stories_view_title_text_size_1_depth_60">25dp</dimen>
+    <dimen name="stories_view_title_text_size_drawer_60">24dp</dimen>
+    <dimen name="stories_view_width_ratio_1_depth">0.34</dimen>
+    <dimen name="stories_view_width_ratio_drawer">0.26</dimen>
+    <dimen name="story_highlight_list_view_start_padding">22dp</dimen>
+    <dimen name="story_highlight_toolbar_height">128dp</dimen>
+</resources>

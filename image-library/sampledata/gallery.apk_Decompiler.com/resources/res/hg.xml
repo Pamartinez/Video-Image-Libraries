@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/story_pictures_header_item_bottom_gap">
+    <View android:background="@color/memory_pictures_summary_divider" android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <HorizontalScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="start" android:orientation="horizontal" android:id="@+id/story_pictures_summary_feed" android:paddingTop="@dimen/story_pictures_header_summary_divider_vertical_margin" android:paddingBottom="@dimen/story_pictures_header_summary_divider_vertical_margin" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:id="@+id/summary_photos_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/story_pictures_header_summary_item_gap">
+                <include layout="@layout/story_pictures_summary_item_layout"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/summary_video_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/story_pictures_header_summary_item_gap">
+                <include layout="@layout/story_pictures_summary_item_layout"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/summary_days_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <include layout="@layout/story_pictures_summary_item_layout"/>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <View android:background="@color/memory_pictures_summary_divider" android:layout_width="match_parent" android:layout_height="0.5dp"/>
+</LinearLayout>

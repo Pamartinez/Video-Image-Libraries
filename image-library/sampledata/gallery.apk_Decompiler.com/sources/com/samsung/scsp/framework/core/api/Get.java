@@ -1,0 +1,19 @@
+package com.samsung.scsp.framework.core.api;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public @interface Get {
+    Class<? extends Job> jobImpl() default EmptyJobImpl.class;
+
+    Property[] properties() default {Property.None};
+
+    Class<?> response() default EmptyResponse.class;
+
+    String value() default "";
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <com.samsung.android.gallery.settings.widget.BaseCheckBoxPreference android:title="@string/baidu_cloud" android:key="baidu_cloud"/>
+    <com.samsung.android.gallery.settings.widget.BaseCheckBoxPreference android:title="@string/tencent_cloud" android:key="tencent_cloud"/>
+    <PreferenceCategory/>
+</PreferenceScreen>

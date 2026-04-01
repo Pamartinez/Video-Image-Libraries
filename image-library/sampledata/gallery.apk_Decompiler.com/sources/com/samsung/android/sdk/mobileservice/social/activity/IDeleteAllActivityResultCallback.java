@@ -1,0 +1,135 @@
+package com.samsung.android.sdk.mobileservice.social.activity;
+
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public interface IDeleteAllActivityResultCallback extends IInterface {
+    void onFailure(int i2, String str);
+
+    void onSuccess();
+
+    /* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+    public static class Default implements IDeleteAllActivityResultCallback {
+        public IBinder asBinder() {
+            return null;
+        }
+
+        public void onSuccess() {
+        }
+
+        public void onFailure(int i2, String str) {
+        }
+    }
+
+    /* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+    public static abstract class Stub extends Binder implements IDeleteAllActivityResultCallback {
+        private static final String DESCRIPTOR = "com.samsung.android.sdk.mobileservice.social.activity.IDeleteAllActivityResultCallback";
+        static final int TRANSACTION_onFailure = 2;
+        static final int TRANSACTION_onSuccess = 1;
+
+        /* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+        public static class Proxy implements IDeleteAllActivityResultCallback {
+            public static IDeleteAllActivityResultCallback sDefaultImpl;
+            private IBinder mRemote;
+
+            public Proxy(IBinder iBinder) {
+                this.mRemote = iBinder;
+            }
+
+            public IBinder asBinder() {
+                return this.mRemote;
+            }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
+            }
+
+            public void onFailure(int i2, String str) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i2);
+                    obtain.writeString(str);
+                    if (this.mRemote.transact(2, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
+                        obtain2.readException();
+                    } else {
+                        Stub.getDefaultImpl().onFailure(i2, str);
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            public void onSuccess() {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (this.mRemote.transact(1, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
+                        obtain2.readException();
+                    } else {
+                        Stub.getDefaultImpl().onSuccess();
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+        }
+
+        public Stub() {
+            attachInterface(this, DESCRIPTOR);
+        }
+
+        public static IDeleteAllActivityResultCallback asInterface(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+            if (queryLocalInterface == null || !(queryLocalInterface instanceof IDeleteAllActivityResultCallback)) {
+                return new Proxy(iBinder);
+            }
+            return (IDeleteAllActivityResultCallback) queryLocalInterface;
+        }
+
+        public static IDeleteAllActivityResultCallback getDefaultImpl() {
+            return Proxy.sDefaultImpl;
+        }
+
+        public static boolean setDefaultImpl(IDeleteAllActivityResultCallback iDeleteAllActivityResultCallback) {
+            if (Proxy.sDefaultImpl != null || iDeleteAllActivityResultCallback == null) {
+                return false;
+            }
+            Proxy.sDefaultImpl = iDeleteAllActivityResultCallback;
+            return true;
+        }
+
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i7) {
+            if (i2 == 1) {
+                parcel.enforceInterface(DESCRIPTOR);
+                onSuccess();
+                parcel2.writeNoException();
+                return true;
+            } else if (i2 == 2) {
+                parcel.enforceInterface(DESCRIPTOR);
+                onFailure(parcel.readInt(), parcel.readString());
+                parcel2.writeNoException();
+                return true;
+            } else if (i2 != 1598968902) {
+                return super.onTransact(i2, parcel, parcel2, i7);
+            } else {
+                parcel2.writeString(DESCRIPTOR);
+                return true;
+            }
+        }
+
+        public IBinder asBinder() {
+            return this;
+        }
+    }
+}

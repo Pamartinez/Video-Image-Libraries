@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:padding="@dimen/mx_albums_merged_tip_card_recycler_item_container_padding" android:focusable="false" android:clickable="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:background="@drawable/merged_album_tip_card_recycler_item_bg" android:padding="@dimen/mx_albums_merged_tip_card_recycler_item_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:elevation="@dimen/mx_albums_merged_tip_card_recycler_item_elevation">
+        <com.samsung.android.gallery.widget.SquareImageView android:id="@+id/thumbnail" android:focusable="false" android:clickable="false" android:layout_width="@dimen/mx_albums_merged_tip_card_recycler_item_image_size" android:layout_height="@dimen/mx_albums_merged_tip_card_recycler_item_image_size" android:scaleType="centerCrop"/>
+    </LinearLayout>
+</FrameLayout>

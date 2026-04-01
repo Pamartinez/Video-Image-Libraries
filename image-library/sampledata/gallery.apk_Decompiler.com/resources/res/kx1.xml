@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@drawable/fastoptionview_item_recoil_ripple_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stateListAnimator="?attr/seslSmallTouchAnimator">
+    <ImageView android:id="@+id/fast_option_img_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" android:layout_centerInParent="true"/>
+</RelativeLayout>

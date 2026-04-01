@@ -1,0 +1,26 @@
+package com.samsung.android.gallery.app.ui.list.timeline.quicksearch;
+
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.function.Consumer;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final /* synthetic */ class a implements Consumer {
+    public final /* synthetic */ int d;
+
+    public /* synthetic */ a(int i2) {
+        this.d = i2;
+    }
+
+    public final void accept(Object obj) {
+        RecyclerView.Adapter adapter;
+        switch (this.d) {
+            case 0:
+                adapter = (QuickSearchLocationFilterListViewAdapter) obj;
+                break;
+            default:
+                adapter = (QuickSearchPeopleFilterListViewAdapter) obj;
+                break;
+        }
+        adapter.notifyDataSetChanged();
+    }
+}

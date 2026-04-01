@@ -42,6 +42,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("videoSortOption",      prefs.videoSortOption.id)
             put("selectedTab",          prefs.selectedTab)
             put("instantPlayerEnabled", prefs.instantPlayerEnabled)
+            put("independentSortEnabled", prefs.independentSortEnabled)
 
             // Custom folder order → JSONArray of ints
             put("customFolderOrder", JSONArray(prefs.getCustomFolderOrder()))
@@ -79,6 +80,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.selectedTab = settings.getInt("selectedTab")
         if (settings.has("instantPlayerEnabled"))
             prefs.instantPlayerEnabled = settings.getBoolean("instantPlayerEnabled")
+        if (settings.has("independentSortEnabled"))
+            prefs.independentSortEnabled = settings.getBoolean("independentSortEnabled")
 
         // Custom folder order — JSONArray of ints
         if (settings.has("customFolderOrder")) {

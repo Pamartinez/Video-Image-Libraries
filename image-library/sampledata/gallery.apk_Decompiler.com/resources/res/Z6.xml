@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_create_story_album" android:title="@string/create_story" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_content" android:title="@string/hide_content" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_rename" android:id="@+id/action_rename_story_album_in_list" android:title="@string/rename" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_pin" android:id="@+id/action_pin" android:title="@string/pin" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete_story_album_in_list" android:title="@string/delete" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_share_cover" android:title="@string/share_cover" app:showAsAction="never"/>
+        <item android:id="@+id/action_save_cover" android:title="@string/save_cover" app:showAsAction="never"/>
+        <item android:id="@+id/action_change_cover" android:title="@string/change_cover" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_with_done">
+        <item android:id="@+id/action_done" android:title="@string/done" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_create_story_album" android:title="@string/create_story" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_content" android:title="@string/hide_content" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/popup_mode">
+        <item android:id="@+id/action_share_cover" android:visible="true" android:title="@string/share_cover"/>
+        <item android:id="@+id/action_save_cover" android:visible="true" android:title="@string/save_cover"/>
+        <item android:id="@+id/action_rename" android:visible="true" android:title="@string/opt_rename"/>
+        <item android:id="@+id/action_delete_story" android:visible="true" android:title="@string/delete"/>
+    </group>
+</menu>

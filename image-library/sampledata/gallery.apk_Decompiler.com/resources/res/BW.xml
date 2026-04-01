@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/top_color_effect_layout" android:layout_width="match_parent" android:layout_height="@dimen/stories_top_color_effect_view_height">
+    <View android:id="@+id/color_effect_view_0" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0"/>
+    <View android:id="@+id/color_effect_view_1" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0"/>
+    <View android:id="@+id/color_effect_view_2" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0"/>
+</FrameLayout>

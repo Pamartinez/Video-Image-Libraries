@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/picture_picker_layout" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/empty_view" style="@style/EmptyViewDefaultStyle">
+        <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:label="@string/empty_set_description_no_items"/>
+    </RelativeLayout>
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+    <ViewStub android:id="@+id/appbar_container" android:layout="@layout/floating_standalone_toolbar_layout" android:inflatedId="@+id/appbar_container" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -22,6 +22,7 @@ import java.io.File
  *     "customGroupOrder":       [Long, ...],
  *     "customMixedOrder":       [String, ...],
  *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
+ *     "independentSortEnabled": Boolean,
  *
  *     // Image-library specific:
  *     "sortOption":             Int,

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include layout="@layout/creature_slideshow"/>
+        <FrameLayout android:layout_gravity="center" android:id="@+id/sub_touchable_view" android:background="@color/search_tag_me_tip_card_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:layout_marginHorizontal="@dimen/search_creature_pictures_tip_card_horizontal_margin">
+            <include android:id="@+id/face_cluster_tipcard_Header" android:visibility="gone" layout="@layout/face_cluster_tip_card_header"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <FrameLayout android:layout_gravity="left|center_vertical|center_horizontal|center|start" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="14dp" android:textColor="@color/face_merge_text_color" android:id="@+id/face_cluster_merge_title" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:text="@string/face_cluster_same_or_different_person" android:textIsSelectable="false" android:layout_marginHorizontal="24dp" style="@style/OneUiRobotoRegular"/>
+                    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/contact_recommend_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="12dp" android:layout_marginHorizontal="20dp">
+                        <ImageView android:id="@+id/contact_recommend_thumb" android:background="@drawable/circular_thumb_background" android:visibility="gone" android:layout_width="@dimen/people_tag_contact_photo_size" android:layout_height="@dimen/people_tag_contact_photo_size" android:contentDescription="@null"/>
+                        <TextView android:textSize="18dp" android:textColor="@color/face_merge_text_color" android:ellipsize="end" android:id="@+id/contact_recommend_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textIsSelectable="false" android:layout_marginStart="10dp" style="@style/OneUiRobotoBold"/>
+                    </LinearLayout>
+                </FrameLayout>
+                <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_gravity="bottom" android:id="@+id/edit_bottom_navigation" android:background="@color/search_tag_me_tip_card_background" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:itemTextColor="@color/gallery_search_header_view_title_color" app:menu="@menu/menu_bottom_search_people" style="@style/BottomNavigationViewStyle.Text"/>
+            </LinearLayout>
+        </FrameLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25dp" android:layout_marginHorizontal="@dimen/search_count_header_margin_horizontal" android:paddingVertical="@dimen/search_filter_results_title_vertical_padding">
+            <View android:id="@+id/item_count_line" android:background="@color/search_count_header_background_line_color" android:layout_width="match_parent" android:layout_height="@dimen/search_count_header_background_line" android:layout_centerInParent="true"/>
+            <TextView android:textColor="@color/search_card_header_count" android:id="@+id/item_count" android:text="1045 images, 26 videos" style="@style/SearchCountHeaderTextStyle"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

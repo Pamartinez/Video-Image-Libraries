@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/bottom_menu_list_item_recoil_ripple_bg" android:focusable="true" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:id="@+id/create_new_circle_layout" android:padding="@dimen/create_new_dialog_circle_item_padding" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@+id/create_new_icon" android:layout_width="@dimen/create_new_dialog_v2_item_icon_size" android:layout_height="@dimen/create_new_dialog_v2_item_icon_size" android:tint="@color/create_new_dialog_content_icon_tint_color" android:contentDescription="@null"/>
+    </LinearLayout>
+    <TextView android:textSize="@dimen/create_new_dialog_v2_item_title_text_size" android:textColor="@color/create_new_dialog_content_title_text_color" android:layout_gravity="center" android:id="@+id/create_new_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/create_new_dialog_circle_item_title_margin_top" android:textAlignment="center" style="@style/OneUiRobotoRegular"/>
+</LinearLayout>

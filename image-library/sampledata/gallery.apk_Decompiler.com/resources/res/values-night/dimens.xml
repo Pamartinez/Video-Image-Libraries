@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sharing_storage_use_trash_icon_alpha">0.7</dimen>
+    <dimen name="sharing_storage_use_trash_icon_background_alpha">0.4</dimen>
+    <dimen name="stories_top_color_brightness">0.5</dimen>
+    <dimen name="stories_top_color_gradient_start">0.4</dimen>
+</resources>

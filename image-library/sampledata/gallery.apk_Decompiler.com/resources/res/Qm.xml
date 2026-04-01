@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/picture_picker_layout" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_timeline_emptyview_picker_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

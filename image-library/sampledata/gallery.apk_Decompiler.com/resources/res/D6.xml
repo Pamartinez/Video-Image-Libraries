@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="5dp" android:width="20dp" android:viewportWidth="20" android:viewportHeight="5">
+    <path android:fillColor="@color/group_panel_header_icon_color" android:pathData="M10.044,0.181C10.079,0.182 10.114,0.186 10.148,0.191L10.184,0.199L10.251,0.213L10.26,0.216L19.26,2.763C19.797,2.915 20.112,3.483 19.963,4.032C19.814,4.58 19.257,4.901 18.719,4.749L9.998,2.279L1.285,4.781C0.783,4.925 0.264,4.656 0.074,4.174L0.038,4.068C-0.113,3.52 0.2,2.951 0.737,2.797L9.722,0.218L9.727,0.217L9.738,0.214L9.81,0.198L9.83,0.194L9.832,0.194C9.875,0.186 9.91,0.183 9.945,0.181L9.994,0.181L10.044,0.181Z" android:strokeWidth="1" android:fillType="0"/>
+</vector>

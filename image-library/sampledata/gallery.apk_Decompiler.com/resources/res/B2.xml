@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/recommended_bg_color" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/suggestions_group_header" android:focusable="true" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/suggestions_card_group_header_top_margin" android:layout_marginBottom="@dimen/suggestions_card_group_header_bottom_margin" android:layout_marginHorizontal="@dimen/suggestions_card_group_header_horizontal_margin">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@+id/suggestions_group_icon" android:layout_width="@dimen/suggestions_card_group_icon_size" android:layout_height="@dimen/suggestions_card_group_icon_size"/>
+        <TextView android:textSize="@dimen/suggestions_card_group_text_size" android:textColor="@color/suggestion_group_text_color" android:layout_gravity="center" android:id="@+id/suggestions_group_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/suggestions_card_group_text_start_margin" style="@style/OneUiRobotoBold"/>
+    </LinearLayout>
+    <include layout="@layout/suggestions_card_header"/>
+    <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center" android:id="@+id/my_recycler_view" android:paddingTop="@dimen/suggestions_card_recycler_view_top_padding" android:paddingBottom="@dimen/suggestions_card_recycler_view_bottom_padding" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" android:paddingHorizontal="@dimen/suggestions_card_recycler_view_padding_horizontal"/>
+    <include layout="@layout/suggestions_card_divider"/>
+</LinearLayout>

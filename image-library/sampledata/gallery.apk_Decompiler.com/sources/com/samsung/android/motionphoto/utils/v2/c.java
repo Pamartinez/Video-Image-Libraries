@@ -1,0 +1,26 @@
+package com.samsung.android.motionphoto.utils.v2;
+
+import Ae.b;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final /* synthetic */ class c implements b {
+    public final /* synthetic */ int d;
+    public final /* synthetic */ MotionPhotoEditImpl e;
+
+    public /* synthetic */ c(MotionPhotoEditImpl motionPhotoEditImpl, int i2) {
+        this.d = i2;
+        this.e = motionPhotoEditImpl;
+    }
+
+    public final Object invoke(Object obj) {
+        int i2 = this.d;
+        MotionPhotoEditImpl motionPhotoEditImpl = this.e;
+        MediaFile mediaFile = (MediaFile) obj;
+        switch (i2) {
+            case 0:
+                return MotionPhotoEditImpl.removeVideo$lambda$11(motionPhotoEditImpl, mediaFile);
+            default:
+                return MotionPhotoEditImpl.removeAllData$lambda$5(motionPhotoEditImpl, mediaFile);
+        }
+    }
+}

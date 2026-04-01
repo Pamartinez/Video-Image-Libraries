@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/viewer_layout" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no">
+    <RelativeLayout android:id="@+id/content_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ViewStub android:layout_gravity="center" android:id="@+id/media_view_stub" android:layout="@layout/media_view_layout" android:inflatedId="@+id/media_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:tag="new_search_toolbar_containable" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:paddingBottom="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:expanded="false" app:seslUseCustomHeight="true" app:seslUseCustomPadding="true" style="@style/AppBarLayoutStyle">
+            <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" android:background="@android:color/transparent" app:background="@android:color/transparent" app:subtitle="@null" app:title="@string/search" style="@style/CollapsingToolBarStyle">
+                <include layout="@layout/floating_toolbar_dummy_view"/>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+        <FrameLayout android:id="@+id/search_pictures_contents_area" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_search_pictures_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <include android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginHorizontal="@dimen/search_pictures_layout_out_horizontal_margin" layout="@layout/gallery_list_view"/>
+            <ViewStub android:id="@+id/autocomplete_list_view_container" android:layout="@layout/search_filter_autocomplete_layout" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        </FrameLayout>
+        <com.samsung.android.gallery.widget.effects.GradientView android:id="@+id/status_bar_protection_gradient" android:visibility="gone" android:layout_width="match_parent" android:layout_height="64dp" app:gradientRatio="1" app:gradientStartColor="@color/status_bar_default_gradient_color" app:gradientStartFromTop="true"/>
+        <include layout="@layout/floating_toolbar_layout"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.progressbar.SearchProgressCircle android:id="@+id/progressCircle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/ProgressCircle"/>
+    </RelativeLayout>
+    <ViewStub android:id="@+id/foreground_view_stub" android:layout="@layout/fragment_search_floating_recommendation" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</FrameLayout>

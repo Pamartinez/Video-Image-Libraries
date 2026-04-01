@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1580000061" android:versionName="15.8.00.61" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" package="com.sec.android.gallery3d" platformBuildVersionCode="36" platformBuildVersionName="16">
+    <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="36"/>
+    <queries>
+        <package android:name="com.samsung.android.mobileservice"/>
+        <package android:name="com.osp.app.signin"/>
+        <package android:name="com.samsung.android.scloud"/>
+        <provider android:exported="false" android:authorities="com.samsung.android.sdk.ocr.resourcemanager"/>
+        <package android:name="com.samsung.android.spay"/>
+        <package android:name="com.samsung.android.intellivoiceservice"/>
+        <intent>
+            <action android:name="com.samsung.android.scs.asr.action.SEARCH_LANGPACK"/>
+        </intent>
+        <intent>
+            <action android:name="com.samsung.android.utils.asset.action.REMOTE_ASSETS_INFO"/>
+        </intent>
+        <package android:name="com.samsung.android.smartsuggestions"/>
+        <package android:name="com.samsung.android.moneta"/>
+        <package android:name="com.google.android.apps.maps"/>
+        <package android:name="com.samsung.android.liveeffectservice"/>
+    </queries>
+    <queries>
+        <package android:name="com.google.android.googlequicksearchbox"/>
+    </queries>
+    <uses-feature android:name="com.samsung.android.api.version.3001"/>
+    <uses-feature android:name="com.samsung.feature.samsung_experience_mobile"/>
+    <uses-permission android:name="com.samsung.android.hostmanager.permission.ACCESS_UNIFIED_HOST_MANAGER"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="33"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="33"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
+    <uses-permission android:name="com.samsung.android.providers.media.READ"/>
+    <uses-permission android:name="com.samsung.android.providers.media.WRITE"/>
+    <uses-permission android:name="com.samsung.android.providers.media.CMH"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" android:maxSdkVersion="33"/>
+    <uses-permission android:name="com.samsung.cmh.data.READ"/>
+    <uses-permission android:name="com.samsung.cmh.data.WRITE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="com.samsung.android.pde.permission.READ_SETTING"/>
+    <uses-permission android:name="com.samsung.app.highlightvideo"/>
+    <uses-permission android:name="com.samsung.android.support.reminder.permission.CREATE"/>
+    <uses-permission android:name="com.samsung.android.app.reminder.permission.action.REGISTER"/>
+    <uses-permission android:name="android.permission.ACCESS_ALL_DOWNLOADS"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.ui.Permission.SOCIAL_CONTACT_PICKER"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.ui.permission.SOCIAL_AGREEMENT"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.contents.provider.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.contents.provider.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.request.provider.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.request.provider.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.space.provider.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.space.provider.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.item.provider.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.share.item.provider.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.group.provider.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.sasettings.permission.USE_SASETTINGS"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.permission.RECEIVE_SEMS_BROADCAST"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.sec.android.permission.PERSONAL_MEDIA"/>
+    <uses-permission android:name="com.samsung.android.app.withtv.ACCESS_WITH_TV"/>
+    <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.samsung.android.visioncloudagent.permission.IC_SERVICE"/>
+    <uses-permission android:name="com.sec.android.mimage.photoretouching"/>
+    <uses-permission android:name="com.samsung.app.highlightplayer"/>
+    <uses-permission android:name="com.samsung.android.scloud.cloudagent.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.scloud.cloudagent.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.permission.REQUEST_SCLOUD"/>
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="com.samsung.knox.securefolder.REMOTE_CONTENT_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.service.livedrawing.permission.START"/>
+    <uses-permission android:name="com.sec.android.diagmonagent.permission.DIAGMON"/>
+    <uses-permission android:name="com.samsung.android.scloud.sync.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.permission.SEC_MEDIA_CONTENTS" android:maxSdkVersion="28"/>
+    <uses-permission android:name="com.samsung.android.permission.MEDIA_CLOUD_CONTENTS"/>
+    <uses-permission android:name="com.samsung.android.permission.SEM_MEDIA_CONTENTS" android:minSdkVersion="29"/>
+    <uses-permission android:name="com.samsung.android.app.aodservice.permission.AOD_PROVIDER"/>
+    <uses-permission android:name="android.permission.CONTROL_KEYGUARD" android:maxSdkVersion="34"/>
+    <uses-permission android:name="com.wssnps.permission.COM_WSSNPS"/>
+    <uses-permission android:name="com.samsung.android.scloud.app.ui"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.samsung.memorysaver.READ_MS_DATA"/>
+    <uses-permission android:name="com.samsung.memorysaver.WRITE_MS_DATA"/>
+    <uses-permission android:name="com.samsung.android.permission.SEM_WRITE_CAPTURED_URL"/>
+    <uses-permission android:name="dexonpc.app.action.permission.KMS_FILETRANSFER_DRAG_FILEINFO"/>
+    <uses-permission android:name="com.samsung.android.app.dressroom.permission.SET_AS_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="com.samsung.sea.retailagent.permission.RETAILMODE"/>
+    <uses-permission android:name="com.samsung.android.camera.core2.data.READ"/>
+    <uses-permission android:name="com.samsung.android.camera.core2.data.WRITE"/>
+    <uses-permission android:name="com.samsung.provider.gppm.data.READ"/>
+    <uses-permission android:name="com.samsung.android.app.tips.permission.USE_INTENT_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.mdx.permission.RECEIVE_MIRRORING_STATE"/>
+    <uses-permission android:name="com.sec.android.permission.SAMSUNG_FLOW_RECEIVER_PERMISSION"/>
+    <uses-permission android:name="com.sec.android.gallery3d.provider2.READ"/>
+    <uses-permission android:name="com.sec.android.gallery3d.provider2.WRITE"/>
+    <uses-permission android:name="com.samsung.android.video.player.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.samsung.android.video.player.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.sec.android.app.vepreload.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.sec.android.app.vepreload.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.sec.android.app.vepreload.singleedit.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.sec.android.app.vepreload.singleedit.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.samsung.app.slowmotion.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.samsung.app.slowmotion.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.samsung.app.newtrim.data.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.samsung.app.newtrim.data.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.sec.android.mimage.photoretouching.provider.SharedMemoryProvider.READ"/>
+    <uses-permission android:name="com.sec.android.mimage.photoretouching.provider.SharedMemoryProvider.WRITE"/>
+    <uses-permission android:name="com.samsung.android.video.player.EXPORTED_ACTIVITY"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="com.samsung.android.smartmirroring.READ"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES"/>
+    <uses-permission android:name="com.msc.openprovider.OpenContentProvider.READ_CONTENT"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.samsung.android.providers.media.SCLOUD"/>
+    <uses-permission android:name="com.sec.android.app.myfiles.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.settings.analyzestorage.permission"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="com.samsung.android.samsungaccount.permission.ACCESS_SASETTINGS"/>
+    <uses-permission android:name="com.samsung.android.samsungaccount.permission.ACCOUNT_MANAGER"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="com.samsung.android.app.mango.permission.ACCESS_CHAT_API"/>
+    <uses-permission android:name="com.samsung.android.gallery.plugins.MapProvider.READ"/>
+    <uses-permission android:name="com.samsung.android.sharelive.permission.READ_EXTERNAL_SETTINGS_PROVIDER"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.samsung.android.sume.nn.service.permission.ACCESS_SUME_NN_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.permission.SEM_VOLD_DATA_MOVE"/>
+    <uses-permission android:name="com.samsung.android.settings.permission.MANAGE_LANGUAGE_PACK"/>
+    <uses-permission android:name="com.samsung.android.bixby.odner.READ"/>
+    <uses-permission android:name="com.samsung.android.provider.indexing.permission.ACCESS_PROVIDER"/>
+    <uses-permission android:name="com.oma.drm.permission.ACCESS_OMA_DRM"/>
+    <uses-permission android:name="com.samsung.android.app.telephonyui.permission.ACCESS_CALL_BACKGROUND_SETTING"/>
+    <uses-permission android:name="com.samsung.storyservice.data.READ"/>
+    <uses-permission android:name="com.samsung.permission.ACCESS_KEEP_STORAGE" android:minSdkVersion="36"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" android:protectionLevel="normal|signature|system"/>
+    <permission android:name="com.sec.android.gallery3d.provider2.READ" android:protectionLevel="signatureOrSystem"/>
+    <permission android:name="com.sec.android.gallery3d.provider2.WRITE" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="com.samsung.android.scloud.sync.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.scloud.permission.RPC_SYNC_SETTING"/>
+    <uses-permission android:name="com.samsung.android.rubin.app.ui.permission.LAUNCH_RUBIN_SETTING"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.samsung.android.app.spage.permission.WRITE_CARD_DATA"/>
+    <uses-permission android:name="com.samsung.android.app.spage.permission.READ_CARD_DATA"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.samsung.android.scloud.gallery.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.scloud.gallery.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.permission.WRITE_SCPM"/>
+    <uses-permission android:name="com.samsung.android.permission.READ_SCPM"/>
+    <uses-permission android:name="com.sec.spp.permission.TOKEN_2fb2b81bb2c3868a285b3a0aad76e4b64b3d90b86a6a7300d51eae6f8b51784530d281d03dc5cec527954db24815604c68b83857a6f1d3527c0ed993c6a4d99cf38f7ba57bcf54bf3b98e04123dfd2f3c3cd98ac58cfbbd4c732445e1d473028cad76b12977a50ee3549fc5320713ceb8806dd8f8c1535b3de7afaa8773ee7c8"/>
+    <uses-permission android:name="com.sec.spp.permission.TOKEN_4c1a3f74a5344eabd1927c591520fa6517f0c3878e70752793fdbde2f90dff073df81b15360b8247e2c194c597c8b85008cdfbf5363a6749400f34cc96a8bf475a7c82867589684a09394cbcec9bbcefc9a4e61f5948eafea4cee542115b098f614bb282d1363ce8bd594526b182610839fcf15578b39925d6c42b9d0876a12b"/>
+    <uses-permission android:name="com.samsung.android.samsungaccount.permission.PROFILE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.provider.filterprovider.permission.READ_FILTER"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.search.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.search.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.suggestion.permission.SUGGESTION_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.smartsuggestions.search.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.smartsuggestions.search.permission.WRITE"/>
+    <uses-permission android:name="com.samsung.clipboardsaveservice.CLIPBOARDSAVESERVICE_PERMISSION"/>
+    <uses-permission android:name="com.sec.android.app.ve.vebgm.permission.BGM.READ"/>
+    <uses-permission android:name="com.sec.android.app.ve.vebgm.provider.BGMContentProvider"/>
+    <uses-permission android:name="com.sec.android.app.camera.permission.DOCUMENT_SCAN"/>
+    <uses-permission android:name="com.samsung.android.visual.cloudcore.permission.BIND_C2PA_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.app.interpreter.permission.TRANSLATION_FINISH_NEEDED"/>
+    <uses-permission android:name="com.samsung.android.moneta.sdk.permission.BIND_BASIC_DOMAIN_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.mcfds.permission.USE_CONTINUITY_PROVIDER"/>
+    <uses-permission android:name="com.samsung.petservice.data.READ"/>
+    <uses-permission android:name="com.samsung.android.app.deepsky.permission.ACCESS_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.sdk.ocr.permission.PROVIDE_OCR_RESOURCE"/>
+    <uses-permission android:name="com.samsung.android.spay.permission.READ_SPAY_SHARE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.samsung.android.app.interpreter.permission.READ_TRANSLATION_SETTINGS"/>
+    <uses-permission android:name="com.samsung.aimodelprovider.objectremovalmodels.AIProvider.READ"/>
+    <uses-permission android:name="com.samsung.android.scs.permission.SUPPORTED_FEATURE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.image.permission.BIND_IMAGE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.image.permission.IMAGE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.text.permission.TEXT_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.asr.permission.BIND_SPEECH_RECOGNITION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.asr.permission.SPEECH_RECOGNITION_SERVICE_CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.asr.permission.SYSTEM_BIND_SPEECH_RECOGNITION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.scs.ai.asr.permission.SYSTEM_SPEECH_RECOGNITION_SERVICE_CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.SUPPORTED_FEATURE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.asr.permission.BIND_SPEECH_RECOGNITION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.asr.permission.SPEECH_RECOGNITION_SERVICE_CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.asr.permission.SYSTEM_BIND_SPEECH_RECOGNITION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.asr.permission.SYSTEM_SPEECH_RECOGNITION_SERVICE_CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_TONECONVERT_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_TONECONVERT_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_TRANSLATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SUMMARIZATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SUMMARIZATION_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_CORRECTION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_CORRECTION_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SUGGESTION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SUGGESTION_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SMART_COVER_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SMART_REPLY_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SMART_REPLY_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_EMOJI_AUGMENTATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_NOTES_ORGANIZATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_SMART_CAPTURE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_CLASSIFICATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_EXTRACTION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_WRITING_COMPOSER_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_WRITING_COMPOSER_SERVICE_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_FORMAT_CONVERSION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_CONFIGURATION_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_GENERIC_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.permission.BIND_USAGE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.aitranslator.permission.BIND_TRANSLATION"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.aitranslator.permission.BIND_TRANSLATION_FOR_EXTERNAL"/>
+    <uses-permission android:name="com.samsung.android.aicore.permission.BIND_WALLPAPER_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.aicore.permission.BIND_ON_DEVICE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.aicore.permission.BIND_DOWNLOAD_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.aicore.permission.SUPPORTED_FEATURE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.visual.cloudcore.permission.BIND_PORTRAIT_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.visual.cloudcore.permission.SUPPORTED_FEATURE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.visual.cloudcore.permission.BIND_IMAGE_EDITOR_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.visual.cloudcore.permission.BIND_DOWNLOAD_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.common.permission.SYSTEM_CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.common.permission.CONFIG_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.tts.permission.BIND_TEXT_TO_SPEECH"/>
+    <uses-permission android:name="com.samsung.android.intellivoiceservice.ai.tts.permission.BIND_TEXT_TO_SPEECH_FOR_EXTERNAL"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.CONTROL_DISPLAY_BRIGHTNESS" android:protectionLevel="signature"/>
+    <permission android:name="com.sec.android.gallery3d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.sec.android.gallery3d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.samsung.android.stickercenter.service.ACCESS"/>
+    <uses-permission android:name="com.samsung.android.app.deepsky.donation.provider.permission.DONATE_ACTION"/>
+    <uses-permission android:name="com.samsung.android.app.deepsky.feedback.provider.permission.SUBMIT_FEEDBACK"/>
+    <uses-permission android:name="com.samsung.android.moneta.sdk.permission.BIND_MEMORY_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.moneta.sdk.permission.BIND_MEMORY_SEARCH_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.moneta.sdk.permission.BIND_EVENT_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.moneta.preference.permission.READ_LIFESTYLE"/>
+    <uses-permission android:name="com.samsung.android.moneta.basicdomain.permission.READ_BASIC_DOMAIN"/>
+    <uses-permission android:name="com.samsung.android.pde.fusioninference.permission.READ"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="com.samsung.android.mobileservice.social.common.provider.opensession.permission.READ"/>
+    <uses-permission android:name="com.samsung.android.alive.service.permission.BIND_IMAGE_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.alive.service.permission.BIND_IMAGE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.alive.service.provider.permission.PRIVACY_SUGGESTION"/>
+    <uses-permission android:name="com.samsung.android.alive.service.permission.LAUNCH_PERMISSIONS_ACTIVITY"/>
+    <uses-permission android:name="com.samsung.android.alive.service.provider.permission.TEXT_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.liveeffectservice.REQUEST_SERVICE"/>
+    <application android:theme="@style/AppTheme.NoActionBar" android:label="@string/app_name" android:icon="@drawable/mainmenu_icon_gallery" android:name="com.samsung.android.gallery.app.activity.GalleryApplication" android:allowBackup="false" android:logo="@drawable/mainmenu_icon_gallery" android:hardwareAccelerated="true" android:largeHeap="true" android:supportsRtl="true" android:extractNativeLibs="false" android:resizeableActivity="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true" android:requestRawExternalStorageAccess="true" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+        <profileable android:enabled="true" android:shell="true"/>
+        <meta-data android:name="com.samsung.android.notification.blockable" android:value="true"/>
+        <meta-data android:name="SamsungBasicInteraction" android:value="SEP10"/>
+        <meta-data android:name="sec.actions.intent.OPEN_IMAGE" android:resource="@xml/actions"/>
+        <meta-data android:name="theming-meta" android:value="metadata_colorpalette"/>
+        <meta-data android:name="theming-meta-define1" android:resource="@xml/metadata_colorpalette"/>
+        <meta-data android:name="com.sec.android.gallery3d.provider2.cloudapi" android:value="download"/>
+        <meta-data android:name="com.samsung.android.resolver.ranking_priority" android:value="10000"/>
+        <meta-data android:name="com.sec.android.gallery3d.features" android:value="view-story-detail,support-provider-message,cloud-api,vold-api,heif-syntax-editor,applink,galaxy-ai-search"/>
+        <uses-native-library android:name="libOpenCL.so" android:required="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library android:name="com.android.extensions.appfunctions" android:required="false"/>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <activity android:theme="@style/Theme.GalleryPhoneWithTitle" android:name="com.samsung.android.gallery.app.activity.GalleryActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="500">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.APP_GALLERY"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/quick_shortcuts"/>
+            <meta-data android:name="com.samsung.keyguard.shortcut.icon" android:resource="@xml/ic_gallery_flat_style_icon"/>
+            <meta-data android:name="com.samsung.android.startingwindow.LAYOUT_RESID_FOR_MASS" android:resource="@layout/splash_layout"/>
+            <meta-data android:name="com.sec.android.app.launcher.icon_theme" android:value="themeColor"/>
+            <intent-filter>
+                <action android:name="com.samsung.android.support.REMOTE_ACTION"/>
+            </intent-filter>
+            <meta-data android:name="com.samsung.android.support.REMOTE_ACTION" android:resource="@xml/remote_action"/>
+        </activity>
+        <activity android:theme="@style/Theme.GalleryCrop" android:name="com.samsung.android.gallery.app.activity.external.CropImageActivity" android:exported="true" android:process=":crop" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize">
+            <intent-filter>
+                <action android:name="com.android.camera.action.CROP"/>
+                <action android:name="com.sec.android.gallery3d.CROP_SEC_ONLY"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.android.gallery3d.sns.photo"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+            </intent-filter>
+        </activity>
+        <activity-alias android:name="com.sec.android.gallery3d.app.CropImage" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:targetActivity="com.samsung.android.gallery.app.activity.external.CropImageActivity"/>
+        <activity android:theme="@style/Theme.GalleryTranslucent36" android:label="@string/app_name" android:name="com.samsung.android.gallery.app.activity.external.ImageQuickViewActivity" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:resumeWhilePausing="true">
+            <intent-filter>
+                <action android:name="android.intent.action.QUICK_VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/image"/>
+                <data android:mimeType="vnd.android.cursor.dir/video"/>
+                <data android:mimeType="image/*"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="video/*" android:scheme="content" android:host="secmedia" android:pathPrefix="/media"/>
+            </intent-filter>
+            <meta-data android:name="com.samsung.android.activity.showWhenLocked" android:value="true"/>
+        </activity>
+        <activity android:theme="@style/Theme.GalleryTranslucent" android:label="@string/app_name" android:name="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:resumeWhilePausing="true">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <action android:name="com.samsung.intent.action.MULTIPLE_PICK"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.SHARED_VIEW"/>
+                <action android:name="com.android.gallery.action.SHARED_PICTURES_VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.ADD_CONTENTS_TO_SHARED_ALBUM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.ALBUM_PICK"/>
+                <action android:name="com.android.gallery.action.ITEM_PICK"/>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.ALBUM_PICK"/>
+                <category android:name="101@Gallery"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.ITEM_PICK"/>
+                <category android:name="11@Gallery"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/image"/>
+                <data android:mimeType="vnd.android.cursor.dir/video"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*" android:scheme="content" android:host="secmedia" android:pathPrefix="/media"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*" android:scheme="content" android:host="secmedia" android:pathPrefix="/media"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/image"/>
+                <data android:mimeType="vnd.android.cursor.dir/video"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.samsung.android.support.executable"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.SHORTCUT_VIEW"/>
+                <action android:name="com.android.gallery.action.SEARCH_SHORTCUT_VIEW"/>
+                <action android:name="com.android.gallery.action.SEARCH_FROM_GALAXY_FINDER_VIEW"/>
+                <action android:name="com.android.gallery.action.RECENT_ALBUM_SHORTCUT_VIEW"/>
+                <action android:name="com.android.gallery.action.FAVORITE_ALBUM_SHORTCUT_VIEW"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.TRASH_VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.samsung.android.sconnect.action.IMAGE_DMR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.VIEW_FAMILY_ALBUM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.SHORTCUT_ALBUM_VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.SHORTCUT_ITEM_VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.gallery.action.SEARCH_VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/gallery_searchable"/>
+            <intent-filter>
+                <action android:name="com.samsung.android.support.REMOTE_ACTION"/>
+            </intent-filter>
+            <meta-data android:name="com.samsung.android.support.REMOTE_ACTION" android:resource="@xml/remote_action"/>
+            <meta-data android:name="com.sec.android.app.launcher.icon_theme" android:value="themeColor"/>
+            <meta-data android:name="com.samsung.android.activity.showWhenLocked" android:value="true"/>
+        </activity>
+        <activity-alias android:name="com.sec.android.gallery3d.app.Gallery" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:targetActivity="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity"/>
+        <activity-alias android:name="com.sec.android.gallery3d.app.GalleryActivity" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:targetActivity="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity">
+            <meta-data android:name="com.samsung.android.activity.showWhenLocked" android:value="true"/>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="com.android.camera.action.REVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme=""/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="application/vnd.google.panorama360+jpg"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.camera.action.REVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*" android:scheme="content" android:host="secmedia"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="app" android:host="com.sec.android.gallery3d" android:pathPrefix="/location"/>
+                <data android:scheme="applink" android:host="com.sec.android.gallery3d" android:pathPrefix="/location"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+                <data android:mimeType="vnd.android.cursor.dir/image"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name="com.sec.android.gallery3d.app.GalleryOpaqueActivity" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:targetActivity="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity">
+            <intent-filter>
+                <action android:name="com.android.gallery.action.ALBUM_PICK"/>
+                <action android:name="com.android.gallery.action.ITEM_PICK"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name="com.sec.android.gallery3d.app.GallerySecureActivity" android:exported="true" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:targetActivity="com.samsung.android.gallery.app.activity.external.GalleryExternalActivity">
+            <meta-data android:name="com.samsung.android.activity.showWhenLocked" android:value="false"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="image/*" android:scheme="content" android:host="secmedia"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="video/*" android:scheme="content" android:host="secmedia"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.samsung.android.gallery.app.activity.UsbAttachActivity" android:exported="true" android:taskAffinity="" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/mtp_device_filter"/>
+        </activity>
+        <activity android:name="com.samsung.android.gallery.app.activity.DlnaActivity" android:exported="false" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize"/>
+        <activity android:theme="@style/Theme.GalleryPhoneWithTitle" android:name="com.samsung.android.gallery.app.activity.GalleryPrivateActivity" android:exported="false" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustPan" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.GalleryPhoneWithTitle" android:name="com.samsung.android.gallery.app.activity.external.LocationPickerActivity" android:exported="false" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:windowSoftInputMode="adjustUnspecified|stateUnchanged|adjustPan"/>
+        <receiver android:name="com.samsung.android.gallery.app.receiver.SharedAlbumNotificationReceiver" android:permission="com.samsung.android.mobileservice.permission.RECEIVE_SEMS_BROADCAST" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SHARE_DELETE_ITEM_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SHARE_ADD_SPACE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SHARE_ADD_ITEM_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.ACTION_SERVICE_STATUS_CHANGED"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_INVITE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_ACCEPT_INVITE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_MEMBER_DELETE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_FORCE_MEMBER_DELETE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_DELETE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SA_FAMILY_GROUP_DELETE_WITH_FEATURE_ID_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SHARE_ENABLE_WEBLINK"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SHARE_DISABLE_WEBLINK"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_DELEGATE_AUTHORITY_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_GROUP_EXPIRATION_NOTICE_PUSH"/>
+                <action android:name="com.samsung.android.mobileservice.social.ACTION_SA_FAMILY_GROUP_EXPIRATION_NOTICE_WITH_FEATURE_ID_PUSH"/>
+                <action android:name="com.samsung.android.intent.action.SHARED_INVITE_DECLINED"/>
+                <action android:name="com.samsung.android.intent.action.SHARED_INVITE_ACCEPTED"/>
+                <action android:name="com.samsung.android.intent.action.ACTION_SHARED_GROUP_DETAIL"/>
+                <action android:name="com.samsung.android.mobileservice.ACTION_REMOVE_NOTIFICATION"/>
+                <action android:name="com.samsung.android.mobileservice.ACTION_OPEN_ONE_PERSON_ALBUM"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.gallery.app.receiver.TrashUpdateReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.action.ACCOUNT_REMOVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.os.storage.action.VOLUME_STATE_CHANGED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_ADDED"/>
+                <action android:name="android.intent.action.USER_REMOVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.gallery.app.receiver.BackupAndRestoreReceiver" android:permission="com.wssnps.permission.COM_WSSNPS" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.android.intent.action.REQUEST_BACKUP_GALLERY_SETTING"/>
+                <action android:name="com.samsung.android.intent.action.REQUEST_RESTORE_GALLERY_SETTING"/>
+                <action android:name="com.samsung.android.intent.action.RESPONSE_BACKUP_GALLERY_SETTING"/>
+                <action android:name="com.samsung.android.intent.action.RESPONSE_RESTORE_GALLERY_SETTING"/>
+                <action android:name="com.samsung.cmh.action.option.restoration"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.gallery.app.receiver.RetailModeReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.intent.action.START_RETAILMODE_PRESET"/>
+                <action android:name="com.samsung.sea.rm.DEMO_RESET_STARTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.gallery.app.receiver.SmartSwitchReceiver" android:permission="com.wssnps.permission.COM_WSSNPS" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.android.intent.action.RESTORING_START"/>
+                <action android:name="com.samsung.android.intent.action.RESTORING_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.samsung.android.gallery.app.provider.LocalProvider" android:enabled="@bool/local_provider_enabled" android:exported="true" android:authorities="com.sec.android.gallery3d.provider" android:syncable="false" android:grantUriPermissions="true"/>
+        <provider android:name="com.samsung.android.gallery.app.provider.LocalProvider2" android:readPermission="com.sec.android.gallery3d.provider2.READ" android:writePermission="com.sec.android.gallery3d.provider2.WRITE" android:exported="true" android:authorities="com.sec.android.gallery3d.provider2" android:syncable="false" android:grantUriPermissions="true">
+            <intent-filter>
+                <action android:name="com.sec.android.gallery3d.MANAGE_TRASH"/>
+            </intent-filter>
+        </provider>
+        <provider android:name="com.samsung.android.gallery.app.provider.GallerySearchProvider" android:enabled="@bool/search_provider_enabled" android:exported="true" android:authorities="com.sec.android.gallery3d.provider.GallerySearchProvider"/>
+        <provider android:name="com.samsung.android.gallery.app.provider.GallerySearchProvider2" android:permission="com.samsung.android.provider.indexing.permission.ACCESS_PROVIDER" android:enabled="@bool/search_provider_v2_enabled" android:exported="true" android:authorities="com.sec.android.gallery3d.provider.GallerySearchProvider2" android:grantUriPermissions="true"/>
+        <provider android:name="com.samsung.android.gallery.app.provider.GalleryFileProvider" android:exported="false" android:authorities="com.sec.android.gallery3d.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider_path"/>
+        </provider>
+        <provider android:name="com.samsung.android.gallery.app.provider.TrashLogProvider" android:exported="false" android:authorities="com.sec.android.gallery3d.provider.TrashLogProvider"/>
+        <provider android:name="com.samsung.android.gallery.app.provider.ShareProvider" android:readPermission="android.permission.READ_EXTERNAL_STORAGE" android:exported="true" android:authorities="com.sec.android.gallery3d.provider.ShareProvider"/>
+        <service android:name="com.samsung.android.gallery.app.service.AddTagService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.EmptyService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.DeleteService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.QuickDeleteService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.DownloadService" android:exported="false" android:foregroundServiceType="40000000"/>
+        <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="high-volume cloud content download"/>
+        <service android:name="com.samsung.android.gallery.app.service.VideoConversionService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.FileOperationService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.FileOpService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.LTWDownloadService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.MtpImportService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.RestoreService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.remote.SlideshowServiceOnRemoteV2" android:exported="false" android:foregroundServiceType="40000000">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="slideshow on remote display"/>
+        </service>
+        <service android:name="com.samsung.android.gallery.app.service.MdeSharingService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.SaveGroupShotService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.StorySaveService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.StoryShareService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.MediaCaptureService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.RemasterService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.MotionPhotoClipService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.HighlightEncodeService" android:exported="false" android:foregroundServiceType="1"/>
+        <service android:name="com.samsung.android.gallery.app.service.RemoteServerService" android:exported="false" android:foregroundServiceType="10"/>
+        <service android:name="com.samsung.android.gallery.app.service.PasteMultiControlService" android:exported="false" android:foregroundServiceType="1"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDzrigoqXXFLjqjepHoqQlS8Utoyga1D-I"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="d112a8e3b8769d9d6183bf2b6795da13"/>
+        <meta-data android:name="com.samsung.android.support.executable" android:resource="@xml/executable"/>
+        <meta-data android:name="resource-map" android:resource="@xml/resource_map"/>
+        <meta-data android:name="com.samsung.android.mobileservice.AppId" android:value="22n6hzkam0"/>
+        <meta-data android:name="com.samsung.android.samsungaccount.CLIENT_ID" android:value="22n6hzkam0"/>
+        <meta-data android:name="com.samsung.android.samsungaccount.b2b.CLIENT_ID" android:value="2uzr3g12m3"/>
+        <meta-data android:name="com.samsung.android.mobileservice.IntentRequest" android:value="true"/>
+        <meta-data android:name="com.samsung.android.mobileservice.social.featurelist" android:value="family_group_sharing|global_group_sharing"/>
+        <meta-data android:name="com.samsung.android.mobileservice.social.feature.family_group_sharing.action" android:value="com.android.gallery.action.SHARED_VIEW"/>
+        <meta-data android:name="com.samsung.android.mobileservice.social.feature.invitation_link.action" android:value="com.android.gallery.action.SHARED_PICTURES_VIEW"/>
+        <meta-data android:name="support_local_group_delegation" android:value="true"/>
+        <meta-data android:name="use_family_group" android:value="true"/>
+        <meta-data android:name="com.samsung.android.foldable.continue_apps_group" android:value="com.samsung.app.highlightplayer,com.samsung.app.slowmotion,com.samsung.android.video,com.samsung.android.videolist,com.sec.android.app.vepreload"/>
+        <meta-data android:name="com.samsung.android.foldable.keep_cutout_mode_in_tent_mode" android:value="true"/>
+        <property android:name="android.app.appfunctions.app_metadata" android:resource="@xml/appfunctions_metadata"/>
+        <property android:name="android.app.appfunctions.app_function_schema_version" android:value="3"/>
+        <activity android:theme="@style/Theme.MotionPhotoMain" android:label="@string/compare_images" android:name="com.samsung.android.gallery.plugins.compare.CompareActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="false"/>
+        <activity android:theme="@style/Theme.MotionPhotoMain" android:label="@string/view_motion_photo" android:name="com.samsung.android.gallery.plugins.motionphoto.MotionPhotoActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="false"/>
+        <activity android:theme="@style/Theme.MotionPhotoMain" android:label="@string/merged_motion_player" android:name="com.samsung.android.gallery.plugins.mergeplayer.MergeMotionPhotoActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="false"/>
+        <activity android:theme="@style/Theme.MotionPhotoMain" android:label="@string/file_browser" android:name="com.samsung.android.gallery.plugins.filebrowser.FileBrowseActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.LiveEffect" android:label="@string/live_effect" android:name="com.samsung.android.gallery.plugins.portrait.LiveEffectActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="false"/>
+        <activity android:theme="@style/Theme.Panorama" android:label="@string/camera_capture_mode_panorama" android:name="com.samsung.android.gallery.plugins.panorama.PanoramaActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:enableOnBackInvokedCallback="false"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/gallery_settings" android:name="com.samsung.android.gallery.settings.activity.SettingActivity" android:exported="true" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+            <intent-filter>
+                <action android:name="com.sec.android.intent.action.SEC_APPLICATION_SETTINGS"/>
+                <category android:name="com.sec.android.intent.category.SEC_APPLICATION_SETTINGS"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="applink" android:host="com.sec.android.gallery3d.settings"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/edit_menu_options" android:name="com.samsung.android.gallery.settings.activity.EditMenuOptionsActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/intelligent_features" android:name="com.samsung.android.gallery.settings.activity.IntelligentFeaturesActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+            <intent-filter>
+                <action android:name="com.android.gallery.settings.action.ACTION_VIEW_INTELLIGENT_FEATURES"/>
+                <category android:name="com.sec.android.intent.category.SEC_APPLICATION_SETTINGS"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/edit_suggestions" android:name="com.samsung.android.gallery.settings.activity.EditSuggestionsActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+            <intent-filter>
+                <action android:name="com.samsung.android.settings.action.INTELLIGENT_FEATURES_SETTINGS"/>
+                <action android:name="com.android.settings.MANUFACTURER_APPLICATION_SETTING"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.title" android:resource="@string/edit_suggestions"/>
+            <meta-data android:name="com.android.settings.summary" android:resource="@string/discover_smart_new_ways_to_improve_your_photos"/>
+            <meta-data android:name="com.android.settings.icon" android:resource="@drawable/mainmenu_icon_gallery"/>
+            <meta-data android:name="com.android.settings.category" android:value="com.samsung.android.settings.category.ia.intelligentfeatures"/>
+            <meta-data android:name="com.android.settings.order" android:value="130000"/>
+            <meta-data android:name="com.samsung.android.settings.is.intelligent.features.category" android:value="com.samsung.android.settings.is.intelligent.features.category.creativity"/>
+            <meta-data android:name="com.android.settings.keyhint" android:value="key_edit_suggestions"/>
+        </activity>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/edit_suggestions" android:name="com.samsung.android.gallery.settings.activity.AIEditSuggestionsActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/detail_enhancer" android:name="com.samsung.android.gallery.settings.activity.DetailEnhancerActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:name="com.samsung.android.gallery.settings.activity.SharedAlbumNotificationActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+            <intent-filter>
+                <action android:name="com.android.gallery.settings.action.VIEW_SHARED_ALBUM_NOTIFICATIONS"/>
+                <category android:name="com.sec.android.intent.category.SEC_APPLICATION_SETTINGS"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="applink" android:host="com.sec.android.gallery3d.settings.shared"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/about_gallery_setting" android:name="com.samsung.android.gallery.settings.activity.AboutActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|screenLayout|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:name="com.samsung.android.gallery.settings.activity.GenericSettingActivity" android:exported="false" android:launchMode="standard" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/open_source_licences" android:name="com.samsung.android.gallery.settings.activity.OpenSourceActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/third_party_access_notice_title" android:name="com.samsung.android.gallery.settings.activity.ThirdPartyAccessActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <activity android:theme="@style/Theme.SettingPreference" android:label="@string/permissions" android:name="com.samsung.android.gallery.settings.activity.AppPermissionActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback">
+            <intent-filter>
+                <action android:name="com.sec.android.app.secsetupwizard.APP_PERMISSIONS_FOR_CHINA"/>
+                <action android:name="com.samsung.android.spv.ACTION_VIEW_DETAIL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.SettingPreference" android:name="com.samsung.android.gallery.settings.activity.TwoStepVerificationActivity" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection" android:uiOptions="none" android:enableOnBackInvokedCallback="@bool/enableOnBackInvokedCallback"/>
+        <provider android:name="com.samsung.android.gallery.settings.provider.SettingSearchIndexablesProvider" android:permission="android.permission.READ_SEARCH_INDEXABLES" android:exported="true" android:authorities="com.sec.android.gallery3d.provider.SettingSearchIndexablesProvider" android:grantUriPermissions="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER"/>
+            </intent-filter>
+            <meta-data android:name="com.samsung.android.settings.require_config_changes" android:value="userID"/>
+            <meta-data android:name="com.samsung.android.settings.require_settings_key" android:value="top_level_gallery_settings_main_screen"/>
+            <meta-data android:name="com.samsung.android.settings.require_settings_title" android:value="@string/gallery_settings"/>
+            <meta-data android:name="com.samsung.android.settings.intelligence.tag_preset" android:resource="@raw/tag_preset"/>
+        </provider>
+        <activity android:theme="@style/Theme.GalleryPhoneWithTitle360" android:name="com.samsung.android.gallery.image360.activity.Image360Activity" android:exported="false" android:configChanges="navigation|orientation|screenLayout|screenSize"/>
+        <meta-data android:name="com.samsung.android.bixby.capsuleId" android:value="viv.galleryApp"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:label="@string/app_name" android:name="com.samsung.android.gallery.bixby.activity.GalleryBixbyActivity" android:exported="true" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="applink" android:host="com.sec.android.gallery3d"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.samsung.android.gallery.bixby.bixbycard.GalleryCardProvider" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.android.app.spage.action.CARD_UPDATE"/>
+                <action android:name="com.samsung.android.app.spage.action.CARD_INSTANT_UPDATE"/>
+                <action android:name="com.samsung.android.app.spage.action.CARD_EVENT"/>
+                <action android:name="com.samsung.android.app.spage.action.CARD_ENABLED"/>
+                <action android:name="com.samsung.android.app.spage.action.CARD_DISABLED"/>
+                <action android:name="com.samsung.android.app.spage.action.MULTI_INSTANCE_PREFERENCE_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.samsung.android.sdk.spage.card.info" android:resource="@xml/cards"/>
+        <receiver android:name="com.samsung.android.gallery.module.receiver.UsbDetachReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED"/>
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_DETACHED" android:resource="@xml/mtp_device_filter"/>
+        </receiver>
+        <receiver android:name="com.samsung.android.gallery.module.receiver.CloudScpmReceiver" android:permission="com.samsung.android.permission.READ_SCPM" android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.android.scpm.policy.UPDATE.gallery-gotolink"/>
+                <action android:name="com.samsung.android.scpm.policy.UPDATE.gallery-config"/>
+                <action android:name="com.samsung.android.scpm.policy.CLEAR_DATA"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.sec.android.diagmonagent.log.provider.DiagMonProvider" android:permission="com.sec.android.diagmonagent.permission.PROVIDER" android:exported="true" android:authorities="com.sec.android.log.sgie2l9fjk"/>
+        <service android:name="com.samsung.android.gallery.module.idleworker.IdleWorker" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false" android:foregroundServiceType="40000000"/>
+        <uses-native-library android:name="libSDKRecognitionOCR.spenocr.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libStride.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libSDKMoireDetector.spenocr.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libimagecodec.quram.so" android:required="false"/>
+        <uses-native-library android:name="libagifencoder.quram.so" android:required="false"/>
+        <uses-native-library android:name="libVideoClassifier.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libSmartScan.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libQREngine.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libPortraitSolution.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libSlowShutter_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libapex_motionphoto_utils_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libapex_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libdvs.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libSDKRecognitionOCR.spenocr.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libSDKMoireDetector.spenocr.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libStride.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libOpenCv.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libLttEngine_RR.so" android:required="false"/>
+        <uses-native-library android:name="libimagecodec.quram.so" android:required="false"/>
+        <uses-native-library android:name="libsavscmn.so" android:required="false"/>
+        <uses-native-library android:name="libLttEngine.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libOpenCL.so" android:required="false"/>
+        <uses-native-library android:name="libcommon-jni.vexfwk.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsdk-jni.vexfwk.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsdk-v2-jni.vexfwk.samsung.so" android:required="false"/>
+        <meta-data android:name="com.samsung.android.app.sdk.deepsky.textextraction.versionName" android:value="8.5.30"/>
+        <provider android:name="com.samsung.android.sdk.bixby2.provider.CapsuleProvider" android:exported="true" android:authorities="com.sec.android.gallery3d.CapsuleProvider"/>
+        <meta-data android:name="com.samsung.android.sdk.bixby2.companionApp" android:value="true"/>
+        <meta-data android:name="com.samsung.android.sdk.bixby2.version" android:value="@string/sdk_version"/>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.sec.android.gallery3d.androidx-startup">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <uses-native-library android:name="libOpenCL.so" android:required="true"/>
+        <uses-native-library android:name="libFace_Landmark_API.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libOpenCv.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libOpenCL.so" android:required="false"/>
+        <uses-native-library android:name="libobjectcapture_jni.arcsoft.so" android:required="false"/>
+        <uses-native-library android:name="libobjectcapture.arcsoft.so" android:required="false"/>
+        <uses-native-library android:name="libdvs.camera.samsung.so" android:required="false"/>
+        <meta-data android:name="com.samsung.android.app.sdk.deepsky.objectcapture.versionName" android:value="8.5.9"/>
+        <meta-data android:name="com.samsung.android.app.sdk.deepsky.versionName" android:value="6.1.0"/>
+        <uses-native-library android:name="libQREngine.camera.samsung.so" android:required="false"/>
+        <meta-data android:name="com.samsung.android.sdk.moneta.versionName" android:value="1.0.40"/>
+        <service android:name="androidx.appfunctions.service.PlatformAppFunctionService" android:permission="android.permission.BIND_APP_FUNCTION_SERVICE" android:enabled="@bool/enablePlatformAppFunctionService" android:exported="true">
+            <property android:name="android.app.appfunctions" android:value="app_functions.xml"/>
+            <property android:name="android.app.appfunctions.schema" android:value="app_functions_schema.xsd"/>
+            <property android:name="android.app.appfunctions.v2" android:value="app_functions_v2.xml"/>
+            <intent-filter>
+                <action android:name="android.app.appfunctions.AppFunctionService"/>
+            </intent-filter>
+        </service>
+        <service android:name="androidx.appfunctions.service.ExtensionAppFunctionService" android:permission="android.permission.BIND_APP_FUNCTION_SERVICE" android:enabled="@bool/enableExtensionAppFunctionService" android:exported="true">
+            <property android:name="android.app.appfunctions" android:value="app_functions.xml"/>
+            <property android:name="android.app.appfunctions.schema" android:value="app_functions_schema.xsd"/>
+            <property android:name="android.app.appfunctions.v2" android:value="app_functions_v2.xml"/>
+            <intent-filter>
+                <action android:name="android.app.appfunctions.AppFunctionService"/>
+            </intent-filter>
+        </service>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+        <activity android:theme="@style/WhiteBackgroundTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity" android:exported="true">
+            <intent-filter android:priority="-100">
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WhiteBackgroundTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity" android:exported="true">
+            <intent-filter android:priority="-100">
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/WhiteBackgroundDialogTheme" android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity" android:exported="true">
+            <intent-filter android:priority="-100">
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <uses-native-library android:name="libapex_motionphoto_utils_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libmotionphoto_utils_jni.media.samsung.so" android:required="false"/>
+        <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <activity android:name="androidx.slice.compat.SlicePermissionActivity" android:excludeFromRecents="true"/>
+        <uses-native-library android:name="libSlowShutter_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsume_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsum_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsume_mediabuffer_jni.media.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libRemasterEngine.camera.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libcommon-jni.vexfwk.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsdk-jni.vexfwk.samsung.so" android:required="false"/>
+        <uses-native-library android:name="libsdk-v2-jni.vexfwk.samsung.so" android:required="false"/>
+        <meta-data android:name="com.samsung.android.sdk.spage.version" android:value="1.3.01.0"/>
+        <meta-data android:name="com.samsung.android.sdk.spage.version_code" android:value="130100000"/>
+        <uses-native-library android:name="libQREngine.camera.samsung.so" android:required="false"/>
+        <meta-data android:name="SPDE.build.signature" android:value="c963dd802e6d73557128df06a9d002712b556726/177645730/release/Gallery-1500061-15.8.00"/>
+        <meta-data android:name="SPDE.env.version" android:value="8.12.0/G36.2.9/1.2.10"/>
+    </application>
+</manifest>

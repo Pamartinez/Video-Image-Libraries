@@ -1,0 +1,47 @@
+package com.samsung.android.app.sdk.deepsky.textextraction;
+
+public abstract class R$drawable {
+    public static final int capsule_add_to_contact = 2131231322;
+    public static final int capsule_bank_account_transfer = 2131231323;
+    public static final int capsule_book = 2131231324;
+    public static final int capsule_calendar = 2131231325;
+    public static final int capsule_call_phone = 2131231326;
+    public static final int capsule_convert_unit = 2131231328;
+    public static final int capsule_copy_all = 2131231329;
+    public static final int capsule_coupon = 2131231330;
+    public static final int capsule_email = 2131231331;
+    public static final int capsule_food_drinks = 2131231336;
+    public static final int capsule_internet_web = 2131231338;
+    public static final int capsule_location = 2131231339;
+    public static final int capsule_membership = 2131231340;
+    public static final int capsule_notes = 2131231343;
+    public static final int capsule_reminder = 2131231344;
+    public static final int capsule_send_to_message = 2131231345;
+    public static final int capsule_share = 2131231346;
+    public static final int capsule_shopping = 2131231347;
+    public static final int capsule_translate = 2131231349;
+    public static final int capsule_traveling = 2131231350;
+    public static final int copypaste_text_select_handle_mtrl_01 = 2131231458;
+    public static final int copypaste_text_select_handle_mtrl_02 = 2131231459;
+    public static final int copypaste_text_select_handle_mtrl_ai_select_01 = 2131231460;
+    public static final int copypaste_text_select_handle_mtrl_ai_select_02 = 2131231461;
+    public static final int drag_and_drop_background = 2131231504;
+    public static final int lang_change_background = 2131232082;
+    public static final int lang_close_btn_background = 2131232084;
+    public static final int lang_code_background = 2131232086;
+    public static final int language_item_background = 2131232089;
+    public static final int line_dotted = 2131232095;
+    public static final int magnifer_boundary = 2131232109;
+    public static final int qr_dialog_account_icon = 2131232243;
+    public static final int qr_dialog_defult_icon = 2131232248;
+    public static final int qr_dialog_galaxy_icon = 2131232249;
+    public static final int qr_dialog_link_icon = 2131232250;
+    public static final int qr_dialog_link_to_phone_icon = 2131232251;
+    public static final int qr_dialog_map_icon = 2131232252;
+    public static final int qr_dialog_pay_icon = 2131232254;
+    public static final int qr_dialog_pix_icon = 2131232255;
+    public static final int qr_dialog_search_nearby_icon = 2131232256;
+    public static final int qr_dialog_sim_icon = 2131232258;
+    public static final int qr_dialog_smart_things_icon = 2131232259;
+    public static final int qr_dialog_wifi_icon = 2131232260;
+}

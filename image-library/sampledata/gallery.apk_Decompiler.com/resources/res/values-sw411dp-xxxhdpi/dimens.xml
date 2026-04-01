@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="album_divider_padding">2px</dimen>
+    <dimen name="gallery_sub_edge_icon_size">84px</dimen>
+    <dimen name="search_category_stories_item_height">210dp</dimen>
+    <dimen name="search_category_stories_item_width">184dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v80">408dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v85">270dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v80">386dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v85">380dp</dimen>
+</resources>

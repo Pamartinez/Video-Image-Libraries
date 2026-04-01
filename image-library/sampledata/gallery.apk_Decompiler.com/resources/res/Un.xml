@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_gravity="center" android:id="@+id/film_strip_layout" android:background="@color/viewer_ps_background_color" android:visibility="invisible" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="@dimen/film_strip3_view_height">
+    <com.samsung.android.gallery.widget.filmstrip3.FilmStripView android:id="@+id/film_strip_view" android:layout_width="match_parent" android:layout_height="@dimen/film_strip3_view_height" android:layout_centerVertical="true"/>
+    <com.samsung.android.gallery.widget.filmstrip3.SeekerView android:id="@+id/seeker_view" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/film_strip3_view_height" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

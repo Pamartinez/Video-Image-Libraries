@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sesl_config_prefSnackWidth">37.5%</dimen>
+    <dimen name="suggestions_card_recycler_view_bottom_padding">30dp</dimen>
+    <dimen name="suggestions_card_top_padding">30dp</dimen>
+</resources>

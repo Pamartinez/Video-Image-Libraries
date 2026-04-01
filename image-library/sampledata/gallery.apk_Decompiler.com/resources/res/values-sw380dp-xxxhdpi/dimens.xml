@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stories_category_creation_item_width_v85">173dp</dimen>
+    <dimen name="stories_category_transitory_content_height_v85">252dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v85">354dp</dimen>
+</resources>

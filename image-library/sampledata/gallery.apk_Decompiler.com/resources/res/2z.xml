@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="16dp" android:width="16dp" android:viewportWidth="16" android:viewportHeight="16">
+    <path android:fillColor="@color/floating_recent_searches_item_text_color" android:pathData="M3.313,3.313C3.508,3.118 3.825,3.118 4.02,3.313L8,7.293L11.98,3.313C12.175,3.118 12.492,3.118 12.687,3.313C12.882,3.508 12.882,3.825 12.687,4.02L8.707,8L12.687,11.98C12.882,12.175 12.882,12.492 12.687,12.687C12.492,12.882 12.175,12.882 11.98,12.687L8,8.707L4.02,12.687C3.825,12.882 3.508,12.882 3.313,12.687C3.118,12.492 3.118,12.175 3.313,11.98L7.293,8L3.313,4.02C3.118,3.825 3.118,3.508 3.313,3.313Z" android:fillType="1"/>
+</vector>

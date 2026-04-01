@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_gravity="bottom" android:id="@+id/floating_recommendation_view" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView android:layout_gravity="bottom" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@+id/floating_history_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="28dp">
+                <LinearLayout android:paddingBottom="@dimen/search_recommend_header_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.5dp" android:paddingHorizontal="18dp">
+                    <TextView android:gravity="left|center_vertical|center_horizontal|center|start" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/recent_search" android:layout_weight="1" style="@style/RecommendationTitleTextStyle"/>
+                    <TextView android:textColor="@color/bottom_search_toolbar_floating_clear_all_color" android:gravity="right|center_vertical|center_horizontal|center|end" android:id="@+id/clear_history_button" android:background="@drawable/button_ripple" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delete_history" android:paddingHorizontal="@dimen/search_recommend_item_list_padding_horizontal" style="@style/RecommendationTitleTextStyle"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/floating_history_view" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+            </LinearLayout>
+            <com.samsung.android.gallery.widget.flexboxlist.FlexBoxListView android:id="@+id/floating_suggestion_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" android:paddingHorizontal="@dimen/search_recommend_item_list_padding_horizontal"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="remaster_viewer_content_height_ratio">0.52</dimen>
+    <dimen name="stories_top_color_effect_view_height">280dp</dimen>
+</resources>

@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להוסיף %d פריט ענן לאלבום המשותף?</item>
+        <item quantity="two">האם להוסיף %d פריטי ענן לאלבום המשותף?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להוסיף %d פריטי ענן לאלבום המשותף?</item>
+        <item quantity="other">האם להוסיף %d פריטי ענן לאלבום המשותף?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">עליך להיות בן %d לפחות כדי להשתמש בתכונות חכמות.</item>
+        <item quantity="two">עליך להיות בן %d לפחות כדי להשתמש בתכונות חכמות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">עליך להיות בן %d לפחות כדי להשתמש בתכונות חכמות.</item>
+        <item quantity="other">עליך להיות בן %d לפחות כדי להשתמש בתכונות חכמות.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d</item>
+        <item quantity="two">%d תמונות</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות</item>
+        <item quantity="other">%d תמונות</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ניתן להוסיף לפרסום Meitu לכל היותר סרטון %d.</item>
+        <item quantity="two">ניתן להוסיף לפרסום Meitu לכל היותר %d סרטונים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">ניתן להוסיף לפרסום Meitu לכל היותר %d סרטונים.</item>
+        <item quantity="other">ניתן להוסיף לפרסום Meitu לכל היותר %d סרטונים.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן למחוק %1$d תמונה %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן למחוק %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן למחוק %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן למחוק %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן למחוק %1$d פריט %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן למחוק %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן למחוק %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן למחוק %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן למחוק %1$d סרטון %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן למחוק %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן למחוק %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן למחוק %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ניתן לכלול בפרסום Meitu לכל היותר פריט %d.</item>
+        <item quantity="two">ניתן לכלול בפרסום Meitu לכל היותר %d פריטים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">ניתן לכלול בפרסום Meitu לכל היותר %d פריטים.</item>
+        <item quantity="other">ניתן לכלול בפרסום Meitu לכל היותר %d פריטים.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d תמונה %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d תמונות %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d פריט %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d פריטים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d סרטון %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d סרטונים %2$s. ה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להוסיף יותר מפריט אחד (%d) בכל פעם.</item>
+        <item quantity="two">לא ניתן להוסיף יותר מ-%d פריטים בכל פעם.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להוסיף יותר מ-%d פריטים בכל פעם.</item>
+        <item quantity="other">לא ניתן להוסיף יותר מ-%d פריטים בכל פעם.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ניתן להוסיף לסיפור לכל היותר %d פריט.</item>
+        <item quantity="two">ניתן להוסיף לסיפור לכל היותר %d פריטים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">ניתן להוסיף לסיפור לכל היותר %d פריטים.</item>
+        <item quantity="other">ניתן להוסיף לסיפור לכל היותר %d פריטים.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">עיר %d</item>
+        <item quantity="two">%d ערים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d ערים</item>
+        <item quantity="other">%d ערים</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d תמונה. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d תמונות. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d תמונות. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d תמונות. פנה שטח ב-%2$s ונסה שוב.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d פריט. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d פריטים. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d פריטים. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d פריטים. פנה שטח ב-%2$s ונסה שוב.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d סרטון. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d סרטונים. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d סרטונים. פנה שטח ב-%2$s ונסה שוב.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d סרטונים. פנה שטח ב-%2$s ונסה שוב.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן לשחזר %1$d סרטון. הסרטון שוחזר או נמחק ביישום %2$s.</item>
+        <item quantity="two">לא ניתן לשחזר %1$d סרטונים. אותם סרטונים שוחזרו או נמחקו ביישום %2$s.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן לשחזר %1$d סרטונים. אותם סרטונים שוחזרו או נמחקו ביישום %2$s.</item>
+        <item quantity="other">לא ניתן לשחזר %1$d סרטונים. אותם סרטונים שוחזרו או נמחקו ביישום %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להסיר %d פריט. נסה שוב.</item>
+        <item quantity="two">לא ניתן להסיר %d פריטים. נסה שוב.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להסיר %d פריטים. נסה שוב.</item>
+        <item quantity="other">לא ניתן להסיר %d פריטים. נסה שוב.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d אלבום משותף</item>
+        <item quantity="two">%d אלבומים משותפים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אלבומים משותפים</item>
+        <item quantity="other">%d אלבומים משותפים</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d סיפור</item>
+        <item quantity="two">%d סיפורים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סיפורים</item>
+        <item quantity="other">%d סיפורים</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של תאריך ושעה השתנו בתמונה %d.</item>
+        <item quantity="two">מידע של תאריך ושעה השתנו ב-%d תמונות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של תאריך ושעה השתנו ב-%d תמונות.</item>
+        <item quantity="other">מידע של תאריך ושעה השתנו ב-%d תמונות.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של תאריך ושעה השתנו בפריט %d.</item>
+        <item quantity="two">מידע של תאריך ושעה השתנו ב- %d פריטים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של תאריך ושעה השתנו ב- %d פריטים.</item>
+        <item quantity="other">מידע של תאריך ושעה השתנו ב- %d פריטים.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של תאריך ושעה השתנו בווידאו %d.</item>
+        <item quantity="two">מידע של תאריך ושעה השתנו ב-%d סרטוני וידאו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של תאריך ושעה השתנו ב-%d סרטוני וידאו.</item>
+        <item quantity="other">מידע של תאריך ושעה השתנו ב-%d סרטוני וידאו.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d אלבום?</item>
+        <item quantity="two">האם למחוק %d אלבומים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d אלבומים?</item>
+        <item quantity="other">האם למחוק %d אלבומים?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק קבוצה אחת, %d אלבום ואת הפריט האחד שבתוכם?</item>
+        <item quantity="two">האם למחוק קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם?</item>
+        <item quantity="other">האם למחוק קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d קבוצה?</item>
+        <item quantity="two">האם למחוק %d קבוצות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d קבוצות?</item>
+        <item quantity="other">האם למחוק %d קבוצות?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d תמונה?</item>
+        <item quantity="two">האם למחוק %d תמונות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d תמונות?</item>
+        <item quantity="other">האם למחוק %d תמונות?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d פריט?</item>
+        <item quantity="two">האם למחוק %d פריטים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d פריטים?</item>
+        <item quantity="other">האם למחוק %d פריטים?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d קבוצות של תמונות דומות?</item>
+        <item quantity="two">האם למחוק %d קבוצות של תמונות דומות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d קבוצות של תמונות דומות?</item>
+        <item quantity="other">האם למחוק %d קבוצות של תמונות דומות?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d קבוצות של פריטים דומים ופריט אחד אחר?</item>
+        <item quantity="two">האם למחוק %d קבוצות של תמונות דומות ופריט אחד אחר?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d קבוצות של תמונות דומות ופריט אחד אחר?</item>
+        <item quantity="other">האם למחוק %d קבוצות של תמונות דומות ופריט אחד אחר?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק קבוצה אחת של תמונות דומות ו- %d פריטים אחרים?</item>
+        <item quantity="two">האם למחוק קבוצה אחת של תמונות דומות ו- %d פריטים אחרים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק קבוצה אחת של תמונות דומות ו- %d פריטים אחרים?</item>
+        <item quantity="other">האם למחוק קבוצה אחת של תמונות דומות ו- %d פריטים אחרים?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d פריט מסדרה זו?</item>
+        <item quantity="two">האם למחוק %d פריטים מסדרה זו?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק תמונה %d מסדרה זו?</item>
+        <item quantity="other">האם למחוק %d פריטים מסדרה זו?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק את קטע הווידאו מתמונת תנועה %d?</item>
+        <item quantity="two">האם למחוק את קטע הווידאו מ-%d תמונות התנועה?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק את קטע הווידאו מ-%d תמונות התנועה?</item>
+        <item quantity="other">האם למחוק את קטע הווידאו מ-%d תמונות התנועה?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק תמונה %d מקבוצה זו?</item>
+        <item quantity="two">האם למחוק %d תמונות מקבוצה זו?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d תמונות מקבוצה זו?</item>
+        <item quantity="other">האם למחוק %d תמונות מקבוצה זו?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d סדרה של &apos;טייק בודד&apos;?</item>
+        <item quantity="two">האם למחוק %d סדרות של &apos;טייק בודד&apos;?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d סדרות של &apos;טייק בודד&apos;?</item>
+        <item quantity="other">האם למחוק %d סדרות של &apos;טייק בודד&apos;?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d סרטון?</item>
+        <item quantity="two">האם למחוק %d סרטונים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d סרטונים?</item>
+        <item quantity="other">האם למחוק %d סרטונים?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תוכל להציג תוכן זה פעם %d נוספת. להציג עכשיו?</item>
+        <item quantity="two">תוכל להציג תוכן זה %d פעמים נוספות. להציג עכשיו?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">תוכל להציג תוכן זה %d פעמים נוספות. להציג עכשיו?</item>
+        <item quantity="other">תוכל להציג תוכן זה %d פעמים נוספות. להציג עכשיו?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d אלבום ריק יימחק בלי להגיע לסל המיחזור.</item>
+        <item quantity="two">%d אלבומים ריבים יימחקו בלי להגיע לסל המיחזור.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אלבומים ריבים יימחקו בלי להגיע לסל המיחזור.</item>
+        <item quantity="other">%d אלבומים ריבים יימחקו בלי להגיע לסל המיחזור.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריטים בסל המיחזור יימחקו לצמיתות לאחר %d יום.</item>
+        <item quantity="two">פריטים בסל המיחזור יימחקו לצמיתות לאחר %d ימים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">פריטים בסל המיחזור יימחקו לצמיתות לאחר %d ימים.</item>
+        <item quantity="other">פריטים בסל המיחזור יימחקו לצמיתות לאחר %d ימים.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d נמחקה לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותק בסל המיחזור.</item>
+        <item quantity="two">%d תמונות נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="other">%d תמונות נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריט %d נמחק לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותק בסל המיחזור.</item>
+        <item quantity="two">%d פריטים נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="other">%d פריטים נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">וידאו %d נמחק לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותק בסל המיחזור.</item>
+        <item quantity="two">%d סרטוני וידאו נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סרטוני וידאו נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+        <item quantity="other">%d סרטוני וידאו נמחקו לצמיתות מהטלפון. עבור אל OneDrive כדי למחוק משם את העותקים בסל המיחזור.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d נמחקה לצמיתות.</item>
+        <item quantity="two">%d תמונות נמחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות נמחקו לצמיתות.</item>
+        <item quantity="other">%d תמונות נמחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריט %d נמחק לצמיתות.</item>
+        <item quantity="two">%d פריטים נמחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים נמחקו לצמיתות.</item>
+        <item quantity="other">%d פריטים נמחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">וידאו %d נמחק לצמיתות.</item>
+        <item quantity="two">%d סרטוני וידאו נמחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סרטוני וידאו נמחקו לצמיתות.</item>
+        <item quantity="other">%d סרטוני וידאו נמחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תצוגת רשת עם תמונה ממוזערת אחת (%d) בכל שורה</item>
+        <item quantity="two">תצוגת רשת עם %d תמונות ממוזערות בכל שורה</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">תצוגת רשת עם %d תמונות ממוזערות בכל שורה</item>
+        <item quantity="other">תצוגת רשת עם %d תמונות ממוזערות בכל שורה</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d קבוצה, אלבום אחד</item>
+        <item quantity="two">%d קבוצות, אלבום אחד</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d קבוצות, אלבום אחד</item>
+        <item quantity="other">%d קבוצות, אלבום אחד</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d הורדה מהענן.</item>
+        <item quantity="two">%d תמונות הורדו מהענן.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות הורדו מהענן.</item>
+        <item quantity="other">%d תמונות הורדו מהענן.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">התמונות שוחזרו. לא ניתן לשחזר %1$d תמונת %2$s משום שה-%3$s נעול, בעקבות בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">התמונות שוחזרו. לא ניתן לשחזר %1$d תמונות %2$s משום שה-%3$s נעול, בעקבות בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">התמונות שוחזרו. לא ניתן לשחזר %1$d תמונות %2$s משום שה-%3$s נעול, בעקבות בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">התמונות שוחזרו. לא ניתן לשחזר %1$d תמונות %2$s משום שה-%3$s נעול, בעקבות בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריט %d נשמר.</item>
+        <item quantity="two">%d פריטים נשמרו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים נשמרו.</item>
+        <item quantity="other">%d פריטים נשמרו.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריט %d הורד מהענן.</item>
+        <item quantity="two">%d פריטים הורדו מהענן.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים הורדו מהענן.</item>
+        <item quantity="other">%d פריטים הורדו מהענן.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">הפריטים שוחזרו. לא ניתן לשחזר %1$d פריט %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">הפריטים שוחזרו. לא ניתן לשחזר %1$d פריטים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">הפריטים שוחזרו. לא ניתן לשחזר %1$d פריטים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">הפריטים שוחזרו. לא ניתן לשחזר %1$d פריטים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של מיקום השתנה בתמונה %d.</item>
+        <item quantity="two">מידע של מיקום השתנה ב-%d תמונות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של מיקום השתנה ב-%d תמונות.</item>
+        <item quantity="other">מידע של מיקום השתנה ב-%d תמונות.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של מיקום השתנה בפריט %d.</item>
+        <item quantity="two">מידע של מיקום השתנה ב-%d פריטים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של מיקום השתנה ב-%d פריטים.</item>
+        <item quantity="other">מידע של מיקום השתנה ב-%d פריטים.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מידע של מיקום השתנה בסרטון %d.</item>
+        <item quantity="two">מידע של מיקום השתנה ב-%d סרטוני וידאו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מידע של מיקום השתנה ב-%d סרטוני וידאו.</item>
+        <item quantity="other">מידע של מיקום השתנה ב-%d סרטוני וידאו.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d מיקום</item>
+        <item quantity="two">%d מיקומים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d מיקומים</item>
+        <item quantity="other">%d מיקומים</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ניתן להזין לכל היותר %d תו.</item>
+        <item quantity="two">ניתן להזין לכל היותר %d תווים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">ניתן להזין לכל היותר %d תווים.</item>
+        <item quantity="other">ניתן להזין לכל היותר %d תווים.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">קטע הווידאו מתמונת התנועה %d נשמר.</item>
+        <item quantity="two">קטעי הווידאו מ-%d תמונות התנועה נשמרו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">קטעי הווידאו מ-%d תמונות התנועה נשמרו.</item>
+        <item quantity="other">קטעי הווידאו מ-%d תמונות התנועה נשמרו.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d תמונת רצף אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d תמונת רצף אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות רצף אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר קבוצה אחת, אלבום אחד ואת %d הפריט שבתוכם אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר קבוצה אחת, אלבום אחד ואת %d הפריטים שבתוכם אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר קבוצה אחת, אלבום אחד ואת %d הפריטים שבתוכם אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר קבוצה אחת, אלבום אחד ואת %d הפריטים שבתוכם אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר קבוצה אחת, %d אלבום ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר קבוצה אחת, %d אלבומים ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d קבוצה, אלבום אחד ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d קבוצות, אלבום אחד ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d קבוצות, אלבום אחד ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d קבוצות, אלבום אחד ואת הפריט האחד שבתוכם אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d תמונה מצילום הרצף אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d תמונה מצילום הרצף אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר תמונה %d לסל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות לסל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות לסל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות לסל המיחזור?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d פריט אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d פריטים אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d פריטים אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d פריטים אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d פריט</item>
+        <item quantity="two">%d פריטים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים</item>
+        <item quantity="other">%d פריטים</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d תמונות אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר אל סל המיחזור %d קבוצות, שבתוכן תמונה דומה אחת ופריט אחד נוסף?</item>
+        <item quantity="two">האם להעביר אל סל המיחזור %d קבוצות, שבתוכן תמונה דומה אחת ופריט אחד נוסף?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר אל סל המיחזור %d קבוצות, שבתוכן תמונה דומה אחת ופריט אחד נוסף?</item>
+        <item quantity="other">האם להעביר אל סל המיחזור %d קבוצות, שבתוכן תמונה דומה אחת ופריט אחד נוסף?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר אל סל המיחזור קבוצה אחת, שבתוכה תמונה דומה אחת ו-%d פריטים נוספים?</item>
+        <item quantity="two">האם להעביר אל סל המיחזור קבוצה אחת, שבתוכה תמונה דומה אחת ו-%d פריטים נוספים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר אל סל המיחזור קבוצה אחת, שבתוכה תמונה דומה אחת ו-%d פריטים נוספים?</item>
+        <item quantity="other">האם להעביר אל סל המיחזור קבוצה אחת, שבתוכה תמונה דומה אחת ו-%d פריטים נוספים?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d פריט מסדרה זו אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d פריטים מסדרה זו אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d פריטים מסדרה זו אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d פריטים מסדרה זו אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר תמונה %d מקבוצה זו אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d תמונות מתמונת הרצף אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d תמונות מקבוצה זו אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d תמונות מקבוצה זו אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d סדרה של &apos;טייק בודד&apos; אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d סדרות של &apos;טייק בודד&apos; אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d סדרות של &apos;טייק בודד&apos; אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d סדרות של &apos;טייק בודד&apos; אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">להעביר פריט %d לאלבום פרטי?</item>
+        <item quantity="two">להעביר %d פריטים לאלבום פרטי?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">להעביר %d פריטים לאלבום פרטי?</item>
+        <item quantity="other">להעביר %d פריטים לאלבום פרטי?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להעביר %1$d קובץ %2$s אל %3$s. הורד את הקובץ ונסה שוב.</item>
+        <item quantity="two">לא ניתן להעביר %1$d קובצי %2$s אל %3$s. הורד את הקבצים ונסה שוב.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להעביר %1$d קובצי %2$s אל %3$s. הורד את הקבצים ונסה שוב.</item>
+        <item quantity="other">לא ניתן להעביר %1$d קובצי %2$s אל %3$s. הורד את הקבצים ונסה שוב.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להעביר %d סרטון אל סל המיחזור?</item>
+        <item quantity="two">האם להעביר %d סרטונים אל סל המיחזור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להעביר %d סרטונים אל סל המיחזור?</item>
+        <item quantity="other">האם להעביר %d סרטונים אל סל המיחזור?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מעביר פריט %d לסל המיחזור…</item>
+        <item quantity="two">מעביר %d פריטים לסל המיחזור…</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מעביר %d פריטים לסל המיחזור…</item>
+        <item quantity="other">מעביר %d פריטים לסל המיחזור…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">אלבום %d עם אותו השם מוזג.</item>
+        <item quantity="two">%d אלבומים עם אותו השם מוזגו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אלבומים עם אותו השם מוזגו.</item>
+        <item quantity="other">%d אלבומים עם אותו השם מוזגו.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">יום %d</item>
+        <item quantity="two">%d ימים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d ימים</item>
+        <item quantity="other">%d ימים</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d יום נותר עד למחיקת הסיפור</item>
+        <item quantity="two">%d ימים נותרו עד למחיקת הסיפור</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d ימים נותרו עד למחיקת הסיפור</item>
+        <item quantity="other">%d ימים נותרו עד למחיקת הסיפור</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק %d אלבום?</item>
+        <item quantity="two">האם למחוק %d אלבומים?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d אלבומים?</item>
+        <item quantity="other">האם למחוק %d אלבומים?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d נוספה למועדפים.</item>
+        <item quantity="two">%d תמונות נוספו למועדפים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות נוספו למועדפים.</item>
+        <item quantity="other">%d תמונות נוספו למועדפים.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">הזמנה %d</item>
+        <item quantity="two">%d הזמנות</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d הזמנות</item>
+        <item quantity="other">%d הזמנות</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">פריט %d נוסף למועדפים.</item>
+        <item quantity="two">%d פריטים נוספו למועדפים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים נוספו למועדפים.</item>
+        <item quantity="other">%d פריטים נוספו למועדפים.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">אדם %d נבחר</item>
+        <item quantity="two">%d אנשים נבחרו</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אנשים נבחרו</item>
+        <item quantity="other">%d אנשים נבחרו</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d נבחר/ו</item>
+        <item quantity="two">%d נבחר/ו</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d נבחר/ו</item>
+        <item quantity="other">%d נבחר/ו</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">אלבום משותף %d, הזמנה 1</item>
+        <item quantity="two">%d אלבומים משותפים, הזמנה 1</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אלבומים משותפים, הזמנה 1</item>
+        <item quantity="other">%d אלבומים משותפים, הזמנה 1</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">מצאנו תמונה חדשה אחת (%d) שאולי תרצה להוסיף לאלבום זה.</item>
+        <item quantity="two">מצאנו %d תמונות חדשות שאולי תרצה להוסיף לאלבום זה.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">מצאנו %d תמונות חדשות שאולי תרצה להוסיף לאלבום זה.</item>
+        <item quantity="other">מצאנו %d תמונות חדשות שאולי תרצה להוסיף לאלבום זה.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">סרטון %d נוסף למועדפים.</item>
+        <item quantity="two">%d סרטונים נוספו למועדפים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סרטונים נוספו למועדפים.</item>
+        <item quantity="other">%d סרטונים נוספו למועדפים.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לפני שנה %1$s %2$d</item>
+        <item quantity="two">לפני %1$s %2$d שנים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לפני %1$s %2$d שנים</item>
+        <item quantity="other">לפני %1$s %2$d שנים</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d אלבום</item>
+        <item quantity="two">%d אלבומים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d אלבומים</item>
+        <item quantity="other">%d אלבומים</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">בוצעה הורדה של %d פריט. הקש כאן כדי להציג אותו.</item>
+        <item quantity="two">הורדו %d פריטים. הקש כאן כדי להציג אותם.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">הורדו %d פריטים. הקש כאן כדי להציג אותם.</item>
+        <item quantity="other">הורדו %d פריטים. הקש כאן כדי להציג אותם.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d קבוצה</item>
+        <item quantity="two">%d קבוצות</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d קבוצות</item>
+        <item quantity="other">%d קבוצות</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להוריד %d קובץ. טלפון זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="two">לא ניתן להוריד %d קבצים. טלפון זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להוריד %d קבצים. טלפון זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="other">לא ניתן להוריד %d קבצים. טלפון זה אינו תומך בתמונות HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להוריד %d קובץ. טאבלט זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="two">לא ניתן להוריד %d קבצים. טאבלט זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להוריד %d קבצים. טאבלט זה אינו תומך בתמונות HEIF.</item>
+        <item quantity="other">לא ניתן להוריד %d קבצים. טאבלט זה אינו תומך בתמונות HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">חבר %d</item>
+        <item quantity="two">%d חברים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d חברים</item>
+        <item quantity="other">%d חברים</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לא ניתן להוסיף יותר ממדבקה %d. עבור לעורך התמונות בגלריה כדי להסיר מדבקות.</item>
+        <item quantity="two">לא ניתן להוסיף יותר מ-%d מדבקות. עבור לעורך התמונות בגלריה כדי להסיר מדבקות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לא ניתן להוסיף יותר מ-%d מדבקות. עבור לעורך התמונות בגלריה כדי להסיר מדבקות.</item>
+        <item quantity="other">לא ניתן להוסיף יותר מ-%d מדבקות. עבור לעורך התמונות בגלריה כדי להסיר מדבקות.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">קבוצה אחת, %d אלבום</item>
+        <item quantity="two">קבוצה אחת, %d אלבומים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">קבוצה אחת, %d אלבומים</item>
+        <item quantity="other">קבוצה אחת, %d אלבומים</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">אלבום משותף 1, הזמנה %d</item>
+        <item quantity="two">אלבום משותף 1, %d הזמנות</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">אלבום משותף 1, %d הזמנות</item>
+        <item quantity="other">אלבום משותף 1, %d הזמנות</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק תמונה %d לצמיתות?</item>
+        <item quantity="two">האם למחוק %d תמונות לצמיתות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d תמונות לצמיתות?</item>
+        <item quantity="other">האם למחוק %d תמונות לצמיתות?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק פריט %d לצמיתות?</item>
+        <item quantity="two">האם למחוק %d פריטים לצמיתות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d פריטים לצמיתות?</item>
+        <item quantity="other">האם למחוק %d פריטים לצמיתות?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם למחוק סרטון %d לצמיתות?</item>
+        <item quantity="two">האם למחוק %d סרטונים לצמיתות?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם למחוק %d סרטונים לצמיתות?</item>
+        <item quantity="other">האם למחוק %d סרטונים לצמיתות?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">תמונה %d תימחק לצמיתות.</item>
+        <item quantity="two">%d תמונות יימחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות יימחקו לצמיתות.</item>
+        <item quantity="other">%d תמונות יימחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d פריט יימחק לצמיתות.</item>
+        <item quantity="two">%d פריטים יימחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d פריטים יימחקו לצמיתות.</item>
+        <item quantity="other">%d פריטים יימחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">סרטון וידאו %d יימחק לצמיתות.</item>
+        <item quantity="two">%d סרטוני וידאו יימחקו לצמיתות.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סרטוני וידאו יימחקו לצמיתות.</item>
+        <item quantity="other">%d סרטוני וידאו יימחקו לצמיתות.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d תמונה נשמרה.</item>
+        <item quantity="two">%d תמונות נשמרו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d תמונות נשמרו.</item>
+        <item quantity="other">%d תמונות נשמרו.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">בוצע ביקור למשך יום %1$d ב-%2$s</item>
+        <item quantity="two">בוצע ביקור למשך %1$d ימים ב-%2$s</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">בוצע ביקור למשך %1$d ימים ב-%2$s</item>
+        <item quantity="other">בוצע ביקור למשך %1$d ימים ב-%2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">לפני %d שנה</item>
+        <item quantity="two">לפני %d שנים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">לפני %d שנים</item>
+        <item quantity="other">לפני %d שנים</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">הצעה %d הוסרה.</item>
+        <item quantity="two">%d הצעות הוסרו.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d הצעות הוסרו.</item>
+        <item quantity="other">%d הצעות הוסרו.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר %d תמונה מהאלבום המשותף?</item>
+        <item quantity="two">האם להסיר %d תמונות מהאלבום המשותף?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d תמונות מהאלבום המשותף?</item>
+        <item quantity="other">האם להסיר %d תמונות מהאלבום המשותף?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר תמונה %d מהאלבום?</item>
+        <item quantity="two">האם להסיר %d תמונות מהאלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d תמונות מהאלבום?</item>
+        <item quantity="other">האם להסיר %d תמונות מהאלבום?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר פריט %d מהאלבום?</item>
+        <item quantity="two">האם להסיר %d פריטים מהאלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d פריטים מהאלבום?</item>
+        <item quantity="other">האם להסיר %d פריטים מהאלבום?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר פריט %d מהסיפור?</item>
+        <item quantity="two">האם להסיר %d פריטים מהסיפור?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d פריטים מהסיפור?</item>
+        <item quantity="other">האם להסיר %d פריטים מהסיפור?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר %d תמונה מהצעות האלבום?</item>
+        <item quantity="two">האם להסיר %d תמונות מהצעות האלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d תמונות מהצעות האלבום?</item>
+        <item quantity="other">האם להסיר %d תמונות מהצעות האלבום?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר %d פריט מהצעות האלבום?</item>
+        <item quantity="two">האם להסיר %d פריטים מהצעות האלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d פריטים מהצעות האלבום?</item>
+        <item quantity="other">האם להסיר %d פריטים מהצעות האלבום?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר %d סרטון מהצעות האלבום?</item>
+        <item quantity="two">האם להסיר %d סרטונים מהצעות האלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d סרטונים מהצעות האלבום?</item>
+        <item quantity="other">האם להסיר %d סרטונים מהצעות האלבום?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר סרטון %d מהאלבום?</item>
+        <item quantity="two">האם להסיר %d סרטונים מהאלבום?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d סרטונים מהאלבום?</item>
+        <item quantity="other">האם להסיר %d סרטונים מהאלבום?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם להסיר %d סרטון מהאלבום המשותף?</item>
+        <item quantity="two">האם להסיר %d סרטונים מהאלבום המשותף?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם להסיר %d סרטונים מהאלבום המשותף?</item>
+        <item quantity="other">האם להסיר %d סרטונים מהאלבום המשותף?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם לשמור %1$d פריט מ%2$s זו?</item>
+        <item quantity="two">האם לשמור %1$d פריטים מ%2$s זו?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם לשמור %1$d פריטים מ%2$s זו?</item>
+        <item quantity="other">האם לשמור %1$d פריטים מ%2$s זו?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">האם לשמור %1$d תמונה מ%2$s זו?</item>
+        <item quantity="two">האם לשמור %1$d תמונות מ%2$s זו?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">האם לשמור %1$d תמונות מ%2$s זו?</item>
+        <item quantity="other">האם לשמור %1$d תמונות מ%2$s זו?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">להעביר תמונה %1$d אל %2$s?</item>
+        <item quantity="two">להעביר %1$d תמונות אל %2$s?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">להעביר %1$d תמונות אל %2$s?</item>
+        <item quantity="other">להעביר %1$d תמונות אל %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">להעביר פריט %1$d אל %2$s?</item>
+        <item quantity="two">להעביר %1$d פריטים אל %2$s?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">להעביר %1$d פריטים אל %2$s?</item>
+        <item quantity="other">להעביר %1$d פריטים אל %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">להעביר סרטון וידאו %1$d אל %2$s?</item>
+        <item quantity="two">להעביר %1$d סרטוני וידאו אל %2$s?</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">להעביר %1$d סרטוני וידאו אל %2$s?</item>
+        <item quantity="other">להעביר %1$d סרטוני וידאו אל %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">קיבוץ של תמונה דומה %d</item>
+        <item quantity="two">קיבוץ של %d תמונות דומות</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">קיבוץ של %d תמונות דומות</item>
+        <item quantity="other">קיבוץ של %d תמונות דומות</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d פריט נבחר</item>
+        <item quantity="two">נבחרו %d פריטים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">נבחרו %d פריטים</item>
+        <item quantity="other">נבחרו %d פריטים</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">אדם זה לפני %d שנה</item>
+        <item quantity="two">אדם זה לפני %d שנים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">אדם זה לפני %d שנים</item>
+        <item quantity="other">אדם זה לפני %d שנים</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">סרטון %d הורד מהענן.</item>
+        <item quantity="two">%d סרטונים הורדו מהענן.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">%d סרטונים הורדו מהענן.</item>
+        <item quantity="other">%d סרטונים הורדו מהענן.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">הסרטון שוחזר. לא ניתן לשחזר %1$d סרטון %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="two">הסרטון שוחזר. לא ניתן לשחזר %1$d סרטונים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">הסרטון שוחזר. לא ניתן לשחזר %1$d סרטונים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+        <item quantity="other">הסרטון שוחזר. לא ניתן לשחזר %1$d סרטונים %2$s משום שה-%3$s נעול בגלל בקשה לגבי נתונים אישיים.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ניתן לכלול בקולאז&apos; לכל היותר פריט %d.</item>
+        <item quantity="two">ניתן לכלול בקולאז&apos; לכל היותר %d פריטים.</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">ניתן לכלול בקולאז&apos; לכל היותר %d פריטים.</item>
+        <item quantity="other">ניתן לכלול בקולאז&apos; לכל היותר %d פריטים.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">הנתונים שלך יימחקו בעוד יום %d</item>
+        <item quantity="two">הנתונים שלך יימחקו בעוד %d ימים</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">הנתונים שלך יימחקו בעוד %d ימים</item>
+        <item quantity="other">הנתונים שלך יימחקו בעוד %d ימים</item>
+    </plurals>
+</resources>

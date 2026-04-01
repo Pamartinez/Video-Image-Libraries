@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <size android:height="@dimen/speed_seek_bar_thumb_size" android:width="@dimen/speed_seek_bar_thumb_wide_size"/>
+    <corners android:radius="@dimen/video_speed_label_text_view_bg_radius"/>
+    <solid android:color="@color/video_speed_label_bg_selector"/>
+</shape>

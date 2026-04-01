@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center_vertical" android:orientation="vertical" android:id="@+id/recycler_item_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp">
+    <FrameLayout android:id="@+id/thumbnail_container" android:layout_width="@dimen/search_cluster_results_carousel2_width" android:layout_height="@dimen/search_cluster_results_carousel2_height" android:layout_marginBottom="4dp">
+        <ImageView android:id="@+id/thumbnail" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@null" style="@style/ThumbnailStyle"/>
+    </FrameLayout>
+    <FrameLayout android:id="@+id/cluster_type_icon_layout" android:background="@drawable/search_cluster_carousel_cluster_icon_bg" android:layout_width="28dp" android:layout_height="28dp" android:layout_marginBottom="@dimen/search_cluster_results_carousel_icon_layout_margin_default" android:layout_alignBottom="@+id/thumbnail_container" android:layout_marginStart="@dimen/search_cluster_results_carousel_icon_layout_margin_default" android:layout_alignStart="@+id/thumbnail_container">
+        <ImageView android:layout_gravity="center" android:id="@+id/cluster_type_icon" android:layout_width="@dimen/search_cluster_results_carousel_icon_size" android:layout_height="@dimen/search_cluster_results_carousel_icon_size" android:tint="#ffffffff"/>
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/cluster_info_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/thumbnail_container" android:layout_marginStart="4dp">
+        <TextView android:textSize="12dp" android:textColor="@color/search_category_item_title_color" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@+id/cluster_info_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:textIsSelectable="false" android:layout_marginStart="4dp" style="@style/OneUiRobotoRegular"/>
+        <TextView android:textSize="11dp" android:textColor="@color/search_category_item_count_color" android:ellipsize="end" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:maxLines="1" android:layout_below="@+id/cluster_info_container" android:textIsSelectable="false" android:layout_marginStart="4dp" style="@style/OneUiRobotoRegular"/>
+    </LinearLayout>
+</RelativeLayout>

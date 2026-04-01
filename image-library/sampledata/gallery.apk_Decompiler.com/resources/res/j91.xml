@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <objectAnimator android:interpolator="@animator/$capture_bounce_out_animator__0" android:duration="200" android:valueFrom="1.05" android:valueTo="1" android:valueType="floatType" android:propertyName="scaleX"/>
+    <objectAnimator android:interpolator="@animator/$capture_bounce_out_animator__1" android:duration="200" android:valueFrom="1.05" android:valueTo="1" android:valueType="floatType" android:propertyName="scaleY"/>
+    <objectAnimator android:interpolator="@animator/$capture_bounce_out_animator__2" android:duration="200" android:valueFrom="1f" android:valueTo="0f" android:propertyName="alpha"/>
+</set>

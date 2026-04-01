@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:paddingTop="@dimen/create_new_dialog_circle_layout_padding_top" android:paddingBottom="@dimen/create_new_dialog_circle_layout_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/create_new_dialog_circle_layout_padding_horizontal">
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/create_new_list_view" android:focusable="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

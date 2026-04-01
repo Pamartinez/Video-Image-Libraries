@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_scoped_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:icon="@drawable/ic_location_opt" android:id="@+id/action_view_on_map" android:visible="false" android:title="@string/view_results_on_map" app:showAsAction="always"/>
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_view_all" android:title="@string/view_all" android:showAsAction="never"/>
+        <item android:id="@+id/action_merge_people_name" android:visible="false" android:title="@string/merge_face_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_unmerge_people_name" android:visible="false" android:title="@string/unmerge_face_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_merge_pets_name" android:visible="false" android:title="@string/merge_face_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_unmerge_pets_name" android:visible="false" android:title="@string/unmerge_face_group" android:showAsAction="never"/>
+        <item android:id="@+id/action_view_as" android:title="@string/view_as" android:showAsAction="never"/>
+        <item android:id="@+id/action_delete_motion_photo_clip" android:visible="false" android:title="@string/delete_video_clips_option" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_this_person" android:visible="false" android:title="@string/remove_from_people_and_pets" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_this_pet" android:visible="false" android:title="@string/remove_from_people_and_pets" android:showAsAction="never"/>
+        <item android:icon="@drawable/gallery_ic_bottombar_remove" android:id="@+id/action_remove_from_result" android:title="@string/remove_from_result" android:showAsAction="never"/>
+        <item android:id="@+id/action_add_to_quick_search" android:title="@string/add_to_quick_searches" android:showAsAction="never"/>
+        <item android:id="@+id/action_view_by_category" android:visible="false" android:title="@string/view_results_in_category" android:showAsAction="never"/>
+        <item android:id="@+id/action_create" android:visible="false" android:title="@string/move_mode_create" android:showAsAction="never"/>
+        <item android:id="@+id/action_slideshow" android:title="@string/slideshow" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_create" android:id="@+id/action_create" android:title="@string/move_mode_create" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_share" android:id="@+id/action_share" android:title="@string/share_short" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete" android:title="@string/delete" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_copy_to_clipboard" android:visible="false" android:title="@string/copy_to_clipboard" android:showAsAction="never"/>
+        <item android:id="@+id/action_copy_to_album" android:visible="false" android:title="@string/copy_to_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_move_to_album" android:visible="false" android:title="@string/move_to_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_add_to_shared_album" android:title="@string/add_to_shared_album" android:showAsAction="never"/>
+        <item android:id="@+id/action_add_favorite_in_list" android:title="@string/add_to_favorites" app:showAsAction="never"/>
+        <item android:id="@+id/action_add_tag" android:visible="false" android:title="@string/add_tag" android:showAsAction="never"/>
+        <item android:id="@+id/action_download" android:visible="false" android:title="@string/download" android:showAsAction="never"/>
+        <item android:id="@+id/action_edit_date_and_time" android:title="@string/edit_date_and_time" android:showAsAction="never"/>
+        <item android:id="@+id/action_edit_location" android:title="@string/edit_location" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_from_result" android:title="@string/remove_from_result" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_background_effect_info" android:visible="false" android:title="@string/remove_background_effect_info" android:showAsAction="never"/>
+        <item android:id="@+id/action_export_motion_photo_clip" android:visible="false" android:title="@string/export_video_clips_option" android:showAsAction="never"/>
+        <item android:id="@+id/action_merge_motion_photo_clip" android:visible="false" android:title="@string/merge_video_clips_option" android:showAsAction="never"/>
+        <item android:id="@+id/action_delete_motion_photo_clip" android:visible="false" android:title="@string/delete_video_clips_option" android:showAsAction="never"/>
+        <item android:id="@+id/action_extended_select_pictures_options" android:title="@string/extended_options" android:showAsAction="never">
+            <menu>
+                <item android:id="@+id/action_gallery_assistant" android:visible="false" android:title="@string/edit_with_gallery_assistant" android:showAsAction="never"/>
+                <item android:id="@+id/action_printer_multi" android:visible="false" android:title="@string/printer" android:showAsAction="never"/>
+                <item android:id="@+id/action_slideshow_with_selection" android:visible="false" android:title="@string/slideshow" android:showAsAction="never"/>
+                <item android:id="@+id/action_compare_images" android:visible="false" android:title="@string/compare_images" android:showAsAction="never"/>
+            </menu>
+        </item>
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode_effects">
+        <item android:id="@+id/action_copy_effects" android:visible="false" android:title="@string/copy_edits" android:showAsAction="never"/>
+        <item android:id="@+id/action_paste_effects" android:visible="false" android:title="@string/paste_edits" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_knox">
+        <item android:id="@+id/action_set_as_container" android:visible="false" android:title="@string/set_as_wallpaper" android:showAsAction="never"/>
+        <item android:id="@+id/action_move_to_knox" android:visible="false" android:title="@string/move_to_knox" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_from_knox" android:visible="false" android:title="@string/remove_from_knox" android:showAsAction="never"/>
+        <item android:id="@+id/action_move_to_secure_folder" android:visible="false" android:title="@string/move_to_secure_folder" android:showAsAction="never"/>
+        <item android:id="@+id/action_remove_from_secure_folder" android:visible="false" android:title="@string/move_out_of_secure_folder" android:showAsAction="never"/>
+        <item android:id="@+id/action_move_to_private_album" android:visible="false" android:title="@string/move_to_private_album" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_with_done">
+        <item android:id="@+id/action_done" android:title="@string/done" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/named_person"/>
+</menu>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center_vertical" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:foreground="@drawable/recoil_list_ripple" android:stateListAnimator="?attr/seslLargeTouchAnimator" android:paddingHorizontal="20dp">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingVertical="16dp">
+        <TextView android:textSize="@dimen/story_hide_rule_date_item_text_size" android:textColor="@color/story_highlight_bgm_unselected_title_color" android:layout_gravity="center_vertical" android:id="@+id/title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textDirection="locale" style="@style/OneUiRobotoRegular"/>
+        <FrameLayout android:gravity="center" android:id="@+id/download" android:layout_width="35dp" android:layout_height="35dp" android:layout_marginStart="@dimen/story_hide_rule_date_item_remove_btn_margin_start">
+            <ImageView android:layout_gravity="center" android:id="@+id/download_icon" android:visibility="gone" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/gallery_ic_download" android:contentDescription="@string/download"/>
+            <androidx.appcompat.widget.SeslProgressBar android:layout_gravity="center" android:id="@+id/progress_circle" android:visibility="gone" android:layout_width="@dimen/story_hide_rule_date_item_remove_btn_size" android:layout_height="@dimen/story_hide_rule_date_item_remove_btn_size" style="@style/ProgressCircleLarge"/>
+            <ImageView android:layout_gravity="center" android:id="@+id/equalizer" android:background="@drawable/ic_gallery_ic_stories_music_equalizer" android:visibility="gone" android:layout_width="24dp" android:layout_height="24dp"/>
+        </FrameLayout>
+    </LinearLayout>
+    <View android:id="@+id/divider" android:background="#e4e4e7" android:layout_width="match_parent" android:layout_height="1dp"/>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/container" android:background="@color/daynight_default_background" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.plugins.motionphoto.MotionPhotoViewCompat android:layout_gravity="center" android:id="@+id/video_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" android:defaultFocusHighlightEnabled="false"/>
+    <com.samsung.android.gallery.widget.photoview.PhotoPreView android:id="@+id/preview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" android:contentDescription="@null"/>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/osd" android:focusable="false" android:visibility="invisible" android:fitsSystemWindows="true" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include layout="@layout/toolbar"/>
+        <com.samsung.android.gallery.plugins.motionphoto.VideoCtrlView android:id="@+id/video_ctrl" android:layout_width="match_parent" android:layout_height="@dimen/video_ctrl_size" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/fast_option_view"/>
+        <com.samsung.android.gallery.widget.fastoption2.FastOptionView android:gravity="center_horizontal" android:id="@+id/fast_option_view" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="@dimen/fast_menu_imageview_height" app:layout_constraintBottom_toBottomOf="0"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

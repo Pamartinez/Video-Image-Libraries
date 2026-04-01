@@ -1,0 +1,44 @@
+package com.samsung.android.gallery.database;
+
+public abstract class R$string {
+    public static final int add_portrait_effect = 2131886154;
+    public static final int blurred_pictures = 2131886375;
+    public static final int category_time_last_year = 2131886552;
+    public static final int category_time_past_month = 2131886553;
+    public static final int category_time_past_six_month = 2131886554;
+    public static final int category_time_past_week = 2131886555;
+    public static final int expressions_dislike = 2131887135;
+    public static final int expressions_happy = 2131887136;
+    public static final int expressions_neutral = 2131887137;
+    public static final int expressions_surprise = 2131887138;
+    public static final int favorite = 2131887167;
+    public static final int recently_added = 2131888106;
+    public static final int story_category_collection = 2131888665;
+    public static final int story_category_collections = 2131888666;
+    public static final int story_category_my_stories = 2131888667;
+    public static final int story_category_my_story = 2131888668;
+    public static final int story_category_people = 2131888669;
+    public static final int story_category_person = 2131888670;
+    public static final int story_category_pet = 2131888671;
+    public static final int story_category_pets = 2131888672;
+    public static final int story_category_special_day = 2131888673;
+    public static final int story_category_special_days = 2131888674;
+    public static final int story_category_trip = 2131888675;
+    public static final int story_category_trips = 2131888676;
+    public static final int suggestions_description_change_portrait_effects = 2131888713;
+    public static final int suggestions_description_clear_out_old_documents = 2131888714;
+    public static final int suggestions_description_create_highlight_videos = 2131888715;
+    public static final int suggestions_description_delete_burst_similar_pictures = 2131888716;
+    public static final int suggestions_description_delete_duplicate_pictures = 2131888717;
+    public static final int suggestions_description_delete_low_quality_pictures = 2131888718;
+    public static final int suggestions_description_motion_photo_clip = 2131888719;
+    public static final int suggestions_description_remaster_pictures = 2131888720;
+    public static final int suggestions_title_clear_out_old_documents = 2131888721;
+    public static final int suggestions_title_create_highlight_videos = 2131888722;
+    public static final int suggestions_title_delete_burst_similar_pictures = 2131888723;
+    public static final int suggestions_title_delete_duplicate_pictures = 2131888724;
+    public static final int suggestions_title_delete_low_quality_pictures = 2131888725;
+    public static final int suggestions_title_motion_photo_clip = 2131888726;
+    public static final int suggestions_title_remaster_pictures = 2131888727;
+    public static final int today = 2131888839;
+}

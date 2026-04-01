@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_rename" android:id="@+id/action_rename_story_album_in_list" android:title="@string/change_story_title" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete_story_album_in_list" android:title="@string/delete" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/popup_mode">
+        <item android:id="@+id/action_rename" android:visible="true" android:title="@string/opt_rename"/>
+        <item android:id="@+id/action_delete_story" android:visible="true" android:title="@string/delete"/>
+    </group>
+</menu>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/main_layout" android:tag="new_search_toolbar_containable" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/search_toolbar_area" android:tag="legacy_search_toolbar_containable" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_marginBottom="2dp" style="@style/ToolbarStyle"/>
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/search_toolbar_area" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <include layout="@layout/toolbar_normal"/>
+        <FrameLayout android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_search_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <ViewStub android:id="@+id/empty_view_by_hidden" android:layout="@layout/fragment_search_people_emptyview_stub" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:scrollbars="none" android:clipToPadding="false" android:layoutAnimation="@anim/layout_anim_alpha_no_delay" android:layout_width="match_parent" android:layout_height="match_parent" android:nestedScrollingEnabled="false" android:paddingHorizontal="@dimen/search_card_padding_horizontal"/>
+            <com.samsung.android.gallery.widget.flexboxlist.FlexBoxListView android:id="@+id/flex_box_list" android:paddingTop="@dimen/search_category_tag_padding_top" android:clipToPadding="false" android:layoutAnimation="@anim/layout_anim_alpha_no_delay" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="@dimen/search_card_padding_horizontal_for_tag"/>
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

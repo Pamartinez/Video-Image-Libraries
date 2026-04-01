@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:height="@dimen/video_instant_slow_mo_circle_size" android:width="@dimen/video_instant_slow_mo_circle_size">
+        <shape android:shape="oval" android:useLevel="false">
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="@dimen/video_instant_slow_mo_inner_circle_size" android:width="@dimen/video_instant_slow_mo_inner_circle_size">
+        <shape android:shape="oval" android:useLevel="false">
+            <stroke android:width="@dimen/video_instant_slow_mo_inner_circle_stroke" android:color="@color/white_color"/>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+</layer-list>

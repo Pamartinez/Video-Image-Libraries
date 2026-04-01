@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/$avd_gallery_remaster_loader__0">
+    <target android:name="c1s9" android:animation="@drawable/$avd_gallery_remaster_loader__1"/>
+    <target android:name="c1s9pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__8"/>
+    <target android:name="c1s8" android:animation="@drawable/$avd_gallery_remaster_loader__10"/>
+    <target android:name="c1s8pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__15"/>
+    <target android:name="c1s7" android:animation="@drawable/$avd_gallery_remaster_loader__17"/>
+    <target android:name="c1s7pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__28"/>
+    <target android:name="c1s6" android:animation="@drawable/$avd_gallery_remaster_loader__30"/>
+    <target android:name="c1s6pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__41"/>
+    <target android:name="c1s5" android:animation="@drawable/$avd_gallery_remaster_loader__43"/>
+    <target android:name="c1s5pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__48"/>
+    <target android:name="c1s4" android:animation="@drawable/$avd_gallery_remaster_loader__49"/>
+    <target android:name="c1s4pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__56"/>
+    <target android:name="c1s3" android:animation="@drawable/$avd_gallery_remaster_loader__57"/>
+    <target android:name="c1s3pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__64"/>
+    <target android:name="c1s2" android:animation="@drawable/$avd_gallery_remaster_loader__65"/>
+    <target android:name="c1s2pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__76"/>
+    <target android:name="c1s1" android:animation="@drawable/$avd_gallery_remaster_loader__77"/>
+    <target android:name="c1s1pg1p10" android:animation="@drawable/$avd_gallery_remaster_loader__82"/>
+</animated-vector>

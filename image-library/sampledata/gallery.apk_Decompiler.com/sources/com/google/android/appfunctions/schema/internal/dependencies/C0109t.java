@@ -1,0 +1,9 @@
+package com.google.android.appfunctions.schema.internal.dependencies;
+
+import java.util.List;
+
+/* renamed from: com.google.android.appfunctions.schema.internal.dependencies.t  reason: case insensitive filesystem */
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public interface C0109t extends List {
+    Object o();
+}

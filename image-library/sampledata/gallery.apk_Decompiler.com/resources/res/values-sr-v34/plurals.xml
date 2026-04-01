@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Додати %d ставку са облака у дељени албум?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Додати %d ставке са облака у дељени албум?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Додати %d ставки са облака у дељени албум?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Морате имати најмање %d годину да бисте користили интелигентне функције.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Морате имати најмање %d године да бисте користили интелигентне функције.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Морате имати најмање %d година да бисте користили интелигентне функције.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d слика</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d слике</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d слика</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да додате највише %d видео запис у Meitu објаву.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да додате највише %d видео записа у Meitu објаву.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да додате највише %d видео записа у Meitu објаву.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Брисање %1$d слике из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Брисање %1$d слике из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Брисање %1$d слика из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Брисање %1$d ставке из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Брисање %1$d ставке из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Брисање %1$d ставки из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Брисање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Брисање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Брисање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да додате највише %d ставку у Meitu објаву.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да додате највише %d ставке у Meitu објаву.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да додате највише %d ставки у Meitu објаву.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d слике из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d слике из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d слика из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d ставке из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d ставке из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d ставки из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d видео записа из облака %2$s није могуће. Облак %3$s је закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да додате највише %d ставку одједном.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да додате највише %d ставке одједном.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да додате највише %d ставки одједном.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да додате највише %d ставку у причу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да додате највише %d ставке у причу.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да додате највише %d ставки у причу.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d град</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d града</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d градова</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d слике није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d слике није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d слика није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d ставке није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d ставке није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d ставки није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d видео записа није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d видео записа није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d видео записа није било могуће. Ослободите простор на локацији %2$s, а затим покушајте поново.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Враћање %1$d видео записа није било могуће. Овај видео запис је враћен или избрисан у апликацији %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Враћање %1$d видео записа није било могуће. Ови видео записи су враћени или избрисани у апликацији %2$s.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Враћање %1$d видео записа није било могуће. Ови видео записи су враћени или избрисани у апликацији %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Уклањање %d ставке није било могуће. Покушајте поново.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Уклањање %d ставке није било могуће. Покушајте поново.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Уклањање %d ставки није било могуће. Покушајте поново.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d дељени албум</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дељена албума</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d дељених албума</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d прича</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d приче</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d прича</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о датуму и времену су промењене на %d слици.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о датуму и времену су промењене на %d слике.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о датуму и времену су промењене на %d слика.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о датуму и времену су промењене на %d ставци.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о датуму и времену су промењене на %d ставке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о датуму и времену су промењене на %d ставки.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о датуму и времену су промењене на %d видео запису.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о датуму и времену су промењене на %d видео записа.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о датуму и времену су промењене на %d видео записа.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d албум?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d албума?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете 1 групу, %d албум и 1 ставку у њима?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете 1 групу, %d албума и 1 ставку у њима?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете 1 групу, %d албума и 1 ставку у њима?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d групу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d групе?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d група?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d слику?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d слике?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d слика?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d ставку?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d ставке?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d ставки?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d групу сличних слика?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d групе сличних слика?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d група сличних слика?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d групу сличних слика и још 1 ставку?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d групе сличних слика и још 1 ставку?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d група сличних слика и још 1 ставку?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете 1 групу сличних слика и још %d ставку?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете 1 групу сличних слика и још %d ставке?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете 1 групу сличних слика и још %d ставки?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d ставку из ове серије?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d ставке из ове серије?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d ставки из ове серије?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете видео клип из %d фотографије кретања?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете видео клипове из %d фотографије кретања?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете видео клипове из %d фотографија кретања?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d слику из ове серије?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d слике из ове серије?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d слика из ове серије?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d серију појединачних снимака?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d серије појединачних снимака?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d серија појединачних снимака?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d видео запис?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d видео записа?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d видео записа?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да прикажете овај садржај још %d пут. Желите ли да прикажете сада?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да прикажете овај садржај још %d пута. Желите ли да прикажете сада?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да прикажете овај садржај још %d пута. Желите ли да прикажете сада?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d празан албум ће бити избрисан без одласка у Смеће.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d празна албума ће бити избрисани без одласка у Смеће.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d празних албума ће бити избрисано без одласка у Смеће.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ставке у Смећу ће бити трајно избрисане након %d дана.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ставке у Смећу ће бити трајно избрисане након %d дана.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ставке у Смећу ће бити трајно избрисане након %d дана.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Са телефона је трајно избрисана %d слика. Идите на OneDrive да бисте избрисали примерак у Канти за ђубре на тој локацији.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Са телефона су трајно избрисане %d слике. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Са телефона је трајно избрисано %d слика. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Са телефона је трајно избрисана %d ставка. Идите на OneDrive да бисте избрисали примерак у Канти за ђубре на тој локацији.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Са телефона су трајно избрисане %d ставке. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Са телефона је трајно избрисано %d ставки. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Са телефона је трајно избрисан %d видео запис. Идите на OneDrive да бисте избрисали примерак у Канти за ђубре на тој локацији.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Са телефона су трајно избрисана %d видео записа. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Са телефона је трајно избрисано %d видео записа. Идите на OneDrive да бисте избрисали примерке у Канти за ђубре на тој локацији.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Приказ координатне мреже са %d сличицом у сваком реду</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Приказ координатне мреже са %d сличице у сваком реду</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Приказ координатне мреже са %d сличица у сваком реду</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d група и 1 албум</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d групе и 1 албум</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d група и 1 албум</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Слика (%d) је преузета са облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Слике (%d) су преузете са облака.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Слике (%d) су преузете са облака.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Слике су враћене. Враћање %1$d слике са локације %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Слике су враћене. Враћање %1$d слике са локације %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Слике су враћене. Враћање %1$d слика са локације %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сачувана је %d ставка.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сачуване су %d ставке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Сачувано је %d ставки.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ставка (%d) је преузета са облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ставке (%d) су преузете са облака.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ставке (%d) су преузете са облака.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ставке су враћене. Враћање %1$d ставке из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ставке су враћене. Враћање %1$d ставке из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ставке су враћене. Враћање %1$d ставки из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о локацији су промењене на %d слици.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о локацији су промењене на %d слике.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о локацији су промењене на %d слика.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о локацији су промењене на %d ставци.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о локацији су промењене на %d ставке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о локацији су промењене на %d ставки.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Информације о локацији су промењене на %d видео запису.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Информације о локацији су промењене на %d видео записа.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Информације о локацији су промењене на %d видео записа.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d локација</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d локације</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d локација</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не можете да унесете више од %d карактера.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не можете да унесете више од %d карактера.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Не можете да унесете више од %d карактера.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видео-клип је сачуван из %d фотографије кретања.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видео-клипови су сачувани из %d фотографије кретања.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Видео-клипови су сачувани из %d фотографија кретања.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d брзи снимак у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d брза снимка у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d брзих снимака у Смеће?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d брзи снимак у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d брза снимка у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d брзих снимака у Смеће?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите 1 групу, 1 албум и %d ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите 1 групу, 1 албум и %d ставке у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите 1 групу, 1 албум и %d ставки у Смеће?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите 1 групу, %d албум и 1 ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите 1 групу, %d албума и 1 ставку у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите 1 групу, %d албума и 1 ставку у Смеће?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d групу, 1 албум и 1 ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d групе, 1 албум и 1 ставку у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d група, 1 албум и 1 ставку у Смеће?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d слику из овог брзог снимка у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d слике из овог брзог снимка у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d слика из овог брзог снимка у Смеће?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d слику из овог брзог снимка у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d слике из овог брзог снимка у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d слика из овог брзог снимка у Смеће?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d слику у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d слике у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d слика у Смеће?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d ставке у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d ставки у Смеће?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ставка</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ставке</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ставки</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d групу сличних слика у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d групе сличних слика у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d група сличних слика у Смеће?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d групу сличних слика и још 1 ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d групе сличних слика и још 1 ставку у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d група сличних слика и још 1 ставку у Смеће?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите 1 групу сличних слика и још %d ставку у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите 1 групу сличних слика и још %d ставке у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите 1 групу сличних слика и још %d ставки у Смеће?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d ставку из ове серије у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d ставке из ове серије у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d ставки из ове серије у Смеће?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d слику из ове серије у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d слике из ове серије у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d слика из ове серије у Смеће?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d серију појединачних снимака у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d серије појединачних снимака у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d серија појединачних снимака у Смеће?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d ставку у приватан албум?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d ставке у приватан албум?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d ставки у приватан албум?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Нисмо могли да преместимо %1$d фајл са локације %2$s на %3$s. Преузмите овај фајл и покушајте поново.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Нисмо могли да преместимо %1$d фајла са локације %2$s на %3$s. Преузмите овај фајл и покушајте поново.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Нисмо могли да преместимо %1$d фајлова са локације %2$s на %3$s. Преузмите овај фајл и покушајте поново.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %d видео запис у Смеће?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %d видео записа у Смеће?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %d видео записа у Смеће?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Премештање %d ставке у Смеће…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Премештање %d ставке у Смеће…</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Премештање %d ставки у Смеће…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d албум истог имена је спојен.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d албума истог имена су спојена.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d албума истог имена је спојено.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d дан</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дана</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d дана</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Остао је још %d дан до брисања приче</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Остала су још %d дана до брисања приче</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Остало је још %d дана до брисања приче</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да избришете %d албум?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да избришете %d албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да избришете %d албума?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d слика је додата у омиљене.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d слике су додате у омиљене.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d слика је додато у омиљене.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d позивница</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d позивнице</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d позивница</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ставка је додата у омиљене.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ставке су додате у омиљене.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ставки је додато у омиљене.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Изабрана је %d особа</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Изабране су %d особе</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Изабрано је %d особа</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Изабрано: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Изабрано: %d</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Изабрано: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d дељени албум,1 позивница</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дељена албума,1 позивница</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d дељених албума,1 позивница</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Пронашли смо %d нову слику коју можда желите да додате у овај албум.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Пронашли смо %d нове слике које можда желите да додате у овај албум.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Пронашли смо %d нових слика које можда желите да додате у овај албум.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d видео-запис је додат у омиљене.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d видео-записа су додата у омиљене.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d видео-записа је додато у омиљене.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/А</item>
+        <item quantity="one">%1$s пре %2$d године</item>
+        <item quantity="two">N/А</item>
+        <item quantity="few">%1$s пре %2$d године</item>
+        <item quantity="many">N/А</item>
+        <item quantity="other">%1$s пре %2$d година</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d албум</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d албума</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d албума</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ставка (%d) је преузета. Куцните овде да бисте је видели.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ставке (%d) су преузете. Куцните овде да бисте их видели.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Ставке (%d) су преузете. Куцните овде да бисте их видели.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d група</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d групе</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d група</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Преузимање %d фајла није било могуће. Овај телефон не подржава HEIF слике.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Преузимање %d фајла није било могуће. Овај телефон не подржава HEIF слике.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Преузимање %d фајлова није било могуће. Овај телефон не подржава HEIF слике.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Преузимање %d фајла није било могуће. Овај таблет не подржава HEIF слике.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Преузимање %d фајла није било могуће. Овај таблет не подржава HEIF слике.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Преузимање %d фајлова није било могуће. Овај таблет не подржава HEIF слике.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d члан</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d члана</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d чланова</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да додате највише %d налепницу. Идите у уређивач фотографија у Галерији да бисте уклонили налепнице.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да додате највише %d налепнице. Идите у уређивач фотографија у Галерији да бисте уклонили налепнице.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да додате највише %d налепница. Идите у уређивач фотографија у Галерији да бисте уклонили налепнице.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 група и %d албум</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 група и %d албума</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 група и %d албума</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 дељени албум, %d позивница</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 дељени албум, %d позивнице</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 дељени албум, %d позивница</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да трајно избришете %d слику?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да трајно избришете %d слике?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да трајно избришете %d слика?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Трајно избрисати %d ставку?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Трајно избрисати %d ставке?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Трајно избрисати %d ставки?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да трајно избришете %d видео запис?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да трајно избришете %d видео записа?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да трајно избришете %d видео записа?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Слика (%d) ће се трајно избрисати.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Слике (%d) ће се трајно избрисати.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Слике (%d) ће се трајно избрисати.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Трајно ће се избрисати %d ставка.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Трајно ће се избрисати %d ставке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Трајно ће се избрисати %d ставки.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видео запис (%d) ће се трајно избрисати.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видео записи (%d) ће се трајно избрисати.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Видео записи (%d) ће се трајно избрисати.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Сачувана је %d слика.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Сачуване су %d слике.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Сачувано је %d слика.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Посетили сте на %1$d дан у %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Посетили сте на %1$d дана у %2$s</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Посетили сте на %1$d дана у %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Пре %d године</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Пре %d године</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Пре %d година</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d предлог је уклоњен.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d предлога су уклоњена.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d предлога је уклоњено.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d слику из овог дељеног албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d слике из овог дељеног албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d слика из овог дељеног албума?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d слику из албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d слике из албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d слика из албума?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d ставку из албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d ставке из албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d ставки из албума?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d ставку из приче?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d ставке из приче?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d ставки из приче?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d слику из предложених албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d слике из предложених албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d слика из предложених албума?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d ставку из предложених албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d ставке из предложених албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d ставки из предложених албума?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d видео запис из предложених албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d видео записа из предложених албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d видео записа из предложених албума?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d видео запис из албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d видео записа из албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d видео записа из албума?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да уклоните %d видео запис из овог дељеног албума?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да уклоните %d видео записа из овог дељеног албума?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да уклоните %d видео записа из овог дељеног албума?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да сачувате %1$d ставку из овог %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да сачувате %1$d ставке из овог %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да сачувате %1$d ставки из овог %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да сачувате %1$d слику из овог снимка (%2$s)?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да сачувате %1$d слике из овог снимка (%2$s)?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да сачувате %1$d слика из овог снимка (%2$s)?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %1$d слику на локацију %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %1$d слике на локацију %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %1$d слика на локацију %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %1$d ставку на локацију %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %1$d ставке на локацију %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %1$d ставки на локацију %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Желите ли да преместите %1$d видео запис на локацију %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Желите ли да преместите %1$d видео записа на локацију %2$s?</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Желите ли да преместите %1$d видео записа на локацију %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Група са %d сличном сликом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Група са %d сличне слике</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Група са %d сличних слика</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ставка је изабрана</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ставке су изабране</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ставки је изабрано</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/А</item>
+        <item quantity="one">Ова особа пре %d године</item>
+        <item quantity="two">N/А</item>
+        <item quantity="few">Ова особа пре %d године</item>
+        <item quantity="many">N/А</item>
+        <item quantity="other">Ова особа пре %d година</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видео запис (%d) је преузет са облака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видео записи (%d) су преузети са облака.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Видео записи (%d) су преузети са облака.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Видео запис је враћен. Враћање %1$d видео записа из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Видео запис је враћен. Враћање %1$d видео записа из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Видео запис је враћен. Враћање %1$d видео записа из облака %2$s није било могуће јер је облак %3$s закључан због захтева за личне податке.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Можете да ставите највише %d ставку у колаж.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Можете да ставите највише %d ставке у колаж.</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Можете да ставите највише %d ставки у колаж.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Биће избрисано за %d дан</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Биће избрисано за %d дана</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Биће избрисано за %d дана</item>
+    </plurals>
+</resources>

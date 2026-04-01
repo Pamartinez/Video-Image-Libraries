@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="horizontal" android:id="@+id/story_pictures_category_people" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/story_pictures_header_item_bottom_gap">
+    <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center" android:id="@+id/story_pictures_category_people_item_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingEnd="0dp" android:nestedScrollingEnabled="false"/>
+</LinearLayout>

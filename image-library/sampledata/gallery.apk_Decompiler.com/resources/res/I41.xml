@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/horizontal_navigation_icon_bg_color"/>
+            <size android:height="@dimen/horizontal_navigation_bg_size" android:width="@dimen/horizontal_navigation_bg_size"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="@dimen/horizontal_navigation_icon_size" android:width="@dimen/horizontal_navigation_icon_size" android:drawable="@drawable/gallery_btn_icon_previous_mtrl"/>
+</layer-list>

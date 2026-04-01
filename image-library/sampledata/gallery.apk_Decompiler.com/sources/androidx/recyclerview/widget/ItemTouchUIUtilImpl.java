@@ -1,0 +1,56 @@
+package androidx.recyclerview.widget;
+
+import android.graphics.Canvas;
+import android.view.View;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.R$id;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
+    static final ItemTouchUIUtil INSTANCE = new ItemTouchUIUtilImpl();
+
+    private static float findMaxElevation(RecyclerView recyclerView, View view) {
+        int childCount = recyclerView.getChildCount();
+        float f = 0.0f;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = recyclerView.getChildAt(i2);
+            if (childAt != view) {
+                float elevation = ViewCompat.getElevation(childAt);
+                if (elevation > f) {
+                    f = elevation;
+                }
+            }
+        }
+        return f;
+    }
+
+    public void clearView(View view) {
+        int i2 = R$id.item_touch_helper_previous_elevation;
+        Object tag = view.getTag(i2);
+        if (tag instanceof Float) {
+            ViewCompat.setElevation(view, ((Float) tag).floatValue());
+        }
+        view.setTag(i2, (Object) null);
+        view.setTranslationX(0.0f);
+        view.setTranslationY(0.0f);
+    }
+
+    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f, float f5, int i2, boolean z) {
+        if (z) {
+            int i7 = R$id.item_touch_helper_previous_elevation;
+            if (view.getTag(i7) == null) {
+                Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
+                ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
+                view.setTag(i7, valueOf);
+            }
+        }
+        view.setTranslationX(f);
+        view.setTranslationY(f5);
+    }
+
+    public void onSelected(View view) {
+    }
+
+    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f, float f5, int i2, boolean z) {
+    }
+}

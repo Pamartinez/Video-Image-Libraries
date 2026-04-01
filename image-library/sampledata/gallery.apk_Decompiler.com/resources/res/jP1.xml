@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="107dp" android:width="107dp" android:viewportWidth="107" android:viewportHeight="107">
+    <path android:fillColor="@color/album_no_pic_background_color" android:pathData="M0,0h52v52h-52z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="1"/>
+    <path android:fillColor="@color/album_no_pic_background_color" android:pathData="M0,55h52v52h-52z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="1"/>
+    <path android:fillColor="@color/album_no_pic_background_color" android:pathData="M55,0h52v52h-52z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="1"/>
+    <path android:fillColor="@color/album_no_pic_background_color" android:pathData="M55,55h52v52h-52z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="1"/>
+</vector>

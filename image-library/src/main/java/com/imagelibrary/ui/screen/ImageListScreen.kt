@@ -230,8 +230,8 @@ fun ImageListScreen(
         if (state.showDetailsDialog && state.detailsTarget != null) { ImageDetailsDialog(image = state.detailsTarget!!, onDismiss = { viewModel.dismissImageDetails() }) }
         if (state.showSortDialog) { SortDialog(options = ImageSortOption.entries, labelFor = { it.label }, currentOption = state.imageSortOption, onOptionSelected = { viewModel.setImageSortOption(it) }, onDismiss = { viewModel.dismissSortDialog() }) }
         if (state.showViewAsDialog) { ViewAsDialog(currentViewType = state.folderViewType, onViewTypeSelected = { viewModel.setFolderViewType(it) }, onDismiss = { viewModel.dismissViewAsDialog() }) }
-        if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }) }
-        if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }) }
+        if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }) }
+        if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }) }
         if (state.showCreateAlbumDialog) { CreateAlbumDialog(existingDcimNames = state.dcimFolderNames, onConfirm = { name -> viewModel.startCreateAlbumPicker(name) }, onDismiss = { viewModel.dismissCreateAlbumDialog() }) }
         CopyMoveAndConflictOverlayHost(
             isProgressActive = progress.isActive,
@@ -356,8 +356,8 @@ fun ImageListScreen(
     }
 
     // ── Full-screen pickers (early returns) ──
-    if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }); return }
-    if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }); return }
+    if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }); return }
+    if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }); return }
     if (state.showMoveToGroupPicker) {
         MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
         return

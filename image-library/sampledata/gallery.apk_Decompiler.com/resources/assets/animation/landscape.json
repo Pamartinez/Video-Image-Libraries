@@ -1,0 +1,24 @@
+{
+  "name": "Landscape",
+  "sort_order": 500,
+  "keyframes": [
+    { "camera_eye": [ 0.0, 0.0, 1.8 ],
+      "camera_dir" : [0.0, 0.0, -1],
+      "depth_intensity": 0.05,
+      "fov": 51.0 },
+    { "camera_eye": [ 0.0, 0.0, 1.7 ],
+      "camera_dir" : [0.0, 0.08, -1],
+      "depth_intensity": 0.45,
+      "fov": 51.0 }
+  ],
+  "transition": "ease",
+  "movement": "linear",
+  "mode": "bounce",
+  "speed_factor": 0.7,
+  "dynamic_offset": "damped_oscillation",
+  "dynamic_offset_options": {
+    "foreground_only": false,
+    "embossing_z": 0.0,
+    "dynamics_intensity": 4
+  }
+}

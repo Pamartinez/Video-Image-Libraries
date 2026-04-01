@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:id="@+id/moreinfo_dynamicview" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="0dp">
+        <include layout="@layout/details_divider"/>
+        <TextView android:ellipsize="end" android:id="@+id/moreinfo_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/details_item_margin_bw_divider_and_title" android:layout_marginBottom="@dimen/moreinfo_item_list_margin" android:text="@string/suggested_edits" android:maxLines="2" style="@style/MoreInfoDetailsHeaderTextStyleV3"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/moreinfo_item_listview" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

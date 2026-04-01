@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:focusable="false" android:clickable="false" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no">
+    <RelativeLayout android:id="@+id/divider_layout" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_cluster_results_category_title_margin_top" android:layout_marginBottom="@dimen/search_cluster_results_category_title_margin_bottom">
+        <ImageView android:id="@+id/search_cluster_type_icon" android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/bottom_tab_ic_albums" android:layout_centerVertical="true" android:layout_alignParentStart="true"/>
+        <TextView android:textSize="@dimen/search_cluster_results_carousel_title_text_size" android:textColor="@color/search_card_header_title" android:ellipsize="end" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerVertical="true" android:textIsSelectable="false" android:layout_marginStart="23dp" style="@style/OneUiRobotoSemiBold"/>
+    </RelativeLayout>
+</RelativeLayout>

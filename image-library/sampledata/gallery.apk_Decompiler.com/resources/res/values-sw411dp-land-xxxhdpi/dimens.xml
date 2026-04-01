@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stories_category_transitory_content_height_v80">212dp</dimen>
+    <dimen name="stories_category_transitory_content_width_v80">288dp</dimen>
+</resources>

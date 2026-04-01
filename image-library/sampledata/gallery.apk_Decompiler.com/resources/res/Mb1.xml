@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:id="@+id/icon_container" android:background="@color/search_category_shortcut_item_icon_container_bg_color" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/search_category_shortcut_icon_container_bottom_margin" android:minHeight="@dimen/search_category_shortcut_icon_container_min_height">
+        <ImageView android:layout_gravity="center" android:id="@+id/icon" android:layout_width="@dimen/search_category_shortcut_icon_size" android:layout_height="@dimen/search_category_shortcut_icon_size"/>
+    </FrameLayout>
+    <TextView android:textSize="@dimen/search_category_me_item_title_size" android:textColor="@color/search_category_item_title_color" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/OneUiRobotoRegular"/>
+</LinearLayout>

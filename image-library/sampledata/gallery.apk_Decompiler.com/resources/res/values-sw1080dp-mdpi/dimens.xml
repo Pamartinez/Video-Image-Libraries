@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="filter_detail_text_height">30dp</dimen>
+    <dimen name="thumbnail_stroke_width">1dp</dimen>
+    <dimen name="video_instant_slow_mo_circle_size">162dp</dimen>
+    <dimen name="video_instant_slow_mo_inner_circle_size">120dp</dimen>
+    <dimen name="video_instant_slow_mo_inner_circle_stroke">10.5dp</dimen>
+    <dimen name="video_instant_slow_mo_minimum_circle_size">54dp</dimen>
+</resources>

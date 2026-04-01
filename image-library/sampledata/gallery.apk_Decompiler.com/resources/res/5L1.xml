@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <solid android:color="@color/default_background"/>
+    <stroke android:width="@dimen/hovering_image_gap" android:color="@color/hovering_background_border_color"/>
+    <corners android:radius="@dimen/hovering_background_res_radius"/>
+</shape>

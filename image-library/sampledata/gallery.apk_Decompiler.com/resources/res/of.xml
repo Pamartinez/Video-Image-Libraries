@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/gallery_ic_actionbar_videoeditor" android:id="@+id/action_create_movie" android:visible="false" android:title="@string/story_video_editor" app:showAsAction="always"/>
+        <item android:id="@+id/action_select" android:title="@string/select" android:showAsAction="never"/>
+        <item android:id="@+id/action_create" android:visible="false" android:title="@string/move_mode_create" android:showAsAction="never"/>
+        <item android:id="@+id/action_sortby" android:visible="true" android:title="@string/sort" android:showAsAction="never"/>
+        <item android:id="@+id/action_slideshow" android:visible="false" android:title="@string/slideshow" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/gallery_ic_smart_nopic_favorite" android:id="@+id/action_remove_favorite_in_list" android:title="@string/unfavorite_abb" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_create" android:id="@+id/action_create" android:visible="false" android:title="@string/move_mode_create" android:showAsAction="never"/>
+        <item android:icon="@drawable/menu_bottombar_icon_share" android:id="@+id/action_share" android:title="@string/share_short" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete" android:title="@string/delete" app:showAsAction="ifRoom"/>
+    </group>
+    <group android:id="@+id/select_mode_with_done">
+        <item android:id="@+id/action_done" android:title="@string/done" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode">
+        <item android:id="@+id/action_cancel" android:visible="false" android:title="@string/cancel" app:showAsAction="always"/>
+    </group>
+</menu>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:paddingTop="@dimen/album_create_popup_dialog_padding_top" android:paddingBottom="@dimen/album_create_popup_dialog_padding_bottom" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:id="@+id/create_album" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/AlbumCreatePopupItemStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_create_popup_album" android:tint="@color/create_new_dialog_content_icon_tint_color"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_create_popup_dialog_item_horizontal_gap">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album" android:textDirection="locale" style="@style/AlbumCreatePopupTitleTextStyle"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_create_popup_dialog_album_title" android:textDirection="locale" style="@style/AlbumCreatePopupSubTitleTextStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/create_auto_updating_album" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/album_create_popup_dialog_item_vertical_margin" style="@style/AlbumCreatePopupItemStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_create_popup_auto_updating_album" android:tint="@color/create_new_dialog_content_icon_tint_color"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_create_popup_dialog_item_horizontal_gap">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/auto_album" android:textDirection="locale" style="@style/AlbumCreatePopupTitleTextStyle"/>
+                    <TextView android:id="@+id/create_auto_updating_album_sub_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_create_popup_dialog_auto_updating_album_title" android:textDirection="locale" style="@style/AlbumCreatePopupSubTitleTextStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/create_group" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/album_create_popup_dialog_item_vertical_margin" style="@style/AlbumCreatePopupItemStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_create_popup_folder" android:tint="@color/create_new_dialog_content_icon_tint_color"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_create_popup_dialog_item_horizontal_gap">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/group_title" android:textDirection="locale" style="@style/AlbumCreatePopupTitleTextStyle"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_create_popup_dialog_group_title" android:textDirection="locale" style="@style/AlbumCreatePopupSubTitleTextStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/create_shared_album" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/album_create_popup_dialog_item_vertical_margin" style="@style/AlbumCreatePopupItemStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_create_popup_shared_album" android:tint="@color/create_new_dialog_content_icon_tint_color"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_create_popup_dialog_item_horizontal_gap">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shared_album" android:textDirection="locale" style="@style/AlbumCreatePopupTitleTextStyle"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/album_create_popup_dialog_shared_album_title" android:textDirection="locale" style="@style/AlbumCreatePopupSubTitleTextStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/create_family_shared_album" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/album_create_popup_dialog_item_vertical_margin" style="@style/AlbumCreatePopupItemStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_create_popup_shared_family_album" android:tint="@color/create_new_dialog_content_icon_tint_color"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_create_popup_dialog_item_horizontal_gap">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shared_family_album" android:textDirection="locale" style="@style/AlbumCreatePopupTitleTextStyle"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/family_shared_album_description" android:textDirection="locale" style="@style/AlbumCreatePopupSubTitleTextStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

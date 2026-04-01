@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/gallery_ic_actionbar_create" android:id="@+id/action_add_content_to_story" android:title="@string/add" app:iconTint="@color/white_color" app:showAsAction="always"/>
+        <item android:id="@+id/action_enter_show_hide_contents" android:title="@string/show_hide_content" app:showAsAction="never"/>
+        <item android:id="@+id/action_enter_remove_from_story" android:title="@string/remove_images_videos" app:showAsAction="never"/>
+        <item android:id="@+id/action_add_items_to_shared_album_in_list" android:title="@string/add_to_shared_album" app:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_with_done">
+        <item android:id="@+id/action_done" android:title="@string/done" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/gallery_selection_ic_delete_light" android:id="@+id/action_remove_from_story_in_list" android:title="@string/remove_from_event" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_story_highlight_share" android:id="@+id/action_add_items_to_shared_album_on_selection" android:title="@string/add_to_shared_album" app:showAsAction="ifRoom"/>
+    </group>
+</menu>

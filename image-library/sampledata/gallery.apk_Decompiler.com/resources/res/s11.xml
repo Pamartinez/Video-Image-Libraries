@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <alpha android:interpolator="@anim/sine_out_60" android:duration="250" android:fromAlpha="0" android:toAlpha="1"/>
+    <scale android:interpolator="@anim/sine_out_60" android:duration="250" android:pivotX="50%" android:pivotY="50%" android:fromXScale="0%" android:toXScale="103.9978%" android:fromYScale="0%" android:toYScale="103.9978%"/>
+    <scale android:interpolator="@anim/sine_out_60" android:duration="250" android:pivotX="50%" android:pivotY="50%" android:startOffset="250" android:fromXScale="103.9978%" android:toXScale="100%" android:fromYScale="103.9978%" android:toYScale="100%"/>
+</set>

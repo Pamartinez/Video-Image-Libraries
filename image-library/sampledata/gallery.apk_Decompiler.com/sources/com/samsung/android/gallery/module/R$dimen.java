@@ -1,0 +1,41 @@
+package com.samsung.android.gallery.module;
+
+public abstract class R$dimen {
+    public static final int album_grid_count_text_size = 2131165259;
+    public static final int album_grid_title_text_size = 2131165269;
+    public static final int bottom_bar_floating_height = 2131165348;
+    public static final int bottom_tab_floating_height = 2131165406;
+    public static final int clipboard_layout_height = 2131165481;
+    public static final int clipboard_layout_height_without_search = 2131165482;
+    public static final int date_location_body_divider_height = 2131165600;
+    public static final int date_location_body_divider_height_1depth = 2131165601;
+    public static final int date_location_body_divider_height_2depth = 2131165602;
+    public static final int date_location_body_divider_height_3depth = 2131165603;
+    public static final int date_location_body_divider_height_4depth = 2131165604;
+    public static final int date_location_body_divider_height_5depth = 2131165605;
+    public static final int date_location_header_divider_height = 2131165612;
+    public static final int details_height_in_large_gui_portrait = 2131165689;
+    public static final int details_width_in_large_gui_landscape = 2131165705;
+    public static final int drawer_collapsed_width = 2131165755;
+    public static final int drawer_tab_layout_width = 2131165787;
+    public static final int gallery_main_edge_icon_size = 2131165997;
+    public static final int gallery_sub_edge_icon_size = 2131165999;
+    public static final int list_album_item_height = 2131166179;
+    public static final int map_marker_popup_height = 2131166602;
+    public static final int map_marker_popup_width = 2131166603;
+    public static final int map_marker_thumbnail_radius = 2131166606;
+    public static final int map_small_marker_popup_height = 2131166608;
+    public static final int map_small_marker_popup_width = 2131166609;
+    public static final int map_small_marker_thumbnail_radius = 2131166611;
+    public static final int search_card_arrow_size = 2131167393;
+    public static final int search_category_item_horizontal_spacing_61 = 2131167457;
+    public static final int search_category_item_size_61 = 2131167458;
+    public static final int sharing_noti_layout_item_image_size = 2131168665;
+    public static final int smart_album_layout_height_in_picker = 2131168766;
+    public static final int smart_album_layout_height_in_picker_without_search = 2131168767;
+    public static final int stories_width_ratio_dex = 2131168970;
+    public static final int stories_width_ratio_land = 2131168971;
+    public static final int stories_width_ratio_port = 2131168972;
+    public static final int toolbar_bottom_margin_for_no_extend = 2131169406;
+    public static final int toolbar_height = 2131169407;
+}

@@ -1,0 +1,29 @@
+package com.samsung.android.sum.core.filter.collection;
+
+import com.samsung.android.sum.core.filter.AsyncFilter;
+import java.util.function.Function;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final /* synthetic */ class b implements Function {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ int f4079a;
+    public final /* synthetic */ AsyncFilter b;
+
+    public /* synthetic */ b(AsyncFilter asyncFilter, int i2) {
+        this.f4079a = i2;
+        this.b = asyncFilter;
+    }
+
+    public final Object apply(Object obj) {
+        int i2 = this.f4079a;
+        AsyncFilter asyncFilter = this.b;
+        Enum enumR = (Enum) obj;
+        switch (i2) {
+            case 0:
+                return asyncFilter.getOutputChannel();
+            default:
+                return asyncFilter.getInputChannel();
+        }
+    }
+}

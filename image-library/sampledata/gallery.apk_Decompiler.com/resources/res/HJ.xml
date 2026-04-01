@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/language_select_dialog_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/language_select_dialog_inner_layout" android:background="@drawable/lang_change_background" android:layout_width="@dimen/language_select_popup_width" android:layout_height="wrap_content" android:layout_margin="@dimen/language_dialog_margin" android:elevation="8dp" android:paddingVertical="@dimen/language_dialog_padding_bottom">
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <LinearLayout android:orientation="vertical" android:id="@+id/lang_select_group" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </ScrollView>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/lang_select_add_languages_button" android:background="@drawable/language_item_background" android:layout_width="match_parent" android:layout_height="@dimen/language_select_popup_item_height" android:paddingStart="@dimen/language_dialog_add_language_margin_start" android:paddingEnd="@dimen/lang_change_layout_margin_horizontal">
+            <ImageView android:id="@+id/lang_select_add_languages_image" android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/tw_list_icon_add_mtrl" app:tint="@color/lang_select_add_button"/>
+            <TextView android:textSize="@dimen/language_dialog_add_language_text_size" android:textColor="@color/language_layout_text_color" android:ellipsize="end" android:id="@+id/add_languages_text_view" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/lang_select_add_languages" android:maxLines="1" android:layout_marginStart="8dp" style="@style/sec_400"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

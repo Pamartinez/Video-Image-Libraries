@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/recycler_item_view" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <FrameLayout android:id="@+id/content_parent" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <FrameLayout android:id="@+id/thumbnail_container" android:clipChildren="true" android:clipToPadding="true" android:layout_width="@dimen/search_category_stories_item_width" android:layout_height="@dimen/search_category_stories_item_height" android:stateListAnimator="?attr/seslLargeTouchAnimator">
+            <com.samsung.android.gallery.widget.ShapeImageView android:id="@+id/thumbnail" android:contentDescription="@null" app:aspect_ratio="-1" style="@style/ThumbnailStyle"/>
+            <FrameLayout android:id="@+id/thumbnail_preview_layout" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <View android:id="@+id/gradient_view" android:background="@drawable/stories_pinch_item_lower_gradient" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="2px"/>
+        </FrameLayout>
+        <RelativeLayout android:orientation="vertical" android:id="@+id/deco_layout" android:focusable="false" android:clickable="false" android:layout_width="@dimen/search_category_stories_item_width" android:layout_height="@dimen/search_category_stories_item_height">
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/top_right_deco" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentEnd="true">
+                <TextView android:textSize="8dp" android:id="@+id/newLabel" android:text="@string/new_label" android:textAllCaps="true" style="@style/StoryNewBadgeStyle"/>
+                <ImageView android:gravity="center_vertical" android:id="@+id/icon_favorite" android:padding="@dimen/stories_view_favorite_padding_1_depth" android:layout_width="wrap_content" android:layout_height="wrap_content" android:foreground="@drawable/recoil_oval_shape" android:contentDescription="@string/add_to_favorites" android:layout_marginStart="@dimen/stories_view_favorite_start_margin_1_depth" android:stateListAnimator="?attr/seslSmallTouchAnimator" android:tooltipText="@string/add_to_favorites"/>
+            </LinearLayout>
+            <RelativeLayout android:padding="3dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/title_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_marginHorizontal="5dp">
+                    <TextView android:textSize="16dp" android:layout_gravity="center_horizontal" android:id="@+id/title" android:layout_marginBottom="2dp" android:includeFontPadding="false" android:layout_centerHorizontal="true" android:textFontWeight="600" style="@style/StoriesCategoryTitleStyle"/>
+                </LinearLayout>
+                <TextView android:textSize="9dp" android:id="@+id/duration" android:layout_marginBottom="10dp" android:layout_below="@+id/title_area" android:layout_centerHorizontal="true" style="@style/StoriesCategorySubTitleStyle"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+</FrameLayout>

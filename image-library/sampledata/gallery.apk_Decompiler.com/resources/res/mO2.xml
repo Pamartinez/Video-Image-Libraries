@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@animator/$capture_light_animator__0" android:duration="140" android:valueTo="1" android:valueType="floatType" android:propertyName="alpha"/>
+        <objectAnimator android:interpolator="@animator/$capture_light_animator__1" android:duration="175" android:startOffset="210" android:valueFrom="1" android:valueTo="0" android:valueType="floatType" android:propertyName="alpha"/>
+    </set>
+</set>

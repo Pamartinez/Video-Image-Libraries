@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="aospLargeScreenDpi">false</bool>
+    <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
+    <bool name="enableExtensionAppFunctionService">true</bool>
+    <bool name="enableOnBackInvokedCallback">false</bool>
+    <bool name="enablePlatformAppFunctionService">false</bool>
+    <bool name="enable_system_alarm_service_default">false</bool>
+    <bool name="enable_system_foreground_service_default">true</bool>
+    <bool name="enable_system_job_service_default">true</bool>
+    <bool name="gallery_window_light_navigation_bar">true</bool>
+    <bool name="isDexDrawerSize">false</bool>
+    <bool name="isDrawerDefaultOpened">false</bool>
+    <bool name="isNightTheme">false</bool>
+    <bool name="isTabletDpi">false</bool>
+    <bool name="is_light_status_bar">true</bool>
+    <bool name="is_right_to_left">false</bool>
+    <bool name="local_provider_enabled">true</bool>
+    <bool name="search_provider_enabled">true</bool>
+    <bool name="search_provider_v2_enabled">true</bool>
+    <bool name="sesl_action_bar_text_item_mode">false</bool>
+    <bool name="sesl_config_closeDialogWhenTouchOutside">true</bool>
+    <bool name="sesl_seekbar_sliding_animation">true</bool>
+    <bool name="supportDetailsLandScapeMode">false</bool>
+    <bool name="supportDexNavigationButton">false</bool>
+    <bool name="supportFoldRemaster">false</bool>
+    <bool name="supportPopover">false</bool>
+    <bool name="workmanager_test_configuration">false</bool>
+</resources>

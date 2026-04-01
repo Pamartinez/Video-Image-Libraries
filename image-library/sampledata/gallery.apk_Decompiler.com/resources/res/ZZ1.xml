@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="oval">
+            <corners android:radius="@dimen/quick_crop_icon_container_radius"/>
+            <solid android:color="@color/quick_crop_icon_background_color"/>
+            <stroke android:width="@dimen/quick_crop_icon_container_stroke" android:color="@color/quick_crop_icon_stroke_color"/>
+            <size android:height="@dimen/quick_crop_icon_container_size" android:width="@dimen/quick_crop_icon_container_size"/>
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <SwitchPreferenceCompat android:title="@string/show_recent_searches" android:key="save_recent_searches" android:defaultValue="true"/>
+    <SwitchPreferenceCompat android:title="@string/show_suggestions" android:key="show_suggestions" android:defaultValue="true"/>
+    <Preference android:title="@string/search_categories" android:key="customize"/>
+    <PreferenceCategory/>
+</PreferenceScreen>

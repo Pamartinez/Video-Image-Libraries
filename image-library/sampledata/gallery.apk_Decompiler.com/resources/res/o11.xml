@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/gallery_status_bar_fw_background_color" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:background="@color/transparent" app:expanded="false" style="@style/AppBarLayoutStyle">
+            <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" android:background="@color/transparent" app:background="@color/transparent" style="@style/CollapsingToolBarStyle">
+                <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:layout_gravity="bottom" android:id="@+id/toolbar" android:background="@color/transparent" app:background="@color/transparent" app:layout_collapseMode="1" style="@style/ToolbarStyle"/>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+        <LinearLayout android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <com.samsung.android.gallery.widget.listview.GalleryListView android:layout_gravity="center" android:id="@+id/my_recycler_view" android:focusable="false" android:layoutAnimation="@anim/layout_anim_alpha" android:layout_width="match_parent" android:layout_height="match_parent" app:roundedCorner="false"/>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

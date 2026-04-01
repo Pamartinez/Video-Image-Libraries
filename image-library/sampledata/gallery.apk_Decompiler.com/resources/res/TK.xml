@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/recycler_view_item" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:foreground="@drawable/thumbnail_selector" android:contentDescription="@string/speak_button" android:importantForAccessibility="yes">
+    <FrameLayout android:id="@+id/content_root" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:id="@+id/thumbnail_preview_layout" android:foreground="@drawable/recoil_ripple_rect" android:stateListAnimator="?attr/seslSmallTouchAnimator" style="@style/ThumbnailPreviewLayoutStyle">
+            <ImageView android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" style="@style/ThumbnailStyle"/>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/deco_view_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ViewStub android:id="@+id/checkboxViewStub" android:layout="@layout/thumbnail_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_highlight_list_checkbox_margin" android:layout_marginStart="@dimen/story_highlight_list_checkbox_margin"/>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

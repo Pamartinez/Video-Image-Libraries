@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/recycler_view_item" android:paddingTop="16dp" android:paddingBottom="3dp" android:focusable="false" android:clickable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.SquareImageView android:layout_gravity="center_vertical" android:id="@+id/thumbnail" android:background="@color/thumbnail_icon_background" android:focusable="false" android:clickable="false" android:layout_width="69dp" android:layout_height="69dp"/>
+            <LinearLayout android:layout_gravity="bottom|left|center_vertical|center_horizontal|center|start" android:id="@+id/album_type_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/album_type_layout_margin_start_list">
+                <ViewStub android:id="@+id/album_type_stub" android:layout="@layout/stub_album_type" android:layout_width="wrap_content" android:layout_height="@dimen/album_type_icon_size"/>
+                <ViewStub android:id="@+id/album_sync" android:layout="@layout/stub_album_sync" android:inflatedId="@+id/album_sync" android:layout_width="wrap_content" android:layout_height="@dimen/album_type_icon_size"/>
+            </LinearLayout>
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:layout_marginEnd="14dp">
+            <TextView android:textSize="11sp" android:textColor="@color/one_ui_album_title_text_color" android:ellipsize="end" android:id="@+id/title" android:layout_width="0dp" android:layout_height="wrap_content" android:lines="1" android:textIsSelectable="false" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@+id/newLabel" app:layout_constraintHorizontal_bias="0" app:layout_constraintHorizontal_chainStyle="2" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:layout_constraintWidth_default="1" style="@style/OneUiRobotoRegular"/>
+            <ViewStub android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/newLabel" android:layout="@layout/stub_new_label" android:inflatedId="@+id/newLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@+id/title" app:layout_constraintTop_toTopOf="@+id/title"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView android:textSize="10sp" android:textColor="@color/one_ui_album_sub_title_text_color" android:id="@+id/count" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:lines="1" android:textIsSelectable="false" android:layout_marginStart="6dp" android:layout_marginEnd="14dp" style="@style/OneUiRobotoRegular"/>
+    </LinearLayout>
+</FrameLayout>

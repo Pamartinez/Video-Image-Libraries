@@ -1,0 +1,26 @@
+package com.samsung.android.gallery.module.lottie.recap.binder;
+
+import com.samsung.android.gallery.module.lottie.recap.data.parser.AnalyzedData;
+import java.util.function.Function;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final /* synthetic */ class f implements Function {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ int f3034a;
+
+    public /* synthetic */ f(int i2) {
+        this.f3034a = i2;
+    }
+
+    public final Object apply(Object obj) {
+        switch (this.f3034a) {
+            case 0:
+                return RecapDataVars.formatWithCommas(RecapDataVars.getJsonVar((AnalyzedData) obj, "totalFaces", (String) null));
+            case 1:
+                return RecapDataVars.formatWithCommas(RecapDataVars.getJsonVar((AnalyzedData) obj, "totalLocations", "__EmPtY__"));
+            default:
+                return RecapImageAssetDelegateForRecorder.lambda$fetchBitmap$0((Integer) obj);
+        }
+    }
+}

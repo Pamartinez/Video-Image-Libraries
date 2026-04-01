@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <PreferenceCategory android:title="@string/automatic_updates" android:key="album_update_category">
+        <SwitchPreferenceCompat android:title="@string/suggested_contents_to_add_to_album" android:key="album_auto_update" android:defaultValue="true"/>
+        <Preference android:title="@string/people_to_include_in_album" android:key="album_selected_people"/>
+        <DropDownPreference android:entries="@array/suggested_contents_rule" android:title="@string/contents_to_include_in_album" android:key="suggested_contents_rule" android:entryValues="@array/suggested_contents_rule_values" app:useSimpleSummaryProvider="true"/>
+        <PreferenceCategory/>
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_category_dummy_layout" android:key="shared_album_option_category">
+        <Preference android:title="@string/change_cover_image" android:key="album_change_cover"/>
+        <Preference android:title="@string/rename" android:key="album_rename"/>
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <com.samsung.android.gallery.settings.widget.ExSumSwitchPreference android:title="@string/sharing_album_link" android:key="shared_album_link"/>
+        <Preference android:layout="@layout/button_style_preference_layout" android:title="@string/sharing_link" android:key="shared_album_link_shortcut"/>
+    </PreferenceCategory>
+    <PreferenceCategory/>
+</PreferenceScreen>

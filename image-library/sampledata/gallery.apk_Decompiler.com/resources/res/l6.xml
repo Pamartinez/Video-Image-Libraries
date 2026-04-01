@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:id="@+id/moreinfo_camerainfo" android:background="@android:color/transparent" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.google.android.flexbox.FlexboxLayout android:id="@+id/camera_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" app:alignItems="2" app:flexWrap="1">
+        <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/camera_name" android:textDirection="inherit" android:layout_marginEnd="@dimen/moreinfo_oneui5x_camera_capture_mode_margin_start" style="@style/DetailsTextViewBoldStyle"/>
+        <com.samsung.android.gallery.widget.MultiColumnTextView android:id="@+id/details_capture_mode_list" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </com.google.android.flexbox.FlexboxLayout>
+    <com.samsung.android.gallery.widget.MultiColumnTextView android:id="@+id/moreinfo_metadata" android:paddingTop="@dimen/moreinfo_oneui5x_item_bold_vertical_margin" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:dividerDrawableHorizontal="@drawable/details_item_flexbox_transparent_divider" app:dividerDrawableVertical="@drawable/details_item_flexbox_textview_divider" app:flexWrap="1" app:showDividerHorizontal="2" app:showDividerVertical="2"/>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/virtual_aperture_info_layout" android:paddingTop="@dimen/moreinfo_oneui5x_item_vertical_margin" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/virtual_aperture_info" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/DetailsTextViewNormalStyle"/>
+        <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/virtual_aperture_title" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/DetailsTextViewNormalStyle"/>
+    </LinearLayout>
+</LinearLayout>

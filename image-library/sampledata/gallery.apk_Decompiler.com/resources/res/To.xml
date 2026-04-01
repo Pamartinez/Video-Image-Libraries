@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/floating_history_root_view" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/floating_history_container" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="18dp">
+        <LinearLayout android:paddingBottom="@dimen/search_recommend_header_padding_bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.5dp" android:paddingHorizontal="18dp">
+            <TextView android:textSize="16dp" android:textColor="@color/bottom_search_toolbar_floating_title_text_color" android:ellipsize="end" android:gravity="left|center_vertical|center_horizontal|center|start" android:focusable="false" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/recent_search" android:maxLines="1" android:layout_weight="1" android:textDirection="locale" style="@style/OneUiRobotoSemiBold"/>
+            <TextView android:textSize="16dp" android:textColor="#ff376fde" android:ellipsize="end" android:gravity="right|center_vertical|center_horizontal|center|end" android:id="@+id/clear_history_button" android:background="@drawable/button_ripple" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/delete_history" android:maxLines="1" android:layout_weight="1" android:textDirection="locale" style="@style/OneUiRobotoSemiBold"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/floating_history_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+</FrameLayout>

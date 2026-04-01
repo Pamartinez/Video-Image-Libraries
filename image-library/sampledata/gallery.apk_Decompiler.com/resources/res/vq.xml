@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/framelayout_for_capture_animation" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.app.sdk.deepsky.objectcapture.ui.ParticleLayerView android:id="@+id/particle_layer" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0"/>
+    <com.samsung.android.app.sdk.deepsky.objectcapture.ui.OutGlowLayerView android:id="@+id/glow_layer" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.8"/>
+    <com.samsung.android.app.sdk.deepsky.objectcapture.ui.DummyImageView android:id="@+id/dummy_layer" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="center"/>
+    <com.samsung.android.app.sdk.deepsky.objectcapture.ui.MaskedImageView android:id="@+id/lighting_gradient" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="center"/>
+</FrameLayout>

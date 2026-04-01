@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:height="@dimen/people_tag_contact_photo_size" android:width="@dimen/people_tag_contact_photo_size">
+        <shape android:shape="oval">
+            <solid android:color="@color/photo_id_background_color"/>
+            <stroke android:width="@dimen/photo_id_stroke_width" android:color="@color/photo_id_stroke_color"/>
+        </shape>
+    </item>
+</layer-list>

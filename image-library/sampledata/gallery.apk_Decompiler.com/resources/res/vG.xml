@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <include layout="@layout/toolbar_normal"/>
+    <RelativeLayout android:id="@+id/empty_view" style="@style/EmptyViewDefaultStyle">
+        <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:label="@string/empty_set_description_no_invitation"/>
+    </RelativeLayout>
+    <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:scrollbars="vertical" android:layoutAnimation="@anim/layout_anim_fall_down" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/shared_invitation_list_margin_top" app:lastOutlineStroke="false" app:outlineStroke="true" app:roundedCorner="true"/>
+</LinearLayout>

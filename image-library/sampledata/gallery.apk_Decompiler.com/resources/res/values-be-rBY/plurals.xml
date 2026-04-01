@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Дадаць %d вобл. элемент у абагул. альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Дадаць %d вобл. элементы ў абагул. альбом?</item>
+        <item quantity="many">Дадаць %d вобл. элементаў у абаг. альбом?</item>
+        <item quantity="other">Дадаць %d вобл. элементаў у абаг. альбом?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Каб выкарыстоўваць інтэлектуальныя функцыі, вам павінен быць мінімум %d год.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Каб выкарыстоўваць інтэлектуальныя функцыі, вам павінна быць мінімум %d гады.</item>
+        <item quantity="many">Каб выкарыстоўваць інтэлектуальныя функцыі, вам павінна быць мінімум %d гадоў.</item>
+        <item quantity="other">Каб выкарыстоўваць інтэлектуальныя функцыі, вам павінна быць мінімум %d гадоў.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d фатагр-я</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d фатагр-і</item>
+        <item quantity="many">%d фатагр-й</item>
+        <item quantity="other">%d фатагр-й</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма дадаць да допісу Meitu больш за %d відэаролік.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма дадаць да допісу Meitu больш за %d відэаролікі.</item>
+        <item quantity="many">Немагчыма дадаць да допісу Meitu больш за %d відэаролікаў.</item>
+        <item quantity="other">Немагчыма дадаць да допісу Meitu больш за %d відэаролікаў.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма выдаліць %1$d відарыс %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма выдаліць %1$d відарысы %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Не атрымалася выдаліць %1$d відарысаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Не атрымалася выдаліць %1$d відарысаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма выдаліць %1$d элемент %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма выдаліць %1$d элементы %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Немагчыма выдаліць %1$d элементаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Немагчыма выдаліць %1$d элементаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма выдаліць %1$d відэаролік %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма выдаліць %1$d відэаролікі %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Немагчыма выдаліць %1$d відэаролікаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Немагчыма выдаліць %1$d відэаролікаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма ўключыць у допіс Meitu больш за %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма ўключыць у допіс Meitu больш за %d элементы.</item>
+        <item quantity="many">Немагчыма ўключыць у допіс Meitu больш за %d элементаў.</item>
+        <item quantity="other">Немагчыма ўключыць у допіс Meitu больш за %d элементаў.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма аднавіць %1$d відарыс %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма аднавіць %1$d відарысы %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Немагчыма аднавіць %1$d відарысаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Немагчыма аднавіць %1$d відарысаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма аднавіць %1$d элемент %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма аднавіць %1$d элементы %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Немагчыма аднавіць %1$d элементаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Немагчыма аднавіць %1$d элементаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася аднавіць %1$d відэаролік %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма аднавіць %1$d відэаролікі %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Немагчыма аднавіць %1$d відэаролікаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Немагчыма аднавіць %1$d відэаролікаў %2$s. %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма дадаць больш за %d элемент адначасова.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма дадаць больш за %d элементы адначасова.</item>
+        <item quantity="many">Немагчыма дадаць больш за %d элементаў адначасова.</item>
+        <item quantity="other">Немагчыма дадаць больш за %d элементаў адначасова.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма дадаць у гісторыю больш за %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма дадаць у гісторыю больш за %d элементы.</item>
+        <item quantity="many">Немагчыма дадаць у гісторыю больш за %d элементаў.</item>
+        <item quantity="other">Немагчыма дадаць у гісторыю больш за %d элементаў.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d горад</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d гарады</item>
+        <item quantity="many">%d гарадоў</item>
+        <item quantity="other">%d гарадоў</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася аднавіць %1$d відарыс. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася аднавіць %1$d відарысы. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="many">Не атрымалася аднавіць %1$d відарысаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="other">Не атрымалася аднавіць %1$d відарысаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася аднавіць %1$d элемент. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася аднавіць %1$d элементы. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="many">Не атрымалася аднавіць %1$d элементаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="other">Не атрымалася аднавіць %1$d элементаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася аднавіць %1$d відэаролік. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася аднавіць %1$d відэаролікі. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="many">Не атрымалася аднавіць %1$d відэаролікаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+        <item quantity="other">Не атрымалася аднавіць %1$d відэаролікаў. Вызваліце прастору ў %2$s, потым паўтарыце спробу.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася аднавіць %1$d відэаролік. Гэты відэаролік быў адноўлены або выдалены ў праграме %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася аднавіць %1$d відэаролікі. Гэтыя відэаролікі былі адноўлены або выдалены ў праграме %2$s.</item>
+        <item quantity="many">Не атрымалася аднавіць %1$d відэаролікаў. Гэтыя відэаролікі былі адноўлены або выдалены ў праграме %2$s.</item>
+        <item quantity="other">Не атрымалася аднавіць %1$d відэаролікаў. Гэтыя відэаролікі былі адноўлены або выдалены ў праграме %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася выдаліць %d элемент. Паўтарыце спробу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася выдаліць %d элементы. Паўтарыце спробу.</item>
+        <item quantity="many">Не атрымалася выдаліць %d элементаў. Паўтарыце спробу.</item>
+        <item quantity="other">Не атрымалася выдаліць %d элементаў. Паўтарыце спробу.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d абагулены альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d абагуленыя альбомы</item>
+        <item quantity="many">%d абагуленых альбомаў</item>
+        <item quantity="other">%d абагуленых альбомаў</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d гісторыя</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d гісторыі</item>
+        <item quantity="many">%d гісторый</item>
+        <item quantity="other">%d гісторый</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра дату і час зменена для %d відарыса.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра дату і час зменена для %d відарысаў.</item>
+        <item quantity="many">Інфармацыя пра дату і час зменена для %d відарысаў.</item>
+        <item quantity="other">Інфармацыя пра дату і час зменена для %d відарысаў.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра дату і час зменена для %d элемента.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра дату і час зменена для %d элементаў.</item>
+        <item quantity="many">Інфармацыя пра дату і час зменена для %d элементаў.</item>
+        <item quantity="other">Інфармацыя пра дату і час зменена для %d элементаў.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра дату і час зменена для %d відэароліка.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра дату і час зменена для %d відэаролікаў.</item>
+        <item quantity="many">Інфармацыя пра дату і час зменена для %d відэаролікаў.</item>
+        <item quantity="other">Інфармацыя пра дату і час зменена для %d відэаролікаў.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d альбомы?</item>
+        <item quantity="many">Выдаліць %d альбомаў?</item>
+        <item quantity="other">Выдаліць %d альбомаў?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць 1 групу, %d альбом і 1 элемент у іх?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць 1 групу, %d альбомы і 1 элемент у іх?</item>
+        <item quantity="many">Выдаліць 1 групу, %d альбомаў і 1 элемент у іх?</item>
+        <item quantity="other">Выдаліць 1 групу, %d альбомаў і 1 элемент у іх?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d групу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d групы?</item>
+        <item quantity="many">Выдаліць %d груп?</item>
+        <item quantity="other">Выдаліць %d груп?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відарыс?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць відарысы (%d)?</item>
+        <item quantity="many">Выдаліць відарысы (%d)?</item>
+        <item quantity="other">Выдаліць відарысы (%d)?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць элементы (%d)?</item>
+        <item quantity="many">Выдаліць элементы (%d)?</item>
+        <item quantity="other">Выдаліць элементы (%d)?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d групу падобных відарысаў?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d групы падобных відарысаў?</item>
+        <item quantity="many">Выдаліць %d груп падобных відарысаў?</item>
+        <item quantity="other">Выдаліць %d груп падобных відарысаў?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d групу падобных відарысаў і 1 іншы элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d групы падобных відарысаў і 1 іншы элемент?</item>
+        <item quantity="many">Выдаліць %d груп падобных відарысаў і 1 іншы элемент?</item>
+        <item quantity="other">Выдаліць %d груп падобных відарысаў і 1 іншы элемент?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць 1 групу падобных відарысаў і %d іншы элемент?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць 1 групу падобных відарысаў і %d іншыя элементы?</item>
+        <item quantity="many">Выдаліць 1 групу падобных відарысаў і %d іншых элементаў?</item>
+        <item quantity="other">Выдаліць 1 групу падобных відарысаў і %d іншых элементаў?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент з гэтай серыі?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d элементы з гэтай серыі?</item>
+        <item quantity="many">Выдаліць %d элементаў з гэтай серыі?</item>
+        <item quantity="other">Выдаліць %d элементаў з гэтай серыі?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць відэакліп з %d фота з рухам?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць відэакліпы з %d фота з рухам?</item>
+        <item quantity="many">Выдаліць відэакліпы з %d фота з рухам?</item>
+        <item quantity="other">Выдаліць відэакліпы з %d фота з рухам?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d здымак з гэтай серыі?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d здымкі з гэтай серыі?</item>
+        <item quantity="many">Выдаліць %d здымкаў з гэтай серыі?</item>
+        <item quantity="other">Выдаліць %d здымкаў з гэтай серыі?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d набор здымкаў Мультыкадра?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d наборы здымкаў Мультыкадра?</item>
+        <item quantity="many">Выдаліць %d набораў здымкаў Мультыкадра?</item>
+        <item quantity="other">Выдаліць %d набораў здымкаў Мультыкадра?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відэа?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відэа?</item>
+        <item quantity="many">Выдаліць %d відэа?</item>
+        <item quantity="other">Выдаліць %d відэа?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Вы можаце праглядзець гэта змесціва яшчэ %d раз. Праглядзець зараз?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Вы можаце праглядзець гэта змесціва яшчэ %d разы. Праглядзець зараз?</item>
+        <item quantity="many">Вы можаце праглядзець гэта змесціва яшчэ %d разоў. Праглядзець зараз?</item>
+        <item quantity="other">Вы можаце праглядзець гэта змесціва яшчэ %d разоў. Праглядзець зараз?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d пусты альбом будзе выдалены без перамяшчэння ў сметніцу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d пустыя альбомы будуць выдалены без перамяшчэння ў сметніцу.</item>
+        <item quantity="many">%d пустых альбомаў будзе выдалена без перамяшчэння ў сметніцу.</item>
+        <item quantity="other">%d пустых альбомаў будзе выдалена без перамяшчэння ў сметніцу.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Элементы ў сметніцы будуць выдалены назаўсёды праз %d дзень.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Элементы ў сметніцы будуць выдалены назаўсёды праз %d дні.</item>
+        <item quantity="many">Элементы ў сметніцы будуць выдалены назаўсёды праз %d дзён.</item>
+        <item quantity="other">Элементы ў сметніцы будуць выдалены назаўсёды праз %d дзён.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відарыс незваротна выдалены з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копію са сметніцы.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відарысы незваротна выдалены з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="many">%d відарысаў незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="other">%d відарысаў незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент незваротна выдалены з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копію са сметніцы.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы незваротна выдалены з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="many">%d элементаў незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="other">%d элементаў незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відэа незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копію са сметніцы.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відэа незваротна выдалены з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="many">%d відэа незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+        <item quantity="other">%d відэа незваротна выдалена з вашага тэлефона. Перайдзіце ў OneDrive, каб выдаліць адтуль копіі са сметніцы.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відарыс незваротна выдалены.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відарысы незваротна выдалены.</item>
+        <item quantity="many">%d відарысаў незваротна выдалена.</item>
+        <item quantity="other">%d відарысаў незваротна выдалена.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент незваротна выдалены.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы незваротна выдалены.</item>
+        <item quantity="many">%d элементаў незваротна выдалена.</item>
+        <item quantity="other">%d элементаў незваротна выдалена.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відэа незваротна выдалена.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відэа незваротна выдалены.</item>
+        <item quantity="many">%d відэа незваротна выдалена.</item>
+        <item quantity="other">%d відэа незваротна выдалена.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выгляд сеткі з %d мініяцюрай у кожным радку</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выгляд сеткі з %d мініяцюрамі ў кожным радку</item>
+        <item quantity="many">Выгляд сеткі з %d мініяцюрамі ў кожным радку</item>
+        <item quantity="other">Выгляд сеткі з %d мініяцюрамі ў кожным радку</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d група, 1 альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d групы, 1 альбом</item>
+        <item quantity="many">%d груп, 1 альбом</item>
+        <item quantity="other">%d груп, 1 альбом</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відарыс спампаваны з воблака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відарысы спампаваны з воблака.</item>
+        <item quantity="many">%d відарысаў спампавана з воблака.</item>
+        <item quantity="other">%d відарысаў спампавана з воблака.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Відарысы адноўлены. Не атрымалася аднавіць %1$d відарыс %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Відарысы адноўлены. Не атрымалася аднавіць %1$d відарысы %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Відарысы адноўлены. Не атрымалася аднавіць %1$d відарысаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Відарысы адноўлены. Не атрымалася аднавіць %1$d відарысаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Захаваны %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Захаваны %d элементы.</item>
+        <item quantity="many">Захавана %d элементаў.</item>
+        <item quantity="other">Захавана %d элементаў.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент спампаваны з воблака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы спампаваны з воблака.</item>
+        <item quantity="many">%d элементаў спампавана з воблака.</item>
+        <item quantity="other">%d элементаў спампавана з воблака.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Элементы адноўлены. Не атрымалася аднавіць %1$d элемент %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Элементы адноўлены. Не атрымалася аднавіць %1$d элементы %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Элементы адноўлены. Не атрымалася аднавіць %1$d элементаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Элементы адноўлены. Не атрымалася аднавіць %1$d элементаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра месцазнаходжанне зменена для %d відарыса.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра месцазнаходжанне зменена для %d відарысаў.</item>
+        <item quantity="many">Інфармацыя пра месцазнаходжанне зменена для %d відарысаў.</item>
+        <item quantity="other">Інфармацыя пра месцазнаходжанне зменена для %d відарысаў.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра месцазнаходжанне зменена для %d элемента.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра месцазнаходжанне зменена для %d элементаў.</item>
+        <item quantity="many">Інфармацыя пра месцазнаходжанне зменена для %d элементаў.</item>
+        <item quantity="other">Інфармацыя пра месцазнаходжанне зменена для %d элементаў.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Інфармацыя пра месцазнаходжанне зменена для %d відэароліка.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Інфармацыя пра месцазнаходжанне зменена для %d відэаролікаў.</item>
+        <item quantity="many">Інфармацыя пра месцазнаходжанне зменена для %d відэаролікаў.</item>
+        <item quantity="other">Інфармацыя пра месцазнаходжанне зменена для %d відэаролікаў.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d месца</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d месцы</item>
+        <item quantity="many">%d месцаў</item>
+        <item quantity="other">%d месцаў</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма ўвесці больш за наступную колькасць сімвалаў: %d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма ўвесці больш за наступную колькасць сімвалаў: %d.</item>
+        <item quantity="many">Немагчыма ўвесці больш за наступную колькасць сімвалаў: %d.</item>
+        <item quantity="other">Немагчыма ўвесці больш за наступную колькасць сімвалаў: %d.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Відэакліп з %d фота з рухам захаваны.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Відэакліпы з %d фота з рухам захаваны.</item>
+        <item quantity="many">Відэакліпы з %d фота з рухам захаваны.</item>
+        <item quantity="other">Відэакліпы з %d фота з рухам захаваны.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d серыйны здымак у Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d серыйныя здымкі ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d серыйных здымкаў у Сметніцу?</item>
+        <item quantity="other">Перамясціць %d серыйных здымкаў у Сметніцу?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d серыйны здымак у Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d серыйныя здымкі ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d серыйных здымкаў у Сметніцу?</item>
+        <item quantity="other">Перамясціць %d серыйных здымкаў у Сметніцу?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць 1 групу, 1 альбом і %d элемент з іх у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць 1 групу, 1 альбом і %d элементы з іх у сметніцу?</item>
+        <item quantity="many">Перамясціць 1 групу, 1 альбом і %d элементаў з іх у сметніцу?</item>
+        <item quantity="other">Перамясціць 1 групу, 1 альбом і %d элементаў з іх у сметніцу?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць 1 групу, %d альбом і 1 элемент з іх у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць 1 групу, %d альбомы і 1 элемент з іх у сметніцу?</item>
+        <item quantity="many">Перамясціць 1 групу, %d альбомаў і 1 элемент з іх у сметніцу?</item>
+        <item quantity="other">Перамясціць 1 групу, %d альбомаў і 1 элемент з іх у сметніцу?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d групу, 1 альбом і 1 элемент з іх у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d групы, 1 альбом і 1 элемент з іх у сметніцу?</item>
+        <item quantity="many">Перамясціць %d груп, 1 альбом і 1 элемент з іх у сметніцу?</item>
+        <item quantity="other">Перамясціць %d груп, 1 альбом і 1 элемент з іх у сметніцу?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d фатаграфію з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d фатаграфіі з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d фатаграфій з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="other">Перамясціць %d фатаграфій з гэтага серыйнага здымка ў Сметніцу?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d фатаграфію з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d фатаграфіі з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d фатаграфій з гэтага серыйнага здымка ў Сметніцу?</item>
+        <item quantity="other">Перамясціць %d фатаграфій з гэтага серыйнага здымка ў Сметніцу?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d відарыс у Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d відарысы ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d відарысаў у Сметніцу?</item>
+        <item quantity="other">Перамясціць %d відарысаў у Сметніцу?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d элемент у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d элементы ў сметніцу?</item>
+        <item quantity="many">Перамясціць %d элементаў у сметніцу?</item>
+        <item quantity="other">Перамясціць %d элементаў у сметніцу?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы</item>
+        <item quantity="many">%d элементаў</item>
+        <item quantity="other">%d элементаў</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d групу падобных відарысаў у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d групы падобных відарысаў у сметніцу?</item>
+        <item quantity="many">Перамясціць %d груп падобных відарысаў у сметніцу?</item>
+        <item quantity="other">Перамясціць %d груп падобных відарысаў у сметніцу?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d групу падобных відарысаў і 1 іншы элемент у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d групы падобных відарысаў і 1 іншы элемент у сметніцу?</item>
+        <item quantity="many">Перамясціць %d груп падобных відарысаў і 1 іншы элемент у сметніцу?</item>
+        <item quantity="other">Перамясціць %d груп падобных відарысаў і 1 іншы элемент у сметніцу?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць 1 групу падобных відарысаў і %d іншы элемент у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць 1 групу падобных відарысаў і %d іншыя элементы ў сметніцу?</item>
+        <item quantity="many">Перамясціць 1 групу падобных відарысаў і %d іншых элементаў у сметніцу?</item>
+        <item quantity="other">Перамясціць 1 групу падобных відарысаў і %d іншых элементаў у сметніцу?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d элемент з гэтай серыі ў сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d элементы з гэтай серыі ў сметніцу?</item>
+        <item quantity="many">Перамясціць %d элементаў з гэтай серыі ў сметніцу?</item>
+        <item quantity="other">Перамясціць %d элементаў з гэтай серыі ў сметніцу?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d здымак з гэтай серыі ў сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d здымкі з гэтай серыі ў сметніцу?</item>
+        <item quantity="many">Перамясціць %d здымкаў з гэтай серыі ў сметніцу?</item>
+        <item quantity="other">Перамясціць %d здымкаў з гэтай серыі ў сметніцу?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d набор здымкаў Мультыкадра у сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d наборы здымкаў Мультыкадра у сметніцу?</item>
+        <item quantity="many">Перамясціць %d набораў здымкаў Мультыкадра у сметніцу?</item>
+        <item quantity="other">Перамясціць %d набораў здымкаў Мультыкадра у сметніцу?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d элемент у прыватны альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d элементы ў прыватны альбом?</item>
+        <item quantity="many">Перамясціць %d элементаў у прыватны альбом?</item>
+        <item quantity="other">Перамясціць %d элементаў у прыватны альбом?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася перамясціць %1$d %2$s файл на %3$s. Спампуйце гэты файл і паўтарыце спробу.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася перамясціць %1$d %2$s файлы на %3$s. Спампуйце гэтыя файлы і паўтарыце спробу.</item>
+        <item quantity="many">Не атрымалася перамясціць %1$d %2$s файлаў на %3$s. Спампуйце гэтыя файлы і паўтарыце спробу.</item>
+        <item quantity="other">Не атрымалася перамясціць %1$d %2$s файлаў на %3$s. Спампуйце гэтыя файлы і паўтарыце спробу.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %d відэа ў Сметніцу?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %d відэа ў Сметніцу?</item>
+        <item quantity="many">Перамясціць %d відэа ў Сметніцу?</item>
+        <item quantity="other">Перамясціць %d відэа ў Сметніцу?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамяшчэнне %d элемента ў сметніцу…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамяшчэнне %d элементаў у сметніцу…</item>
+        <item quantity="many">Перамяшчэнне %d элементаў у сметніцу…</item>
+        <item quantity="other">Перамяшчэнне %d элементаў у сметніцу…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d альбом з аднолькавай назвай быў аб’яднаны.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d альбомы з аднолькавымі назвамі было аб’яднана.</item>
+        <item quantity="many">%d альбомаў з аднолькавымі назвамі было аб’яднана.</item>
+        <item quantity="other">%d альбомаў з аднолькавымі назвамі было аб’яднана.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d дзень</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d дзень да выдалення гісторыі</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d дні да выдалення гісторыі</item>
+        <item quantity="many">%d дзён да выдалення гісторыі</item>
+        <item quantity="other">%d дзён да выдалення гісторыі</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d альбом?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d альбомы?</item>
+        <item quantity="many">Выдаліць %d альбомаў?</item>
+        <item quantity="other">Выдаліць %d альбомаў?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відарыс дададзены да ўпадабаных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відарысы дададзены да ўпадабаных.</item>
+        <item quantity="many">%d відарысаў дададзена да ўпадабаных.</item>
+        <item quantity="other">%d відарысаў дададзена да ўпадабаных.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d запрашэнне</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d запрашэнні</item>
+        <item quantity="many">%d запрашэнняў</item>
+        <item quantity="other">%d запрашэнняў</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент дададзены да ўпадабаных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы дададзены да ўпадабаных.</item>
+        <item quantity="many">%d элементаў дададзена да ўпадабаных.</item>
+        <item quantity="other">%d элементаў дададзена да ўпадабаных.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбраны %d чалавек</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбраны %d чалавекі</item>
+        <item quantity="many">Выбрана %d чалавек</item>
+        <item quantity="other">Выбрана %d чалавек</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбрана: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбрана: %d</item>
+        <item quantity="many">Выбрана: %d</item>
+        <item quantity="other">Выбрана: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d абагулены альбом 1 запрашэнне</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d абагуленыя альбомы, 1 запрашэнне</item>
+        <item quantity="many">%d абагуленых альбомаў, 1 запрашэнне</item>
+        <item quantity="other">%d абагуленых альбомаў, 1 запрашэнне</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Мы знайшлі %d новае фота, якое вы, магчыма, захацелі б дадаць у гэты альбом.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Мы знайшлі %d новыя фота, якія вы, магчыма, захацелі б дадаць у гэты альбом.</item>
+        <item quantity="many">Мы знайшлі %d новых фота, якія вы, магчыма, захацелі б дадаць у гэты альбом.</item>
+        <item quantity="other">Мы знайшлі %d новых фота, якія вы, магчыма, захацелі б дадаць у гэты альбом.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відэа дададзена да ўпадабаных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відэа дададзены да ўпадабаных.</item>
+        <item quantity="many">%d відэа дададзена да ўпадабаных.</item>
+        <item quantity="other">%d відэа дададзена да ўпадабаных.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d год таму</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s %2$d гады таму</item>
+        <item quantity="many">%1$s %2$d гадоў таму</item>
+        <item quantity="other">%1$s %2$d гадоў таму</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d альбомы</item>
+        <item quantity="many">%d альбомаў</item>
+        <item quantity="other">%d альбомаў</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент спампаваны. Націсніце тут, каб убачыць яго.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Элементы (%d) спампаваны. Націсніце тут, каб убачыць іх.</item>
+        <item quantity="many">Элементы (%d) спампаваны. Націсніце тут, каб убачыць іх.</item>
+        <item quantity="other">Элементы (%d) спампаваны. Націсніце тут, каб убачыць іх.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d груп</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d групы</item>
+        <item quantity="many">%d груп</item>
+        <item quantity="other">%d груп</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася спампаваць %d файл. Відарысы HEIF не падтрымліваюцца гэтым тэлефонам.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася спампаваць %d файлы. Відарысы HEIF не падтрымліваюцца гэтым тэлефонам.</item>
+        <item quantity="many">Не атрымалася спампаваць %d файлаў. Відарысы HEIF не падтрымліваюцца гэтым тэлефонам.</item>
+        <item quantity="other">Не атрымалася спампаваць %d файлаў. Відарысы HEIF не падтрымліваюцца гэтым тэлефонам.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Не атрымалася спампаваць %d файл. Відарысы HEIF не падтрымліваюцца гэтым планшэтам.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Не атрымалася спампаваць %d файлы. Відарысы HEIF не падтрымліваюцца гэтым планшэтам.</item>
+        <item quantity="many">Не атрымалася спампаваць %d файлаў. Відарысы HEIF не падтрымліваюцца гэтым планшэтам.</item>
+        <item quantity="other">Не атрымалася спампаваць %d файлаў. Відарысы HEIF не падтрымліваюцца гэтым планшэтам.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d член</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d члены</item>
+        <item quantity="many">%d членаў</item>
+        <item quantity="other">%d членаў</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма дадаць больш за %d стыкер. Перайдзіце да фотарэдактара ў Галерэі, каб выдаліць стыкеры.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма дадаць больш за %d стыкеры. Перайдзіце да фотарэдактара ў Галерэі, каб выдаліць стыкеры.</item>
+        <item quantity="many">Немагчыма дадаць больш за %d стыкераў. Перайдзіце да фотарэдактара ў Галерэі, каб выдаліць стыкеры.</item>
+        <item quantity="other">Немагчыма дадаць больш за %d стыкераў. Перайдзіце да фотарэдактара ў Галерэі, каб выдаліць стыкеры.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 група, %d альбом</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 група, %d альбомы</item>
+        <item quantity="many">1 група, %d альбомаў</item>
+        <item quantity="other">1 група, %d альбомаў</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 абагулены альбом, %d запрашэнне</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 абагулены альбом, %d запрашэнні</item>
+        <item quantity="many">1 абагулены альбом, %d запрашэнняў</item>
+        <item quantity="other">1 абагулены альбом, %d запрашэнняў</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відарыс назаўсёды?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відарысы назаўсёды?</item>
+        <item quantity="many">Выдаліць %d відарысаў назаўсёды?</item>
+        <item quantity="other">Выдаліць %d відарысаў назаўсёды?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент назаўсёды?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d элементы назаўсёды?</item>
+        <item quantity="many">Выдаліць %d элементаў назаўсёды?</item>
+        <item quantity="other">Выдаліць %d элементаў назаўсёды?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відэаролік назаўсёды?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відэаролікі назаўсёды?</item>
+        <item quantity="many">Выдаліць %d відэаролікаў назаўсёды?</item>
+        <item quantity="other">Выдаліць %d відэаролікаў назаўсёды?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відарыс будзе незваротна выдалены.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відарысы будуць незваротна выдалены.</item>
+        <item quantity="many">%d відарысаў будзе незваротна выдалена.</item>
+        <item quantity="other">%d відарысаў будзе незваротна выдалена.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d элемент будзе незваротна выдалены.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d элементы будуць незваротна выдалены.</item>
+        <item quantity="many">%d элементаў будзе незваротна выдалена.</item>
+        <item quantity="other">%d элементаў будзе незваротна выдалена.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відэа будзе незваротна выдалена.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відэа будуць незваротна выдалены.</item>
+        <item quantity="many">%d відэа будзе незваротна выдалена.</item>
+        <item quantity="other">%d відэа будзе незваротна выдалена.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Захавана %d фатаграфія.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Захаваны %d фатаграфіі.</item>
+        <item quantity="many">Захавана %d фатаграфій.</item>
+        <item quantity="other">Захавана %d фатаграфій.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Вы наведвалі гэта месца %1$d дзень у %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Вы наведвалі гэта месца %1$d дні ў %2$s</item>
+        <item quantity="many">Вы наведвалі гэта месца %1$d дзён у %2$s</item>
+        <item quantity="other">Вы наведвалі гэта месца %1$d дзён у %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d год таму</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d гады таму</item>
+        <item quantity="many">%d гадоў таму</item>
+        <item quantity="other">%d гадоў таму</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдалена %d прапанова.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдалены %d прапановы.</item>
+        <item quantity="many">Выдалена %d прапаноў.</item>
+        <item quantity="other">Выдалена %d прапаноў.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відарыс з гэтага абагуленага альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відарысы з гэтага абагуленага альбома?</item>
+        <item quantity="many">Выдаліць %d відарысаў з гэтага абагуленага альбома?</item>
+        <item quantity="other">Выдаліць %d відарысаў з гэтага абагуленага альбома?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відарыс з альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відарысы з альбома?</item>
+        <item quantity="many">Выдаліць %d відарысаў з альбома?</item>
+        <item quantity="other">Выдаліць %d відарысаў з альбома?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент з альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d элементы з альбома?</item>
+        <item quantity="many">Выдаліць %d элементаў з альбома?</item>
+        <item quantity="other">Выдаліць %d элементаў з альбома?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент з гісторыі?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d элементы з гісторыі?</item>
+        <item quantity="many">Выдаліць %d элементаў з гісторыі?</item>
+        <item quantity="other">Выдаліць %d элементаў з гісторыі?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відарыс з вашых прапаноў альбомаў?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відарысы з вашых прапаноў альбомаў?</item>
+        <item quantity="many">Выдаліць %d відарысаў з вашых прапаноў альбомаў?</item>
+        <item quantity="other">Выдаліць %d відарысаў з вашых прапаноў альбомаў?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d элемент з вашых прапаноў альбомаў?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d элементы з вашых прапаноў альбомаў?</item>
+        <item quantity="many">Выдаліць %d элементаў з вашых прапаноў альбомаў?</item>
+        <item quantity="other">Выдаліць %d элементаў з вашых прапаноў альбомаў?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відэаролік з вашых прапаноў альбомаў?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відэаролікі з вашых прапаноў альбомаў?</item>
+        <item quantity="many">Выдаліць %d відэаролікаў з вашых прапаноў альбомаў?</item>
+        <item quantity="other">Выдаліць %d відэаролікаў з вашых прапаноў альбомаў?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відэа з альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відэа з альбома?</item>
+        <item quantity="many">Выдаліць %d відэа з альбома?</item>
+        <item quantity="other">Выдаліць %d відэа з альбома?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выдаліць %d відэаролік з гэтага абагуленага альбома?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выдаліць %d відэаролікі з гэтага абагуленага альбома?</item>
+        <item quantity="many">Выдаліць %d відэаролікаў з гэтага абагуленага альбома?</item>
+        <item quantity="other">Выдаліць %d відэаролікаў з гэтага абагуленага альбома?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Захаваць %1$d элемент з гэтага %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Захаваць %1$d элементы з гэтага %2$s?</item>
+        <item quantity="many">Захаваць %1$d элементаў з гэтага %2$s?</item>
+        <item quantity="other">Захаваць %1$d элементаў з гэтага %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Захаваць %1$d фатаграфію з гэтага %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Захаваць %1$d фатаграфіі з гэтага %2$s?</item>
+        <item quantity="many">Захаваць %1$d фатаграфій з гэтага %2$s?</item>
+        <item quantity="other">Захаваць %1$d фатаграфій з гэтага %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %1$d відарыс у %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %1$d відарысы ў %2$s?</item>
+        <item quantity="many">Перамясціць %1$d відарысаў у %2$s?</item>
+        <item quantity="other">Перамясціць %1$d відарысаў у %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %1$d элемент у %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %1$d элементы ў %2$s?</item>
+        <item quantity="many">Перамясціць %1$d элементаў у %2$s?</item>
+        <item quantity="other">Перамясціць %1$d элементаў у %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Перамясціць %1$d відэа ў %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Перамясціць %1$d відэа ў %2$s?</item>
+        <item quantity="many">Перамясціць %1$d відэа ў %2$s?</item>
+        <item quantity="other">Перамясціць %1$d відэа ў %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Група з %d падобнага відарыса</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Група з %d падобных відарысаў</item>
+        <item quantity="many">Група з %d падобных відарысаў</item>
+        <item quantity="other">Група з %d падобных відарысаў</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Выбраны %d элемент</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Выбрана %d элементы</item>
+        <item quantity="many">Выбрана %d элементаў</item>
+        <item quantity="other">Выбрана %d элементаў</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Гэты чалавек %d год таму</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Гэты чалавек %d гады таму</item>
+        <item quantity="many">Гэты чалавек %d гадоў таму</item>
+        <item quantity="other">Гэты чалавек %d гадоў таму</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d відэа спампавана з воблака.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d відэа спампаваны з воблака.</item>
+        <item quantity="many">%d відэа спампавана з воблака.</item>
+        <item quantity="other">%d відэа спампавана з воблака.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Відэаролік адноўлены. Не атрымалася аднавіць %1$d відэаролік %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Відэаролік адноўлены. Не атрымалася аднавіць %1$d відэаролікі %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="many">Відэаролік адноўлены. Не атрымалася аднавіць %1$d відэаролікаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+        <item quantity="other">Відэаролік адноўлены. Не атрымалася аднавіць %1$d відэаролікаў %2$s, таму што %3$s заблакіравана з-за запыту асабістых даных.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Немагчыма ўключыць у калаж больш за %d элемент.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Немагчыма ўключыць у калаж больш за %d элементы.</item>
+        <item quantity="many">Немагчыма ўключыць у калаж больш за %d элементаў.</item>
+        <item quantity="other">Немагчыма ўключыць у калаж больш за %d элементаў.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Будзе выдалена праз %d дзень</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Будзе выдалена праз %d дні</item>
+        <item quantity="many">Будзе выдалена праз %d дзён</item>
+        <item quantity="other">Будзе выдалена праз %d дзён</item>
+    </plurals>
+</resources>

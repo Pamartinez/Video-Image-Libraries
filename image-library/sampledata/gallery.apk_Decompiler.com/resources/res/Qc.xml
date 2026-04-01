@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:id="@+id/action_select" android:title="@string/select" app:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_add" android:id="@+id/action_add_to_album" android:title="@string/add_to_album" android:contentDescription="@string/add_to_album" app:showAsAction="ifRoom"/>
+        <item android:icon="@drawable/gallery_ic_bottombar_remove" android:id="@+id/action_remove_from_suggestions" android:title="@string/remove_from_suggestions" android:contentDescription="@string/remove_from_suggestions" app:showAsAction="ifRoom"/>
+    </group>
+</menu>

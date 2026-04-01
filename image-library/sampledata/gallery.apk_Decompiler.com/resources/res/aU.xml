@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/story_card_option_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/option_view_container" android:background="@color/memory_pictures_option_view_bg_color" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <TextView android:textSize="15sp" android:textColor="@color/memory_pictures_option_text_color" android:id="@+id/story_card_option_share" android:padding="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_short" android:drawableTop="@drawable/gallery_ic_detail_share" android:textAlignment="center" android:drawableTint="@color/memory_pictures_option_view_icon_color" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <TextView android:textSize="15sp" android:textColor="@color/memory_pictures_option_text_color" android:id="@+id/story_card_option_save" android:padding="6dp" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save" android:drawableTop="@drawable/gallery_ic_detail_save" android:textAlignment="center" android:drawableTint="@color/memory_pictures_option_view_icon_color" style="@style/OneUiRobotoRegular"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@+id/option_view_cover" android:background="@color/default_fw_background" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</FrameLayout>

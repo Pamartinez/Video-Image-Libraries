@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="aospLargeScreenDpi">true</bool>
+    <bool name="isTabletDpi">true</bool>
+    <bool name="supportPopover">true</bool>
+</resources>

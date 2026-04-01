@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@+id/bottom_menu_container" android:paddingTop="@dimen/bottom_menu_list_transparent_dialog_padding_top" android:paddingBottom="@dimen/bottom_menu_list_transparent_dialog_padding_bottom" android:focusable="false" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/bottom_menu_list_transparent_dialog_padding_horizontal">
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/bottom_menu_list_view" android:focusable="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <View android:layout_width="match_parent" android:layout_height="0dp"/>
+            <include android:id="@+id/video_studio_button" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bottom_menu_list_transparent_dialog_item_vertical_gap" layout="@layout/video_studio_button_layout_oneui8"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

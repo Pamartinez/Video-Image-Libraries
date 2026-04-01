@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="remaster_viewer_content_height_ratio">0.764</dimen>
+    <dimen name="remaster_viewer_min_bottom_margin">13dp</dimen>
+    <dimen name="remaster_viewer_photo_view_bottom_margin">27dp</dimen>
+    <dimen name="remaster_viewer_table_mode_bg_bottom_margin">0dp</dimen>
+    <dimen name="remaster_viewer_table_mode_bg_height">156dp</dimen>
+    <dimen name="search_category_stories_item_height">182dp</dimen>
+    <dimen name="search_category_stories_item_width">159dp</dimen>
+    <dimen name="stories_bgm_sheet_horizontal_margin">56dp</dimen>
+    <dimen name="stories_header_divider_bottom_padding_1_depth">14dp</dimen>
+    <dimen name="stories_header_divider_bottom_padding_drawer">12dp</dimen>
+    <dimen name="stories_item_round_radius_1_depth">26dp</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_1_depth">0.0575</dimen>
+    <dimen name="stories_item_title_con_bottom_margin_ratio_1_depth_60">0.04</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_1_depth">0.0375</dimen>
+    <dimen name="stories_item_title_con_horizontal_margin_ratio_1_depth_60">0.03</dimen>
+    <dimen name="stories_pin_recycler_view_size_for_transitory">120dp</dimen>
+    <dimen name="stories_theme_title_horizontal_padding_land">83dp</dimen>
+    <dimen name="stories_theme_title_horizontal_padding_port">60dp</dimen>
+    <dimen name="stories_view_duration_text_size_1_depth">13dp</dimen>
+    <dimen name="stories_view_duration_text_size_1_depth_60">12dp</dimen>
+    <dimen name="stories_view_favorite_padding_1_depth">20dp</dimen>
+    <dimen name="stories_view_favorite_start_margin_1_depth">-18dp</dimen>
+    <dimen name="stories_view_round_radius_1_depth">16dp</dimen>
+    <dimen name="stories_view_side_offset_1_depth">10dp</dimen>
+    <dimen name="stories_view_title_bottom_margin_1_depth">10dp</dimen>
+    <dimen name="stories_view_title_text_size_1_depth">28dp</dimen>
+    <dimen name="stories_view_title_text_size_1_depth_60">21dp</dimen>
+    <dimen name="stories_view_width_ratio_1_depth">0.4</dimen>
+    <dimen name="story_highlight_deco_duration_min_height">37dp</dimen>
+    <dimen name="story_highlight_list_view_start_padding">20dp</dimen>
+    <dimen name="story_highlight_related_sub_button_width">240dp</dimen>
+</resources>

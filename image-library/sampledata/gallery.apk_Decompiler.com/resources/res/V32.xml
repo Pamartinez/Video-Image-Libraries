@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="166" android:valueFrom="89.5" android:valueTo="89.5" android:propertyName="translateX"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__20" android:duration="383" android:valueFrom="89.5" android:valueTo="156.5" android:propertyName="translateX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="166" android:valueFrom="56.901" android:valueTo="56.901" android:propertyName="translateY"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__21" android:duration="383" android:valueFrom="56.901" android:valueTo="-16.099" android:propertyName="translateY"/>
+    </set>
+</set>

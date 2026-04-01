@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">భాగస్వామ్య ఆల్బమ్‌కు %d క్లౌడ్ అంశాన్ని జోడించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">భాగస్వామ్య ఆల్బమ్‌కు %d క్లౌడ్ అంశాలను జోడించాలా?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">తెలివైన ఫీచర్‌లను ఉపయోగించడానికి మీ వయస్సు కనీసం %d సంవత్సరం ఉండాలి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">తెలివైన ఫీచర్‌లను ఉపయోగించడానికి మీ వయస్సు కనీసం %d సంవత్సరాలు ఉండాలి.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలు</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Meitu పోస్ట్‌కు %d కంటే ఎక్కువ వీడియోని జోడించలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu పోస్ట్‌కు %d కంటే ఎక్కువ వీడియోలను జోడించలేరు.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s చిత్రాన్ని తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s చిత్రాలను తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s అంశాన్ని తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s అంశాలను తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s వీడియోని తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s వీడియోలను తొలగించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Meitu పోస్ట్‌లో %d కంటే ఎక్కువ అంశాన్ని చేర్చలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu పోస్ట్‌కు %d కంటే ఎక్కువ అంశాలను చేర్చలేరు.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s చిత్రాన్ని పునరుద్ధరించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s చిత్రాలను పునరుద్ధరించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s అంశాన్ని పునరుద్ధరించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s అంశాలను పునరుద్ధరించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s వీడియోని పునరుద్ధరించడం సాధ్యం కాదు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s వీడియోలను పునరుద్ధరించలేరు. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడింది.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఒకేసారి %d కంటే ఎక్కువ అంశాన్ని జోడించలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఒకసారి %d కంటే ఎక్కువ అంశాలను జోడించలేరు.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">కథకి %d కంటే ఎక్కువ అంశాన్ని జోడించలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">కథకి %d కంటే ఎక్కువ అంశాలను జోడించలేరు.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d నగరం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d నగరాలు</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d చిత్రాన్ని పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d చిత్రాలను పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d అంశాన్ని పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d అంశాలను పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d వీడియోని పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d వీడియోలను పునరుద్ధరించడం సాధ్యం కాదు. %2$sలో కొంత స్థలాన్ని క్లియర్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d వీడియోని పునరుద్ధరించడం సాధ్యం కాదు. ఈ వీడియో %2$s అప్లికేషన్‌లో పునరుద్ధరించబడింది లేదా తొలగించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d వీడియోలను పునరుద్ధరించడం సాధ్యం కాదు. ఈ వీడియోలు %2$s అప్లికేషన్‌లో పునరుద్ధరించబడ్డాయి లేదా తొలగించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని తీసివేయడం సాధ్యం కాదు. మళ్లీ ప్రయత్నించండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను తీసివేయడం సాధ్యం కాదు. మళ్లీ ప్రయత్నించండి.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d భాగస్వామ్య ఆల్బమ్</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d భాగస్వామ్య ఆల్బమ్‌లు</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d కథ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d కథలు</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రంలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశంలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియోలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలలో తేదీ మరియు సమయం సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఆల్బమ్‌ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఆల్బమ్‌లను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">వాటిలో ఉన్న 1 సమూహం, %d ఆల్బమ్ మరియు 1 అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">వాటిలో ఉన్న 1 సమూహం, %d ఆల్బమ్‌లు మరియు 1 అంశాన్ని తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సమూహాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సమూహాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న %d సమూహాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న %d సమూహాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న %d సమూహం మరియు మరో 1 అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న %d సమూహాలను మరియు మరో 1 అంశాన్ని తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న 1 సమూహం మరియు మరో %d అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న 1 సమూహం మరియు మరో %d అంశాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ సెట్ నుండి %d అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ సెట్ నుండి %d అంశాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d కదలిక ఫోటో నుండి వీడియో క్లిప్‌ను తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d కదలిక ఫోటోల నుండి వీడియో క్లిప్‌లను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ సెట్ నుండి %d చిత్రాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ సెట్ నుండి %d చిత్రాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సింగిల్ టేక్ సెట్‌ను తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సింగిల్ టేక్ సెట్‌‌లను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియోను తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీరు ఈ కంటెంట్‌ను మరో %d సారి వీక్షించవచ్చు. ఇప్పుడు వీక్షిస్తారా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీరు ఈ కంటెంట్‌ను మరో %d సార్లు వీక్షించవచ్చు. ఇప్పుడు వీక్షిస్తారా?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ట్రాష్‌కు వెళ్లకుండా %d ఖాళీ ఆల్బమ్ తొలగించబడుతుంది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ట్రాష్‌కు వెళ్లకుండా %d ఖాళీ ఆల్బమ్‌లు తొలగించబడతాయి.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d రోజు తర్వాత ట్రాష్‌లో ఉన్న పరిచయాలు శాశ్వతంగా తొలగించబడతాయి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d రోజుల తర్వాత ట్రాష్‌లో ఉన్న అంశాలు శాశ్వతంగా తొలగించబడతాయి.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఫోన్ నుండి %d చిత్రం శాశ్వతంగా తొలగించబడింది. రీసైకిల్ బిన్‌లో ఉన్న కాపీని తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీ ఫోన్ నుండి %d చిత్రాలు శాశ్వతంగా తొలగించబడ్డాయి. రీసైకిల్ బిన్‌లో ఉన్న కాపీలను తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఫోన్ నుండి %d అంశం శాశ్వతంగా తొలగించబడింది. రీసైకిల్ బిన్‌లో ఉన్న కాపీని తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీ ఫోన్ నుండి %d అంశాలు శాశ్వతంగా తొలగించబడ్డాయి. రీసైకిల్ బిన్‌లో ఉన్న కాపీలను తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఫోన్ నుండి %d వీడియో శాశ్వతంగా తొలగించబడింది. రీసైకిల్ బిన్‌లో ఉన్న కాపీని తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీ ఫోన్ నుండి %d వీడియోలు శాశ్వతంగా తొలగించబడ్డాయి. రీసైకిల్ బిన్‌లో ఉన్న కాపీలను తొలగించడానికి OneDriveకు వెళ్లండి.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రం శాశ్వతంగా తొలగించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలు శాశ్వతంగా తొలగించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం శాశ్వతంగా తొలగించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు శాశ్వతంగా తొలగించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియో శాశ్వతంగా తొలగించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలు శాశ్వతంగా తొలగించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ప్రతి అడ్డు వరుసలో %d సూక్ష్మచిత్రం ఉన్న గ్రిడ్ వీక్షణ</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ప్రతి అడ్డు వరుసలో %d సూక్ష్మచిత్రాలు ఉన్న గ్రిడ్ వీక్షణ</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సమూహం 1 ఆల్బమ్</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సమూహాలు 1 ఆల్బమ్</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">క్లౌడ్ నుండి %d చిత్రం డౌన్‌లోడ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">క్లౌడ్ నుండి %d చిత్రాలు డౌన్‌లోడ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">చిత్రాలు పునరుద్ధరించబడ్డాయి. %1$d వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %2$s చిత్రాన్ని పునరుద్ధరించడం సాధ్యం కాదు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">చిత్రాలు పునరుద్ధరించబడ్డాయి. %1$d వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %2$s చిత్రాలను పునరుద్ధరించడం సాధ్యం కాదు.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం సేవ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు సేవ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">క్లౌడ్ నుండి %d అంశం డౌన్‌లోడ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">క్లౌడ్ నుండి %d అంశాలు డౌన్‌లోడ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">అంశాలు పునరుద్ధరించబడ్డాయి. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %1$d %2$s అంశాన్ని పునరుద్ధరించడం సాధ్యం కాదు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">అంశాలు పునరుద్ధరించబడ్డాయి. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %1$d %2$s అంశాలను పునరుద్ధరించడం సాధ్యం కాదు.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రంలో స్థాన సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలలో స్థాన సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశంలో స్థాన సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలలో స్థాన సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియోలో స్థాన సమాచారం మార్చబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలలో స్థాన సమాచారం మార్చబడింది.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d స్థానం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d స్థానాలు</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d కంటే ఎక్కువ అక్షరాన్ని నమోదు చేయలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d కంటే ఎక్కువ అక్షరాలను నమోదు చేయలేరు.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d మోషన్ ఫోటో నుండి వీడియో క్లిప్ సేవ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d మోషన్ ఫోటోల నుండి వీడియో క్లిప్‌లు సేవ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ట్రాష్‌కు %d బర్స్ట్ షాట్‌ని తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ట్రాష్‌కు %d బర్స్ట్ షాట్‌లను తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ట్రాష్‌కు %d బర్స్ట్ షాట్‌ని తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ట్రాష్‌కు %d బర్స్ట్ షాట్‌లను తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">వాటిలో ఉన్న 1 సమూహం, 1 ఆల్బమ్ మరియు %d అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">వాటిలో ఉన్న 1 సమూహం, 1 ఆల్బమ్ మరియు %d అంశాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">వాటిలో ఉన్న 1 సమూహం, %d ఆల్బమ్, 1 అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">వాటిలో ఉన్న 1 సమూహం, %d ఆల్బమ్‌లు, 1 అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">వాటిలో ఉన్న %d సమూహం, 1 ఆల్బమ్ మరియు 1 అంశాన్ని ట్రాష్‌కు తలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">వాటిలో ఉన్న %d సమూహాలు, 1 ఆల్బమ్ మరియు 1 అంశాన్ని ట్రాష్‌కు తలించాలా?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ బర్స్ట్ షాట్ నుండి %d చిత్రాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ బర్స్ట్ షాట్ నుండి %d చిత్రాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ బర్స్ట్ షాట్ నుండి %d చిత్రాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ బర్స్ట్ షాట్ నుండి %d చిత్రాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న %d సమూహాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న %d సమూహాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న %d సమూహం మరియు మరో 1 అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న %d సమూహాలు మరియు మరో 1 అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">సారూప్య చిత్రాలు ఉన్న 1 సమూహం మరియు మరో %d అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">సారూప్య చిత్రాలు ఉన్న 1 సమూహం మరియు మరో %d అంశాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ సెట్ నుండి %d అంశాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ సెట్ నుండి %d అంశాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ సెట్ నుండి %d చిత్రాన్ని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ సెట్ నుండి %d చిత్రాలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సింగిల్ టేక్ సెట్‌ను ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సింగిల్ టేక్ సెట్‌‌లను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని ప్రైవేట్ ఆల్బమ్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను ప్రైవేట్ ఆల్బమ్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s ఫైల్‌ని %3$sకి తరలించడం సాధ్యం కాదు. ఈ ఫైల్‌ని డౌన్‌లోడ్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s ఫైల్‌లను %3$sకి తరలించడం సాధ్యం కాదు. ఈ ఫైల్‌లను డౌన్‌లోడ్ చేసి, ఆపై మళ్లీ ప్రయత్నించండి.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియోని ట్రాష్‌కు తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలను ట్రాష్‌కు తరలించాలా?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని ట్రాష్‌కు తరలిస్తోంది…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను ట్రాష్‌కు తరలిస్తోంది…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఒకే పేరుతో ఉన్న %d ఆల్బమ్ విలీనం చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఒకే పేరుతో ఉన్న %d ఆల్బమ్‌లు విలీనం చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d రోజు</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d రోజులు</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">కథను తొలగించబడటానికి %d రోజు మిగిలి ఉంది</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">కథను తొలగించబడటానికి %d రోజులు మిగిలి ఉన్నాయి</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఆల్బమ్‌ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఆల్బమ్‌లను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఇష్టాలకు %d చిత్రం జోడించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఇష్టాలకు %d చిత్రాలు జోడించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఆహ్వానం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఆహ్వానాలు</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఇష్టాలకు %d అంశం జోడించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఇష్టాలకు %d అంశాలు జోడించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వ్యక్తి ఎంచుకోబడ్డారు</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వ్యక్తులు ఎంచుకోబడ్డారు</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఎంచుకోబడింది</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఎంచుకోబడింది</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d భాగస్వామ్య ఆల్బమ్, 1 ఆహ్వానం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d భాగస్వామ్య ఆల్బమ్‌లు, 1 ఆహ్వానం</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీరు ఈ ఆల్బమ్‌కు జోడించాలనుకుంటున్న %d కొత్త చిత్రాన్ని మేము కనుగొన్నాము.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీరు ఈ ఆల్బమ్‌కు జోడించాలనుకుంటున్న %d కొత్త చిత్రాలను మేము కనుగొన్నాము.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఇష్టాలకు %d వీడియో జోడించబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఇష్టాలకు %d వీడియోలు జోడించబడ్డాయి.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$d సంవత్సరం క్రితం %1$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$d సంవత్సరాల క్రితం %1$s</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఆల్బమ్</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఆల్బమ్‌లు</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం డౌన్‌లోడ్ చేయబడింది. దాన్ని చూడటానికి ఇక్కడ నొక్కండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు డౌన్‌లోడ్ చేయబడ్డాయి. వాటిని చూడటానికి ఇక్కడ నొక్కండి.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సమూహం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సమూహాలు</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఫైల్‌ని డౌన్‌లోడ్ చేయడం సాధ్యం కాదు. ఈ ఫోన్‌లో HEIF చిత్రాలకు మద్దతు లేదు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఫైల్‌లను డౌన్‌లోడ్ చేయడం సాధ్యం కాదు. ఈ ఫోన్‌లో HEIF చిత్రాలకు మద్దతు లేదు.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ఫైల్‌ని డౌన్‌లోడ్ చేయడం సాధ్యం కాదు. ఈ టాబ్లెట్‌లో HEIF చిత్రాలకు మద్దతు లేదు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ఫైల్‌లను డౌన్‌లోడ్ చేయడం సాధ్యం కాదు. ఈ టాబ్లెట్‌లో HEIF చిత్రాలకు మద్దతు లేదు.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సభ్యుడు</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సభ్యులు</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d కంటే ఎక్కువ స్టిక్కర్‌ని జోడించలేరు. స్టిక్కర్‌లను తీసివేయడానికి గ్యాలరీలో ఫోటో ఎడిటర్‌కి వెళ్లండి.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d కంటే ఎక్కువ స్టిక్కర్‌లను జోడించలేరు. స్టిక్కర్‌లను తీసివేయడానికి గ్యాలరీలో ఫోటో ఎడిటర్‌కి వెళ్లండి.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 సమూహం %d ఆల్బమ్</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 సమూహం %d ఆల్బమ్‌లు</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 భాగస్వామ్య ఆల్బమ్, %d ఆహ్వానం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 భాగస్వామ్య ఆల్బమ్, %d ఆహ్వానాలు</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రాన్ని శాశ్వతంగా తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలను శాశ్వతంగా తొలగించాలా?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశాన్ని శాశ్వతంగా తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలను శాశ్వతంగా తొలగించాలా?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియోని శాశ్వతంగా తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలను శాశ్వతంగా తొలగించాలా?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రం శాశ్వతంగా తొలగించబడుతుంది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలు శాశ్వతంగా తొలగించబడతాయి.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం శాశ్వతంగా తొలగించబడుతుంది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు శాశ్వతంగా తొలగించబడతాయి.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d వీడియో శాశ్వతంగా తొలగించబడుతుంది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d వీడియోలు శాశ్వతంగా తొలగించబడతాయి.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d చిత్రం సేవ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d చిత్రాలు సేవ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$sలో %1$d రోజు పాటు సందర్శించారు</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$sలో %1$d రోజుల పాటు సందర్శించారు</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సంవత్సరం క్రితం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సంవత్సరాల క్రితం</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సూచన తీసివేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సూచనలు తీసివేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ భాగస్వామ్య ఆల్బమ్ నుండి %d చిత్రాన్ని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ భాగస్వామ్య ఆల్బమ్ నుండి %d చిత్రాలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఆల్బమ్ నుండి %d చిత్రాన్ని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఆల్బమ్ నుండి %d చిత్రాలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఆల్బమ్ నుండి %d అంశాన్ని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఆల్బమ్ నుండి %d అంశాలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">కథ నుండి %d అంశాన్ని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">కథ నుండి %d అంశాలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఆల్బమ్ సూచనల నుండి %d చిత్రాన్ని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ ఆల్బమ్ సూచనల నుండి %d చిత్రాలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఆల్బమ్ సూచనల నుండి %d అంశాన్ని తొలగించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">మీ ఆల్బమ్ సూచనల నుండి %d అంశాలను తొలగించాలా?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">మీ ఆల్బమ్ సూచనల నుండి %d వీడియోని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ ఆల్బమ్ సూచనల నుండి %d వీడియోలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఆల్బమ్ నుండి %d వీడియోని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఆల్బమ్ నుండి %d వీడియోలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ భాగస్వామ్య ఆల్బమ్ నుండి %d వీడియోని తీసివేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ భాగస్వామ్య ఆల్బమ్ నుండి %d వీడియోలను తీసివేయాలా?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ %2$s నుండి %1$d అంశాన్ని సేవ్ చేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ %2$s నుండి %1$d అంశాలను సేవ్ చేయాలా?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ఈ %2$s నుండి %1$d చిత్రాన్ని సేవ్ చేయాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ఈ %2$s నుండి %1$d చిత్రాలను సేవ్ చేయాలా?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$sకు %1$d చిత్రాన్ని తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$sకు %1$d చిత్రాలను తరలించాలా?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$sకు %1$d అంశాన్ని తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$sకు %1$d అంశాలను తరలించాలా?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$sకు %1$d వీడియోని తరలించాలా?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$sకు %1$d వీడియోలను తరలించాలా?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సారూప్య చిత్రం యొక్క సమూహం</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సారూప్య చిత్రాల యొక్క సమూహం</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d అంశం ఎంచుకోబడింది</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d అంశాలు ఎంచుకోబడ్డాయి</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d సంవత్సరం క్రితం ఈ వ్యక్తి</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d సంవత్సరాల క్రితం ఈ వ్యక్తి</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">క్లౌడ్ నుండి %d వీడియో డౌన్‌లోడ్ చేయబడింది.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">క్లౌడ్ నుండి %d వీడియోలు డౌన్‌లోడ్ చేయబడ్డాయి.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">వీడియో పునరుద్ధరించబడింది. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %1$d %2$s వీడియోని పునరుద్ధరించడం సాధ్యం కాదు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">వీడియో పునరుద్ధరించబడింది. వ్యక్తిగత డేటా అభ్యర్థన కారణంగా మీ %3$s లాక్ చేయబడినందున %1$d %2$s వీడియోలను పునరుద్ధరించడం సాధ్యం కాదు.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">కోల్లెజ్‌లో %d కంటే ఎక్కువ అంశాన్ని చేర్చలేరు.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">కోల్లెజ్‌లో %d కంటే ఎక్కువ అంశాలను చేర్చలేరు.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d రోజులో తొలగించబడుతుంది</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d రోజులలో తొలగించబడుతుంది</item>
+    </plurals>
+</resources>

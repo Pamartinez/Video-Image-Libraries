@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="20dp" android:paddingRight="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:checkedButton="@+id/radio_custom_order">
+            <RadioGroup android:orientation="vertical" android:id="@+id/radio_group_orientation" android:layout_width="match_parent" android:layout_height="wrap_content" android:divider="?android:attr/listDividerAlertDialog" android:checkedButton="@+id/radio_portrait">
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_portrait" android:text="@string/export_portrait" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_landscape" android:text="@string/export_landscape" style="@style/DialogRadioButtonListStyle"/>
+            </RadioGroup>
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/divider_dot_shape" android:layout_width="match_parent" android:layout_height="@dimen/dialog_divider_height"/>
+            <RadioGroup android:orientation="vertical" android:id="@+id/radio_group_ratio" android:layout_width="match_parent" android:layout_height="wrap_content" android:divider="?android:attr/listDividerAlertDialog" android:checkedButton="@+id/radio_full">
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_full" android:text="@string/export_ratio_full" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_1_to_1" android:text="@string/export_ratio_1_1" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_4_to_3" android:text="@string/export_ratio_4_3" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_16_to_9" android:text="@string/export_ratio_16_9" style="@style/DialogRadioButtonListStyle"/>
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

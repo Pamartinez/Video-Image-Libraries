@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/bottom_search_toolbar_outer_container" android:tag="search_toolbar_primary_parent" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.samsung.android.gallery.widget.search.searchbar.BottomSearchToolbarInnerContainer android:orientation="vertical" android:id="@+id/bottom_search_toolbar_inner_container" android:focusable="false" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:gravity="center_vertical" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="@dimen/bottom_search_toolbar_container_min_height">
+            <FrameLayout android:layout_gravity="center_vertical" android:background="@drawable/sec_search_view_shadow" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <View android:layout_gravity="center_vertical" android:id="@+id/search_toolbar_visual_effect_view" android:background="@drawable/bottom_search_bar_background" style="@style/StorySearchToolbarStyle"/>
+            <com.samsung.android.gallery.widget.search.searchbar.NewSearchToolbar android:layout_gravity="center_vertical" android:id="@+id/search" app:voiceIconSVI="@drawable/sec_ic_voice_iaa" style="@style/StorySearchToolbarStyle"/>
+        </FrameLayout>
+    </com.samsung.android.gallery.widget.search.searchbar.BottomSearchToolbarInnerContainer>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:paddingBottom="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:expanded="false" app:seslUseCustomPadding="true" style="@style/AppBarLayoutStyle">
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" style="@style/CollapsingToolBarStyle"/>
+        <include layout="@layout/floating_toolbar_dummy_view"/>
+    </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <RelativeLayout android:id="@+id/shared_empty_view" style="@style/EmptyViewDefaultStyle">
+            <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:description="@string/empty_set_description_shared_no_item_vi" app:label="@string/no_shared_items"/>
+        </RelativeLayout>
+        <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </LinearLayout>
+    <include layout="@layout/floating_toolbar_layout"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

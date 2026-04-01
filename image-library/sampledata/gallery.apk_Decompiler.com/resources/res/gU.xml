@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/default_background" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/tip_card_padding_start" android:paddingEnd="@dimen/tip_card_padding_end">
+        <com.samsung.android.gallery.widget.RoundedRelativeLayout android:id="@+id/tip_card_layout" android:background="@color/update_app_card_view_bg_color" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/tip_card_padding_bottom">
+            <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/mx_albums_merged_tip_card_header_top_padding" android:paddingBottom="@dimen/mx_albums_merged_tip_card_header_bottom_padding" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/tip_card_text_layout_padding_start" android:paddingEnd="@dimen/tip_card_text_layout_padding_end">
+                <TextView android:textSize="@dimen/mx_albums_merged_tip_card_description_text_size" android:ellipsize="end" android:gravity="center_vertical" android:id="@+id/headerContent" android:layout_marginBottom="@dimen/mx_albums_merged_tip_card_description_margin_bottom" android:maxLines="2" style="@style/TipCardSummaryStyle"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/recycler_view" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <com.samsung.android.gallery.widget.TightTextView android:layout_gravity="end" android:id="@+id/close_button" android:layout_marginTop="@dimen/mx_albums_merged_tip_card_close_button_margin_top" android:text="@string/close" style="@style/TipCardButtonStyle"/>
+            </LinearLayout>
+        </com.samsung.android.gallery.widget.RoundedRelativeLayout>
+    </LinearLayout>
+    <include android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/screen_shot_filter_view_margin_horizontal" layout="@layout/screen_shot_filter_view_layout"/>
+</LinearLayout>

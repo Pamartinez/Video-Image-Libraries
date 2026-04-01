@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prid. %d debesies elem. prie bend. albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prid. %d debesies elem. prie bend. albumo?</item>
+        <item quantity="many">Prid. %d debesies elem. prie bend. albumo?</item>
+        <item quantity="other">Prid. %d debesies elem. prie bend. albumo?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Kad galėtumėte naudotis išmaniosiomis funkcijomis, jums turi būti ne mažiau kaip %d m.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Kad galėtumėte naudotis išmaniosiomis funkcijomis, jums turi būti ne mažiau kaip %d m.</item>
+        <item quantity="many">Kad galėtumėte naudotis išmaniosiomis funkcijomis, jums turi būti ne mažiau kaip %d m.</item>
+        <item quantity="other">Kad galėtumėte naudotis išmaniosiomis funkcijomis, jums turi būti ne mažiau kaip %d m.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d nuotr.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d nuotr.</item>
+        <item quantity="many">%d nuotr.</item>
+        <item quantity="other">%d nuotr.</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prie „Meitu“ įrašo negalima pridėti daugiau nei %d vaizdo įrašo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prie „Meitu“ įrašo negalima pridėti daugiau nei %d vaizdo įrašų.</item>
+        <item quantity="many">Prie „Meitu“ įrašo negalima pridėti daugiau nei %d vaizdo įrašų.</item>
+        <item quantity="other">Prie „Meitu“ įrašo negalima pridėti daugiau nei %d vaizdo įrašų.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima ištrinti %1$d %2$s vaizdo. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima ištrinti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima ištrinti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima ištrinti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima ištrinti %1$d %2$s elemento. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima ištrinti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima ištrinti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima ištrinti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima ištrinti %1$d %2$s vaizdo įrašo. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima ištrinti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima ištrinti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima ištrinti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">„Meitu“ įraše negalima įtraukti daugiau nei %d elemento.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">„Meitu“ įraše negalima įtraukti daugiau nei %d elementų.</item>
+        <item quantity="many">„Meitu“ įraše negalima įtraukti daugiau nei %d elementų.</item>
+        <item quantity="other">„Meitu“ įraše negalima įtraukti daugiau nei %d elementų.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima atkurti %1$d %2$s vaizdo. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima atkurti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima atkurti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima atkurti %1$d %2$s vaizdų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima atkurti %1$d %2$s elemento. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima atkurti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima atkurti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima atkurti %1$d %2$s elementų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima atkurti %1$d %2$s vaizdo įrašo. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima atkurti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Negalima atkurti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Negalima atkurti %1$d %2$s vaizdo įrašų. Jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vienu kartu negalima pridėti daugiau nei %d elemento.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vienu kartu negalima pridėti daugiau nei %d elementų.</item>
+        <item quantity="many">Vienu kartu negalima pridėti daugiau nei %d elementų.</item>
+        <item quantity="other">Vienu kartu negalima pridėti daugiau nei %d elementų.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prie istorijos negalima pridėti daugiau nei %d elemento.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prie istorijos negalima pridėti daugiau nei %d elementų.</item>
+        <item quantity="many">Prie istorijos negalima pridėti daugiau nei %d elementų.</item>
+        <item quantity="other">Prie istorijos negalima pridėti daugiau nei %d elementų.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d miestas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d miestai</item>
+        <item quantity="many">%d miesto</item>
+        <item quantity="other">%d miestų</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atkurti %1$d vaizdo. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atkurti %1$d vaizdų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="many">Nepavyko atkurti %1$d vaizdų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="other">Nepavyko atkurti %1$d vaizdų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atkurti %1$d elemento. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atkurti %1$d elementų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="many">Nepavyko atkurti %1$d elementų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="other">Nepavyko atkurti %1$d elementų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atkurti %1$d vaizdo įrašo. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atkurti %1$d vaizdo įrašų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="many">Nepavyko atkurti %1$d vaizdo įrašų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+        <item quantity="other">Nepavyko atkurti %1$d vaizdo įrašų. Atlaisvinkite šiek tiek vietos %2$s, tada bandykite dar kartą.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atkurti %1$d vaizdo įrašo. Šis vaizdo įrašas buvo atkurtas arba ištrintas %2$s programoje.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atkurti %1$d vaizdo įrašų. Šie vaizdo įrašai buvo atkurti arba ištrinti %2$s programoje.</item>
+        <item quantity="many">Nepavyko atkurti %1$d vaizdo įrašų. Šie vaizdo įrašai buvo atkurti arba ištrinti %2$s programoje.</item>
+        <item quantity="other">Nepavyko atkurti %1$d vaizdo įrašų. Šie vaizdo įrašai buvo atkurti arba ištrinti %2$s programoje.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko pašalinti %d elemento. Bandykite dar kartą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko pašalinti %d elementų. Bandykite dar kartą.</item>
+        <item quantity="many">Nepavyko pašalinti %d elemento. Bandykite dar kartą.</item>
+        <item quantity="other">Nepavyko pašalinti %d elementų. Bandykite dar kartą.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d bendrinamas albumas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d bendrinami albumai</item>
+        <item quantity="many">%d bendrinami albumai</item>
+        <item quantity="other">%d bendrinamų albumų</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d istorija</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d istorijos</item>
+        <item quantity="many">%d istorijų</item>
+        <item quantity="other">%d istorijų</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizde pakeista datos ir laiko informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizduose pakeista datos ir laiko informacija.</item>
+        <item quantity="many">%d vaizdų pakeista datos ir laiko informacija.</item>
+        <item quantity="other">%d vaizdų pakeista datos ir laiko informacija.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elemente pakeista datos ir laiko informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementuose pakeista datos ir laiko informacija.</item>
+        <item quantity="many">%d elementų pakeista datos ir laiko informacija.</item>
+        <item quantity="other">%d elementų pakeista datos ir laiko informacija.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdo įraše pakeista datos ir laiko informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdo įrašuose pakeista datos ir laiko informacija.</item>
+        <item quantity="many">%d vaizdo įrašų pakeista datos ir laiko informacija.</item>
+        <item quantity="other">%d vaizdo įrašų pakeista datos ir laiko informacija.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d albumą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d albumus?</item>
+        <item quantity="many">Trinti %d albumų?</item>
+        <item quantity="other">Trinti %d albumų?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti 1 grupę, %d albumą ir 1 elementą juose?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti 1 grupę, %d albumus ir 1 elementą juose?</item>
+        <item quantity="many">Trinti 1 grupę, %d albumų ir 1 elementą juose?</item>
+        <item quantity="other">Trinti 1 grupę, %d albumų ir 1 elementą juose?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d grupę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ištrinti %d grupes?</item>
+        <item quantity="many">Ištrinti %d grupių?</item>
+        <item quantity="other">Ištrinti %d grupių?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d vaizdą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d vaizdus (-ų)?</item>
+        <item quantity="many">Trinti %d vaizdus (-ų)?</item>
+        <item quantity="other">Trinti %d vaizdus (-ų)?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d elementą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d element.?</item>
+        <item quantity="many">Trinti %d element.?</item>
+        <item quantity="other">Trinti %d element.?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d panašių vaizdų grupę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d panašių vaizdų grupes?</item>
+        <item quantity="many">Trinti %d panašių vaizdų grupių?</item>
+        <item quantity="other">Trinti %d panašių vaizdų grupių?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d panašių vaizdų grupę ir dar 1 elementą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d panašių vaizdų grupes ir dar 1 elementą?</item>
+        <item quantity="many">Trinti %d panašių vaizdų grupių ir dar 1 elementą?</item>
+        <item quantity="other">Trinti %d panašių vaizdų grupių ir dar 1 elementą?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti 1 panašių vaizdų grupę ir dar %d elementą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti 1 panašių vaizdų grupę ir dar %d elementus?</item>
+        <item quantity="many">Trinti 1 panašių vaizdų grupę ir dar %d elementų?</item>
+        <item quantity="other">Trinti 1 panašių vaizdų grupę ir dar %d elementų?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d elementą iš šio rinkinio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d elementus iš šio rinkinio?</item>
+        <item quantity="many">Trinti %d elementų iš šio rinkinio?</item>
+        <item quantity="other">Trinti %d elementų iš šio rinkinio?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ištrinti vaizdo klipą iš %d judesio nuotraukos?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ištrinti vaizdo klipus iš %d judesio nuotraukų?</item>
+        <item quantity="many">Ištrinti vaizdo klipus iš %d judesio nuotraukų?</item>
+        <item quantity="other">Ištrinti vaizdo klipus iš %d judesio nuotraukų?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d nuotrauką iš šio rinkinio?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d nuotraukas iš šio rinkinio?</item>
+        <item quantity="many">Trinti %d nuotraukų iš šio rinkinio?</item>
+        <item quantity="other">Trinti %d nuotraukų iš šio rinkinio?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d vieno fiksavimo rinkinį?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d vieno fiksavimo rinkinius?</item>
+        <item quantity="many">Trinti %d vieno fiksavimo rinkinių?</item>
+        <item quantity="other">Trinti %d vieno fiksavimo rinkinių?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d vaizdo įrašą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d vaizdo įrašus?</item>
+        <item quantity="many">Trinti %d vaizdo įrašo?</item>
+        <item quantity="other">Trinti %d vaizdo įrašų?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Šį turinį galite peržiūrėti dar %d kartą. Peržiūrėti dabar?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Šį turinį galite peržiūrėti dar %d kartus. Peržiūrėti dabar?</item>
+        <item quantity="many">Šį turinį galite peržiūrėti dar %d karto. Peržiūrėti dabar?</item>
+        <item quantity="other">Šį turinį galite peržiūrėti dar %d kartų. Peržiūrėti dabar?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d tuščias albumas bus ištrintas neperkeliant jo į šiukšlinę.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d tušti albumai bus ištrinti neperkeliant jų į šiukšlinę.</item>
+        <item quantity="many">%d tuščių albumų bus ištrinta neperkeliant jų į šiukšlinę.</item>
+        <item quantity="other">%d tuščių albumų bus ištrinta neperkeliant jų į šiukšlinę.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Po %d d. šiukšlinėje esantys elementai bus ištrinti visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Po %d d. šiukšlinėje esantys elementai bus ištrinti visam laikui.</item>
+        <item quantity="many">Po %d d. šiukšlinėje esantys elementai bus ištrinti visam laikui.</item>
+        <item quantity="other">Po %d d. šiukšlinėje esantys elementai bus ištrinti visam laikui.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdas ištrintas visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančią kopiją.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdai ištrinti visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="many">%d vaizdų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="other">%d vaizdų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elementas ištrintas visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančią kopiją.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementai ištrinti visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="many">%d elementų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="other">%d elementų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdo įrašas ištrintas visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančią kopiją.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdo įrašai ištrinti visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="many">%d vaizdo įrašų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+        <item quantity="other">%d vaizdo įrašų ištrinta visam laikui iš jūsų telefono. Eikite į „OneDrive“ ir ištrinkite šiukšlinėje esančias kopijas.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdas ištrintas visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdai ištrinti visam laikui.</item>
+        <item quantity="many">%d vaizdų ištrinta visam laikui.</item>
+        <item quantity="other">%d vaizdų ištrinta visam laikui.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elementas ištrintas visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementai ištrinti visam laikui.</item>
+        <item quantity="many">%d elementų ištrinta visam laikui.</item>
+        <item quantity="other">%d elementų ištrinta visam laikui.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdo įrašas ištrintas visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdo įrašai ištrinti visam laikui.</item>
+        <item quantity="many">%d vaizdo įrašų ištrinta visam laikui.</item>
+        <item quantity="other">%d vaizdo įrašų ištrinta visam laikui.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Tinklelio vaizdas su %d miniatiūra kiekvienoje eilutėje</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Tinklelio vaizdas su %d miniatiūromis kiekvienoje eilutėje</item>
+        <item quantity="many">Tinklelio vaizdas su %d miniatiūrų kiekvienoje eilutėje</item>
+        <item quantity="other">Tinklelio vaizdas su %d miniatiūrų kiekvienoje eilutėje</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupė, 1 albumas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupės, 1 albumas</item>
+        <item quantity="many">%d grupių, 1 albumas</item>
+        <item quantity="other">%d grupių, 1 albumas</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Iš debesies atsisiųstas %d vaizdas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Iš debesies atsisiųsti %d vaizdai.</item>
+        <item quantity="many">Iš debesies atsisiųsta %d vaizdų.</item>
+        <item quantity="other">Iš debesies atsisiųsta %d vaizdų.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vaizdai atkurti. %1$d %2$s vaizdo nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vaizdai atkurti. %1$d %2$s vaizdų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Vaizdai atkurti. %1$d %2$s vaizdų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Vaizdai atkurti. %1$d %2$s vaizdų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Išsaugotas %d elementas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Išsaugoti %d elementai.</item>
+        <item quantity="many">Išsaugota %d elemento.</item>
+        <item quantity="other">Išsaugota %d elementų.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Iš debesies atsisiųstas %d elementas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Iš debesies atsisiųsti %d elementai.</item>
+        <item quantity="many">Iš debesies atsisiųsta %d elementų.</item>
+        <item quantity="other">Iš debesies atsisiųsta %d elementų.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elementai atkurti. %1$d %2$s elemento nepavyko atkurti, nes %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Elementai atkurti. %1$d %2$s elementų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Elementai atkurti. %1$d %2$s elementų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Elementai atkurti. %1$d %2$s elementų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizde pakeista vietos informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizduose pakeista vietos informacija.</item>
+        <item quantity="many">%d vaizdų pakeista vietos informacija.</item>
+        <item quantity="other">%d vaizdų pakeista vietos informacija.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elemente pakeista vietos informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementuose pakeista vietos informacija.</item>
+        <item quantity="many">%d elementų pakeista vietos informacija.</item>
+        <item quantity="other">%d elementų pakeista vietos informacija.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdo įraše pakeista vietos informacija.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdo įrašuose pakeista vietos informacija.</item>
+        <item quantity="many">%d vaizdo įrašų pakeista vietos informacija.</item>
+        <item quantity="other">%d vaizdo įrašų pakeista vietos informacija.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vieta</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vietos</item>
+        <item quantity="many">%d vietos</item>
+        <item quantity="other">%d vietų</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima įvesti daugiau nei %d simbolį.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima įvesti daugiau nei %d simbolių.</item>
+        <item quantity="many">Negalima įvesti daugiau nei %d simbolių.</item>
+        <item quantity="other">Negalima įvesti daugiau nei %d simbolių.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vaizdo klipas iš %d judesio nuotraukos išsaugotas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vaizdo klipai iš %d judesio nuotraukų išsaugoti.</item>
+        <item quantity="many">Vaizdo klipai iš %d judesio nuotraukų išsaugoti.</item>
+        <item quantity="other">Vaizdo klipai iš %d judesio nuotraukų išsaugoti.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d kadrų seriją į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d kadrų serijas į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d kadrų serijų į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d kadrų serijų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d kadrų seriją į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d kadrų serijas į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d kadrų serijų į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d kadrų serijų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti 1 grupę, 1 albumą ir %d elementą juose į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti 1 grupę, 1 albumą ir %d elementus juose į šiukšlinę?</item>
+        <item quantity="many">Perkelti 1 grupę, 1 albumą ir %d elementų juose į šiukšlinę?</item>
+        <item quantity="other">Perkelti 1 grupę, 1 albumą ir %d elementų juose į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti 1 grupę, %d albumą ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti 1 grupę, %d albumus ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="many">Perkelti 1 grupę, %d albumų ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="other">Perkelti 1 grupę, %d albumų ir 1 elementą juose į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d grupę, 1 albumą ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d grupes, 1 albumą ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d grupių, 1 albumą ir 1 elementą juose į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d grupių, 1 albumą ir 1 elementą juose į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d nuotrauką iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d nuotraukas iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d nuotraukų iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d nuotraukų iš šios kadrų serijos į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d nuotrauką iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d nuotraukas iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d nuotraukų iš šios kadrų serijos į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d nuotraukų iš šios kadrų serijos į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d vaizdą į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d vaizdus į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d vaizdų į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d vaizdų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d elementą į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d elementus į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d elementų į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d elementų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elementas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementai</item>
+        <item quantity="many">%d elementų</item>
+        <item quantity="other">%d elementų</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d panašių vaizdų grupę į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d panašių vaizdų grupes į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d panašių vaizdų grupių į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d panašių vaizdų grupių į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d panašių vaizdų grupę ir dar 1 elementą į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d panašių vaizdų grupes ir dar 1 elementą į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d panašių vaizdų grupių ir dar 1 elementą į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d panašių vaizdų grupių ir dar 1 elementą į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti 1 panašių vaizdų grupę ir dar %d elementą į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti 1 panašių vaizdų grupę ir dar %d elementus į šiukšlinę?</item>
+        <item quantity="many">Perkelti 1 panašių vaizdų grupę ir dar %d elementų į šiukšlinę?</item>
+        <item quantity="other">Perkelti 1 panašių vaizdų grupę ir dar %d elementų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d elementą iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d elementus iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d elementų iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d elementų iš šio rinkinio į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d nuotrauką iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d nuotraukas iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d nuotraukų iš šio rinkinio į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d nuotraukų iš šio rinkinio į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d vieno fiksavimo rinkinį į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d vieno fiksavimo rinkinius į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d vieno fiksavimo rinkinių į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d vieno fiksavimo rinkinių į šiukšlinę?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d elementą į privatų albumą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d elementus į privatų albumą?</item>
+        <item quantity="many">Perkelti %d elementų į privatų albumą?</item>
+        <item quantity="other">Perkelti %d elementų į privatų albumą?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko perkelti %1$d %2$s failo į %3$s. Atsisiųskite šį failą ir bandykite dar kartą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko perkelti %1$d %2$s failų į %3$s. Atsisiųskite šiuos failus ir bandykite dar kartą.</item>
+        <item quantity="many">Nepavyko perkelti %1$d %2$s failų į %3$s. Atsisiųskite šiuos failus ir bandykite dar kartą.</item>
+        <item quantity="other">Nepavyko perkelti %1$d %2$s failų į %3$s. Atsisiųskite šiuos failus ir bandykite dar kartą.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %d vaizdo įrašą į šiukšlinę?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %d vaizdo įrašus į šiukšlinę?</item>
+        <item quantity="many">Perkelti %d vaizdo įrašo į šiukšlinę?</item>
+        <item quantity="other">Perkelti %d vaizdo įrašų į šiukšlinę?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d elementas perkeliamas į šiukšlinę…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d elementai perkeliami į šiukšlinę…</item>
+        <item quantity="many">%d elementų perkeliama į šiukšlinę…</item>
+        <item quantity="other">%d elementų perkeliama į šiukšlinę…</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d naujas pranešimas</item>
+        <item quantity="few">%d nauji pranešimai</item>
+        <item quantity="many">%d naujo pranešimo</item>
+        <item quantity="other">%d naujų pranešimų</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Sujungtas %d albumas tokiu pačiu pavadinimu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Sujungti %d albumai tokiu pačiu pavadinimu.</item>
+        <item quantity="many">Sujungta %d albumų tokiu pačiu pavadinimu.</item>
+        <item quantity="other">Sujungta %d albumų tokiu pačiu pavadinimu.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d d.</item>
+        <item quantity="many">%d d.</item>
+        <item quantity="other">%d d.</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Liko %d d. iki istorijos ištrynimo</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Liko %d d. iki istorijos ištrynimo</item>
+        <item quantity="many">Liko %d d. iki istorijos ištrynimo</item>
+        <item quantity="other">Liko %d d. iki istorijos ištrynimo</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Trinti %d albumą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Trinti %d albumus?</item>
+        <item quantity="many">Trinti %d albumų?</item>
+        <item quantity="other">Trinti %d albumų?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prie parankinių pridėtas %d vaizdas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prie parankinių pridėti %d vaizdai.</item>
+        <item quantity="many">Prie parankinių pridėti %d vaizdų.</item>
+        <item quantity="other">Prie parankinių pridėti %d vaizdų.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d kvietimas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d kvietimai</item>
+        <item quantity="many">%d kvietimų</item>
+        <item quantity="other">%d kvietimų</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prie parankinių pridėtas %d elementas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prie parankinių pridėti %d elementai.</item>
+        <item quantity="many">Prie parankinių pridėti %d elementų.</item>
+        <item quantity="other">Prie parankinių pridėti %d elementų.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pasirinktas %d žmogus</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pasirinkti %d žmonės</item>
+        <item quantity="many">Pasirinkta %d žmonių</item>
+        <item quantity="other">Pasirinkta %d žmonių</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Parinkta: %d</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Parinkta: %d</item>
+        <item quantity="many">Parinkta: %d</item>
+        <item quantity="other">Parinkta: %d</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d bendrinamas albumas, 1 kvietimas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d bendrinami albumai, 1 kvietimas</item>
+        <item quantity="many">%d bendrinamų albumų, 1 kvietimas</item>
+        <item quantity="other">%d bendrinamų albumų, 1 kvietimas</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Radome %d naują nuotrauką, kurią galbūt norėtumėte įdėti į šį albumą.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Radome %d naujas nuotraukas, kurias galbūt norėtumėte įdėti į šį albumą.</item>
+        <item quantity="many">Radome %d naujų nuotraukų, kurias galbūt norėtumėte įdėti į šį albumą.</item>
+        <item quantity="other">Radome %d naujų nuotraukų, kurias galbūt norėtumėte įdėti į šį albumą.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prie parankinių pridėtas %d vaizdo įrašas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prie parankinių pridėti %d vaizdo įrašai.</item>
+        <item quantity="many">Prie parankinių pridėti %d vaizdo įrašų.</item>
+        <item quantity="other">Prie parankinių pridėti %d vaizdo įrašų.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Prieš %1$s %2$d m.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prieš %1$s %2$d m.</item>
+        <item quantity="many">Prieš %1$s %2$d m.</item>
+        <item quantity="other">Prieš %1$s %2$d m.</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d albumas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albumai</item>
+        <item quantity="many">%d albumų</item>
+        <item quantity="other">%d albumų</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Atsisiųstas %d elementas. Bakstelėkite čia ir peržiūrėkite jį.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Atsisiųsta elementų: %d. Bakstelėkite čia ir peržiūrėkite juos.</item>
+        <item quantity="many">Atsisiųsta elementų: %d. Bakstelėkite čia ir peržiūrėkite juos.</item>
+        <item quantity="other">Atsisiųsta elementų: %d. Bakstelėkite čia ir peržiūrėkite juos.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupė</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupės</item>
+        <item quantity="many">%d grupių</item>
+        <item quantity="other">%d grupių</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atsisiųsti %d failo. Šis telefonas nepalaiko HEIF vaizdų.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atsisiųsti %d failų. Šis telefonas nepalaiko HEIF vaizdų.</item>
+        <item quantity="many">Nepavyko atsisiųsti %d failų. Šis telefonas nepalaiko HEIF vaizdų.</item>
+        <item quantity="other">Nepavyko atsisiųsti %d failų. Šis telefonas nepalaiko HEIF vaizdų.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nepavyko atsisiųsti %d failo. Šis planšetinis kompiuteris nepalaiko HEIF vaizdų.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nepavyko atsisiųsti %d failų. Šis planšetinis kompiuteris nepalaiko HEIF vaizdų.</item>
+        <item quantity="many">Nepavyko atsisiųsti %d failų. Šis planšetinis kompiuteris nepalaiko HEIF vaizdų.</item>
+        <item quantity="other">Nepavyko atsisiųsti %d failų. Šis planšetinis kompiuteris nepalaiko HEIF vaizdų.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d narys</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d nariai</item>
+        <item quantity="many">%d narių</item>
+        <item quantity="other">%d narių</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Negalima pridėti daugiau nei %d lipduko. Eikite į nuotraukų redagavimo priemonę galerijoje ir lipdukus pašalinkite.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Negalima pridėti daugiau nei %d lipdukų. Eikite į nuotraukų redagavimo priemonę galerijoje ir lipdukus pašalinkite.</item>
+        <item quantity="many">Negalima pridėti daugiau nei %d lipdukų. Eikite į nuotraukų redagavimo priemonę galerijoje ir lipdukus pašalinkite.</item>
+        <item quantity="other">Negalima pridėti daugiau nei %d lipdukų. Eikite į nuotraukų redagavimo priemonę galerijoje ir lipdukus pašalinkite.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 grupė, %d albumas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 grupė, %d albumai</item>
+        <item quantity="many">1 grupė, %d albumų</item>
+        <item quantity="other">1 grupė, %d albumų</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 bendrinamas albumas, %d kvietimas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 bendrinamas albumas, %d kvietimai</item>
+        <item quantity="many">1 bendrinamas albumas, %d kvietimų</item>
+        <item quantity="other">1 bendrinamas albumas, %d kvietimų</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Visam laikui ištrinti %d vaizdą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Visam laikui ištrinti %d vaizdus?</item>
+        <item quantity="many">Visam laikui ištrinti %d vaizdus?</item>
+        <item quantity="other">Visam laikui ištrinti %d vaizdus?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Visam laikui ištrinti %d elementą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Visam laikui ištrinti %d elementus?</item>
+        <item quantity="many">Visam laikui ištrinti %d elementų?</item>
+        <item quantity="other">Visam laikui ištrinti %d elementų?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Visam laikui ištrinti %d vaizdo įrašą?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Visam laikui ištrinti %d vaizdo įrašus?</item>
+        <item quantity="many">Visam laikui ištrinti %d vaizdo įrašus?</item>
+        <item quantity="other">Visam laikui ištrinti %d vaizdo įrašus?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdas bus ištrintas visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdai bus ištrinti visam laikui.</item>
+        <item quantity="many">%d vaizdo bus ištrinta visam laikui.</item>
+        <item quantity="other">%d vaizdų bus ištrinta visam laikui.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Visam laikui bus ištrintas %d elementas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Visam laikui bus ištrinti %d elementai.</item>
+        <item quantity="many">Visam laikui bus ištrinta %d elementų.</item>
+        <item quantity="other">Visam laikui bus ištrinta %d elementų.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d vaizdo įrašas bus ištrintas visam laikui.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d vaizdo įrašai bus ištrinti visam laikui.</item>
+        <item quantity="many">%d vaizdo įrašo bus ištrinta visam laikui.</item>
+        <item quantity="other">%d vaizdo įrašų bus ištrinta visam laikui.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Išsaugota %d nuotrauka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Išsaugotos %d nuotraukos.</item>
+        <item quantity="many">Išsaugota %d nuotraukų.</item>
+        <item quantity="other">Išsaugota %d nuotraukų.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Lankytasi %1$d d. per %2$s</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Lankytasi %1$d d. per %2$s</item>
+        <item quantity="many">Lankytasi %1$d d. per %2$s</item>
+        <item quantity="other">Lankytasi %1$d d. per %2$s</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pireš %d m.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Prieš %d m.</item>
+        <item quantity="many">Prieš %d m.</item>
+        <item quantity="other">Prieš %d m.</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalintas %d pasiūlymas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d pasiūlymai.</item>
+        <item quantity="many">Pašalinta %d pasiūlymų.</item>
+        <item quantity="other">Pašalinta %d pasiūlymų.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdą iš šio bendrinamo albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdus iš šio bendrinamo albumo?</item>
+        <item quantity="many">Pašalinti %d vaizdų iš šio bendrinamo albumo?</item>
+        <item quantity="other">Pašalinti %d vaizdų iš šio bendrinamo albumo?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdą iš albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdus iš albumo?</item>
+        <item quantity="many">Pašalinti %d vaizdų iš albumo?</item>
+        <item quantity="other">Pašalinti %d vaizdų iš albumo?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d elementą iš albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d elementus iš albumo?</item>
+        <item quantity="many">Pašalinti %d elementų iš albumo?</item>
+        <item quantity="other">Pašalinti %d elementų iš albumo?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d elementą iš istorijos?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d elementus iš istorijos?</item>
+        <item quantity="many">Pašalinti %d elementų iš istorijos?</item>
+        <item quantity="other">Pašalinti %d elementų iš istorijos?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdą iš jūsų albumų pasiūlymų?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdus iš jūsų albumų pasiūlymų?</item>
+        <item quantity="many">Pašalinti %d vaizdų iš jūsų albumų pasiūlymų?</item>
+        <item quantity="other">Pašalinti %d vaizdų iš jūsų albumų pasiūlymų?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d elementą iš jūsų albumų pasiūlymų?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d elementus iš jūsų albumų pasiūlymų?</item>
+        <item quantity="many">Pašalinti %d elementų iš jūsų albumų pasiūlymų?</item>
+        <item quantity="other">Pašalinti %d elementų iš jūsų albumų pasiūlymų?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdo įrašą iš jūsų albumų pasiūlymų?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdo įrašus iš jūsų albumų pasiūlymų?</item>
+        <item quantity="many">Pašalinti %d vaizdo įrašų iš jūsų albumų pasiūlymų?</item>
+        <item quantity="other">Pašalinti %d vaizdo įrašų iš jūsų albumų pasiūlymų?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdo įrašą iš albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdo įrašus iš albumo?</item>
+        <item quantity="many">Pašalinti %d vaizdo įrašų iš albumo?</item>
+        <item quantity="other">Pašalinti %d vaizdo įrašų iš albumo?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pašalinti %d vaizdo įrašą iš šio bendrinamo albumo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pašalinti %d vaizdo įrašus iš šio bendrinamo albumo?</item>
+        <item quantity="many">Pašalinti %d vaizdo įrašų iš šio bendrinamo albumo?</item>
+        <item quantity="other">Pašalinti %d vaizdo įrašų iš šio bendrinamo albumo?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Išsaugoti %1$d elementą iš šio %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Išsaugoti %1$d elementus iš šio %2$s?</item>
+        <item quantity="many">Išsaugoti %1$d elemento iš šio %2$s?</item>
+        <item quantity="other">Išsaugoti %1$d elementų iš šio %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Išsaugoti %1$d nuotrauką iš šio %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Išsaugoti %1$d nuotraukas iš šio %2$s?</item>
+        <item quantity="many">Išsaugoti %1$d nuotraukų iš šio %2$s?</item>
+        <item quantity="other">Išsaugoti %1$d nuotraukų iš šio %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %1$d vaizdą į %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %1$d vaizdus į %2$s?</item>
+        <item quantity="many">Perkelti %1$d vaizdų į %2$s?</item>
+        <item quantity="other">Perkelti %1$d vaizdų į %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %1$d elementą į %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %1$d elementus į %2$s?</item>
+        <item quantity="many">Perkelti %1$d elementų į %2$s?</item>
+        <item quantity="other">Perkelti %1$d elementų į %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Perkelti %1$d vaizdo įrašą į %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Perkelti %1$d vaizdo įrašus į %2$s?</item>
+        <item quantity="many">Perkelti %1$d vaizdo įrašų į %2$s?</item>
+        <item quantity="other">Perkelti %1$d vaizdo įrašų į %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Grupė iš %d panašaus vaizdo</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Grupė iš %d panašių vaizdų</item>
+        <item quantity="many">Grupė iš %d panašių vaizdų</item>
+        <item quantity="other">Grupė iš %d panašių vaizdų</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Pasirinktas %d elementas</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Pasirinkti %d elementai</item>
+        <item quantity="many">Pasirinkta %d elementų</item>
+        <item quantity="other">Pasirinkta %d elementų</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Šis asmuo prieš %d m.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Šis asmuo prieš %d m.</item>
+        <item quantity="many">Šis asmuo prieš %d m.</item>
+        <item quantity="other">Šis asmuo prieš %d m.</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Iš debesies atsisiųstas %d vaizdo įrašas.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Iš debesies atsisiųsti %d vaizdo įrašai.</item>
+        <item quantity="many">Iš debesies atsisiųsta %d vaizdo įrašų.</item>
+        <item quantity="other">Iš debesies atsisiųsta %d vaizdo įrašų.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Vaizdo įrašas atkurtas. %1$d %2$s vaizdo įrašo nepavyko atkurti, nes %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Vaizdo įrašas atkurtas. %1$d %2$s vaizdo įrašų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="many">Vaizdo įrašas atkurtas. %1$d %2$s vaizdo įrašų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+        <item quantity="other">Vaizdo įrašas atkurtas. %1$d %2$s vaizdo įrašų nepavyko atkurti, nes jūsų %3$s yra užrakintas dėl asmens duomenų užklausos.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Koliaže negalima įtraukti daugiau nei %d elemento.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Koliaže negalima įtraukti daugiau nei %d elementai.</item>
+        <item quantity="many">Koliaže negalima įtraukti daugiau nei %d elementų.</item>
+        <item quantity="other">Koliaže negalima įtraukti daugiau nei %d elementų.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Bus ištrinta po %d d.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Bus ištrinta po %d d.</item>
+        <item quantity="many">Bus ištrinta po %d d.</item>
+        <item quantity="other">Bus ištrinta po %d d.</item>
+    </plurals>
+</resources>

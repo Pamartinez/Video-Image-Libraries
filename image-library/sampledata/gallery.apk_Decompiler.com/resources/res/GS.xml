@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include android:layout_gravity="center_horizontal" android:id="@+id/default_play_button" android:layout_width="wrap_content" android:layout_height="@dimen/play_button_view_height" android:layout_marginBottom="@dimen/play_button_view_bottom_margin" android:layout_marginStart="@dimen/play_button_layout_side_margin" android:layout_marginEnd="@dimen/play_button_layout_side_margin" layout="@layout/special_contents_play_button_view"/>
+</RelativeLayout>

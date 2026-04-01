@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:importantForAccessibility="no">
+    <FrameLayout android:id="@+id/drawer_tab_item_container" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="@dimen/drawer_tab_item_height" android:importantForAccessibility="no" android:paddingStart="@dimen/drawer_tab_item_container_padding_horizontal" android:paddingEnd="@dimen/drawer_tab_item_expanded_padding_end" android:paddingVertical="@dimen/drawer_tab_item_container_padding_vertical">
+        <com.samsung.android.gallery.widget.RoundedFrameLayout android:layout_width="match_parent" android:layout_height="match_parent" app:radius="@dimen/drawer_tab_focused_item_foreground_radius">
+            <View android:id="@+id/dynamic_focus_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        </com.samsung.android.gallery.widget.RoundedFrameLayout>
+        <FrameLayout android:id="@+id/drawer_tab_item" android:tag="drawer_tab_item" android:background="@drawable/recoil_ripple_rect" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageView android:id="@+id/drawer_tab_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" android:tint="@color/drawer_tab_icon_color" android:layout_marginEnd="@dimen/drawer_tab_icon_margin_end"/>
+                    <LinearLayout android:orientation="horizontal" android:id="@+id/drawer_tab_title_container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/drawer_tab_sub_item_title_text_size" android:textColor="@color/drawer_tab_title_text_color" android:ellipsize="end" android:id="@+id/drawer_tab_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:textIsSelectable="false" style="@style/OneUiRobotoRegular"/>
+                        <ViewStub android:id="@+id/drawer_tab_new_badge" android:layout="@layout/stub_new_label" android:inflatedId="@+id/drawer_tab_new_badge" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/drawer_tab_end_layout" android:layout_width="wrap_content" android:layout_height="match_parent" android:layoutDirection="locale" android:paddingStart="@dimen/drawer_tab_end_layout_padding_start" android:paddingEnd="@dimen/drawer_tab_sub_item_end_layout_padding_end_v2">
+                    <ImageView android:id="@+id/drawer_tab_expand_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gallery_ic_drawer_list_sub_open" android:scaleType="center" android:tint="@color/drawer_tab_count_text_color"/>
+                    <TextView android:textSize="@dimen/drawer_tab_count_text_size" android:textColor="@color/drawer_tab_count_text_color" android:ellipsize="end" android:id="@+id/drawer_tab_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" style="@style/OneUiRobotoRegular"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

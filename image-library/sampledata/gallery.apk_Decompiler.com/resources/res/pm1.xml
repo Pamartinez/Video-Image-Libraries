@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item>
+        <shape android:shape="oval">
+            <size android:height="@dimen/play_btn_size" android:width="@dimen/play_btn_size"/>
+        </shape>
+    </item>
+    <item android:gravity="center" android:height="22dp" android:width="22dp" android:drawable="@drawable/gallery_ic_detail_audio_eraser"/>
+</layer-list>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/tw_ic_ab_add_mtrl" android:id="@+id/action_create_shared_album" android:visible="false" android:title="@string/create" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_verizon_cloud" android:visible="false" android:title="@string/verizon_cloud" android:showAsAction="never"/>
+        <item android:id="@+id/action_sharings_invitations" android:title="@string/invitations" android:showAsAction="never"/>
+        <item android:id="@+id/action_sharings_storage_use" android:visible="false" android:title="@string/storage_use" android:showAsAction="never"/>
+        <item android:id="@+id/action_sort_by_sharing" android:visible="false" android:title="@string/sort" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/select_mode_bottom">
+        <item android:icon="@drawable/menu_bottombar_icon_delete" android:id="@+id/action_delete_shared_album_in_list" android:visible="false" android:title="@string/delete" app:showAsAction="never"/>
+        <item android:id="@+id/action_leave_shared_album_in_list" android:visible="false" android:title="@string/leave" app:showAsAction="never"/>
+        <item android:icon="@drawable/menu_bottombar_icon_rename" android:id="@+id/action_rename_shared_album_in_list" android:visible="false" android:title="@string/rename" app:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:icon="@drawable/tw_ic_ab_add_mtrl" android:id="@+id/action_create_shared_album" android:visible="false" android:title="@string/create" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_verizon_cloud" android:visible="false" android:title="@string/verizon_cloud" android:showAsAction="never"/>
+        <item android:id="@+id/action_sharings_invitations_no_item" android:title="@string/invitations" android:showAsAction="never"/>
+        <item android:id="@+id/action_sharings_storage_use" android:visible="false" android:title="@string/storage_use" android:showAsAction="never"/>
+    </group>
+</menu>

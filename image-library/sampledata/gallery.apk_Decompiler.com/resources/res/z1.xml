@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:title="@string/gallery_labs_title" android:key="labs_preference_screen">
+    <PreferenceCategory>
+        <com.samsung.android.gallery.settings.widget.MainSwitchPreference android:key="labs_developer_master_switch" android:defaultValue="true"/>
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <com.samsung.android.gallery.settings.widget.SearchPreference android:key="labs_search_bar" android:summary="@string/search"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Manager" android:key="labs_manager"/>
+    <PreferenceCategory android:title="AI features" android:key="labs_options_ai_features"/>
+    <PreferenceCategory android:title="One UI 5.x" android:key="labs_options_5x"/>
+    <PreferenceCategory android:title="One UI 4.x trial" android:key="labs_options_4x"/>
+    <PreferenceCategory android:title="One UI 3.x trial" android:key="labs_options_3x"/>
+    <PreferenceCategory android:title="Remote Gallery" android:key="labs_remote_gallery"/>
+    <PreferenceCategory android:title="Year View" android:key="labs_year_view"/>
+    <PreferenceCategory android:title="PhotoStrip" android:key="labs_photo_strip"/>
+    <PreferenceCategory android:title="Viewer options" android:key="labs_viewer_next"/>
+    <PreferenceCategory android:title="Developer options" android:key="labs_developer_options"/>
+    <PreferenceCategory android:title="Debug log options" android:key="labs_debug_log_options"/>
+</PreferenceScreen>

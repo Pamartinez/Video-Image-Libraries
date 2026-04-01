@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <set android:ordering="together">
+            <objectAnimator android:interpolator="@animator/$capture_zoom_animator__0" android:duration="175" android:valueTo="1.04" android:valueType="floatType" android:propertyName="scaleX"/>
+            <objectAnimator android:interpolator="@animator/$capture_zoom_animator__1" android:duration="175" android:valueTo="1.04" android:valueType="floatType" android:propertyName="scaleY"/>
+        </set>
+        <set android:ordering="together">
+            <objectAnimator android:interpolator="@animator/$capture_zoom_animator__2" android:duration="267" android:valueTo="1" android:valueType="floatType" android:propertyName="scaleX"/>
+            <objectAnimator android:interpolator="@animator/$capture_zoom_animator__3" android:duration="270" android:valueTo="1" android:valueType="floatType" android:propertyName="scaleY"/>
+        </set>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__4" android:duration="114" android:valueTo="-1.5" android:valueType="floatType" android:propertyName="rotationX"/>
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__5" android:duration="177" android:valueTo="0.3" android:valueType="floatType" android:propertyName="rotationX"/>
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__6" android:duration="154" android:valueTo="0" android:valueType="floatType" android:propertyName="rotationX"/>
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__7" android:duration="117" android:startOffset="117" android:valueTo="-0.8" android:valueType="floatType" android:propertyName="rotationY"/>
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__8" android:duration="175" android:valueTo="0.16" android:valueType="floatType" android:propertyName="rotationY"/>
+        <objectAnimator android:interpolator="@animator/$capture_zoom_animator__9" android:duration="105" android:valueTo="0" android:valueType="floatType" android:propertyName="rotationY"/>
+    </set>
+</set>

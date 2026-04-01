@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/search_keyword_divider_color" android:layout_width="match_parent" android:layout_height="@dimen/search_filter_results_divider_size" android:layout_marginTop="@dimen/search_filter_results_divider_padding_vertical" android:layout_marginBottom="@dimen/search_filter_results_divider_padding_vertical"/>

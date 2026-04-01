@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:id="@+id/moreinfo_shared_profile" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include layout="@layout/details_divider"/>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/added_by" android:layout_marginBottom="6dp" android:text="@string/added_by" android:layout_marginEnd="@dimen/details_item_shared_profile_margin_bw_text" style="@style/DetailsTextViewBoldStyle"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.samsung.android.gallery.widget.UtlTextView android:ellipsize="end" android:id="@+id/creator_name" android:text="creator" android:maxLines="2" android:layout_weight="1" android:layout_marginEnd="@dimen/details_item_shared_profile_margin_bw_text" style="@style/DetailsTextViewBoldStyle"/>
+                <com.samsung.android.gallery.widget.UtlTextView android:textColor="@color/moreinfo_details_value_text_color_v3" android:ellipsize="end" android:id="@+id/created_time" android:maxLines="2" android:layout_weight="1" style="@style/DetailsTextViewNormalStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/modified_by" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/last_modified_by" android:text="@string/last_modified_by" android:layout_marginEnd="@dimen/details_item_shared_profile_margin_bw_text" style="@style/DetailsTextViewBoldStyle"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.samsung.android.gallery.widget.UtlTextView android:ellipsize="end" android:id="@+id/modifier_name" android:text="modifier" android:maxLines="2" android:layout_weight="1" android:layout_marginEnd="@dimen/details_item_shared_profile_margin_bw_text" style="@style/DetailsTextViewBoldStyle"/>
+                <com.samsung.android.gallery.widget.UtlTextView android:textColor="@color/moreinfo_details_value_text_color_v3" android:ellipsize="end" android:id="@+id/modified_time" android:maxLines="2" android:layout_weight="1" style="@style/DetailsTextViewNormalStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

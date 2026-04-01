@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="horizontal" android:id="@+id/moreinfo_c2pa" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+    <LinearLayout android:gravity="left|center_vertical|center_horizontal|center|start" android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+        <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/moreinfo_c2pa_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAlignment="viewStart" style="@style/DetailsTextViewBoldStyle"/>
+        <com.samsung.android.gallery.widget.UtlTextView android:id="@+id/moreinfo_c2pa_data" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAlignment="viewStart" style="@style/DetailsTextViewNormalStyle"/>
+    </LinearLayout>
+    <FrameLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageButton android:layout_gravity="center" android:id="@+id/moreinfo_more_c2pa" android:background="@android:color/transparent" android:focusable="true" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c2pa_cr" android:contentDescription="@string/c2pa_header"/>
+        <ImageView android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/moreinfo_more_c2pa_noti_dot" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c2pa_new_dot"/>
+    </FrameLayout>
+</LinearLayout>

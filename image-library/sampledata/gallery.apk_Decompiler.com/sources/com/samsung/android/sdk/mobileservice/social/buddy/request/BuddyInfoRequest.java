@@ -1,0 +1,54 @@
+package com.samsung.android.sdk.mobileservice.social.buddy.request;
+
+import android.os.Bundle;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public class BuddyInfoRequest {
+    public static final int CERTIFICATE_ITEM = 1;
+    public static final int SYNCED_CONTACT_ITEM = 2;
+    private int mItemFlags;
+    private String mSelectionArg;
+    private int mSelectionType;
+
+    /* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+    public static class Builder {
+        /* access modifiers changed from: private */
+        public int mItemFlags = 0;
+        /* access modifiers changed from: private */
+        public String mSelectionArg;
+        /* access modifiers changed from: private */
+        public int mSelectionType;
+
+        public Builder(BuddyKey buddyKey) {
+            this.mSelectionArg = buddyKey.getKeyword();
+            this.mSelectionType = buddyKey.getType();
+        }
+
+        public Builder addItemFlags(int i2) {
+            this.mItemFlags = i2 | this.mItemFlags;
+            return this;
+        }
+
+        public BuddyInfoRequest build() {
+            return new BuddyInfoRequest(this);
+        }
+    }
+
+    public int getItemFlags() {
+        return this.mItemFlags;
+    }
+
+    public Bundle toBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("ITEMS", this.mItemFlags);
+        bundle.putInt("SELECTION_TYPE", this.mSelectionType);
+        bundle.putString("SELECTION_ARG", this.mSelectionArg);
+        return bundle;
+    }
+
+    private BuddyInfoRequest(Builder builder) {
+        this.mItemFlags = builder.mItemFlags;
+        this.mSelectionArg = builder.mSelectionArg;
+        this.mSelectionType = builder.mSelectionType;
+    }
+}

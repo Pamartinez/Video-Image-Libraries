@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.samsung.android.gallery.widget.listview.TouchParentLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/story_root_layout" android:background="#4c252525" android:focusable="false" android:fitsSystemWindows="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@+id/handler" android:paddingTop="@dimen/story_highlight_list_handle_margin_top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gallery_ic_story_details_panel_handler"/>
+        <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:id="@+id/toolbar" android:visibility="visible" style="@style/ToolbarStoryHighlightListStyle"/>
+        <include android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/gallery_list_view"/>
+    </LinearLayout>
+</com.samsung.android.gallery.widget.listview.TouchParentLayout>

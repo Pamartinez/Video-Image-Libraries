@@ -1,0 +1,9 @@
+package com.samsung.scsp.framework.core;
+
+/* compiled from: r8-map-id-85efad48717c48307252110572a40cba967e8b6d39747b0efe99f107082547d8 */
+public final class BuildConfig {
+    public static final String BUILD_TYPE = "release";
+    public static final boolean DEBUG = false;
+    public static final String LIBRARY_PACKAGE_NAME = "com.samsung.scsp.framework.core";
+    public static final String VERSION_NAME = "1.1.0000";
+}

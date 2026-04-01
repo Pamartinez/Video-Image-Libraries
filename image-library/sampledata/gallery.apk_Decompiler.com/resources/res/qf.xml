@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/last_page_collage_layout" android:background="@color/transparent" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@+id/content_parent" android:background="@color/story_highlight_collage_content_bg_color" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <FrameLayout android:layout_gravity="bottom|center_vertical|center_horizontal|center" android:id="@+id/collage_item_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/title_area" android:layout_centerHorizontal="true">
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/collage_list" android:focusableInTouchMode="true" android:visibility="gone" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/story_collage" android:importantForAccessibility="yes" android:nestedScrollingEnabled="false"/>
+            </FrameLayout>
+            <androidx.appcompat.widget.AppCompatImageView android:id="@+id/gradient_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:layout_alignTop="@+id/content_parent" android:layout_alignBottom="@+id/content_parent" android:layout_alignStart="@+id/content_parent" android:layout_alignEnd="@+id/content_parent"/>
+            <include layout="@layout/story_highlight_lastpage_summery_title_layout"/>
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/collage_tool" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/story_collage_page_tool_top_margin" android:layout_below="@+id/content">
+            <LinearLayout android:gravity="center" android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/edit_btn" android:background="@drawable/story_highlight_collage_page_btn_bg" android:padding="6dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="3dp" android:foreground="@drawable/recoil_ripple_oval_story_highlight" android:contentDescription="@string/edit" android:stateListAnimator="?attr/seslSmallTouchAnimator" android:tooltipText="@string/edit">
+                <ImageView android:layout_gravity="center" android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/tag_ic_details_editor_edit" android:tint="#fafafa"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_gravity="top|right|center_vertical|center_horizontal|center|end" android:id="@+id/save_btn" android:background="@drawable/story_highlight_collage_page_btn_bg" android:padding="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="3dp" android:foreground="@drawable/recoil_ripple_oval_story_highlight" android:contentDescription="@string/download_story_collage" android:layout_toEndOf="@+id/edit_btn" android:stateListAnimator="?attr/seslSmallTouchAnimator" android:tooltipText="@string/download_story_collage">
+                <ImageView android:layout_gravity="center" android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/gallery_ic_stories_bgm_download_dark"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

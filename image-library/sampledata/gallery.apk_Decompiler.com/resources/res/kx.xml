@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <action intentName="sec.actions.intent.OPEN_IMAGE">
+        <parameter name="imageObject.name" type="http://schema.org/Text"/>
+        <parameter name="imageObject.contentUrl" type="http://schema.org/URL"/>
+        <fulfillment urlTemplate="intent:{url}#Intent;package=com.sec.android.gallery3d;end">
+            <parameter-mapping intentParameter="imageObject.name" required="false" urlParameter="name"/>
+            <parameter-mapping intentParameter="imageObject.contentUrl" required="true" urlParameter="url"/>
+        </fulfillment>
+    </action>
+</actions>

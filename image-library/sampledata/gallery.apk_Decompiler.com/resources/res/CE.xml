@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:icon="@drawable/gallery_ic_actionbar_favorite" android:id="@+id/action_favorite_view" android:visible="false" android:title="@string/favorites" app:showAsAction="always"/>
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_create_story_album" android:title="@string/create_story_manually" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_content" android:title="@string/hide_content" android:showAsAction="never"/>
+        <item android:id="@+id/action_trash" android:visible="false" android:title="@string/trash" android:showAsAction="never"/>
+        <item android:id="@+id/action_settings" android:visible="false" android:title="@string/more_options_setting" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:icon="@drawable/tw_ic_ab_search_mtrl" android:id="@+id/action_search" android:title="@string/search" app:showAsAction="always"/>
+        <item android:id="@+id/action_create_story_album" android:title="@string/create_story_manually" android:showAsAction="never"/>
+        <item android:id="@+id/action_hide_content" android:title="@string/hide_content" android:showAsAction="never"/>
+        <item android:id="@+id/action_trash" android:visible="false" android:title="@string/trash" android:showAsAction="never"/>
+        <item android:id="@+id/action_settings" android:visible="false" android:title="@string/more_options_setting" android:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/popup_mode">
+        <item android:id="@+id/action_rename" android:visible="true" android:title="@string/opt_rename"/>
+        <item android:id="@+id/action_delete_story" android:visible="true" android:title="@string/delete"/>
+    </group>
+</menu>

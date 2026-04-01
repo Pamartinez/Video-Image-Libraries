@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:id="@+id/normal_mode">
+        <item android:id="@+id/action_copy_move_to_new_album" android:title="@string/move_mode_create" app:showAsAction="always"/>
+    </group>
+    <group android:id="@+id/no_item">
+        <item android:id="@+id/action_copy_move_to_new_album" android:title="@string/move_mode_create" app:showAsAction="always"/>
+    </group>
+</menu>

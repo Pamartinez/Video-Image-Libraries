@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="suggestions_main_layout_width_ratio">0.75</dimen>
+    <dimen name="suggestions_main_layout_width_ratio_for_drawer_close">0.9</dimen>
+</resources>

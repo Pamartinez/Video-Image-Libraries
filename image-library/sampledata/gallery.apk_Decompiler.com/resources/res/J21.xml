@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:id="@+id/floating_item_title_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_floating_recommend_history_title_margin_top" android:layout_marginBottom="@dimen/search_floating_recommend_history_title_margin_bottom" android:paddingHorizontal="@dimen/search_floating_recommend_title_padding_horizontal" android:paddingVertical="@dimen/search_floating_recommend_title_padding_vertical">
+        <TextView android:id="@+id/floating_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/search_results" style="@style/FloatingRecommendationTitleTextStyle"/>
+        <TextView android:id="@+id/floating_item_count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:layout_marginStart="@dimen/search_floating_recommend_item_count_margin_start" style="@style/FloatingRecommendationTitleTextStyle"/>
+    </LinearLayout>
+    <com.samsung.android.gallery.widget.RoundedFrameLayout android:background="@color/floating_recommendation_chunking_bg_color" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/search_floating_recommend_history_list_margin_bottom" android:layout_marginHorizontal="@dimen/search_floating_recommend_history_list_margin_horizontal">
+        <com.samsung.android.gallery.widget.flexboxlist.FlexBoxListView android:id="@+id/floating_item_list_view" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+    </com.samsung.android.gallery.widget.RoundedFrameLayout>
+</LinearLayout>

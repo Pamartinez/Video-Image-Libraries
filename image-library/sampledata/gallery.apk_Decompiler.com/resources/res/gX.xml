@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/default_fw_background" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <include layout="@layout/toolbar_normal"/>
+    <include layout="@layout/sharing_storage_use_header_layout"/>
+    <RelativeLayout android:id="@+id/empty_view" style="@style/EmptyViewDefaultStyle">
+        <com.samsung.android.gallery.widget.NoItemView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" app:label="@string/empty_set_description_no_shared_albums"/>
+    </RelativeLayout>
+    <com.samsung.android.gallery.widget.listview.GalleryListView android:id="@+id/my_recycler_view" android:focusable="false" android:scrollbars="vertical" android:layoutAnimation="@anim/layout_anim_fall_down" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginHorizontal="@dimen/shared_storage_use_view_margin_horizontal" app:lastOutlineStroke="false" app:outlineStroke="true" app:roundedCorner="true" app:useFrameworkBgColor="true"/>
+</LinearLayout>

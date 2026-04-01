@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="sesl_spinning_datepicker_time_margin_right_weight">6</integer>
+</resources>

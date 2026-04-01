@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d கிளௌடு உருப்படியை பகிர்ந்த தொகுப்பில் சேர்க்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d கிளௌடு உருப்படிகளை பகிர்ந்த தொகுப்பில் சேர்க்கவா?</item>
+    </plurals>
+    <plurals name="at_least_pd_years_old_to_use_intelligent_features">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">நுண்ணறிவு அம்சங்களைப் பயன்படுத்த, நீங்கள் குறைந்தது %d வயதுடையவராக இருக்க வேண்டும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">நுண்ணறிவு அம்சங்களைப் பயன்படுத்த, நீங்கள் குறைந்தது %d வயதுடையவராக இருக்க வேண்டும்.</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படம்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படங்கள்</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Meitu இடுகையில் %d நிகழ்படத்தை விட அதிகமாகச் சேர்க்க இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu இடுகையில் %d நிகழ்படங்களை விட அதிகமாகச் சேர்க்க இயலாது.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s படிமத்தை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s படிமங்களை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s உருப்படியை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s உருப்படிகளை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s நிகழ்படத்தை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s நிகழ்படங்களை நீக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Meitu இடுகையில் %d உருப்படிக்கு மேல் சேர்க்க இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">Meitu இடுகையில் %d உருப்படிகளுக்கு மேல் சேர்க்க இயலாது.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s படிமத்தை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s படிமங்களை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s உருப்படியை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s உருப்படிகளை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d %2$s நிகழ்படத்தை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d %2$s நிகழ்படங்களை மீள்சேமிக்க இயலாது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே நேரத்தில் %d உருப்படிக்கு மேல் சேர்க்க இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே நேரத்தில் %d உருப்படிகளுக்கு மேல் சேர்க்க இயலாது.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">கதையில் %d உருப்படிக்கு மேல் சேர்க்க இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">கதையில் %d உருப்படிகளுக்கு மேல் சேர்க்க இயலாது.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நகரம்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நகரங்கள்</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d படிமத்தை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d படிமங்களை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d உருப்படியை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d உருப்படிகளை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d நிகழ்படத்தை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d நிகழ்படங்களை மீட்டமைக்க இயலவில்லை. %2$s-இல் சிறிது இடத்தைக் காலிசெய்து மீண்டும் முயலவும்.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$d நிகழ்படத்தை மீள்சேமிக்க இயலவில்லை. அந்த நிகழ்படம் %2$s பயன்பாட்டில் மீள்சேமிக்கப்பட்டுள்ளது அல்லது நீக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$d நிகழ்படங்களை மீள்சேமிக்க இயலவில்லை. இந்த நிகழ்படங்கள் %2$s பயன்பாட்டில் மீள்சேமிக்கப்பட்டுள்ளன அல்லது நீக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியை அகற்ற இயலவில்லை. மீண்டும் முயலவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளை அகற்ற இயலவில்லை. மீண்டும் முயலவும்.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d பகிர்ந்த தொகுப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d பகிர்ந்த தொகுப்புகள்</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d கதை</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d கதைகள்</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமத்தில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்களில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படத்தில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்களில் தேதி மற்றும் நேர விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d தொகுப்பை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d தொகுப்புகளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 குழு, %d தொகுப்பு மற்றும் அவற்றில் உள்ள 1 உருப்படியை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 குழு, %d தொகுப்புகள் மற்றும் அவற்றில் உள்ள 1 உருப்படியை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d குழுவை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d குழுக்களை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமத்தை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்களை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் %d குழுவை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் %d குழுக்களை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் %d குழுவையும் பிற 1 உருப்படியையும் நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் %d குழுக்களையும் பிற 1 உருப்படியையும் நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் 1 குழுவையும் பிற %d உருப்படியையும் நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் 1 குழுவையும் பிற %d உருப்படிகளையும் நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த தொகுப்பிலிருந்து %d உருப்படியை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த தொகுப்பிலிருந்து %d உருப்படிகளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d இயக்க புகைப்படத்திலிருந்து நிகழ்பட க்ளிப்பை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d இயக்க புகைப்படங்களிலிருந்து நிகழ்பட க்ளிப்பை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த தொகுப்பிலிருந்து %d படத்தை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த தொகுப்பிலிருந்து %d படங்களை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஒருமுறை படமெடுப்பு தொகுப்பை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஒருமுறை படமெடுப்பு தொகுப்புகளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படத்தை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்களை நீக்கவா?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த உள்ளடக்கத்தை நீங்கள் மேலும் %d முறை பார்க்கலாம். இப்போது காட்டவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த உள்ளடக்கத்தை நீங்கள் மேலும் %d முறை பார்க்கலாம். இப்போது காட்டவா?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d காலியான தொகுப்பு, தேவையற்றவைக்கு நகர்த்தப்படாமல் நீக்கப்படும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d காலியான தொகுப்புகள், தேவையற்றவைக்கு நகர்த்தப்படாமல் நீக்கப்படும்.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">தேவையற்றவையிலுள்ள உருப்படிகள் %d நாளுக்குப் பிறகு நிரந்தரமாக நீக்கப்படும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">தேவையற்றவையிலுள்ள உருப்படிகள் %d நாட்களுக்குப் பிறகு நிரந்தரமாக நீக்கப்படும்.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமம் உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்கள் உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படம் உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்கள் உங்கள் ஃபோனிலிருந்து நிரந்தரமாக நீக்கப்பட்டுள்ளது. அங்குள்ள ரீசைக்கில் பின்னில் உள்ள நகலை நீக்க OneDrive-க்குச் செல்லவும்.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமம் நிரந்தரமாக நீக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்கள் நிரந்தரமாக நீக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி நிரந்தரமாக நீக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் நிரந்தரமாக நீக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="go_to_samsung_cloud_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படம் நீக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்கள் நிரந்தரமாக நீக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒவ்வொரு வரிசையிலும் %d சிறுபடத்துடன் கூடிய கட்டக் காட்சி</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒவ்வொரு வரிசையிலும் %d சிறுபடங்களுடன் கூடிய கட்டக் காட்சி</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d குழு 1 தொகுப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d குழுக்கள் 1 தொகுப்பு</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமம் கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்கள் கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">படிமங்கள் மீள்சேமிக்கப்பட்டுள்ளன. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக %3$s பூட்டப்படுள்ளதால், %1$d %2$s படிமத்தை மீள்சேமிக்க இயலவில்லை.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">படிமங்கள் மீள்சேமிக்கப்பட்டுள்ளன. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக %3$s பூட்டப்படுள்ளதால், %1$d %2$s படிமங்களை மீள்சேமிக்க இயலவில்லை.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி சேமிக்கப்பட்டது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் சேமிக்கப்பட்டன.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">உருப்படிகள் மீள்சேமிக்கப்பட்டன. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளதால் %1$d %2$s உருப்படியை மீள்சேமிக்க இயலவில்லை.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">உருப்படிகள் மீள்சேமிக்கப்பட்டன. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளதால் %1$d %2$s உருப்படிகளை மீள்சேமிக்க இயலவில்லை.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமத்தில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்களில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படத்தில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்களில் இருப்பிட விவரம் மாற்றப்பட்டுள்ளது.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d இருப்பிடம்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d இருப்பிடங்கள்</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d எழுத்துக்கு மேல் உள்ளிட இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d எழுத்துகளுக்கு மேல் உள்ளிட இயலாது.</item>
+    </plurals>
+    <plurals name="motion_photo_clips_export_video_n_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d இயக்க புகைப்படத்திலிருந்து நிகழ்பட க்ளிப் சேமிக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d இயக்க புகைப்படங்களிலிருந்து நிகழ்பட க்ளிப்புகள் சேமிக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d பர்ஸ்ட் ஷாட்டை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d பர்ஸ்ட் ஷாட்களை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d பர்ஸ்ட் ஷாட்டை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d பர்ஸ்ட் ஷாட்களை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 குழு, 1 தொகுப்பு மற்றும் அவற்றில் உள்ள %d உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 குழு, 1 தொகுப்பு மற்றும் அவற்றில் உள்ள %d உருப்படிகளை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 குழு, %d தொகுப்பு மற்றும் அவற்றில் உள்ள 1 உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 குழு, %d தொகுப்புகள் மற்றும் அவற்றில் உள்ள 1 உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d குழு, 1 தொகுப்பு மற்றும் அவற்றில் உள்ள 1 உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d குழுக்கள், 1 தொகுப்பு மற்றும் அவற்றில் உள்ள 1 உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த பர்ஸ்ட் ஷாட்டில் உள்ள %d படத்தை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த பர்ஸ்ட் ஷாட்டில் உள்ள %d படங்களைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த பர்ஸ்ட் ஷாட்டில் உள்ள %d படத்தை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த பர்ஸ்ட் ஷாட்டில் உள்ள %d படங்களைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமத்தைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்களைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள்</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் %d குழுவை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் %d குழுக்களை தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் %d குழுவையும் பிற 1 உருப்படியையும் தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் %d குழுக்களையும் பிற 1 உருப்படியையும் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரே மாதிரியான படிமங்களின் 1 குழுவையும் பிற %d உருப்படியையும் தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரே மாதிரியான படிமங்களின் 1 குழுவையும் பிற %d உருப்படிகளையும் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த தொகுப்பிலிருந்து %d உருப்படியைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த தொகுப்பிலுள்ள %d உருப்படிகளைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த தொகுப்பிலுள்ள %d படத்தை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த தொகுப்பிலுள்ள %d படங்களைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஒருமுறை படமெடுப்பு தொகுப்பை தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஒருமுறை படமெடுப்பு தொகுப்புகளைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_to_private_album_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியைத் தனிப்பட்ட தொகுப்பிற்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளைத் தனிப்பட்ட தொகுப்பிற்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%3$s-க்கு %1$d %2$s கோப்பை நகர்த்த இயலவில்லை. இந்தக் கோப்பைப் பதிவிறக்கி மீண்டும் முயலவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%3$s-க்கு %1$d %2$s கோப்புகளை நகர்த்த இயலவில்லை. இந்தக் கோப்பைப் பதிவிறக்கி மீண்டும் முயலவும்.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படத்தைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்களைத் தேவையற்றவைக்கு நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியை தேவையற்றவைக்கு நகர்த்துகிறது…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளைத் தேவையற்றவைக்கு நகர்த்துகிறது…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">அதே பெயரில் %d தொகுப்பு ஒன்றாக்கப்பட்டது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">அதே பெயரில் %d தொகுப்புகள் ஒன்றாக்கப்பட்டன.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நாள்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நாட்கள்</item>
+    </plurals>
+    <plurals name="n_days_until_story_is_deleted">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">கதை %d நாளில் நீக்கப்படும்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">கதை %d நாட்களில் நீக்கப்படும்</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d தொகுப்பை நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d தொகுப்புகளை நீக்கவா?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமம் பிடித்தவையில் சேர்க்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்கள் பிடித்தவையில் சேர்க்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d அழைப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d அழைப்புகள்</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி பிடித்தவையில் சேர்க்கப்பட்டது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் பிடித்தவையில் சேர்க்கப்பட்டன.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நபர் தேர்வுசெய்யப்பட்டுள்ளார்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நபர்கள் தேர்வுசெய்யப்பட்டுள்ளார்கள்</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d தேர்வுசெய்யப்பட்டுள்ளது</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d தேர்வுசெய்யப்பட்டுள்ளது</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d பகிரப்பட்ட தொகுப்பு, 1 அழைப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d பகிர்ந்த தொகுப்புகள், 1 அழைப்பு</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்தத் தொகுப்பில் நீங்கள் சேர்க்க விரும்பும் %d புதிய படத்தைக் கண்டறிந்துள்ளோம்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்தத் தொகுப்பில் நீங்கள் சேர்க்க விரும்பும் %d புதிய படங்களை நாங்கள் கண்டறிந்துள்ளோம்.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படம் பிடித்தவையில் சேர்க்கப்பட்டன.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்கள் பிடித்தவையில் சேர்க்கப்பட்டன.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d ஆண்டு முன்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%1$s/%2$d ஆண்டுகள் முன்பு</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d தொகுப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d தொகுப்புகள்</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி பதிவிறக்கப்பட்டுள்ளது. அதைப் பார்க்க, இங்கே டேப் செய்யவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் பதிவிறக்கப்பட்டுள்ளன. அவற்றைப் பார்க்க, இங்கே டேப் செய்யவும்.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d குழு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d குழுக்கள்</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d கோப்பை பதிவிறக்க இயலவில்லை. இந்த ஃபோன் HEIF படிமங்களை ஆதரிக்கவில்லை.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d கோப்புகளை பதிவிறக்க இயலவில்லை. இந்த ஃபோன் HEIF படிமங்களை ஆதரிக்கவில்லை.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d கோப்பை பதிவிறக்க இயலவில்லை. இந்த டேப்லெட் HEIF படிமங்களை ஆதரிக்கவில்லை.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d கோப்புகளை பதிவிறக்க இயலவில்லை. இந்த டேப்லெட் HEIF படிமங்களை ஆதரிக்கவில்லை.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உறுப்பினர்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உறுப்பினர்கள்</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஸ்டிக்கருக்கு மேல் சேர்க்க இயலாது. ஸ்டிக்கர்களை அகற்ற, கேலரியில் உள்ள புகைப்பட திருத்தி அம்சத்திற்கு செல்லவும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஸ்டிக்கர்களுக்கு மேல் சேர்க்க இயலாது. ஸ்டிக்கர்களை அகற்ற, கேலரியில் உள்ள புகைப்படத் திருத்தி அம்சத்திற்கு செல்லவும்.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 குழு %d தொகுப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 குழு %d தொகுப்புகள்</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 பகிரப்பட்ட தொகுப்பு, %d அழைப்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">1 பகிரப்பட்ட தொகுப்பு, %d அழைப்புகள்</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமத்தை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்களை நிரந்தரமாக நீக்கவா?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படியை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகளை நிரந்தரமாக நீக்கவா?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படத்தை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்களை நிரந்தரமாக நீக்கவா?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படிமம் நிரந்தரமாக நீக்கப்படும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படிமங்கள் நிரந்தரமாக நீக்கப்படும்.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி நிரந்தரமாக நீக்கப்படும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் நிரந்தரமாக நீக்கப்படும்.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படம் நிரந்தரமாக நீக்கப்படும்.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்கள் நிரந்தரமாக நீக்கப்படும்.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d படம் சேமிக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d படங்கள் சேமிக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="recap_place_visited_for_xx_day_in_yyyy">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-இல் %1$d நாள் பார்வையிடப்பட்டது</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-இல் %1$d நாட்கள் பார்வையிடப்பட்டது</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஆண்டிற்கு முன்பு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஆண்டுகளுக்கு முன்பு</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d பரிந்துரை அகற்றப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d பரிந்துரைகள் அகற்றப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த பகிரப்பட்ட தொகுப்பிலிருந்து %d படிமத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த பகிரப்பட்ட தொகுப்பிலிருந்து %d படிமங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">தொகுப்பிலிருந்து %d படிமத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">தொகுப்பிலிருந்து %d படிமங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">தொகுப்பிலிருந்து %d உருப்படியை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">தொகுப்பிலிருந்து %d உருப்படிகளை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">கதையிலிருந்து %d உருப்படியை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">கதையிலிருந்து %d உருப்படிகளை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d படிமத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d படிமங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d உருப்படியை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d உருப்படிகளை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d நிகழ்படத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">உங்கள் தொகுப்பு பரிந்துரைகளிலிருந்து %d நிகழ்படங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">தொகுப்பிலிருந்து %d நிகழ்படத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">தொகுப்பிலிருந்து %d நிகழ்படங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த பகிரப்பட்ட தொகுப்பிலிருந்து %d நிகழ்படத்தை அகற்றவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த பகிரப்பட்ட தொகுப்பிலிருந்து %d நிகழ்படங்களை அகற்றவா?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த %2$s-இலிருந்து %1$d உருப்படியைச் சேமிக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த %2$s-இலிருந்து %1$d உருப்படிகளைச் சேமிக்கவா?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">இந்த %2$s-இலிருந்து %1$d படத்தைச் சேமிக்கவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">இந்த %2$s-இலிருந்து %1$d படங்களைச் சேமிக்கவா?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-க்கு %1$d படிமத்தை நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-க்கு %1$d படிமங்களை நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-க்கு %1$d உருப்படியை நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-க்கு %1$d உருப்படிகளை நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%2$s-க்கு %1$d நிகழ்படத்தை நகர்த்தவா?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%2$s-க்கு %1$d நிகழ்படங்களை நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஒரேமாதிரியான படிமத்தின் குழு</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஒரேமாதிரியான படிமங்களின் குழு</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d உருப்படி தேர்வுசெய்யப்பட்டுள்ளது</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d உருப்படிகள் தேர்வுசெய்யப்பட்டுள்ளன</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ஆண்டுக்கு முன்பு இந்த நபர்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d ஆண்டுகளுக்கு முன்பு இந்த நபர்</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நிகழ்படம் கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நிகழ்படங்கள் கிளௌடிலிருந்து பதிவிறக்கப்பட்டுள்ளன.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">நிகழ்படம் மீள்சேமிக்கப்பட்டது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளதால் %1$d %2$s நிகழ்படத்தை மீள்சேமிக்க இயலவில்லை.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">நிகழ்படம் மீள்சேமிக்கப்பட்டது. தனிப்பயன் தரவு கோரிக்கையின் காரணமாக உங்கள் %3$s பூட்டப்பட்டுள்ளதால் %1$d %2$s நிகழ்படங்களை மீள்சேமிக்க இயலவில்லை.</item>
+    </plurals>
+    <plurals name="vidoe_collage_maker_max_size_reached">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">ஒரு பல்படக்கலவையில் %d உருப்படிக்கு மேல் சேர்க்க இயலாது.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">ஒரு பல்படக்கலவையில் %d உருப்படிகளுக்கு மேல் சேர்க்க இயலாது.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d நாளில் நீக்கப்படும்</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d நாட்களில் நீக்கப்படும்</item>
+    </plurals>
+</resources>

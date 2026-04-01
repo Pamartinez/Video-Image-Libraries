@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <Preference android:title="@string/change_cover_image" android:key="album_change_cover"/>
+    <Preference android:title="@string/rename" android:key="album_rename"/>
+    <Preference android:title="Screenshot categories" android:key="screenshot_categories" app:isPreferenceVisible="false"/>
+    <PreferenceCategory/>
+</PreferenceScreen>

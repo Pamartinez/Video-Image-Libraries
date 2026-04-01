@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.util.SeslShapeDrawable xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <corners android:radius="@dimen/sesl_divider_button_layout_button_background_radius"/>
+    <solid android:color="@color/sesl_divider_button_layout_background_color_for_theme"/>
+</androidx.appcompat.util.SeslShapeDrawable>

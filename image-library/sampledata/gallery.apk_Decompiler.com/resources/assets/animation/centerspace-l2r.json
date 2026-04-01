@@ -1,0 +1,13 @@
+{
+  "name": "Center-L2R",
+  "sort_order": 20,
+  "bokeh": true,
+  "keyframes": [
+    { "time": 0.0, "layer_position[0]": [ -0.09, 0.0, 0.0 ], "layer_position[1]": [ 0.01, 0.0, 0.0 ], "camera_eye": [ -0.1, 0.0, 1.3 ], "camera_dir": [ 0.1, 0.0, -1.0 ], "depth_intensity": 0.1, "fov": 60, "bokeh_focus_range": 0.17 },
+    { "time": 1.0, "layer_position[0]": [ 0.09, 0.0, 0.0 ], "layer_position[1]": [ -0.01, 0.0, 0.2 ], "camera_eye": [ 0.1, 0.0, 1.3 ], "camera_dir": [ -0.1, 0.0, -1.0 ], "depth_intensity": 0.1, "fov": 60, "bokeh_focus_range": 0.17 }
+  ],
+  "embossing" : true,
+  "transition": "ease",
+  "mode": "bounce",
+  "speed_factor": 2.4
+}

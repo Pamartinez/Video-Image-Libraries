@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <set android:ordering="sequentially">
+        <objectAnimator android:duration="150" android:valueFrom="0" android:valueTo="0" android:propertyName="fillAlpha"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__50" android:duration="83" android:valueFrom="1" android:valueTo="0.62" android:propertyName="fillAlpha"/>
+        <objectAnimator android:interpolator="@drawable/$avd_ic_gallery_detailview_like_heart__51" android:duration="250" android:valueFrom="0.62" android:valueTo="0" android:propertyName="fillAlpha"/>
+        <objectAnimator android:duration="433" android:valueFrom="0" android:valueTo="0" android:propertyName="fillAlpha"/>
+    </set>
+</set>

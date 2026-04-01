@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:animation="@anim/anim_set_group_panel_slide_up" android:animationOrder="normal"/>

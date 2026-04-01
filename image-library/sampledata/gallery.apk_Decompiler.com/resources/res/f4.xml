@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="18dp" android:width="18dp" android:viewportWidth="18" android:viewportHeight="18">
+    <path android:fillColor="@color/search_filter_result_icon_color" android:pathData="M8.9991,9.8504C12.5587,9.8504 15.4452,12.2551 15.4452,14.8472L15.4452,14.8472L15.4452,15.5728C15.4452,16.0847 14.9821,16.5 14.4111,16.5L14.4111,16.5L3.5879,16.5C3.017,16.5 2.5548,16.0847 2.5548,15.5728L2.5548,15.5728L2.5548,14.8472C2.5548,12.2551 5.4404,9.8504 8.9991,9.8504ZM8.9991,1.5C10.8984,1.5 12.4387,3.0393 12.4387,4.9396C12.4387,6.839 10.8984,8.3783 8.9991,8.3783C7.1007,8.3783 5.5604,6.839 5.5604,4.9396C5.5604,3.0393 7.1007,1.5 8.9991,1.5Z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="0"/>
+</vector>

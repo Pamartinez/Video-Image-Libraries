@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <corners android:radius="16dp"/>
+    <stroke android:width="3px" android:color="@color/quick_panel_slideshow_noti_bg_color"/>
+    <solid android:color="@color/quick_panel_slideshow_noti_bg_color"/>
+</shape>

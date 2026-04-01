@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView android:layout_gravity="center_horizontal" android:id="@+id/list_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="@dimen/merge_people_dialog_top_person_margin_end" android:layout_marginVertical="@dimen/merge_people_dialog_body_margin"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/merge_people_dialog_radio_btn_margin">
+            <TextView android:id="@+id/dialog_body" android:paddingLeft="?android:attr/dialogPreferredPadding" android:paddingRight="?android:attr/dialogPreferredPadding" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="@dimen/merge_people_dialog_linespace" android:textIsSelectable="true" android:textDirection="locale" style="@style/BaseDialogBodyTextAppearance"/>
+            <RadioGroup android:id="@+id/radio_grp_layout" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/merge_people_dialog_radio_btn_margin" android:layout_marginStart="?android:attr/dialogPreferredPadding" android:layout_marginEnd="?android:attr/dialogPreferredPadding"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="20dp" android:paddingRight="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:checkedButton="@+id/radio_custom_order">
+            <RadioGroup android:orientation="vertical" android:id="@+id/radiogroup_sortby_type" android:layout_width="match_parent" android:layout_height="wrap_content" android:divider="?android:attr/listDividerAlertDialog" android:checkedButton="@+id/radio_custom_order">
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_custom_order" android:text="@string/sort_by_custom_order" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_name_ascending" android:text="@string/sort_name_ascending" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_name_descending" android:text="@string/sort_name_descending" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_count_descending" android:visibility="gone" android:text="@string/sort_number_of_items_descending" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_count_ascending" android:visibility="gone" android:text="@string/sort_number_of_items_ascending" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_date_modified_ascending" android:visibility="gone" android:text="@string/sort_by_modified_time_ascending" style="@style/DialogRadioButtonListStyle"/>
+                <androidx.appcompat.widget.AppCompatRadioButton android:id="@+id/radio_date_modified_descending" android:visibility="gone" android:text="@string/sort_by_modified_time_descending" style="@style/DialogRadioButtonListStyle"/>
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/$avd_ic_gallery_detailview_like_heart__0">
+    <target android:name="s10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__1"/>
+    <target android:name="s10pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__4"/>
+    <target android:name="s9" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__7"/>
+    <target android:name="s9pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__10"/>
+    <target android:name="s8" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__14"/>
+    <target android:name="s8pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__17"/>
+    <target android:name="s7" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__19"/>
+    <target android:name="s7pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__22"/>
+    <target android:name="s6" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__25"/>
+    <target android:name="s6pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__28"/>
+    <target android:name="s5" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__30"/>
+    <target android:name="s5pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__33"/>
+    <target android:name="s4" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__36"/>
+    <target android:name="s4pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__39"/>
+    <target android:name="s3" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__41"/>
+    <target android:name="s3pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__44"/>
+    <target android:name="s2" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__46"/>
+    <target android:name="s2pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__49"/>
+    <target android:name="s1" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__52"/>
+    <target android:name="s1pg2p300" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__63"/>
+    <target android:name="s1pg1p10" android:animation="@drawable/$avd_ic_gallery_detailview_like_heart__64"/>
+</animated-vector>

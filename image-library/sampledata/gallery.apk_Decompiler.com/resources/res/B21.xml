@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
+    <corners android:radius="@dimen/story_highlight_deco_view_background_radius"/>
+    <solid android:color="@color/accessibility_reduce_transparency_and_blur_background_color"/>
+    <stroke android:width="@dimen/story_highlight_deco_view_background_border" android:color="@color/story_highlight_deco_background_stroke_color"/>
+</shape>

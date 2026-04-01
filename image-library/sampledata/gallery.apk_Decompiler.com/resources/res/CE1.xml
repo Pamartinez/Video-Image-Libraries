@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:orientation="vertical" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+    <com.samsung.android.gallery.widget.AiProcessingEffectLayout android:orientation="vertical" android:id="@+id/effect_view" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:id="@+id/dim_layout" android:background="@color/ai_progress_bg_dim_color" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <ImageView android:id="@+id/effect_avd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/avd_gallery_remaster_loader" android:layout_centerInParent="true"/>
+        <com.samsung.android.gallery.widget.UtlTextView android:textSize="15sp" android:textColor="#fffafafa" android:id="@+id/processing_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/processing_progress_text_margin_top" android:layout_below="@+id/effect_avd" android:layout_centerHorizontal="true" android:textAlignment="center" app:resizableTextSize="15sp" style="@style/OneUiRobotoRegular"/>
+    </com.samsung.android.gallery.widget.AiProcessingEffectLayout>
+</RelativeLayout>

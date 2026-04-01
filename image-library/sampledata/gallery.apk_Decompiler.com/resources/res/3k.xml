@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout android:id="@+id/appbar" android:layout_width="match_parent" android:layout_height="match_parent" android:elevation="0dp" app:customPreference="appbar_stories" app:expanded="true" style="@style/AppBarLayoutStyle">
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@+id/toolbar_layout" app:subtitle=" " style="@style/CollapsingToolBarStyle">
+            <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:layout_gravity="bottom" android:id="@+id/toolbar" app:layout_collapseMode="1" style="@style/ToolbarStyle"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.samsung.android.gallery.widget.toolbar.GalleryAppBarLayout>
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <ViewStub android:id="@+id/empty_view" android:layout="@layout/fragment_stories_emptyview_stub_legacy" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <com.samsung.android.gallery.widget.listview.GalleryListView android:layout_gravity="center_horizontal" android:id="@+id/my_recycler_view" android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        </FrameLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

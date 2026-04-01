@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:id="@+id/scrollView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/family_album_welcome_page_title_top_margin" android:layout_above="@+id/bottom_container" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:paddingStart="@dimen/sesl_dialog_body_text_scroll_padding_start" android:paddingEnd="@dimen/sesl_dialog_body_text_scroll_padding_end" android:layout_marginHorizontal="@dimen/family_album_welcome_page_body_side_margin">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/family_album_welcome_page_title_size" android:textColor="@color/about_page_version_text_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/family_album_welcome_page_title_bottom_margin" android:text="@string/create_a_shared_family_album" android:textAlignment="center" style="@style/OneUiRobotoSemiBold"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/space_for_so_many_memories" style="@style/FamilyAlbumWelcomeTitleStyle"/>
+                <TextView android:id="@+id/quota_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/space_for_so_many_memories_description" style="@style/FamilyAlbumWelcomeSubtitleStyle"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/family_album_welcome_page_body_text_gap">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/effortless_sharing" style="@style/FamilyAlbumWelcomeTitleStyle"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/effortless_sharing_description" style="@style/FamilyAlbumWelcomeSubtitleStyle"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/family_album_welcome_page_body_text_gap">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_for_editing" style="@style/FamilyAlbumWelcomeTitleStyle"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/open_for_editing_description" style="@style/FamilyAlbumWelcomeSubtitleStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:id="@+id/bottom_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/family_album_welcome_page_bottom_container_top_margin" android:layout_marginBottom="@dimen/family_album_welcome_page_bottom_container_bottom_margin" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:id="@+id/button_get_started" android:text="@string/two_step_verification_dialog_button" android:layout_centerInParent="true" style="@style/gallery_big_button"/>
+            <androidx.appcompat.widget.SeslProgressBar android:layout_gravity="center" android:id="@+id/progress" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/ProgressCircle"/>
+        </FrameLayout>
+        <TextView android:textSize="18sp" android:textColor="@color/create_shared_album_welcome_page_later_text_color" android:gravity="center" android:layout_gravity="center" android:id="@+id/button_later" android:background="@drawable/recoil_button_ripple" android:layout_width="@dimen/family_album_welcome_page_button_width" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:minHeight="@dimen/family_album_welcome_page_later_text_view_min_height" android:text="@string/app_rating_popup_later_btn_text" android:stateListAnimator="?attr/seslSmallTouchAnimator" style="@style/OneUiRobotoSemiBold"/>
+    </LinearLayout>
+</RelativeLayout>

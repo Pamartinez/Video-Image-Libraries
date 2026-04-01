@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="check_box_preference_divider_padding_start">46dp</dimen>
+    <dimen name="check_box_preference_padding_start">16dp</dimen>
+    <dimen name="check_box_preference_title_margin_start">14dp</dimen>
+</resources>

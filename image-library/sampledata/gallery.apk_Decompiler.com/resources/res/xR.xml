@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.graphics.drawable.SeslRecoilDrawable xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" app:seslRecoilColor="@color/sesl_ripple_color">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/bottom_menu_list_none_blur_studio_btn_bg_color"/>
+            <corners android:radius="@dimen/video_studio_button_radius_oneui8"/>
+        </shape>
+    </item>
+</androidx.appcompat.graphics.drawable.SeslRecoilDrawable>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:clipChildren="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:background="@drawable/sec_search_view_shadow" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <View android:layout_gravity="center_vertical" android:id="@+id/search_toolbar_visual_effect_view" style="@style/StorySearchToolbarStyle"/>
+    <com.samsung.android.gallery.widget.search.searchbar.NewSearchToolbar android:layout_gravity="center_vertical" android:id="@+id/search" app:voiceIconSVI="@drawable/sec_ic_voice_iaa" style="@style/StorySearchToolbarStyle"/>
+</FrameLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/black" android:focusable="false" android:fitsSystemWindows="true" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:focusable="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.samsung.android.gallery.widget.videoview.mediaplayer.MediaPlayerViewCompat android:id="@+id/video_view" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" app:fit_content="true" app:player_feature="true"/>
+        <ImageView android:id="@+id/transition_view" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:layout_centerInParent="true"/>
+        <View android:id="@+id/touch_layout" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <include android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/recap_bottom_decor_layout"/>
+    </RelativeLayout>
+    <FrameLayout android:id="@+id/last_page_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include layout="@layout/live_motion_view_pager_layout"/>
+    </FrameLayout>
+    <View android:id="@+id/toolbar_gradient_view" android:background="@drawable/gallery_gradient_story_toolbar" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="@dimen/story_highlight_toolbar_height"/>
+    <FrameLayout android:id="@+id/toolbar_container" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.samsung.android.gallery.widget.toolbar.GalleryToolbar android:id="@+id/toolbar" android:visibility="invisible" style="@style/ToolbarStoryHighlightStyle"/>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

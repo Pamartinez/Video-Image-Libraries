@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_cloud_items_to_shared_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodać %d elymynt chmōry do udost.albōmu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodać %d elymynta chmōry do udost.albōmu?</item>
+        <item quantity="many">Dodać %d elymyntōw chmōry do udost.albōmu?</item>
+        <item quantity="other">Dodać %d elymyntōw chmōry do udost.albōmu?</item>
+    </plurals>
+    <plurals name="burst_shot_count_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ôbrŏz</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ôbrazy</item>
+        <item quantity="many">%d ôbrazōw</item>
+        <item quantity="other">%d ôbrazōw</item>
+    </plurals>
+    <plurals name="can_not_add_more_than_videos_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="many">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+        <item quantity="other">Do posta Meitu można dodać maksymalnie %d wideo.</item>
+    </plurals>
+    <plurals name="can_not_delete_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie wyciepać %1$d ôbrŏzka serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie wyciepać %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie wyciepać %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie wyciepać %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="can_not_delete_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie wyciepać %1$d dingsu serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie wyciepać %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie wyciepać %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie wyciepać %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="can_not_delete_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie wyciepać %1$d filmu wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie wyciepać %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie wyciepać %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie wyciepać %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="can_not_include_more_than_items_meitu_post_plurals">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">W poście Meitu można umieścić maksymalnie %d element.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">W poście Meitu można umieścić maksymalnie %d elementy.</item>
+        <item quantity="many">W poście Meitu można umieścić maksymalnie %d elementów.</item>
+        <item quantity="other">W poście Meitu można umieścić maksymalnie %d elementu.</item>
+    </plurals>
+    <plurals name="can_not_restore_images_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie dać nazŏd %1$d ôbrŏzka serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="can_not_restore_items_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie dać nazŏd %1$d dingsu serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="can_not_restore_videos_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie dać nazŏd %1$d filmu wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s. Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="cant_add_more_than_n_items_at_once">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Nie można dodać więcej niż %d element jednocześnie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Nie można dodać więcej niż %d elementy jednocześnie.</item>
+        <item quantity="many">Nie można dodać więcej niż %d elementów jednocześnie.</item>
+        <item quantity="other">Nie można dodać więcej niż %d elementu jednocześnie.</item>
+    </plurals>
+    <plurals name="cant_include_more_than_n_item_in_one_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Do historyje niy idzie dodać wiyncyj jak %d elymynt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Do historyje niy idzie dodać wiyncyj jak %d elymynta.</item>
+        <item quantity="many">Do historyje niy idzie dodać wiyncyj jak %d elymyntōw.</item>
+        <item quantity="other">Do historyje niy idzie dodać wiyncyj jak %d elymyntōw.</item>
+    </plurals>
+    <plurals name="city_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d miasto</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d miasta</item>
+        <item quantity="many">%d miast</item>
+        <item quantity="other">%d miasta</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_image">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler wrŏcaniŏ nazŏd %1$d ôbrŏzka. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler wrŏcaniŏ nazŏd %1$d ôbrŏzkōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="many">Feler wrŏcaniŏ nazŏd %1$d ôbrŏzkōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="other">Feler wrŏcaniŏ nazŏd %1$d ôbrŏzkōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler wrŏcaniŏ nazŏd %1$d elymyntu. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler wrŏcaniŏ nazŏd %1$d elymyntōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="many">Feler wrŏcaniŏ nazŏd %1$d elymyntōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="other">Feler wrŏcaniŏ nazŏd %1$d elymyntōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+    </plurals>
+    <plurals name="clear_cloud_space_for_video">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler wrŏcaniŏ nazŏd %1$d filmu. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler wrŏcaniŏ nazŏd %1$d filmōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="many">Feler wrŏcaniŏ nazŏd %1$d filmōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="other">Feler wrŏcaniŏ nazŏd %1$d filmōw. Wypucuj trocha placu w %2$s, a potym sprōbuj jeszcze rŏz.</item>
+    </plurals>
+    <plurals name="cloud_not_restore_video_server">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler wrŏcaniŏ nazŏd %1$d filmu. Tyn film ôstōł wrōcōny nazŏd abo wyciepniynty w aplikacyji %2$s.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler wrŏcaniŏ nazŏd %1$d filmōw. Te filmy ôstały wrōcōne nazŏd abo wyciepniynte w aplikacyji %2$s.</item>
+        <item quantity="many">Feler wrŏcaniŏ nazŏd %1$d filmōw. Te filmy ôstały wrōcōne nazŏd abo wyciepniynte w aplikacyji %2$s.</item>
+        <item quantity="other">Feler wrŏcaniŏ nazŏd %1$d filmōw. Te filmy ôstały wrōcōne nazŏd abo wyciepniynte w aplikacyji %2$s.</item>
+    </plurals>
+    <plurals name="could_not_remove_item">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler wyciepywaniŏ %d elymyntu. Sprōbuj jeszcze rŏz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler wyciepowaniŏ %d elymyntōw. Sprōbuj jeszcze rŏz.</item>
+        <item quantity="many">Feler wyciepowaniŏ %d elymyntōw. Sprōbuj jeszcze rŏz.</item>
+        <item quantity="other">Feler wyciepowaniŏ %d elymyntōw. Sprōbuj jeszcze rŏz.</item>
+    </plurals>
+    <plurals name="count_shared_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d podany albōm</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d podane albōmy</item>
+        <item quantity="many">%d podanych albōmōw</item>
+        <item quantity="other">%d podanych albōmōw</item>
+    </plurals>
+    <plurals name="count_stories">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d gyszichta</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d gyszichty</item>
+        <item quantity="many">%d gyszichty</item>
+        <item quantity="other">%d gyszichty</item>
+    </plurals>
+    <plurals name="date_time_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d obrazie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d obrazach.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d obrazach.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d obrazu.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d elemencie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d elementach.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d elementach.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d elementu.</item>
+    </plurals>
+    <plurals name="date_time_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="many">Zmieniono datę i godzinę w %d wideo.</item>
+        <item quantity="other">Zmieniono datę i godzinę w %d wideo.</item>
+    </plurals>
+    <plurals name="delete_auto_album_title">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d albōm?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d albōmy?</item>
+        <item quantity="many">Wyciepnōńć %d albōmōw?</item>
+        <item quantity="other">Wyciepnōńć %d albōmōw?</item>
+    </plurals>
+    <plurals name="delete_group_and_albums_and_item_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć 1 grupa, %d albōm i 1 zawarty w nich elymynt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć 1 grupa, %d albōmy i 1 elymynt w nich?</item>
+        <item quantity="many">Wyciepnōńć 1 grupa, %d albōmōw i 1 elymynt w nich?</item>
+        <item quantity="other">Wyciepnōńć 1 grupa, %d albōmōw i 1 elymynt w nich?</item>
+    </plurals>
+    <plurals name="delete_groups">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d grupa?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d grupy?</item>
+        <item quantity="many">Wyciepnōńć %d grup?</item>
+        <item quantity="other">Wyciepnōńć %d grup?</item>
+    </plurals>
+    <plurals name="delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d ôbrŏzek?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d ôbrŏzki?</item>
+        <item quantity="many">Wyciepnōńć %d ôbrŏzkōw?</item>
+        <item quantity="other">Wyciepnōńć %d ôbrŏzkōw?</item>
+    </plurals>
+    <plurals name="delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d elymynt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d elymynty?</item>
+        <item quantity="many">Wyciepnōńć %d elymyntōw?</item>
+        <item quantity="other">Wyciepnōńć %d elymyntōw?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d grupa, kerŏ zawiyrŏ podobne ôbrazy?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d grupy, kere zawiyrajōm podobne ôbrazy?</item>
+        <item quantity="many">Wyciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy?</item>
+        <item quantity="other">Wyciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy?</item>
+    </plurals>
+    <plurals name="delete_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d grupa, kerŏ zawiyrŏ podobne ôbrazy i 1 inkszy elymynt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d grupy, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt?</item>
+        <item quantity="many">Wyciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt?</item>
+        <item quantity="other">Wyciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt?</item>
+    </plurals>
+    <plurals name="delete_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszy elymynt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inksze elymynta?</item>
+        <item quantity="many">Wyciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszych elymyntōw?</item>
+        <item quantity="other">Wyciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszych elymyntōw?</item>
+    </plurals>
+    <plurals name="delete_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōnć %d elymynt z tego zestŏwu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d elymynta z tego zestŏwu?</item>
+        <item quantity="many">Wyciepnōńć %d elymyntōw z tego zestŏwu?</item>
+        <item quantity="other">Wyciepnōńć %d elymyntōw z tego zestŏwu?</item>
+    </plurals>
+    <plurals name="delete_selected_motion_clip_video_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć klipy wideo z %d zdjęcia w ruchu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć klipy wideo z %d zdjęć w ruchu?</item>
+        <item quantity="many">Usunąć klipy wideo z %d zdjęć w ruchu?</item>
+        <item quantity="other">Usunąć klipy wideo z %d zdjęcia w ruchu?</item>
+    </plurals>
+    <plurals name="delete_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d ôbrŏz z tego zestŏwu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d ôbrazy z tego zestŏwu?</item>
+        <item quantity="many">Wyciepnōńć %d ôbrazōw z tego zestŏwu?</item>
+        <item quantity="other">Wyciepnōńć %d ôbrazōw z tego zestŏwu?</item>
+    </plurals>
+    <plurals name="delete_single_taken">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d zestŏw Jedne ujyńcie?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d zestŏwy Jedne ujyńcie?</item>
+        <item quantity="many">Wyciepnōńć %d zestŏwōw Jedne ujyńcie?</item>
+        <item quantity="other">Wyciepnōńć %d zestŏwōw Jedne ujyńcie?</item>
+    </plurals>
+    <plurals name="delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d video?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d video?</item>
+        <item quantity="many">Wyciepnōńć %d video?</item>
+        <item quantity="other">Wyciepnōńć %d video?</item>
+    </plurals>
+    <plurals name="drm_render_info_can_use">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Możesz wyświetlić tę zawartość jeszcze %d raz. Wyświetlić teraz?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Możesz wyświetlić tę zawartość jeszcze %d razy. Wyświetlić teraz?</item>
+        <item quantity="many">Możesz wyświetlić tę zawartość jeszcze %d razy. Wyświetlić teraz?</item>
+        <item quantity="other">Możesz wyświetlić tę zawartość jeszcze %d raza. Wyświetlić teraz?</item>
+    </plurals>
+    <plurals name="empty_albums_will_not_be_moved_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d prōzny albōm ôstanie wyciepniynty bez przeciepywaniŏ do Hasiŏka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d prōzne albōmy ôstanōm wyciepniynte bez przeciepywaniŏ do Hasiŏka.</item>
+        <item quantity="many">%d prōznych albōmōw ôstanie wyciepniyntych bez przeciepywaniŏ do Hasiŏka.</item>
+        <item quantity="other">%d prōznych albōmōw ôstanie wyciepniyntych bez przeciepywaniŏ do Hasiŏka.</item>
+    </plurals>
+    <plurals name="empty_trash_description">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Elymynta, kere sōm w Hasiŏku ôstanōm blank wyciepniynte za %d dziyń.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Elymynta, kere sōm w Hasiŏku ôstanōm blank wyciepniynte za %d dni.</item>
+        <item quantity="many">Elymynta, kere sōm w Hasiŏku ôstanōm blank wyciepniynte za %d dni.</item>
+        <item quantity="other">Elymynta, kere sōm w Hasiŏku ôstanōm blank wyciepniynte za %d dni.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_image_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Blank wyciepniynty ôstōł %d ôbrŏz z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jego kopijŏ z Hasiŏka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Blank wyciepniynte ôstały %d ôbrazy z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="many">Blank wyciepniyntych ôstało %d ôbrazōw z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="other">Blank wyciepniyntych ôstało %d ôbrazōw z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Blank wyciepniynty ôstōł %d elymynt z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jego kopijŏ z Hasiŏka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Blank wyciepniynte ôstały %d elymynta z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="many">Blank wyciepniyntych ôstało %d elymyntōw z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="other">Blank wyciepniyntych ôstało %d elymyntōw z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+    </plurals>
+    <plurals name="go_to_one_drive_video_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Blank wyciepniynty ôstōł %d plik video z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jego kopijŏ z Hasiŏka.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Blank wyciepniynte ôstały %d pliki video z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="many">Blank wyciepniyntych ôstało %d plikōw video z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+        <item quantity="other">Blank wyciepniyntych ôstało %d plikōw video z Twojigo telefōnu. Przelyź do OneDrive, coby wyciepnōńć jejich kopije z Hasiŏka.</item>
+    </plurals>
+    <plurals name="grid_view_with_thumbnails_in_each_row">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Widok siatki z %d miniaturą w każdym wierszu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Widok siatki z %d miniaturami w każdym wierszu</item>
+        <item quantity="many">Widok siatki z %d miniaturami w każdym wierszu</item>
+        <item quantity="other">Widok siatki z %d miniatury w każdym wierszu</item>
+    </plurals>
+    <plurals name="groups_and_one_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupa, 1 albōm</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupy, 1 albōm</item>
+        <item quantity="many">%d grup, 1 albōm</item>
+        <item quantity="other">%d grup, 1 albōm</item>
+    </plurals>
+    <plurals name="images_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zebrany ôstōł %d ôbrŏz z chmōry.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zebrane ôstały %d ôbrazy z chmōry.</item>
+        <item quantity="many">Zebranych ôstało %d ôbrazōw z chmōry.</item>
+        <item quantity="other">Zebranych ôstało %d ôbrazōw z chmōry.</item>
+    </plurals>
+    <plurals name="images_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dano nazŏd ôbrŏzki. Niy idzie dać nazŏd %1$d ôbrŏzka serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dano nazŏd ôbrŏzki. Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Dano nazŏd ôbrŏzki. Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Dano nazŏd ôbrŏzki. Niy idzie dać nazŏd %1$d ôbrŏzkōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="item_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zachowany ôstōł %d elymynt.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zachowane ôstały %d elymynta.</item>
+        <item quantity="many">Zachowanych ôstało %d elymyntōw.</item>
+        <item quantity="other">Zachowanych ôstało %d elymyntōw.</item>
+    </plurals>
+    <plurals name="items_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zebrany ôstōł %d elymynt z chmōry.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zebrane ôstały %d elymynta z chmōry.</item>
+        <item quantity="many">Zebranych ôstało %d elymyntōw z chmōry.</item>
+        <item quantity="other">Zebranych ôstało %d elymyntōw z chmōry.</item>
+    </plurals>
+    <plurals name="items_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dano nazŏd dingsy. Niy idzie dać nazŏd %1$d dingsu serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dano nazŏd dingsy. Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Dano nazŏd dingsy. Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Dano nazŏd dingsy. Niy idzie dać nazŏd %1$d dingsōw serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="location_info_changed_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d obrazie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d obrazach.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d obrazach.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d obrazu.</item>
+    </plurals>
+    <plurals name="location_info_changed_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d elemencie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d elementach.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d elementach.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d elementu.</item>
+    </plurals>
+    <plurals name="location_info_changed_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="many">Zmieniono informacje o lokalizacji w %d wideo.</item>
+        <item quantity="other">Zmieniono informacje o lokalizacji w %d wideo.</item>
+    </plurals>
+    <plurals name="location_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d lokalizacyjo</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">N/A</item>
+        <item quantity="many">N/A</item>
+        <item quantity="other">%d lokalizacyji</item>
+    </plurals>
+    <plurals name="more_than_limit">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie podać wiyncyj jak %d znaku.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie podać wiyncyj jak %d znakōw.</item>
+        <item quantity="many">Niy idzie podać wiyncyj jak %d znakōw.</item>
+        <item quantity="other">Niy idzie podać wiyncyj jak %d znakōw.</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d zdjyńcie seryjne do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d zdjyńcia seryjne do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d zdjyńć seryjnych do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d zdjyńć seryjnych do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d zdjyńcie seryjne do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d zdjyńcia seryjne do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d zdjyńć seryjnych do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d zdjyńć seryjnych do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_group_and_album_and_items_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć 1 grupa, 1 albōm i %d elymynt w nich do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć 1 grupa, 1 albōm i %d elymynta w nich do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć 1 grupa, 1 albōm i %d elymyntōw w nich do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć 1 grupa, 1 albōm i %d zawartych w nich elymyntōw do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_group_and_albums_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć 1 grupa, %d albōm i 1 elymynt w nich do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć 1 grupa, %d albōmy i 1 zawarty w nich elymynt do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć 1 grupa, %d albōmōw i 1 zawarty w nich elymynt do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć 1 grupa, %d albōmōw i 1 zawarty w nich elymynt do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_groups_and_album_and_item_to_the_trash_q">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d grupa, 1 albōm i 1 elymynt w nich do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d grupy, 1 albōm i 1 zawarty w nich elymynt do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d grup, 1 albōm i 1 zawarty w nich elymynt do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d grup, 1 albōm i 1 zawarty w nich elymynt do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepać %d ôbrŏzek z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepać %d ôbrŏzki z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="many">Przeciepać %d ôbrŏzkōw z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="other">Przeciepać %d ôbrŏzkōw z tego zdjyńcia seryjnego do Hasioka?</item>
+    </plurals>
+    <plurals name="move_image_in_burst_shot_to_the_trash_plural_m_trans">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepać %d ôbrŏzek z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepać %d ôbrŏzki z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="many">Przeciepać %d ôbrŏzkōw z tego zdjyńcia seryjnego do Hasioka?</item>
+        <item quantity="other">Przeciepać %d ôbrŏzkōw z tego zdjyńcia seryjnego do Hasioka?</item>
+    </plurals>
+    <plurals name="move_images_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenieść %d obraz do Kosza?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenieść %d obrazy do Kosza?</item>
+        <item quantity="many">Przenieść %d obrazów do Kosza?</item>
+        <item quantity="other">Przenieść %d obrazu do Kosza?</item>
+    </plurals>
+    <plurals name="move_items_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d elymynt do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d elymynta do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d elymyntōw do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d elymyntōw do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_n_items_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d dings</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dingsy</item>
+        <item quantity="many">%d dingsōw</item>
+        <item quantity="other">%d dingsōw</item>
+    </plurals>
+    <plurals name="move_n_similar_photo">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d grupa, kerŏ zawiyrŏ podobne ôbrazy do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d grupy, kere zawiyrajōm podobne ôbrazy do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_n_similar_photo_and_one">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d grupa, kerŏ zawiyrŏ podobne ôbrazy i 1 inkszy elymynt do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d grupy, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d grup, kere zawiyrajōm podobne ôbrazy i 1 inkszy elymynt do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_one_similar_photo_and_n">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszy elymynt do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inksze elymynta do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszych elymyntōw do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć 1 grupa, kerŏ zawiyrŏ podobne ôbrazy i %d inkszych elymyntōw do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_selected_item_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d elymynt z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d elymynta z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d elymyntōw z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d elymyntōw z tego zestŏwu do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_selected_picture_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōń %d ôbrŏz z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōń %d ôbrazy z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōń %d ôbrazōw z tego zestŏwu do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d ôbrazōw z tego zestŏwu do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_single_taken_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d zestŏw Jedne ujyńcie do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d zestŏwy Jedne ujyńcie do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d zestŏwōw Jedne ujyńcie do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d zestŏwōw Jedne ujyńcie do Hasiŏka?</item>
+    </plurals>
+    <plurals name="move_to_sync_off_album_cloud_file">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Feler przeciepywaniŏ %1$d pliku z usugi %2$s do %3$s. Zebier tyn plik, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Feler przeciepywaniŏ %1$d plikōw z usugi %2$s do %3$s. Zebier te pliki, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="many">Feler przeciepywaniŏ %1$d plikōw z usugi %2$s do %3$s. Zebier te pliki, a potym sprōbuj jeszcze rŏz.</item>
+        <item quantity="other">Feler przeciepywaniŏ %1$d plikōw z usugi %2$s do %3$s. Zebier te pliki, a potym sprōbuj jeszcze rŏz.</item>
+    </plurals>
+    <plurals name="move_videos_to_the_trash_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %d video do Hasiŏka?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %d video do Hasiŏka?</item>
+        <item quantity="many">Przeciepnōńć %d video do Hasiŏka?</item>
+        <item quantity="other">Przeciepnōńć %d video do Hasiŏka?</item>
+    </plurals>
+    <plurals name="moving_items_to_the_trash">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przenoszenie %d elementu do Kosza…</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przenoszenie %d elementów do Kosza…</item>
+        <item quantity="many">Przenoszenie %d elementów do Kosza…</item>
+        <item quantity="other">Przenoszenie %d elementu do Kosza…</item>
+    </plurals>
+    <plurals name="n_albums_have_been_merged_here">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Połączono %d album o tej samej nazwie.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Połączono %d albumy o tej samej nazwie.</item>
+        <item quantity="many">Połączono %d albumów o tej samej nazwie.</item>
+        <item quantity="other">Połączono %d albumu o tej samej nazwie.</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d dziyń</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <plurals name="n_delete_empty_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wyciepnōńć %d albōm?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wyciepnōńć %d albōmy?</item>
+        <item quantity="many">Wyciepnōńć %d albōmōw?</item>
+        <item quantity="other">Wyciepnōńć %d albōmōw?</item>
+    </plurals>
+    <plurals name="n_images_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d obraz do Ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d obrazy do Ulubionych.</item>
+        <item quantity="many">Dodano %d obrazów do Ulubionych.</item>
+        <item quantity="other">Dodano %d obrazu do Ulubionych.</item>
+    </plurals>
+    <plurals name="n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d zaproszenia</item>
+        <item quantity="many">%d zaproszeń</item>
+        <item quantity="other">%d zaproszenia</item>
+    </plurals>
+    <plurals name="n_items_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d element do Ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d elementy do Ulubionych.</item>
+        <item quantity="many">Dodano %d elementów do Ulubionych.</item>
+        <item quantity="other">Dodano %d elementu do Ulubionych.</item>
+    </plurals>
+    <plurals name="n_people_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Wybrano %d osobę</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Wybrano %d osoby</item>
+        <item quantity="many">Wybrano %d osób</item>
+        <item quantity="other">Wybrano %d osoby</item>
+    </plurals>
+    <plurals name="n_selected">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ôbrane</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ôbrane</item>
+        <item quantity="many">%d ôbranych</item>
+        <item quantity="other">%d ôbranych</item>
+    </plurals>
+    <plurals name="n_shared_albums_one_invitation">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d udostępniony album, 1 zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d udostępnione albumy, 1 zaproszenie</item>
+        <item quantity="many">%d udostępnionych albumów, 1 zaproszenie</item>
+        <item quantity="other">%d udostępnionego albumu, 1 zaproszenie</item>
+    </plurals>
+    <plurals name="n_suggested_pictures_on_family_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Znaleźliśmy %d nowe zdjęcie, które możesz dodać do tego albumu.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Znaleźliśmy %d nowe zdjęcia, które możesz dodać do tego albumu.</item>
+        <item quantity="many">Znaleźliśmy %d nowych zdjęć, które możesz dodać do tego albumu.</item>
+        <item quantity="other">Znaleźliśmy %d nowego zdjęcia, które możesz dodać do tego albumu.</item>
+    </plurals>
+    <plurals name="n_videos_added_to_favorites">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dodano %d wideo do Ulubionych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dodano %d wideo do Ulubionych.</item>
+        <item quantity="many">Dodano %d wideo do Ulubionych.</item>
+        <item quantity="other">Dodano %d wideo do Ulubionych.</item>
+    </plurals>
+    <plurals name="name_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%1$s %2$d rok tymu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%1$s %2$d lata tymu</item>
+        <item quantity="many">%1$s %2$d lŏt tymu</item>
+        <item quantity="other">%1$s %2$d roku tymu</item>
+    </plurals>
+    <plurals name="number_of_album_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d albōm</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d albōmy</item>
+        <item quantity="many">%d albōmōw</item>
+        <item quantity="other">%d albōmōw</item>
+    </plurals>
+    <plurals name="number_of_downloaded_contents">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zebrany %d elymynt. Tyknij tukej coby go ôbejrzeć.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zebrane %d elymynty. Tyknij tukej coby je ôbejrzeć.</item>
+        <item quantity="many">Zebrane %d elymynty. Tyknij tukej coby je ôbejrzeć.</item>
+        <item quantity="other">Zebrane %d elymynty. Tyknij tukej coby je ôbejrzeć.</item>
+    </plurals>
+    <plurals name="number_of_group_count">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d grupa</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d grupy</item>
+        <item quantity="many">%d grup</item>
+        <item quantity="other">%d grup</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_phone">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy iidzie zebrać %d pliku. Tyn telefōn niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie zebrać %d plikōw. Tyn telefōn niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="many">Niy idzie zebrać %d plikōw. Tyn telefōn niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="other">Niy idzie zebrać %d plikōw. Tyn telefōn niy ôbsuguje ôbrŏzkōw HEIF.</item>
+    </plurals>
+    <plurals name="number_of_heif_contents_to_download_on_tablet">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Niy idzie zebrać %d pliku. Tyn telefōn niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Niy idzie zebrać %d plikōw. Tyn tablet niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="many">Niy idzie zebrać %d plikōw. Tyn tablet niy ôbsuguje ôbrŏzkōw HEIF.</item>
+        <item quantity="other">Niy idzie zebrać %d plikōw. Tyn tablet niy ôbsuguje ôbrŏzkōw HEIF.</item>
+    </plurals>
+    <plurals name="number_of_members">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d członek</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d członków</item>
+        <item quantity="many">%d członków</item>
+        <item quantity="other">%d członka</item>
+    </plurals>
+    <plurals name="object_capture_toast_could_not_add_more_than_n_stickers">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Można dodać maksymalnie %d naklejkę. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Można dodać maksymalnie %d naklejki. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="many">Można dodać maksymalnie %d naklejek. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+        <item quantity="other">Można dodać maksymalnie %d naklejki. Przejdź do edytora zdjęć w Galerii, aby usunąć naklejki.</item>
+    </plurals>
+    <plurals name="one_group_and_albums">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 grupa %d albōm</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 grupa %d albōmy</item>
+        <item quantity="many">1 grupa %d albōmōw</item>
+        <item quantity="other">1 grupa %d albōmōw</item>
+    </plurals>
+    <plurals name="one_shared_album_n_invitations">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">1 udostępniony album, %d zaproszenie</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">1 udostępniony album, %d zaproszenia</item>
+        <item quantity="many">1 udostępniony album, %d zaproszeń</item>
+        <item quantity="other">1 udostępniony album, %d zaproszenia</item>
+    </plurals>
+    <plurals name="permanently_delete_images">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć trwale %d obraz?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć trwale %d obrazy?</item>
+        <item quantity="many">Usunąć trwale %d obrazów?</item>
+        <item quantity="other">Usunąć trwale %d obrazu?</item>
+    </plurals>
+    <plurals name="permanently_delete_items">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Blank wyciepnōńć %d elymynt?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Blank wyciepnōńć %d elymynta?</item>
+        <item quantity="many">Blank wyciepnōńć %d elymyntōw?</item>
+        <item quantity="other">Blank wyciepnōńć %d elymyntōw?</item>
+    </plurals>
+    <plurals name="permanently_delete_videos">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć trwale %d wideo?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć trwale %d wideo?</item>
+        <item quantity="many">Usunąć trwale %d wideo?</item>
+        <item quantity="other">Usunąć trwale %d wideo?</item>
+    </plurals>
+    <plurals name="permanently_deleted_images_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ôbrŏz ôstanie blank wyciepniynty.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ôbrazy ôstanōm blank wyciepniynte.</item>
+        <item quantity="many">%d ôbrazōw ôstanie blank wyciepniyntych.</item>
+        <item quantity="other">%d ôbrazōw ôstanie blank wyciepniyntych.</item>
+    </plurals>
+    <plurals name="permanently_deleted_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d dings bydzie na zicher wyciepany.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d dingsy bydōm na zicher wyciepane.</item>
+        <item quantity="many">%d dingsōw bydzie na zicher wyciepanych.</item>
+        <item quantity="other">%d dingsōw bydzie na zicher wyciepanych.</item>
+    </plurals>
+    <plurals name="permanently_deleted_videos_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d plik video ôstanie blank wyciepniynty.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d pliki video ôstanōm blank wyciepniynte.</item>
+        <item quantity="many">%d plikōw video ôstanie blank wyciepniyntych.</item>
+        <item quantity="other">%d plikōw video ôstanie blank wyciepniyntych.</item>
+    </plurals>
+    <plurals name="picture_saved">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zachowany ôstōł %d ôbrŏzek.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zachowane ôstały %d ôbrŏzki.</item>
+        <item quantity="many">Zachowanych ôstało %d ôbrŏzkōw.</item>
+        <item quantity="other">Zachowanych ôstało %d ôbrŏzkōw.</item>
+    </plurals>
+    <plurals name="rediscover_this_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d rok tymu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d lata tymu</item>
+        <item quantity="many">%d lŏt tymu</item>
+        <item quantity="other">%d lŏt tymu</item>
+    </plurals>
+    <plurals name="remove_from_suggestions_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunięto %d sugestię.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunięto %d sugestie.</item>
+        <item quantity="many">Usunięto %d sugestii.</item>
+        <item quantity="other">Usunięto %d sugestii.</item>
+    </plurals>
+    <plurals name="remove_images_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z albumu udostępnionego?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z albumu udostępnionego?</item>
+        <item quantity="many">Usunąć %d obrazów z albumu udostępnionego?</item>
+        <item quantity="other">Usunąć %d obrazu z albumu udostępnionego?</item>
+    </plurals>
+    <plurals name="remove_n_images_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z albumu?</item>
+        <item quantity="many">Usunąć %d obrazów z albumu?</item>
+        <item quantity="other">Usunąć %d obrazu z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z albumu?</item>
+        <item quantity="many">Usunąć %d elementów z albumu?</item>
+        <item quantity="other">Usunąć %d elementu z albumu?</item>
+    </plurals>
+    <plurals name="remove_n_items_from_story">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z historii?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z historii?</item>
+        <item quantity="many">Usunąć %d elementów z historii?</item>
+        <item quantity="other">Usunąć %d elementu z historii?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_images_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d obraz z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d obrazy z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d obrazów z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d obrazu z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_items_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d element z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d elementy z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d elementów z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d elementu z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_suggested_videos_from_suggestion">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="many">Usunąć %d wideo z sugestii albumu?</item>
+        <item quantity="other">Usunąć %d wideo z sugestii albumu?</item>
+    </plurals>
+    <plurals name="remove_n_videos_from_album">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z albumu?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z albumu?</item>
+        <item quantity="many">Usunąć %d wideo z albumu?</item>
+        <item quantity="other">Usunąć %d wideo z albumu?</item>
+    </plurals>
+    <plurals name="remove_videos_from_shared_album_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="many">Usunąć %d wideo z albumu udostępnionego?</item>
+        <item quantity="other">Usunąć %d wideo z albumu udostępnionego?</item>
+    </plurals>
+    <plurals name="save_selected_item_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zachować %1$d elymynt z tego %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zachować %1$d elymynta z tego %2$s?</item>
+        <item quantity="many">Zachować %1$d elymyntōw z tego %2$s?</item>
+        <item quantity="other">Zachować %1$d elymyntōw z tego %2$s?</item>
+    </plurals>
+    <plurals name="save_selected_picture_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zachować %1$d ôbrŏzek z tego zdjyńciŏ %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zachować %1$d ôbrŏzki z tego zdjyńciŏ %2$s?</item>
+        <item quantity="many">Zachować %1$d ôbrŏzkōw z tego zdjyńciŏ %2$s?</item>
+        <item quantity="other">Zachować %1$d ôbrŏzkōw z tego zdjyńciŏ %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_image_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %1$d ôbrŏz do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %1$d ôbrazy do folderu %2$s?</item>
+        <item quantity="many">Przeciepnōńć %1$d ôbrazōw do folderu %2$s?</item>
+        <item quantity="other">Przeciep %1$d ôbrazōw do folderu %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_item_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciepnōńć %1$d elymynt do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %1$d elymynta do folderu %2$s?</item>
+        <item quantity="many">Przeciepnōńć %1$d elymyntōw do folderu %2$s?</item>
+        <item quantity="other">Przeciep %1$d elymyntōw do folderu %2$s?</item>
+    </plurals>
+    <plurals name="secure_folder_cloud_video_moved_title_plural">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Przeciep %1$d film video do folderu %2$s?</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Przeciepnōńć %1$d filmy video do folderu %2$s?</item>
+        <item quantity="many">Przeciepnōńć %1$d filmōw video do folderu %2$s?</item>
+        <item quantity="other">Przeciep %1$d filmōw video do folderu %2$s?</item>
+    </plurals>
+    <plurals name="similar_photo_group_tb">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Grupa %d podobnego obrazu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Grupa %d podobnych obrazów</item>
+        <item quantity="many">Grupa %d podobnych obrazów</item>
+        <item quantity="other">Grupa %d podobnego obrazu</item>
+    </plurals>
+    <plurals name="speak_item_selected_quantity_string">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">%d ôbrany elymynt</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">%d ôbrane elymynty</item>
+        <item quantity="many">%d ôbranych elymyntōw</item>
+        <item quantity="other">%d ôbranych elymyntōw</item>
+    </plurals>
+    <plurals name="unname_year_ago">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Ta ôsoba %d rok tymu</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Ta ôsoba %d lata tymu</item>
+        <item quantity="many">Ta ôsoba %d lŏt tymu</item>
+        <item quantity="other">Ta ôsoba %d lŏt tymu</item>
+    </plurals>
+    <plurals name="videos_downloaded">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Zebrany ôstōł %d filmy z chmōry.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Zebrane ôstały %d filmy z chmōry.</item>
+        <item quantity="many">Zebranych ôstało %d filmōw z chmōry.</item>
+        <item quantity="other">Zebranych ôstało %d filmōw z chmōry.</item>
+    </plurals>
+    <plurals name="videos_restored_gdpr">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Dano nazŏd film wideo. Niy idzie dać nazŏd %1$d filmu wideo serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Dano nazŏd film wideo. Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="many">Dano nazŏd film wideo. Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+        <item quantity="other">Dano nazŏd film wideo. Niy idzie dać nazŏd %1$d filmōw wideo serwisu %2$s, skirz tego co Twōj serwis %3$s je blokniynty skuli przikŏzu ô danych ôsobistych.</item>
+    </plurals>
+    <plurals name="will_be_deleted_in_n_day">
+        <item quantity="zero">N/A</item>
+        <item quantity="one">Usunięcie nastąpi za %d dzień</item>
+        <item quantity="two">N/A</item>
+        <item quantity="few">Usunięcie nastąpi za %d dni</item>
+        <item quantity="many">Usunięcie nastąpi za %d dni</item>
+        <item quantity="other">Usunięcie nastąpi za %d dnia</item>
+    </plurals>
+</resources>
