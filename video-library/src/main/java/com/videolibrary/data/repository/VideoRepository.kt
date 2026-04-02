@@ -5,12 +5,13 @@ import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
-import android.os.Environment
 import android.provider.MediaStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.example.common.data.model.ConflictResolution
 import com.example.common.data.model.FolderItem
+import com.example.common.data.util.MediaFileUtils
+import com.example.common.data.util.MediaTransferHelper
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -224,7 +225,22 @@ class VideoRepository(private val context: Context) {
         onProgress: (current: Int, total: Int) -> Unit = { _, _ -> },
         isCancelled: () -> Boolean = { false },
         onConflict: suspend (fileName: String) -> ConflictResolution = { ConflictResolution.RENAME }
-    ): Boolean = transferVideos(videos, destFolderPath, deleteSource = true, onProgress, isCancelled, onConflict)
+    ): Boolean = MediaTransferHelper.transfer(
+        items              = videos,
+        mediaCollectionUri = videoUri,
+        contentResolver    = contentResolver,
+        getSourceUri       = { it.contentUri },
+        getDisplayName     = { it.displayName },
+        getMimeType        = { it.mimeType },
+        getFilePath        = { uri -> getFilePath(uri) },
+        context            = context,
+        destFolderPath     = destFolderPath,
+        deleteSource       = true,
+        onProgress         = onProgress,
+        isCancelled        = isCancelled,
+        onConflict         = onConflict,
+        logTag             = "VideoRepository"
+    )
 
     // ── Copy Videos ─────────────────────────────────────────────────────
 
@@ -234,149 +250,34 @@ class VideoRepository(private val context: Context) {
         onProgress: (current: Int, total: Int) -> Unit = { _, _ -> },
         isCancelled: () -> Boolean = { false },
         onConflict: suspend (fileName: String) -> ConflictResolution = { ConflictResolution.RENAME }
-    ): Boolean = transferVideos(videos, destFolderPath, deleteSource = false, onProgress, isCancelled, onConflict)
+    ): Boolean = MediaTransferHelper.transfer(
+        items              = videos,
+        mediaCollectionUri = videoUri,
+        contentResolver    = contentResolver,
+        getSourceUri       = { it.contentUri },
+        getDisplayName     = { it.displayName },
+        getMimeType        = { it.mimeType },
+        getFilePath        = { uri -> getFilePath(uri) },
+        context            = context,
+        destFolderPath     = destFolderPath,
+        deleteSource       = false,
+        onProgress         = onProgress,
+        isCancelled        = isCancelled,
+        onConflict         = onConflict,
+        logTag             = "VideoRepository"
+    )
 
-    // ── Shared transfer logic ───────────────────────────────────────────
+    // ── Create Folder ────────────────────────────────────────────────────
 
-    private suspend fun transferVideos(
-        videos: List<VideoItem>,
-        destFolderPath: String,
-        deleteSource: Boolean,
-        onProgress: (current: Int, total: Int) -> Unit,
-        isCancelled: () -> Boolean,
-        onConflict: suspend (fileName: String) -> ConflictResolution
-    ): Boolean = withContext(Dispatchers.IO) {
-        if (videos.isEmpty()) return@withContext false
-        val tag = if (deleteSource) "Move" else "Copy"
+    suspend fun createFolder(name: String): String? =
+        MediaFileUtils.createFolder(name)
 
-        try {
-            @Suppress("DEPRECATION")
-            val externalRoot = Environment.getExternalStorageDirectory().absolutePath
-            val relativePath = destFolderPath.removePrefix(externalRoot).trimStart('/')
+    // ── List existing DCIM sub-folder names ──────────────────────────────
 
-            var transferred = 0
-            for ((index, video) in videos.withIndex()) {
-                if (isCancelled()) break
-                onProgress(index, videos.size)
+    suspend fun getExistingDcimFolderNames(): Set<String> =
+        MediaFileUtils.getExistingDcimFolderNames()
 
-                val sourceUri = video.contentUri
-                val displayName = video.displayName
-                val mimeType = video.mimeType
-
-                try {
-                    // Check if a file with the same name already exists at destination
-                    var finalName = displayName
-                    val existingUri = findExistingFile(relativePath, displayName)
-                    // For copy, treat any same-name match as conflict (including same source URI).
-                    // For move, ignore self-match so same-folder move does not prompt unnecessarily.
-                    val hasConflict = if (deleteSource) {
-                        existingUri != null && existingUri != sourceUri
-                    } else {
-                        existingUri != null
-                    }
-                    if (hasConflict) {
-                        when (onConflict(displayName)) {
-                            ConflictResolution.SKIP,
-                            ConflictResolution.SKIP_ALL    -> continue
-                            ConflictResolution.REPLACE,
-                            ConflictResolution.REPLACE_ALL -> {
-                                existingUri?.let { uri ->
-                                    try { contentResolver.delete(uri, null, null) } catch (_: Exception) {}
-                                }
-                            }
-                            ConflictResolution.RENAME      -> finalName = generateUniqueName(relativePath, displayName)
-                        }
-                    }
-
-                    val destValues = ContentValues().apply {
-                        put(MediaStore.Video.Media.DISPLAY_NAME, finalName)
-                        put(MediaStore.Video.Media.MIME_TYPE, mimeType)
-                        put(MediaStore.Video.Media.RELATIVE_PATH, relativePath)
-                        put(MediaStore.Video.Media.IS_PENDING, 1)
-                    }
-                    val destUri = contentResolver.insert(videoUri, destValues) ?: continue
-
-                    val inputStream = contentResolver.openInputStream(sourceUri)
-                    if (inputStream == null) { contentResolver.delete(destUri, null, null); continue }
-                    val outputStream = contentResolver.openOutputStream(destUri)
-                    if (outputStream == null) { inputStream.close(); contentResolver.delete(destUri, null, null); continue }
-
-                    val copySuccess = try {
-                        inputStream.use { inp -> outputStream.use { out -> inp.copyTo(out, bufferSize = 8192) } }
-                        true
-                    } catch (e: Exception) { Log.e("VideoRepository", "$tag stream copy failed for $displayName", e); false }
-
-                    if (copySuccess) {
-                        val updateValues = ContentValues().apply { put(MediaStore.Video.Media.IS_PENDING, 0) }
-                        contentResolver.update(destUri, updateValues, null, null)
-                        if (deleteSource) {
-                            try { contentResolver.delete(sourceUri, null, null) } catch (_: Exception) {
-                                val sourcePath = getFilePath(sourceUri)
-                                if (sourcePath != null) { File(sourcePath).delete(); scanFile(File(sourcePath)) }
-                            }
-                        }
-                        transferred++
-                    } else { contentResolver.delete(destUri, null, null) }
-                } catch (e: Exception) { Log.e("VideoRepository", "Failed to ${tag.lowercase()} $displayName", e) }
-            }
-            onProgress(videos.size, videos.size)
-            transferred > 0
-        } catch (e: Exception) { Log.e("VideoRepository", "$tag operation failed", e); false }
-    }
-
-    // -- Create a new folder inside DCIM ------------------------------------------------
-    suspend fun createFolder(name: String): String? = withContext(Dispatchers.IO) {
-        try {
-            @Suppress("DEPRECATION")
-            val dcim = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-            val folder = File(dcim, name)
-            if (!folder.exists()) folder.mkdirs()
-            folder.absolutePath
-        } catch (e: Exception) {
-            Log.e("VideoRepository", "Create folder failed", e)
-            null
-        }
-    }
-
-    // ── List existing DCIM sub-folder names ────────────────────────────
-
-    suspend fun getExistingDcimFolderNames(): Set<String> = withContext(Dispatchers.IO) {
-        try {
-            val dcim = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-            dcim.listFiles()?.filter { it.isDirectory }?.map { it.name }?.toSet() ?: emptySet()
-        } catch (e: Exception) {
-            Log.e("VideoRepository", "Failed to list DCIM folders", e)
-            emptySet()
-        }
-    }
-
-
-    // ── Private Helpers ─────────────────────────────────────────────────
-
-    private fun generateUniqueName(relativePath: String, displayName: String): String {
-        val dotIndex = displayName.lastIndexOf('.')
-        val stem = if (dotIndex >= 0) displayName.substring(0, dotIndex) else displayName
-        val ext  = if (dotIndex >= 0) displayName.substring(dotIndex) else ""
-        for (counter in 1..9999) {
-            val candidate = "$stem($counter)$ext"
-            if (findExistingFile(relativePath, candidate) == null) return candidate
-        }
-        return "$stem(${System.currentTimeMillis()})$ext"
-    }
-
-    private fun findExistingFile(relativePath: String, displayName: String): Uri? {
-        val normalizedPath = relativePath.trimEnd('/') + "/"
-        val selection = "${MediaStore.Video.Media.RELATIVE_PATH} = ? AND ${MediaStore.Video.Media.DISPLAY_NAME} = ?"
-        val selectionArgs = arrayOf(normalizedPath, displayName)
-        return try {
-            contentResolver.query(videoUri, arrayOf(MediaStore.Video.Media._ID), selection, selectionArgs, null)?.use { cursor ->
-                if (cursor.moveToFirst()) {
-                    val id = cursor.getLong(0)
-                    ContentUris.withAppendedId(videoUri, id)
-                } else null
-            }
-        } catch (_: Exception) { null }
-    }
+    // ── Private Helpers ──────────────────────────────────────────────────
 
     private fun queryStringColumn(uri: Uri, column: String): String? {
         return try {
@@ -387,50 +288,29 @@ class VideoRepository(private val context: Context) {
     }
 
     @Suppress("DEPRECATION")
-    private fun getFilePath(uri: Uri): String? = queryStringColumn(uri, MediaStore.Video.Media.DATA)
+    private fun getFilePath(uri: Uri): String? =
+        queryStringColumn(uri, MediaStore.Video.Media.DATA)
 
-    private fun scanFile(file: File) {
-        try {
-            android.media.MediaScannerConnection.scanFile(
-                context, arrayOf(file.absolutePath), null, null
-            )
-        } catch (_: Exception) { }
-    }
-
-    private fun buildSelection(bucketId: Int?, searchQuery: String?): String {
-        val sb = StringBuilder()
-        @Suppress("DEPRECATION")
-        sb.append("length(trim(${MediaStore.Video.Media.DATA})) > 0")
-        sb.append(" AND ${MediaStore.Video.Media.DATA} NOT LIKE '/storage/sdcard0/cloudagent/cache%'")
-
-        if (bucketId != null && bucketId != 0) {
-            @Suppress("DEPRECATION")
-            sb.append(" AND ${MediaStore.Video.Media.BUCKET_ID} = $bucketId")
-        }
-
-        if (!searchQuery.isNullOrBlank()) {
-            val terms = searchQuery.trim().split("\\s+".toRegex())
-            for (term in terms) {
-                val escaped = term.replace("!", "!!").replace("%", "!%").replace("_", "!_")
-                sb.append(" AND ${MediaStore.Video.Media.DISPLAY_NAME} LIKE '%$escaped%' ESCAPE '!'")
-            }
-        }
-
-        return sb.toString()
-    }
-
+    private fun buildSelection(bucketId: Int?, searchQuery: String?): String =
+        MediaFileUtils.buildSelection(
+            dataColumn        = MediaStore.Video.Media.DATA,
+            bucketIdColumn    = MediaStore.Video.Media.BUCKET_ID,
+            displayNameColumn = MediaStore.Video.Media.DISPLAY_NAME,
+            bucketId          = bucketId,
+            searchQuery       = searchQuery
+        )
 
     private fun buildVideoSortOrder(option: VideoSortOption): String {
         return when (option) {
             VideoSortOption.CUSTOM_ORDER      -> "${MediaStore.Video.Media.DATE_MODIFIED} DESC, ${MediaStore.Video.Media._ID} DESC"
             VideoSortOption.NAME_A_TO_Z       -> "${MediaStore.Video.Media.DISPLAY_NAME} COLLATE NOCASE ASC"
             VideoSortOption.NAME_Z_TO_A       -> "${MediaStore.Video.Media.DISPLAY_NAME} COLLATE NOCASE DESC"
-            VideoSortOption.DATE_CREATED_ASC   -> "${MediaStore.Video.Media.DATE_ADDED} ASC, ${MediaStore.Video.Media._ID} ASC"
-            VideoSortOption.DATE_CREATED_DESC  -> "${MediaStore.Video.Media.DATE_ADDED} DESC, ${MediaStore.Video.Media._ID} DESC"
-            VideoSortOption.DATE_MODIFIED_ASC  -> "${MediaStore.Video.Media.DATE_MODIFIED} ASC, ${MediaStore.Video.Media._ID} ASC"
+            VideoSortOption.DATE_CREATED_ASC  -> "${MediaStore.Video.Media.DATE_ADDED} ASC, ${MediaStore.Video.Media._ID} ASC"
+            VideoSortOption.DATE_CREATED_DESC -> "${MediaStore.Video.Media.DATE_ADDED} DESC, ${MediaStore.Video.Media._ID} DESC"
+            VideoSortOption.DATE_MODIFIED_ASC -> "${MediaStore.Video.Media.DATE_MODIFIED} ASC, ${MediaStore.Video.Media._ID} ASC"
             VideoSortOption.DATE_MODIFIED_DESC -> "${MediaStore.Video.Media.DATE_MODIFIED} DESC, ${MediaStore.Video.Media._ID} DESC"
-            VideoSortOption.DURATION_ASC       -> "${MediaStore.Video.Media.DURATION} ASC, ${MediaStore.Video.Media._ID} ASC"
-            VideoSortOption.DURATION_DESC      -> "${MediaStore.Video.Media.DURATION} DESC, ${MediaStore.Video.Media._ID} DESC"
+            VideoSortOption.DURATION_ASC      -> "${MediaStore.Video.Media.DURATION} ASC, ${MediaStore.Video.Media._ID} ASC"
+            VideoSortOption.DURATION_DESC     -> "${MediaStore.Video.Media.DURATION} DESC, ${MediaStore.Video.Media._ID} DESC"
         }
     }
 }

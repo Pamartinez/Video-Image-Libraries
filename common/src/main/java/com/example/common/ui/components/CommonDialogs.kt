@@ -2,6 +2,7 @@ package com.example.common.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,11 +14,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.icons.Icons
+import com.example.common.data.model.GroupItem
+import com.example.common.data.model.ViewType
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
@@ -919,4 +924,143 @@ fun CopyMoveAlbumDialog(
             }
         }
     }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MoveToGroupPickerDialog
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Full-screen-style dialog that lets the user move selected folders/groups
+ * into an existing group, or ungroup them (None).
+ * Uses [LocalLibraryColors] so it adapts to both ImageLibraryTheme and VideoLibraryTheme.
+ */
+@Composable
+fun MoveToGroupPickerDialog(
+    groups: List<GroupItem>,
+    onMove: (targetGroupId: Long?) -> Unit,
+    onDismiss: () -> Unit
+) {
+    val colors = LocalLibraryColors.current
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false)
+    ) {
+        Surface(
+            modifier       = Modifier
+                .fillMaxWidth(0.95f)
+                .fillMaxHeight(0.7f),
+            shape          = RoundedCornerShape(24.dp),
+            color          = colors.popupBg,
+            tonalElevation = 8.dp
+        ) {
+            Column(Modifier.fillMaxSize()) {
+                Text(
+                    "Move to group",
+                    fontSize   = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color      = colors.listFirstText,
+                    modifier   = Modifier.padding(start = 24.dp, end = 24.dp, top = 24.dp, bottom = 8.dp)
+                )
+                HorizontalDivider(color = colors.dividerColor)
+                LazyColumn(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                ) {
+                    item {
+                        MoveToGroupRow(
+                            name    = "None (ungroup)",
+                            colors  = colors,
+                            onClick = { onMove(null); onDismiss() }
+                        )
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            color    = colors.dividerColor
+                        )
+                    }
+                    items(groups) { g ->
+                        MoveToGroupRow(
+                            name    = g.name,
+                            colors  = colors,
+                            onClick = { onMove(g.groupId); onDismiss() }
+                        )
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            color    = colors.dividerColor
+                        )
+                    }
+                }
+                HorizontalDivider(color = colors.dividerColor)
+                TextButton(
+                    onClick  = onDismiss,
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .padding(end = 16.dp, bottom = 8.dp, top = 4.dp)
+                ) {
+                    Text("Cancel", color = colors.primary, fontSize = 16.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MoveToGroupRow(
+    name: String,
+    colors: com.example.common.ui.theme.LibraryColors,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(horizontal = 24.dp, vertical = 14.dp)
+    ) {
+        Text(name, fontSize = 16.sp, color = colors.listFirstText)
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ViewAsDialog
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * "View as" dialog that lists the [ViewType] options provided by the caller.
+ * Pass only the view types relevant to the library (e.g. image-library omits LIST).
+ * Uses [LocalLibraryColors] so it adapts to both themes.
+ *
+ * @param options        ordered list of view types to display
+ * @param labelFor       maps each [ViewType] to its display label
+ * @param currentViewType the currently active view type
+ */
+@Composable
+fun ViewAsDialog(
+    options: List<ViewType>,
+    labelFor: (ViewType) -> String,
+    currentViewType: ViewType,
+    onViewTypeSelected: (ViewType) -> Unit,
+    onDismiss: () -> Unit
+) {
+    val colors = LocalLibraryColors.current
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        shape            = RoundedCornerShape(28.dp),
+        containerColor   = colors.popupBg,
+        titleContentColor = colors.listFirstText,
+        textContentColor  = colors.listFirstText,
+        title = { Text("View as") },
+        text  = {
+            Column {
+                options.forEach { vt ->
+                    ViewOptionRow(
+                        label      = labelFor(vt),
+                        isSelected = currentViewType == vt,
+                        onClick    = { onViewTypeSelected(vt); onDismiss() }
+                    )
+                }
+            }
+        },
+        confirmButton = {}
+    )
 }

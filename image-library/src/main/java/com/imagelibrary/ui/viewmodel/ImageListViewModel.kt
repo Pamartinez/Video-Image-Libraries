@@ -443,7 +443,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun cycleViewType() {
         val next = when (_uiState.value.viewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
-            ViewType.GRID_SMALL -> ViewType.GRID_LARGE
+            else                -> ViewType.GRID_LARGE   // GRID_SMALL and LIST → GRID_LARGE
         }
         setViewType(next)
     }
@@ -451,7 +451,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun cycleFolderViewType() {
         val next = when (_uiState.value.folderViewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
-            ViewType.GRID_SMALL -> ViewType.GRID_LARGE
+            else                -> ViewType.GRID_LARGE   // GRID_SMALL and LIST → GRID_LARGE
         }
         setFolderViewType(next)
     }

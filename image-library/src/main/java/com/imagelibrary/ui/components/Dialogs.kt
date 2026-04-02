@@ -1,22 +1,18 @@
 package com.imagelibrary.ui.components
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.data.model.SortOption
+import com.imagelibrary.data.model.ViewType
 import com.example.common.util.FormatUtils
-import com.example.common.ui.components.ViewOptionRow
 import com.example.common.ui.components.DetailsDialog
-import com.imagelibrary.ui.theme.LocalImageColors
-import androidx.compose.foundation.shape.RoundedCornerShape
+import com.example.common.ui.components.SortDialog
 
-private val PopupShape = RoundedCornerShape(28.dp)
+// ── Sort dialog (folder / group sort options) ────────────────────────────────
 
 /**
- * Sort dialog for folder/group sort options. Wraps the common generic [SortDialog].
+ * Wraps the common generic [SortDialog] with image-library folder sort options.
  */
 @Composable
 fun SortDialog(
@@ -24,7 +20,7 @@ fun SortDialog(
     onSortOptionSelected: (SortOption) -> Unit,
     onDismiss: () -> Unit
 ) {
-    com.example.common.ui.components.SortDialog(
+    SortDialog(
         options          = SortOption.entries.toList(),
         labelFor         = { it.label },
         currentOption    = currentSortOption,
@@ -33,35 +29,52 @@ fun SortDialog(
     )
 }
 
+// ── ViewAsDialog ─────────────────────────────────────────────────────────────
+
+/**
+ * Delegates to [com.example.common.ui.components.ViewAsDialog].
+ * Image-library shows Grid / Expand options (no List).
+ */
 @Composable
 fun ViewAsDialog(
-    currentViewType: com.imagelibrary.data.model.ViewType,
-    onViewTypeSelected: (com.imagelibrary.data.model.ViewType) -> Unit,
+    currentViewType: ViewType,
+    onViewTypeSelected: (ViewType) -> Unit,
     onDismiss: () -> Unit
 ) {
-    val colors = LocalImageColors.current
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        shape = PopupShape,
-        containerColor = colors.popupBg,
-        titleContentColor = colors.listFirstText,
-        textContentColor = colors.listFirstText,
-        title = { Text("View as") },
-        text = {
-            Column {
-                ViewOptionRow("Grid view", currentViewType == com.imagelibrary.data.model.ViewType.GRID_SMALL) {
-                    onViewTypeSelected(com.imagelibrary.data.model.ViewType.GRID_SMALL)
-                    onDismiss()
-                }
-                ViewOptionRow("Expand view", currentViewType == com.imagelibrary.data.model.ViewType.GRID_LARGE) {
-                    onViewTypeSelected(com.imagelibrary.data.model.ViewType.GRID_LARGE)
-                    onDismiss()
-                }
+    com.example.common.ui.components.ViewAsDialog(
+        options           = listOf(ViewType.GRID_SMALL, ViewType.GRID_LARGE),
+        labelFor          = { vt ->
+            when (vt) {
+                ViewType.GRID_SMALL -> "Grid view"
+                ViewType.GRID_LARGE -> "Expand view"
+                else                -> vt.name
             }
         },
-        confirmButton = {}
+        currentViewType    = currentViewType,
+        onViewTypeSelected = onViewTypeSelected,
+        onDismiss          = onDismiss
     )
 }
+
+// ── MoveToGroupPickerDialog ───────────────────────────────────────────────────
+
+/**
+ * Delegates to [com.example.common.ui.components.MoveToGroupPickerDialog].
+ */
+@Composable
+fun MoveToGroupPickerDialog(
+    groups: List<com.example.common.data.model.GroupItem>,
+    onMove: (targetGroupId: Long?) -> Unit,
+    onDismiss: () -> Unit
+) {
+    com.example.common.ui.components.MoveToGroupPickerDialog(
+        groups    = groups,
+        onMove    = onMove,
+        onDismiss = onDismiss
+    )
+}
+
+// ── ImageDetailsDialog ────────────────────────────────────────────────────────
 
 @Composable
 fun ImageDetailsDialog(
@@ -83,7 +96,3 @@ fun ImageDetailsDialog(
         onDismiss = onDismiss
     )
 }
-
-
-
-

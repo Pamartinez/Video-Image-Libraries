@@ -48,14 +48,11 @@ fun FolderContextMenu(
     onDelete: (FolderItem) -> Unit,
     onSortBy: () -> Unit
 ) {
-    DropdownMenu(
-        expanded = expanded && folder != null,
-        onDismissRequest = onDismiss,
-        shape = RoundedCornerShape(20.dp),
-        containerColor = TopMenuColor
-    ) {
-        AppMenuItem("Delete",  onDismiss = onDismiss, onClick = { folder?.let(onDelete) }, textColor = Color.White, leadingIcon = { Icon(Icons.Default.Delete, contentDescription = null, tint = Color.White) })
-        AppMenuDivider(color = Color.White.copy(alpha = 0.15f), horizontalPadding = 0.dp)
-        AppMenuItem("Sort by", onDismiss = onDismiss, onClick = { onSortBy() },            textColor = Color.White, leadingIcon = { Icon(Icons.AutoMirrored.Filled.Sort, contentDescription = null, tint = Color.White) })
-    }
+    com.example.common.ui.components.FolderContextMenu(
+        expanded  = expanded,
+        folder    = folder,
+        onDismiss = onDismiss,
+        onDelete  = onDelete,
+        onSortBy  = onSortBy
+    )
 }

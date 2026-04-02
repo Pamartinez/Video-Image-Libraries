@@ -50,16 +50,12 @@ fun FolderContextMenu(
     onSortBy: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val colors = LocalVideoColors.current
-    DropdownMenu(
-        expanded = expanded,
-        onDismissRequest = onDismiss,
-        shape = RoundedCornerShape(16.dp),
-        containerColor = colors.menuBg,
-        modifier = modifier
-    ) {
-        AppMenuItem("Sort by", onDismiss = onDismiss, onClick = onSortBy,               textColor = colors.listFirstText)
-        AppMenuDivider(color = colors.dividerColor)
-        AppMenuItem("Delete",  onDismiss = onDismiss, onClick = { onDelete(folder) },   textColor = Color(0xFFEF5350))
-    }
+    com.example.common.ui.components.FolderContextMenu(
+        expanded  = expanded,
+        folder    = folder,
+        onDismiss = onDismiss,
+        onDelete  = onDelete,
+        onSortBy  = onSortBy,
+        modifier  = modifier
+    )
 }

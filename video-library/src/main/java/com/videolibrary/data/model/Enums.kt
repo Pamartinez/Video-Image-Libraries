@@ -1,27 +1,14 @@
 package com.videolibrary.data.model
 
-enum class ViewType(val id: Int) {
-    GRID_SMALL(1),
-    GRID_LARGE(2),
-    LIST(3);
+// ── Shared enums (delegated to common) ──────────────────────────────────────
 
-    companion object {
-        fun fromId(id: Int): ViewType = entries.firstOrNull { it.id == id } ?: LIST
-    }
-}
+/** Alias for the common ViewType so existing code needs no import changes. */
+typealias ViewType = com.example.common.data.model.ViewType
 
-/** Sort options shown on the **Folders** tab. */
-enum class FolderSortOption(val id: Int, val label: String) {
-    CUSTOM_ORDER(0, "Custom order"),
-    NAME_A_TO_Z(1, "Name (A to Z)"),
-    NAME_Z_TO_A(2, "Name (Z to A)"),
-    ITEMS_MOST_FIRST(3, "Number of items (most to fewest)"),
-    ITEMS_FEWEST_FIRST(4, "Number of items (fewest to most)");
+/** Alias for the common FolderSortOption so existing code needs no import changes. */
+typealias FolderSortOption = com.example.common.data.model.FolderSortOption
 
-    companion object {
-        fun fromId(id: Int): FolderSortOption = entries.firstOrNull { it.id == id } ?: CUSTOM_ORDER
-    }
-}
+// ── Video-library-specific enums ─────────────────────────────────────────────
 
 /** Sort options shown on the **Videos** tab and inside an album. */
 enum class VideoSortOption(val id: Int, val label: String) {
@@ -39,5 +26,3 @@ enum class VideoSortOption(val id: Int, val label: String) {
         fun fromId(id: Int): VideoSortOption = entries.firstOrNull { it.id == id } ?: CUSTOM_ORDER
     }
 }
-
-

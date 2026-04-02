@@ -150,7 +150,10 @@ fun VideoListScreen(
     }
 
     // ── Group detail screen ──────────────────────────────────────────────────
-    if (state.currentGroupId != null) {
+    // NOTE: currentFolderBucketId is checked first (below) so that opening a folder
+    // from inside a group correctly shows FolderDetailScreen.  Both flags can be
+    // non-null simultaneously; folder must take priority over group.
+    if (state.currentGroupId != null && state.currentFolderBucketId == null) {
         GroupDetailScreen(
             groupName         = state.currentGroupName,
             folders           = state.currentGroupFolders,

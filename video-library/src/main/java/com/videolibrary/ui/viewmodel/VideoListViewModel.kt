@@ -305,6 +305,16 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch { loadDataCore(scrollToTop) }
     }
 
+    /** Reload the current folder's videos in-place (no spinner, no list flicker). */
+    private fun refreshFolderVideos() {
+        val bucketId = _uiState.value.currentFolderBucketId ?: return
+        viewModelScope.launch {
+            val sortOption = getEffectiveFolderSortOption(bucketId)
+            val videos = repository.getVideos(sortOption, bucketId = bucketId)
+            _uiState.update { it.copy(folderVideos = videos) }
+        }
+    }
+
     /** Restores the saved interleaved drag order; appends brand-new items at the end. */
     private fun applyCustomMixedOrder(
         groups: List<GroupItem>,
@@ -1035,8 +1045,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (videos.isEmpty()) return
         _uiState.update { it.copy(showMoveFolderPicker = false) }
         exitSelectionMode()
-        _uiState.update { it.copy(selectedTab = 1, currentFolderBucketId = null, currentFolderName = "", folderVideos = emptyList()) }
-        preferences.selectedTab = 1
 
         val folderName = destFolderName(dest)
         copyMoveCancelled = false
@@ -1053,9 +1061,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 isCancelled = { copyMoveCancelled },
                 onConflict = ::askConflictResolution
             )
+            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = videos.size)
             kotlinx.coroutines.delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
+            refreshFolderVideos()
         }
     }
 
@@ -1064,8 +1074,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (videos.isEmpty()) return
         _uiState.update { it.copy(showCopyFolderPicker = false) }
         exitSelectionMode()
-        _uiState.update { it.copy(selectedTab = 1, currentFolderBucketId = null, currentFolderName = "", folderVideos = emptyList()) }
-        preferences.selectedTab = 1
 
         val folderName = destFolderName(dest)
         copyMoveCancelled = false
@@ -1086,6 +1094,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             kotlinx.coroutines.delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
+            refreshFolderVideos()
         }
     }
 
@@ -1102,8 +1111,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (videos.isEmpty()) return
         _uiState.update { it.copy(showMoveFolderPicker = false) }
         exitSelectionMode()
-        _uiState.update { it.copy(selectedTab = 1, currentFolderBucketId = null, currentFolderName = "", folderVideos = emptyList()) }
-        preferences.selectedTab = 1
 
         copyMoveCancelled = false
         bulkResolution = null
@@ -1124,6 +1131,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             kotlinx.coroutines.delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
+            refreshFolderVideos()
         }
     }
 
@@ -1132,8 +1140,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (videos.isEmpty()) return
         _uiState.update { it.copy(showCopyFolderPicker = false) }
         exitSelectionMode()
-        _uiState.update { it.copy(selectedTab = 1, currentFolderBucketId = null, currentFolderName = "", folderVideos = emptyList()) }
-        preferences.selectedTab = 1
 
         copyMoveCancelled = false
         bulkResolution = null
@@ -1154,6 +1160,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             kotlinx.coroutines.delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
+            refreshFolderVideos()
         }
     }
 

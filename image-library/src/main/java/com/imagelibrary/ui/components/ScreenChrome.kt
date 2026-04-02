@@ -29,6 +29,7 @@ fun ViewTypeToggleButton(
             imageVector = when (viewType) {
                 ViewType.GRID_LARGE -> Icons.Default.GridView
                 ViewType.GRID_SMALL -> Icons.Default.Apps
+                else                -> Icons.Default.GridView   // LIST not used in image-library
             },
             contentDescription = "Change view",
             tint = colors.iconColor,

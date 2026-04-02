@@ -184,3 +184,35 @@ fun AppMoreMenuButton(
         }
     }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FolderContextMenu
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Shared context menu for a [com.example.common.data.model.FolderItem].
+ * Used by both image-library and video-library.
+ */
+@Composable
+fun FolderContextMenu(
+    expanded: Boolean,
+    folder: com.example.common.data.model.FolderItem?,
+    onDismiss: () -> Unit,
+    onDelete: (com.example.common.data.model.FolderItem) -> Unit,
+    onSortBy: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val colors = LocalLibraryColors.current
+    DropdownMenu(
+        expanded         = expanded && folder != null,
+        onDismissRequest = onDismiss,
+        shape            = RoundedCornerShape(16.dp),
+        containerColor   = colors.menuBg,
+        modifier         = modifier
+    ) {
+        AppMenuItem("Sort by", onDismiss = onDismiss, onClick = onSortBy,                          textColor = colors.listFirstText)
+        AppMenuDivider(color = colors.dividerColor)
+        AppMenuItem("Delete",  onDismiss = onDismiss, onClick = { folder?.let(onDelete) },         textColor = androidx.compose.ui.graphics.Color(0xFFEF5350))
+    }
+}
+

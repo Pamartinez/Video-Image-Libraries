@@ -1,25 +1,17 @@
 package com.imagelibrary.data.model
 
-enum class ViewType(val id: Int) {
-    GRID_SMALL(1),
-    GRID_LARGE(2);
+// ── Shared enums (delegated to common) ──────────────────────────────────────
 
-    companion object {
-        fun fromId(id: Int): ViewType = entries.firstOrNull { it.id == id } ?: GRID_LARGE
-    }
-}
+/** Alias for the common ViewType so existing code needs no import changes. */
+typealias ViewType = com.example.common.data.model.ViewType
 
-enum class SortOption(val id: Int, val label: String) {
-    CUSTOM_ORDER(0,   "Custom order"),
-    NAME_A_TO_Z(1,    "Name (A to Z)"),
-    NAME_Z_TO_A(2,    "Name (Z to A)"),
-    ITEMS_MOST_FIRST(3,    "Items (most to fewest)"),
-    ITEMS_FEWEST_FIRST(4,  "Items (fewest to most)");
+/**
+ * Alias for the common FolderSortOption.
+ * image-library historically called this "SortOption".
+ */
+typealias SortOption = com.example.common.data.model.FolderSortOption
 
-    companion object {
-        fun fromId(id: Int): SortOption = entries.firstOrNull { it.id == id } ?: CUSTOM_ORDER
-    }
-}
+// ── Image-library-specific enums ─────────────────────────────────────────────
 
 enum class ImageSortOption(val id: Int, val label: String) {
     CUSTOM_ORDER(0,       "Custom order"),
