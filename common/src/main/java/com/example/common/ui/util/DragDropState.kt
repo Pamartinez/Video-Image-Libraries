@@ -131,7 +131,9 @@ class DragDropGridState(
     private var onLongPressItem: ((Int) -> Unit)? = null,
     private var isInSelectionMode: () -> Boolean = { false },
     @Suppress("UNUSED_PARAMETER")
-    private var onEnterDragMode: (() -> Unit)? = null
+    private var onEnterDragMode: (() -> Unit)? = null,
+    /** Grid items with index < minDragIndex are excluded from drag start and swap targets (e.g. header rows). */
+    private val minDragIndex: Int = 0
 ) {
     var draggedIndex by mutableIntStateOf(-1)
         private set
@@ -187,6 +189,7 @@ class DragDropGridState(
                 offset.y.toInt() in info.offset.y..(info.offset.y + info.size.height)
             }
             ?.let { info ->
+                if (info.index < minDragIndex) return@let  // skip header / non-draggable rows
                 val wasAlreadyInSelection = isInSelectionMode()
                 draggedIndex      = info.index
                 fingerPosInGrid   = offset
@@ -222,6 +225,7 @@ class DragDropGridState(
 
         val target = gridState.layoutInfo.visibleItemsInfo.firstOrNull { info ->
             if (info.index == draggedIndex) return@firstOrNull false
+            if (info.index < minDragIndex) return@firstOrNull false  // skip header / non-draggable rows
             val tCx = info.offset.x + info.size.width  / 2f
             val tCy = info.offset.y + info.size.height / 2f
             val inBoundsX   = draggedCenterX.toInt() in info.offset.x..(info.offset.x + info.size.width)
@@ -277,10 +281,12 @@ fun rememberDragDropGridState(
     onDragEnd: () -> Unit,
     onLongPressItem: ((Int) -> Unit)? = null,
     isInSelectionMode: () -> Boolean = { false },
-    onEnterDragMode: (() -> Unit)? = null
+    onEnterDragMode: (() -> Unit)? = null,
+    /** Items with grid index < minDragIndex are excluded from drag start and swap targets. */
+    minDragIndex: Int = 0
 ): DragDropGridState {
     val state = remember(lazyGridState) {
-        DragDropGridState(lazyGridState, onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode)
+        DragDropGridState(lazyGridState, onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode, minDragIndex)
     }
     SideEffect { state.updateCallbacks(onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode) }
     return state

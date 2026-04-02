@@ -120,10 +120,12 @@ fun FoldersTab(
             }
         },
         isInSelectionMode = { isSelectionMode },
-        onEnterDragMode = onExitSelectionForDrag
+        onEnterDragMode = onExitSelectionForDrag,
+        // Index 0 is the "All albums" header (GridItemSpan full-width) — exclude it from
+        // drag start and swap targets so draggedIndex can never point at the header.
+        minDragIndex = 1
     )
 
-    // Overlay Box — covers the exact same area as the grid so overlay coordinates align
     Box(modifier = modifier.fillMaxSize()) {
 
         TabContentScaffold(
@@ -186,133 +188,130 @@ fun FoldersTab(
             }
         ) { _, spacing, columnCount ->
 
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(columnCount),
-                state = lazyGridState,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
-                contentPadding = PaddingValues(spacing),
-                horizontalArrangement = Arrangement.spacedBy(spacing),
-                verticalArrangement = Arrangement.spacedBy(spacing),
-                userScrollEnabled = !(canDrag && dragDropState.isDragging)
-            ) {
-                item(span = { GridItemSpan(maxLineSpan) }, key = "header_all_albums") {
-                    Text(
-                        text = "All albums",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = colors.listFirstText,
-                        modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
-                    )
-                }
+            // ── Inner Box: grid + floating overlay share the same coordinate space ──
+            // The overlay offset is measured in the LazyVerticalGrid's viewport coordinates.
+            // Wrapping both in the same Box guarantees (0,0) is identical for the grid and
+            // the overlay, matching the pattern used in video-library's MixedGridContent.
+            Box(modifier = Modifier.fillMaxSize()) {
 
-                itemsIndexed(resolvedItems, key = { _, item -> item.uniqueKey }) { index, item ->
-                    val itemIsDragging = canDrag && dragDropState.draggedIndex == index + 1
-                    // Use isDragging (long-press fired) not isDragActive (first movement).
-                    // isDragActive requires wasDragged=true, so between long-press and the
-                    // first onDrag event the original slot would be invisible (alpha=0) while
-                    // the overlay wasn't shown yet → album disappears. isDragging is true as
-                    // soon as onDragStart runs, which also sets fingerPosInGrid and
-                    // capturedItemSize — everything the overlay needs to render correctly.
-                    val anyDragActive  = canDrag && dragDropState.isDragging
-                    val dimModifier    = if (anyDragActive && !itemIsDragging)
-                        Modifier.graphicsLayer { alpha = 0.65f } else Modifier
-
-                    when (item) {
-                        is MixedItem.Folder -> FolderGridItem(
-                            folder = item.folder,
-                            isSelected = selectedFolderIds.contains(item.folder.bucketId),
-                            isSelectionMode = isSelectionMode || showCheckboxes,
-                            viewType = viewType,
-                            onClick = {
-                                if (!dragDropState.consumeNextClick()) onFolderClick(item.folder)
-                            },
-                            onLongClick = if (canDrag) null else ({ onFolderLongClick(item.folder) }),
-                            isDragging = itemIsDragging,
-                            modifier = Modifier
-                                .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                .then(dimModifier)
-                        )
-                        is MixedItem.Group -> GroupGridItem(
-                            group = item.group,
-                            isSelected = selectedGroupIds.contains(item.group.groupId),
-                            isSelectionMode = isSelectionMode || showCheckboxes,
-                            viewType = viewType,
-                            onClick = {
-                                if (!dragDropState.consumeNextClick()) onGroupClick(item.group)
-                            },
-                            onLongClick = if (canDrag) null else ({ onGroupLongClick(item.group) }),
-                            isDragging = itemIsDragging,
-                            modifier = Modifier
-                                .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                .then(dimModifier)
-                        )
-                    }
-                }
-            }
-        }
-
-        // ── Samsung-style floating overlay ──────────────────────────────────────────────
-        // Rendered above the grid, always positioned at (fingerPosInGrid − touchOffsetInItem).
-        // overlayPosition uses absolute viewport coordinates so it never jumps on item swap
-        // or auto-scroll — exactly how ReorderDragItem.setPosition() works in Samsung Gallery.
-        //
-        // Guard: isDragging (draggedIndex >= 0) — NOT isDragActive (requires wasDragged=true).
-        // capturedItemSize and fingerPosInGrid are both set in onDragStart (same moment as
-        // isDragging becomes true), so the overlay can render immediately on long-press.
-        // At that moment overlayPosition == itemTopLeft, so the overlay sits exactly on top
-        // of the item — then follows the finger as soon as movement begins.
-        if (canDrag && dragDropState.isDragging) {
-            val overlayPos  = dragDropState.overlayPosition
-            val itemSizePx  = dragDropState.capturedItemSize   // always non-null during isDragActive
-            val draggedItem = resolvedItems.getOrNull(dragDropState.draggedIndex - 1)
-
-            if (draggedItem != null && itemSizePx != null) {
-                val density     = LocalDensity.current
-                val itemWidthDp  = with(density) { itemSizePx.width.toDp() }
-                val itemHeightDp = with(density) { itemSizePx.height.toDp() }
-                val overlayShape = RoundedCornerShape(12.dp)
-
-                Box(
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(columnCount),
+                    state = lazyGridState,
                     modifier = Modifier
-                        .offset { IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
-                        // Pin BOTH dimensions so the overlay never reflows during a swap
-                        .width(itemWidthDp)
-                        .height(itemHeightDp)
-                        .zIndex(10f)
-                        .graphicsLayer {
-                            scaleX = 1.08f
-                            scaleY = 1.08f
-                            // Scale expands from the item's center, not its top-left corner
-                            transformOrigin = TransformOrigin(0.5f, 0.5f)
-                            shadowElevation = 24f
-                        }
-                        .border(3.dp, Color(0xFF2196F3), overlayShape)
+                        .fillMaxSize()
+                        .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
+                    contentPadding = PaddingValues(spacing),
+                    horizontalArrangement = Arrangement.spacedBy(spacing),
+                    verticalArrangement = Arrangement.spacedBy(spacing),
+                    userScrollEnabled = !(canDrag && dragDropState.isDragging)
                 ) {
-                    when (draggedItem) {
-                        is MixedItem.Folder -> FolderGridItem(
-                            folder = draggedItem.folder,
-                            isSelected = selectedFolderIds.contains(draggedItem.folder.bucketId),
-                            isSelectionMode = isSelectionMode || showCheckboxes,
-                            viewType = viewType,
-                            onClick = {},
-                            onLongClick = null,
-                            isDragging = false  // overlay renders as a normal visible item
-                        )
-                        is MixedItem.Group -> GroupGridItem(
-                            group = draggedItem.group,
-                            isSelected = selectedGroupIds.contains(draggedItem.group.groupId),
-                            isSelectionMode = isSelectionMode || showCheckboxes,
-                            viewType = viewType,
-                            onClick = {},
-                            onLongClick = null,
-                            isDragging = false  // overlay renders as a normal visible item
+                    item(span = { GridItemSpan(maxLineSpan) }, key = "header_all_albums") {
+                        Text(
+                            text = "All albums",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = colors.listFirstText,
+                            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
                         )
                     }
-                }
-            }
-        }
 
-    } // end overlay Box
+                    itemsIndexed(resolvedItems, key = { _, item -> item.uniqueKey }) { index, item ->
+                        val itemIsDragging = canDrag && dragDropState.draggedIndex == index + 1
+                        val anyDragActive  = canDrag && dragDropState.isDragging
+                        val dimModifier    = if (anyDragActive && !itemIsDragging)
+                            Modifier.graphicsLayer { alpha = 0.65f } else Modifier
+
+                        when (item) {
+                            is MixedItem.Folder -> FolderGridItem(
+                                folder = item.folder,
+                                isSelected = selectedFolderIds.contains(item.folder.bucketId),
+                                isSelectionMode = isSelectionMode || showCheckboxes,
+                                viewType = viewType,
+                                onClick = {
+                                    if (!dragDropState.consumeNextClick()) onFolderClick(item.folder)
+                                },
+                                onLongClick = if (canDrag) null else ({ onFolderLongClick(item.folder) }),
+                                isDragging = itemIsDragging,
+                                modifier = Modifier
+                                    .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
+                                    .then(dimModifier)
+                            )
+                            is MixedItem.Group -> GroupGridItem(
+                                group = item.group,
+                                isSelected = selectedGroupIds.contains(item.group.groupId),
+                                isSelectionMode = isSelectionMode || showCheckboxes,
+                                viewType = viewType,
+                                onClick = {
+                                    if (!dragDropState.consumeNextClick()) onGroupClick(item.group)
+                                },
+                                onLongClick = if (canDrag) null else ({ onGroupLongClick(item.group) }),
+                                isDragging = itemIsDragging,
+                                modifier = Modifier
+                                    .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
+                                    .then(dimModifier)
+                            )
+                        }
+                    }
+                }
+
+                // ── Samsung-style floating overlay ─────────────────────────────────────
+                // Rendered above the grid in the SAME Box — overlay coordinates are
+                // identical to the LazyVerticalGrid viewport coordinates (both share this
+                // Box's (0,0) origin), so no coordinate-space mismatch is possible.
+                if (canDrag && dragDropState.isDragging) {
+                    val overlayPos  = dragDropState.overlayPosition
+                    val itemSizePx  = dragDropState.capturedItemSize
+                    // draggedIndex is the grid layout index; subtract 1 to skip the header
+                    val draggedItem = resolvedItems.getOrNull(dragDropState.draggedIndex - 1)
+
+                    if (draggedItem != null && itemSizePx != null) {
+                        val density      = LocalDensity.current
+                        val itemWidthDp  = with(density) { itemSizePx.width.toDp() }
+                        val itemHeightDp = with(density) { itemSizePx.height.toDp() }
+                        val overlayShape = RoundedCornerShape(12.dp)
+
+                        Box(
+                            modifier = Modifier
+                                .offset { IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
+                                .width(itemWidthDp)
+                                .height(itemHeightDp)
+                                .zIndex(10f)
+                                .graphicsLayer {
+                                    scaleX = 1.08f
+                                    scaleY = 1.08f
+                                    transformOrigin = TransformOrigin(0.5f, 0.5f)
+                                    shadowElevation = 24f
+                                }
+                                .border(3.dp, Color(0xFF2196F3), overlayShape)
+                        ) {
+                            when (draggedItem) {
+                                is MixedItem.Folder -> FolderGridItem(
+                                    folder = draggedItem.folder,
+                                    isSelected = selectedFolderIds.contains(draggedItem.folder.bucketId),
+                                    isSelectionMode = isSelectionMode || showCheckboxes,
+                                    viewType = viewType,
+                                    onClick = {},
+                                    onLongClick = null,
+                                    isDragging = false
+                                )
+                                is MixedItem.Group -> GroupGridItem(
+                                    group = draggedItem.group,
+                                    isSelected = selectedGroupIds.contains(draggedItem.group.groupId),
+                                    isSelectionMode = isSelectionMode || showCheckboxes,
+                                    viewType = viewType,
+                                    onClick = {},
+                                    onLongClick = null,
+                                    isDragging = false
+                                )
+                            }
+                        }
+                    }
+                }
+
+            } // end inner Box (grid + overlay)
+        } // end TabContentScaffold grid slot
+
+    } // end outer Box
 }
+
+

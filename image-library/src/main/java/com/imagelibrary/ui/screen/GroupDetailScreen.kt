@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
@@ -90,14 +91,18 @@ fun GroupDetailScreen(
     orderedMixedItems: List<Any> = emptyList(),
     onReorderFolders: (Int, Int) -> Unit = { _, _ -> },
     onReorderDone: () -> Unit = {},
+    /** Hoisted from the caller so scroll position survives album-detail navigations. */
+    lazyGridState: LazyGridState = rememberLazyGridState(),
     modifier: Modifier = Modifier
 ) {
     val colors = LocalImageColors.current
     var showMoreMenu by remember { mutableStateOf(false) }
     var showSortDialog by remember { mutableStateOf(false) }
-    val gridState = rememberLazyGridState()
-
-    LaunchedEffect(sortOption) { gridState.scrollToItem(0) }
+    // Scroll-to-top on group navigation and sort changes is handled by the caller
+    // (ImageListScreen) via LaunchedEffect(currentGroupId, sortOption).
+    // Do NOT put a LaunchedEffect(sortOption) here — it would fire every time this
+    // composable re-enters composition (e.g. when returning from FolderDetailScreen),
+    // which would reset the scroll position the caller is trying to preserve.
 
     val totalSelected = selectedFolderIds.size + selectedGroupIds.size
     val totalItems = folders.size + subGroups.size
@@ -131,7 +136,7 @@ fun GroupDetailScreen(
     val canDrag = sortOption == SortOption.CUSTOM_ORDER
 
     val dragDropState = rememberDragDropGridState(
-        lazyGridState = gridState,
+        lazyGridState = lazyGridState,
         onMove = { from, to ->
             if (from >= 0 && to >= 0 && from < mixedItems.size && to < mixedItems.size) {
                 onReorderFolders(from, to)
@@ -235,7 +240,7 @@ fun GroupDetailScreen(
                 } else {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(columnCount),
-                        state = gridState,
+                        state = lazyGridState,
                         modifier = Modifier
                             .fillMaxSize()
                             .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),

@@ -59,8 +59,18 @@ fun ImageListScreen(
 
     val folderGridState = rememberLazyGridState()
     val imageGridState = remember(state.imageSortOption) { LazyGridState() }
+    // Hoisted so GroupDetailScreen scroll survives album-detail navigations.
+    // Scrolls to top when navigating to a different group; stays put when returning
+    // from a folder (album) inside the same group.
+    val groupGridState = rememberLazyGridState()
 
     LaunchedEffect(state.sortOption) { folderGridState.scrollToItem(0) }
+    // Scroll group grid to top when the group changes (entering a different group)
+    // OR when the sort option changes while inside a group.
+    // Keying on BOTH means it fires when EITHER changes.
+    // Crucially, it does NOT fire when only currentFolderBucketId changes
+    // (album open/close), so the group scroll position is preserved.
+    LaunchedEffect(state.currentGroupId, state.sortOption) { groupGridState.scrollToItem(0) }
     LaunchedEffect(state.currentFolderBucketId) {
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
     }
@@ -329,7 +339,8 @@ fun ImageListScreen(
             sortOption = state.sortOption,
             onSortOptionSelected = { viewModel.setSortOption(it) },
             onReorderFolders = { from, to -> viewModel.reorderGroupItem(from, to) },
-            onReorderDone = { viewModel.persistGroupOrder() }
+            onReorderDone = { viewModel.persistGroupOrder() },
+            lazyGridState = groupGridState
         )
         if (state.showRenameGroupDialog) { GroupNameDialog(title = "Rename group", confirmLabel = "Rename", initialName = state.currentGroupName, existingNames = state.allGroups.map { it.name }, onConfirm = { viewModel.renameCurrentGroup(it) }, onDismiss = { viewModel.dismissRenameGroupDialog() }) }
         if (state.showDestroyGroupDialog) { DestroyGroupDialog(groupName = state.currentGroupName, onConfirm = { viewModel.destroyCurrentGroup() }, onDismiss = { viewModel.dismissDestroyGroupDialog() }) }
