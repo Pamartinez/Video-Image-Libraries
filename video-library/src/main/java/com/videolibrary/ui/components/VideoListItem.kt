@@ -34,14 +34,7 @@ fun VideoListItem(
     isSelected: Boolean,
     isSelectionMode: Boolean,
     onClick: () -> Unit,
-    onLongClick: () -> Unit,
-    showContextMenu: Boolean = false,
-    onDismissContextMenu: () -> Unit = {},
-    onShareContext: (VideoItem) -> Unit = {},
-    onDeleteContext: (VideoItem) -> Unit = {},
-    onRenameContext: (VideoItem) -> Unit = {},
-    onDetailsContext: (VideoItem) -> Unit = {},
-    onSortByContext: () -> Unit = {}
+    onLongClick: () -> Unit
 ) {
     val ctx = LocalContext.current
     val colors = LocalVideoColors.current
@@ -146,17 +139,6 @@ fun VideoListItem(
                 }
             }
         }
-        // Context menu
-        VideoContextMenu(
-            expanded = showContextMenu,
-            video = video,
-            onDismiss = onDismissContextMenu,
-            onShare = onShareContext,
-            onDelete = onDeleteContext,
-            onRename = onRenameContext,
-            onDetails = onDetailsContext,
-            onSortBy = onSortByContext
-        )
     }
     HorizontalDivider(
         modifier = Modifier.padding(start = if (isSelectionMode) 136.dp else 108.dp),

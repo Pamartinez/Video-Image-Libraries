@@ -36,14 +36,7 @@ fun VideoGridItem(
     isLargeGrid: Boolean = false,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    showContextMenu: Boolean = false,
-    onDismissContextMenu: () -> Unit = {},
-    onShareContext: (VideoItem) -> Unit = {},
-    onDeleteContext: (VideoItem) -> Unit = {},
-    onRenameContext: (VideoItem) -> Unit = {},
-    onDetailsContext: (VideoItem) -> Unit = {},
-    onSortByContext: () -> Unit = {}
+    modifier: Modifier = Modifier
 ) {
     val colors = LocalVideoColors.current
     // isLargeGrid == GRID_LARGE == 2 columns (SmallGrid in Blazor)
@@ -161,18 +154,6 @@ fun VideoGridItem(
                     .padding(titlePadding)
             )
         }
-
-        // Context menu
-        VideoContextMenu(
-            expanded = showContextMenu,
-            video = video,
-            onDismiss = onDismissContextMenu,
-            onShare = onShareContext,
-            onDelete = onDeleteContext,
-            onRename = onRenameContext,
-            onDetails = onDetailsContext,
-            onSortBy = onSortByContext
-        )
     }
 }
 
