@@ -51,7 +51,7 @@ import kotlin.math.roundToInt
 
 /**
  * Screen displayed when the user opens a group.
- * 3-dot menu: Add folder, Rename group, Destroy group
+ * 3-dot menu: Create album, Add folder, Rename group, Hide albums, Destroy group
  * Bottom bar (selection): Group | Share | Move | Open Location | Remove from group
  * Supports drag-to-reorder when sortOption == CUSTOM_ORDER.
  */
@@ -73,6 +73,7 @@ fun GroupDetailScreen(
     onCreateAlbum: () -> Unit = {},
     onAddFolder: () -> Unit = {},
     onRenameGroup: () -> Unit = {},
+    onHideAlbums: () -> Unit = {},
     onDestroyGroup: () -> Unit = {},
     onViewAs: () -> Unit = {},
     onSettings: () -> Unit = {},
@@ -86,6 +87,7 @@ fun GroupDetailScreen(
     onOpenLocation: () -> Unit = {},
     sortOption: SortOption = SortOption.CUSTOM_ORDER,
     onSortOptionSelected: (SortOption) -> Unit = {},
+    groupsAlwaysOnTop: Boolean = false,
     // Ordered interleaved list supplied by the ViewModel (preserves custom drag order).
     // When non-empty this takes precedence over the separate folders/subGroups lists.
     orderedMixedItems: List<Any> = emptyList(),
@@ -125,10 +127,22 @@ fun GroupDetailScreen(
     }
 
     val mixedItems: List<FolderListItem> = when (sortOption) {
-        SortOption.NAME_A_TO_Z        -> rawMixed.sortedBy { it.sortKey.lowercase() }
-        SortOption.NAME_Z_TO_A        -> rawMixed.sortedByDescending { it.sortKey.lowercase() }
-        SortOption.ITEMS_MOST_FIRST   -> rawMixed.sortedByDescending { itemCount(it) }
-        SortOption.ITEMS_FEWEST_FIRST -> rawMixed.sortedBy { itemCount(it) }
+        SortOption.NAME_A_TO_Z        -> if (groupsAlwaysOnTop) {
+            rawMixed.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
+            rawMixed.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
+        } else rawMixed.sortedBy { it.sortKey.lowercase() }
+        SortOption.NAME_Z_TO_A        -> if (groupsAlwaysOnTop) {
+            rawMixed.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
+            rawMixed.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
+        } else rawMixed.sortedByDescending { it.sortKey.lowercase() }
+        SortOption.ITEMS_MOST_FIRST   -> if (groupsAlwaysOnTop) {
+            rawMixed.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
+            rawMixed.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
+        } else rawMixed.sortedByDescending { it.itemCount }
+        SortOption.ITEMS_FEWEST_FIRST -> if (groupsAlwaysOnTop) {
+            rawMixed.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
+            rawMixed.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
+        } else rawMixed.sortedBy { it.itemCount }
         SortOption.CUSTOM_ORDER       -> rawMixed
     }
 
@@ -204,8 +218,10 @@ fun GroupDetailScreen(
                             onSettings = onSettings,
                             onAbout = onAbout
                         ) { dismiss ->
+                            AppMenuItem("Create album",  onDismiss = dismiss, onClick = onCreateAlbum, textColor = colors.listFirstText)
                             AppMenuItem("Add folder",    onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
                             AppMenuItem("Rename group",  onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
+                            AppMenuItem("Hide albums",   onDismiss = dismiss, onClick = onHideAlbums,  textColor = colors.listFirstText)
                             AppMenuDivider(color = colors.dividerColor)
                             AppMenuItem("Destroy group", onDismiss = dismiss,
                                 onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
@@ -371,7 +387,3 @@ fun GroupDetailScreen(
     }
 }
 
-private fun itemCount(item: FolderListItem): Int = when (item) {
-    is MixedItem.Folder -> item.folder.itemCount
-    is MixedItem.Group  -> item.group.totalItemCount
-}

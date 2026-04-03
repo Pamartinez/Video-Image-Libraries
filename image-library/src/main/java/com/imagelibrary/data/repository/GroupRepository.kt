@@ -145,21 +145,25 @@ class GroupRepository(context: Context) {
 
     /**
      * Destroy a group:
-     * - Member folders become ungrouped (back to root)
-     * - Child sub-groups move up one level (to this group's parent)
+     * - Child sub-groups move up one level (to this group's parent).
+     * - Member folders move to the parent group; if at root, they become ungrouped.
      */
     suspend fun destroyGroup(groupId: Long) = withContext(Dispatchers.IO) {
         val group = store.getGroupById(groupId) ?: return@withContext
         val parentId = group.parentGroupId
 
-        // Move child groups up one level
+        // Promote child groups to parent
         val childGroups = store.getChildGroups(groupId)
         for (child in childGroups) {
             store.moveGroup(child.groupId, parentId)
         }
 
-        // Remove all folder members (they become ungrouped)
+        // Move member folders to parent, or ungroup if already at root
+        val memberBucketIds = store.getBucketIdsForGroup(groupId)
         store.deleteAllMembersOfGroup(groupId)
+        if (parentId != null) {
+            store.insertMembers(memberBucketIds.map { GroupMemberEntity(folderBucketId = it, groupId = parentId) })
+        }
 
         // Delete the group itself
         store.deleteGroup(groupId)

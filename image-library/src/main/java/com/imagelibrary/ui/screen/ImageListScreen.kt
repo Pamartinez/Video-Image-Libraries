@@ -65,12 +65,8 @@ fun ImageListScreen(
     val groupGridState = rememberLazyGridState()
 
     LaunchedEffect(state.sortOption) { folderGridState.scrollToItem(0) }
-    // Scroll group grid to top when the group changes (entering a different group)
-    // OR when the sort option changes while inside a group.
-    // Keying on BOTH means it fires when EITHER changes.
-    // Crucially, it does NOT fire when only currentFolderBucketId changes
-    // (album open/close), so the group scroll position is preserved.
-    LaunchedEffect(state.currentGroupId, state.sortOption) { groupGridState.scrollToItem(0) }
+    // Scroll group grid to top when the group changes OR when its independent sort changes.
+    LaunchedEffect(state.currentGroupId, state.currentGroupSortOption) { groupGridState.scrollToItem(0) }
     LaunchedEffect(state.currentFolderBucketId) {
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
     }
@@ -78,7 +74,7 @@ fun ImageListScreen(
     val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
-            state.showAbout || state.showSettings || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
             showMoreMenu || showCreateMenu ||
             state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
 
@@ -119,6 +115,11 @@ fun ImageListScreen(
             state.currentGroupId != null -> { viewModel.exitSelectionMode(); viewModel.closeGroup() }
             state.isSearchActive -> viewModel.deactivateSearch()
             state.showAbout -> viewModel.dismissAbout()
+            state.showHideFolders && state.hideScreenGroupId != null -> {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            }
+            state.showHideFolders -> viewModel.dismissHideFoldersScreen()
             state.showSettings -> viewModel.dismissSettings()
         }
     }
@@ -149,6 +150,19 @@ fun ImageListScreen(
                 onCancel = { viewModel.dismissCreateAlbumCopyMoveDialog() }
             )
         }
+        // Always host the progress/conflict overlays so they show when the operation starts
+        CopyMoveAndConflictOverlayHost(
+            isProgressActive = progress.isActive,
+            progressTitle = progress.title,
+            progressCurrent = progress.current,
+            progressTotal = progress.total,
+            onCancelProgress = { viewModel.cancelCopyMove() },
+            conflictFileName = conflict?.fileName,
+            onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+            onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+            onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) },
+            renameActionLabel = "Rename"
+        )
         return
     }
 
@@ -192,6 +206,44 @@ fun ImageListScreen(
     // ── Settings / About ──
     if (state.showSettings) { SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() }); return }
     if (state.showAbout) { AboutScreen(onBack = { viewModel.dismissAbout() }); return }
+
+    // ── Hide albums screen ─────────────────────────────────────────────────
+    if (state.showHideFolders) {
+        val groupHiddenState = state.rootGroupsForHide.associate { group ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in group.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            group.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        val groupSubGroupHiddenState = state.hideScreenGroupSubGroups.associate { sub ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in sub.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            sub.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        HideFoldersScreen(
+            groups                   = state.rootGroupsForHide,
+            ungroupedFolders         = state.ungroupedFoldersForHide,
+            groupFolders             = state.hideScreenGroupFolders,
+            currentGroupId           = state.hideScreenGroupId,
+            currentGroupName         = state.hideScreenGroupName,
+            hiddenFolderPaths        = state.hiddenFolderPaths,
+            groupHiddenState         = groupHiddenState,
+            groupSubGroups           = state.hideScreenGroupSubGroups,
+            groupSubGroupHiddenState = groupSubGroupHiddenState,
+            onGroupOpen              = { viewModel.openGroupInHideScreen(it) },
+            onGroupToggle            = { viewModel.toggleGroupHidden(it) },
+            onFolderToggle           = { viewModel.toggleFolderHidden(it) },
+            onGroupBack              = {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            },
+            onBack                   = { viewModel.dismissHideFoldersScreen() }
+        )
+        return
+    }
 
     // ── Folder detail ──
     if (state.currentFolderBucketId != null) {
@@ -322,6 +374,7 @@ fun ImageListScreen(
             onCycleViewType = { viewModel.cycleViewType() },
             onAddFolder = { viewModel.showAddFolderToGroup() },
             onRenameGroup = { viewModel.showRenameGroupDialog() },
+            onHideAlbums  = { viewModel.showHideFoldersScreenForCurrentGroup() },
             onDestroyGroup = { viewModel.showDestroyGroupDialog() },
             onViewAs = { viewModel.showViewAsDialog() },
             onSettings = { viewModel.showSettings() },
@@ -336,8 +389,9 @@ fun ImageListScreen(
                 viewModel.getSelectedLocationPath()
                     ?.let { FileManagerHelper.openFolder(ctx, it) }
             },
-            sortOption = state.sortOption,
-            onSortOptionSelected = { viewModel.setSortOption(it) },
+            sortOption = state.currentGroupSortOption,
+            onSortOptionSelected = { viewModel.setCurrentGroupSortOption(it) },
+            groupsAlwaysOnTop = state.groupsAlwaysOnTop,
             onReorderFolders = { from, to -> viewModel.reorderGroupItem(from, to) },
             onReorderDone = { viewModel.persistGroupOrder() },
             lazyGridState = groupGridState
@@ -367,8 +421,22 @@ fun ImageListScreen(
     }
 
     // ── Full-screen pickers (early returns) ──
-    if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }); return }
-    if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }); return }
+    // Each picker is wrapped in a Box so CopyMoveAndConflictOverlayHost is always rendered
+    // on top — ensures progress and conflict dialogs appear no matter which picker is active.
+    if (state.showMoveFolderPicker) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
+            CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
+        }
+        return
+    }
+    if (state.showCopyFolderPicker) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
+            CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
+        }
+        return
+    }
     if (state.showMoveToGroupPicker) {
         MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
         return
@@ -433,7 +501,18 @@ fun ImageListScreen(
                                 onSortBy = { viewModel.showSortDialog() },
                                 onViewAs = { viewModel.showViewAsDialog() },
                                 onSettings = { viewModel.showSettings() },
-                                onAbout = { viewModel.showAbout() }
+                                onAbout = { viewModel.showAbout() },
+                                extraTopContent = { dismiss ->
+                                    com.example.common.ui.components.AppMenuItem(
+                                        text      = "Hide albums",
+                                        onDismiss = dismiss,
+                                        onClick   = { viewModel.showHideFoldersScreen() },
+                                        textColor = colors.listFirstText
+                                    )
+                                    com.example.common.ui.components.AppMenuDivider(
+                                        color = colors.dividerColor
+                                    )
+                                }
                             )
                         }
                     }

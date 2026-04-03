@@ -34,7 +34,10 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 folderViewType         = prefs.folderViewType.id,
                 customGroupOrder       = prefs.customGroupOrder,
                 customMixedOrder       = prefs.customMixedOrder,
-                customGroupItemsOrders = prefs.allCustomGroupItemsOrders()
+                customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
+                independentSortEnabled = prefs.independentSortEnabled,
+                hiddenFolderPaths      = prefs.hiddenFolderPaths,
+                hiddenFolderMeta       = prefs.getAllHiddenFolderMeta()
             )
 
             // Video-library specific keys
@@ -42,7 +45,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("videoSortOption",      prefs.videoSortOption.id)
             put("selectedTab",          prefs.selectedTab)
             put("instantPlayerEnabled", prefs.instantPlayerEnabled)
-            put("independentSortEnabled", prefs.independentSortEnabled)
 
             // Custom folder order → JSONArray of ints
             put("customFolderOrder", JSONArray(prefs.getCustomFolderOrder()))
@@ -63,12 +65,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
 
         // Shared keys
         val shared = readSharedSettings(settings)
-        shared.viewType?.let         { prefs.viewType       = ViewType.fromId(it) }
-        shared.folderViewType?.let   { prefs.folderViewType = ViewType.fromId(it) }
-        shared.customGroupOrder?.let { prefs.customGroupOrder = it }
-        shared.customMixedOrder?.let { prefs.customMixedOrder = it }
+        shared.viewType?.let               { prefs.viewType              = ViewType.fromId(it) }
+        shared.folderViewType?.let         { prefs.folderViewType        = ViewType.fromId(it) }
+        shared.customGroupOrder?.let       { prefs.customGroupOrder      = it }
+        shared.customMixedOrder?.let       { prefs.customMixedOrder      = it }
         shared.customGroupItemsOrders?.forEach { (groupId, order) ->
             prefs.saveGroupMixedOrder(groupId, order)
+        }
+        shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
+        shared.hiddenFolderPaths?.let      { prefs.hiddenFolderPaths     = it }
+        shared.hiddenFolderMeta?.forEach   { (path, triple) ->
+            prefs.saveHiddenFolderMeta(path, triple.first, triple.second, triple.third)
         }
 
         // Video-library specific keys
@@ -80,8 +87,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.selectedTab = settings.getInt("selectedTab")
         if (settings.has("instantPlayerEnabled"))
             prefs.instantPlayerEnabled = settings.getBoolean("instantPlayerEnabled")
-        if (settings.has("independentSortEnabled"))
-            prefs.independentSortEnabled = settings.getBoolean("independentSortEnabled")
 
         // Custom folder order — JSONArray of ints
         if (settings.has("customFolderOrder")) {
@@ -164,4 +169,3 @@ object BackupManager : com.example.common.data.util.BackupManager(
         settings.put(key, arr)
     }
 }
-

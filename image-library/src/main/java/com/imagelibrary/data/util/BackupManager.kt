@@ -36,7 +36,10 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 folderViewType         = prefs.folderViewType.id,
                 customGroupOrder       = prefs.customGroupOrder,
                 customMixedOrder       = prefs.customMixedOrder,
-                customGroupItemsOrders = prefs.allCustomGroupItemsOrders()
+                customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
+                independentSortEnabled = prefs.independentSortEnabled,
+                hiddenFolderPaths      = prefs.hiddenFolderPaths,
+                hiddenFolderMeta       = prefs.getAllHiddenFolderMeta()
             )
 
             // Image-library specific keys
@@ -44,7 +47,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("imageSortOption",        prefs.imageSortOption.id)
             put("sortType",               prefs.sortType.id)
             put("sortOrder",              prefs.sortOrder.id)
-            put("independentSortEnabled", prefs.independentSortEnabled)
             put("carouselShowBarsOnOpen", prefs.carouselShowBarsOnOpen)
             put("customAlbumOrder",       JSONArray(prefs.customAlbumOrder))
         }
@@ -57,12 +59,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
 
         // Shared keys
         val shared = readSharedSettings(settings)
-        shared.viewType?.let               { prefs.viewType       = ViewType.fromId(it) }
-        shared.folderViewType?.let         { prefs.folderViewType = ViewType.fromId(it) }
-        shared.customGroupOrder?.let       { prefs.customGroupOrder = it }
-        shared.customMixedOrder?.let       { prefs.customMixedOrder = it }
+        shared.viewType?.let               { prefs.viewType              = ViewType.fromId(it) }
+        shared.folderViewType?.let         { prefs.folderViewType        = ViewType.fromId(it) }
+        shared.customGroupOrder?.let       { prefs.customGroupOrder      = it }
+        shared.customMixedOrder?.let       { prefs.customMixedOrder      = it }
         shared.customGroupItemsOrders?.forEach { (groupId, order) ->
             prefs.setCustomGroupItemsOrder(groupId, order)
+        }
+        shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
+        shared.hiddenFolderPaths?.let      { prefs.hiddenFolderPaths     = it }
+        shared.hiddenFolderMeta?.forEach   { (path, triple) ->
+            prefs.saveHiddenFolderMeta(path, triple.first, triple.second, triple.third)
         }
 
         // Image-library specific keys
@@ -74,8 +81,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.sortType = SortType.fromId(settings.getInt("sortType"))
         if (settings.has("sortOrder"))
             prefs.sortOrder = SortOrder.fromId(settings.getInt("sortOrder"))
-        if (settings.has("independentSortEnabled"))
-            prefs.independentSortEnabled = settings.getBoolean("independentSortEnabled")
         if (settings.has("carouselShowBarsOnOpen"))
             prefs.carouselShowBarsOnOpen = settings.getBoolean("carouselShowBarsOnOpen")
         if (settings.has("customAlbumOrder")) {
@@ -84,4 +89,3 @@ object BackupManager : com.example.common.data.util.BackupManager(
         }
     }
 }
-

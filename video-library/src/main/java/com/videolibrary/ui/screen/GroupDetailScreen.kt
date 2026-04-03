@@ -55,6 +55,7 @@ fun GroupDetailScreen(
     subGroups: List<GroupItem>,
     viewType: ViewType,
     sortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
+    groupsAlwaysOnTop: Boolean = false,
     isSelectionMode: Boolean,
     selectedFolderIds: Set<Int>,
     selectedGroupIds: Set<Long>,
@@ -66,6 +67,7 @@ fun GroupDetailScreen(
     onCycleViewType: () -> Unit,
     onAddFolder: () -> Unit,
     onRenameGroup: () -> Unit,
+    onHideAlbums: () -> Unit = {},
     onDestroyGroup: () -> Unit,
     onSortOptionSelected: (FolderSortOption) -> Unit,
     onDelete: () -> Unit,
@@ -98,7 +100,7 @@ fun GroupDetailScreen(
     // When orderedMixedItems is non-empty the ViewModel's saved drag order is the
     // authoritative source; the raw groups+folders fallback is only used the very
     // first time a group is opened before any drag has occurred.
-    val mixedItems: List<MixedFolderItem> = remember(subGroups, folders, sortOption, orderedMixedItems) {
+    val mixedItems: List<MixedFolderItem> = remember(subGroups, folders, sortOption, orderedMixedItems, groupsAlwaysOnTop) {
         val raw: List<MixedFolderItem> = if (orderedMixedItems.isNotEmpty()) {
             orderedMixedItems.toMixedFolderItems()
         } else {
@@ -107,10 +109,22 @@ fun GroupDetailScreen(
         }
         when (sortOption) {
             FolderSortOption.CUSTOM_ORDER       -> raw
-            FolderSortOption.NAME_A_TO_Z        -> raw.sortedBy            { it.sortKey.lowercase() }
-            FolderSortOption.NAME_Z_TO_A        -> raw.sortedByDescending   { it.sortKey.lowercase() }
-            FolderSortOption.ITEMS_MOST_FIRST   -> raw.sortedByDescending   { itemCount(it) }
-            FolderSortOption.ITEMS_FEWEST_FIRST -> raw.sortedBy             { itemCount(it) }
+            FolderSortOption.NAME_A_TO_Z        -> if (groupsAlwaysOnTop) {
+                raw.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
+                raw.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
+            } else raw.sortedBy { it.sortKey.lowercase() }
+            FolderSortOption.NAME_Z_TO_A        -> if (groupsAlwaysOnTop) {
+                raw.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
+                raw.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
+            } else raw.sortedByDescending { it.sortKey.lowercase() }
+            FolderSortOption.ITEMS_MOST_FIRST   -> if (groupsAlwaysOnTop) {
+                raw.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
+                raw.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
+            } else raw.sortedByDescending { it.itemCount }
+            FolderSortOption.ITEMS_FEWEST_FIRST -> if (groupsAlwaysOnTop) {
+                raw.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
+                raw.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
+            } else raw.sortedBy { it.itemCount }
         }
     }
 
@@ -175,6 +189,7 @@ fun GroupDetailScreen(
                             AppMenuItem("Create album",  onDismiss = dismiss, onClick = onCreateAlbum, textColor = colors.listFirstText)
                             AppMenuItem("Add folder",    onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
                             AppMenuItem("Rename group",  onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
+                            AppMenuItem("Hide albums",   onDismiss = dismiss, onClick = onHideAlbums,  textColor = colors.listFirstText)
                             AppMenuDivider(color = colors.dividerColor)
                             AppMenuItem("Destroy group", onDismiss = dismiss, onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
                         }
@@ -363,11 +378,6 @@ fun GroupDetailScreen(
             onDismiss            = { showSortDialog = false }
         )
     }
-}
-
-private fun itemCount(item: MixedFolderItem): Int = when (item) {
-    is MixedItem.Folder -> item.folder.itemCount
-    is MixedItem.Group  -> item.group.totalItemCount
 }
 
 

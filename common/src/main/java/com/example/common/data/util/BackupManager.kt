@@ -23,6 +23,8 @@ import java.io.File
  *     "customMixedOrder":       [String, ...],
  *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
  *     "independentSortEnabled": Boolean,
+ *     "hiddenFolderPaths":      [String, ...],
+ *     "hiddenFolderMeta":       { "<path>": { "name": String, "bucketId": Int, "itemCount": Int }, ... },
  *
  *     // Image-library specific:
  *     "sortOption":             Int,
@@ -63,7 +65,7 @@ abstract class BackupManager(
     // ── Shared-settings snapshot ──────────────────────────────────────
 
     /**
-     * Typed snapshot of the five setting keys that are identical in both libraries.
+     * Typed snapshot of the shared setting keys that are identical in both libraries.
      * `null` means the key was absent in the backup (safe to skip when restoring).
      */
     data class SharedSettings(
@@ -71,7 +73,11 @@ abstract class BackupManager(
         val folderViewType:         Int?,
         val customGroupOrder:       List<Long>?,
         val customMixedOrder:       List<String>?,
-        val customGroupItemsOrders: Map<Long, List<String>>?
+        val customGroupItemsOrders: Map<Long, List<String>>?,
+        // Shared across both libraries
+        val independentSortEnabled: Boolean?,
+        val hiddenFolderPaths:      Set<String>?,
+        val hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>?
     )
 
     /** `<External Storage>/Documents/<libraryFolderName>/backups/` */
@@ -168,7 +174,7 @@ abstract class BackupManager(
     // ── Shared-settings helpers ───────────────────────────────────────
 
     /**
-     * Writes the five shared setting keys into [settings] using the standardised
+     * Writes all shared setting keys into [settings] using the standardised
      * v2 format (JSONArray for ordered lists, JSONObject for maps).
      * Call this inside your [writeSettings] implementation.
      */
@@ -178,7 +184,10 @@ abstract class BackupManager(
         folderViewType:         Int,
         customGroupOrder:       List<Long>,
         customMixedOrder:       List<String>,
-        customGroupItemsOrders: Map<Long, List<String>>
+        customGroupItemsOrders: Map<Long, List<String>>,
+        independentSortEnabled: Boolean,
+        hiddenFolderPaths:      Set<String>,
+        hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>
     ) {
         settings.put("viewType",       viewType)
         settings.put("folderViewType", folderViewType)
@@ -189,10 +198,23 @@ abstract class BackupManager(
             groupItemsObj.put(id.toString(), JSONArray(order))
         }
         settings.put("customGroupItemsOrders", groupItemsObj)
+
+        // Shared across both libraries
+        settings.put("independentSortEnabled", independentSortEnabled)
+        settings.put("hiddenFolderPaths", JSONArray(hiddenFolderPaths.toList()))
+        val metaObj = JSONObject()
+        hiddenFolderMeta.forEach { (path, triple) ->
+            metaObj.put(path, JSONObject().apply {
+                put("name",      triple.first)
+                put("bucketId",  triple.second)
+                put("itemCount", triple.third)
+            })
+        }
+        settings.put("hiddenFolderMeta", metaObj)
     }
 
     /**
-     * Reads the five shared setting keys from [settings] and returns a
+     * Reads all shared setting keys from [settings] and returns a
      * [SharedSettings] snapshot. Missing keys are returned as `null`.
      * Call this inside your [readSettings] implementation.
      */
@@ -221,7 +243,32 @@ abstract class BackupManager(
             map
         } else null
 
-        return SharedSettings(viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders)
+        // Shared across both libraries
+        val independentSortEnabled: Boolean? =
+            if (settings.has("independentSortEnabled")) settings.getBoolean("independentSortEnabled") else null
+
+        val hiddenFolderPaths: Set<String>? = if (settings.has("hiddenFolderPaths")) {
+            val arr = settings.getJSONArray("hiddenFolderPaths")
+            (0 until arr.length()).map { arr.getString(it) }.toSet()
+        } else null
+
+        val hiddenFolderMeta: Map<String, Triple<String, Int, Int>>? = if (settings.has("hiddenFolderMeta")) {
+            val obj = settings.getJSONObject("hiddenFolderMeta")
+            val map = mutableMapOf<String, Triple<String, Int, Int>>()
+            for (path in obj.keys()) {
+                val meta      = obj.getJSONObject(path)
+                val name      = meta.optString("name",      "")
+                val bucketId  = meta.optInt   ("bucketId",  0)
+                val itemCount = meta.optInt   ("itemCount", 0)
+                if (name.isNotBlank()) map[path] = Triple(name, bucketId, itemCount)
+            }
+            map
+        } else null
+
+        return SharedSettings(
+            viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
+            independentSortEnabled, hiddenFolderPaths, hiddenFolderMeta
+        )
     }
 
     // ── Library-specific hooks ────────────────────────────────────────

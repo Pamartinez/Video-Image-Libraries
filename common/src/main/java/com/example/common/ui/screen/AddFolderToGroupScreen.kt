@@ -96,12 +96,12 @@ fun AddFolderToGroupScreen(
 
     // Build display items for the current browse level
     val displayItems: List<MixedItem> = if (currentBrowseGroupId != null) {
-        // Inside a browsed group: show its member folders + sub-groups
-        val browsedGroup     = filteredGroups.find { it.groupId == currentBrowseGroupId }
-        val memberFolders    = browsedGroup?.memberBucketIds
-            ?.mapNotNull { bid -> folders.find { it.bucketId == bid } }
-            ?: emptyList()
-        val subGroups        = filteredGroups.filter { it.parentGroupId == currentBrowseGroupId }
+        // Inside a browsed group: filter the already-sorted `folders` list by membership
+        // so the displayed order respects the caller's sort option.
+        val browsedGroup    = filteredGroups.find { it.groupId == currentBrowseGroupId }
+        val memberBucketIds = browsedGroup?.memberBucketIds?.toSet() ?: emptySet()
+        val memberFolders   = folders.filter { it.bucketId in memberBucketIds }
+        val subGroups       = filteredGroups.filter { it.parentGroupId == currentBrowseGroupId }
         buildList {
             subGroups.forEach    { add(MixedItem.Group(it))  }
             memberFolders.forEach { add(MixedItem.Folder(it)) }

@@ -28,6 +28,16 @@ class AppPreferences(context: Context) {
         // Instant Player
         private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
         private const val KEY_INDEPENDENT_SORT_ENABLED = "independent_sort_enabled"
+        private const val KEY_GROUPS_ALWAYS_ON_TOP = "groups_always_on_top"
+        private const val KEY_GROUP_SORT_OPTION_PREFIX = "group_sort_option_"
+        /** Comma-separated folder paths that the user has hidden via the Hide Folders screen. */
+        private const val KEY_HIDDEN_FOLDER_PATHS = "hidden_folder_paths"
+        /**
+         * Stores metadata for hidden folders so they can be shown in the Hide screen
+         * even after MediaStore stops indexing them.
+         * Format: "path::name::bucketId::itemCount" entries joined by "|"
+         */
+        private const val KEY_HIDDEN_FOLDER_META = "hidden_folder_meta"
     }
     /**
      * When true (default), each album/group can have its own sort order. If false, all use the global sort.
@@ -35,6 +45,79 @@ class AppPreferences(context: Context) {
     var independentSortEnabled: Boolean
         get() = prefs.getBoolean(KEY_INDEPENDENT_SORT_ENABLED, true)
         set(value) = prefs.edit().putBoolean(KEY_INDEPENDENT_SORT_ENABLED, value).apply()
+
+    /**
+     * When true, groups are always shown at the top of the sorted list,
+     * sorted among themselves, followed by ungrouped albums sorted separately.
+     */
+    var groupsAlwaysOnTop: Boolean
+        get() = prefs.getBoolean(KEY_GROUPS_ALWAYS_ON_TOP, false)
+        set(value) = prefs.edit().putBoolean(KEY_GROUPS_ALWAYS_ON_TOP, value).apply()
+
+    /**
+     * Per-group sort option. Returns [FolderSortOption.CUSTOM_ORDER] if not yet set.
+     */
+    fun getGroupSortOption(groupId: Long): FolderSortOption {
+        val id = prefs.getInt("$KEY_GROUP_SORT_OPTION_PREFIX$groupId", -1)
+        return if (id == -1) FolderSortOption.CUSTOM_ORDER else FolderSortOption.fromId(id)
+    }
+
+    fun saveGroupSortOption(groupId: Long, option: FolderSortOption) {
+        prefs.edit().putInt("$KEY_GROUP_SORT_OPTION_PREFIX$groupId", option.id).apply()
+    }
+
+    // ── Hidden folders ──────────────────────────────────────────────────────
+
+    /** Set of folder paths currently marked as hidden (have a .nomedia file). */
+    var hiddenFolderPaths: Set<String>
+        get() {
+            val raw = prefs.getString(KEY_HIDDEN_FOLDER_PATHS, null) ?: return emptySet()
+            return raw.split("|").filter { it.isNotEmpty() }.toSet()
+        }
+        set(value) = prefs.edit()
+            .putString(KEY_HIDDEN_FOLDER_PATHS, value.joinToString("|"))
+            .apply()
+
+    /** Save metadata for a hidden folder so it can be shown in the hide screen. */
+    fun saveHiddenFolderMeta(path: String, name: String, bucketId: Int, itemCount: Int) {
+        val existing = getRawHiddenFolderMeta().toMutableMap()
+        existing[path] = "$name::$bucketId::$itemCount"
+        prefs.edit().putString(KEY_HIDDEN_FOLDER_META,
+            existing.entries.joinToString("|") { "${it.key}::${it.value}" }).apply()
+    }
+
+    /** Remove metadata for a folder that is no longer hidden. */
+    fun removeHiddenFolderMeta(path: String) {
+        val existing = getRawHiddenFolderMeta().toMutableMap()
+        existing.remove(path)
+        prefs.edit().putString(KEY_HIDDEN_FOLDER_META,
+            existing.entries.joinToString("|") { "${it.key}::${it.value}" }).apply()
+    }
+
+    private fun getRawHiddenFolderMeta(): Map<String, String> {
+        val raw = prefs.getString(KEY_HIDDEN_FOLDER_META, null) ?: return emptyMap()
+        return raw.split("|").filter { it.contains("::") }.mapNotNull { entry ->
+            val idx = entry.indexOf("::")
+            if (idx < 0) null else entry.substring(0, idx) to entry.substring(idx + 2)
+        }.toMap()
+    }
+
+    /**
+     * Returns a map of path → (name, bucketId, itemCount) for all hidden folders.
+     */
+    fun getAllHiddenFolderMeta(): Map<String, Triple<String, Int, Int>> {
+        val result = mutableMapOf<String, Triple<String, Int, Int>>()
+        getRawHiddenFolderMeta().forEach { (path, value) ->
+            val parts = value.split("::")
+            if (parts.size >= 3) {
+                val name     = parts[0]
+                val bucketId = parts[1].toIntOrNull() ?: return@forEach
+                val count    = parts[2].toIntOrNull() ?: 0
+                result[path] = Triple(name, bucketId, count)
+            }
+        }
+        return result
+    }
 
     var viewType: ViewType
         get() = ViewType.fromId(prefs.getInt(KEY_VIEW_TYPE, ViewType.LIST.id))

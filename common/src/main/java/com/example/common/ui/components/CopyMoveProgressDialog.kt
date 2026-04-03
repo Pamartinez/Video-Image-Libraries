@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -35,9 +36,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.common.ui.theme.LocalLibraryColors
 
 /**
  * Samsung Gallery-style bottom-sheet progress popup for move/copy operations.
+ * The progress bar uses the app's primary colour (via [LocalLibraryColors]) and
+ * has a rounded border so it matches the app theme.
  */
 @Composable
 fun CopyMoveProgressDialog(
@@ -47,20 +51,24 @@ fun CopyMoveProgressDialog(
     onCancel: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val libraryColors = LocalLibraryColors.current
+    val primary = libraryColors.primary
+
+    // Clean 2-stop gradient: app primary blue → soft emerald green (matches screenshot)
+    val gradientColors = listOf(
+        primary,
+        Color(0xFF4ADE80)
+    )
+    val trackColor  = Color(0xFF3A3A3A)
+    val trackShape  = RoundedCornerShape(50)   // fully pill-shaped
+
     val fraction = if (total > 0) current.toFloat() / total else 0f
     val animatedFraction by animateFloatAsState(
-        targetValue = fraction,
-        animationSpec = tween(durationMillis = 300),
-        label = "progress"
+        targetValue    = fraction,
+        animationSpec  = tween(durationMillis = 300),
+        label          = "progress"
     )
     val percent = (animatedFraction * 100).toInt()
-
-    val gradientColors = listOf(
-        Color(0xFF2979FF),
-        Color(0xFF00BCD4),
-        Color(0xFF00C853)
-    )
-    val trackColor = Color(0xFF4A4A4A)
 
     Box(
         modifier = modifier
@@ -68,54 +76,66 @@ fun CopyMoveProgressDialog(
             .navigationBarsPadding()
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = {}
+                indication        = null,
+                onClick           = {}
             ),
         contentAlignment = Alignment.BottomCenter
     ) {
         AnimatedVisibility(
             visible = true,
-            enter = slideInVertically(initialOffsetY = { it }),
-            exit = slideOutVertically(targetOffsetY = { it })
+            enter   = slideInVertically(initialOffsetY = { it }),
+            exit    = slideOutVertically(targetOffsetY = { it })
         ) {
             Surface(
-                shape = RoundedCornerShape(28.dp),
-                color = Color(0xFF2C2C2C),
+                shape          = RoundedCornerShape(28.dp),
+                color          = Color(0xFF2C2C2C),
                 tonalElevation = 0.dp,
                 shadowElevation = 0.dp,
-                modifier = Modifier
+                modifier       = Modifier
                     .padding(horizontal = 16.dp, vertical = 12.dp)
                     .fillMaxWidth()
             ) {
                 Column(
-                    modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 28.dp, bottom = 16.dp)
+                    modifier = Modifier.padding(
+                        start = 24.dp, end = 24.dp, top = 28.dp, bottom = 16.dp
+                    )
                 ) {
                     Text(
-                        text = title,
-                        fontSize = 18.sp,
+                        text       = title,
+                        fontSize   = 18.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color.White
+                        color      = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(20.dp))
 
+                    // ── Progress bar: rounded track + gradient fill + border ──
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(6.dp)
-                            .clip(RoundedCornerShape(3.dp))
+                            .height(8.dp)
+                            .clip(trackShape)
+                            .border(
+                                width = 1.dp,
+                                brush = Brush.linearGradient(
+                                    colors = gradientColors,
+                                    start  = Offset.Zero,
+                                    end    = Offset(Float.MAX_VALUE, 0f)
+                                ),
+                                shape = trackShape
+                            )
                             .background(trackColor)
                     ) {
                         Box(
                             modifier = Modifier
                                 .fillMaxHeight()
                                 .fillMaxWidth(animatedFraction)
-                                .clip(RoundedCornerShape(3.dp))
+                                .clip(trackShape)
                                 .background(
                                     Brush.linearGradient(
                                         colors = gradientColors,
-                                        start = Offset.Zero,
-                                        end = Offset(Float.MAX_VALUE, 0f)
+                                        start  = Offset.Zero,
+                                        end    = Offset(Float.MAX_VALUE, 0f)
                                     )
                                 )
                         )
@@ -124,33 +144,33 @@ fun CopyMoveProgressDialog(
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier              = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "$current/$total",
+                            text     = "$current/$total",
                             fontSize = 15.sp,
-                            color = Color(0xFFAAAAAA)
+                            color    = Color(0xFFAAAAAA)
                         )
                         Text(
-                            text = "$percent%",
+                            text     = "$percent%",
                             fontSize = 15.sp,
-                            color = Color(0xFFAAAAAA)
+                            color    = Color(0xFFAAAAAA)
                         )
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Box(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier         = Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
                         TextButton(onClick = onCancel) {
                             Text(
-                                text = "Cancel",
-                                fontSize = 17.sp,
+                                text       = "Cancel",
+                                fontSize   = 17.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = Color.White
+                                color      = primary
                             )
                         }
                     }

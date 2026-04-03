@@ -97,12 +97,10 @@ object MediaTransferHelper {
                         contentResolver, mediaCollectionUri, relativePath, displayName
                     )
 
-                    // For move: a self-match (same source) is not a real conflict.
-                    val hasConflict = if (deleteSource) {
-                        existingUri != null && existingUri != sourceUri
-                    } else {
-                        existingUri != null
-                    }
+                    // Always show the conflict dialog when a file with the same name
+                    // already exists at the destination — even if it is the source file
+                    // itself (e.g. moving / copying to the same folder).
+                    val hasConflict = existingUri != null
 
                     if (hasConflict) {
                         when (onConflict(displayName)) {
@@ -111,9 +109,15 @@ object MediaTransferHelper {
 
                             ConflictResolution.REPLACE,
                             ConflictResolution.REPLACE_ALL -> {
-                                existingUri?.let { uri ->
-                                    try { contentResolver.delete(uri, null, null) } catch (_: Exception) {}
+                                if (existingUri == sourceUri) {
+                                    // Same file — replacing it with itself is a no-op.
+                                    // For move: already at destination; nothing to do.
+                                    // For copy: would copy onto itself; meaningless.
+                                    onProgress(index + 1, items.size)
+                                    continue
                                 }
+                                // Different file — remove it so we can write the new one.
+                                try { contentResolver.delete(existingUri, null, null) } catch (_: Exception) {}
                             }
 
                             ConflictResolution.RENAME      -> {

@@ -24,6 +24,16 @@ sealed class MixedItem {
             is Folder -> "folder_${folder.bucketId}"
             is Group  -> "group_${group.groupId}"
         }
+
+    /**
+     * Total item count used for sort-by-count ordering.
+     * Folder → [FolderItem.itemCount], Group → [GroupItem.totalItemCount].
+     */
+    val itemCount: Int
+        get() = when (this) {
+            is Folder -> folder.itemCount
+            is Group  -> group.totalItemCount
+        }
 }
 
 /** Maps a [List<Any>] from the ViewModel to a typed [List<MixedItem>]. */

@@ -16,15 +16,17 @@ fun SettingsScreen(
     val state by viewModel.uiState.collectAsState()
 
     SharedSettingsScreen(
-        onBack                  = onBack,
-        autoBackupEnabled       = state.autoBackupEnabled,
-        independentSortEnabled  = state.independentSortEnabled,
-        onAutoBackupChange      = { viewModel.updateAutoBackupEnabled(it) },
-        onIndependentSortChange = { viewModel.updateIndependentSortEnabled(it) },
-        onBackup                = { viewModel.saveBackupToFile() },
-        onRestore               = { viewModel.restoreBackupFromFile() },
-        backupPath              = "Documents/ImageLibrary/backups/",
-        modifier                = modifier,
+        onBack                    = onBack,
+        autoBackupEnabled         = state.autoBackupEnabled,
+        independentSortEnabled    = state.independentSortEnabled,
+        groupsAlwaysOnTop         = state.groupsAlwaysOnTop,
+        onAutoBackupChange        = { viewModel.updateAutoBackupEnabled(it) },
+        onIndependentSortChange   = { viewModel.updateIndependentSortEnabled(it) },
+        onGroupsAlwaysOnTopChange = { viewModel.updateGroupsAlwaysOnTop(it) },
+        onBackup                  = { viewModel.saveBackupToFile() },
+        onRestore                 = { viewModel.restoreBackupFromFile() },
+        backupPath                = "Documents/ImageLibrary/backups/",
+        modifier                  = modifier,
         extraContent            = {
             // ── Carousel section (image-library only) ──
             SettingsSection(title = "Carousel") {

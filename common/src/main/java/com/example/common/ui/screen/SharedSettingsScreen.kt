@@ -29,8 +29,10 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param onBack                   Navigate back.
  * @param autoBackupEnabled        Current value of the auto-backup toggle.
  * @param independentSortEnabled   Current value of the independent sort toggle.
+ * @param groupsAlwaysOnTop        Current value of the groups-always-on-top toggle.
  * @param onAutoBackupChange       Invoked when the auto-backup toggle changes.
  * @param onIndependentSortChange  Invoked when the independent sort toggle changes.
+ * @param onGroupsAlwaysOnTopChange Invoked when the groups-always-on-top toggle changes.
  * @param onBackup                 Suspending action that saves the backup; returns true on success.
  * @param onRestore                Suspending action that restores from backup; returns true on success.
  * @param backupPath               Human-readable folder path (e.g. "Documents/VideoLibrary/backups/").
@@ -42,8 +44,10 @@ fun SharedSettingsScreen(
     onBack: () -> Unit,
     autoBackupEnabled: Boolean,
     independentSortEnabled: Boolean,
+    groupsAlwaysOnTop: Boolean,
     onAutoBackupChange: (Boolean) -> Unit,
     onIndependentSortChange: (Boolean) -> Unit,
+    onGroupsAlwaysOnTopChange: (Boolean) -> Unit,
     onBackup: suspend () -> Boolean,
     onRestore: suspend () -> Boolean,
     backupPath: String,
@@ -87,6 +91,18 @@ fun SharedSettingsScreen(
                     subtitle        = "Allow each album or group to have its own sort order. If off, all use the global sort.",
                     checked         = independentSortEnabled,
                     onCheckedChange = onIndependentSortChange
+                )
+
+                HorizontalDivider(
+                    color    = colors.dividerColor,
+                    modifier = Modifier.padding(horizontal = 4.dp)
+                )
+
+                SettingsToggleRow(
+                    title           = "Groups always on top",
+                    subtitle        = "When sorting by name or count, groups are shown first (sorted among themselves), followed by ungrouped albums.",
+                    checked         = groupsAlwaysOnTop,
+                    onCheckedChange = onGroupsAlwaysOnTopChange
                 )
             }
 

@@ -14,9 +14,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,7 +27,6 @@ import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.data.preferences.AppPreferences
 import com.imagelibrary.data.repository.ImageRepository
-import com.imagelibrary.data.util.FileLogger as Log
 import java.util.concurrent.atomic.AtomicBoolean
 
 data class ImageListUiState(
@@ -110,7 +106,28 @@ data class ImageListUiState(
     val albumCreationCurrentBucketId: Int? = null,
     val albumCreationCurrentBucketName: String = "",
     val dcimFolderNames: Set<String> = emptySet(),
-    val independentSortEnabled: Boolean = true
+    val independentSortEnabled: Boolean = true,
+
+    /** When true, groups are pinned to the top of sorted lists; ungrouped albums follow. */
+    val groupsAlwaysOnTop: Boolean = false,
+
+    /** Sort option for the currently-open group (independent from the root sort). */
+    val currentGroupSortOption: SortOption = SortOption.CUSTOM_ORDER,
+    val showHideFolders: Boolean = false,
+    val allFoldersForHide: List<FolderItem> = emptyList(),
+    val hiddenFolderPaths: Set<String> = emptySet(),
+    /** Groups shown at the root of the hide screen. */
+    val rootGroupsForHide: List<GroupItem> = emptyList(),
+    /** Ungrouped folders shown at the root of the hide screen. */
+    val ungroupedFoldersForHide: List<FolderItem> = emptyList(),
+    /** Non-null when the user has drilled into a group inside the hide screen. */
+    val hideScreenGroupId: Long? = null,
+    val hideScreenGroupName: String = "",
+    val hideScreenGroupFolders: List<FolderItem> = emptyList(),
+    /** Sub-groups inside the currently-open hide-screen group (mirrors root structure). */
+    val hideScreenGroupSubGroups: List<GroupItem> = emptyList(),
+    /** True when hide screen was opened from inside a group — back exits entirely. */
+    val hideScreenStartedInsideGroup: Boolean = false
 )
 
 data class CopyMoveProgress(
@@ -139,6 +156,199 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun updateIndependentSortEnabled(value: Boolean) {
         preferences.independentSortEnabled = value
         _uiState.update { it.copy(independentSortEnabled = value) }
+        scheduleAutoBackup()
+    }
+
+    fun updateGroupsAlwaysOnTop(value: Boolean) {
+        preferences.groupsAlwaysOnTop = value
+        _uiState.update { it.copy(groupsAlwaysOnTop = value) }
+        silentRefresh()
+        scheduleAutoBackup()
+    }
+
+    // ── Hide Folders ───────────────────────────────────────────────────────
+
+    fun showHideFoldersScreen() {
+        val s = _uiState.value
+        val hiddenMeta = preferences.getAllHiddenFolderMeta()
+        val visiblePaths = s.folders.map { it.path }.toSet()
+        // Stubs for hidden folders that are no longer in MediaStore
+        val hiddenStubs = hiddenMeta
+            .filter { (path, _) -> path !in visiblePaths }
+            .map { (path, triple) ->
+                FolderItem(
+                    bucketId  = triple.second, name = triple.first,
+                    itemCount = triple.third,  path = path
+                )
+            }
+        val allFolders = (s.folders + hiddenStubs)
+        viewModelScope.launch {
+            // getGroupedBucketIds() returns ALL bucket IDs across every group at every
+            // nesting level — root groups AND sub-groups — so sub-group albums are
+            // correctly excluded from the "ungrouped" list.
+            val groupedBucketIds = groupRepository.getGroupedBucketIds()
+            val ungrouped = allFolders.filter { it.bucketId !in groupedBucketIds }
+                .sortedBy { it.name.lowercase() }
+            _uiState.update {
+                it.copy(
+                    showHideFolders         = true,
+                    allFoldersForHide       = allFolders,
+                    rootGroupsForHide       = s.rootGroups.sortedBy { g -> g.name.lowercase() },
+                    ungroupedFoldersForHide = ungrouped,
+                    hiddenFolderPaths       = preferences.hiddenFolderPaths,
+                    hideScreenGroupId       = null,
+                    hideScreenGroupName     = "",
+                    hideScreenGroupFolders  = emptyList()
+                )
+            }
+        }
+    }
+
+    fun dismissHideFoldersScreen() {
+        _uiState.update {
+            it.copy(
+                showHideFolders              = false,
+                hideScreenGroupId            = null,
+                hideScreenGroupName          = "",
+                hideScreenGroupFolders       = emptyList(),
+                hideScreenGroupSubGroups     = emptyList(),
+                hideScreenStartedInsideGroup = false
+            )
+        }
+    }
+
+    /**
+     * Opens the hide screen pre-scoped to the currently-open group.
+     * Shows only that group's sub-groups + direct member albums — no root-level
+     * groups or ungrouped albums are shown.
+     */
+    fun showHideFoldersScreenForCurrentGroup() {
+        val s         = _uiState.value
+        val groupId   = s.currentGroupId   ?: return
+        val groupName = s.currentGroupName
+        val hiddenMeta   = preferences.getAllHiddenFolderMeta()
+        val visiblePaths = s.folders.map { it.path }.toSet()
+        val hiddenStubs  = hiddenMeta
+            .filter { (path, _) -> path !in visiblePaths }
+            .map { (path, triple) ->
+                FolderItem(bucketId = triple.second, name = triple.first,
+                           itemCount = triple.third, path = path)
+            }
+        val allFolders = s.folders + hiddenStubs
+        viewModelScope.launch {
+            val memberBucketIds = groupRepository.getFolderBucketIdsForGroup(groupId).toSet()
+            val subGroups       = groupRepository.getChildGroups(groupId)
+            val directFolders   = allFolders
+                .filter { it.bucketId in memberBucketIds }
+                .sortedBy { it.name.lowercase() }
+            _uiState.update {
+                it.copy(
+                    showHideFolders              = true,
+                    allFoldersForHide            = allFolders,
+                    hiddenFolderPaths            = preferences.hiddenFolderPaths,
+                    // Root level intentionally empty — caller is already inside a group
+                    rootGroupsForHide            = emptyList(),
+                    ungroupedFoldersForHide      = emptyList(),
+                    hideScreenGroupId            = groupId,
+                    hideScreenGroupName          = groupName,
+                    hideScreenGroupFolders       = directFolders,
+                    hideScreenGroupSubGroups     = subGroups,
+                    hideScreenStartedInsideGroup = true
+                )
+            }
+        }
+    }
+
+    fun openGroupInHideScreen(group: GroupItem) {
+        viewModelScope.launch {
+            val groupFolders = _uiState.value.allFoldersForHide
+                .filter { it.bucketId in group.memberBucketIds }
+                .sortedBy { it.name.lowercase() }
+            val subGroups = groupRepository.getChildGroups(group.groupId)
+            _uiState.update {
+                it.copy(
+                    hideScreenGroupId        = group.groupId,
+                    hideScreenGroupName      = group.name,
+                    hideScreenGroupFolders   = groupFolders,
+                    hideScreenGroupSubGroups = subGroups
+                )
+            }
+        }
+    }
+
+    fun closeGroupInHideScreen() {
+        _uiState.update {
+            it.copy(
+                hideScreenGroupId        = null,
+                hideScreenGroupName      = "",
+                hideScreenGroupFolders   = emptyList(),
+                hideScreenGroupSubGroups = emptyList()
+            )
+        }
+    }
+
+    fun toggleGroupHidden(group: GroupItem) {
+        val allFolders = _uiState.value.allFoldersForHide
+        val groupFolders = allFolders.filter { it.bucketId in group.memberBucketIds }
+        val paths = groupFolders.map { it.path }.filter { it.isNotBlank() }
+        if (paths.isEmpty()) return
+        val currentHidden = _uiState.value.hiddenFolderPaths
+        val allAlreadyHidden = paths.all { it in currentHidden }
+        viewModelScope.launch {
+            if (allAlreadyHidden) {
+                paths.forEach { path -> repository.showFolder(path); preferences.removeHiddenFolderMeta(path) }
+                val newPaths = currentHidden - paths.toSet()
+                preferences.hiddenFolderPaths = newPaths
+                _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
+            } else {
+                paths.forEach { path ->
+                    repository.hideFolder(path)
+                    val f = groupFolders.find { it.path == path }
+                    if (f != null) preferences.saveHiddenFolderMeta(path, f.name, f.bucketId, f.itemCount)
+                }
+                val newPaths = currentHidden + paths.toSet()
+                preferences.hiddenFolderPaths = newPaths
+                _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
+            }
+            paths.forEach { repository.rescanFolder(it) }
+            silentRefresh()
+            scheduleAutoBackup()
+        }
+    }
+
+    fun toggleFolderHidden(folder: FolderItem) {
+        val path = folder.path
+        if (path.isBlank()) return
+        val currentlyHidden = path in _uiState.value.hiddenFolderPaths
+        viewModelScope.launch {
+            if (currentlyHidden) {
+                repository.showFolder(path)
+                val newPaths = preferences.hiddenFolderPaths - path
+                preferences.hiddenFolderPaths = newPaths
+                preferences.removeHiddenFolderMeta(path)
+                _uiState.update { s -> s.copy(hiddenFolderPaths = newPaths) }
+            } else {
+                repository.hideFolder(path)
+                val newPaths = preferences.hiddenFolderPaths + path
+                preferences.hiddenFolderPaths = newPaths
+                preferences.saveHiddenFolderMeta(path, folder.name, folder.bucketId, folder.itemCount)
+                _uiState.update { s -> s.copy(hiddenFolderPaths = newPaths) }
+            }
+            repository.rescanFolder(path)
+            silentRefresh()
+            scheduleAutoBackup()
+        }
+    }
+
+    /**
+     * Set the sort option for the currently-open group.
+     * Persists the choice per group so each group remembers its own sort independently.
+     */
+    fun setCurrentGroupSortOption(option: SortOption) {
+        val groupId = _uiState.value.currentGroupId ?: return
+        preferences.saveGroupSortOption(groupId, option)
+        _uiState.update { it.copy(currentGroupSortOption = option) }
+        refreshCurrentGroup()
         scheduleAutoBackup()
     }
 
@@ -187,7 +397,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
                 groupSortOption = preferences.groupSortOption,
                 autoBackupEnabled = preferences.autoBackupEnabled,
-                independentSortEnabled = preferences.independentSortEnabled
+                independentSortEnabled = preferences.independentSortEnabled,
+                groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
+                hiddenFolderPaths = preferences.hiddenFolderPaths
             )
         }
         loadData()
@@ -239,7 +451,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val orderedMixed = if (s.sortOption == SortOption.CUSTOM_ORDER) {
             applyCustomMixedOrder(rootGroups, ungroupedFolders)
         } else {
-            sortMixedItems(rootGroups + ungroupedFolders, s.sortOption)
+            sortMixedItems(rootGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
         }
 
         _uiState.update {
@@ -324,11 +536,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
      * Sort a combined list of [GroupItem]s and [FolderItem]s together according to
      * [option], so that group-albums are treated exactly like regular albums.
      *
+     * When [groupsAlwaysOnTop] is true the list is split into two segments:
+     *   1. All groups, sorted by [option] among themselves.
+     *   2. All folders, sorted by [option] among themselves.
+     *
      * Key mapping:
      *   name         → GroupItem.name          / FolderItem.name
      *   item count   → GroupItem.totalItemCount / FolderItem.itemCount
      */
-    private fun sortMixedItems(items: List<Any>, option: SortOption): List<Any> {
+    private fun sortMixedItems(
+        items: List<Any>,
+        option: SortOption,
+        groupsAlwaysOnTop: Boolean = false
+    ): List<Any> {
         fun itemName(item: Any) = when (item) {
             is GroupItem  -> item.name
             is FolderItem -> item.name
@@ -339,12 +559,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             is FolderItem -> item.itemCount
             else          -> 0
         }
-        return when (option) {
-            SortOption.NAME_A_TO_Z      -> items.sortedBy   { itemName(it).lowercase() }
-            SortOption.NAME_Z_TO_A      -> items.sortedByDescending { itemName(it).lowercase() }
-            SortOption.ITEMS_MOST_FIRST -> items.sortedByDescending { itemCount(it) }
-            SortOption.ITEMS_FEWEST_FIRST -> items.sortedBy { itemCount(it) }
-            SortOption.CUSTOM_ORDER     -> items // should not reach here
+        fun sortList(list: List<Any>): List<Any> = when (option) {
+            SortOption.NAME_A_TO_Z        -> list.sortedBy             { itemName(it).lowercase() }
+            SortOption.NAME_Z_TO_A        -> list.sortedByDescending   { itemName(it).lowercase() }
+            SortOption.ITEMS_MOST_FIRST   -> list.sortedByDescending   { itemCount(it) }
+            SortOption.ITEMS_FEWEST_FIRST -> list.sortedBy             { itemCount(it) }
+            SortOption.CUSTOM_ORDER       -> list // should not reach here
+        }
+        return if (groupsAlwaysOnTop) {
+            val groups  = items.filterIsInstance<GroupItem>()
+            val folders = items.filterIsInstance<FolderItem>()
+            sortList(groups) + sortList(folders)
+        } else {
+            sortList(items)
         }
     }
 
@@ -439,7 +666,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         scheduleAutoBackup()
     }
 
-    fun setViewType(v: ViewType) { preferences.viewType = v; _uiState.update { it.copy(viewType = v) } }
+    fun setViewType(v: ViewType) { preferences.viewType = v; _uiState.update { it.copy(viewType = v) }; scheduleAutoBackup() }
     fun cycleViewType() {
         val next = when (_uiState.value.viewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -447,7 +674,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         setViewType(next)
     }
-    fun setFolderViewType(v: ViewType) { preferences.folderViewType = v; _uiState.update { it.copy(folderViewType = v) } }
+    fun setFolderViewType(v: ViewType) { preferences.folderViewType = v; _uiState.update { it.copy(folderViewType = v) }; scheduleAutoBackup() }
     fun cycleFolderViewType() {
         val next = when (_uiState.value.folderViewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -455,7 +682,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         setFolderViewType(next)
     }
-    fun setSortOption(s: SortOption) { preferences.sortOption = s; _uiState.update { it.copy(sortOption = s) }; silentRefresh() }
+    fun setSortOption(s: SortOption) { preferences.sortOption = s; _uiState.update { it.copy(sortOption = s) }; silentRefresh(); scheduleAutoBackup() }
     fun setImageSortOption(s: ImageSortOption) {
         preferences.imageSortOption = s
         // Sort existing folder images in-memory immediately so that both
@@ -466,8 +693,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { it.copy(imageSortOption = s, folderImages = sorted) }
         silentRefresh()
         refreshFolderImages()
+        scheduleAutoBackup()
     }
-    fun setGroupSortOption(s: SortOption) { preferences.groupSortOption = s; _uiState.update { it.copy(groupSortOption = s) } }
+    fun setGroupSortOption(s: SortOption) { preferences.groupSortOption = s; _uiState.update { it.copy(groupSortOption = s) }; scheduleAutoBackup() }
 
     private fun sortImagesInMemory(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {
         return when (option) {
@@ -808,13 +1036,16 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     /** Select a single image (carousel context) then open the copy folder picker. */
     fun carouselCopy(imageId: Long) {
-        _uiState.update { it.copy(selectedImageIds = setOf(imageId)) }
+        // Close the carousel FIRST so the FolderPickerScreen early-return can render
+        // (the carousel early-return has higher priority and would block the picker)
+        _uiState.update { it.copy(selectedImageIds = setOf(imageId), carouselIndex = -1) }
         showCopyFolderPicker()
     }
 
     /** Select a single image (carousel context) then open the move folder picker. */
     fun carouselMove(imageId: Long) {
-        _uiState.update { it.copy(selectedImageIds = setOf(imageId)) }
+        // Close the carousel FIRST so the FolderPickerScreen early-return can render
+        _uiState.update { it.copy(selectedImageIds = setOf(imageId), carouselIndex = -1) }
         showMoveFolderPicker()
     }
     fun showAbout() = _uiState.update { it.copy(showAbout = true) }
@@ -891,7 +1122,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortOption = preferences.sortOption,
                 imageSortOption = preferences.imageSortOption,
                 carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
-                autoBackupEnabled = preferences.autoBackupEnabled
+                autoBackupEnabled = preferences.autoBackupEnabled,
+                groupsAlwaysOnTop = preferences.groupsAlwaysOnTop
             )
         }
         loadData()
@@ -1032,11 +1264,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         } else {
             s.groupStack
         }
+        // Load the persisted sort for this group (defaults to CUSTOM_ORDER if not yet set)
+        val groupSort = preferences.getGroupSortOption(groupId)
         _uiState.update {
             it.copy(
                 currentGroupId = groupId,
                 currentGroupName = name,
-                groupStack = newStack
+                groupStack = newStack,
+                currentGroupSortOption = groupSort
             )
         }
         refreshCurrentGroup()
@@ -1047,13 +1282,15 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         if (s.groupStack.isNotEmpty()) {
             // Pop from stack
             val (prevId, prevName) = s.groupStack.last()
+            val parentSort = preferences.getGroupSortOption(prevId)
             _uiState.update {
                 it.copy(
                     currentGroupId = prevId,
                     currentGroupName = prevName,
                     groupStack = s.groupStack.dropLast(1),
                     currentGroupFolders = emptyList(),
-                    currentGroupSubGroups = emptyList()
+                    currentGroupSubGroups = emptyList(),
+                    currentGroupSortOption = parentSort
                 )
             }
             refreshCurrentGroup()
@@ -1064,7 +1301,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     currentGroupName = "",
                     currentGroupFolders = emptyList(),
                     currentGroupSubGroups = emptyList(),
-                    groupStack = emptyList()
+                    groupStack = emptyList(),
+                    currentGroupSortOption = SortOption.CUSTOM_ORDER
                 )
             }
         }
@@ -1073,42 +1311,47 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     private fun refreshCurrentGroup() {
         val groupId = _uiState.value.currentGroupId ?: return
         viewModelScope.launch {
+            val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
-            val allFolders = _uiState.value.folders.ifEmpty { repository.getFolders() }
-            val groupFolders = bucketIds.mapNotNull { bid -> allFolders.find { it.bucketId == bid } }
-            val subGroups = groupRepository.getChildGroups(groupId)
+            val allFolders = s.folders.ifEmpty { repository.getFolders() }
+            // Filter from the globally-sorted list so non-custom sorts display correctly
+            val bucketIdSet  = bucketIds.toSet()
+            val groupFolders = allFolders.filter { it.bucketId in bucketIdSet }
+            val subGroups    = groupRepository.getChildGroups(groupId)
+            // Use the group's own sort option (independent of the root sort)
+            val groupSortOption = s.currentGroupSortOption
 
-            // Build an ordered interleaved list (mirrors orderedMixedItems for the root screen).
-            // If a saved order exists, honour it and append any newly-added items at the end.
-            val savedOrder = preferences.customGroupItemsOrder(groupId)
-            val orderedMixed: List<Any> = if (savedOrder.isEmpty()) {
-                buildList {
-                    subGroups.forEach { add(it) }
-                    groupFolders.forEach { add(it) }
+            val orderedMixed: List<Any> = if (groupSortOption == SortOption.CUSTOM_ORDER) {
+                val savedOrder = preferences.customGroupItemsOrder(groupId)
+                if (savedOrder.isEmpty()) {
+                    buildList {
+                        subGroups.forEach    { add(it) }
+                        groupFolders.forEach { add(it) }
+                    }
+                } else {
+                    val byGroupKey  = subGroups.associateBy    { "g_${it.groupId}"  }
+                    val byFolderKey = groupFolders.associateBy { "f_${it.bucketId}" }
+                    val savedSet    = savedOrder.toSet()
+                    buildList {
+                        // New items prepended at the top
+                        subGroups.forEach    { g -> if ("g_${g.groupId}"  !in savedSet) add(g) }
+                        groupFolders.forEach { f -> if ("f_${f.bucketId}" !in savedSet) add(f) }
+                        // Restore saved order, skipping deleted items
+                        for (key in savedOrder) {
+                            val item = byGroupKey[key] ?: byFolderKey[key]
+                            if (item != null) add(item)
+                        }
+                    }
                 }
             } else {
-                val byGroupKey  = subGroups.associateBy { "g_${it.groupId}" }
-                val byFolderKey = groupFolders.associateBy { "f_${it.bucketId}" }
-                val seen = mutableSetOf<String>()
-                buildList {
-                    for (key in savedOrder) {
-                        val item = byGroupKey[key] ?: byFolderKey[key]
-                        if (item != null && seen.add(key)) add(item)
-                    }
-                    // Append items added after the order was last saved
-                    subGroups.forEach { g ->
-                        if (seen.add("g_${g.groupId}")) add(g)
-                    }
-                    groupFolders.forEach { f ->
-                        if (seen.add("f_${f.bucketId}")) add(f)
-                    }
-                }
+                // Non-custom sort: sort all items by the group's own sort option
+                sortMixedItems(subGroups + groupFolders, groupSortOption, s.groupsAlwaysOnTop)
             }
 
             _uiState.update {
                 it.copy(
-                    currentGroupFolders = groupFolders,
-                    currentGroupSubGroups = subGroups,
+                    currentGroupFolders           = groupFolders,
+                    currentGroupSubGroups         = subGroups,
                     currentGroupOrderedMixedItems = orderedMixed
                 )
             }
@@ -1126,6 +1369,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             groupRepository.renameGroup(groupId, newName)
             _uiState.update { it.copy(currentGroupName = newName) }
             silentRefresh()
+            scheduleAutoBackup()
         }
     }
 
@@ -1138,6 +1382,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             groupRepository.destroyGroup(groupId)
             closeGroup()
             silentRefresh()
+            scheduleAutoBackup()
         }
     }
 
@@ -1195,6 +1440,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             if (s.currentGroupId != null) {
                 refreshCurrentGroup()
             }
+            scheduleAutoBackup()
         }
     }
 
@@ -1424,6 +1670,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
             refreshFolderImages()
+            scheduleAutoBackup()
         }
     }
 

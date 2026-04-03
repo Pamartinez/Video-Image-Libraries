@@ -76,6 +76,13 @@ fun VideoListScreen(
         }
     }
 
+    // Scroll to top of group grid when the group or its independent sort option changes.
+    // Keyed on currentGroupSortOption so changing sort within a group scrolls to top.
+    LaunchedEffect(state.currentGroupId, state.currentGroupSortOption) {
+        folderGridState.scrollToItem(0)
+        folderListState.scrollToItem(0)
+    }
+
     // Collect share intents emitted by the ViewModel and launch the system chooser
     LaunchedEffect(Unit) {
         viewModel.shareIntent.collect { intent ->
@@ -87,7 +94,7 @@ fun VideoListScreen(
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
             state.showGroupNameDialog || state.showRenameGroupDialog ||
-            state.showAbout || state.showSettings || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
             state.showMoveToGroupPicker || showMoreMenu || showCreateMenu
 
     BackHandler(
@@ -99,6 +106,11 @@ fun VideoListScreen(
             showCreateMenu               -> showCreateMenu = false
             showMoreMenu                 -> showMoreMenu = false
             state.showSettings           -> viewModel.dismissSettings()
+            state.showHideFolders && state.hideScreenGroupId != null -> {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            }
+            state.showHideFolders        -> viewModel.dismissHideFoldersScreen()
             state.showGroupNameDialog    -> viewModel.dismissGroupNameDialog()
             state.showRenameGroupDialog  -> viewModel.dismissRenameGroupDialog()
             state.showDestroyGroupDialog -> viewModel.dismissDestroyGroupDialog()
@@ -146,6 +158,21 @@ fun VideoListScreen(
                 onCancel  = { viewModel.dismissCreateAlbumCopyMoveDialog() }
             )
         }
+        // Always host the progress/conflict overlays so they show when the operation starts
+        CopyMoveAndConflictOverlayHost(
+            isProgressActive     = progress.isActive,
+            progressTitle        = progress.title,
+            progressCurrent      = progress.current,
+            progressTotal        = progress.total,
+            onCancelProgress     = { viewModel.cancelCopyMove() },
+            conflictFileName     = conflict?.fileName,
+            onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+            onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+            onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
+            onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
+            onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
+            renameActionLabel    = "Keep Both"
+        )
         return
     }
 
@@ -159,7 +186,8 @@ fun VideoListScreen(
             folders           = state.currentGroupFolders,
             subGroups         = state.currentGroupSubGroups,
             viewType          = state.folderViewType,
-            sortOption        = state.sortOption,
+            sortOption        = state.currentGroupSortOption,
+            groupsAlwaysOnTop = state.groupsAlwaysOnTop,
             isSelectionMode   = state.isSelectionMode,
             selectedFolderIds = state.selectedFolderIds,
             selectedGroupIds  = state.selectedGroupIds,
@@ -190,8 +218,9 @@ fun VideoListScreen(
             onCycleViewType      = { viewModel.cycleFolderViewType() },
             onAddFolder          = { viewModel.showAddFolderToGroup() },
             onRenameGroup        = { viewModel.showRenameGroupDialog() },
+            onHideAlbums         = { viewModel.showHideFoldersScreenForCurrentGroup() },
             onDestroyGroup       = { viewModel.showDestroyGroupDialog() },
-            onSortOptionSelected = { viewModel.setSortOption(it) },
+            onSortOptionSelected = { viewModel.setCurrentGroupSortOption(it) },
             onDelete             = { viewModel.showDeleteDialog() },
             onGroup              = { viewModel.showGroupNameDialogForBottomBar() },
             onSelectAll          = { viewModel.selectAllInGroup() },
@@ -445,29 +474,101 @@ fun VideoListScreen(
         return
     }
 
-    // ── Move / Copy folder picker (full-screen) ──────────────────────────────
-    if (state.showMoveFolderPicker) {
-        FolderPickerScreen(
-            title                   = "Move to",
-            folders                 = state.folders,
-            groups                  = state.rootGroups + state.currentGroupSubGroups,
-            orderedMixedItems       = state.orderedMixedItems,
-            onFolderSelected        = { viewModel.moveSelectedVideos(it) },
-            onBack                  = { viewModel.dismissMoveFolderPicker() },
-            onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
+    // ── Hide folders screen ───────────────────────────────────────────────────
+    if (state.showHideFolders) {
+        val groupHiddenState = state.rootGroupsForHide.associate { group ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in group.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            group.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        val groupSubGroupHiddenState = state.hideScreenGroupSubGroups.associate { sub ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in sub.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            sub.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        HideFoldersScreen(
+            groups                   = state.rootGroupsForHide,
+            ungroupedFolders         = state.ungroupedFoldersForHide,
+            groupFolders             = state.hideScreenGroupFolders,
+            currentGroupId           = state.hideScreenGroupId,
+            currentGroupName         = state.hideScreenGroupName,
+            hiddenFolderPaths        = state.hiddenFolderPaths,
+            groupHiddenState         = groupHiddenState,
+            groupSubGroups           = state.hideScreenGroupSubGroups,
+            groupSubGroupHiddenState = groupSubGroupHiddenState,
+            onGroupOpen              = { viewModel.openGroupInHideScreen(it) },
+            onGroupToggle            = { viewModel.toggleGroupHidden(it) },
+            onFolderToggle           = { viewModel.toggleFolderHidden(it) },
+            onGroupBack              = {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            },
+            onBack                   = { viewModel.dismissHideFoldersScreen() }
         )
         return
     }
+
+    // ── Move / Copy folder picker (full-screen) ──────────────────────────────
+    // Each picker is wrapped in a Box so CopyMoveAndConflictOverlayHost is always rendered
+    // on top — ensures progress and conflict dialogs appear no matter which picker is active.
+    if (state.showMoveFolderPicker) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            FolderPickerScreen(
+                title                   = "Move to",
+                folders                 = state.folders,
+                groups                  = state.rootGroups + state.currentGroupSubGroups,
+                orderedMixedItems       = state.orderedMixedItems,
+                onFolderSelected        = { viewModel.moveSelectedVideos(it) },
+                onBack                  = { viewModel.dismissMoveFolderPicker() },
+                onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
+            )
+            CopyMoveAndConflictOverlayHost(
+                isProgressActive     = progress.isActive,
+                progressTitle        = progress.title,
+                progressCurrent      = progress.current,
+                progressTotal        = progress.total,
+                onCancelProgress     = { viewModel.cancelCopyMove() },
+                conflictFileName     = conflict?.fileName,
+                onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+                onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+                onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
+                onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
+                onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
+                renameActionLabel    = "Keep Both"
+            )
+        }
+        return
+    }
     if (state.showCopyFolderPicker) {
-        FolderPickerScreen(
-            title                   = "Copy to",
-            folders                 = state.folders,
-            groups                  = state.rootGroups + state.currentGroupSubGroups,
-            orderedMixedItems       = state.orderedMixedItems,
-            onFolderSelected        = { viewModel.copySelectedVideos(it) },
-            onBack                  = { viewModel.dismissCopyFolderPicker() },
-            onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
-        )
+        Box(modifier = Modifier.fillMaxSize()) {
+            FolderPickerScreen(
+                title                   = "Copy to",
+                folders                 = state.folders,
+                groups                  = state.rootGroups + state.currentGroupSubGroups,
+                orderedMixedItems       = state.orderedMixedItems,
+                onFolderSelected        = { viewModel.copySelectedVideos(it) },
+                onBack                  = { viewModel.dismissCopyFolderPicker() },
+                onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
+            )
+            CopyMoveAndConflictOverlayHost(
+                isProgressActive     = progress.isActive,
+                progressTitle        = progress.title,
+                progressCurrent      = progress.current,
+                progressTotal        = progress.total,
+                onCancelProgress     = { viewModel.cancelCopyMove() },
+                conflictFileName     = conflict?.fileName,
+                onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+                onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+                onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
+                onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
+                onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
+                renameActionLabel    = "Keep Both"
+            )
+        }
         return
     }
 
@@ -579,7 +680,18 @@ fun VideoListScreen(
                             onSortBy   = { viewModel.showSortDialog() },
                             onViewAs   = { viewModel.showViewAsDialog() },
                             onSettings = { viewModel.showSettings() },
-                            onAbout    = { viewModel.showAbout() }
+                            onAbout    = { viewModel.showAbout() },
+                            extraTopContent = { dismiss ->
+                                com.example.common.ui.components.AppMenuItem(
+                                    text      = "Hide folders",
+                                    onDismiss = dismiss,
+                                    onClick   = { viewModel.showHideFoldersScreen() },
+                                    textColor = LocalVideoColors.current.listFirstText
+                                )
+                                com.example.common.ui.components.AppMenuDivider(
+                                    color = LocalVideoColors.current.dividerColor
+                                )
+                            }
                         )
                     }
                 }
