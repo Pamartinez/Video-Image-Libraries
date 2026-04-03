@@ -208,8 +208,13 @@ class DragDropGridState(
                 lastSwapMs            = 0L
                 wasDragged            = false
                 suppressNextClick     = true
-                // Do NOT enter selection mode here — wait to see if the user actually drags.
-                // Selection mode is entered in onDragEnd() only if the user did not drag.
+                // Enter selection mode immediately when the long-press is recognised —
+                // consistent with DragDropListState — so the bottom bar appears while the
+                // user is still holding their finger down.  If the user then drags, the
+                // reorder path in onDragEnd() fires as normal and selection mode is kept.
+                if (!wasAlreadyInSelectionOnStart) {
+                    onLongPressWithoutDrag?.invoke(info.index)
+                }
             }
     }
 
@@ -226,10 +231,9 @@ class DragDropGridState(
     fun onDragEnd() {
         if (wasDragged) {
             onDragEnd.invoke()
-        } else if (!wasAlreadyInSelectionOnStart && pendingLongPressIndex >= minDragIndex) {
-            // Plain long-press (no movement): fire the selection callback now.
-            onLongPressWithoutDrag?.invoke(pendingLongPressIndex)
         }
+        // onLongPressWithoutDrag is now fired eagerly in onDragStart so nothing
+        // extra is needed here.
         reset()
     }
     fun onDragCancel() { reset() }
