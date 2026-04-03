@@ -178,35 +178,11 @@ class ImageRepository(private val context: Context) {
         }
     }
 
-    // ── Hide / Show Folder (.nomedia) ────────────────────────────────────────
-
-    suspend fun hideFolder(folderPath: String): Boolean = withContext(Dispatchers.IO) {
-        try {
-            val nomedia = File(folderPath, ".nomedia")
-            if (!nomedia.exists()) nomedia.createNewFile() else true
-        } catch (e: Exception) {
-            Log.e("ImageRepository", "Failed to hide folder: $folderPath", e)
-            false
-        }
-    }
-
-    suspend fun showFolder(folderPath: String): Boolean = withContext(Dispatchers.IO) {
-        try {
-            val nomedia = File(folderPath, ".nomedia")
-            if (nomedia.exists()) nomedia.delete() else true
-        } catch (e: Exception) {
-            Log.e("ImageRepository", "Failed to show folder: $folderPath", e)
-            false
-        }
-    }
-
-    fun rescanFolder(folderPath: String) {
-        try {
-            android.media.MediaScannerConnection.scanFile(
-                context, arrayOf(folderPath), null, null
-            )
-        } catch (_: Exception) {}
-    }
+    // ── Hide / Show Folder (app-local — no .nomedia / no MediaStore rescan) ──
+    //
+    // Visibility is managed entirely through AppPreferences.hiddenFolderPaths.
+    // No filesystem writes are performed, so other apps (e.g. Samsung Gallery)
+    // are never affected, and the change is instant with no async race conditions.
 
     // ── Delete Images ───────────────────────────────────────────────────
 

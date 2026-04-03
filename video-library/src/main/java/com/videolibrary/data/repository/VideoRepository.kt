@@ -182,47 +182,11 @@ class VideoRepository(private val context: Context) {
         }
     }
 
-    // ── Hide / Show Folder (.nomedia) ────────────────────────────────────────
-
-    /**
-     * Hides a folder by creating a .nomedia file in it.
-     * Returns true on success. After calling this, trigger a MediaStore rescan.
-     */
-    suspend fun hideFolder(folderPath: String): Boolean = withContext(Dispatchers.IO) {
-        try {
-            val nomedia = File(folderPath, ".nomedia")
-            if (!nomedia.exists()) nomedia.createNewFile() else true
-        } catch (e: Exception) {
-            Log.e("VideoRepository", "Failed to hide folder: $folderPath", e)
-            false
-        }
-    }
-
-    /**
-     * Shows a hidden folder by deleting its .nomedia file.
-     * Returns true on success. After calling this, trigger a MediaStore rescan.
-     */
-    suspend fun showFolder(folderPath: String): Boolean = withContext(Dispatchers.IO) {
-        try {
-            val nomedia = File(folderPath, ".nomedia")
-            if (nomedia.exists()) nomedia.delete() else true
-        } catch (e: Exception) {
-            Log.e("VideoRepository", "Failed to show folder: $folderPath", e)
-            false
-        }
-    }
-
-    /**
-     * Triggers MediaStore to rescan a specific folder path so hiding/showing
-     * takes effect immediately without waiting for the system scanner.
-     */
-    fun rescanFolder(folderPath: String) {
-        try {
-            android.media.MediaScannerConnection.scanFile(
-                context, arrayOf(folderPath), null, null
-            )
-        } catch (_: Exception) {}
-    }
+    // ── Hide / Show Folder (app-local — no .nomedia / no MediaStore rescan) ──
+    //
+    // Visibility is managed entirely through AppPreferences.hiddenFolderPaths.
+    // No filesystem writes are performed, so other apps (e.g. Samsung Gallery)
+    // are never affected, and the change is instant with no async race conditions.
 
     // ── Delete Videos ───────────────────────────────────────────────────
 

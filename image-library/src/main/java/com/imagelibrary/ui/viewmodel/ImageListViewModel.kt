@@ -174,19 +174,23 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun showHideFoldersScreen() {
         val s = _uiState.value
-        val hiddenMeta = preferences.getAllHiddenFolderMeta()
-        val visiblePaths = s.folders.map { it.path }.toSet()
-        // Stubs for hidden folders that are no longer in MediaStore
-        val hiddenStubs = hiddenMeta
-            .filter { (path, _) -> path !in visiblePaths }
-            .map { (path, triple) ->
-                FolderItem(
-                    bucketId  = triple.second, name = triple.first,
-                    itemCount = triple.third,  path = path
-                )
-            }
-        val allFolders = (s.folders + hiddenStubs)
         viewModelScope.launch {
+            // With app-local hiding, all folders are still in MediaStore (no .nomedia written).
+            // Fetch them directly so every FolderItem carries a real latestItemUri (Bug 2 fix).
+            val mediaStoreFolders = repository.getFolders(s.sortOption)
+            // Ghost stubs only for hidden folders that have genuinely been deleted from disk
+            val hiddenMeta      = preferences.getAllHiddenFolderMeta()
+            val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
+            val ghosts = hiddenMeta
+                .filter { (path, _) -> path !in mediaStorePaths }
+                .map { (path, triple) ->
+                    FolderItem(
+                        bucketId  = triple.second, name = triple.first,
+                        itemCount = triple.third,  path = path
+                    )
+                }
+            val allFolders = mediaStoreFolders + ghosts
+
             // getGroupedBucketIds() returns ALL bucket IDs across every group at every
             // nesting level — root groups AND sub-groups — so sub-group albums are
             // correctly excluded from the "ungrouped" list.
@@ -230,16 +234,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val s         = _uiState.value
         val groupId   = s.currentGroupId   ?: return
         val groupName = s.currentGroupName
-        val hiddenMeta   = preferences.getAllHiddenFolderMeta()
-        val visiblePaths = s.folders.map { it.path }.toSet()
-        val hiddenStubs  = hiddenMeta
-            .filter { (path, _) -> path !in visiblePaths }
-            .map { (path, triple) ->
-                FolderItem(bucketId = triple.second, name = triple.first,
-                           itemCount = triple.third, path = path)
-            }
-        val allFolders = s.folders + hiddenStubs
         viewModelScope.launch {
+            // Fetch all MediaStore folders so hidden albums keep their preview thumbnail
+            val mediaStoreFolders = repository.getFolders(s.sortOption)
+            val hiddenMeta        = preferences.getAllHiddenFolderMeta()
+            val mediaStorePaths   = mediaStoreFolders.map { it.path }.toSet()
+            val ghosts = hiddenMeta
+                .filter { (path, _) -> path !in mediaStorePaths }
+                .map { (path, triple) ->
+                    FolderItem(bucketId = triple.second, name = triple.first,
+                               itemCount = triple.third, path = path)
+                }
+            val allFolders = mediaStoreFolders + ghosts
+
             val memberBucketIds = groupRepository.getFolderBucketIdsForGroup(groupId).toSet()
             val subGroups       = groupRepository.getChildGroups(groupId)
             val directFolders   = allFolders
@@ -300,13 +307,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val allAlreadyHidden = paths.all { it in currentHidden }
         viewModelScope.launch {
             if (allAlreadyHidden) {
-                paths.forEach { path -> repository.showFolder(path); preferences.removeHiddenFolderMeta(path) }
+                paths.forEach { path -> preferences.removeHiddenFolderMeta(path) }
                 val newPaths = currentHidden - paths.toSet()
                 preferences.hiddenFolderPaths = newPaths
                 _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
             } else {
                 paths.forEach { path ->
-                    repository.hideFolder(path)
                     val f = groupFolders.find { it.path == path }
                     if (f != null) preferences.saveHiddenFolderMeta(path, f.name, f.bucketId, f.itemCount)
                 }
@@ -314,7 +320,6 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 preferences.hiddenFolderPaths = newPaths
                 _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
             }
-            paths.forEach { repository.rescanFolder(it) }
             silentRefresh()
             scheduleAutoBackup()
         }
@@ -326,19 +331,16 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val currentlyHidden = path in _uiState.value.hiddenFolderPaths
         viewModelScope.launch {
             if (currentlyHidden) {
-                repository.showFolder(path)
                 val newPaths = preferences.hiddenFolderPaths - path
                 preferences.hiddenFolderPaths = newPaths
                 preferences.removeHiddenFolderMeta(path)
                 _uiState.update { s -> s.copy(hiddenFolderPaths = newPaths) }
             } else {
-                repository.hideFolder(path)
                 val newPaths = preferences.hiddenFolderPaths + path
                 preferences.hiddenFolderPaths = newPaths
                 preferences.saveHiddenFolderMeta(path, folder.name, folder.bucketId, folder.itemCount)
                 _uiState.update { s -> s.copy(hiddenFolderPaths = newPaths) }
             }
-            repository.rescanFolder(path)
             silentRefresh()
             scheduleAutoBackup()
         }
@@ -445,15 +447,30 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     private suspend fun loadDataCore() {
         val s = _uiState.value
         val images = repository.getImages(s.imageSortOption)
-        val folders = repository.getFolders(s.sortOption)
+
+        val hiddenPaths = preferences.hiddenFolderPaths
+        // Fetch ALL folders from MediaStore (hidden ones are still there — app-local approach).
+        // The mixed order is computed/saved across ALL so hidden folder keys are retained
+        // in customMixedOrder — their slot is preserved when they're un-hidden (Bug 1 fix).
+        val allFolders = repository.getFolders(s.sortOption)
+        // Visible-only list used for the main view and group detail
+        val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 
         val rootGroups = groupRepository.getRootGroups()
         val groupedBucketIds = groupRepository.getGroupedBucketIds()
-        val ungroupedFolders = folders.filter { it.bucketId !in groupedBucketIds }
+        // allUngroupedFolders (including hidden) feeds applyCustomMixedOrder so hidden
+        // folder keys stay in customMixedOrder; ungroupedFolders is the display list.
+        val allUngroupedFolders = allFolders.filter { it.bucketId !in groupedBucketIds }
+        val ungroupedFolders    = allUngroupedFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
         val allGroups = groupRepository.getAllGroups()
 
         val orderedMixed = if (s.sortOption == SortOption.CUSTOM_ORDER) {
-            applyCustomMixedOrder(rootGroups, ungroupedFolders)
+            // Compute/save order using ALL ungrouped so positions survive hide/un-hide;
+            // then strip hidden entries from the list that's actually rendered.
+            val withHidden = applyCustomMixedOrder(rootGroups, allUngroupedFolders)
+            withHidden.filter { item ->
+                item !is FolderItem || item.path.isBlank() || item.path !in hiddenPaths
+            }
         } else {
             sortMixedItems(rootGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
         }
