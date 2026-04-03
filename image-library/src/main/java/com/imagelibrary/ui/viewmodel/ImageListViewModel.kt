@@ -89,6 +89,10 @@ data class ImageListUiState(
     // ── Unified ordered mixed display list (groups + ungrouped folders interleaved) ──
     val orderedMixedItems: List<Any> = emptyList(),
 
+    /** Per-group custom sort orders, forwarded to FolderPickerScreen so the picker
+     *  respects the same drag order as the group detail screen. */
+    val allGroupCustomOrders: Map<Long, List<String>> = emptyMap(),
+
     // ── Move-to-group picker ──
     val showMoveToGroupPicker: Boolean = false,
     val moveToGroupFolderIds: Set<Int> = emptySet(),
@@ -462,6 +466,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 ungroupedFolders = ungroupedFolders,
                 orderedMixedItems = orderedMixed,
                 allGroups = allGroups,
+                allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
                 isLoading = false
             )
         }

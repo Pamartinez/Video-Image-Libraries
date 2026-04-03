@@ -101,6 +101,9 @@ data class VideoListUiState(
     val ungroupedFolders: List<FolderItem> = emptyList(),
     /** Interleaved display order of GroupItems and FolderItems for the Folders tab. */
     val orderedMixedItems: List<Any> = emptyList(),
+    /** Per-group custom sort orders, forwarded to FolderPickerScreen so the picker
+     *  respects the same drag order as the group detail screen. */
+    val allGroupCustomOrders: Map<Long, List<String>> = emptyMap(),
 
     // ── Group navigation (stack-based) ────────────────────────────────
     val currentGroupId: Long? = null,
@@ -497,13 +500,14 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
         _uiState.update {
             it.copy(
-                videos            = videos,
-                folders           = folders,
-                rootGroups        = rootGroups,
-                ungroupedFolders  = ungroupedFolders,
-                orderedMixedItems = orderedMixed,
-                isLoading         = false,
-                scrollToTopTrigger = if (scrollToTop) it.scrollToTopTrigger + 1 else it.scrollToTopTrigger
+                videos               = videos,
+                folders              = folders,
+                rootGroups           = rootGroups,
+                ungroupedFolders     = ungroupedFolders,
+                orderedMixedItems    = orderedMixed,
+                allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
+                isLoading            = false,
+                scrollToTopTrigger   = if (scrollToTop) it.scrollToTopTrigger + 1 else it.scrollToTopTrigger
             )
         }
         // Allow the ContentObserver to fire again after our refresh is complete
