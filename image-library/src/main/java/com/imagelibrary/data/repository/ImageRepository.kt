@@ -106,6 +106,9 @@ class ImageRepository(private val context: Context) {
         sortOption: SortOption = SortOption.CUSTOM_ORDER
     ): List<FolderItem> = withContext(Dispatchers.IO) {
         val folderMap = mutableMapOf<Int, FolderItem>()
+        // Track the best (highest) dateTaken per bucket so the cover image
+        // matches Samsung Gallery's selection logic (max datetaken, _id DESC).
+        val latestDateTakenMap = mutableMapOf<Int, Long>()
 
         @Suppress("DEPRECATION")
         val projection = arrayOf(
@@ -113,13 +116,16 @@ class ImageRepository(private val context: Context) {
             MediaStore.Images.Media.BUCKET_ID,
             MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
             MediaStore.Images.Media.DATE_MODIFIED,
+            MediaStore.Images.Media.DATE_TAKEN,
             MediaStore.Images.Media.DATA
         )
 
         @Suppress("DEPRECATION")
         val selection = "length(trim(${MediaStore.Images.Media.DATA})) > 0"
 
-        val sortOrderStr = "${MediaStore.Images.Media.DATE_MODIFIED} DESC"
+        // Sort by DATE_TAKEN DESC so the first row per bucket is already the cover candidate.
+        // Using DATE_TAKEN (EXIF capture time) matches Samsung Gallery and is stable across edits.
+        val sortOrderStr = "${MediaStore.Images.Media.DATE_TAKEN} DESC, ${MediaStore.Images.Media._ID} DESC"
 
         try {
             contentResolver.query(imageUri, projection, selection, null, sortOrderStr)?.use { cursor ->
@@ -129,36 +135,41 @@ class ImageRepository(private val context: Context) {
                 @Suppress("DEPRECATION")
                 val bucketNameCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
                 val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_MODIFIED)
+                val dateTakenCol    = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
                 @Suppress("DEPRECATION")
                 val dataCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
 
                 while (cursor.moveToNext()) {
-                    val id = cursor.getLong(idCol)
-                    val bId = cursor.getInt(bucketIdCol)
-                    val bName = cursor.getString(bucketNameCol) ?: ""
+                    val id          = cursor.getLong(idCol)
+                    val bId         = cursor.getInt(bucketIdCol)
+                    val bName       = cursor.getString(bucketNameCol) ?: ""
                     val dateModified = cursor.getLong(dateModifiedCol)
-                    val dataPath = cursor.getString(dataCol) ?: ""
-                    val folderPath = File(dataPath).parent ?: ""
+                    val dateTaken   = cursor.getLong(dateTakenCol)
+                    val dataPath    = cursor.getString(dataCol) ?: ""
+                    val folderPath  = File(dataPath).parent ?: ""
 
                     val existing = folderMap[bId]
                     if (existing != null) {
+                        val bestTaken = latestDateTakenMap[bId] ?: 0L
+                        val isBetterCover = dateTaken > bestTaken
+                        if (isBetterCover) latestDateTakenMap[bId] = dateTaken
                         folderMap[bId] = existing.copy(
-                            itemCount = existing.itemCount + 1,
+                            itemCount          = existing.itemCount + 1,
                             latestDateModified = maxOf(existing.latestDateModified, dateModified),
-                            latestItemUri = if (dateModified > existing.latestDateModified) {
+                            latestItemUri      = if (isBetterCover)
                                 ContentUris.withAppendedId(imageUri, id)
-                            } else {
+                            else
                                 existing.latestItemUri
-                            }
                         )
                     } else {
+                        latestDateTakenMap[bId] = dateTaken
                         folderMap[bId] = FolderItem(
-                            bucketId = bId,
-                            name = bName,
-                            itemCount = 1,
-                            latestItemUri = ContentUris.withAppendedId(imageUri, id),
+                            bucketId           = bId,
+                            name               = bName,
+                            itemCount          = 1,
+                            latestItemUri      = ContentUris.withAppendedId(imageUri, id),
                             latestDateModified = dateModified,
-                            path = folderPath
+                            path               = folderPath
                         )
                     }
                 }
@@ -170,10 +181,10 @@ class ImageRepository(private val context: Context) {
         // Apply sorting
         val folders = folderMap.values.toList()
         when (sortOption) {
-            SortOption.CUSTOM_ORDER -> folders  // raw order; ViewModel applies persisted custom order
-            SortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
-            SortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
-            SortOption.ITEMS_MOST_FIRST -> folders.sortedByDescending { it.itemCount }
+            SortOption.CUSTOM_ORDER       -> folders  // raw order; ViewModel applies persisted custom order
+            SortOption.NAME_A_TO_Z        -> folders.sortedBy { it.name.lowercase() }
+            SortOption.NAME_Z_TO_A        -> folders.sortedByDescending { it.name.lowercase() }
+            SortOption.ITEMS_MOST_FIRST   -> folders.sortedByDescending { it.itemCount }
             SortOption.ITEMS_FEWEST_FIRST -> folders.sortedBy { it.itemCount }
         }
     }
@@ -308,12 +319,17 @@ class ImageRepository(private val context: Context) {
             SortType.DATE      -> "${MediaStore.Images.Media.DATE_MODIFIED} $direction, ${MediaStore.Images.Media._ID} $direction"
             SortType.TITLE     -> "${MediaStore.Images.Media.DISPLAY_NAME} COLLATE NOCASE $direction"
             SortType.DATE_ADDED -> "${MediaStore.Images.Media.DATE_ADDED} $direction, ${MediaStore.Images.Media._ID} $direction"
+            // EXIF capture time — identical to Samsung Gallery's default (datetaken DESC, _id DESC).
+            // Stable: editing a photo updates DATE_MODIFIED but never DATE_TAKEN.
+            SortType.DATE_TAKEN -> "${MediaStore.Images.Media.DATE_TAKEN} $direction, ${MediaStore.Images.Media._ID} $direction"
         }
     }
 
     private fun imageSortOptionToTypeOrder(imageSortOption: ImageSortOption): Pair<SortType, SortOrder> {
         return when (imageSortOption) {
-            ImageSortOption.CUSTOM_ORDER      -> SortType.DATE to SortOrder.DESCENDING
+            // DATE_TAKEN matches Samsung Gallery's default sort (datetaken DESC, _id DESC).
+            // Unlike DATE_MODIFIED, it never changes when a photo is edited → sort is edit-stable.
+            ImageSortOption.CUSTOM_ORDER      -> SortType.DATE_TAKEN to SortOrder.DESCENDING
             ImageSortOption.NAME_A_TO_Z       -> SortType.TITLE to SortOrder.ASCENDING
             ImageSortOption.NAME_Z_TO_A       -> SortType.TITLE to SortOrder.DESCENDING
             ImageSortOption.DATE_CREATED_ASC  -> SortType.DATE_ADDED to SortOrder.ASCENDING

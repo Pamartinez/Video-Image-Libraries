@@ -30,7 +30,11 @@ enum class ImageSortOption(val id: Int, val label: String) {
 enum class SortType(val id: Int) {
     DATE(0),
     TITLE(1),
-    DATE_ADDED(2);
+    DATE_ADDED(2),
+    /** MediaStore.Images.Media.DATE_TAKEN — EXIF capture time.
+     *  Unlike DATE_MODIFIED, this never changes when a photo is edited,
+     *  so custom-order sort stays stable. Matches Samsung Gallery's default. */
+    DATE_TAKEN(3);
 
     companion object {
         fun fromId(id: Int): SortType = entries.firstOrNull { it.id == id } ?: DATE
