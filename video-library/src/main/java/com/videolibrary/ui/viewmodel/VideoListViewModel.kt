@@ -197,10 +197,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showHideFoldersScreen() {
         val s = _uiState.value
         viewModelScope.launch {
-            // With app-local hiding, all folders are still in MediaStore (no .nomedia written).
-            // Fetch them directly so every FolderItem carries a real latestItemUri (Bug 2 fix).
             val mediaStoreFolders = repository.getFolders(s.sortOption)
-            // Ghost stubs only for hidden folders that have genuinely been deleted from disk
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -211,18 +208,23 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 }
             val allFolders = mediaStoreFolders + ghosts
 
-            // getGroupedBucketIds() returns ALL bucket IDs across every group at every
-            // nesting level — root groups AND sub-groups — so sub-group albums are
-            // correctly excluded from the "ungrouped" list.
             val groupedBucketIds = groupRepository.getGroupedBucketIds()
             val ungrouped = allFolders.filter { it.bucketId !in groupedBucketIds }
-                .sortedBy { it.name.lowercase() }
+
+            // Apply the same sort as the root view
+            val (sortedGroups, sortedUngrouped) = sortHideScreenItems(
+                groups            = s.rootGroups,
+                folders           = ungrouped,
+                sortOption        = s.sortOption,
+                groupsAlwaysOnTop = s.groupsAlwaysOnTop,
+                groupId           = null
+            )
             _uiState.update {
                 it.copy(
                     showHideFolders         = true,
                     allFoldersForHide       = allFolders,
-                    rootGroupsForHide       = s.rootGroups.sortedBy { g -> g.name.lowercase() },
-                    ungroupedFoldersForHide = ungrouped,
+                    rootGroupsForHide       = sortedGroups,
+                    ungroupedFoldersForHide = sortedUngrouped,
                     hiddenFolderPaths       = preferences.hiddenFolderPaths,
                     hideScreenGroupId       = null,
                     hideScreenGroupName     = "",
@@ -255,7 +257,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val groupId   = s.currentGroupId   ?: return
         val groupName = s.currentGroupName
         viewModelScope.launch {
-            // Fetch all MediaStore folders so hidden albums keep their preview thumbnail
             val mediaStoreFolders = repository.getFolders(s.sortOption)
             val hiddenMeta        = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths   = mediaStoreFolders.map { it.path }.toSet()
@@ -269,9 +270,16 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
             val memberBucketIds = groupRepository.getFolderBucketIdsForGroup(groupId).toSet()
             val subGroups       = groupRepository.getChildGroups(groupId)
-            val directFolders   = allFolders
-                .filter { it.bucketId in memberBucketIds }
-                .sortedBy { it.name.lowercase() }
+            val directFolders   = allFolders.filter { it.bucketId in memberBucketIds }
+
+            // Apply the same sort as the group detail view
+            val (sortedSubGroups, sortedFolders) = sortHideScreenItems(
+                groups            = subGroups,
+                folders           = directFolders,
+                sortOption        = s.currentGroupSortOption,
+                groupsAlwaysOnTop = s.groupsAlwaysOnTop,
+                groupId           = groupId
+            )
             _uiState.update {
                 it.copy(
                     showHideFolders              = true,
@@ -281,8 +289,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     ungroupedFoldersForHide      = emptyList(),
                     hideScreenGroupId            = groupId,
                     hideScreenGroupName          = groupName,
-                    hideScreenGroupFolders       = directFolders,
-                    hideScreenGroupSubGroups     = subGroups,
+                    hideScreenGroupFolders       = sortedFolders,
+                    hideScreenGroupSubGroups     = sortedSubGroups,
                     hideScreenStartedInsideGroup = true
                 )
             }
@@ -293,14 +301,21 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val groupFolders = _uiState.value.allFoldersForHide
                 .filter { it.bucketId in group.memberBucketIds }
-                .sortedBy { it.name.lowercase() }
-            val subGroups = groupRepository.getChildGroups(group.groupId)
+            val subGroups  = groupRepository.getChildGroups(group.groupId)
+            val sortOption = preferences.getGroupSortOption(group.groupId)
+            val (sortedSubGroups, sortedFolders) = sortHideScreenItems(
+                groups            = subGroups,
+                folders           = groupFolders,
+                sortOption        = sortOption,
+                groupsAlwaysOnTop = _uiState.value.groupsAlwaysOnTop,
+                groupId           = group.groupId
+            )
             _uiState.update {
                 it.copy(
                     hideScreenGroupId        = group.groupId,
                     hideScreenGroupName      = group.name,
-                    hideScreenGroupFolders   = groupFolders,
-                    hideScreenGroupSubGroups = subGroups
+                    hideScreenGroupFolders   = sortedFolders,
+                    hideScreenGroupSubGroups = sortedSubGroups
                 )
             }
         }
@@ -340,7 +355,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
             }
             silentRefresh()
-            scheduleAutoBackup()
+            // Only back up hidden-album changes when auto-backup is enabled
+            if (preferences.autoBackupEnabled) {
+                withContext(Dispatchers.IO) {
+                    com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+                }
+            }
         }
     }
 
@@ -361,7 +381,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 _uiState.update { s -> s.copy(hiddenFolderPaths = newPaths) }
             }
             silentRefresh()
-            scheduleAutoBackup()
+            // Only back up hidden-album changes when auto-backup is enabled
+            if (preferences.autoBackupEnabled) {
+                withContext(Dispatchers.IO) {
+                    com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+                }
+            }
         }
     }
 
@@ -507,15 +532,27 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val allUngroupedFolders = allFolders.filter { it.bucketId !in groupedIds }
         val ungroupedFolders    = allUngroupedFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 
+        // Lookup: bucketId → path, used to determine group visibility
+        val bucketPathMap = allFolders.associate { it.bucketId to it.path }
+        // A group is visible only when at least one of its member folders is not hidden
+        fun isGroupVisible(group: GroupItem) = group.memberBucketIds.any { id ->
+            val p = bucketPathMap[id]; p.isNullOrBlank() || p !in hiddenPaths
+        }
+
         val orderedMixed = if (s.sortOption == FolderSortOption.CUSTOM_ORDER) {
             // Compute & save order using ALL ungrouped so positions survive hide/un-hide;
             // then strip the hidden entries from the list that's actually rendered.
             val withHidden = applyCustomMixedOrder(rootGroups, allUngroupedFolders)
             withHidden.filter { item ->
-                item !is FolderItem || item.path.isBlank() || item.path !in hiddenPaths
+                when (item) {
+                    is FolderItem -> item.path.isBlank() || item.path !in hiddenPaths
+                    is GroupItem  -> isGroupVisible(item)
+                    else          -> true
+                }
             }
         } else {
-            sortMixedItems(rootGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
+            val visibleGroups = rootGroups.filter { isGroupVisible(it) }
+            sortMixedItems(visibleGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
         }
 
         _uiState.update {
@@ -532,6 +569,30 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         // Allow the ContentObserver to fire again after our refresh is complete
         isInternalChange.set(false)
+
+        // If a group is open, keep its folder list in sync with the freshly filtered `folders`
+        val openGroupId = _uiState.value.currentGroupId
+        if (openGroupId != null) {
+            val gBucketIds    = groupRepository.getFolderBucketIdsForGroup(openGroupId).toSet()
+            val gAllSubGroups = groupRepository.getChildGroups(openGroupId)
+            val gFolders      = folders.filter { it.bucketId in gBucketIds }
+            // Hide sub-groups whose every direct album is hidden (same rule as root)
+            val gSubGroups    = gAllSubGroups.filter { sub ->
+                sub.memberBucketIds.isEmpty() || isGroupVisible(sub)
+            }
+            val gSortOpt   = _uiState.value.currentGroupSortOption
+            val gOrdered   = if (gSortOpt == FolderSortOption.CUSTOM_ORDER)
+                applyCustomGroupMixedOrder(openGroupId, gSubGroups, gFolders)
+            else
+                sortMixedItems(gSubGroups + gFolders, gSortOpt, _uiState.value.groupsAlwaysOnTop)
+            _uiState.update {
+                it.copy(
+                    currentGroupFolders           = gFolders,
+                    currentGroupSubGroups         = gSubGroups,
+                    currentGroupOrderedMixedItems = gOrdered
+                )
+            }
+        }
     }
 
     /**
@@ -603,6 +664,39 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         } else {
             sortList(items)
         }
+    }
+
+    /**
+     * Sorts [groups] and [folders] for the Hide Folders screen using [sortOption].
+     * For CUSTOM_ORDER, restores the saved drag order (read-only — nothing is persisted).
+     * Returns (sortedGroups, sortedFolders) as separate lists matching the screen's contract.
+     *
+     * @param groupId Non-null → use the group's saved mixed order; null → use root mixed order.
+     */
+    private fun sortHideScreenItems(
+        groups: List<GroupItem>,
+        folders: List<FolderItem>,
+        sortOption: FolderSortOption,
+        groupsAlwaysOnTop: Boolean,
+        groupId: Long?
+    ): Pair<List<GroupItem>, List<FolderItem>> {
+        if (sortOption == FolderSortOption.CUSTOM_ORDER) {
+            val savedOrder = if (groupId != null)
+                preferences.getGroupMixedOrder(groupId)
+            else
+                preferences.customMixedOrder
+            if (savedOrder.isEmpty()) return groups to folders
+            val groupMap  = groups.associateBy  { "g_${it.groupId}"  }
+            val folderMap = folders.associateBy { "f_${it.bucketId}" }
+            val savedSet  = savedOrder.toSet()
+            val newGroups  = groups.filter  { "g_${it.groupId}"  !in savedSet }
+            val newFolders = folders.filter { "f_${it.bucketId}" !in savedSet }
+            val ordered    = savedOrder.mapNotNull { groupMap[it] ?: folderMap[it] }
+            val result     = newGroups + newFolders + ordered
+            return result.filterIsInstance<GroupItem>() to result.filterIsInstance<FolderItem>()
+        }
+        val sorted = sortMixedItems(groups + folders, sortOption, groupsAlwaysOnTop)
+        return sorted.filterIsInstance<GroupItem>() to sorted.filterIsInstance<FolderItem>()
     }
 
     fun selectTab(tab: Int) { preferences.selectedTab = tab; _uiState.update { it.copy(selectedTab = tab) } }
@@ -697,10 +791,15 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
-            val subGroups = groupRepository.getChildGroups(groupId)
+            val allSubGroups = groupRepository.getChildGroups(groupId)
             // Filter from the globally-sorted folders list so non-custom sorts display correctly
             val bucketIdSet = bucketIds.toSet()
             val folders = s.folders.filter { it.bucketId in bucketIdSet }
+            // Hide sub-groups whose every direct album is hidden
+            val visibleBucketSet = s.folders.map { it.bucketId }.toSet()
+            val subGroups = allSubGroups.filter { sub ->
+                sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
+            }
             // Use the group's own independent sort option
             val groupSortOption = s.currentGroupSortOption
             val orderedMixed = if (groupSortOption == FolderSortOption.CUSTOM_ORDER) {
@@ -1508,29 +1607,35 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
     }
 
-    /** Restore from Documents/VideoLibrary/backups/backup.json — runs on IO then refreshes state. */
+    /**
+     * Restore from Documents/VideoLibrary/backups/backup.json.
+     * Suspends until [loadDataCore] finishes so the caller only receives `true`
+     * once the list is fully settled — hidden albums and custom positions are
+     * already in their final state before navigation occurs.
+     */
     suspend fun restoreBackupFromFile(): Boolean {
         isRestoringBackup = true
         val ok = withContext(Dispatchers.IO) {
             com.videolibrary.data.util.BackupManager.restoreBackupFromFile(getApplication())
         }
-        if (ok) refreshStateAfterRestore() else isRestoringBackup = false
-        return ok
-    }
-
-    private fun refreshStateAfterRestore() {
-        isRestoringBackup = false
-        _uiState.update {
-            it.copy(
-                viewType             = preferences.viewType,
-                folderViewType       = preferences.folderViewType,
-                sortOption           = preferences.folderSortOption,
-                videoSortOption      = preferences.videoSortOption,
-                instantPlayerEnabled = preferences.instantPlayerEnabled,
-                autoBackupEnabled    = preferences.autoBackupEnabled
-            )
+        if (ok) {
+            isRestoringBackup = false
+            _uiState.update {
+                it.copy(
+                    viewType             = preferences.viewType,
+                    folderViewType       = preferences.folderViewType,
+                    sortOption           = preferences.folderSortOption,
+                    videoSortOption      = preferences.videoSortOption,
+                    instantPlayerEnabled = preferences.instantPlayerEnabled,
+                    autoBackupEnabled    = preferences.autoBackupEnabled
+                )
+            }
+            // Await full reload so the UI is settled before the caller navigates away
+            loadDataCore()
+        } else {
+            isRestoringBackup = false
         }
-        loadData()
+        return ok
     }
 
 

@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,12 +37,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.ui.theme.LocalLibraryColors
 
 /**
  * Samsung Gallery-style bottom-sheet progress popup for move/copy operations.
- * The progress bar uses the app's primary colour (via [LocalLibraryColors]) and
- * has a rounded border so it matches the app theme.
+ * Progress bar uses the Samsung One UI signature gradient:
+ *   blue (#4169FF) → teal (#2196C4) → green (#29C76F)
  */
 @Composable
 fun CopyMoveProgressDialog(
@@ -51,13 +51,13 @@ fun CopyMoveProgressDialog(
     onCancel: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val libraryColors = LocalLibraryColors.current
-    val primary = libraryColors.primary
-
-    // Clean 2-stop gradient: app primary blue → soft emerald green (matches screenshot)
+    // Samsung One UI signature gradient: blue → teal → green
     val gradientColors = listOf(
-        primary,
-        Color(0xFF4ADE80)
+        Color(0xFF2196C4),
+        Color(0xFF29C76F),
+        Color(0xFF4169FF),  // vivid blue
+        Color(0xFF2196C4),  // teal
+        Color(0xFF29C76F)   // vivid green
     )
     val trackColor  = Color(0xFF3A3A3A)
     val trackShape  = RoundedCornerShape(50)   // fully pill-shaped
@@ -66,8 +66,7 @@ fun CopyMoveProgressDialog(
     val animatedFraction by animateFloatAsState(
         targetValue    = fraction,
         animationSpec  = tween(durationMillis = 300),
-        label          = "progress"
-    )
+        label          = "progress"    )
     val percent = (animatedFraction * 100).toInt()
 
     Box(
@@ -109,8 +108,9 @@ fun CopyMoveProgressDialog(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    // ── Progress bar: rounded track + gradient fill + border ──
-                    Box(
+                    // ── Progress bar: BoxWithConstraints anchors the gradient to the
+                    //    full track width so the fill progressively reveals blue→teal→green
+                    BoxWithConstraints(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(8.dp)
@@ -120,12 +120,13 @@ fun CopyMoveProgressDialog(
                                 brush = Brush.linearGradient(
                                     colors = gradientColors,
                                     start  = Offset.Zero,
-                                    end    = Offset(Float.MAX_VALUE, 0f)
+                                    end    = Offset(Float.POSITIVE_INFINITY, 0f)
                                 ),
                                 shape = trackShape
                             )
                             .background(trackColor)
                     ) {
+                        val fullWidthPx = constraints.maxWidth.toFloat()
                         Box(
                             modifier = Modifier
                                 .fillMaxHeight()
@@ -135,7 +136,7 @@ fun CopyMoveProgressDialog(
                                     Brush.linearGradient(
                                         colors = gradientColors,
                                         start  = Offset.Zero,
-                                        end    = Offset(Float.MAX_VALUE, 0f)
+                                        end    = Offset(fullWidthPx, 0f)
                                     )
                                 )
                         )
@@ -170,7 +171,7 @@ fun CopyMoveProgressDialog(
                                 text       = "Cancel",
                                 fontSize   = 17.sp,
                                 fontWeight = FontWeight.Medium,
-                                color      = primary
+                                color      = Color(0xFF4169FF)
                             )
                         }
                     }

@@ -272,7 +272,7 @@ fun ImageListScreen(
             onEdit = { viewModel.enterSelectionMode() },
             onSelectAll = {
                 val allSelected = state.folderImages.isNotEmpty() && state.selectedImageIds.size == state.folderImages.size
-                if (allSelected) viewModel.deselectAllImages() else state.folderImages.forEach { viewModel.toggleImageSelection(it.id) }
+                if (allSelected) viewModel.deselectAllImages() else viewModel.selectAllImages()
             },
             onSortBy = { viewModel.showSortDialog() },
             onViewAs = { viewModel.showViewAsDialog() },

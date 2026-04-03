@@ -150,6 +150,7 @@ fun SharedSettingsScreen(
                             else    "Restore failed — backup.json not found or invalid",
                             Toast.LENGTH_SHORT
                         ).show()
+                        if (ok) onBack()
                     }
                 }
 

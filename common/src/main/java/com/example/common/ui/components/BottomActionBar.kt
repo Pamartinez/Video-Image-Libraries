@@ -80,18 +80,18 @@ fun BottomActionBar(
         Surface(
             modifier = Modifier
                 .navigationBarsPadding()
-                .padding(bottom = 12.dp),
+                .padding(bottom = 20.dp),
             shape          = RoundedCornerShape(50.dp),
-            color          = Color(0xCC2A2A2A),
+            color          = Color(0xE6202020),
             shadowElevation = 24.dp,
             tonalElevation  = 0.dp
         ) {
             Row(
                 // Samsung Gallery dimens:
-                //   bottom_bar_layout_container_padding_horizontal = 10 dp
-                //   bottom_menu_list_circle_item_horizontal_gap    =  4 dp
-                // Items are self-contained at 58 dp height → no vertical padding needed.
-                modifier = Modifier.padding(horizontal = 10.dp),
+                //   bottom_bar_layout_container_padding_horizontal = 8 dp
+                //   bottom_menu_list_circle_item_horizontal_gap    = 4 dp
+                //   vertical padding (top + bottom inside pill)    = 10 dp each side
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 10.dp),
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment     = Alignment.CenterVertically
             ) {
@@ -200,14 +200,13 @@ fun BottomBarItem(
             tint     = Color.White,
             modifier = Modifier.size(24.dp)  // bottom_menu_list_circle_item_icon_size
         )
-        Spacer(modifier = Modifier.height(4.dp))  // bottom_menu_list_circle_item_text_margin_top
+        //Spacer(modifier = Modifier.height(4.dp))  // bottom_menu_list_circle_item_text_margin_top
         Text(
             text       = label,
             fontSize   = 12.sp,              // bottom_menu_list_view_holder_text_size
-            fontWeight = FontWeight.Medium,
+            fontWeight = FontWeight.Light,
             maxLines   = 1,
             color      = Color.White
         )
     }
 }
-

@@ -371,7 +371,7 @@ fun VideoListScreen(
                 val allSelected = state.folderVideos.isNotEmpty() &&
                         state.selectedVideoIds.size == state.folderVideos.size
                 if (allSelected) viewModel.deselectAllVideos()
-                else state.folderVideos.forEach { viewModel.toggleVideoSelection(it.id) }
+                else viewModel.selectAllVideos()
             },
             onSortBy           = { viewModel.showSortDialog() },
             onViewAs           = { viewModel.showViewAsDialog() },
