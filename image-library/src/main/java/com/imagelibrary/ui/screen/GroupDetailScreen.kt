@@ -157,7 +157,7 @@ fun GroupDetailScreen(
             }
         },
         onDragEnd = onReorderDone,
-        onLongPressItem = { index ->
+        onLongPressWithoutDrag = { index ->
             mixedItems.getOrNull(index)?.let { item ->
                 when (item) {
                     is MixedItem.Folder -> onFolderLongClick(item.folder)

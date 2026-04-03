@@ -1,19 +1,28 @@
 package com.example.common.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.automirrored.filled.ViewList
+import androidx.compose.material.icons.filled.Apps
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
@@ -27,8 +36,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.common.ui.theme.LocalLibraryColors
+import androidx.compose.ui.unit.sp
+import com.example.common.data.model.ViewType
 
 // ── Back button ──────────────────────────────────────────────────────────────
 
@@ -216,3 +228,149 @@ fun FolderContextMenu(
     }
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ViewTypeToggleButton
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Icon button that cycles through LIST → GRID_LARGE → GRID_SMALL.
+ * Uses [LocalLibraryColors] so it adapts to both library themes.
+ */
+@Composable
+fun ViewTypeToggleButton(
+    viewType: ViewType,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val colors = LocalLibraryColors.current
+    IconButton(onClick = onClick, modifier = modifier.size(40.dp)) {
+        Icon(
+            imageVector = when (viewType) {
+                ViewType.LIST       -> Icons.AutoMirrored.Filled.ViewList
+                ViewType.GRID_SMALL -> Icons.Default.GridView
+                ViewType.GRID_LARGE -> Icons.Default.Apps
+            },
+            contentDescription = "Change view",
+            tint               = colors.iconColor,
+            modifier           = Modifier.size(22.dp)
+        )
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SelectionModeHeader  (video-library style: circle toggle + count + Cancel)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Selection-mode header row: circle select-all toggle + selected count + Cancel pill.
+ * Designed as a [RowScope] extension so it composes naturally inside a [Row].
+ */
+@Composable
+fun RowScope.SelectionModeHeader(
+    selectedCount: Int,
+    totalCount: Int,
+    onSelectAll: () -> Unit,
+    onCancel: () -> Unit
+) {
+    val allSelected = totalCount > 0 && selectedCount == totalCount
+
+    Box(
+        modifier = Modifier
+            .size(28.dp)
+            .clip(CircleShape)
+            .then(
+                if (allSelected) Modifier.background(Color.White)
+                else Modifier.border(2.dp, Color.White, CircleShape)
+            )
+            .clickable { onSelectAll() },
+        contentAlignment = Alignment.Center
+    ) {
+        if (allSelected) {
+            Icon(
+                Icons.Default.Check,
+                contentDescription = "Deselect all",
+                tint               = Color.Black,
+                modifier           = Modifier.size(18.dp)
+            )
+        }
+    }
+
+    Spacer(Modifier.width(12.dp))
+
+    Text(
+        text       = "$selectedCount",
+        fontSize   = 22.sp,
+        fontWeight = FontWeight.Bold,
+        color      = Color.White,
+        modifier   = Modifier.weight(1f)
+    )
+
+    PillButton(text = "Cancel", onClick = onCancel)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SelectionHeader  (image-library style: Close icon + "N selected" + Select-all pill)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Alternative selection-mode header used by image-library.
+ * Shows a Close icon-button, an "N selected" label, and a "Select all / Deselect all" pill.
+ */
+@Composable
+fun RowScope.SelectionHeader(
+    selectedCount: Int,
+    allSelected: Boolean,
+    onSelectAll: () -> Unit,
+    onCancel: () -> Unit
+) {
+    IconButton(onClick = onCancel) {
+        Icon(
+            Icons.Default.Close,
+            contentDescription = "Cancel selection",
+            tint               = Color.White,
+            modifier           = Modifier.size(24.dp)
+        )
+    }
+    Text(
+        text       = "$selectedCount selected",
+        fontSize   = 18.sp,
+        fontWeight = FontWeight.SemiBold,
+        color      = Color.White,
+        modifier   = Modifier.weight(1f)
+    )
+    PillButton(
+        text    = if (allSelected) "Deselect all" else "Select all",
+        onClick = onSelectAll
+    )
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PillButton
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Small pill-shaped clickable button used in selection headers and bottom bars.
+ */
+@Composable
+fun PillButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    containerColor: Color = Color(0xFF3A3A3A)
+) {
+    Surface(
+        modifier = modifier.clickable(enabled = enabled, onClick = onClick),
+        shape    = RoundedCornerShape(50),
+        color    = containerColor
+    ) {
+        Text(
+            text       = text,
+            fontSize   = 14.sp,
+            fontWeight = FontWeight.Medium,
+            color      = if (enabled) Color.White else Color.White.copy(alpha = 0.4f),
+            modifier   = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+        )
+    }
+}

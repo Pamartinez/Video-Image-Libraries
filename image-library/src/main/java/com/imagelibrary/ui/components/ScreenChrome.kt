@@ -1,39 +1,17 @@
 package com.imagelibrary.ui.components
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Apps
-import androidx.compose.material.icons.filled.GridView
-import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.imagelibrary.data.model.ViewType
-import com.imagelibrary.ui.theme.LocalImageColors
+import com.example.common.data.model.ViewType
+import com.example.common.ui.components.ViewTypeToggleButton as CommonViewTypeToggleButton
 
 /**
- * View-type toggle icon button (GRID_LARGE ↔ GRID_SMALL).
+ * Delegates to the shared [CommonViewTypeToggleButton] in common.
+ * Kept here so existing import paths in image-library screens stay unchanged.
  */
 @Composable
 fun ViewTypeToggleButton(
     viewType: ViewType,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
-) {
-    val colors = LocalImageColors.current
-    IconButton(
-        onClick = onClick,
-        modifier = modifier.size(40.dp)
-    ) {
-        Icon(
-            imageVector = when (viewType) {
-                ViewType.GRID_LARGE -> Icons.Default.GridView
-                ViewType.GRID_SMALL -> Icons.Default.Apps
-                else                -> Icons.Default.GridView   // LIST not used in image-library
-            },
-            contentDescription = "Change view",
-            tint = colors.iconColor,
-            modifier = Modifier.size(22.dp)
-        )
-    }
-}
+) = CommonViewTypeToggleButton(viewType = viewType, onClick = onClick, modifier = modifier)

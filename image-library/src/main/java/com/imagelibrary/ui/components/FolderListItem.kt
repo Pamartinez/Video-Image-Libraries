@@ -2,6 +2,7 @@ package com.imagelibrary.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.example.common.data.model.FolderItem
@@ -18,6 +19,8 @@ fun FolderListItem(
     isSelectionMode: Boolean,
     onClick: () -> Unit,
     onLongClick: (() -> Unit)? = null,
+    isDragging: Boolean = false,
+    dragOffset: Offset = Offset.Zero,
     modifier: Modifier = Modifier
 ) {
     CommonFolderListItem(
@@ -26,6 +29,8 @@ fun FolderListItem(
         isSelectionMode  = isSelectionMode,
         onClick          = onClick,
         onLongClick      = onLongClick,
+        isDragging       = isDragging,
+        dragOffset       = dragOffset,
         modifier         = modifier,
         thumbnailContent = { thumbModifier ->
             if (folder.latestItemUri != null) {

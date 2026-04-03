@@ -138,34 +138,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
     }
 
     // ── Migration helpers ─────────────────────────────────────────────
-
-    private fun migrateToIntArray(settings: JSONObject, key: String) {
-        val value = settings.opt(key) ?: return
-        if (value is JSONArray) return
-        val arr = JSONArray()
-        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
-            token.trim().toIntOrNull()?.let { arr.put(it) }
-        }
-        settings.put(key, arr)
-    }
-
-    private fun migrateToLongArray(settings: JSONObject, key: String) {
-        val value = settings.opt(key) ?: return
-        if (value is JSONArray) return
-        val arr = JSONArray()
-        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
-            token.trim().toLongOrNull()?.let { arr.put(it) }
-        }
-        settings.put(key, arr)
-    }
-
-    private fun migrateToStringArray(settings: JSONObject, key: String) {
-        val value = settings.opt(key) ?: return
-        if (value is JSONArray) return
-        val arr = JSONArray()
-        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
-            arr.put(token.trim())
-        }
-        settings.put(key, arr)
-    }
+    // migrateToIntArray / migrateToLongArray / migrateToStringArray are
+    // inherited as protected methods from com.example.common.data.util.BackupManager.
 }
+

@@ -22,7 +22,9 @@ class DragDropListState(
     private var onDragEnd: () -> Unit,
     private var onLongPressItem: ((Int) -> Unit)? = null,
     private var isInSelectionMode: () -> Boolean = { false },
-    private var onEnterDragMode: (() -> Unit)? = null
+    private var onEnterDragMode: (() -> Unit)? = null,
+    /** List items with index < minDragIndex are excluded from drag start and swap targets (e.g. header rows). */
+    private val minDragIndex: Int = 0
 ) {
     var draggedIndex by mutableIntStateOf(-1)
         private set
@@ -65,6 +67,7 @@ class DragDropListState(
         listState.layoutInfo.visibleItemsInfo
             .firstOrNull { info -> offset.y.toInt() in info.offset..(info.offset + info.size) }
             ?.let { info ->
+                if (info.index < minDragIndex) return@let  // skip header / non-draggable rows
                 val wasAlreadyInSelection = isInSelectionMode()
                 draggedIndex      = info.index
                 draggedOffset     = Offset.Zero
@@ -94,6 +97,7 @@ class DragDropListState(
         val fy = fingerYInList.toInt()
         val target = listState.layoutInfo.visibleItemsInfo.firstOrNull { info ->
             if (info.index == draggedIndex) return@firstOrNull false
+            if (info.index < minDragIndex) return@firstOrNull false  // skip header / non-draggable rows
             val tCenter    = info.offset + info.size / 2
             val inBounds   = fy in info.offset..(info.offset + info.size)
             val thresh     = info.size / 4
@@ -128,7 +132,8 @@ class DragDropGridState(
     internal val gridState: LazyGridState,
     private var onMove: (Int, Int) -> Unit,
     private var onDragEnd: () -> Unit,
-    private var onLongPressItem: ((Int) -> Unit)? = null,
+    /** Called when the long-press gesture ends WITHOUT any drag movement (plain long-press). */
+    private var onLongPressWithoutDrag: ((Int) -> Unit)? = null,
     private var isInSelectionMode: () -> Boolean = { false },
     @Suppress("UNUSED_PARAMETER")
     private var onEnterDragMode: (() -> Unit)? = null,
@@ -169,17 +174,21 @@ class DragDropGridState(
         return true
     }
 
+    /** Layout index of the item that was long-pressed; cleared in reset(). */
+    private var pendingLongPressIndex = -1
+    private var wasAlreadyInSelectionOnStart = false
+
     fun updateCallbacks(
         onMove: (Int, Int) -> Unit,
         onDragEnd: () -> Unit,
-        onLongPressItem: ((Int) -> Unit)?,
+        onLongPressWithoutDrag: ((Int) -> Unit)?,
         isInSelectionMode: () -> Boolean,
         @Suppress("UNUSED_PARAMETER") onEnterDragMode: (() -> Unit)?
     ) {
-        this.onMove            = onMove
-        this.onDragEnd         = onDragEnd
-        this.onLongPressItem   = onLongPressItem
-        this.isInSelectionMode = isInSelectionMode
+        this.onMove                = onMove
+        this.onDragEnd             = onDragEnd
+        this.onLongPressWithoutDrag = onLongPressWithoutDrag
+        this.isInSelectionMode     = isInSelectionMode
     }
 
     fun onDragStart(offset: Offset) {
@@ -190,15 +199,17 @@ class DragDropGridState(
             }
             ?.let { info ->
                 if (info.index < minDragIndex) return@let  // skip header / non-draggable rows
-                val wasAlreadyInSelection = isInSelectionMode()
-                draggedIndex      = info.index
-                fingerPosInGrid   = offset
-                touchOffsetInItem = offset - Offset(info.offset.x.toFloat(), info.offset.y.toFloat())
-                capturedItemSize  = info.size
-                lastSwapMs        = 0L
-                wasDragged        = false
-                suppressNextClick = true
-                if (!wasAlreadyInSelection) onLongPressItem?.invoke(info.index)
+                wasAlreadyInSelectionOnStart = isInSelectionMode()
+                draggedIndex          = info.index
+                pendingLongPressIndex = info.index
+                fingerPosInGrid       = offset
+                touchOffsetInItem     = offset - Offset(info.offset.x.toFloat(), info.offset.y.toFloat())
+                capturedItemSize      = info.size
+                lastSwapMs            = 0L
+                wasDragged            = false
+                suppressNextClick     = true
+                // Do NOT enter selection mode here — wait to see if the user actually drags.
+                // Selection mode is entered in onDragEnd() only if the user did not drag.
             }
     }
 
@@ -212,7 +223,15 @@ class DragDropGridState(
     @Suppress("UNUSED_PARAMETER")
     fun onScrolled(consumed: Float) { /* intentionally empty */ }
 
-    fun onDragEnd()    { if (wasDragged) onDragEnd.invoke(); reset() }
+    fun onDragEnd() {
+        if (wasDragged) {
+            onDragEnd.invoke()
+        } else if (!wasAlreadyInSelectionOnStart && pendingLongPressIndex >= minDragIndex) {
+            // Plain long-press (no movement): fire the selection callback now.
+            onLongPressWithoutDrag?.invoke(pendingLongPressIndex)
+        }
+        reset()
+    }
     fun onDragCancel() { reset() }
 
     private fun checkSwap() {
@@ -244,14 +263,16 @@ class DragDropGridState(
     }
 
     private fun reset() {
-        autoScrollSpeed   = 0f
+        autoScrollSpeed              = 0f
         if (wasDragged) suppressNextClick = false
-        draggedIndex      = -1
-        fingerPosInGrid   = Offset.Zero
-        touchOffsetInItem = Offset.Zero
-        capturedItemSize  = null
-        lastSwapMs        = 0L
-        wasDragged        = false
+        draggedIndex                 = -1
+        pendingLongPressIndex        = -1
+        wasAlreadyInSelectionOnStart = false
+        fingerPosInGrid              = Offset.Zero
+        touchOffsetInItem            = Offset.Zero
+        capturedItemSize             = null
+        lastSwapMs                   = 0L
+        wasDragged                   = false
     }
 }
 
@@ -265,10 +286,12 @@ fun rememberDragDropListState(
     onDragEnd: () -> Unit,
     onLongPressItem: ((Int) -> Unit)? = null,
     isInSelectionMode: () -> Boolean = { false },
-    onEnterDragMode: (() -> Unit)? = null
+    onEnterDragMode: (() -> Unit)? = null,
+    /** Items with list index < minDragIndex are excluded from drag start and swap targets. */
+    minDragIndex: Int = 0
 ): DragDropListState {
     val state = remember(lazyListState) {
-        DragDropListState(lazyListState, onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode)
+        DragDropListState(lazyListState, onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode, minDragIndex)
     }
     SideEffect { state.updateCallbacks(onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode) }
     return state
@@ -279,16 +302,17 @@ fun rememberDragDropGridState(
     lazyGridState: LazyGridState,
     onMove: (Int, Int) -> Unit,
     onDragEnd: () -> Unit,
-    onLongPressItem: ((Int) -> Unit)? = null,
+    /** Fired when the user long-presses but releases without dragging (plain long-press → select). */
+    onLongPressWithoutDrag: ((Int) -> Unit)? = null,
     isInSelectionMode: () -> Boolean = { false },
     onEnterDragMode: (() -> Unit)? = null,
     /** Items with grid index < minDragIndex are excluded from drag start and swap targets. */
     minDragIndex: Int = 0
 ): DragDropGridState {
     val state = remember(lazyGridState) {
-        DragDropGridState(lazyGridState, onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode, minDragIndex)
+        DragDropGridState(lazyGridState, onMove, onDragEnd, onLongPressWithoutDrag, isInSelectionMode, onEnterDragMode, minDragIndex)
     }
-    SideEffect { state.updateCallbacks(onMove, onDragEnd, onLongPressItem, isInSelectionMode, onEnterDragMode) }
+    SideEffect { state.updateCallbacks(onMove, onDragEnd, onLongPressWithoutDrag, isInSelectionMode, onEnterDragMode) }
     return state
 }
 

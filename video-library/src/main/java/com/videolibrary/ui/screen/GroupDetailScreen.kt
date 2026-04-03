@@ -136,10 +136,10 @@ fun GroupDetailScreen(
     val canDrag    = sortOption == FolderSortOption.CUSTOM_ORDER
     val gridState  = rememberLazyGridState()
     val dragDropState = rememberDragDropGridState(
-        lazyGridState     = gridState,
-        onMove            = { from, to -> onReorderFolders(from, to) },
-        onDragEnd         = onReorderDone,
-        onLongPressItem   = { index ->
+        lazyGridState          = gridState,
+        onMove                 = { from, to -> onReorderFolders(from, to) },
+        onDragEnd              = onReorderDone,
+        onLongPressWithoutDrag = { index ->
             mixedItems.getOrNull(index)?.let { item ->
                 when (item) {
                     is MixedItem.Folder -> onFolderLongClick(item.folder)

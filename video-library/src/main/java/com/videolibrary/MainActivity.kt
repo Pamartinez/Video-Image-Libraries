@@ -1,13 +1,9 @@
 package com.videolibrary
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +13,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -31,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.common.util.PermissionUtils
 import com.videolibrary.ui.screen.VideoListScreen
 import com.videolibrary.ui.theme.VideoLibraryTheme
 import com.videolibrary.ui.viewmodel.VideoListViewModel
@@ -45,7 +41,7 @@ class MainActivity : ComponentActivity() {
     ) { isGranted ->
         permissionGranted.value = isGranted
         if (isGranted) {
-            requestManageStorageIfNeeded()
+            PermissionUtils.requestManageStorageIfNeeded(this)
         }
     }
 
@@ -82,12 +78,15 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun hasVideoPermission(): Boolean {
-        val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            Manifest.permission.READ_MEDIA_VIDEO
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.READ_MEDIA_VIDEO
+            ) == PackageManager.PERMISSION_GRANTED
         } else {
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
         }
-        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestVideoPermission() {
@@ -97,20 +96,6 @@ class MainActivity : ComponentActivity() {
             Manifest.permission.READ_EXTERNAL_STORAGE
         }
         requestPermissionLauncher.launch(permission)
-    }
-
-    private fun requestManageStorageIfNeeded() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
-            try {
-                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
-                    data = Uri.parse("package:$packageName")
-                }
-                startActivity(intent)
-            } catch (_: Exception) {
-                val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
-                startActivity(intent)
-            }
-        }
     }
 }
 
@@ -192,7 +177,11 @@ fun PermissionScreen(onRequestPermission: () -> Unit) {
                 ),
                 contentPadding = PaddingValues(horizontal = 32.dp, vertical = 12.dp)
             ) {
-                Text("Allow", fontSize = 15.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Medium)
+                Text(
+                    "Allow",
+                    fontSize = 15.sp,
+                    fontWeight = androidx.compose.ui.text.font.FontWeight.Medium
+                )
             }
         }
     }

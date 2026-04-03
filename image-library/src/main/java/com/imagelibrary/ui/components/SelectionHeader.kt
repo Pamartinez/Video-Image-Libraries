@@ -1,60 +1,33 @@
 package com.imagelibrary.ui.components
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.imagelibrary.ui.theme.LocalImageColors
+import com.example.common.ui.components.PillButton as CommonPillButton
+import com.example.common.ui.components.SelectionHeader as CommonSelectionHeader
 
 /**
- * Selection mode header showing selected count, Select All toggle, and Cancel button.
+ * Delegates to the shared [CommonSelectionHeader] in common.
+ * Kept here so existing import paths in image-library screens stay unchanged.
  */
 @Composable
-fun SelectionHeader(
+fun RowScope.SelectionHeader(
     selectedCount: Int,
     allSelected: Boolean,
     onSelectAll: () -> Unit,
     onCancel: () -> Unit,
     modifier: Modifier = Modifier
-) {
-    val colors = LocalImageColors.current
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        IconButton(onClick = onCancel) {
-            Icon(
-                Icons.Default.Close,
-                contentDescription = "Cancel selection",
-                tint = Color.White,
-                modifier = Modifier.size(24.dp)
-            )
-        }
-        Text(
-            text = "$selectedCount selected",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White,
-            modifier = Modifier.weight(1f)
-        )
-        PillButton(
-            text = if (allSelected) "Deselect all" else "Select all",
-            onClick = onSelectAll
-        )
-    }
-}
+) = CommonSelectionHeader(
+    selectedCount = selectedCount,
+    allSelected   = allSelected,
+    onSelectAll   = onSelectAll,
+    onCancel      = onCancel
+)
 
 /**
- * Small pill-shaped button used in headers.
+ * Delegates to the shared [CommonPillButton] in common.
+ * Kept here so existing import paths in image-library screens stay unchanged.
  */
 @Composable
 fun PillButton(
@@ -63,19 +36,10 @@ fun PillButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     containerColor: Color = Color(0xFF3A3A3A)
-) {
-    Surface(
-        modifier = modifier.clickable(enabled = enabled, onClick = onClick),
-        shape = RoundedCornerShape(50),
-        color = containerColor
-    ) {
-        Text(
-            text = text,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Medium,
-            color = if (enabled) Color.White else Color.White.copy(alpha = 0.4f),
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-        )
-    }
-}
-
+) = CommonPillButton(
+    text           = text,
+    onClick        = onClick,
+    modifier       = modifier,
+    enabled        = enabled,
+    containerColor = containerColor
+)

@@ -1,150 +1,43 @@
 package com.videolibrary.data.preferences
 
 import android.content.Context
-import android.content.SharedPreferences
+import com.example.common.data.model.ViewType
+import com.example.common.data.preferences.SharedAppPreferences
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoSortOption
-import com.videolibrary.data.model.ViewType
 
-class AppPreferences(context: Context) {
-    private val prefs: SharedPreferences =
-        context.getSharedPreferences("video_library_prefs", Context.MODE_PRIVATE)
-
+class AppPreferences(context: Context) : SharedAppPreferences(
+    prefs                    = context.getSharedPreferences("video_library_prefs", Context.MODE_PRIVATE),
+    defaultViewTypeId        = ViewType.LIST.id,
+    defaultFolderViewTypeId  = ViewType.LIST.id,
+    groupItemsOrderKeyPrefix = "group_mixed_order_"
+) {
     companion object {
-        private const val KEY_VIEW_TYPE = "viewas_files"
-        private const val KEY_FOLDER_VIEW_TYPE = "viewas_folder_detail"
-        private const val KEY_FOLDER_SORT = "folder_tab_sort"
-        private const val KEY_VIDEO_SORT = "video_tab_sort"
-        private const val KEY_TAB_TYPE = "tab_type"
-        private const val KEY_CUSTOM_FOLDER_ORDER = "custom_folder_order"
+        private const val KEY_FOLDER_SORT             = "folder_tab_sort"
+        private const val KEY_VIDEO_SORT              = "video_tab_sort"
+        private const val KEY_TAB_TYPE                = "tab_type"
+        private const val KEY_CUSTOM_FOLDER_ORDER     = "custom_folder_order"
         private const val KEY_FOLDER_VIDEO_SORT_OPTIONS = "folder_video_sort_options"
-        // Group ordering
-        private const val KEY_CUSTOM_MIXED_ORDER  = "custom_mixed_order"
-        private const val KEY_CUSTOM_GROUP_ORDER  = "custom_group_order"
-        // Per-group item order (inside a group's detail screen)
-        private const val KEY_GROUP_MIXED_ORDER_PREFIX = "group_mixed_order_"
-        // Backup
-        private const val KEY_AUTO_BACKUP = "auto_backup_enabled"
-        // Instant Player
-        private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
-        private const val KEY_INDEPENDENT_SORT_ENABLED = "independent_sort_enabled"
-        private const val KEY_GROUPS_ALWAYS_ON_TOP = "groups_always_on_top"
-        private const val KEY_GROUP_SORT_OPTION_PREFIX = "group_sort_option_"
-        /** Comma-separated folder paths that the user has hidden via the Hide Folders screen. */
-        private const val KEY_HIDDEN_FOLDER_PATHS = "hidden_folder_paths"
-        /**
-         * Stores metadata for hidden folders so they can be shown in the Hide screen
-         * even after MediaStore stops indexing them.
-         * Format: "path::name::bucketId::itemCount" entries joined by "|"
-         */
-        private const val KEY_HIDDEN_FOLDER_META = "hidden_folder_meta"
-    }
-    /**
-     * When true (default), each album/group can have its own sort order. If false, all use the global sort.
-     */
-    var independentSortEnabled: Boolean
-        get() = prefs.getBoolean(KEY_INDEPENDENT_SORT_ENABLED, true)
-        set(value) = prefs.edit().putBoolean(KEY_INDEPENDENT_SORT_ENABLED, value).apply()
-
-    /**
-     * When true, groups are always shown at the top of the sorted list,
-     * sorted among themselves, followed by ungrouped albums sorted separately.
-     */
-    var groupsAlwaysOnTop: Boolean
-        get() = prefs.getBoolean(KEY_GROUPS_ALWAYS_ON_TOP, false)
-        set(value) = prefs.edit().putBoolean(KEY_GROUPS_ALWAYS_ON_TOP, value).apply()
-
-    /**
-     * Per-group sort option. Returns [FolderSortOption.CUSTOM_ORDER] if not yet set.
-     */
-    fun getGroupSortOption(groupId: Long): FolderSortOption {
-        val id = prefs.getInt("$KEY_GROUP_SORT_OPTION_PREFIX$groupId", -1)
-        return if (id == -1) FolderSortOption.CUSTOM_ORDER else FolderSortOption.fromId(id)
+        private const val KEY_INSTANT_PLAYER          = "instant_player_enabled"
     }
 
-    fun saveGroupSortOption(groupId: Long, option: FolderSortOption) {
-        prefs.edit().putInt("$KEY_GROUP_SORT_OPTION_PREFIX$groupId", option.id).apply()
-    }
-
-    // ── Hidden folders ──────────────────────────────────────────────────────
-
-    /** Set of folder paths currently marked as hidden (have a .nomedia file). */
-    var hiddenFolderPaths: Set<String>
-        get() {
-            val raw = prefs.getString(KEY_HIDDEN_FOLDER_PATHS, null) ?: return emptySet()
-            return raw.split("|").filter { it.isNotEmpty() }.toSet()
-        }
-        set(value) = prefs.edit()
-            .putString(KEY_HIDDEN_FOLDER_PATHS, value.joinToString("|"))
-            .apply()
-
-    /** Save metadata for a hidden folder so it can be shown in the hide screen. */
-    fun saveHiddenFolderMeta(path: String, name: String, bucketId: Int, itemCount: Int) {
-        val existing = getRawHiddenFolderMeta().toMutableMap()
-        existing[path] = "$name::$bucketId::$itemCount"
-        prefs.edit().putString(KEY_HIDDEN_FOLDER_META,
-            existing.entries.joinToString("|") { "${it.key}::${it.value}" }).apply()
-    }
-
-    /** Remove metadata for a folder that is no longer hidden. */
-    fun removeHiddenFolderMeta(path: String) {
-        val existing = getRawHiddenFolderMeta().toMutableMap()
-        existing.remove(path)
-        prefs.edit().putString(KEY_HIDDEN_FOLDER_META,
-            existing.entries.joinToString("|") { "${it.key}::${it.value}" }).apply()
-    }
-
-    private fun getRawHiddenFolderMeta(): Map<String, String> {
-        val raw = prefs.getString(KEY_HIDDEN_FOLDER_META, null) ?: return emptyMap()
-        return raw.split("|").filter { it.contains("::") }.mapNotNull { entry ->
-            val idx = entry.indexOf("::")
-            if (idx < 0) null else entry.substring(0, idx) to entry.substring(idx + 2)
-        }.toMap()
-    }
-
-    /**
-     * Returns a map of path → (name, bucketId, itemCount) for all hidden folders.
-     */
-    fun getAllHiddenFolderMeta(): Map<String, Triple<String, Int, Int>> {
-        val result = mutableMapOf<String, Triple<String, Int, Int>>()
-        getRawHiddenFolderMeta().forEach { (path, value) ->
-            val parts = value.split("::")
-            if (parts.size >= 3) {
-                val name     = parts[0]
-                val bucketId = parts[1].toIntOrNull() ?: return@forEach
-                val count    = parts[2].toIntOrNull() ?: 0
-                result[path] = Triple(name, bucketId, count)
-            }
-        }
-        return result
-    }
-
-    var viewType: ViewType
-        get() = ViewType.fromId(prefs.getInt(KEY_VIEW_TYPE, ViewType.LIST.id))
-        set(value) = prefs.edit().putInt(KEY_VIEW_TYPE, value.id).apply()
-
-    var folderViewType: ViewType
-        get() = ViewType.fromId(prefs.getInt(KEY_FOLDER_VIEW_TYPE, ViewType.LIST.id))
-        set(value) = prefs.edit().putInt(KEY_FOLDER_VIEW_TYPE, value.id).apply()
+    // ── Video-library specific ───────────────────────────────────────────────
 
     /** Folder-tab sort (Custom, Name, Item count). */
     var folderSortOption: FolderSortOption
         get() = FolderSortOption.fromId(prefs.getInt(KEY_FOLDER_SORT, FolderSortOption.CUSTOM_ORDER.id))
         set(value) = prefs.edit().putInt(KEY_FOLDER_SORT, value.id).apply()
 
-    /** Videos-tab sort (Custom, Name, Date created, Date modified). */
+    /** Videos-tab sort (Custom, Name, Date created, Date modified, Duration). */
     var videoSortOption: VideoSortOption
         get() = VideoSortOption.fromId(prefs.getInt(KEY_VIDEO_SORT, VideoSortOption.CUSTOM_ORDER.id))
         set(value) = prefs.edit().putInt(KEY_VIDEO_SORT, value.id).apply()
-
 
     var selectedTab: Int
         get() = prefs.getInt(KEY_TAB_TYPE, 1)
         set(value) = prefs.edit().putInt(KEY_TAB_TYPE, value).apply()
 
-
-
-    // Custom folder order: stored as "bucketId1,bucketId2,bucketId3,..."
+    // Custom folder order: stored as "bucketId1,bucketId2,..."
     fun getCustomFolderOrder(): List<Int> {
         val raw = prefs.getString(KEY_CUSTOM_FOLDER_ORDER, "") ?: ""
         if (raw.isBlank()) return emptyList()
@@ -152,8 +45,7 @@ class AppPreferences(context: Context) {
     }
 
     fun saveCustomFolderOrder(order: List<Int>) {
-        val serialized = order.joinToString(",")
-        prefs.edit().putString(KEY_CUSTOM_FOLDER_ORDER, serialized).apply()
+        prefs.edit().putString(KEY_CUSTOM_FOLDER_ORDER, order.joinToString(",")).apply()
     }
 
     // Per-folder video sort (inside album): stored as "bucketId:sortOptionId,..."
@@ -180,61 +72,8 @@ class AppPreferences(context: Context) {
             .toMutableMap()
         map[bucketId] = sortOption.id
         val entries = map.entries.toList().takeLast(200)
-        val serialized = entries.joinToString(",") { e -> "${e.key}:${e.value}" }
-        prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS, serialized).apply()
-    }
-
-    /**
-     * Unified interleaved display order of groups and folders on the Folders tab.
-     * Keys are "g_<groupId>" or "f_<bucketId>".
-     * Example: "g_1,f_1003,g_2,f_1007"
-     */
-    var customMixedOrder: List<String>
-        get() {
-            val raw = prefs.getString(KEY_CUSTOM_MIXED_ORDER, null) ?: return emptyList()
-            return raw.split(",").filter { it.isNotEmpty() }
-        }
-        set(value) = prefs.edit()
-            .putString(KEY_CUSTOM_MIXED_ORDER, value.joinToString(","))
-            .apply()
-
-    var customGroupOrder: List<Long>
-        get() = prefs.getString(KEY_CUSTOM_GROUP_ORDER, null)
-            ?.split(",")?.mapNotNull { it.toLongOrNull() } ?: emptyList()
-        set(value) = prefs.edit()
-            .putString(KEY_CUSTOM_GROUP_ORDER, value.joinToString(",")).apply()
-
-    /**
-     * Per-group interleaved display order for a specific group's detail screen.
-     * Keys are "g_<groupId>" for sub-groups or "f_<bucketId>" for folders.
-     */
-    fun getGroupMixedOrder(groupId: Long): List<String> {
-        val raw = prefs.getString("$KEY_GROUP_MIXED_ORDER_PREFIX$groupId", null) ?: return emptyList()
-        return raw.split(",").filter { it.isNotEmpty() }
-    }
-
-    fun saveGroupMixedOrder(groupId: Long, order: List<String>) {
-        prefs.edit()
-            .putString("$KEY_GROUP_MIXED_ORDER_PREFIX$groupId", order.joinToString(","))
-            .apply()
-    }
-
-    /**
-     * Returns every per-group custom order currently stored, keyed by group ID.
-     * Used by BackupManager to export all group item orderings.
-     */
-    fun allCustomGroupItemsOrders(): Map<Long, List<String>> {
-        return prefs.all
-            .entries
-            .filter { it.key.startsWith(KEY_GROUP_MIXED_ORDER_PREFIX) }
-            .mapNotNull { (key, value) ->
-                val groupId = key.removePrefix(KEY_GROUP_MIXED_ORDER_PREFIX).toLongOrNull()
-                    ?: return@mapNotNull null
-                val order = (value as? String)?.split(",")?.filter { it.isNotEmpty() }
-                    ?: return@mapNotNull null
-                groupId to order
-            }
-            .toMap()
+        prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
     }
 
     /**
@@ -262,17 +101,12 @@ class AppPreferences(context: Context) {
      * Used by BackupManager to import all per-folder sort settings.
      */
     fun saveAllFolderVideoSortOptions(options: Map<Int, Int>) {
-        val serialized = options.entries.joinToString(",") { "${it.key}:${it.value}" }
-        prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS, serialized).apply()
+        prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS,
+            options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
     }
 
     /** When true, tapping a video starts playback immediately without entering the detail screen. */
     var instantPlayerEnabled: Boolean
         get()  = prefs.getBoolean(KEY_INSTANT_PLAYER, false)
         set(v) = prefs.edit().putBoolean(KEY_INSTANT_PLAYER, v).apply()
-
-    /** When true, the app automatically backs up settings and group data after changes. */
-    var autoBackupEnabled: Boolean
-        get()  = prefs.getBoolean(KEY_AUTO_BACKUP, false)
-        set(v) = prefs.edit().putBoolean(KEY_AUTO_BACKUP, v).apply()
 }

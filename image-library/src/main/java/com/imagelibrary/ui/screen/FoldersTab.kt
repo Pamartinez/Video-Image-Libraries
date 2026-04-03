@@ -110,7 +110,9 @@ fun FoldersTab(
             }
         },
         onDragEnd = onReorderDone,
-        onLongPressItem = { layoutIndex ->
+        // Fires only when the user long-presses WITHOUT moving (plain long-press → select).
+        // Long-press+drag goes straight to reorder with no selection-mode side effect.
+        onLongPressWithoutDrag = { layoutIndex ->
             val dataIndex = layoutIndex - 1
             resolvedItems.getOrNull(dataIndex)?.let { item ->
                 when (item) {

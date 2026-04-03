@@ -271,6 +271,40 @@ abstract class BackupManager(
         )
     }
 
+    // ── Migration helpers ─────────────────────────────────────────────
+    // These are available to subclasses so library-specific migrateSettings() overrides
+    // can coerce v1 comma-separated strings into v2 JSONArray / JSONObject values.
+
+    protected fun migrateToIntArray(settings: JSONObject, key: String) {
+        val value = settings.opt(key) ?: return
+        if (value is JSONArray) return
+        val arr = JSONArray()
+        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
+            token.trim().toIntOrNull()?.let { arr.put(it) }
+        }
+        settings.put(key, arr)
+    }
+
+    protected fun migrateToLongArray(settings: JSONObject, key: String) {
+        val value = settings.opt(key) ?: return
+        if (value is JSONArray) return
+        val arr = JSONArray()
+        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
+            token.trim().toLongOrNull()?.let { arr.put(it) }
+        }
+        settings.put(key, arr)
+    }
+
+    protected fun migrateToStringArray(settings: JSONObject, key: String) {
+        val value = settings.opt(key) ?: return
+        if (value is JSONArray) return
+        val arr = JSONArray()
+        (value as? String)?.split(",")?.filter { it.isNotBlank() }?.forEach { token ->
+            arr.put(token.trim())
+        }
+        settings.put(key, arr)
+    }
+
     // ── Library-specific hooks ────────────────────────────────────────
 
     /** Serialise library-specific AppPreferences into a [JSONObject]. */

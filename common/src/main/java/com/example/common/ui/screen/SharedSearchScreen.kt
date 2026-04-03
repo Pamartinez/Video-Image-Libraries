@@ -1,8 +1,7 @@
-package com.videolibrary.ui.screen
+package com.example.common.ui.screen
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -23,34 +22,57 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.videolibrary.data.model.VideoItem
-import com.videolibrary.ui.components.VideoGridItem
-import com.videolibrary.ui.theme.LocalVideoColors
+import com.example.common.ui.theme.LocalLibraryColors
 
 /**
- * Search screen: rounded search input below header, themed colors.
+ * Shared search screen used by both image-library and video-library.
+ *
+ * All layout, animation, and TextField behaviour is identical between the two.
+ * The only differences are injected via parameters:
+ *   - [placeholder]    — "Search images..." / "Search videos..."
+ *   - [emptyPrompt]    — "Search my images" / "Search my videos"
+ *   - [gridPadding]    — 16.dp (images) / 4.dp (videos)
+ *   - [renderItem]     — ImageGridItem / VideoGridItem composable
+ *
+ * @param T         The media item type (ImageItem / VideoItem).
+ * @param query     Current search text.
+ * @param results   Filtered items matching [query].
+ * @param itemKey   Stable key for each item (used by LazyVerticalGrid animations).
+ * @param onQueryChange Callback for text-field changes.
+ * @param onBack    Navigate back.
+ * @param onItemClick Callback when an item is tapped.
+ * @param renderItem Composable that renders a single item cell.
+ * @param placeholder Hint text shown inside the search field.
+ * @param emptyPrompt Text shown when [query] is blank.
+ * @param gridPadding Content padding applied to the grid.
  */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SearchScreen(
+fun <T> SharedSearchScreen(
     query: String,
-    results: List<VideoItem>,
+    results: List<T>,
+    itemKey: (T) -> Any,
     onQueryChange: (String) -> Unit,
     onBack: () -> Unit,
-    onVideoClick: (VideoItem) -> Unit,
-    modifier: Modifier = Modifier
+    onItemClick: (T) -> Unit,
+    renderItem: @Composable (item: T, modifier: Modifier) -> Unit,
+    placeholder: String,
+    emptyPrompt: String,
+    modifier: Modifier = Modifier,
+    gridPadding: Dp = 16.dp
 ) {
     val focusRequester = remember { FocusRequester() }
-    val colors = LocalVideoColors.current
+    val colors = LocalLibraryColors.current
 
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
     }
 
     Column(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
-        // Header
+
+        // ── Header ────────────────────────────────────────────────────
         Surface(
             modifier = Modifier.fillMaxWidth(),
             color = colors.actionBarBg
@@ -87,7 +109,7 @@ fun SearchScreen(
             }
         }
 
-        // Search input
+        // ── Search input ──────────────────────────────────────────────
         Surface(
             modifier = Modifier.fillMaxWidth(),
             color = colors.actionBarBg
@@ -96,11 +118,7 @@ fun SearchScreen(
                 value = query,
                 onValueChange = onQueryChange,
                 placeholder = {
-                    Text(
-                        "Search videos...",
-                        color = colors.listSecondText,
-                        fontSize = 15.sp
-                    )
+                    Text(placeholder, color = colors.listSecondText, fontSize = 15.sp)
                 },
                 singleLine = true,
                 modifier = Modifier
@@ -109,13 +127,13 @@ fun SearchScreen(
                     .focusRequester(focusRequester),
                 shape = RoundedCornerShape(24.dp),
                 colors = TextFieldDefaults.colors(
-                    focusedContainerColor = colors.dividerColor,
+                    focusedContainerColor   = colors.dividerColor,
                     unfocusedContainerColor = colors.dividerColor,
-                    focusedTextColor = colors.listFirstText,
-                    unfocusedTextColor = colors.listFirstText,
-                    focusedIndicatorColor = Color.Transparent,
+                    focusedTextColor        = colors.listFirstText,
+                    unfocusedTextColor      = colors.listFirstText,
+                    focusedIndicatorColor   = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    cursorColor = colors.primary
+                    cursorColor             = colors.primary
                 ),
                 trailingIcon = {
                     if (query.isNotEmpty()) {
@@ -131,54 +149,46 @@ fun SearchScreen(
             )
         }
 
-        if (query.isBlank()) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Search my videos",
-                    fontSize = 16.sp,
-                    color = colors.listSecondText
-                )
+        // ── Content ───────────────────────────────────────────────────
+        when {
+            query.isBlank() -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(text = emptyPrompt, fontSize = 16.sp, color = colors.listSecondText)
+                }
             }
-        } else if (results.isEmpty()) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "No results found",
-                    fontSize = 16.sp,
-                    color = colors.listSecondText,
-                    textAlign = TextAlign.Center
-                )
+            results.isEmpty() -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(
+                        text = "No results found",
+                        fontSize = 16.sp,
+                        color = colors.listSecondText,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
-        } else {
-            LazyVerticalGrid(
-                columns               = GridCells.Fixed(3),
-                modifier              = Modifier.fillMaxSize(),
-                contentPadding        = PaddingValues(4.dp),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalArrangement   = Arrangement.spacedBy(4.dp)
-            ) {
-                items(results, key = { it.id }) { video ->
-                    VideoGridItem(
-                        video           = video,
-                        isSelected      = false,
-                        isSelectionMode = false,
-                        isLargeGrid     = false,
-                        onClick         = { onVideoClick(video) },
-                        onLongClick     = {},
-                        modifier        = Modifier.animateItem(
-                            placementSpec = spring(
-                                dampingRatio = Spring.DampingRatioNoBouncy,
-                                stiffness    = 4000f
+            else -> {
+                LazyVerticalGrid(
+                    columns               = GridCells.Fixed(3),
+                    modifier              = Modifier.fillMaxSize(),
+                    contentPadding        = PaddingValues(gridPadding),
+                    horizontalArrangement = Arrangement.spacedBy(gridPadding),
+                    verticalArrangement   = Arrangement.spacedBy(gridPadding)
+                ) {
+                    items(results, key = itemKey) { item ->
+                        renderItem(
+                            item,
+                            Modifier.animateItem(
+                                placementSpec = spring(
+                                    dampingRatio = Spring.DampingRatioNoBouncy,
+                                    stiffness    = 4000f
+                                )
                             )
                         )
-                    )
+                    }
                 }
             }
         }
     }
 }
+
+

@@ -1,13 +1,9 @@
 package com.imagelibrary
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -15,8 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.common.util.PermissionUtils
 import com.imagelibrary.ui.screen.ImageListScreen
 import com.imagelibrary.ui.theme.ImageLibraryTheme
 import com.imagelibrary.ui.viewmodel.ImageListViewModel
@@ -42,8 +36,8 @@ class MainActivity : ComponentActivity() {
     ) { isGranted ->
         permissionGranted.value = isGranted
         if (isGranted) {
-            vm.loadData()   // ← reload now that we actually have permission
-            requestManageStorageIfNeeded()
+            vm.loadData()
+            PermissionUtils.requestManageStorageIfNeeded(this)
         }
     }
 
@@ -73,7 +67,6 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         val hadPermission = permissionGranted.value
         permissionGranted.value = hasImagePermission()
-        // Permission was just granted via the Settings app → reload
         if (!hadPermission && permissionGranted.value) {
             vm.loadData()
         }
@@ -85,12 +78,15 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun hasImagePermission(): Boolean {
-        val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            Manifest.permission.READ_MEDIA_IMAGES
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.READ_MEDIA_IMAGES
+            ) == PackageManager.PERMISSION_GRANTED
         } else {
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
         }
-        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestImagePermission() {
@@ -100,20 +96,6 @@ class MainActivity : ComponentActivity() {
             Manifest.permission.READ_EXTERNAL_STORAGE
         }
         requestPermissionLauncher.launch(permission)
-    }
-
-    private fun requestManageStorageIfNeeded() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
-            try {
-                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
-                    data = Uri.parse("package:$packageName")
-                }
-                startActivity(intent)
-            } catch (_: Exception) {
-                val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
-                startActivity(intent)
-            }
-        }
     }
 }
 
@@ -132,12 +114,10 @@ fun PermissionScreen(onRequestPermission: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // ── App icon ──
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.size(140.dp)
             ) {
-                // Outer glow ring
                 Box(
                     modifier = Modifier
                         .size(140.dp)
@@ -152,14 +132,12 @@ fun PermissionScreen(onRequestPermission: () -> Unit) {
                             shape = androidx.compose.foundation.shape.CircleShape
                         )
                 )
-                // App launcher icon
                 Image(
                     painter = painterResource(id = R.mipmap.ic_launcher),
                     contentDescription = "App icon",
                     modifier = Modifier.size(100.dp)
                 )
             }
-
             Spacer(modifier = Modifier.height(32.dp))
             Text(
                 text = "Allow permissions",
@@ -186,7 +164,11 @@ fun PermissionScreen(onRequestPermission: () -> Unit) {
                 ),
                 contentPadding = PaddingValues(horizontal = 40.dp, vertical = 14.dp)
             ) {
-                Text("Allow", fontSize = 16.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
+                Text(
+                    "Allow",
+                    fontSize = 16.sp,
+                    fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
+                )
             }
         }
     }

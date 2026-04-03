@@ -204,7 +204,8 @@ private fun MixedListContent(
             }
         },
         isInSelectionMode  = { isSelectionMode },
-        onEnterDragMode    = onExitSelectionForDrag
+        onEnterDragMode    = onExitSelectionForDrag,
+        minDragIndex = 1
     )
     LazyColumn(
         state = lazyListState,
@@ -312,7 +313,7 @@ private fun MixedGridContent(
             }
         },
         onDragEnd = onReorderDone,
-        onLongPressItem = { layoutIndex ->
+        onLongPressWithoutDrag = { layoutIndex ->
             val dataIndex = layoutIndex - 1
             items.getOrNull(dataIndex)?.let { item ->
                 when (item) {
@@ -322,7 +323,8 @@ private fun MixedGridContent(
             }
         },
         isInSelectionMode  = { isSelectionMode },
-        onEnterDragMode    = onExitSelectionForDrag
+        onEnterDragMode    = onExitSelectionForDrag,
+        minDragIndex = 1
     )
 
     // Wrap grid + overlay in a Box so the overlay can float above the grid.
