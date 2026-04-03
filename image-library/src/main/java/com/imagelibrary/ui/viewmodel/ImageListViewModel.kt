@@ -377,7 +377,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             mediaObserverJob = viewModelScope.launch {
                 delay(500L)
                 silentRefresh()
-                refreshFolderImages()
+                // Preserve the current image order when an external app (e.g. Samsung Gallery)
+                // triggers a MediaStore change — stops edited photos jumping to a new position.
+                refreshFolderImages(preserveOrder = true)
             }
         }
     }
@@ -496,12 +498,36 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch { loadDataCore() }
     }
 
-    /** Reload folderImages in-place (no spinner, no list-clear flicker). */
-    private fun refreshFolderImages() {
+    /** Reload folderImages in-place (no spinner, no list-clear flicker).
+     *
+     * @param preserveOrder When **true** and the active sort is [ImageSortOption.CUSTOM_ORDER],
+     *   the existing list order is kept: images already present stay at their current position
+     *   (even if their [ImageItem.id] was re-assigned by an external edit), and brand-new images
+     *   are prepended at the top.  This prevents Samsung Gallery (or any other app) from
+     *   disrupting the custom sort when it edits / recreates a file.
+     *
+     *   For all non-CUSTOM_ORDER sorts the flag is ignored and the list is re-sorted from
+     *   MediaStore as normal (the user explicitly chose a sort criterion, so new content should
+     *   be integrated into it).
+     */
+    private fun refreshFolderImages(preserveOrder: Boolean = false) {
         val bucketId = _uiState.value.currentFolderBucketId ?: return
         viewModelScope.launch {
             val imgs = repository.getImages(_uiState.value.imageSortOption, bucketId = bucketId)
-            _uiState.update { it.copy(folderImages = imgs) }
+
+            if (preserveOrder && _uiState.value.imageSortOption == ImageSortOption.CUSTOM_ORDER) {
+                val existing     = _uiState.value.folderImages
+                val existingIds  = existing.map { it.id }.toSet()
+                val newById      = imgs.associateBy { it.id }
+
+                // Preserve existing order, refreshing each item's data from the new query
+                val preserved  = existing.mapNotNull { old -> newById[old.id] }
+                // Brand-new IDs (added or recreated by an external app) → prepend at the top
+                val brandNew   = imgs.filter { it.id !in existingIds }
+                _uiState.update { it.copy(folderImages = brandNew + preserved) }
+            } else {
+                _uiState.update { it.copy(folderImages = imgs) }
+            }
         }
     }
 
