@@ -516,14 +516,23 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             val imgs = repository.getImages(_uiState.value.imageSortOption, bucketId = bucketId)
 
             if (preserveOrder && _uiState.value.imageSortOption == ImageSortOption.CUSTOM_ORDER) {
-                val existing     = _uiState.value.folderImages
-                val existingIds  = existing.map { it.id }.toSet()
-                val newById      = imgs.associateBy { it.id }
+                val existing      = _uiState.value.folderImages
+                val existingPaths = existing.map { it.path }.toSet()
+                // Match by file path — stable even when Samsung Gallery deletes+recreates
+                // the file (which changes _ID but keeps the same path).
+                val newByPath     = imgs.associateBy { it.path }
+                val newById       = imgs.associateBy { it.id }
 
-                // Preserve existing order, refreshing each item's data from the new query
-                val preserved  = existing.mapNotNull { old -> newById[old.id] }
-                // Brand-new IDs (added or recreated by an external app) → prepend at the top
-                val brandNew   = imgs.filter { it.id !in existingIds }
+                // Preserve existing order; refresh item data from the new query.
+                // Fall back to _ID match for items without a path.
+                val preserved = existing.mapNotNull { old ->
+                    if (old.path.isNotBlank()) newByPath[old.path] else newById[old.id]
+                }
+                // Genuinely new files (path not seen before) → prepend at the top
+                val brandNew = imgs.filter { img ->
+                    if (img.path.isNotBlank()) img.path !in existingPaths
+                    else img.id !in existing.map { it.id }.toSet()
+                }
                 _uiState.update { it.copy(folderImages = brandNew + preserved) }
             } else {
                 _uiState.update { it.copy(folderImages = imgs) }

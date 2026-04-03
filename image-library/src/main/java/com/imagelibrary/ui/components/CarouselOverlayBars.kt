@@ -241,6 +241,14 @@ fun CarouselThumbnailStrip(
                         AsyncImage(
                             model = ImageRequest.Builder(context)
                                 .data(img.contentUri)
+                                // Include dateModified in cache key so Samsung Gallery
+                                // edits (same URI, new mtime) reload the updated thumbnail.
+                                .run {
+                                    val key = if (img.dateModified > 0L)
+                                        "${img.contentUri}_${img.dateModified}"
+                                    else img.contentUri.toString()
+                                    memoryCacheKey(key).diskCacheKey(key)
+                                }
                                 .crossfade(false)
                                 .build(),
                             contentDescription = null,

@@ -124,6 +124,14 @@ fun ImageCarouselScreen(
                 AsyncImage(
                     model = ImageRequest.Builder(context)
                         .data(image.contentUri)
+                        // Cache key includes dateModified so Samsung Gallery edits
+                        // (same URI, bumped mtime) bypass the stale Coil cache entry.
+                        .run {
+                            val key = if (image.dateModified > 0L)
+                                "${image.contentUri}_${image.dateModified}"
+                            else image.contentUri.toString()
+                            memoryCacheKey(key).diskCacheKey(key)
+                        }
                         .crossfade(true)
                         .build(),
                     contentDescription = image.title,

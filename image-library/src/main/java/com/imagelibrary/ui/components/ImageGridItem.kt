@@ -40,7 +40,8 @@ fun ImageGridItem(
             contentUri = image.contentUri,
             contentDescription = image.title,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            dateModified = image.dateModified   // busts stale Coil cache on Samsung Gallery edits
         )
 
         // Selection checkbox (top-start)

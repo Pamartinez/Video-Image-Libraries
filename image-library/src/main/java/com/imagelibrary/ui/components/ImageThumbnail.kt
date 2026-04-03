@@ -21,6 +21,12 @@ import com.imagelibrary.ui.theme.LocalImageColors
 /**
  * Image thumbnail using Coil for efficient image loading.
  * Falls back to a placeholder icon if the URI is null or loading fails.
+ *
+ * @param dateModified  MediaStore DATE_MODIFIED value (seconds since epoch).
+ *   When non-zero it is appended to the Coil memory- and disk-cache keys so
+ *   that an in-place edit (e.g. Samsung Gallery retouch) — which keeps the same
+ *   content:// URI but bumps DATE_MODIFIED — causes Coil to discard the stale
+ *   cached thumbnail and reload the updated image immediately.
  */
 @Composable
 fun ImageThumbnail(
@@ -28,7 +34,8 @@ fun ImageThumbnail(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     contentScale: ContentScale = ContentScale.Crop,
-    iconSize: Dp = 40.dp
+    iconSize: Dp = 40.dp,
+    dateModified: Long = 0L
 ) {
     val context = LocalContext.current
     val colors = LocalImageColors.current
@@ -38,9 +45,15 @@ fun ImageThumbnail(
         return
     }
 
+    // Build a cache key that includes dateModified so any edit to the file
+    // (same URI, different mtime) bypasses the stale Coil cache entry.
+    val cacheKey = if (dateModified > 0L) "${contentUri}_$dateModified" else contentUri.toString()
+
     AsyncImage(
         model = ImageRequest.Builder(context)
             .data(contentUri)
+            .memoryCacheKey(cacheKey)
+            .diskCacheKey(cacheKey)
             .crossfade(true)
             .build(),
         contentDescription = contentDescription,
