@@ -123,11 +123,12 @@ fun VideoListScreen(
             state.showDetailsDialog      -> viewModel.dismissVideoDetails()
             state.showMoveFolderPicker   -> viewModel.dismissMoveFolderPicker()
             state.isSelectionMode        -> viewModel.exitSelectionMode()
-            state.currentGroupId != null -> viewModel.closeGroup()
+            // ── Navigation: folder must be closed before group ──
             state.currentFolderBucketId != null -> {
                 viewModel.exitSelectionMode()
                 viewModel.closeFolder()
             }
+            state.currentGroupId != null -> viewModel.closeGroup()
             state.isSearchActive -> viewModel.deactivateSearch()
         }
     }
@@ -172,6 +173,46 @@ fun VideoListScreen(
             onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
             onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
             renameActionLabel    = "Keep Both"
+        )
+        return
+    }
+
+    // ── Hide folders screen ───────────────────────────────────────────────────
+    // Must be checked BEFORE GroupDetailScreen so clicking "Hide albums" inside
+    // a group actually shows the hide screen instead of staying on the group.
+    if (state.showHideFolders) {
+        val groupHiddenState = state.rootGroupsForHide.associate { group ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in group.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            group.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        val groupSubGroupHiddenState = state.hideScreenGroupSubGroups.associate { sub ->
+            val paths = state.allFoldersForHide
+                .filter { it.bucketId in sub.memberBucketIds }
+                .map { it.path }
+                .filter { it.isNotBlank() }
+            sub.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
+        }
+        HideFoldersScreen(
+            groups                   = state.rootGroupsForHide,
+            ungroupedFolders         = state.ungroupedFoldersForHide,
+            groupFolders             = state.hideScreenGroupFolders,
+            currentGroupId           = state.hideScreenGroupId,
+            currentGroupName         = state.hideScreenGroupName,
+            hiddenFolderPaths        = state.hiddenFolderPaths,
+            groupHiddenState         = groupHiddenState,
+            groupSubGroups           = state.hideScreenGroupSubGroups,
+            groupSubGroupHiddenState = groupSubGroupHiddenState,
+            onGroupOpen              = { viewModel.openGroupInHideScreen(it) },
+            onGroupToggle            = { viewModel.toggleGroupHidden(it) },
+            onFolderToggle           = { viewModel.toggleFolderHidden(it) },
+            onGroupBack              = {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            },
+            onBack                   = { viewModel.dismissHideFoldersScreen() }
         )
         return
     }
@@ -473,44 +514,6 @@ fun VideoListScreen(
     // ── Settings screen ───────────────────────────────────────────────────────
     if (state.showSettings) {
         SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() })
-        return
-    }
-
-    // ── Hide folders screen ───────────────────────────────────────────────────
-    if (state.showHideFolders) {
-        val groupHiddenState = state.rootGroupsForHide.associate { group ->
-            val paths = state.allFoldersForHide
-                .filter { it.bucketId in group.memberBucketIds }
-                .map { it.path }
-                .filter { it.isNotBlank() }
-            group.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
-        }
-        val groupSubGroupHiddenState = state.hideScreenGroupSubGroups.associate { sub ->
-            val paths = state.allFoldersForHide
-                .filter { it.bucketId in sub.memberBucketIds }
-                .map { it.path }
-                .filter { it.isNotBlank() }
-            sub.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
-        }
-        HideFoldersScreen(
-            groups                   = state.rootGroupsForHide,
-            ungroupedFolders         = state.ungroupedFoldersForHide,
-            groupFolders             = state.hideScreenGroupFolders,
-            currentGroupId           = state.hideScreenGroupId,
-            currentGroupName         = state.hideScreenGroupName,
-            hiddenFolderPaths        = state.hiddenFolderPaths,
-            groupHiddenState         = groupHiddenState,
-            groupSubGroups           = state.hideScreenGroupSubGroups,
-            groupSubGroupHiddenState = groupSubGroupHiddenState,
-            onGroupOpen              = { viewModel.openGroupInHideScreen(it) },
-            onGroupToggle            = { viewModel.toggleGroupHidden(it) },
-            onFolderToggle           = { viewModel.toggleFolderHidden(it) },
-            onGroupBack              = {
-                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
-                else viewModel.closeGroupInHideScreen()
-            },
-            onBack                   = { viewModel.dismissHideFoldersScreen() }
-        )
         return
     }
 
