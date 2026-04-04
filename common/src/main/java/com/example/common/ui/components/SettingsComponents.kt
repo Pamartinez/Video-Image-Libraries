@@ -45,13 +45,14 @@ fun SettingsToggleRow(
     title: String,
     subtitle: String,
     checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
+    onCheckedChange: (Boolean) -> Unit,
+    enabled: Boolean = true
 ) {
     val colors = LocalLibraryColors.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onCheckedChange(!checked) }
+            .clickable(enabled = enabled) { onCheckedChange(!checked) }
             .padding(horizontal = 16.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -60,13 +61,13 @@ fun SettingsToggleRow(
                 text       = title,
                 fontSize   = 15.sp,
                 fontWeight = FontWeight.Medium,
-                color      = colors.listFirstText
+                color      = if (enabled) colors.listFirstText else colors.listFirstText.copy(alpha = 0.5f)
             )
             Spacer(Modifier.height(2.dp))
             Text(
                 text       = subtitle,
                 fontSize   = 12.sp,
-                color      = colors.listSecondText,
+                color      = if (enabled) colors.listSecondText else colors.listSecondText.copy(alpha = 0.5f),
                 lineHeight = 16.sp
             )
         }
@@ -74,6 +75,7 @@ fun SettingsToggleRow(
         Switch(
             checked         = checked,
             onCheckedChange = onCheckedChange,
+            enabled         = enabled,
             colors          = SwitchDefaults.colors(
                 checkedThumbColor = colors.cardBackground,
                 checkedTrackColor = colors.primary

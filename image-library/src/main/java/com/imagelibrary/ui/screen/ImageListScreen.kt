@@ -173,6 +173,10 @@ fun ImageListScreen(
             initialIndex = state.carouselIndex,
             onBack = { viewModel.closeCarousel() },
             initialBarsVisible = state.carouselShowBarsOnOpen,
+            alwaysHideOverlay = state.carouselAlwaysHideOverlay,
+            onMoreItems = listOf(
+                "Settings" to { viewModel.showSettings() }
+            ),
             onShare = { image ->
                 val intent = Intent(Intent.ACTION_SEND).apply {
                     type = image.mimeType

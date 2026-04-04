@@ -83,6 +83,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.sortOrder = SortOrder.fromId(settings.getInt("sortOrder"))
         if (settings.has("carouselShowBarsOnOpen"))
             prefs.carouselShowBarsOnOpen = settings.getBoolean("carouselShowBarsOnOpen")
+        if (settings.has("carouselAlwaysHideOverlay"))
+            prefs.carouselAlwaysHideOverlay = settings.getBoolean("carouselAlwaysHideOverlay")
         if (settings.has("customAlbumOrder")) {
             val arr = settings.getJSONArray("customAlbumOrder")
             prefs.customAlbumOrder = (0 until arr.length()).map { arr.getInt(it) }

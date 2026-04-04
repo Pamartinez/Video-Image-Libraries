@@ -50,13 +50,16 @@ fun ImageCarouselScreen(
     onMove: (ImageItem) -> Unit = {},
     onDetails: (ImageItem) -> Unit = {},
     onOpenLocation: (ImageItem) -> Unit = {},
-    initialBarsVisible: Boolean = false
+    initialBarsVisible: Boolean = false,
+    alwaysHideOverlay: Boolean = false,
+    onMoreItems: List<Pair<String, () -> Unit>> = emptyList()
 ) {
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
 
-    var barsVisible by remember { mutableStateOf(initialBarsVisible) }
+    // If alwaysHideOverlay is true, bars are always hidden and cannot be toggled
+    var barsVisible by remember { mutableStateOf(if (alwaysHideOverlay) false else initialBarsVisible) }
 
     // Track whether the current page image is zoomed in; disables pager swiping while true
     var isCurrentPageZoomed by remember { mutableStateOf(false) }
@@ -110,11 +113,13 @@ fun ImageCarouselScreen(
 
             ZoomableImageContainer(
                 modifier = Modifier.fillMaxSize(),
-                // Single-tap: toggle overlay bars (immersive mode)
+                // Single-tap: toggle overlay bars (immersive mode) unless alwaysHideOverlay is true
                 onSingleTap = {
-                    barsVisible = !barsVisible
-                    if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
-                    else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                    if (!alwaysHideOverlay) {
+                        barsVisible = !barsVisible
+                        if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
+                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                    }
                 },
                 // Notify parent so it can lock/unlock the pager
                 onScaleChanged = { newScale ->
@@ -147,6 +152,7 @@ fun ImageCarouselScreen(
             onBack = onBack,
             currentPage = pagerState.currentPage,
             totalPages = images.size,
+            onMoreItems = onMoreItems,
             modifier = Modifier.align(Alignment.TopStart)
         )
 

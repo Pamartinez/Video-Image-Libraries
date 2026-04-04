@@ -25,6 +25,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_CUSTOM_ALBUM_ORDER       = "custom_album_order"
         private const val KEY_IMAGE_SORT_OPTION        = "image_sort_option"
         private const val KEY_CAROUSEL_SHOW_BARS_ON_OPEN = "carousel_show_bars_on_open"
+        private const val KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY = "carousel_always_hide_overlay"
     }
 
     // ── Image-library specific ───────────────────────────────────────────────
@@ -76,4 +77,9 @@ class AppPreferences(context: Context) : SharedAppPreferences(
     var carouselShowBarsOnOpen: Boolean
         get() = prefs.getBoolean(KEY_CAROUSEL_SHOW_BARS_ON_OPEN, false)
         set(value) = prefs.edit().putBoolean(KEY_CAROUSEL_SHOW_BARS_ON_OPEN, value).apply()
+
+    /** When true, carousel overlay is always hidden and cannot be toggled. */
+    var carouselAlwaysHideOverlay: Boolean
+        get() = prefs.getBoolean(KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY, false)
+        set(value) = prefs.edit().putBoolean(KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY, value).apply()
 }

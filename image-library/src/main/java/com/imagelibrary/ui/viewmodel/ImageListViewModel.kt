@@ -59,6 +59,7 @@ data class ImageListUiState(
     val showAbout: Boolean = false,
     val showSettings: Boolean = false,
     val carouselShowBarsOnOpen: Boolean = false,
+    val carouselAlwaysHideOverlay: Boolean = false,
     val showDetailsDialog: Boolean = false,
     val detailsTarget: ImageItem? = null,
     val carouselIndex: Int = -1,
@@ -459,6 +460,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortOption = preferences.sortOption,
                 imageSortOption = preferences.imageSortOption,
                 carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
+                carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                 groupSortOption = preferences.groupSortOption,
                 autoBackupEnabled = preferences.autoBackupEnabled,
                 independentSortEnabled = preferences.independentSortEnabled,
@@ -1221,6 +1223,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { it.copy(carouselShowBarsOnOpen = value) }
     }
 
+    fun updateCarouselAlwaysHideOverlay(value: Boolean) {
+        preferences.carouselAlwaysHideOverlay = value
+        _uiState.update { it.copy(carouselAlwaysHideOverlay = value) }
+    }
+
     fun updateAutoBackupEnabled(value: Boolean) {
         preferences.autoBackupEnabled = value
         _uiState.update { it.copy(autoBackupEnabled = value) }
@@ -1309,6 +1316,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortOption = preferences.sortOption,
                 imageSortOption = preferences.imageSortOption,
                 carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
+                carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                 autoBackupEnabled = preferences.autoBackupEnabled,
                 groupsAlwaysOnTop = preferences.groupsAlwaysOnTop
             )

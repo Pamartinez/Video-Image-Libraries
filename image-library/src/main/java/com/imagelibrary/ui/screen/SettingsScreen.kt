@@ -34,7 +34,14 @@ fun SettingsScreen(
                     title           = "Show overlay on open",
                     subtitle        = "Display the back button, thumbnails and Share / Delete bar immediately when opening a photo",
                     checked         = state.carouselShowBarsOnOpen,
-                    onCheckedChange = { viewModel.updateCarouselShowBarsOnOpen(it) }
+                    onCheckedChange = { viewModel.updateCarouselShowBarsOnOpen(it) },
+                    enabled         = !state.carouselAlwaysHideOverlay
+                )
+                SettingsToggleRow(
+                    title           = "Never show overlay",
+                    subtitle        = "Always hide the overlay bars when viewing photos - tap to open won't show them",
+                    checked         = state.carouselAlwaysHideOverlay,
+                    onCheckedChange = { viewModel.updateCarouselAlwaysHideOverlay(it) }
                 )
             }
         }
