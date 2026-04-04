@@ -175,7 +175,8 @@ fun ImageListScreen(
             initialBarsVisible = state.carouselShowBarsOnOpen,
             alwaysHideOverlay = state.carouselAlwaysHideOverlay,
             onMoreItems = listOf(
-                "Settings" to { viewModel.showSettings() }
+                "Settings" to { viewModel.closeCarousel(); viewModel.showSettings() },
+                "About" to { viewModel.closeCarousel(); viewModel.showAbout() }
             ),
             onShare = { image ->
                 val intent = Intent(Intent.ACTION_SEND).apply {
