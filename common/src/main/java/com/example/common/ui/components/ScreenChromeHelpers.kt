@@ -149,11 +149,17 @@ fun AppMenuDivider(
 /**
  * Reusable MoreVert (⋮) icon-button + themed [DropdownMenu].
  *
- * The menu always ends with the four shared base items:
- *   Sort | View as | Settings | ─── | About App
+ * **MANDATORY RULE**: All 3-dots menus in the app MUST use this component.
+ * Do NOT create custom DropdownMenu implementations for overflow menus.
+ *
+ * The menu ends with base items: [Sort] | [View as] | Settings | ─── | About App
+ * - Sort and View as can be hidden via [showSort] and [showViewAs] parameters
+ * - Settings and About are always shown
  *
  * State is hoisted: the caller owns [expanded] / [onExpand] / [onDismiss].
  *
+ * @param showSort         Whether to show the "Sort" menu item (default true)
+ * @param showViewAs       Whether to show the "View as" menu item (default true)
  * @param extraTopContent  Optional screen-specific items rendered *above* the base items.
  *                         Receives [onDismiss] so each item can close the menu after tapping.
  */
@@ -162,11 +168,13 @@ fun AppMoreMenuButton(
     expanded: Boolean,
     onExpand: () -> Unit,
     onDismiss: () -> Unit,
-    onSortBy: () -> Unit,
-    onViewAs: () -> Unit,
+    onSortBy: () -> Unit = {},
+    onViewAs: () -> Unit = {},
     onSettings: () -> Unit,
     onAbout: () -> Unit,
     modifier: Modifier = Modifier,
+    showSort: Boolean = true,
+    showViewAs: Boolean = true,
     extraTopContent: @Composable (onDismiss: () -> Unit) -> Unit = {}
 ) {
     val colors = LocalLibraryColors.current
@@ -189,8 +197,12 @@ fun AppMoreMenuButton(
             containerColor = colors.menuBg
         ) {
             extraTopContent(onDismiss)
-            AppMenuItem("Sort",      onDismiss = onDismiss, onClick = onSortBy,   textColor = colors.listFirstText)
-            AppMenuItem("View as",   onDismiss = onDismiss, onClick = onViewAs,   textColor = colors.listFirstText)
+            if (showSort) {
+                AppMenuItem("Sort",      onDismiss = onDismiss, onClick = onSortBy,   textColor = colors.listFirstText)
+            }
+            if (showViewAs) {
+                AppMenuItem("View as",   onDismiss = onDismiss, onClick = onViewAs,   textColor = colors.listFirstText)
+            }
             AppMenuItem("Settings",  onDismiss = onDismiss, onClick = onSettings, textColor = colors.listFirstText)
             AppMenuDivider(color = colors.dividerColor)
             AppMenuItem("About App", onDismiss = onDismiss, onClick = onAbout,    textColor = colors.listFirstText)

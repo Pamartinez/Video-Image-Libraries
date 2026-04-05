@@ -20,9 +20,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -54,6 +51,8 @@ import com.imagelibrary.data.model.ImageItem
  *
  * Reference Samsung Gallery dimens:
  *   action_bar_menu_item_min_size = 48 dp
+ *
+ * **MANDATORY**: Uses [com.example.common.ui.components.AppMoreMenuButton] for the 3-dots menu.
  */
 @Composable
 fun CarouselTopBar(
@@ -61,7 +60,8 @@ fun CarouselTopBar(
     onBack: () -> Unit,
     currentPage: Int = 0,
     totalPages: Int = 0,
-    onMoreItems: List<Pair<String, () -> Unit>> = emptyList(),
+    onSettings: () -> Unit = {},
+    onAbout: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var showOverflow by remember { mutableStateOf(false) }
@@ -108,40 +108,17 @@ fun CarouselTopBar(
                 )
             }
 
-            // Overflow menu — right
+            // Overflow menu — right (using AppMoreMenuButton)
             Box(modifier = Modifier.align(Alignment.CenterEnd)) {
-                IconButton(
-                    onClick = { showOverflow = true },
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(CircleShape)
-                        .background(Color(0x44000000))
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.MoreVert,
-                        contentDescription = "More options",
-                        tint = Color.White
-                    )
-                }
-                if (onMoreItems.isNotEmpty()) {
-                    DropdownMenu(
-                        expanded = showOverflow,
-                        onDismissRequest = { showOverflow = false }
-                    ) {
-                        onMoreItems.forEach { (label, action) ->
-                            DropdownMenuItem(
-                                text = { Text(label) },
-                                onClick = {
-                                    showOverflow = false
-                                    action()
-                                }
-                            )
-                        }
-                    }
-                } else {
-                    // No items — dismiss immediately on recompose
-                    if (showOverflow) showOverflow = false
-                }
+                com.example.common.ui.components.AppMoreMenuButton(
+                    expanded = showOverflow,
+                    onExpand = { showOverflow = true },
+                    onDismiss = { showOverflow = false },
+                    onSettings = onSettings,
+                    onAbout = onAbout,
+                    showSort = false,
+                    showViewAs = false
+                )
             }
         }
     }
@@ -261,4 +238,3 @@ fun CarouselThumbnailStrip(
         }
     }
 }
-

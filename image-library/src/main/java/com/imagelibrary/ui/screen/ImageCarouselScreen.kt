@@ -51,15 +51,18 @@ fun ImageCarouselScreen(
     onDetails: (ImageItem) -> Unit = {},
     onOpenLocation: (ImageItem) -> Unit = {},
     initialBarsVisible: Boolean = false,
-    alwaysHideOverlay: Boolean = false,
-    onMoreItems: List<Pair<String, () -> Unit>> = emptyList()
+    alwaysHideBottomOverlay: Boolean = false,
+    onSettings: () -> Unit = {},
+    onAbout: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val view = LocalView.current
     val scope = rememberCoroutineScope()
 
-    // If alwaysHideOverlay is true, bars are always hidden and cannot be toggled
-    var barsVisible by remember { mutableStateOf(if (alwaysHideOverlay) false else initialBarsVisible) }
+    // Separate visibility states for top bar and bottom components
+    var topBarVisible by remember { mutableStateOf(initialBarsVisible) }
+    // Bottom overlay is hidden if alwaysHideBottomOverlay is true
+    var bottomBarVisible by remember { mutableStateOf(initialBarsVisible && !alwaysHideBottomOverlay) }
 
     // Track whether the current page image is zoomed in; disables pager swiping while true
     var isCurrentPageZoomed by remember { mutableStateOf(false) }
@@ -73,7 +76,7 @@ fun ImageCarouselScreen(
     }
 
     DisposableEffect(Unit) {
-        if (initialBarsVisible) {
+        if (topBarVisible) {
             insetsController.show(WindowInsetsCompat.Type.systemBars())
         } else {
             insetsController.hide(WindowInsetsCompat.Type.systemBars())
@@ -113,13 +116,14 @@ fun ImageCarouselScreen(
 
             ZoomableImageContainer(
                 modifier = Modifier.fillMaxSize(),
-                // Single-tap: toggle overlay bars (immersive mode) unless alwaysHideOverlay is true
+                // Single-tap: toggle overlay bars (immersive mode)
                 onSingleTap = {
-                    if (!alwaysHideOverlay) {
-                        barsVisible = !barsVisible
-                        if (barsVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
-                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                    topBarVisible = !topBarVisible
+                    if (!alwaysHideBottomOverlay) {
+                        bottomBarVisible = !bottomBarVisible
                     }
+                    if (topBarVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
+                    else insetsController.hide(WindowInsetsCompat.Type.systemBars())
                 },
                 // Notify parent so it can lock/unlock the pager
                 onScaleChanged = { newScale ->
@@ -146,13 +150,14 @@ fun ImageCarouselScreen(
             }
         }
 
-        // ── Top bar: back button + page counter + overflow ──────────────
+        // ── Top bar: back button + page counter + settings ──────────────
         CarouselTopBar(
-            visible = barsVisible,
+            visible = topBarVisible,
             onBack = onBack,
             currentPage = pagerState.currentPage,
             totalPages = images.size,
-            onMoreItems = onMoreItems,
+            onSettings = onSettings,
+            onAbout = onAbout,
             modifier = Modifier.align(Alignment.TopStart)
         )
 
@@ -164,7 +169,7 @@ fun ImageCarouselScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CarouselThumbnailStrip(
-                visible = barsVisible,
+                visible = bottomBarVisible,
                 images = images,
                 currentPage = pagerState.currentPage,
                 thumbnailListState = thumbnailListState,
@@ -173,7 +178,7 @@ fun ImageCarouselScreen(
                 }
             )
             BottomActionBar(
-                visible = barsVisible,
+                visible = bottomBarVisible,
                 onCopy    = { currentImage?.let(onCopy) },
                 onMove    = { currentImage?.let(onMove) },
                 onShare   = { currentImage?.let(onShare) },
