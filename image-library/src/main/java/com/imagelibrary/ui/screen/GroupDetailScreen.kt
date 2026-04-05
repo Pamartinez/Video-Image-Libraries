@@ -4,6 +4,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
@@ -51,10 +52,12 @@ import kotlin.math.roundToInt
 
 /**
  * Screen displayed when the user opens a group.
- * 3-dot menu: Create album, Add folder, Rename group, Hide albums, Destroy group
+ * 3-dot menu: Add folder, Rename group, Hide albums, Destroy group
+ * + button: Create album or group (inside this group)
  * Bottom bar (selection): Group | Share | Move | Open Location | Remove from group
  * Supports drag-to-reorder when sortOption == CUSTOM_ORDER.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GroupDetailScreen(
     groupName: String,
@@ -100,6 +103,8 @@ fun GroupDetailScreen(
     val colors = LocalImageColors.current
     var showMoreMenu by remember { mutableStateOf(false) }
     var showSortDialog by remember { mutableStateOf(false) }
+    var showCreateMenu by remember { mutableStateOf(false) }
+    // Scroll-to-top on group navigation and sort changes is handled by the caller
     // Scroll-to-top on group navigation and sort changes is handled by the caller
     // (ImageListScreen) via LaunchedEffect(currentGroupId, sortOption).
     // Do NOT put a LaunchedEffect(sortOption) here — it would fire every time this
@@ -208,6 +213,9 @@ fun GroupDetailScreen(
                         }
                     }
                     ActionsPill {
+                        IconButton(onClick = { showCreateMenu = true }, modifier = Modifier.size(40.dp)) {
+                            Icon(Icons.Default.Add, contentDescription = "Create", tint = colors.iconColor, modifier = Modifier.size(22.dp))
+                        }
                         ViewTypeToggleButton(viewType = viewType, onClick = onCycleViewType)
                         AppMoreMenuButton(
                             expanded = showMoreMenu,
@@ -218,7 +226,6 @@ fun GroupDetailScreen(
                             onSettings = onSettings,
                             onAbout = onAbout
                         ) { dismiss ->
-                            AppMenuItem("Create album",  onDismiss = dismiss, onClick = onCreateAlbum, textColor = colors.listFirstText)
                             AppMenuItem("Add folder",    onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
                             AppMenuItem("Rename group",  onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
                             AppMenuItem("Hide albums",   onDismiss = dismiss, onClick = onHideAlbums,  textColor = colors.listFirstText)
@@ -384,6 +391,79 @@ fun GroupDetailScreen(
             onSortOptionSelected = { onSortOptionSelected(it) },
             onDismiss = { showSortDialog = false }
         )
+    }
+
+    // ── "Choose what to create" bottom sheet (same as root screen) ──
+    if (showCreateMenu) {
+        ModalBottomSheet(
+            onDismissRequest = { showCreateMenu = false },
+            sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+            containerColor = colors.menuBg,
+            shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
+            dragHandle = null
+        ) {
+            Column(modifier = Modifier.navigationBarsPadding().padding(bottom = 8.dp)) {
+                Text(
+                    text = "Choose what to create",
+                    modifier = Modifier.padding(start = 24.dp, top = 28.dp, bottom = 12.dp, end = 24.dp),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    color = colors.listFirstText
+                )
+                // ── Album ──
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { showCreateMenu = false; onCreateAlbum() }
+                        .padding(horizontal = 24.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(52.dp)
+                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(Icons.Default.Collections, contentDescription = null, tint = Color.White, modifier = Modifier.size(26.dp))
+                    }
+                    Spacer(Modifier.width(18.dp))
+                    Column {
+                        Text("Album", color = colors.listFirstText, fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
+                        Text(
+                            "Create a new album and add pictures and videos manually.",
+                            color = colors.listSecondText, fontSize = 13.sp,
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
+                // ── Group ──
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { showCreateMenu = false; onGroup() }
+                        .padding(horizontal = 24.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(52.dp)
+                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(Icons.Default.Folder, contentDescription = null, tint = Color.White, modifier = Modifier.size(26.dp))
+                    }
+                    Spacer(Modifier.width(18.dp))
+                    Column {
+                        Text("Group", color = colors.listFirstText, fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
+                        Text(
+                            "Create a group of related albums.",
+                            color = colors.listSecondText, fontSize = 13.sp,
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 

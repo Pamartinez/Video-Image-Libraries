@@ -93,7 +93,6 @@ fun ImageListScreen(
     ) {
         when {
             progress.isActive -> {}
-            state.carouselIndex >= 0 -> viewModel.closeCarousel()
             showMoreMenu -> showMoreMenu = false
             showCreateMenu -> showCreateMenu = false
             state.showGroupNameDialog -> viewModel.dismissGroupNameDialog()
@@ -111,16 +110,17 @@ fun ImageListScreen(
             state.showMoveToGroupPicker -> viewModel.dismissMoveToGroupPicker()
             state.isGroupCreationMode -> viewModel.exitGroupCreationMode()
             state.isSelectionMode -> viewModel.exitSelectionMode()
-            state.currentFolderBucketId != null -> { viewModel.exitSelectionMode(); viewModel.closeFolder() }
-            state.currentGroupId != null -> { viewModel.exitSelectionMode(); viewModel.closeGroup() }
-            state.isSearchActive -> viewModel.deactivateSearch()
             state.showAbout -> viewModel.dismissAbout()
+            state.showSettings -> viewModel.dismissSettings()
             state.showHideFolders && state.hideScreenGroupId != null -> {
                 if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
                 else viewModel.closeGroupInHideScreen()
             }
             state.showHideFolders -> viewModel.dismissHideFoldersScreen()
-            state.showSettings -> viewModel.dismissSettings()
+            state.carouselIndex >= 0 -> viewModel.closeCarousel()
+            state.currentFolderBucketId != null -> { viewModel.exitSelectionMode(); viewModel.closeFolder() }
+            state.currentGroupId != null -> { viewModel.exitSelectionMode(); viewModel.closeGroup() }
+            state.isSearchActive -> viewModel.deactivateSearch()
         }
     }
 
@@ -166,6 +166,10 @@ fun ImageListScreen(
         return
     }
 
+    // ── Settings / About ── (must be checked before carousel so they can overlay)
+    if (state.showSettings) { SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() }); return }
+    if (state.showAbout) { AboutScreen(onBack = { viewModel.dismissAbout() }); return }
+
     // ── Carousel ──
     if (state.carouselIndex >= 0 && state.folderImages.isNotEmpty()) {
         ImageCarouselScreen(
@@ -174,8 +178,8 @@ fun ImageListScreen(
             onBack = { viewModel.closeCarousel() },
             initialBarsVisible = state.carouselShowBarsOnOpen,
             alwaysHideBottomOverlay = state.carouselAlwaysHideOverlay,
-            onSettings = { viewModel.closeCarousel(); viewModel.showSettings() },
-            onAbout = { viewModel.closeCarousel(); viewModel.showAbout() },
+            onSettings = { viewModel.showSettings() },
+            onAbout = { viewModel.showAbout() },
             onShare = { image ->
                 val intent = Intent(Intent.ACTION_SEND).apply {
                     type = image.mimeType
@@ -206,9 +210,6 @@ fun ImageListScreen(
         return
     }
 
-    // ── Settings / About ──
-    if (state.showSettings) { SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() }); return }
-    if (state.showAbout) { AboutScreen(onBack = { viewModel.dismissAbout() }); return }
 
     // ── Hide albums screen ─────────────────────────────────────────────────
     if (state.showHideFolders) {
@@ -375,6 +376,7 @@ fun ImageListScreen(
                 viewModel.toggleGroupSelection(group.groupId)
             },
             onCycleViewType = { viewModel.cycleViewType() },
+            onCreateAlbum = { viewModel.showCreateAlbumDialog() },
             onAddFolder = { viewModel.showAddFolderToGroup() },
             onRenameGroup = { viewModel.showRenameGroupDialog() },
             onHideAlbums  = { viewModel.showHideFoldersScreenForCurrentGroup() },
@@ -426,16 +428,20 @@ fun ImageListScreen(
     // ── Full-screen pickers (early returns) ──
     // Each picker is wrapped in a Box so CopyMoveAndConflictOverlayHost is always rendered
     // on top — ensures progress and conflict dialogs appear no matter which picker is active.
+    // When inside a group, pass the group's orderedMixedItems (which uses currentGroupSortOption);
+    // otherwise use the root orderedMixedItems (which uses the root sortOption).
     if (state.showMoveFolderPicker) {
+        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
-            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, groupCustomOrders = state.allGroupCustomOrders, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
+            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
             CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
         }
         return
     }
     if (state.showCopyFolderPicker) {
+        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
-            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, groupCustomOrders = state.allGroupCustomOrders, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
+            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
             CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
         }
         return

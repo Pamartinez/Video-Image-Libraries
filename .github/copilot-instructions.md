@@ -46,6 +46,23 @@ This rule applies to **all layers**: ViewModels, Repositories, Screens, Componen
 - Only create a project-specific screen or component if the logic or UI **fundamentally differs** and cannot be abstracted.
 - When in doubt, prefer a shared base with customizable parameters (e.g., content type, display config) over duplicating code.
 
+## Sort Order Integrity — Mandatory Rule
+**Albums and Groups must ALWAYS respect their own sort order**, regardless of context or operation.
+
+This applies to **ALL scenarios** without exception:
+- Displaying items in the main view
+- Copy operations (FolderPickerScreen, CreateAlbumPickerScreen)
+- Move operations (FolderPickerScreen, CreateAlbumPickerScreen)
+- Create Album flow
+- Any UI component that displays items from an album or group
+
+**Implementation rules:**
+- **Root view**: Always use `orderedMixedItems` (respects root sort preferences)
+- **Group view** (`currentGroupId != null`): Always use `currentGroupOrderedMixedItems` (respects that specific group's sort preferences)
+- **Album view**: Always use the album's own sort order
+- **Never** fall back to root sort when inside a group or album — each container has independent sort settings that must be respected
+- When passing items to any screen or component, verify you're passing the correctly sorted list based on the current context (root, group, or album)
+
 ## Copy / Move Operations — Mandatory UX Rules
 **Every** Copy or Move operation — regardless of where it is triggered — must:
 1. **Show the progress popup** (`CopyMoveProgressDialog` via `CopyMoveAndConflictOverlayHost`) while the operation is running.

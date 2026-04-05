@@ -105,12 +105,6 @@ fun VideoListScreen(
             progress.isActive            -> { /* consume back press */ }
             showCreateMenu               -> showCreateMenu = false
             showMoreMenu                 -> showMoreMenu = false
-            state.showSettings           -> viewModel.dismissSettings()
-            state.showHideFolders && state.hideScreenGroupId != null -> {
-                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
-                else viewModel.closeGroupInHideScreen()
-            }
-            state.showHideFolders        -> viewModel.dismissHideFoldersScreen()
             state.showGroupNameDialog    -> viewModel.dismissGroupNameDialog()
             state.showRenameGroupDialog  -> viewModel.dismissRenameGroupDialog()
             state.showDestroyGroupDialog -> viewModel.dismissDestroyGroupDialog()
@@ -122,6 +116,13 @@ fun VideoListScreen(
             state.showCreateFolderDialog -> viewModel.dismissCreateFolderDialog()
             state.showDetailsDialog      -> viewModel.dismissVideoDetails()
             state.showMoveFolderPicker   -> viewModel.dismissMoveFolderPicker()
+            state.showAbout              -> viewModel.dismissAbout()
+            state.showSettings           -> viewModel.dismissSettings()
+            state.showHideFolders && state.hideScreenGroupId != null -> {
+                if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
+                else viewModel.closeGroupInHideScreen()
+            }
+            state.showHideFolders        -> viewModel.dismissHideFoldersScreen()
             state.isSelectionMode        -> viewModel.exitSelectionMode()
             // ── Navigation: folder must be closed before group ──
             state.currentFolderBucketId != null -> {
@@ -453,11 +454,12 @@ fun VideoListScreen(
             )
         }
         if (state.showMoveFolderPicker) {
+            val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
             FolderPickerScreen(
                 title                   = "Move to",
                 folders                 = state.folders,
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
-                orderedMixedItems       = state.orderedMixedItems,
+                orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
@@ -465,11 +467,12 @@ fun VideoListScreen(
             )
         }
         if (state.showCopyFolderPicker) {
+            val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
             FolderPickerScreen(
                 title                   = "Copy to",
                 folders                 = state.folders,
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
-                orderedMixedItems       = state.orderedMixedItems,
+                orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
@@ -520,13 +523,16 @@ fun VideoListScreen(
     // ── Move / Copy folder picker (full-screen) ──────────────────────────────
     // Each picker is wrapped in a Box so CopyMoveAndConflictOverlayHost is always rendered
     // on top — ensures progress and conflict dialogs appear no matter which picker is active.
+    // When inside a group, pass the group's orderedMixedItems (which uses currentGroupSortOption);
+    // otherwise use the root orderedMixedItems (which uses the root sortOption).
     if (state.showMoveFolderPicker) {
+        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(
                 title                   = "Move to",
                 folders                 = state.folders,
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
-                orderedMixedItems       = state.orderedMixedItems,
+                orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
@@ -550,12 +556,13 @@ fun VideoListScreen(
         return
     }
     if (state.showCopyFolderPicker) {
+        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(
                 title                   = "Copy to",
                 folders                 = state.folders,
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
-                orderedMixedItems       = state.orderedMixedItems,
+                orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
