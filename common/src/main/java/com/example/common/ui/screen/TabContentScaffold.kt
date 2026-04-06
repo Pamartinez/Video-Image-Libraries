@@ -68,8 +68,10 @@ fun TabContentScaffold(
             val isLargeGrid = viewType == ViewType.GRID_LARGE
             // GRID_LARGE = 2 columns, GRID_SMALL = 3 columns
             val columnCount = if (isLargeGrid) 2 else 3
+            // Samsung Gallery has very prominent spacing between albums
+            // Increased to match the visual appearance in the screenshot
             val animatedSpacing by animateDpAsState(
-                targetValue  = 8.dp,
+                targetValue  = if (isLargeGrid) 18.dp else 12.dp,
                 animationSpec = tween(300),
                 label        = gridTransitionLabel
             )

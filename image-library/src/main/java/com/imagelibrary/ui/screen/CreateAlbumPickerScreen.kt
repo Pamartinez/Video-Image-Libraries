@@ -121,7 +121,8 @@ fun CreateAlbumPickerScreen(
     // ── Grid layout helpers ──────────────────────────────────────────────────
     val isLargeGrid = viewType == ViewType.GRID_LARGE
     val columnCount = if (isLargeGrid) 2 else 3
-    val gridSpacing = if (isLargeGrid) 8.dp else 4.dp
+    // Samsung Gallery prominent spacing: 18dp for large grid, 12dp for small grid
+    val gridSpacing = if (isLargeGrid) 18.dp else 12.dp
 
     // ── Header title ─────────────────────────────────────────────────────────
     val headerTitle = when {
@@ -260,7 +261,8 @@ fun CreateAlbumPickerScreen(
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(columnCount),
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(gridSpacing),
+                        // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
+                        contentPadding = PaddingValues(10.dp),
                         horizontalArrangement = Arrangement.spacedBy(gridSpacing),
                         verticalArrangement = Arrangement.spacedBy(gridSpacing)
                     ) {

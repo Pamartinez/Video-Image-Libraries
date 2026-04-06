@@ -212,7 +212,8 @@ private fun MixedListContent(
         modifier = Modifier
             .fillMaxSize()
             .then(if (canDrag) Modifier.dragToReorderList(dragDropState) else Modifier),
-        contentPadding = PaddingValues(vertical = 4.dp),
+        // Samsung Gallery extremely compact list view (no edge padding)
+        contentPadding = PaddingValues(vertical = 0.dp),
         userScrollEnabled = !(canDrag && dragDropState.isDragging)
     ) {
         item(key = "header_all_albums") {
@@ -336,7 +337,8 @@ private fun MixedGridContent(
             modifier = Modifier
                 .fillMaxSize()
                 .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
-            contentPadding = PaddingValues(spacing),
+            // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
+            contentPadding = PaddingValues(10.dp),
             horizontalArrangement = Arrangement.spacedBy(spacing),
             verticalArrangement = Arrangement.spacedBy(spacing),
             userScrollEnabled = !(canDrag && dragDropState.isDragging)

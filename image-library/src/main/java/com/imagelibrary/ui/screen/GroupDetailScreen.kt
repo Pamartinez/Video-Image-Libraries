@@ -240,7 +240,8 @@ fun GroupDetailScreen(
             // ── Content grid (wrapped in Box so the drag overlay can float above the grid) ──
             val isLargeGrid = viewType == ViewType.GRID_LARGE
             val columnCount = if (isLargeGrid) 2 else 3
-            val spacing = if (isLargeGrid) 8.dp else 4.dp
+            // Samsung Gallery prominent spacing: 18dp for large grid, 12dp for small grid
+            val spacing = if (isLargeGrid) 18.dp else 12.dp
 
             Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 if (mixedItems.isEmpty()) {
@@ -267,7 +268,8 @@ fun GroupDetailScreen(
                         modifier = Modifier
                             .fillMaxSize()
                             .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
-                        contentPadding = PaddingValues(spacing),
+                        // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
+                        contentPadding = PaddingValues(10.dp),
                         horizontalArrangement = Arrangement.spacedBy(spacing),
                         verticalArrangement = Arrangement.spacedBy(spacing),
                         userScrollEnabled = !(canDrag && dragDropState.isDragging)

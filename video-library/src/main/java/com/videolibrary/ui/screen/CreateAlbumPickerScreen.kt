@@ -80,6 +80,8 @@ fun CreateAlbumPickerScreen(
 
     val isLargeGrid = viewType != ViewType.GRID_SMALL
     val columnCount = if (isLargeGrid) 2 else 3
+    // Samsung Gallery prominent spacing: 18dp for large grid, 12dp for small grid
+    val gridSpacing = if (isLargeGrid) 18.dp else 12.dp
 
     // ── Back handler ─────────────────────────────────────────────────────────
     BackHandler {
@@ -199,9 +201,9 @@ fun CreateAlbumPickerScreen(
                 } else {
                     LazyVerticalGrid(
                         columns             = GridCells.Fixed(columnCount),
-                        contentPadding      = PaddingValues(4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                        contentPadding      = PaddingValues(2.dp),
+                        horizontalArrangement = Arrangement.spacedBy(2.dp),
+                        verticalArrangement = Arrangement.spacedBy(2.dp),
                         modifier            = Modifier.fillMaxSize()
                     ) {
                         items(browsedVideos, key = { it.id }) { video ->
@@ -239,9 +241,10 @@ fun CreateAlbumPickerScreen(
                 } else {
                     LazyVerticalGrid(
                         columns             = GridCells.Fixed(columnCount),
-                        contentPadding      = PaddingValues(4.dp),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                        // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
+                        contentPadding      = PaddingValues(10.dp),
+                        horizontalArrangement = Arrangement.spacedBy(gridSpacing),
+                        verticalArrangement = Arrangement.spacedBy(gridSpacing),
                         modifier            = Modifier.fillMaxSize()
                     ) {
                         items(groupsToShow, key = { "g_${it.groupId}" }) { group ->

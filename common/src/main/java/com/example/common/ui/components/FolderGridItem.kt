@@ -53,7 +53,8 @@ fun FolderGridItem(
     contextMenuContent: @Composable () -> Unit = {}
 ) {
     val colors         = LocalLibraryColors.current
-    val shape          = RoundedCornerShape(12.dp)
+    // Samsung Gallery uses 22dp for large grid, 12dp for small grid
+    val shape          = RoundedCornerShape(if (isSmallGrid) 12.dp else 22.dp)
     val nameFontSize   = if (isSmallGrid) 11.sp else 13.sp
     val countFontSize  = if (isSmallGrid) 10.sp else 12.sp
     val hasDragTranslation = isDragging && dragOffset != Offset.Zero
@@ -90,7 +91,9 @@ fun FolderGridItem(
                     .then(
                         if (hasDragTranslation)
                             Modifier.border(3.dp, Color(0xFF2196F3), shape)
-                        else Modifier
+                        else
+                            // Samsung Gallery-style border (1dp with subtle opacity)
+                            Modifier.border(1.dp, colors.listSecondText.copy(alpha = 0.15f), shape)
                     )
                     .combinedClickable(onClick = onClick, onLongClick = onLongClick)
             ) {

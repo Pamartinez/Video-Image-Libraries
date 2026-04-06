@@ -77,7 +77,8 @@ fun FolderListItem(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                    // Samsung Gallery extremely compact list view (no vertical padding)
+                    .padding(horizontal = 16.dp, vertical = 0.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Selection checkbox

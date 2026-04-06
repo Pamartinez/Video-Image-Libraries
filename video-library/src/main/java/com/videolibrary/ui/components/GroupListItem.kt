@@ -42,7 +42,8 @@ fun GroupListItem(
             .fillMaxWidth()
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
             .background(if (isSelected) colors.primary.copy(alpha = 0.12f) else Color.Transparent)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            // Samsung Gallery extremely compact list view (no vertical padding)
+            .padding(horizontal = 16.dp, vertical = 0.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Thumbnail / mosaic (72×72)

@@ -202,7 +202,8 @@ fun FoldersTab(
                     modifier = Modifier
                         .fillMaxSize()
                         .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
-                    contentPadding = PaddingValues(spacing),
+                    // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
+                    contentPadding = PaddingValues(10.dp),
                     horizontalArrangement = Arrangement.spacedBy(spacing),
                     verticalArrangement = Arrangement.spacedBy(spacing),
                     userScrollEnabled = !(canDrag && dragDropState.isDragging)
