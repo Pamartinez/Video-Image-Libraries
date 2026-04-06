@@ -93,6 +93,10 @@ data class ImageListUiState(
     /** Per-group custom sort orders, forwarded to FolderPickerScreen so the picker
      *  respects the same drag order as the group detail screen. */
     val allGroupCustomOrders: Map<Long, List<String>> = emptyMap(),
+    
+    /** Per-group sort options (map of groupId to SortOption.id), forwarded to
+     *  FolderPickerScreen so the picker respects each group's sort preference. */
+    val allGroupSortOptions: Map<Long, Int> = emptyMap(),
 
     // ── Move-to-group picker ──
     val showMoveToGroupPicker: Boolean = false,
@@ -556,6 +560,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 orderedMixedItems = orderedMixed,
                 allGroups = allGroups,
                 allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
+                allGroupSortOptions = allGroups.associate { group -> 
+                    group.groupId to preferences.getGroupSortOption(group.groupId).id 
+                },
                 isLoading = false
             )
         }
@@ -863,7 +870,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     private fun sortImagesInMemory(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {
         return when (option) {
-            ImageSortOption.CUSTOM_ORDER -> images.sortedByDescending { it.dateModified }
+            // Samsung Gallery's custom order: DATE_TAKEN DESC, _ID DESC (stable — never changes when editing)
+            ImageSortOption.CUSTOM_ORDER -> images.sortedWith(compareByDescending<ImageItem> { it.dateTaken }.thenByDescending { it.id })
             ImageSortOption.NAME_A_TO_Z -> images.sortedBy { it.displayName.lowercase() }
             ImageSortOption.NAME_Z_TO_A -> images.sortedByDescending { it.displayName.lowercase() }
             ImageSortOption.DATE_CREATED_ASC -> images.sortedBy { it.id }

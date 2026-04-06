@@ -1,5 +1,68 @@
 # Copilot Instructions
 
+## ⚠️ BEHAVIORAL CONSISTENCY RULE — CRITICAL
+**Both `image-library` and `video-library` MUST behave identically for ALL common operations.**
+
+This is a **non-negotiable architectural principle** that supersedes all other considerations.
+
+### Common Operations That MUST Have Identical Behavior:
+- **Creating groups** (flow, dialogs, validation, naming)
+- **Creating albums** (picker flow, selection, copy/move dialog)
+- **Copy operations** (folder picker navigation, progress display, conflict handling)
+- **Move operations** (folder picker navigation, progress display, conflict handling)
+- **Deleting items** (confirmation dialogs, batch operations)
+- **Group navigation** (opening, closing, browsing nested groups)
+- **Sort order preservation** (groups/albums maintaining their sort in pickers)
+- **Hiding/unhiding folders** (screen flow, toggle behavior)
+- **Settings behavior** (all shared settings must work identically)
+- **Backup/restore** (shared settings backup and restore identically)
+- **Selection mode** (enter/exit, select all, multi-select)
+- **Drag-to-reorder** (reorder UX, persistence)
+- **Search functionality** (search UI, filtering, results display)
+- **Details screens** (information displayed, format, layout)
+- **Rename operations** (dialog, validation, error handling)
+- **File conflict resolution** (rename/replace/skip options, "Keep Both" vs "Rename" labels)
+
+### Enforcement Rules:
+1. **When implementing ANY new feature in one library, ALWAYS implement it in the other** — even if not explicitly requested.
+2. **When fixing ANY bug in one library, ALWAYS check if the same bug exists in the other** and fix it there too.
+3. **When refactoring code in one library, apply the same refactoring to the other.**
+4. **Test both libraries** after any change to common operations to ensure they behave the same way.
+5. **If behavior diverges unintentionally**, treat it as a **critical bug** and fix immediately.
+6. **Before declaring a task complete**, verify that both libraries exhibit identical behavior for the feature/fix.
+
+### New Feature Development Rule:
+**When adding ANY new functionality:**
+1. First determine if it's media-specific (image-only or video-only) or common (applies to both)
+2. If common (99% of cases):
+   - Implement in `common` module when possible
+   - If library-specific wrappers are needed, implement in **BOTH** libraries simultaneously
+   - Ensure identical UX, dialogs, flows, error messages, and behavior
+   - Use the same parameter names, function signatures, and state management patterns
+3. If media-specific:
+   - Clearly document WHY it's specific to one library
+   - Keep it isolated and minimal
+
+### The Only Acceptable Differences:
+- **Media type displayed** (images vs. videos)
+- **Media-specific settings** (e.g., `carouselShowBarsOnOpen` in image-library, `instantPlayerEnabled` in video-library)
+- **Thumbnail rendering** (AsyncImage vs. VideoFrameDecoder)
+- **Item labels** ("image" vs. "video" in UI text)
+- **Player functionality** (instant video player vs. carousel image viewer)
+
+**Everything else must be identical.**
+
+### Examples of Required Consistency:
+✅ **DO:** If you add a "Mark as Favorite" feature to image-library, add it to video-library too  
+✅ **DO:** If you fix a group deletion bug in video-library, check and fix it in image-library  
+✅ **DO:** If you improve the copy progress dialog in one app, apply it to both  
+✅ **DO:** If you add drag-to-reorder in albums, ensure both apps support it identically  
+❌ **DON'T:** Implement a feature in only one library unless it's truly media-specific  
+❌ **DON'T:** Let UX flows diverge between the apps (e.g., different dialog flows)  
+❌ **DON'T:** Use different parameter names or state management patterns for the same operation  
+
+**When in doubt: implement it in BOTH apps.**
+
 ## Project Scope
 Before making any change, clearly state which project the change applies to:
 - `image-library`

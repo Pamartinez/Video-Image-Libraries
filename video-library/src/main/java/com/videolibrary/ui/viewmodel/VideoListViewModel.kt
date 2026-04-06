@@ -105,6 +105,10 @@ data class VideoListUiState(
      *  respects the same drag order as the group detail screen. */
     val allGroupCustomOrders: Map<Long, List<String>> = emptyMap(),
 
+    /** Per-group sort options (map of groupId to FolderSortOption.id), forwarded to
+     *  FolderPickerScreen so the picker respects each group's sort preference. */
+    val allGroupSortOptions: Map<Long, Int> = emptyMap(),
+
     // ── Group navigation (stack-based) ────────────────────────────────
     val currentGroupId: Long? = null,
     val currentGroupName: String = "",
@@ -563,6 +567,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 ungroupedFolders     = ungroupedFolders,
                 orderedMixedItems    = orderedMixed,
                 allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
+                allGroupSortOptions  = rootGroups.associate { group ->
+                    group.groupId to preferences.getGroupSortOption(group.groupId).id
+                },
                 isLoading            = false,
                 scrollToTopTrigger   = if (scrollToTop) it.scrollToTopTrigger + 1 else it.scrollToTopTrigger
             )

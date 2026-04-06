@@ -62,6 +62,12 @@ fun FolderPickerScreen(
      * falling back to alphabetical.
      */
     groupCustomOrders: Map<Long, List<String>> = emptyMap(),
+    /**
+     * Per-group sort options (keyed by groupId). Holds each group's sort preference
+     * (e.g., FolderSortOption enum ID). When browsing into a group, the picker respects
+     * this setting instead of hardcoding alphabetical sort.
+     */
+    groupSortOptions: Map<Long, Int> = emptyMap(),
     onFolderSelected: (String) -> Unit,
     onBack: () -> Unit,
     onCreateFolderAndSelect: ((String) -> Unit)? = null,
@@ -84,34 +90,71 @@ fun FolderPickerScreen(
     var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
 
     val currentBrowseGroupId = browseStack.lastOrNull()?.first
-    val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId, groupCustomOrders) {
+    val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId, groupCustomOrders, groupSortOptions) {
         if (currentBrowseGroupId != null) {
-            // Inside a group: use the saved custom order when available, otherwise alphabetical.
+            // Inside a group: respect the group's sort preference
             val browsedGroup = groups.find { it.groupId == currentBrowseGroupId }
             val memberFolders = (browsedGroup?.memberBucketIds ?: emptyList())
                 .mapNotNull { bid -> folders.find { it.bucketId == bid } }
             val subGroups = groups.filter { it.parentGroupId == currentBrowseGroupId }
 
-            val customOrder = groupCustomOrders[currentBrowseGroupId]
-            if (customOrder != null && customOrder.isNotEmpty()) {
-                val subGroupMap = subGroups.associateBy { "g_${it.groupId}" }
-                val folderMap   = memberFolders.associateBy { "f_${it.bucketId}" }
-                val savedSet    = customOrder.toSet()
-                buildList {
-                    // New items not yet in the saved order go first (alphabetical among themselves)
-                    subGroups.filter   { "g_${it.groupId}"  !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Group(it)) }
-                    memberFolders.filter { "f_${it.bucketId}" !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
-                    // Then items in the persisted drag order
-                    for (key in customOrder) {
-                        subGroupMap[key]?.let { add(MixedItem.Group(it)) }
-                            ?: folderMap[key]?.let { add(MixedItem.Folder(it)) }
+            // Get the group's sort option (from groupSortOptions map)
+            val groupSortId = groupSortOptions[currentBrowseGroupId] ?: 0 // 0 = CUSTOM_ORDER
+
+            when (groupSortId) {
+                0 -> {  // CUSTOM_ORDER
+                    val customOrder = groupCustomOrders[currentBrowseGroupId]
+                    if (customOrder != null && customOrder.isNotEmpty()) {
+                        val subGroupMap = subGroups.associateBy { "g_${it.groupId}" }
+                        val folderMap   = memberFolders.associateBy { "f_${it.bucketId}" }
+                        val savedSet    = customOrder.toSet()
+                        buildList {
+                            // New items not yet in the saved order go first (alphabetical among themselves)
+                            subGroups.filter   { "g_${it.groupId}"  !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Group(it)) }
+                            memberFolders.filter { "f_${it.bucketId}" !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                            // Then items in the persisted drag order
+                            for (key in customOrder) {
+                                subGroupMap[key]?.let { add(MixedItem.Group(it)) }
+                                    ?: folderMap[key]?.let { add(MixedItem.Folder(it)) }
+                            }
+                        }
+                    } else {
+                        // No custom order saved — fall back to alphabetical
+                        buildList {
+                            subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
+                            memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                        }
                     }
                 }
-            } else {
-                // No custom order saved — fall back to alphabetical
-                buildList {
-                    subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
-                    memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                1 -> {  // NAME_A_TO_Z
+                    buildList {
+                        subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
+                        memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                    }
+                }
+                2 -> {  // NAME_Z_TO_A
+                    buildList {
+                        subGroups.sortedByDescending    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
+                        memberFolders.sortedByDescending { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                    }
+                }
+                3 -> {  // ITEMS_MOST_FIRST
+                    buildList {
+                        subGroups.sortedByDescending    { it.totalItemCount }.forEach { add(MixedItem.Group(it))  }
+                        memberFolders.sortedByDescending { it.itemCount }.forEach { add(MixedItem.Folder(it)) }
+                    }
+                }
+                4 -> {  // ITEMS_FEWEST_FIRST
+                    buildList {
+                        subGroups.sortedBy    { it.totalItemCount }.forEach { add(MixedItem.Group(it))  }
+                        memberFolders.sortedBy { it.itemCount }.forEach { add(MixedItem.Folder(it)) }
+                    }
+                }
+                else -> {  // Fallback to alphabetical
+                    buildList {
+                        subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
+                        memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                    }
                 }
             }
         } else {

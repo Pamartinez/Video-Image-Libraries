@@ -52,6 +52,7 @@ class ImageRepository(private val context: Context) {
                 val dataCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
                 val sizeCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.SIZE)
                 val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_MODIFIED)
+                val dateTakenCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
                 @Suppress("DEPRECATION")
                 val bucketIdCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_ID)
                 @Suppress("DEPRECATION")
@@ -67,6 +68,7 @@ class ImageRepository(private val context: Context) {
                     val path = cursor.getString(dataCol) ?: ""
                     val size = cursor.getLong(sizeCol)
                     val dateModified = cursor.getLong(dateModifiedCol)
+                    val dateTaken = cursor.getLong(dateTakenCol)
                     val bId = cursor.getInt(bucketIdCol)
                     val bName = cursor.getString(bucketNameCol) ?: ""
                     val mimeType = cursor.getString(mimeTypeCol) ?: "image/*"
@@ -83,6 +85,7 @@ class ImageRepository(private val context: Context) {
                             path = path,
                             size = size,
                             dateModified = dateModified,
+                            dateTaken = dateTaken,
                             bucketId = bId,
                             bucketName = bName,
                             mimeType = mimeType,

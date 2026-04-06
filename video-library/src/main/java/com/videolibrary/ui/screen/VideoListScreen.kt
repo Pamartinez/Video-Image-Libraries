@@ -461,6 +461,7 @@ fun VideoListScreen(
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
+                groupSortOptions        = state.allGroupSortOptions,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
@@ -474,6 +475,7 @@ fun VideoListScreen(
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
+                groupSortOptions        = state.allGroupSortOptions,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
@@ -534,6 +536,7 @@ fun VideoListScreen(
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
+                groupSortOptions        = state.allGroupSortOptions,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
@@ -564,6 +567,7 @@ fun VideoListScreen(
                 groups                  = state.rootGroups + state.currentGroupSubGroups,
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
+                groupSortOptions        = state.allGroupSortOptions,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
