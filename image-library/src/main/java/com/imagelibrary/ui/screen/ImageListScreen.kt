@@ -127,6 +127,13 @@ fun ImageListScreen(
 
     // ── Create Album picker (full-screen) ──
     if (state.showCreateAlbumPicker) {
+        // Pass groupOrderedItems map (same pattern as FolderPickerScreen)
+        val groupOrderedItemsForPicker = if (state.currentGroupId != null) {
+            mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems)
+        } else {
+            emptyMap()
+        }
+
         CreateAlbumPickerScreen(
             albumName = state.pendingAlbumName,
             allFolders = state.folders,
@@ -135,6 +142,7 @@ fun ImageListScreen(
             currentBucketId = state.albumCreationCurrentBucketId,
             selectedImageIds = state.albumCreationSelectedImageIds,
             viewType = state.viewType,
+            groupOrderedItems = groupOrderedItemsForPicker,
             onFolderOpen = { folder -> viewModel.loadAlbumCreationImages(folder.bucketId, folder.name) },
             onFolderClose = { viewModel.closeAlbumCreationFolder() },
             onToggleImage = { id -> viewModel.toggleAlbumCreationImageSelection(id) },
@@ -304,8 +312,16 @@ fun ImageListScreen(
         if (state.showDetailsDialog && state.detailsTarget != null) { ImageDetailsDialog(image = state.detailsTarget!!, onDismiss = { viewModel.dismissImageDetails() }) }
         if (state.showSortDialog) { SortDialog(options = ImageSortOption.entries, labelFor = { it.label }, currentOption = state.imageSortOption, onOptionSelected = { viewModel.setImageSortOption(it) }, onDismiss = { viewModel.dismissSortDialog() }) }
         if (state.showViewAsDialog) { ViewAsDialog(currentViewType = state.folderViewType, onViewTypeSelected = { viewModel.setFolderViewType(it) }, onDismiss = { viewModel.dismissViewAsDialog() }) }
-        if (state.showMoveFolderPicker) { FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) }) }
-        if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }) }
+        if (state.showMoveFolderPicker) {
+            val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
+            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, groupOrderedItems = groupOrderedItemsMap, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
+        }
+        if (state.showCopyFolderPicker) {
+            val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
+            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, groupOrderedItems = groupOrderedItemsMap, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
+        }
         if (state.showCreateAlbumDialog) { CreateAlbumDialog(existingDcimNames = state.dcimFolderNames, onConfirm = { name -> viewModel.startCreateAlbumPicker(name) }, onDismiss = { viewModel.dismissCreateAlbumDialog() }) }
         CopyMoveAndConflictOverlayHost(
             isProgressActive           = progress.isActive,
@@ -440,9 +456,10 @@ fun ImageListScreen(
     // When inside a group, pass the group's orderedMixedItems (which uses currentGroupSortOption);
     // otherwise use the root orderedMixedItems (which uses the root sortOption).
     if (state.showMoveFolderPicker) {
-        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
         Box(modifier = Modifier.fillMaxSize()) {
-            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
+            FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, groupOrderedItems = groupOrderedItemsMap, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
             CopyMoveAndConflictOverlayHost(
                 isProgressActive = progress.isActive,
                 progressTitle = progress.title,
@@ -460,9 +477,10 @@ fun ImageListScreen(
         return
     }
     if (state.showCopyFolderPicker) {
-        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
         Box(modifier = Modifier.fillMaxSize()) {
-            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
+            FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, groupOrderedItems = groupOrderedItemsMap, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
             CopyMoveAndConflictOverlayHost(
                 isProgressActive = progress.isActive,
                 progressTitle = progress.title,

@@ -68,6 +68,12 @@ fun FolderPickerScreen(
      * this setting instead of hardcoding alphabetical sort.
      */
     groupSortOptions: Map<Long, Int> = emptyMap(),
+    /**
+     * Pre-calculated ordered items for specific groups (keyed by groupId).
+     * When provided for a group, the picker uses these items directly instead of
+     * re-calculating from folders/groups, ensuring the same sort order as GroupDetailScreen.
+     */
+    groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
     onFolderSelected: (String) -> Unit,
     onBack: () -> Unit,
     onCreateFolderAndSelect: ((String) -> Unit)? = null,
@@ -90,18 +96,45 @@ fun FolderPickerScreen(
     var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
 
     val currentBrowseGroupId = browseStack.lastOrNull()?.first
-    val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId, groupCustomOrders, groupSortOptions) {
+    val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId, groupCustomOrders, groupSortOptions, groupOrderedItems) {
         if (currentBrowseGroupId != null) {
-            // Inside a group: respect the group's sort preference
-            val browsedGroup = groups.find { it.groupId == currentBrowseGroupId }
-            val memberFolders = (browsedGroup?.memberBucketIds ?: emptyList())
-                .mapNotNull { bid -> folders.find { it.bucketId == bid } }
-            val subGroups = groups.filter { it.parentGroupId == currentBrowseGroupId }
+            // If we have pre-calculated ordered items for this group, use them directly
+            val preCalculated = groupOrderedItems[currentBrowseGroupId]
+            if (preCalculated != null) {
+                android.util.Log.d("FolderPicker", "═══ Using PRE-CALCULATED items for group $currentBrowseGroupId ═══")
+                android.util.Log.d("FolderPicker", "  Items: ${preCalculated.map { when(it) { 
+                    is FolderItem -> "F:${it.name}"
+                    is GroupItem -> "G:${it.name}"
+                    else -> it.toString()
+                }}}")
+                preCalculated.mapNotNull { item ->
+                    when (item) {
+                        is FolderItem -> MixedItem.Folder(item)
+                        is GroupItem -> MixedItem.Group(item)
+                        else -> null
+                    }
+                }
+            } else {
+                // Fallback: calculate from memberBucketIds (old behavior)
+                val browsedGroup = groups.find { it.groupId == currentBrowseGroupId }
+                android.util.Log.d("FolderPicker", "═══ CALCULATING items for group ${browsedGroup?.name} (ID: $currentBrowseGroupId) ═══")
+                android.util.Log.d("FolderPicker", "  memberBucketIds: ${browsedGroup?.memberBucketIds}")
+                
+                val memberFolders = (browsedGroup?.memberBucketIds ?: emptyList())
+                    .mapNotNull { bid -> folders.find { it.bucketId == bid } }
+                android.util.Log.d("FolderPicker", "  memberFolders found: ${memberFolders.map { "${it.name}(${it.bucketId})" }}")
+                android.util.Log.d("FolderPicker", "  Total folders available: ${folders.size} -> ${folders.map { "${it.name}(${it.bucketId})" }}")
+                
+                val subGroups = groups.filter { it.parentGroupId == currentBrowseGroupId }
 
-            // Get the group's sort option (from groupSortOptions map)
-            val groupSortId = groupSortOptions[currentBrowseGroupId] ?: 0 // 0 = CUSTOM_ORDER
+                // Get the group's sort option (from groupSortOptions map)
+                val groupSortId = groupSortOptions[currentBrowseGroupId] ?: 0 // 0 = CUSTOM_ORDER
+                android.util.Log.d("FolderPicker", "  groupSortId: $groupSortId (0=CUSTOM)")
+                
+                val customOrder = groupCustomOrders[currentBrowseGroupId]
+                android.util.Log.d("FolderPicker", "  customOrder: $customOrder")
 
-            when (groupSortId) {
+                when (groupSortId) {
                 0 -> {  // CUSTOM_ORDER
                     val customOrder = groupCustomOrders[currentBrowseGroupId]
                     if (customOrder != null && customOrder.isNotEmpty()) {
@@ -109,9 +142,9 @@ fun FolderPickerScreen(
                         val folderMap   = memberFolders.associateBy { "f_${it.bucketId}" }
                         val savedSet    = customOrder.toSet()
                         buildList {
-                            // New items not yet in the saved order go first (alphabetical among themselves)
-                            subGroups.filter   { "g_${it.groupId}"  !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Group(it)) }
-                            memberFolders.filter { "f_${it.bucketId}" !in savedSet }.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                            // New items not yet in the saved order go first (in their original order, not alphabetical)
+                            subGroups.filter   { "g_${it.groupId}"  !in savedSet }.forEach { add(MixedItem.Group(it)) }
+                            memberFolders.filter { "f_${it.bucketId}" !in savedSet }.forEach { add(MixedItem.Folder(it)) }
                             // Then items in the persisted drag order
                             for (key in customOrder) {
                                 subGroupMap[key]?.let { add(MixedItem.Group(it)) }
@@ -119,10 +152,12 @@ fun FolderPickerScreen(
                             }
                         }
                     } else {
-                        // No custom order saved — fall back to alphabetical
+                        // No custom order saved yet — use default order (sub-groups first, then folders)
+                        // This matches the behavior of GroupDetailScreen when Custom sort is selected
+                        // but the user hasn't dragged to reorder anything yet.
                         buildList {
-                            subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
-                            memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
+                            subGroups.forEach    { add(MixedItem.Group(it))  }
+                            memberFolders.forEach { add(MixedItem.Folder(it)) }
                         }
                     }
                 }
@@ -155,6 +190,7 @@ fun FolderPickerScreen(
                         subGroups.sortedBy    { it.name.lowercase() }.forEach { add(MixedItem.Group(it))  }
                         memberFolders.sortedBy { it.name.lowercase() }.forEach { add(MixedItem.Folder(it)) }
                     }
+                }
                 }
             }
         } else {

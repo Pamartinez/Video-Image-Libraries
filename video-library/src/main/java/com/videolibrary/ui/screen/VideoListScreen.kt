@@ -137,6 +137,13 @@ fun VideoListScreen(
 
     // ── Create Album picker (full-screen) ────────────────────────────────────
     if (state.showCreateAlbumPicker) {
+        // Pass groupOrderedItems map (same pattern as FolderPickerScreen)
+        val groupOrderedItemsForPicker = if (state.currentGroupId != null) {
+            mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems)
+        } else {
+            emptyMap()
+        }
+
         CreateAlbumPickerScreen(
             albumName        = state.pendingAlbumName,
             rootGroups       = state.rootGroups,
@@ -146,6 +153,7 @@ fun VideoListScreen(
             currentBucketId  = state.albumCreationCurrentBucketId,
             selectedVideoIds = state.albumCreationSelectedVideoIds,
             allVideos        = state.videos,
+            groupOrderedItems = groupOrderedItemsForPicker,
             onFolderOpen     = { folder -> viewModel.loadAlbumCreationVideos(folder.bucketId, folder.name) },
             onFolderClose    = { viewModel.closeAlbumCreationFolder() },
             onToggleVideo    = { viewModel.toggleAlbumCreationVideoSelection(it) },
@@ -470,7 +478,8 @@ fun VideoListScreen(
             )
         }
         if (state.showMoveFolderPicker) {
-            val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
             FolderPickerScreen(
                 title                   = "Move to",
                 folders                 = state.folders,
@@ -478,13 +487,15 @@ fun VideoListScreen(
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 groupSortOptions        = state.allGroupSortOptions,
+                groupOrderedItems       = groupOrderedItemsMap,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
             )
         }
         if (state.showCopyFolderPicker) {
-            val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+            val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
             FolderPickerScreen(
                 title                   = "Copy to",
                 folders                 = state.folders,
@@ -492,6 +503,7 @@ fun VideoListScreen(
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 groupSortOptions        = state.allGroupSortOptions,
+                groupOrderedItems       = groupOrderedItemsMap,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
@@ -531,7 +543,8 @@ fun VideoListScreen(
     // When inside a group, pass the group's orderedMixedItems (which uses currentGroupSortOption);
     // otherwise use the root orderedMixedItems (which uses the root sortOption).
     if (state.showMoveFolderPicker) {
-        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(
                 title                   = "Move to",
@@ -540,6 +553,7 @@ fun VideoListScreen(
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 groupSortOptions        = state.allGroupSortOptions,
+                groupOrderedItems       = groupOrderedItemsMap,
                 onFolderSelected        = { viewModel.moveSelectedVideos(it) },
                 onBack                  = { viewModel.dismissMoveFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
@@ -561,7 +575,8 @@ fun VideoListScreen(
         return
     }
     if (state.showCopyFolderPicker) {
-        val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
+        val groupOrderedItemsMap = if (state.currentGroupId != null) mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems) else emptyMap()
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(
                 title                   = "Copy to",
@@ -570,6 +585,7 @@ fun VideoListScreen(
                 orderedMixedItems       = pickerItems,
                 groupCustomOrders       = state.allGroupCustomOrders,
                 groupSortOptions        = state.allGroupSortOptions,
+                groupOrderedItems       = groupOrderedItemsMap,
                 onFolderSelected        = { viewModel.copySelectedVideos(it) },
                 onBack                  = { viewModel.dismissCopyFolderPicker() },
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }

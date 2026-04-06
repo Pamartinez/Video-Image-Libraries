@@ -579,6 +579,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             sortMixedItems(visibleGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
         }
 
+        // Load all groups (root + nested) to ensure their sort preferences are available
+        val allGroups = groupRepository.getAllGroups()
+
         _uiState.update {
             it.copy(
                 videos               = videos,
@@ -587,7 +590,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 ungroupedFolders     = ungroupedFolders,
                 orderedMixedItems    = orderedMixed,
                 allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
-                allGroupSortOptions  = rootGroups.associate { group ->
+                allGroupSortOptions  = allGroups.associate { group ->
                     group.groupId to preferences.getGroupSortOption(group.groupId).id
                 },
                 isLoading            = false,
