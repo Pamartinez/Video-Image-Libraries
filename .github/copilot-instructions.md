@@ -176,6 +176,85 @@ Only ask when the target project is **not clear** from the request.
 - If similar code is used in **more than 2 places**, extract it into a shared helper (in the `common` module or a shared utility file).
 - Prefer reuse over duplication.
 
+## Documentation Files — File Placement Rule
+**ALL documentation and analysis files (`.md` files) MUST be created in the `docs/` folder.**
+
+### Rules:
+1. **Never create `.md` files in the root directory** - they clutter the project
+2. **Always use the `docs/` folder** for all documentation:
+   - Analysis documents (CODE_CLEANUP_ANALYSIS.md, REFACTORING_GUIDE.md, etc.)
+   - Fix logs (FIXES_APPLIED_*.md)
+   - Architecture documentation
+   - Implementation guides
+   - Any other markdown documentation
+
+3. **File naming convention**:
+   - Use SCREAMING_SNAKE_CASE for analysis/guide documents
+   - Include date suffix for historical records: `FIXES_APPLIED_2026-04-05.md`
+   - Use descriptive names that clearly indicate content
+
+### Examples:
+✅ **CORRECT:** `docs/CODE_CLEANUP_ANALYSIS.md`  
+✅ **CORRECT:** `docs/FIXES_APPLIED_2026-04-06.md`  
+✅ **CORRECT:** `docs/REFACTORING_ROADMAP.md`  
+❌ **WRONG:** `CODE_CLEANUP_ANALYSIS.md` (root directory)  
+❌ **WRONG:** `analysis.md` (root directory, poor naming)  
+
+**Keep the project root clean - documentation belongs in `docs/`.**
+
+## Git Workflow Rule — CRITICAL
+**NEVER commit or push changes to git unless the user explicitly requests it.**
+
+### Rules:
+1. **Wait for explicit permission** before running `git commit` or `git push`
+2. **Valid commit triggers** (only these phrases mean "yes, commit now"):
+   - "commit"
+   - "commit this"
+   - "commit the changes"
+   - "save to git"
+   - "git commit"
+   - "push" (implies commit + push)
+
+3. **Do NOT commit when the user says**:
+   - "build this"
+   - "install the app"
+   - "test this"
+   - "let me check"
+   - "show me"
+   - Or ANY other phrase that doesn't explicitly mention committing
+
+4. **Workflow**:
+   - Make code changes as requested
+   - Build and test to verify changes work
+   - **STOP and wait** - do not auto-commit
+   - Only commit when user explicitly says "commit"
+
+5. **Staging changes is OK**:
+   - You can run `git add .` to stage changes for review
+   - You can run `git status` to show what's changed
+   - But **NEVER** run `git commit` without explicit permission
+
+### Why This Rule Exists:
+- Users may want to test changes before committing
+- Users may want to review diffs before committing
+- Users may want to adjust the commit message
+- Premature commits create messy git history
+
+### Examples:
+✅ **CORRECT:**  
+User: "install the app"  
+AI: *builds and installs, does NOT commit*
+
+✅ **CORRECT:**  
+User: "commit"  
+AI: *runs git add . && git commit with descriptive message*
+
+❌ **WRONG:**  
+User: "build this"  
+AI: *builds, installs, AND commits* ← **NEVER DO THIS**
+
+**When in doubt: DON'T commit. Wait for the user to say "commit".**
+
 ## Common-First Rule — Mandatory Before Every Code Change
 **Before writing or placing ANY new code**, ask and answer these questions in order:
 

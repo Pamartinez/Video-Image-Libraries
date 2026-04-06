@@ -24,5 +24,16 @@ enum class VideoSortOption(val id: Int, val label: String) {
 
     companion object {
         fun fromId(id: Int): VideoSortOption = entries.firstOrNull { it.id == id } ?: CUSTOM_ORDER
+
+        /** Album sort options (limited subset for folder/album views). */
+        val albumSortOptions: List<VideoSortOption> = listOf(
+            CUSTOM_ORDER,
+            NAME_A_TO_Z,
+            NAME_Z_TO_A,
+            DURATION_ASC,
+            DURATION_DESC,
+            DATE_CREATED_ASC,
+            DATE_CREATED_DESC
+        )
     }
 }

@@ -178,6 +178,22 @@ fun VideoListScreen(
         return
     }
 
+    // ── About screen ─────────────────────────────────────────────────────────
+    // Must be checked BEFORE Group/Folder detail screens so About works when
+    // opened from within a group or folder.
+    if (state.showAbout) {
+        AboutScreen(onBack = { viewModel.dismissAbout() })
+        return
+    }
+
+    // ── Settings screen ───────────────────────────────────────────────────────
+    // Must be checked BEFORE Group/Folder detail screens so Settings works when
+    // opened from within a group or folder.
+    if (state.showSettings) {
+        SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() })
+        return
+    }
+
     // ── Hide folders screen ───────────────────────────────────────────────────
     // Must be checked BEFORE GroupDetailScreen so clicking "Hide albums" inside
     // a group actually shows the hide screen instead of staying on the group.
@@ -446,7 +462,7 @@ fun VideoListScreen(
         }
         if (state.showSortDialog) {
             SortDialog(
-                options           = VideoSortOption.entries,
+                options           = VideoSortOption.albumSortOptions,
                 labelFor          = { it.label },
                 currentOption     = state.currentFolderSortOption,
                 onOptionSelected  = { viewModel.setFolderSortOption(it) },
@@ -506,18 +522,6 @@ fun VideoListScreen(
             onBack        = { viewModel.deactivateSearch() },
             onVideoClick  = { viewModel.playVideo(ctx, it) }
         )
-        return
-    }
-
-    // ── About screen ─────────────────────────────────────────────────────────
-    if (state.showAbout) {
-        AboutScreen(onBack = { viewModel.dismissAbout() })
-        return
-    }
-
-    // ── Settings screen ───────────────────────────────────────────────────────
-    if (state.showSettings) {
-        SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() })
         return
     }
 
