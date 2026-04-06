@@ -78,3 +78,68 @@ This applies to ALL entry points without exception:
 - Every early-return picker screen (`FolderPickerScreen`, `CreateAlbumPickerScreen`) must be wrapped in a `Box` that also renders `CopyMoveAndConflictOverlayHost` on top, so the overlay is present even while the picker is visible.
 - When a Copy or Move is initiated from a context that has a higher-priority early-return (e.g., the Carousel), **close that context first** (e.g., call `closeCarousel()`) before opening the picker — so the picker's overlay host is always reachable in the composition tree.
 - `CopyMoveAndConflictOverlayHost` must be present in **every branch** of the UI where a copy/move can be in progress, not only in the main-screen Box.
+
+## Backup & Restore — Mandatory Rules
+**All user-configurable settings must be included in the backup system**, both existing settings and any new settings added in the future.
+
+### Settings Coverage
+- **Every setting visible in the Settings screen** must be backed up and restored.
+- When adding a new feature with user-configurable options, **always add backup support immediately** — do not defer it.
+- Settings that are backed up include (but are not limited to):
+  - View preferences (viewType, folderViewType)
+  - Sort options (all sort-related settings)
+  - UI behavior toggles (carouselShowBarsOnOpen, carouselAlwaysHideOverlay, instantPlayerEnabled, etc.)
+  - Feature flags (independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled)
+  - Custom ordering data (customGroupOrder, customMixedOrder, customAlbumOrder, customFolderOrder)
+  - Hidden folder configuration
+  - Tab selection state
+
+### BackupManager Architecture
+Follow the **Common-First Rule** for backup code:
+
+1. **Common BackupManager** (`common/src/main/java/com/example/common/data/util/BackupManager.kt`):
+   - Contains all shared backup logic (file I/O, JSON serialization, group data persistence)
+   - Defines `SharedSettings` data class for settings that exist in both libraries
+   - Provides `writeSharedSettings()` and `readSharedSettings()` helper methods
+   - **Rule**: If a setting exists in both libraries with the same name and type, it goes in `SharedSettings`
+
+2. **Library-specific BackupManager** (image-library and video-library):
+   - Extends the common `BackupManager`
+   - Implements only library-specific settings (e.g., `carouselShowBarsOnOpen` for image-library, `instantPlayerEnabled` for video-library)
+   - Calls `writeSharedSettings()` and `readSharedSettings()` for shared settings
+   - **Keep these files minimal** — only true library-specific logic belongs here
+
+### Auto-Backup Triggers
+When `autoBackupEnabled` is `true`, backups are automatically saved in the following scenarios:
+
+1. **After any data-modifying operation**:
+   - Creating, renaming, or destroying a group
+   - Adding/removing folders or groups to/from a group
+   - Reordering items (groups, folders, albums, images)
+   - Hiding or unhiding folders/groups
+   - Changing any sort option
+
+2. **After settings changes**:
+   - Toggling any setting in the Settings screen
+   - Changing view type or sort order
+
+3. **App lifecycle events**:
+   - When the app goes to background (`onAppBackground()` / `MainActivity.onStop`)
+   - When the ViewModel is cleared (`onCleared()`)
+
+4. **Debouncing**:
+   - Operations are debounced using `scheduleAutoBackup()` which waits `AUTO_BACKUP_DEBOUNCE_MS` before saving
+   - Background and lifecycle events use immediate backup without debouncing
+
+### Implementation Checklist (When Adding a New Setting)
+When you add a new user-configurable setting:
+- [ ] Add the property to `AppPreferences` in the appropriate library
+- [ ] If it's shared between both libraries, add it to `SharedSettings` in common `BackupManager`
+- [ ] If it's shared, add it as a parameter to `writeSharedSettings()` and write it to JSON
+- [ ] If it's shared, read it in `readSharedSettings()` and return it in `SharedSettings`
+- [ ] If it's library-specific, add it to the library's `writeSettings()` method (write to JSON)
+- [ ] Add restore logic in the library's `readSettings()` method (read from JSON)
+- [ ] Update the JSON schema documentation in common `BackupManager` header comment
+- [ ] If the setting affects data or display, call `scheduleAutoBackup()` after changes (when auto-backup is enabled)
+- [ ] Update the UI state in ViewModel after restore (in `restoreBackupFromFile()` and `refreshStateAfterRestore()`)
+

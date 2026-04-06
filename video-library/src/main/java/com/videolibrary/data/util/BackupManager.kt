@@ -73,6 +73,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.saveGroupMixedOrder(groupId, order)
         }
         shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
+        shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.hiddenFolderPaths?.let      { prefs.hiddenFolderPaths     = it }
         shared.hiddenFolderMeta?.forEach   { (path, triple) ->
             prefs.saveHiddenFolderMeta(path, triple.first, triple.second, triple.third)

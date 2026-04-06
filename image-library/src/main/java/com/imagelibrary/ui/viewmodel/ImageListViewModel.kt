@@ -1284,13 +1284,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             isRestoringBackup = false
             _uiState.update {
                 it.copy(
-                    viewType               = preferences.viewType,
-                    folderViewType         = preferences.folderViewType,
-                    sortOption             = preferences.sortOption,
-                    imageSortOption        = preferences.imageSortOption,
-                    carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
-                    autoBackupEnabled      = preferences.autoBackupEnabled,
-                    groupsAlwaysOnTop      = preferences.groupsAlwaysOnTop
+                    viewType                  = preferences.viewType,
+                    folderViewType            = preferences.folderViewType,
+                    sortOption                = preferences.sortOption,
+                    imageSortOption           = preferences.imageSortOption,
+                    carouselShowBarsOnOpen    = preferences.carouselShowBarsOnOpen,
+                    carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
+                    autoBackupEnabled         = preferences.autoBackupEnabled,
+                    groupsAlwaysOnTop         = preferences.groupsAlwaysOnTop
                 )
             }
             // Await full reload so the UI is settled before the caller navigates away

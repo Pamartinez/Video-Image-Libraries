@@ -23,6 +23,7 @@ import java.io.File
  *     "customMixedOrder":       [String, ...],
  *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
  *     "independentSortEnabled": Boolean,
+ *     "groupsAlwaysOnTop":      Boolean,
  *     "hiddenFolderPaths":      [String, ...],
  *     "hiddenFolderMeta":       { "<path>": { "name": String, "bucketId": Int, "itemCount": Int }, ... },
  *
@@ -76,6 +77,7 @@ abstract class BackupManager(
         val customGroupItemsOrders: Map<Long, List<String>>?,
         // Shared across both libraries
         val independentSortEnabled: Boolean?,
+        val groupsAlwaysOnTop:      Boolean?,
         val hiddenFolderPaths:      Set<String>?,
         val hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>?
     )
@@ -247,6 +249,9 @@ abstract class BackupManager(
         val independentSortEnabled: Boolean? =
             if (settings.has("independentSortEnabled")) settings.getBoolean("independentSortEnabled") else null
 
+        val groupsAlwaysOnTop: Boolean? =
+            if (settings.has("groupsAlwaysOnTop")) settings.getBoolean("groupsAlwaysOnTop") else null
+
         val hiddenFolderPaths: Set<String>? = if (settings.has("hiddenFolderPaths")) {
             val arr = settings.getJSONArray("hiddenFolderPaths")
             (0 until arr.length()).map { arr.getString(it) }.toSet()
@@ -267,7 +272,7 @@ abstract class BackupManager(
 
         return SharedSettings(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
-            independentSortEnabled, hiddenFolderPaths, hiddenFolderMeta
+            independentSortEnabled, groupsAlwaysOnTop, hiddenFolderPaths, hiddenFolderMeta
         )
     }
 
