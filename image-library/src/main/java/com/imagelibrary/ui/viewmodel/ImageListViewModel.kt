@@ -891,8 +891,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     private fun sortImagesInMemory(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {
         return when (option) {
-            // Samsung Gallery's custom order: DATE_TAKEN DESC, _ID DESC (stable — never changes when editing)
-            ImageSortOption.CUSTOM_ORDER -> images.sortedWith(compareByDescending<ImageItem> { it.dateTaken }.thenByDescending { it.id })
+            // Testing: Try DATE_MODIFIED DESC, _ID ASC to match Samsung Gallery
+            ImageSortOption.CUSTOM_ORDER -> images.sortedWith(compareByDescending<ImageItem> { it.dateModified }.thenBy { it.id })
             ImageSortOption.NAME_A_TO_Z -> images.sortedBy { it.displayName.lowercase() }
             ImageSortOption.NAME_Z_TO_A -> images.sortedByDescending { it.displayName.lowercase() }
             ImageSortOption.DATE_CREATED_ASC -> images.sortedBy { it.id }

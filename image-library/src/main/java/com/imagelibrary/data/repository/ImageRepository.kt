@@ -126,9 +126,10 @@ class ImageRepository(private val context: Context) {
         @Suppress("DEPRECATION")
         val selection = "length(trim(${MediaStore.Images.Media.DATA})) > 0"
 
-        // Sort by DATE_TAKEN DESC so the first row per bucket is already the cover candidate.
-        // Using DATE_TAKEN (EXIF capture time) matches Samsung Gallery and is stable across edits.
-        val sortOrderStr = "${MediaStore.Images.Media.DATE_TAKEN} DESC, ${MediaStore.Images.Media._ID} DESC"
+        // Sort by DATE_TAKEN DESC, _ID ASC to match Samsung Gallery's default sort.
+        // For multiple images with same DATE_TAKEN (burst photos), _ID ASC ensures chronological order.
+        // Using DATE_TAKEN (EXIF capture time) is stable across edits (unlike DATE_MODIFIED).
+        val sortOrderStr = "${MediaStore.Images.Media.DATE_TAKEN} DESC, ${MediaStore.Images.Media._ID} ASC"
 
         try {
             contentResolver.query(imageUri, projection, selection, null, sortOrderStr)?.use { cursor ->
@@ -322,17 +323,17 @@ class ImageRepository(private val context: Context) {
             SortType.DATE      -> "${MediaStore.Images.Media.DATE_MODIFIED} $direction, ${MediaStore.Images.Media._ID} $direction"
             SortType.TITLE     -> "${MediaStore.Images.Media.DISPLAY_NAME} COLLATE NOCASE $direction"
             SortType.DATE_ADDED -> "${MediaStore.Images.Media.DATE_ADDED} $direction, ${MediaStore.Images.Media._ID} $direction"
-            // EXIF capture time — identical to Samsung Gallery's default (datetaken DESC, _id DESC).
+            // EXIF capture time — identical to Samsung Gallery's default (datetaken DESC, _id ASC).
+            // For images with same DATE_TAKEN (burst photos), _ID ASC ensures chronological order.
             // Stable: editing a photo updates DATE_MODIFIED but never DATE_TAKEN.
-            SortType.DATE_TAKEN -> "${MediaStore.Images.Media.DATE_TAKEN} $direction, ${MediaStore.Images.Media._ID} $direction"
+            SortType.DATE_TAKEN -> "${MediaStore.Images.Media.DATE_TAKEN} $direction, ${MediaStore.Images.Media._ID} ASC"
         }
     }
 
     private fun imageSortOptionToTypeOrder(imageSortOption: ImageSortOption): Pair<SortType, SortOrder> {
         return when (imageSortOption) {
-            // DATE_TAKEN matches Samsung Gallery's default sort (datetaken DESC, _id DESC).
-            // Unlike DATE_MODIFIED, it never changes when a photo is edited → sort is edit-stable.
-            ImageSortOption.CUSTOM_ORDER      -> SortType.DATE_TAKEN to SortOrder.DESCENDING
+            // Testing: Try DATE_MODIFIED instead of DATE_TAKEN to match Samsung Gallery
+            ImageSortOption.CUSTOM_ORDER      -> SortType.DATE to SortOrder.DESCENDING
             ImageSortOption.NAME_A_TO_Z       -> SortType.TITLE to SortOrder.ASCENDING
             ImageSortOption.NAME_Z_TO_A       -> SortType.TITLE to SortOrder.DESCENDING
             ImageSortOption.DATE_CREATED_ASC  -> SortType.DATE_ADDED to SortOrder.ASCENDING

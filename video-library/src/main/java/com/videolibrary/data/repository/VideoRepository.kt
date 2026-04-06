@@ -308,7 +308,9 @@ class VideoRepository(private val context: Context) {
 
     private fun buildVideoSortOrder(option: VideoSortOption): String {
         return when (option) {
-            VideoSortOption.CUSTOM_ORDER      -> "${MediaStore.Video.Media.DATE_MODIFIED} DESC, ${MediaStore.Video.Media._ID} DESC"
+            // CUSTOM_ORDER uses DATE_MODIFIED DESC, _ID ASC to match Samsung Gallery's pattern.
+            // For videos with same DATE_MODIFIED, _ID ASC ensures chronological order.
+            VideoSortOption.CUSTOM_ORDER      -> "${MediaStore.Video.Media.DATE_MODIFIED} DESC, ${MediaStore.Video.Media._ID} ASC"
             VideoSortOption.NAME_A_TO_Z       -> "${MediaStore.Video.Media.DISPLAY_NAME} COLLATE NOCASE ASC"
             VideoSortOption.NAME_Z_TO_A       -> "${MediaStore.Video.Media.DISPLAY_NAME} COLLATE NOCASE DESC"
             VideoSortOption.DATE_CREATED_ASC  -> "${MediaStore.Video.Media.DATE_ADDED} ASC, ${MediaStore.Video.Media._ID} ASC"
