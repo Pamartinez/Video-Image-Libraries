@@ -148,7 +148,8 @@ data class CopyMoveProgress(
 
 data class FileConflict(
     val fileName: String,
-    val deferred: CompletableDeferred<ConflictResolution>
+    val deferred: CompletableDeferred<ConflictResolution>,
+    var applyToAll: Boolean = false
 )
 
 class ImageListViewModel(application: Application) : AndroidViewModel(application) {
@@ -424,6 +425,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     val copyMoveProgress: StateFlow<CopyMoveProgress> = _copyMoveProgress.asStateFlow()
     private var copyMoveJob: Job? = null
     @Volatile private var copyMoveCancelled = false
+    @Volatile private var bulkResolution: ConflictResolution? = null
 
     // MediaStore auto-refresh
     private var mediaObserverJob: Job? = null
@@ -448,6 +450,30 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     // File conflict resolution
     private val _fileConflict = MutableStateFlow<FileConflict?>(null)
     val fileConflict: StateFlow<FileConflict?> = _fileConflict.asStateFlow()
+
+    fun toggleConflictApplyToAll() {
+        _fileConflict.value?.let { conflict ->
+            conflict.applyToAll = !conflict.applyToAll
+            _fileConflict.value = conflict.copy(applyToAll = conflict.applyToAll)
+        }
+    }
+
+    fun resolveConflict(resolution: ConflictResolution) {
+        val conflict = _fileConflict.value
+        if (conflict != null) {
+            // If "Apply to all" is checked, set bulk resolution for SKIP or REPLACE
+            if (conflict.applyToAll) {
+                when (resolution) {
+                    ConflictResolution.SKIP -> bulkResolution = ConflictResolution.SKIP_ALL
+                    ConflictResolution.REPLACE -> bulkResolution = ConflictResolution.REPLACE_ALL
+                    ConflictResolution.RENAME -> { /* RENAME is always individual */ }
+                    else -> { }
+                }
+            }
+            conflict.deferred.complete(resolution)
+            _fileConflict.value = null
+        }
+    }
 
     // Auto-backup debounce
     private companion object {
@@ -489,11 +515,6 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         mediaObserverJob?.cancel()
         getApplication<Application>().contentResolver.unregisterContentObserver(mediaObserver)
         super.onCleared()
-    }
-
-    fun resolveConflict(resolution: ConflictResolution) {
-        _fileConflict.value?.deferred?.complete(resolution)
-        _fileConflict.value = null
     }
 
     fun loadData() {
@@ -1048,15 +1069,22 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun cancelCopyMove() {
         copyMoveCancelled = true
+        _copyMoveProgress.value = CopyMoveProgress(isActive = false, title = "", current = 0, total = 0)
         _fileConflict.value?.deferred?.complete(ConflictResolution.SKIP)
         _fileConflict.value = null
         copyMoveJob?.cancel()
     }
 
     private suspend fun askConflictResolution(fileName: String): ConflictResolution {
+        // If user already chose a bulk resolution, apply immediately without showing dialog
+        bulkResolution?.let { return it }
         val deferred = CompletableDeferred<ConflictResolution>()
         _fileConflict.value = FileConflict(fileName, deferred)
-        return deferred.await()
+        val resolution = deferred.await()
+        if (resolution == ConflictResolution.SKIP_ALL || resolution == ConflictResolution.REPLACE_ALL) {
+            bulkResolution = resolution
+        }
+        return resolution
     }
 
     fun moveSelectedImages(dest: String) {
@@ -1064,6 +1092,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         if (images.isEmpty()) return
         _uiState.update { it.copy(showMoveFolderPicker = false) }
         exitSelectionMode()
+
+        // Reset bulk resolution for new operation
+        bulkResolution = null
 
         val folderName = destFolderName(dest)
         copyMoveCancelled = false
@@ -1093,6 +1124,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { it.copy(showCopyFolderPicker = false) }
         exitSelectionMode()
 
+        // Reset bulk resolution for new operation
+        bulkResolution = null
+        
         val folderName = destFolderName(dest)
         copyMoveCancelled = false
         _copyMoveProgress.value = CopyMoveProgress(isActive = true, title = "Copying items to $folderName…", current = 0, total = images.size)

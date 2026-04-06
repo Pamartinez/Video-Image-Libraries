@@ -161,7 +161,8 @@ data class CopyMoveProgress(
 
 data class FileConflict(
     val fileName: String,
-    val deferred: CompletableDeferred<ConflictResolution>
+    val deferred: CompletableDeferred<ConflictResolution>,
+    var applyToAll: Boolean = false
 )
 
 class VideoListViewModel(application: Application) : AndroidViewModel(application) {
@@ -431,9 +432,28 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     private val _fileConflict = MutableStateFlow<FileConflict?>(null)
     val fileConflict: StateFlow<FileConflict?> = _fileConflict.asStateFlow()
 
+    fun toggleConflictApplyToAll() {
+        _fileConflict.value?.let { conflict ->
+            conflict.applyToAll = !conflict.applyToAll
+            _fileConflict.value = conflict.copy(applyToAll = conflict.applyToAll)
+        }
+    }
+
     fun resolveConflict(resolution: ConflictResolution) {
-        _fileConflict.value?.deferred?.complete(resolution)
-        _fileConflict.value = null
+        val conflict = _fileConflict.value
+        if (conflict != null) {
+            // If "Apply to all" is checked, set bulk resolution for SKIP or REPLACE
+            if (conflict.applyToAll) {
+                when (resolution) {
+                    ConflictResolution.SKIP -> bulkResolution = ConflictResolution.SKIP_ALL
+                    ConflictResolution.REPLACE -> bulkResolution = ConflictResolution.REPLACE_ALL
+                    ConflictResolution.RENAME -> { /* RENAME is always individual */ }
+                    else -> { }
+                }
+            }
+            conflict.deferred.complete(resolution)
+            _fileConflict.value = null
+        }
     }
 
     // ── MediaStore ContentObserver (Samsung-style auto-refresh) ──────────
@@ -1391,6 +1411,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun cancelCopyMove() {
         copyMoveCancelled = true
+        _copyMoveProgress.value = CopyMoveProgress(isActive = false, title = "", current = 0, total = 0)
         _fileConflict.value?.deferred?.complete(ConflictResolution.SKIP)
         _fileConflict.value = null
         copyMoveJob?.cancel()

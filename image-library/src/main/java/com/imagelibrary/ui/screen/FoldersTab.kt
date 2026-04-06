@@ -311,7 +311,7 @@ fun FoldersTab(
                     }
                 }
 
-            } // end inner Box (grid + overlay)
+                } // end inner Box (grid + overlay)
         } // end TabContentScaffold grid slot
 
     } // end outer Box

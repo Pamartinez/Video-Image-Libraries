@@ -99,9 +99,10 @@ fun VideoListScreen(
 
     BackHandler(
         enabled = hasOverlay || state.isGroupCreationMode || state.isSelectionMode ||
-                state.currentGroupId != null || state.currentFolderBucketId != null || progress.isActive
+                state.currentGroupId != null || state.currentFolderBucketId != null || progress.isActive || conflict != null
     ) {
         when {
+            conflict != null -> viewModel.cancelCopyMove()
             progress.isActive            -> { /* consume back press */ }
             showCreateMenu               -> showCreateMenu = false
             showMoreMenu                 -> showMoreMenu = false
@@ -162,18 +163,17 @@ fun VideoListScreen(
         }
         // Always host the progress/conflict overlays so they show when the operation starts
         CopyMoveAndConflictOverlayHost(
-            isProgressActive     = progress.isActive,
-            progressTitle        = progress.title,
-            progressCurrent      = progress.current,
-            progressTotal        = progress.total,
-            onCancelProgress     = { viewModel.cancelCopyMove() },
-            conflictFileName     = conflict?.fileName,
-            onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
-            onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
-            onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
-            onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
-            onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
-            renameActionLabel    = "Keep Both"
+            isProgressActive          = progress.isActive,
+            progressTitle             = progress.title,
+            progressCurrent           = progress.current,
+            progressTotal             = progress.total,
+            onCancelProgress          = { viewModel.cancelCopyMove() },
+            conflictFileName          = conflict?.fileName,
+            conflictApplyToAll        = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict         = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+            onRenameConflict          = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+            onSkipConflict            = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) }
         )
         return
     }
@@ -482,18 +482,17 @@ fun VideoListScreen(
             )
         }
         CopyMoveAndConflictOverlayHost(
-            isProgressActive = progress.isActive,
-            progressTitle = progress.title,
-            progressCurrent = progress.current,
-            progressTotal = progress.total,
-            onCancelProgress = { viewModel.cancelCopyMove() },
-            conflictFileName = conflict?.fileName,
-            onReplaceConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
-            onRenameConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
-            onSkipConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
-            onSkipAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
-            onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
-            renameActionLabel = "Keep Both"
+            isProgressActive           = progress.isActive,
+            progressTitle              = progress.title,
+            progressCurrent            = progress.current,
+            progressTotal              = progress.total,
+            onCancelProgress           = { viewModel.cancelCopyMove() },
+            conflictFileName           = conflict?.fileName,
+            conflictApplyToAll         = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict          = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+            onRenameConflict           = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+            onSkipConflict             = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) }
         )
         return
     }
@@ -542,18 +541,17 @@ fun VideoListScreen(
                 onCreateFolderAndSelect = { viewModel.createFolderAndMoveVideos(it) }
             )
             CopyMoveAndConflictOverlayHost(
-                isProgressActive     = progress.isActive,
-                progressTitle        = progress.title,
-                progressCurrent      = progress.current,
-                progressTotal        = progress.total,
-                onCancelProgress     = { viewModel.cancelCopyMove() },
-                conflictFileName     = conflict?.fileName,
-                onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
-                onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
-                onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
-                onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
-                onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
-                renameActionLabel    = "Keep Both"
+                isProgressActive           = progress.isActive,
+                progressTitle              = progress.title,
+                progressCurrent            = progress.current,
+                progressTotal              = progress.total,
+                onCancelProgress           = { viewModel.cancelCopyMove() },
+                conflictFileName           = conflict?.fileName,
+                conflictApplyToAll         = conflict?.applyToAll ?: false,
+                onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+                onReplaceConflict          = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+                onRenameConflict           = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+                onSkipConflict             = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) }
             )
         }
         return
@@ -573,18 +571,17 @@ fun VideoListScreen(
                 onCreateFolderAndSelect = { viewModel.createFolderAndCopyVideos(it) }
             )
             CopyMoveAndConflictOverlayHost(
-                isProgressActive     = progress.isActive,
-                progressTitle        = progress.title,
-                progressCurrent      = progress.current,
-                progressTotal        = progress.total,
-                onCancelProgress     = { viewModel.cancelCopyMove() },
-                conflictFileName     = conflict?.fileName,
-                onReplaceConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
-                onRenameConflict     = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
-                onSkipConflict       = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
-                onSkipAllConflict    = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
-                onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
-                renameActionLabel    = "Keep Both"
+                isProgressActive           = progress.isActive,
+                progressTitle              = progress.title,
+                progressCurrent            = progress.current,
+                progressTotal              = progress.total,
+                onCancelProgress           = { viewModel.cancelCopyMove() },
+                conflictFileName           = conflict?.fileName,
+                conflictApplyToAll         = conflict?.applyToAll ?: false,
+                onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+                onReplaceConflict          = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+                onRenameConflict           = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+                onSkipConflict             = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) }
             )
         }
         return
@@ -881,18 +878,17 @@ fun VideoListScreen(
 
         // ── Overlay: Copy/Move Progress + File Conflict Dialog ───────────────────
         CopyMoveAndConflictOverlayHost(
-            isProgressActive = progress.isActive,
-            progressTitle = progress.title,
-            progressCurrent = progress.current,
-            progressTotal = progress.total,
-            onCancelProgress = { viewModel.cancelCopyMove() },
-            conflictFileName = conflict?.fileName,
-            onReplaceConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
-            onRenameConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
-            onSkipConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) },
-            onSkipAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP_ALL) },
-            onReplaceAllConflict = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE_ALL) },
-            renameActionLabel = "Keep Both"
+            isProgressActive           = progress.isActive,
+            progressTitle              = progress.title,
+            progressCurrent            = progress.current,
+            progressTotal              = progress.total,
+            onCancelProgress           = { viewModel.cancelCopyMove() },
+            conflictFileName           = conflict?.fileName,
+            conflictApplyToAll         = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict          = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.REPLACE) },
+            onRenameConflict           = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.RENAME) },
+            onSkipConflict             = { viewModel.resolveConflict(com.example.common.data.model.ConflictResolution.SKIP) }
         )
     }
 

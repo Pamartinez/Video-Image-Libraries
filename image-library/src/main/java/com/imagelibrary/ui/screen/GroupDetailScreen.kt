@@ -311,7 +311,7 @@ fun GroupDetailScreen(
                                 )
                             }
                         }
-                    }
+                    } // end LazyVerticalGrid
 
                     // ── Samsung-style floating drag overlay ──────────────────────────────
                     if (canDrag && dragDropState.isDragging) {

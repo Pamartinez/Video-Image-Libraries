@@ -265,46 +265,46 @@ fun GroupDetailScreen(
                                 .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
                             userScrollEnabled     = !(canDrag && dragDropState.isDragging)
                         ) {
-                            itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { index, item ->
-                                val itemIsDragging = canDrag && dragDropState.draggedIndex == index
-                                val anyDragActive  = canDrag && dragDropState.isDragging
-                                val dimModifier    = if (anyDragActive && !itemIsDragging)
-                                    Modifier.graphicsLayer { alpha = 0.65f } else Modifier
+                                itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { index, item ->
+                                    val itemIsDragging = canDrag && dragDropState.draggedIndex == index
+                                    val anyDragActive  = canDrag && dragDropState.isDragging
+                                    val dimModifier    = if (anyDragActive && !itemIsDragging)
+                                        Modifier.graphicsLayer { alpha = 0.65f } else Modifier
 
-                                when (item) {
-                                    is MixedItem.Folder -> FolderGridItem(
-                                        folder          = item.folder,
-                                        isSelected      = selectedFolderIds.contains(item.folder.bucketId),
-                                        isSelectionMode = isSelectionMode,
-                                        viewType        = viewType,
-                                        isDragging      = itemIsDragging,
-                                        onClick = {
-                                            if (!dragDropState.consumeNextClick()) onFolderClick(item.folder)
-                                        },
-                                        onLongClick = if (canDrag) null else ({ onFolderLongClick(item.folder) }),
-                                        modifier    = Modifier
-                                            .animateItem(placementSpec = spring(Spring.DampingRatioNoBouncy, 4000f))
-                                            .then(dimModifier)
-                                    )
-                                    is MixedItem.Group -> GroupGridItem(
-                                        group           = item.group,
-                                        isSelected      = selectedGroupIds.contains(item.group.groupId),
-                                        isSelectionMode = isSelectionMode,
-                                        viewType        = viewType,
-                                        isDragging      = itemIsDragging,
-                                        onClick = {
-                                            if (!dragDropState.consumeNextClick()) onGroupClick(item.group)
-                                        },
-                                        onLongClick = if (canDrag) null else ({ onGroupLongClick(item.group) }),
-                                        modifier    = Modifier
-                                            .animateItem(placementSpec = spring(Spring.DampingRatioNoBouncy, 4000f))
-                                            .then(dimModifier)
-                                    )
+                                    when (item) {
+                                        is MixedItem.Folder -> FolderGridItem(
+                                            folder          = item.folder,
+                                            isSelected      = selectedFolderIds.contains(item.folder.bucketId),
+                                            isSelectionMode = isSelectionMode,
+                                            viewType        = viewType,
+                                            isDragging      = itemIsDragging,
+                                            onClick = {
+                                                if (!dragDropState.consumeNextClick()) onFolderClick(item.folder)
+                                            },
+                                            onLongClick = if (canDrag) null else ({ onFolderLongClick(item.folder) }),
+                                            modifier    = Modifier
+                                                .animateItem(placementSpec = spring(Spring.DampingRatioNoBouncy, 4000f))
+                                                .then(dimModifier)
+                                        )
+                                        is MixedItem.Group -> GroupGridItem(
+                                            group           = item.group,
+                                            isSelected      = selectedGroupIds.contains(item.group.groupId),
+                                            isSelectionMode = isSelectionMode,
+                                            viewType        = viewType,
+                                            isDragging      = itemIsDragging,
+                                            onClick = {
+                                                if (!dragDropState.consumeNextClick()) onGroupClick(item.group)
+                                            },
+                                            onLongClick = if (canDrag) null else ({ onGroupLongClick(item.group) }),
+                                            modifier    = Modifier
+                                                .animateItem(placementSpec = spring(Spring.DampingRatioNoBouncy, 4000f))
+                                                .then(dimModifier)
+                                        )
+                                    }
                                 }
-                            }
-                        }
-                    }
-                )
+                        } // end LazyVerticalGrid
+                    } // end gridContent
+                ) // end TabContentScaffold
 
                 // ── Floating drag overlay ─────────────────────────────────────
                 // Positioned absolutely within the Box(weight(1f)), always above the grid.

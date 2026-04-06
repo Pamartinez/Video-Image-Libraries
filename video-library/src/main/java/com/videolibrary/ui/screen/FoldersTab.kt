@@ -470,5 +470,5 @@ private fun MixedGridContent(
                 }
             }
         }
-    }
+        } // end Box (grid + overlay)
 }

@@ -1,5 +1,35 @@
 # Copilot Instructions
 
+## 🎯 QUALITY FIRST RULE — FOUNDATIONAL PRINCIPLE
+**Go slow. Double-check. Triple-check. Get it right the first time.**
+
+### Working Methodology:
+1. **Thoroughness Over Speed**
+   - Take time to fully understand the problem before implementing
+   - Double-check and triple-check work before completing
+   - Verify changes compile and function correctly
+   - Test in BOTH libraries when making shared changes
+   - Better to spend extra time upfront than go back and forth with corrections
+
+2. **Clarity Over Assumptions**
+   - **Ask clarifying questions when ANYTHING is not 100% clear**
+   - Don't guess or make assumptions about requirements
+   - If implementation details are ambiguous, ask before proceeding
+   - If multiple approaches are possible, present options and ask for preference
+   - More questions upfront = better results and fewer iterations
+
+3. **Quality Checklist Before Completing**
+   - ✅ Does this solve the ENTIRE problem (not just part of it)?
+   - ✅ Does this work correctly in BOTH libraries?
+   - ✅ Have I verified there are no compilation errors?
+   - ✅ Does this follow all architectural rules (consistency, common-first, etc.)?
+   - ✅ Is the implementation clean, maintainable, and well-documented?
+   - ✅ Have I tested edge cases and error scenarios?
+
+**Remember: It's better to ask 10 questions and get it perfect than to implement incorrectly and waste time fixing it.**
+
+---
+
 ## ⚠️ BEHAVIORAL CONSISTENCY RULE — CRITICAL
 **Both `image-library` and `video-library` MUST behave identically for ALL common operations.**
 
@@ -62,6 +92,75 @@ This is a **non-negotiable architectural principle** that supersedes all other c
 ❌ **DON'T:** Use different parameter names or state management patterns for the same operation  
 
 **When in doubt: implement it in BOTH apps.**
+
+## ⚠️ UI COMPONENT CONSISTENCY RULE — MANDATORY
+**ALL UI components, dialogs, and interactive elements MUST be identical across both libraries.**
+
+This rule enforces visual and behavioral consistency for every user-facing component.
+
+### Dialogs & Modals:
+1. **File Conflict Dialog** (`FileConflictDialog.kt`)
+   - Samsung Gallery style: "Rename item or replace existing one?" title
+   - Message format: "There's already an item named {fileName} in the selected album."
+   - "Apply to all items" checkbox
+   - Three buttons: Skip | Replace | Rename (in this order)
+   - "Rename" label (default parameter)
+   - Corner radius: 28.dp
+
+2. **Copy/Move Progress Dialog** (`CopyMoveProgressDialog.kt`)
+   - Same title format: "Copying..." / "Moving..."
+   - Same progress bar style and colors
+   - Same "Cancel" button behavior
+   - Same overlay background dimming
+
+3. **Standard Dialog Styling** (for all other dialogs):
+   - Corner radius: 28.dp (or 16.dp for smaller dialogs)
+   - Container color: `Color(0xFF2C2C2C)` (dark theme)
+   - Title: 20.sp, SemiBold, White
+   - Body text: 15.sp, `Color(0xFFBBBBBB)`
+   - Button colors: Blue (#2979FF) for primary, Gray for secondary
+
+### Menus:
+1. **3-Dot Overflow Menus** (`AppMoreMenuButton`)
+   - ALL overflow menus MUST use `AppMoreMenuButton` component
+   - Standard items: Sort | View as | Settings | ─── | About App
+   - Same order, same styling, same behavior
+
+2. **Bottom Action Bar** (`BottomActionBar.kt`)
+   - Selection mode actions: Copy, Move, Delete, Share, etc.
+   - Same icons, same layout, same action order
+   - Overflow menu (⋮) for additional actions
+   - Same elevation, colors, and spacing
+
+3. **Context Menus**
+   - Same menu items, same order
+   - Same styling (16.dp corners, same colors)
+   - Same dismiss behavior
+
+### Implementation Rules:
+1. **Use Shared Components First**
+   - If a component exists in `common/ui/components/`, USE IT
+   - Do NOT duplicate components between image-library and video-library
+   - Do NOT create library-specific variants unless absolutely necessary
+
+2. **When Creating New Components**
+   - Place in `common` module if it applies to both libraries
+   - Follow Samsung Gallery design patterns when applicable
+   - Document the component's purpose in a header comment
+
+3. **Testing Requirement**
+   - After creating or modifying ANY UI component, test it in BOTH apps
+   - Verify identical appearance and behavior
+   - Check animations, timing, colors, spacing
+
+### Enforcement:
+❌ **NEVER** create different dialog styling or animation timing  
+❌ **NEVER** use different menu layouts or icon orders between apps  
+✅ **ALWAYS** use shared components from `common` for all UI elements  
+✅ **ALWAYS** apply the same visual styling to both apps  
+✅ **ALWAYS** test UI changes in BOTH apps before completing a task  
+
+**Visual consistency is NON-NEGOTIABLE. Users should not notice ANY difference in UI behavior between apps.**
 
 ## Project Scope
 Before making any change, clearly state which project the change applies to:
@@ -137,10 +236,32 @@ This applies to ALL entry points without exception:
 - Create Album flow (Copy / Move confirmation step)
 - Any future entry point that triggers a file-system copy or move
 
-**Implementation rules:**
-- Every early-return picker screen (`FolderPickerScreen`, `CreateAlbumPickerScreen`) must be wrapped in a `Box` that also renders `CopyMoveAndConflictOverlayHost` on top, so the overlay is present even while the picker is visible.
-- When a Copy or Move is initiated from a context that has a higher-priority early-return (e.g., the Carousel), **close that context first** (e.g., call `closeCarousel()`) before opening the picker — so the picker's overlay host is always reachable in the composition tree.
-- `CopyMoveAndConflictOverlayHost` must be present in **every branch** of the UI where a copy/move can be in progress, not only in the main-screen Box.
+### Implementation Rules:
+1. **Use Shared Components**
+   - `FileConflictDialog` from `common/ui/components/` for ALL conflict resolution
+   - `CopyMoveProgressDialog` from `common/ui/components/` for ALL progress display
+   - Shared conflict resolution logic in ViewModels (bulkResolution tracking)
+
+2. **Overlay Host Placement**
+   - Every early-return picker screen (`FolderPickerScreen`, `CreateAlbumPickerScreen`) must be wrapped in a `Box` that also renders `CopyMoveAndConflictOverlayHost` on top, so the overlay is present even while the picker is visible.
+   - When a Copy or Move is initiated from a context that has a higher-priority early-return (e.g., the Carousel), **close that context first** (e.g., call `closeCarousel()`) before opening the picker — so the picker's overlay host is always reachable in the composition tree.
+   - `CopyMoveAndConflictOverlayHost` must be present in **every branch** of the UI where a copy/move can be in progress, not only in the main-screen Box.
+
+3. **Testing & Verification**
+   - After ANY change to copy/move logic in one app, test it in BOTH apps
+   - Verify identical progress dialog appearance
+   - Verify identical conflict dialog behavior
+   - Verify identical error handling
+   - Test with single-file and multi-file operations
+   - Test conflict scenarios (skip, replace, keep both, apply to all)
+
+### Enforcement:
+❌ **NEVER** implement copy/move behavior differently between the two apps  
+❌ **NEVER** use different dialog styling for copy/move operations  
+❌ **NEVER** use different error messages or completion messages  
+✅ **ALWAYS** use the same shared components from `common` module  
+✅ **ALWAYS** test copy/move operations in BOTH apps after changes  
+✅ **ALWAYS** keep progress tracking and conflict resolution logic identical
 
 ## Backup & Restore — Mandatory Rules
 **All user-configurable settings must be included in the backup system**, both existing settings and any new settings added in the future.

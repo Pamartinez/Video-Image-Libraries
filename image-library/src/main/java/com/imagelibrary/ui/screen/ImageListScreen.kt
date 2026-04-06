@@ -87,11 +87,12 @@ fun ImageListScreen(
 
     BackHandler(
         enabled = hasOverlay || state.isSelectionMode || state.currentFolderBucketId != null ||
-                state.carouselIndex >= 0 || progress.isActive || state.isGroupCreationMode ||
+                state.carouselIndex >= 0 || progress.isActive || conflict != null || state.isGroupCreationMode ||
                 state.currentGroupId != null || state.showAddFolderToGroup ||
                 state.showMoveToGroupPicker
     ) {
         when {
+            conflict != null -> viewModel.cancelCopyMove()
             progress.isActive -> {}
             showMoreMenu -> showMoreMenu = false
             showCreateMenu -> showCreateMenu = false
@@ -152,16 +153,17 @@ fun ImageListScreen(
         }
         // Always host the progress/conflict overlays so they show when the operation starts
         CopyMoveAndConflictOverlayHost(
-            isProgressActive = progress.isActive,
-            progressTitle = progress.title,
-            progressCurrent = progress.current,
-            progressTotal = progress.total,
-            onCancelProgress = { viewModel.cancelCopyMove() },
-            conflictFileName = conflict?.fileName,
-            onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
-            onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
-            onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) },
-            renameActionLabel = "Rename"
+            isProgressActive           = progress.isActive,
+            progressTitle              = progress.title,
+            progressCurrent            = progress.current,
+            progressTotal              = progress.total,
+            onCancelProgress           = { viewModel.cancelCopyMove() },
+            conflictFileName           = conflict?.fileName,
+            conflictApplyToAll         = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict          = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+            onRenameConflict           = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+            onSkipConflict             = { viewModel.resolveConflict(ConflictResolution.SKIP) }
         )
         return
     }
@@ -205,6 +207,12 @@ fun ImageListScreen(
                 itemName = "image",
                 onConfirm = { carouselDeleteTarget?.let { viewModel.deleteCarouselImage(it.id) }; carouselDeleteTarget = null },
                 onDismiss = { carouselDeleteTarget = null }
+            )
+        }
+        if (state.showDetailsDialog && state.detailsTarget != null) {
+            ImageDetailsDialog(
+                image = state.detailsTarget!!,
+                onDismiss = { viewModel.dismissImageDetails() }
             )
         }
         return
@@ -300,16 +308,17 @@ fun ImageListScreen(
         if (state.showCopyFolderPicker) { FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = state.orderedMixedItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) }) }
         if (state.showCreateAlbumDialog) { CreateAlbumDialog(existingDcimNames = state.dcimFolderNames, onConfirm = { name -> viewModel.startCreateAlbumPicker(name) }, onDismiss = { viewModel.dismissCreateAlbumDialog() }) }
         CopyMoveAndConflictOverlayHost(
-            isProgressActive = progress.isActive,
-            progressTitle = progress.title,
-            progressCurrent = progress.current,
-            progressTotal = progress.total,
-            onCancelProgress = { viewModel.cancelCopyMove() },
-            conflictFileName = conflict?.fileName,
-            onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
-            onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
-            onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) },
-            renameActionLabel = "Rename"
+            isProgressActive           = progress.isActive,
+            progressTitle              = progress.title,
+            progressCurrent            = progress.current,
+            progressTotal              = progress.total,
+            onCancelProgress           = { viewModel.cancelCopyMove() },
+            conflictFileName           = conflict?.fileName,
+            conflictApplyToAll         = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict          = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+            onRenameConflict           = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+            onSkipConflict             = { viewModel.resolveConflict(ConflictResolution.SKIP) }
         )
         return
     }
@@ -434,7 +443,19 @@ fun ImageListScreen(
         val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(title = "Move to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.moveSelectedImages(it) }, onBack = { viewModel.dismissMoveFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndMoveImages(it) })
-            CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
+            CopyMoveAndConflictOverlayHost(
+                isProgressActive = progress.isActive,
+                progressTitle = progress.title,
+                progressCurrent = progress.current,
+                progressTotal = progress.total,
+                onCancelProgress = { viewModel.cancelCopyMove() },
+                conflictFileName = conflict?.fileName,
+                conflictApplyToAll = conflict?.applyToAll ?: false,
+                onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+                onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+                onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+                onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }
+            )
         }
         return
     }
@@ -442,7 +463,19 @@ fun ImageListScreen(
         val pickerItems = if (state.currentGroupId != null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
         Box(modifier = Modifier.fillMaxSize()) {
             FolderPickerScreen(title = "Copy to", folders = state.folders, groups = state.allGroups, orderedMixedItems = pickerItems, groupCustomOrders = state.allGroupCustomOrders, groupSortOptions = state.allGroupSortOptions, onFolderSelected = { viewModel.copySelectedImages(it) }, onBack = { viewModel.dismissCopyFolderPicker() }, onCreateFolderAndSelect = { viewModel.createFolderAndCopyImages(it) })
-            CopyMoveAndConflictOverlayHost(isProgressActive = progress.isActive, progressTitle = progress.title, progressCurrent = progress.current, progressTotal = progress.total, onCancelProgress = { viewModel.cancelCopyMove() }, conflictFileName = conflict?.fileName, onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) }, onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) }, onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }, renameActionLabel = "Rename")
+            CopyMoveAndConflictOverlayHost(
+                isProgressActive = progress.isActive,
+                progressTitle = progress.title,
+                progressCurrent = progress.current,
+                progressTotal = progress.total,
+                onCancelProgress = { viewModel.cancelCopyMove() },
+                conflictFileName = conflict?.fileName,
+                conflictApplyToAll = conflict?.applyToAll ?: false,
+                onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+                onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+                onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+                onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) }
+            )
         }
         return
     }
@@ -600,16 +633,17 @@ fun ImageListScreen(
 
         // ── Overlay: Copy/Move Progress + File Conflict Dialog ───────────────────
         CopyMoveAndConflictOverlayHost(
-            isProgressActive = progress.isActive,
-            progressTitle = progress.title,
-            progressCurrent = progress.current,
-            progressTotal = progress.total,
-            onCancelProgress = { viewModel.cancelCopyMove() },
-            conflictFileName = conflict?.fileName,
-            onReplaceConflict = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
-            onRenameConflict = { viewModel.resolveConflict(ConflictResolution.RENAME) },
-            onSkipConflict = { viewModel.resolveConflict(ConflictResolution.SKIP) },
-            renameActionLabel = "Rename"
+            isProgressActive           = progress.isActive,
+            progressTitle              = progress.title,
+            progressCurrent            = progress.current,
+            progressTotal              = progress.total,
+            onCancelProgress           = { viewModel.cancelCopyMove() },
+            conflictFileName           = conflict?.fileName,
+            conflictApplyToAll         = conflict?.applyToAll ?: false,
+            onConflictApplyToAllToggle = { viewModel.toggleConflictApplyToAll() },
+            onReplaceConflict          = { viewModel.resolveConflict(ConflictResolution.REPLACE) },
+            onRenameConflict           = { viewModel.resolveConflict(ConflictResolution.RENAME) },
+            onSkipConflict             = { viewModel.resolveConflict(ConflictResolution.SKIP) }
         )
 
     }

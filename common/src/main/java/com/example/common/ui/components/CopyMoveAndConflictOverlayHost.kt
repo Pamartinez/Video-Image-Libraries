@@ -8,6 +8,8 @@ import androidx.compose.ui.Modifier
 /**
  * Shared overlay host for copy/move progress and file-conflict resolution dialogs.
  * Renders dialogs in a Box(fillMaxSize) so they always appear on top.
+ *
+ * Uses Samsung Gallery style conflict dialog with "Apply to all items" checkbox.
  */
 @Composable
 fun CopyMoveAndConflictOverlayHost(
@@ -17,15 +19,17 @@ fun CopyMoveAndConflictOverlayHost(
     progressTotal: Int,
     onCancelProgress: () -> Unit,
     conflictFileName: String?,
+    conflictApplyToAll: Boolean,
+    onConflictApplyToAllToggle: () -> Unit,
     onReplaceConflict: () -> Unit,
     onRenameConflict: () -> Unit,
     onSkipConflict: () -> Unit,
-    onSkipAllConflict: (() -> Unit)? = null,
-    onReplaceAllConflict: (() -> Unit)? = null,
     renameActionLabel: String = "Rename"
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-        if (isProgressActive) {
+        // Show progress dialog only if no conflict is active
+        // (Samsung Gallery behavior: conflict dialog takes priority, progress resumes after resolution)
+        if (isProgressActive && conflictFileName == null) {
             CopyMoveProgressDialog(
                 title = progressTitle,
                 current = progressCurrent,
@@ -34,19 +38,18 @@ fun CopyMoveAndConflictOverlayHost(
             )
         }
 
+        // Conflict dialog takes priority over progress dialog
         if (conflictFileName != null) {
             FileConflictDialog(
                 fileName = conflictFileName,
+                applyToAll = conflictApplyToAll,
+                onApplyToAllToggle = onConflictApplyToAllToggle,
                 onReplace = onReplaceConflict,
                 onRename = onRenameConflict,
                 onSkip = onSkipConflict,
-                onSkipAll = onSkipAllConflict,
-                onReplaceAll = onReplaceAllConflict,
+                onCancel = onCancelProgress,
                 renameActionLabel = renameActionLabel
             )
         }
     }
 }
-
-
-
