@@ -24,6 +24,7 @@ import java.io.File
  *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
  *     "independentSortEnabled": Boolean,
  *     "groupsAlwaysOnTop":      Boolean,
+ *     "autoBackupEnabled":      Boolean,
  *     "hiddenFolderPaths":      [String, ...],
  *     "hiddenFolderMeta":       { "<path>": { "name": String, "bucketId": Int, "itemCount": Int }, ... },
  *
@@ -33,6 +34,7 @@ import java.io.File
  *     "sortType":               Int,
  *     "sortOrder":              Int,
  *     "carouselShowBarsOnOpen": Boolean,
+ *     "carouselAlwaysHideOverlay": Boolean,
  *     "customAlbumOrder":       [Int, ...],
  *
  *     // Video-library specific:
@@ -78,6 +80,7 @@ abstract class BackupManager(
         // Shared across both libraries
         val independentSortEnabled: Boolean?,
         val groupsAlwaysOnTop:      Boolean?,
+        val autoBackupEnabled:      Boolean?,
         val hiddenFolderPaths:      Set<String>?,
         val hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>?
     )
@@ -188,6 +191,8 @@ abstract class BackupManager(
         customMixedOrder:       List<String>,
         customGroupItemsOrders: Map<Long, List<String>>,
         independentSortEnabled: Boolean,
+        groupsAlwaysOnTop:      Boolean,
+        autoBackupEnabled:      Boolean,
         hiddenFolderPaths:      Set<String>,
         hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>
     ) {
@@ -203,6 +208,8 @@ abstract class BackupManager(
 
         // Shared across both libraries
         settings.put("independentSortEnabled", independentSortEnabled)
+        settings.put("groupsAlwaysOnTop",      groupsAlwaysOnTop)
+        settings.put("autoBackupEnabled",      autoBackupEnabled)
         settings.put("hiddenFolderPaths", JSONArray(hiddenFolderPaths.toList()))
         val metaObj = JSONObject()
         hiddenFolderMeta.forEach { (path, triple) ->
@@ -252,6 +259,9 @@ abstract class BackupManager(
         val groupsAlwaysOnTop: Boolean? =
             if (settings.has("groupsAlwaysOnTop")) settings.getBoolean("groupsAlwaysOnTop") else null
 
+        val autoBackupEnabled: Boolean? =
+            if (settings.has("autoBackupEnabled")) settings.getBoolean("autoBackupEnabled") else null
+
         val hiddenFolderPaths: Set<String>? = if (settings.has("hiddenFolderPaths")) {
             val arr = settings.getJSONArray("hiddenFolderPaths")
             (0 until arr.length()).map { arr.getString(it) }.toSet()
@@ -272,7 +282,7 @@ abstract class BackupManager(
 
         return SharedSettings(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
-            independentSortEnabled, groupsAlwaysOnTop, hiddenFolderPaths, hiddenFolderMeta
+            independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled, hiddenFolderPaths, hiddenFolderMeta
         )
     }
 
