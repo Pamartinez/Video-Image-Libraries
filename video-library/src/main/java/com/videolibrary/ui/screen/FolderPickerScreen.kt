@@ -1,22 +1,21 @@
 package com.videolibrary.ui.screen
 
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import coil.compose.AsyncImage
-import coil.decode.VideoFrameDecoder
-import coil.request.ImageRequest
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.ui.screen.FolderPickerScreen as CommonFolderPickerScreen
 import com.videolibrary.ui.components.GroupGridItem
+import com.videolibrary.ui.components.VideoThumbnail
 
 /**
  * Video-library entry point for the shared [CommonFolderPickerScreen].
  *
  * Injects:
- * - [AsyncImage] with [VideoFrameDecoder] as the folder thumbnail.
+ * - [VideoThumbnail] with brightness-aware frame selection as the folder thumbnail.
  * - Video-library [GroupGridItem] (backed by VideoThumbnail) as the group cell.
  */
 @Composable
@@ -33,7 +32,6 @@ fun FolderPickerScreen(
     onCreateFolderAndSelect: ((String) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     CommonFolderPickerScreen(
         title                   = title,
         folders                 = folders,
@@ -47,15 +45,13 @@ fun FolderPickerScreen(
         onCreateFolderAndSelect = onCreateFolderAndSelect,
         modifier                = modifier,
         thumbnailContent        = { folder, mod ->
-            AsyncImage(
-                model = ImageRequest.Builder(context)
-                    .data(folder.latestItemUri)
-                    .decoderFactory(VideoFrameDecoder.Factory())
-                    .crossfade(true)
-                    .build(),
+            VideoThumbnail(
+                contentUri         = folder.latestItemUri,
                 contentDescription = folder.name,
                 contentScale       = ContentScale.Crop,
                 modifier           = mod
+                    .fillMaxWidth()
+                    .aspectRatio(0.75f)
             )
         },
         groupItemContent        = { group, onClick, onLongClick ->
