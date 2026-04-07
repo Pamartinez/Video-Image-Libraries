@@ -343,11 +343,17 @@ fun ImageListScreen(
     if (state.currentGroupId != null) {
         // Full-screen pickers that overlay group detail (must be checked before GroupDetailScreen renders)
         if (state.showAddFolderToGroup) {
+            val groupOrderedItemsMap = if (state.currentGroupId != null) {
+                mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems)
+            } else {
+                emptyMap()
+            }
             AddFolderToGroupScreen(
                 folders = state.ungroupedFolders,
                 groups = state.rootGroups,
                 currentGroupId = state.currentGroupId!!,
                 viewType = state.viewType,
+                groupOrderedItems = groupOrderedItemsMap,
                 onSave = { fIds, gIds -> viewModel.addFoldersToCurrentGroup(fIds, gIds) },
                 onCancel = { viewModel.dismissAddFolderToGroup() }
             )

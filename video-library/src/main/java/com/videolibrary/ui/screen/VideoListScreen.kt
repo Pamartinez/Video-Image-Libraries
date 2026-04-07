@@ -377,11 +377,17 @@ fun VideoListScreen(
             )
         }
         if (state.showAddFolderToGroup) {
+            val groupOrderedItemsMap = if (state.currentGroupId != null) {
+                mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems)
+            } else {
+                emptyMap()
+            }
             AddFolderToGroupScreen(
                 allFolders     = state.folders,
                 allGroups      = state.rootGroups + state.currentGroupSubGroups,
                 currentGroupId = state.currentGroupId!!,
                 viewType       = state.folderViewType,
+                groupOrderedItems = groupOrderedItemsMap,
                 onSave         = { folderIds, groupIds -> viewModel.addFoldersToCurrentGroup(folderIds, groupIds) },
                 onCancel       = { viewModel.dismissAddFolderToGroup() }
             )

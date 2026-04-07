@@ -226,7 +226,7 @@ fun GroupDetailScreen(
                             onSettings = onSettings,
                             onAbout = onAbout
                         ) { dismiss ->
-                            AppMenuItem("Add folder",    onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
+                            AppMenuItem("Add album(s)",  onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
                             AppMenuItem("Rename group",  onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
                             AppMenuItem("Hide albums",   onDismiss = dismiss, onClick = onHideAlbums,  textColor = colors.listFirstText)
                             AppMenuDivider(color = colors.dividerColor)

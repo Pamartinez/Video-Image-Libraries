@@ -22,6 +22,7 @@ fun AddFolderToGroupScreen(
     currentGroupId: Long,
     modifier: Modifier = Modifier,
     viewType: ViewType = ViewType.GRID_LARGE,
+    groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
     onSave: (selectedFolderIds: Set<Int>, selectedGroupIds: Set<Long>) -> Unit,
     onCancel: () -> Unit
 ) {
@@ -31,6 +32,7 @@ fun AddFolderToGroupScreen(
         currentGroupId = currentGroupId,
         modifier        = modifier,
         viewType       = viewType,
+        groupOrderedItems = groupOrderedItems,
         onSave          = onSave,
         onCancel        = onCancel,
         folderGridItem  = { folder, isSelected, vt, onClick, onLongClick, mod ->

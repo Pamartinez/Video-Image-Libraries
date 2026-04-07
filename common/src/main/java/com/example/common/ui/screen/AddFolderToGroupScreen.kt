@@ -45,6 +45,9 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param groups         Full list of all groups.
  * @param currentGroupId The group being edited — excluded from the picker.
  * @param viewType       Grid density (GRID_SMALL = 3 col, GRID_LARGE = 2 col).
+ * @param groupOrderedItems Pre-calculated ordered items for each group (groupId -> ordered list).
+ *                       When present, these items are used directly instead of re-calculating from folders list.
+ *                       This ensures the picker respects the group's sort order.
  * @param headerTitle    Lambda that builds the top-bar title from the current
  *                       browse-group name (null = root) and selected count.
  * @param saveButtonLabel Label text for the save/done action button.
@@ -60,8 +63,9 @@ fun AddFolderToGroupScreen(
     currentGroupId: Long,
     modifier: Modifier = Modifier,
     viewType: ViewType = ViewType.GRID_LARGE,
+    groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
     headerTitle: (browseGroupName: String?, selectedCount: Int) -> String = { name, count ->
-        if (name != null) "$name ($count selected)" else "Add to group"
+        if (name != null) "$name ($count selected)" else "Add album(s)"
     },
     saveButtonLabel: String = "Add",
     onSave: (selectedFolderIds: Set<Int>, selectedGroupIds: Set<Long>) -> Unit,
@@ -96,15 +100,27 @@ fun AddFolderToGroupScreen(
 
     // Build display items for the current browse level
     val displayItems: List<MixedItem> = if (currentBrowseGroupId != null) {
-        // Inside a browsed group: filter the already-sorted `folders` list by membership
-        // so the displayed order respects the caller's sort option.
-        val browsedGroup    = filteredGroups.find { it.groupId == currentBrowseGroupId }
-        val memberBucketIds = browsedGroup?.memberBucketIds?.toSet() ?: emptySet()
-        val memberFolders   = folders.filter { it.bucketId in memberBucketIds }
-        val subGroups       = filteredGroups.filter { it.parentGroupId == currentBrowseGroupId }
-        buildList {
-            subGroups.forEach    { add(MixedItem.Group(it))  }
-            memberFolders.forEach { add(MixedItem.Folder(it)) }
+        // Check if we have pre-calculated items for this group
+        val preCalculated = groupOrderedItems[currentBrowseGroupId]
+        if (preCalculated != null) {
+            // Use exact items from the group's sort order
+            preCalculated.mapNotNull { item ->
+                when (item) {
+                    is FolderItem -> MixedItem.Folder(item)
+                    is GroupItem -> MixedItem.Group(item)
+                    else -> null
+                }
+            }
+        } else {
+            // Fallback: re-calculate from folders list (old behavior)
+            val browsedGroup    = filteredGroups.find { it.groupId == currentBrowseGroupId }
+            val memberBucketIds = browsedGroup?.memberBucketIds?.toSet() ?: emptySet()
+            val memberFolders   = folders.filter { it.bucketId in memberBucketIds }
+            val subGroups       = filteredGroups.filter { it.parentGroupId == currentBrowseGroupId }
+            buildList {
+                subGroups.forEach    { add(MixedItem.Group(it))  }
+                memberFolders.forEach { add(MixedItem.Folder(it)) }
+            }
         }
     } else {
         // Root level: root groups + folders not belonging to any group
