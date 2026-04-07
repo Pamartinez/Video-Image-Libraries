@@ -1,4 +1,11 @@
-# Share Multiple Items Fix — April 6, 2026
+what is happenig is this
+in the group that is inside of a group
+we have this albums:
+album 1, album 2, album 3, album 4
+THE PREVIEW SHOULD BE
+(album 1 album 2) / (album 3 album 4)
+instate is
+(album 2 album 3) / (album 4 album 1)# Share Multiple Items Fix — April 6, 2026
 
 ## Problem
 Share functionality was not working correctly when sharing more than one item in both libraries.

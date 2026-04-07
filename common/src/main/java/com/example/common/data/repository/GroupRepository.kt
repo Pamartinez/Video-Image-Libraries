@@ -182,7 +182,11 @@ open class GroupRepository(
         val previewUris = orderedItems
             .filterIsInstance<FolderItem>()
             .take(4)
-            .mapNotNull { it.latestItemUri }
+            .mapNotNull { folder ->
+                android.util.Log.d("GroupRepository", "buildGroupItem(${entity.groupId}): Preview folder bucketId=${folder.bucketId}, name=${folder.name}")
+                folder.latestItemUri
+            }
+        android.util.Log.d("GroupRepository", "buildGroupItem(${entity.groupId}): sortOption=${groupSortOptions[entity.groupId]}, hasCustomOrder=${groupCustomOrders[entity.groupId]?.isNotEmpty()}, previewCount=${previewUris.size}")
 
         return GroupItem(
             groupId         = entity.groupId,
@@ -287,4 +291,7 @@ open class GroupRepository(
         }
     }
 }
+
+
+
 

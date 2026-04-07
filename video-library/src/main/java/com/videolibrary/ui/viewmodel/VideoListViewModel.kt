@@ -274,7 +274,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             val allFolders = mediaStoreFolders + ghosts
 
             val memberBucketIds = groupRepository.getFolderBucketIdsForGroup(groupId).toSet()
-            val subGroups       = groupRepository.getChildGroups(groupId)
+            val subGroups       = groupRepository.getChildGroups(
+                parentGroupId = groupId,
+                groupSortOptions = s.allGroupSortOptions,
+                groupCustomOrders = s.allGroupCustomOrders
+            )
             val directFolders   = allFolders.filter { it.bucketId in memberBucketIds }
 
             // Apply the same sort as the group detail view
@@ -304,9 +308,14 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun openGroupInHideScreen(group: GroupItem) {
         viewModelScope.launch {
+            val s = _uiState.value
             val groupFolders = _uiState.value.allFoldersForHide
                 .filter { it.bucketId in group.memberBucketIds }
-            val subGroups  = groupRepository.getChildGroups(group.groupId)
+            val subGroups  = groupRepository.getChildGroups(
+                parentGroupId = group.groupId,
+                groupSortOptions = s.allGroupSortOptions,
+                groupCustomOrders = s.allGroupCustomOrders
+            )
             val sortOption = preferences.getGroupSortOption(group.groupId)
             val (sortedSubGroups, sortedFolders) = sortHideScreenItems(
                 groups            = subGroups,
@@ -843,7 +852,15 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
-            val allSubGroups = groupRepository.getChildGroups(groupId)
+            // Reload sort options from preferences to get the latest changes
+            val allGroups = groupRepository.getAllGroups()
+            val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+            val groupCustomOrders = allGroups.associate { it.groupId to preferences.getGroupMixedOrder(it.groupId) }
+            val allSubGroups = groupRepository.getChildGroups(
+                parentGroupId = groupId,
+                groupSortOptions = groupSortOptions,
+                groupCustomOrders = groupCustomOrders
+            )
             // Filter from the globally-sorted folders list so non-custom sorts display correctly
             val bucketIdSet = bucketIds.toSet()
             val folders = s.folders.filter { it.bucketId in bucketIdSet }
