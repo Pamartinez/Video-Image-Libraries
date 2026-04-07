@@ -7,6 +7,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Backup
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Restore
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -35,6 +36,7 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param onGroupsAlwaysOnTopChange Invoked when the groups-always-on-top toggle changes.
  * @param onBackup                 Suspending action that saves the backup; returns true on success.
  * @param onRestore                Suspending action that restores from backup; returns true on success.
+ * @param onRefreshAlbumPreviews   Action that refreshes album preview images.
  * @param backupPath               Human-readable folder path (e.g. "Documents/VideoLibrary/backups/").
  * @param extraContent             Optional app-specific settings sections placed above Sorting
  *                                 (e.g. the Carousel section in image-library).
@@ -50,6 +52,7 @@ fun SharedSettingsScreen(
     onGroupsAlwaysOnTopChange: (Boolean) -> Unit,
     onBackup: suspend () -> Boolean,
     onRestore: suspend () -> Boolean,
+    onRefreshAlbumPreviews: () -> Unit,
     backupPath: String,
     modifier: Modifier = Modifier,
     extraContent: @Composable ColumnScope.() -> Unit = {}
@@ -152,6 +155,17 @@ fun SharedSettingsScreen(
                         ).show()
                         if (ok) onBack()
                     }
+                }
+
+                Spacer(Modifier.height(8.dp))
+
+                SettingsActionButton(
+                    icon     = Icons.Default.Refresh,
+                    title    = "Refresh Album Previews",
+                    subtitle = "Update album cover images to reflect current sort order and content"
+                ) {
+                    onRefreshAlbumPreviews()
+                    Toast.makeText(ctx, "Album previews refreshed", Toast.LENGTH_SHORT).show()
                 }
 
                 Spacer(Modifier.height(4.dp))

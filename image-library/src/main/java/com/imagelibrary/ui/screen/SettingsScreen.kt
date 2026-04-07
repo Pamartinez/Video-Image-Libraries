@@ -28,6 +28,7 @@ fun SettingsScreen(
         onGroupsAlwaysOnTopChange = { viewModel.updateGroupsAlwaysOnTop(it) },
         onBackup                  = { viewModel.saveBackupToFile() },
         onRestore                 = { viewModel.restoreBackupFromFile() },
+        onRefreshAlbumPreviews    = { viewModel.refreshAlbumPreviews() },
         backupPath                = "Documents/ImageLibrary/backups/",
         modifier                  = modifier,
         extraContent            = {

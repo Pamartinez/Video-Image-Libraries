@@ -106,7 +106,8 @@ class VideoRepository(private val context: Context) {
     // ── Get Folders ─────────────────────────────────────────────────────
 
     suspend fun getFolders(
-        folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER
+        folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
+        videoSortOption: VideoSortOption = VideoSortOption.CUSTOM_ORDER
     ): List<FolderItem> = withContext(Dispatchers.IO) {
         val folderMap = mutableMapOf<Int, FolderItem>()
 
@@ -122,7 +123,8 @@ class VideoRepository(private val context: Context) {
         @Suppress("DEPRECATION")
         val selection = "length(trim(${MediaStore.Video.Media.DATA})) > 0"
 
-        val sortOrderStr = "${MediaStore.Video.Media.DATE_MODIFIED} DESC"
+        // Build sort order based on videoSortOption to select preview video correctly
+        val sortOrderStr = buildVideoSortOrder(videoSortOption)
 
         try {
             contentResolver.query(videoUri, projection, selection, null, sortOrderStr)?.use { cursor ->
@@ -146,16 +148,13 @@ class VideoRepository(private val context: Context) {
 
                     val existing = folderMap[bId]
                     if (existing != null) {
+                        // Increment count but keep the first preview (already the top item based on sort)
                         folderMap[bId] = existing.copy(
                             itemCount = existing.itemCount + 1,
-                            latestDateModified = maxOf(existing.latestDateModified, dateModified),
-                            latestItemUri = if (dateModified > existing.latestDateModified) {
-                                ContentUris.withAppendedId(videoUri, id)
-                            } else {
-                                existing.latestItemUri
-                            }
+                            latestDateModified = maxOf(existing.latestDateModified, dateModified)
                         )
                     } else {
+                        // First item for this bucket becomes the preview (respects sort order)
                         folderMap[bId] = FolderItem(
                             bucketId = bId,
                             name = bName,

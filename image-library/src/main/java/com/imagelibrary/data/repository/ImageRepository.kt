@@ -106,12 +106,10 @@ class ImageRepository(private val context: Context) {
     // ── Get Folders ─────────────────────────────────────────────────────
 
     suspend fun getFolders(
-        sortOption: SortOption = SortOption.CUSTOM_ORDER
+        sortOption: SortOption = SortOption.CUSTOM_ORDER,
+        imageSortOption: ImageSortOption = ImageSortOption.CUSTOM_ORDER
     ): List<FolderItem> = withContext(Dispatchers.IO) {
         val folderMap = mutableMapOf<Int, FolderItem>()
-        // Track the best (highest) dateTaken per bucket so the cover image
-        // matches Samsung Gallery's selection logic (max datetaken, _id DESC).
-        val latestDateTakenMap = mutableMapOf<Int, Long>()
 
         @Suppress("DEPRECATION")
         val projection = arrayOf(
@@ -120,16 +118,16 @@ class ImageRepository(private val context: Context) {
             MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
             MediaStore.Images.Media.DATE_MODIFIED,
             MediaStore.Images.Media.DATE_TAKEN,
-            MediaStore.Images.Media.DATA
+            MediaStore.Images.Media.DATA,
+            MediaStore.Images.Media.DISPLAY_NAME
         )
 
         @Suppress("DEPRECATION")
         val selection = "length(trim(${MediaStore.Images.Media.DATA})) > 0"
 
-        // Sort by DATE_TAKEN DESC, _ID ASC to match Samsung Gallery's default sort.
-        // For multiple images with same DATE_TAKEN (burst photos), _ID ASC ensures chronological order.
-        // Using DATE_TAKEN (EXIF capture time) is stable across edits (unlike DATE_MODIFIED).
-        val sortOrderStr = "${MediaStore.Images.Media.DATE_TAKEN} DESC, ${MediaStore.Images.Media._ID} ASC"
+        // Build sort order based on imageSortOption to select preview image correctly
+        val (sortType, sortOrder) = imageSortOptionToTypeOrder(imageSortOption)
+        val sortOrderStr = buildSortOrder(sortType, sortOrder)
 
         try {
             contentResolver.query(imageUri, projection, selection, null, sortOrderStr)?.use { cursor ->
@@ -154,19 +152,13 @@ class ImageRepository(private val context: Context) {
 
                     val existing = folderMap[bId]
                     if (existing != null) {
-                        val bestTaken = latestDateTakenMap[bId] ?: 0L
-                        val isBetterCover = dateTaken > bestTaken
-                        if (isBetterCover) latestDateTakenMap[bId] = dateTaken
+                        // Increment count but keep the first preview (already the top item based on sort)
                         folderMap[bId] = existing.copy(
                             itemCount          = existing.itemCount + 1,
-                            latestDateModified = maxOf(existing.latestDateModified, dateModified),
-                            latestItemUri      = if (isBetterCover)
-                                ContentUris.withAppendedId(imageUri, id)
-                            else
-                                existing.latestItemUri
+                            latestDateModified = maxOf(existing.latestDateModified, dateModified)
                         )
                     } else {
-                        latestDateTakenMap[bId] = dateTaken
+                        // First item for this bucket becomes the preview (respects sort order)
                         folderMap[bId] = FolderItem(
                             bucketId           = bId,
                             name               = bName,

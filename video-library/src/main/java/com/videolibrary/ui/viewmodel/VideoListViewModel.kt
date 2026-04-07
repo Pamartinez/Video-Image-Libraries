@@ -202,7 +202,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showHideFoldersScreen() {
         val s = _uiState.value
         viewModelScope.launch {
-            val mediaStoreFolders = repository.getFolders(s.sortOption)
+            val mediaStoreFolders = repository.getFolders(s.sortOption, s.videoSortOption)
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -262,7 +262,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val groupId   = s.currentGroupId   ?: return
         val groupName = s.currentGroupName
         viewModelScope.launch {
-            val mediaStoreFolders = repository.getFolders(s.sortOption)
+            val mediaStoreFolders = repository.getFolders(s.sortOption, s.videoSortOption)
             val hiddenMeta        = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths   = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -532,7 +532,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Fetch ALL folders from MediaStore first (hidden ones are still there — app-local).
         // The custom order is applied and saved across ALL folders so hidden folder bucket IDs
         // are retained in the saved order — their slot is preserved on un-hide (Bug 1 fix).
-        var allFolders = repository.getFolders(s.sortOption)
+        // Pass videoSortOption so preview videos respect the current sort order.
+        var allFolders = repository.getFolders(s.sortOption, s.videoSortOption)
 
         if (s.sortOption == FolderSortOption.CUSTOM_ORDER) {
             val savedOrder = preferences.getCustomFolderOrder()
@@ -631,6 +632,13 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
      */
     private fun silentRefresh(scrollToTop: Boolean = false) {
         viewModelScope.launch { loadDataCore(scrollToTop) }
+    }
+
+    /** Force refresh album preview images by reloading folder data. */
+    fun refreshAlbumPreviews() {
+        viewModelScope.launch {
+            silentRefresh()
+        }
     }
 
     /** Reload the current folder's videos in-place (no spinner, no list flicker). */

@@ -537,7 +537,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         // Fetch ALL folders from MediaStore (hidden ones are still there — app-local approach).
         // The mixed order is computed/saved across ALL so hidden folder keys are retained
         // in customMixedOrder — their slot is preserved when they're un-hidden (Bug 1 fix).
-        val allFolders = repository.getFolders(s.sortOption)
+        // Pass imageSortOption so preview images respect the current sort order.
+        val allFolders = repository.getFolders(s.sortOption, s.imageSortOption)
         // Visible-only list used for the main view and group detail
         val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 
@@ -631,6 +632,13 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     /** Reload all data in the background without showing any loading indicator. */
     private fun silentRefresh() {
         viewModelScope.launch { loadDataCore() }
+    }
+
+    /** Force refresh album preview images by reloading folder data. */
+    fun refreshAlbumPreviews() {
+        viewModelScope.launch {
+            silentRefresh()
+        }
     }
 
     /** Reload folderImages in-place (no spinner, no list-clear flicker).
@@ -1551,7 +1559,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
-            val allFolders = s.folders.ifEmpty { repository.getFolders() }
+            val allFolders = s.folders.ifEmpty { repository.getFolders(s.sortOption, s.imageSortOption) }
             // Filter from the globally-sorted list so non-custom sorts display correctly
             val bucketIdSet  = bucketIds.toSet()
             val groupFolders = allFolders.filter { it.bucketId in bucketIdSet }
