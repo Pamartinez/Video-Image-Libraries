@@ -202,8 +202,8 @@ fun VideoListScreen(
         return
     }
 
-    // ── Hide folders screen ───────────────────────────────────────────────────
-    // Must be checked BEFORE GroupDetailScreen so clicking "Hide albums" inside
+    // ── Hide album(s) screen ──────────────────────────────────────────────────
+    // Must be checked BEFORE GroupDetailScreen so clicking "Hide album(s)" inside
     // a group actually shows the hide screen instead of staying on the group.
     if (state.showHideFolders) {
         val groupHiddenState = state.rootGroupsForHide.associate { group ->
@@ -843,7 +843,7 @@ fun VideoListScreen(
                             onAbout    = { viewModel.showAbout() },
                             extraTopContent = { dismiss ->
                                 com.example.common.ui.components.AppMenuItem(
-                                    text      = "Hide folders",
+                                    text      = "Hide album(s)",
                                     onDismiss = dismiss,
                                     onClick   = { viewModel.showHideFoldersScreen() },
                                     textColor = LocalVideoColors.current.listFirstText

@@ -26,7 +26,7 @@ import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.theme.LocalLibraryColors
 
 /**
- * Full-screen "Hide folders" screen.
+ * Full-screen "Hide album(s)" screen.
  *
  * **Root view** (when [currentGroupId] is null):
  *  - Shows [groups] each with a chevron (tap to drill in) + whole-group Switch
@@ -90,7 +90,7 @@ fun HideFoldersScreen(
             CircularBackButton(onClick = if (currentGroupId != null) onGroupBack else onBack)
             Spacer(Modifier.width(12.dp))
             Text(
-                text       = if (currentGroupId != null) currentGroupName else "Hide folders",
+                text       = if (currentGroupId != null) currentGroupName else "Hide album(s)",
                 fontSize   = 20.sp,
                 fontWeight = FontWeight.SemiBold,
                 color      = colors.listFirstText

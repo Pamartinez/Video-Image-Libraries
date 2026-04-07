@@ -227,7 +227,7 @@ fun ImageListScreen(
     }
 
 
-    // ── Hide albums screen ─────────────────────────────────────────────────
+    // ── Hide album(s) screen ──────────────────────────────────────────────────
     if (state.showHideFolders) {
         val groupHiddenState = state.rootGroupsForHide.associate { group ->
             val paths = state.allFoldersForHide
@@ -689,7 +689,7 @@ fun ImageListScreen(
                                 onAbout = { viewModel.showAbout() },
                                 extraTopContent = { dismiss ->
                                     com.example.common.ui.components.AppMenuItem(
-                                        text      = "Hide albums",
+                                        text      = "Hide album(s)",
                                         onDismiss = dismiss,
                                         onClick   = { viewModel.showHideFoldersScreen() },
                                         textColor = colors.listFirstText
