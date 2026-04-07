@@ -1,63 +1,27 @@
 package com.imagelibrary.ui.screen
 
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.TransformOrigin
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.zIndex
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
+import com.example.common.ui.screen.SharedGroupDetailScreen
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.ViewType
-import com.example.common.ui.components.ActionsPill
-import com.example.common.ui.components.AppMenuDivider
-import com.example.common.ui.components.AppMenuItem
-import com.example.common.ui.components.AppMoreMenuButton
-import com.example.common.ui.components.CircularBackButton
-import com.example.common.ui.components.ScreenTopBar
-import com.example.common.ui.components.BottomActionBar
 import com.imagelibrary.ui.components.FolderGridItem
 import com.imagelibrary.ui.components.GroupGridItem
 import com.imagelibrary.ui.components.SelectionHeader
 import com.imagelibrary.ui.components.SortDialog
 import com.imagelibrary.ui.components.ViewTypeToggleButton
 import com.imagelibrary.ui.theme.LocalImageColors
-import com.example.common.ui.util.dragToReorderGrid
-import com.example.common.ui.util.rememberDragDropGridState
-import kotlin.math.roundToInt
 
 /**
- * Screen displayed when the user opens a group.
- * 3-dot menu: Add folder, Rename group, Hide album(s), Destroy group
- * + button: Create album or group (inside this group)
- * Bottom bar (selection): Group | Share | Move | Open Location | Remove from group
- * Supports drag-to-reorder when sortOption == CUSTOM_ORDER.
+ * Image-library GroupDetailScreen.
+ * Delegates to [SharedGroupDetailScreen] with image-specific configuration.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GroupDetailScreen(
     groupName: String,
@@ -91,381 +55,127 @@ fun GroupDetailScreen(
     sortOption: SortOption = SortOption.CUSTOM_ORDER,
     onSortOptionSelected: (SortOption) -> Unit = {},
     groupsAlwaysOnTop: Boolean = false,
-    // Ordered interleaved list supplied by the ViewModel (preserves custom drag order).
-    // When non-empty this takes precedence over the separate folders/subGroups lists.
     orderedMixedItems: List<Any> = emptyList(),
     onReorderFolders: (Int, Int) -> Unit = { _, _ -> },
     onReorderDone: () -> Unit = {},
-    /** Hoisted from the caller so scroll position survives album-detail navigations. */
     lazyGridState: LazyGridState = rememberLazyGridState(),
     modifier: Modifier = Modifier
 ) {
-    val colors = LocalImageColors.current
-    var showMoreMenu by remember { mutableStateOf(false) }
-    var showSortDialog by remember { mutableStateOf(false) }
-    var showCreateMenu by remember { mutableStateOf(false) }
-    // Scroll-to-top on group navigation and sort changes is handled by the caller
-    // Scroll-to-top on group navigation and sort changes is handled by the caller
-    // (ImageListScreen) via LaunchedEffect(currentGroupId, sortOption).
-    // Do NOT put a LaunchedEffect(sortOption) here — it would fire every time this
-    // composable re-enters composition (e.g. when returning from FolderDetailScreen),
-    // which would reset the scroll position the caller is trying to preserve.
-
-    val totalSelected = selectedFolderIds.size + selectedGroupIds.size
-    val totalItems = folders.size + subGroups.size
-
-    // Build the display list.  Prefer the ViewModel-supplied orderedMixedItems (which
-    // preserves the user's custom drag order) over rebuilding from the split lists.
-    val rawMixed: List<FolderListItem> = if (orderedMixedItems.isNotEmpty()) {
-        orderedMixedItems.mapNotNull { item ->
-            when (item) {
-                is GroupItem  -> MixedItem.Group(item)
-                is FolderItem -> MixedItem.Folder(item)
-                else          -> null
-            }
-        }
-    } else {
-        buildList {
-            subGroups.forEach { add(MixedItem.Group(it)) }
-            folders.forEach   { add(MixedItem.Folder(it)) }
-        }
-    }
-
-    val mixedItems: List<FolderListItem> = when (sortOption) {
-        SortOption.NAME_A_TO_Z        -> if (groupsAlwaysOnTop) {
-            rawMixed.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
-            rawMixed.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
-        } else rawMixed.sortedBy { it.sortKey.lowercase() }
-        SortOption.NAME_Z_TO_A        -> if (groupsAlwaysOnTop) {
-            rawMixed.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
-            rawMixed.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
-        } else rawMixed.sortedByDescending { it.sortKey.lowercase() }
-        SortOption.ITEMS_MOST_FIRST   -> if (groupsAlwaysOnTop) {
-            rawMixed.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
-            rawMixed.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
-        } else rawMixed.sortedByDescending { it.itemCount }
-        SortOption.ITEMS_FEWEST_FIRST -> if (groupsAlwaysOnTop) {
-            rawMixed.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
-            rawMixed.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
-        } else rawMixed.sortedBy { it.itemCount }
-        SortOption.CUSTOM_ORDER       -> rawMixed
-    }
-
-    // Drag is only active in CUSTOM_ORDER mode (same guard as FoldersTab).
-    val canDrag = sortOption == SortOption.CUSTOM_ORDER
-
-    val dragDropState = rememberDragDropGridState(
+    SharedGroupDetailScreen(
+        groupName = groupName,
+        folders = folders,
+        subGroups = subGroups,
+        viewType = viewType,
+        sortOption = sortOption,
+        isSelectionMode = isSelectionMode,
+        selectedFolderIds = selectedFolderIds,
+        selectedGroupIds = selectedGroupIds,
+        onBack = onBack,
+        onFolderClick = onFolderClick,
+        onFolderLongClick = onFolderLongClick,
+        onGroupClick = onGroupClick,
+        onGroupLongClick = onGroupLongClick,
+        onCycleViewType = onCycleViewType,
+        onAddFolder = onAddFolder,
+        onRenameGroup = onRenameGroup,
+        onHideAlbums = onHideAlbums,
+        onDestroyGroup = onDestroyGroup,
+        onSortOptionSelected = onSortOptionSelected,
+        onDelete = onDelete,
+        onGroup = onGroup,
+        onSelectAll = onSelectAll,
+        onCancelSelection = onCancelSelection,
+        onCreateAlbum = onCreateAlbum,
+        onViewAs = onViewAs,
+        onSettings = onSettings,
+        onAbout = onAbout,
+        onShare = onShare,
+        onMove = onMove,
+        onOpenLocation = onOpenLocation,
+        groupsAlwaysOnTop = groupsAlwaysOnTop,
+        orderedMixedItems = orderedMixedItems,
+        onReorderFolders = onReorderFolders,
+        onReorderDone = onReorderDone,
         lazyGridState = lazyGridState,
-        onMove = { from, to ->
-            if (from >= 0 && to >= 0 && from < mixedItems.size && to < mixedItems.size) {
-                onReorderFolders(from, to)
+        
+        colors = LocalImageColors.current,
+        
+        albumCreationDescription = "Create a new album and add pictures and videos manually.",
+        isLargeGrid = { it == ViewType.GRID_LARGE },
+        getColumnCount = { if (it == ViewType.GRID_LARGE) 2 else 3 },
+        getSpacing = { if (it == ViewType.GRID_LARGE) 18.dp else 12.dp },
+        isCustomOrder = { it == SortOption.CUSTOM_ORDER },
+        sortMixedItems = { items, sort, groupsTop ->
+            when (sort) {
+                SortOption.NAME_A_TO_Z -> if (groupsTop) {
+                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
+                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
+                } else items.sortedBy { it.sortKey.lowercase() }
+                SortOption.NAME_Z_TO_A -> if (groupsTop) {
+                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
+                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
+                } else items.sortedByDescending { it.sortKey.lowercase() }
+                SortOption.ITEMS_MOST_FIRST -> if (groupsTop) {
+                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
+                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
+                } else items.sortedByDescending { it.itemCount }
+                SortOption.ITEMS_FEWEST_FIRST -> if (groupsTop) {
+                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
+                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
+                } else items.sortedBy { it.itemCount }
+                SortOption.CUSTOM_ORDER -> items
             }
         },
-        onDragEnd = onReorderDone,
-        onLongPressWithoutDrag = { index ->
-            mixedItems.getOrNull(index)?.let { item ->
-                when (item) {
-                    is MixedItem.Folder -> onFolderLongClick(item.folder)
-                    is MixedItem.Group  -> onGroupLongClick(item.group)
-                }
-            }
+        
+        folderGridItem = { folder, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
+            FolderGridItem(
+                folder = folder,
+                isSelected = isSelected,
+                isSelectionMode = isSelMode,
+                viewType = vt,
+                onClick = onClick,
+                onLongClick = onLongClick,
+                isDragging = isDragging,
+                modifier = mod
+            )
         },
-        isInSelectionMode = { isSelectionMode },
-        onEnterDragMode = {}
+        
+        groupGridItem = { group, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
+            GroupGridItem(
+                group = group,
+                isSelected = isSelected,
+                isSelectionMode = isSelMode,
+                viewType = vt,
+                onClick = onClick,
+                onLongClick = onLongClick,
+                isDragging = isDragging,
+                modifier = mod
+            )
+        },
+        
+        sortDialog = { current, onSelected, onDismiss ->
+            SortDialog(
+                currentSortOption = current,
+                onSortOptionSelected = onSelected,
+                onDismiss = onDismiss
+            )
+        },
+        
+        selectionHeader = { count, total, allSel, onAll, onCancel ->
+            SelectionHeader(
+                selectedCount = count,
+                allSelected = allSel,
+                onSelectAll = onAll,
+                onCancel = onCancel
+            )
+        },
+        
+        viewTypeToggle = { vt, onClick ->
+            ViewTypeToggleButton(viewType = vt, onClick = onClick)
+        },
+        
+        modifier = modifier
     )
-
-    Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            // ── Header ──
-            ScreenTopBar {
-                if (isSelectionMode) {
-                    val allSelected = totalItems > 0 && totalSelected == totalItems
-                    SelectionHeader(
-                        selectedCount = totalSelected,
-                        allSelected = allSelected,
-                        onSelectAll = onSelectAll,
-                        onCancel = onCancelSelection
-                    )
-                } else {
-                    CircularBackButton(onClick = onBack)
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = groupName,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color = colors.listFirstText,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        val groupCount = subGroups.size
-                        val albumCount = folders.size
-                        val subtitleParts = buildList {
-                            if (groupCount > 0) add("$groupCount ${if (groupCount == 1) "group" else "groups"}")
-                            if (albumCount > 0) add("$albumCount ${if (albumCount == 1) "album" else "albums"}")
-                        }
-                        if (subtitleParts.isNotEmpty()) {
-                            Text(
-                                text = subtitleParts.joinToString(" "),
-                                fontSize = 13.sp,
-                                color = colors.listSecondText
-                            )
-                        }
-                    }
-                    ActionsPill {
-                        IconButton(onClick = { showCreateMenu = true }, modifier = Modifier.size(40.dp)) {
-                            Icon(Icons.Default.Add, contentDescription = "Create", tint = colors.iconColor, modifier = Modifier.size(22.dp))
-                        }
-                        ViewTypeToggleButton(viewType = viewType, onClick = onCycleViewType)
-                        AppMoreMenuButton(
-                            expanded = showMoreMenu,
-                            onExpand = { showMoreMenu = true },
-                            onDismiss = { showMoreMenu = false },
-                            onSortBy = { showSortDialog = true },
-                            onViewAs = onViewAs,
-                            onSettings = onSettings,
-                            onAbout = onAbout
-                        ) { dismiss ->
-                            AppMenuItem("Add album(s)",  onDismiss = dismiss, onClick = onAddFolder,   textColor = colors.listFirstText)
-                            AppMenuItem("Rename group",  onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
-                            AppMenuItem("Hide album(s)", onDismiss = dismiss, onClick = onHideAlbums,  textColor = colors.listFirstText)
-                            AppMenuDivider(color = colors.dividerColor)
-                            AppMenuItem("Destroy group", onDismiss = dismiss,
-                                onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
-                        }
-                    }
-                }
-            }
-
-            // ── Content grid (wrapped in Box so the drag overlay can float above the grid) ──
-            val isLargeGrid = viewType == ViewType.GRID_LARGE
-            val columnCount = if (isLargeGrid) 2 else 3
-            // Samsung Gallery prominent spacing: 18dp for large grid, 12dp for small grid
-            val spacing = if (isLargeGrid) 18.dp else 12.dp
-
-            Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
-                if (mixedItems.isEmpty()) {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(text = "No items in this group", fontSize = 16.sp, color = colors.listSecondText)
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Button(
-                                onClick = onAddFolder,
-                                shape = RoundedCornerShape(50),
-                                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
-                                contentPadding = PaddingValues(horizontal = 32.dp, vertical = 14.dp)
-                            ) {
-                                Icon(imageVector = Icons.Default.Add, contentDescription = null, modifier = Modifier.size(20.dp))
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text(text = "Add albums", fontSize = 16.sp, fontWeight = FontWeight.Medium)
-                            }
-                        }
-                    }
-                } else {
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(columnCount),
-                        state = lazyGridState,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
-                        // Samsung Gallery uses 10dp edge padding (album_grid_view_side_gap)
-                        contentPadding = PaddingValues(10.dp),
-                        horizontalArrangement = Arrangement.spacedBy(spacing),
-                        verticalArrangement = Arrangement.spacedBy(spacing),
-                        userScrollEnabled = !(canDrag && dragDropState.isDragging)
-                    ) {
-                        itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { index, item ->
-                            val itemIsDragging = canDrag && dragDropState.draggedIndex == index
-                            val anyDragActive  = canDrag && dragDropState.isDragging
-                            val dimModifier    = if (anyDragActive && !itemIsDragging)
-                                Modifier.graphicsLayer { alpha = 0.65f } else Modifier
-
-                            when (item) {
-                                is MixedItem.Folder -> FolderGridItem(
-                                    folder = item.folder,
-                                    isSelected = selectedFolderIds.contains(item.folder.bucketId),
-                                    isSelectionMode = isSelectionMode,
-                                    viewType = viewType,
-                                    onClick = {
-                                        if (!dragDropState.consumeNextClick()) onFolderClick(item.folder)
-                                    },
-                                    onLongClick = if (canDrag) null else ({ onFolderLongClick(item.folder) }),
-                                    isDragging = itemIsDragging,
-                                    modifier = Modifier
-                                        .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                        .then(dimModifier)
-                                )
-                                is MixedItem.Group -> GroupGridItem(
-                                    group = item.group,
-                                    isSelected = selectedGroupIds.contains(item.group.groupId),
-                                    isSelectionMode = isSelectionMode,
-                                    viewType = viewType,
-                                    onClick = {
-                                        if (!dragDropState.consumeNextClick()) onGroupClick(item.group)
-                                    },
-                                    onLongClick = if (canDrag) null else ({ onGroupLongClick(item.group) }),
-                                    isDragging = itemIsDragging,
-                                    modifier = Modifier
-                                        .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                        .then(dimModifier)
-                                )
-                            }
-                        }
-                    } // end LazyVerticalGrid
-
-                    // ── Samsung-style floating drag overlay ──────────────────────────────
-                    if (canDrag && dragDropState.isDragging) {
-                        val overlayPos  = dragDropState.overlayPosition
-                        val itemSizePx  = dragDropState.capturedItemSize
-                        val draggedItem = mixedItems.getOrNull(dragDropState.draggedIndex)
-
-                        if (draggedItem != null && itemSizePx != null) {
-                            val density      = LocalDensity.current
-                            val itemWidthDp  = with(density) { itemSizePx.width.toDp() }
-                            val itemHeightDp = with(density) { itemSizePx.height.toDp() }
-                            val overlayShape = RoundedCornerShape(12.dp)
-
-                            Box(
-                                modifier = Modifier
-                                    .offset { IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
-                                    .width(itemWidthDp)
-                                    .height(itemHeightDp)
-                                    .zIndex(10f)
-                                    .graphicsLayer {
-                                        scaleX = 1.08f
-                                        scaleY = 1.08f
-                                        transformOrigin = TransformOrigin(0.5f, 0.5f)
-                                        shadowElevation = 24f
-                                    }
-                                    .border(3.dp, Color(0xFF2196F3), overlayShape)
-                            ) {
-                                when (draggedItem) {
-                                    is MixedItem.Folder -> FolderGridItem(
-                                        folder = draggedItem.folder,
-                                        isSelected = selectedFolderIds.contains(draggedItem.folder.bucketId),
-                                        isSelectionMode = isSelectionMode,
-                                        viewType = viewType,
-                                        onClick = {},
-                                        onLongClick = null,
-                                        isDragging = false
-                                    )
-                                    is MixedItem.Group -> GroupGridItem(
-                                        group = draggedItem.group,
-                                        isSelected = selectedGroupIds.contains(draggedItem.group.groupId),
-                                        isSelectionMode = isSelectionMode,
-                                        viewType = viewType,
-                                        onClick = {},
-                                        onLongClick = null,
-                                        isDragging = false
-                                    )
-                                }
-                            }
-                        }
-                    }
-                } // end non-empty branch
-            } // end content Box
-        } // end Column
-
-        // ── Selection bottom bar ─────────────────────────────────────────────────────
-        // Mirrors the root-screen bar: Group | Share | Move | Open Location | Remove
-        BottomActionBar(
-            visible = isSelectionMode,
-            onCopy = {},
-            onMove = onMove,
-            onDelete = onDelete,
-            onDetails = {},
-            showAllActions = false,
-            showDetails = false,
-            showGroup = totalSelected >= 1,
-            onGroup = onGroup,
-            showMove = totalSelected >= 1,
-            showShare = true,
-            onShare = onShare,
-            showOpenLocation = totalSelected == 1 && selectedGroupIds.isEmpty(),
-            onOpenLocation = onOpenLocation,
-            modifier = Modifier.align(Alignment.BottomCenter)
-        )
-    }
-
-    if (showSortDialog) {
-        SortDialog(
-            currentSortOption = sortOption,
-            onSortOptionSelected = { onSortOptionSelected(it) },
-            onDismiss = { showSortDialog = false }
-        )
-    }
-
-    // ── "Choose what to create" bottom sheet (same as root screen) ──
-    if (showCreateMenu) {
-        ModalBottomSheet(
-            onDismissRequest = { showCreateMenu = false },
-            sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
-            containerColor = colors.menuBg,
-            shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
-            dragHandle = null
-        ) {
-            Column(modifier = Modifier.navigationBarsPadding().padding(bottom = 8.dp)) {
-                Text(
-                    text = "Choose what to create",
-                    modifier = Modifier.padding(start = 24.dp, top = 28.dp, bottom = 12.dp, end = 24.dp),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp,
-                    color = colors.listFirstText
-                )
-                // ── Album ──
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { showCreateMenu = false; onCreateAlbum() }
-                        .padding(horizontal = 24.dp, vertical = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(52.dp)
-                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(Icons.Default.Collections, contentDescription = null, tint = Color.White, modifier = Modifier.size(26.dp))
-                    }
-                    Spacer(Modifier.width(18.dp))
-                    Column {
-                        Text("Album", color = colors.listFirstText, fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
-                        Text(
-                            "Create a new album and add pictures and videos manually.",
-                            color = colors.listSecondText, fontSize = 13.sp,
-                            lineHeight = 18.sp
-                        )
-                    }
-                }
-                // ── Group ──
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { showCreateMenu = false; onGroup() }
-                        .padding(horizontal = 24.dp, vertical = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(52.dp)
-                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(Icons.Default.Folder, contentDescription = null, tint = Color.White, modifier = Modifier.size(26.dp))
-                    }
-                    Spacer(Modifier.width(18.dp))
-                    Column {
-                        Text("Group", color = colors.listFirstText, fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
-                        Text(
-                            "Create a group of related albums.",
-                            color = colors.listSecondText, fontSize = 13.sp,
-                            lineHeight = 18.sp
-                        )
-                    }
-                }
-            }
-        }
-    }
 }
+
 
