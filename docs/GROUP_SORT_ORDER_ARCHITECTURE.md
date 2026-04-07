@@ -116,6 +116,68 @@ When creating ANY screen that displays group contents:
 
 ### ✅ Already Fixed
 
+- `FolderPickerScreen` (common + wrappers) - Move/Copy operations
+- `CreateAlbumPickerScreen` (common + wrappers) - Create Album flow
+- `AddFolderToGroupScreen` (common + wrappers) - Add album(s) to group flow
+
+### 🔍 Check These If Created
+
+- Any new picker screen that navigates through groups
+- Any dialog that displays group contents for selection
+- Any screen that allows browsing folder/album hierarchies
+
+---
+
+## 💡 Advanced Pattern: Non-Selectable Items
+
+### Use Case
+When a picker screen is used to add items to a target group/folder, items that are **already in the target** should be displayed for reference but **not selectable**.
+
+**Example:** `AddFolderToGroupScreen` when browsing the current group being edited.
+
+### Implementation
+
+1. **Add `isSelectable` parameter to item rendering lambda:**
+   ```kotlin
+   folderGridItem: @Composable (
+       folder: FolderItem,
+       isSelected: Boolean,
+       isSelectable: Boolean,  // ← New parameter
+       viewType: ViewType,
+       onClick: () -> Unit,
+       onLongClick: (() -> Unit)?,
+       modifier: Modifier
+   ) -> Unit
+   ```
+
+2. **Calculate `isSelectable` based on context:**
+   ```kotlin
+   val isSelectable = currentBrowseGroupId != currentGroupId
+   val isSelected = isSelectable && selectedFolderIds.contains(folder.bucketId)
+   ```
+
+3. **In library-specific wrapper, use `isSelectable` to control checkbox visibility:**
+   ```kotlin
+   folderGridItem = { folder, isSelected, isSelectable, vt, onClick, _, mod ->
+       FolderGridItem(
+           folder = folder,
+           isSelected = isSelected,
+           isSelectionMode = isSelectable, // Checkbox shows only if selectable
+           viewType = vt,
+           onClick = onClick,
+           modifier = mod
+       )
+   }
+   ```
+
+**Result:** Items already in the target group appear for visual reference but without checkboxes, preventing duplicate additions.
+
+---
+
+## 📋 Screens That Must Follow This Pattern
+
+### ✅ Already Fixed
+
 - `FolderPickerScreen` (common + wrappers)
 - `CreateAlbumPickerScreen` (common + wrappers)
 
