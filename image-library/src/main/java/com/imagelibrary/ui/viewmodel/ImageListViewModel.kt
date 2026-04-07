@@ -1,6 +1,7 @@
 package com.imagelibrary.ui.viewmodel
 
 import android.app.Application
+import android.content.Intent
 import android.database.ContentObserver
 import android.os.Handler
 import android.os.Looper
@@ -11,8 +12,11 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -446,6 +450,10 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
     }
+
+    // Share intent — collected once at root screen level
+    private val _shareIntent = MutableSharedFlow<Intent>(extraBufferCapacity = 1)
+    val shareIntent: SharedFlow<Intent> = _shareIntent.asSharedFlow()
 
     // File conflict resolution
     private val _fileConflict = MutableStateFlow<FileConflict?>(null)
@@ -1046,6 +1054,66 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             repository.renameImage(id, name)
             silentRefresh()
             refreshFolderImages()
+        }
+    }
+
+    // Share
+    fun shareSelectedImages() {
+        viewModelScope.launch {
+            val s = _uiState.value
+            val uris = s.folderImages
+                .filter { it.id in s.selectedImageIds }
+                .map { it.contentUri }
+            if (uris.isEmpty()) return@launch
+
+            // Use ACTION_SEND for single item, ACTION_SEND_MULTIPLE for multiple items
+            val intent = if (uris.size == 1) {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "image/*"
+                    putExtra(Intent.EXTRA_STREAM, uris.first())
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            } else {
+                Intent(Intent.ACTION_SEND_MULTIPLE).apply {
+                    type = "image/*"
+                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(uris))
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            }
+            _shareIntent.emit(intent)
+        }
+    }
+
+    fun shareSelectedFolders() {
+        viewModelScope.launch {
+            val s = _uiState.value
+            val uris = ArrayList<android.net.Uri>()
+            for (bucketId in s.selectedFolderIds) {
+                repository.getImages(bucketId = bucketId).mapTo(uris) { it.contentUri }
+            }
+            for (groupId in s.selectedGroupIds) {
+                val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
+                for (bucketId in bucketIds) {
+                    repository.getImages(bucketId = bucketId).mapTo(uris) { it.contentUri }
+                }
+            }
+            if (uris.isEmpty()) return@launch
+
+            // Use ACTION_SEND for single item, ACTION_SEND_MULTIPLE for multiple items
+            val intent = if (uris.size == 1) {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "image/*"
+                    putExtra(Intent.EXTRA_STREAM, uris.first())
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            } else {
+                Intent(Intent.ACTION_SEND_MULTIPLE).apply {
+                    type = "image/*"
+                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            }
+            _shareIntent.emit(intent)
         }
     }
 

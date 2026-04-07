@@ -80,9 +80,9 @@ fun ImageListScreen(
 
     // Collect share intents and launch system chooser
     LaunchedEffect(Unit) {
-        // viewModel.shareIntent.collect { intent ->
-        //     ctx.startActivity(Intent.createChooser(intent, "Share"))
-        // }
+        viewModel.shareIntent.collect { intent ->
+            ctx.startActivity(Intent.createChooser(intent, null))
+        }
     }
 
     BackHandler(
@@ -280,7 +280,7 @@ fun ImageListScreen(
             onCopy = { viewModel.showCopyFolderPicker() },
             onMove = { viewModel.showMoveFolderPicker() },
             onDelete = { viewModel.showDeleteDialog() },
-            // onShare = { viewModel.shareSelectedImages() },
+            onShare = { viewModel.shareSelectedImages() },
             onDetails = {
                 if (state.selectedImageIds.size == 1) {
                     state.folderImages.find { it.id == state.selectedImageIds.first() }?.let { viewModel.showImageDetails(it) }
@@ -413,7 +413,7 @@ fun ImageListScreen(
             onGroup = { viewModel.showGroupNameDialogForBottomBar() },
             onSelectAll = { viewModel.selectAllInGroup() },
             onCancelSelection = { viewModel.exitSelectionMode() },
-            // onShare = { viewModel.shareSelectedFolders() },
+            onShare = { viewModel.shareSelectedFolders() },
             onMove = { viewModel.showMoveToGroupPicker() },
             onOpenLocation = {
                 viewModel.getSelectedLocationPath()
@@ -639,7 +639,7 @@ fun ImageListScreen(
                 onGroup = { viewModel.showGroupNameDialogForBottomBar() },
                 showMove = totalSelected >= 1,
                 showShare = true,
-                // onShare = { viewModel.shareSelectedFolders() },
+                onShare = { viewModel.shareSelectedFolders() },
                 showOpenLocation = totalSelected == 1 && state.selectedGroupIds.isEmpty(),
                 onOpenLocation = {
                     viewModel.getSelectedLocationPath()

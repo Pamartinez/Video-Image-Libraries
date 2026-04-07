@@ -1278,10 +1278,20 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 .filter { it.id in s.selectedVideoIds }
                 .map { it.contentUri }
             if (uris.isEmpty()) return@launch
-            val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
-                type = "video/*"
-                putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(uris))
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            
+            // Use ACTION_SEND for single item, ACTION_SEND_MULTIPLE for multiple items
+            val intent = if (uris.size == 1) {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "video/*"
+                    putExtra(Intent.EXTRA_STREAM, uris.first())
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            } else {
+                Intent(Intent.ACTION_SEND_MULTIPLE).apply {
+                    type = "video/*"
+                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(uris))
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
             }
             _shareIntent.emit(intent)
         }
@@ -1301,10 +1311,20 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 }
             }
             if (uris.isEmpty()) return@launch
-            val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
-                type = "video/*"
-                putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            
+            // Use ACTION_SEND for single item, ACTION_SEND_MULTIPLE for multiple items
+            val intent = if (uris.size == 1) {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "video/*"
+                    putExtra(Intent.EXTRA_STREAM, uris.first())
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+            } else {
+                Intent(Intent.ACTION_SEND_MULTIPLE).apply {
+                    type = "video/*"
+                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
             }
             _shareIntent.emit(intent)
         }
