@@ -1,6 +1,5 @@
 package com.example.common.data.repository
 
-import android.net.Uri
 import com.example.common.data.db.GroupStore
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupEntity
@@ -62,13 +61,20 @@ open class GroupRepository(
     // ── Read ─────────────────────────────────────────────────────────────────
 
     /** Get all root-level groups (parentGroupId == null) as [GroupItem]s. */
-    suspend fun getRootGroups(): List<GroupItem> = withContext(Dispatchers.IO) {
-        store.getRootGroups().map { buildGroupItem(it) }
+    suspend fun getRootGroups(
+        groupSortOptions: Map<Long, Int> = emptyMap(),
+        groupCustomOrders: Map<Long, List<String>> = emptyMap()
+    ): List<GroupItem> = withContext(Dispatchers.IO) {
+        store.getRootGroups().map { buildGroupItem(it, groupSortOptions, groupCustomOrders) }
     }
 
     /** Get child groups of a parent group. */
-    suspend fun getChildGroups(parentGroupId: Long): List<GroupItem> = withContext(Dispatchers.IO) {
-        store.getChildGroups(parentGroupId).map { buildGroupItem(it) }
+    suspend fun getChildGroups(
+        parentGroupId: Long,
+        groupSortOptions: Map<Long, Int> = emptyMap(),
+        groupCustomOrders: Map<Long, List<String>> = emptyMap()
+    ): List<GroupItem> = withContext(Dispatchers.IO) {
+        store.getChildGroups(parentGroupId).map { buildGroupItem(it, groupSortOptions, groupCustomOrders) }
     }
 
     /** Get all groups (e.g. for "add folder" picker). */
@@ -153,25 +159,30 @@ open class GroupRepository(
 
     // ── Private helpers ──────────────────────────────────────────────────────
 
-    private suspend fun buildGroupItem(entity: GroupEntity): GroupItem {
+    private suspend fun buildGroupItem(
+        entity: GroupEntity,
+        groupSortOptions: Map<Long, Int> = emptyMap(),
+        groupCustomOrders: Map<Long, List<String>> = emptyMap()
+    ): GroupItem {
         val memberBucketIds = store.getBucketIdsForGroup(entity.groupId)
         val childGroups     = store.getChildGroups(entity.groupId)
         val allFolders      = getFolders()
 
-        // Up to 4 preview URIs — take from member folders first, then child groups
-        val previewUris = mutableListOf<Uri>()
-        memberBucketIds.take(4).forEach { bid ->
-            allFolders.find { it.bucketId == bid }?.latestItemUri?.let { previewUris.add(it) }
-        }
-        if (previewUris.size < 4) {
-            for (child in childGroups) {
-                if (previewUris.size >= 4) break
-                store.getBucketIdsForGroup(child.groupId).forEach { bid ->
-                    if (previewUris.size >= 4) return@forEach
-                    allFolders.find { it.bucketId == bid }?.latestItemUri?.let { previewUris.add(it) }
-                }
-            }
-        }
+        // Build ordered list of items (folders and sub-groups) respecting the group's sort
+        val orderedItems = buildOrderedGroupItems(
+            entity.groupId,
+            memberBucketIds,
+            childGroups,
+            allFolders,
+            groupSortOptions,
+            groupCustomOrders
+        )
+
+        // Extract first 4 FOLDERS ONLY (skip groups) for preview
+        val previewUris = orderedItems
+            .filterIsInstance<FolderItem>()
+            .take(4)
+            .mapNotNull { it.latestItemUri }
 
         return GroupItem(
             groupId         = entity.groupId,
@@ -186,6 +197,94 @@ open class GroupRepository(
             memberBucketIds = memberBucketIds,
             createdAt       = entity.createdAt
         )
+    }
+
+    private suspend fun buildOrderedGroupItems(
+        groupId: Long,
+        memberBucketIds: List<Int>,
+        childGroups: List<GroupEntity>,
+        allFolders: List<FolderItem>,
+        groupSortOptions: Map<Long, Int>,
+        groupCustomOrders: Map<Long, List<String>>
+    ): List<Any> {
+        // Get member folders
+        val memberFolders = memberBucketIds.mapNotNull { bid ->
+            allFolders.find { it.bucketId == bid }
+        }
+        
+        // Convert child entities to GroupItems (lightweight, just for ordering)
+        val subGroups = childGroups.map { child ->
+            GroupItem(
+                groupId = child.groupId,
+                name = child.name,
+                parentGroupId = child.parentGroupId
+            )
+        }
+
+        // Get sort option for this group (default to 0 = CUSTOM_ORDER)
+        val sortOptionId = groupSortOptions[groupId] ?: 0
+
+        // Apply sort based on option
+        return when (sortOptionId) {
+            0 -> { // CUSTOM_ORDER
+                val savedOrder = groupCustomOrders[groupId] ?: emptyList()
+                if (savedOrder.isEmpty()) {
+                    // No saved order, return in database order
+                    subGroups + memberFolders
+                } else {
+                    // Build map of items by their keys
+                    val byGroupKey  = subGroups.associateBy { "g_${it.groupId}" }
+                    val byFolderKey = memberFolders.associateBy { "f_${it.bucketId}" }
+                    val savedSet = savedOrder.toSet()
+                    
+                    // New items first, then saved order
+                    buildList {
+                        subGroups.forEach { if ("g_${it.groupId}" !in savedSet) add(it) }
+                        memberFolders.forEach { if ("f_${it.bucketId}" !in savedSet) add(it) }
+                        savedOrder.forEach { key ->
+                            (byGroupKey[key] ?: byFolderKey[key])?.let { add(it) }
+                        }
+                    }
+                }
+            }
+            1 -> { // NAME_A_TO_Z
+                (subGroups + memberFolders).sortedBy { item ->
+                    when (item) {
+                        is GroupItem -> item.name.lowercase()
+                        is FolderItem -> item.name.lowercase()
+                        else -> ""
+                    }
+                }
+            }
+            2 -> { // NAME_Z_TO_A
+                (subGroups + memberFolders).sortedByDescending { item ->
+                    when (item) {
+                        is GroupItem -> item.name.lowercase()
+                        is FolderItem -> item.name.lowercase()
+                        else -> ""
+                    }
+                }
+            }
+            3 -> { // ITEMS_MOST_FIRST
+                (subGroups + memberFolders).sortedByDescending { item ->
+                    when (item) {
+                        is GroupItem -> item.totalItemCount
+                        is FolderItem -> item.itemCount
+                        else -> 0
+                    }
+                }
+            }
+            4 -> { // ITEMS_FEWEST_FIRST
+                (subGroups + memberFolders).sortedBy { item ->
+                    when (item) {
+                        is GroupItem -> item.totalItemCount
+                        is FolderItem -> item.itemCount
+                        else -> 0
+                    }
+                }
+            }
+            else -> subGroups + memberFolders
+        }
     }
 }
 

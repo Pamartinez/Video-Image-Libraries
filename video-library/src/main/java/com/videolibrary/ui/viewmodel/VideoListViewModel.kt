@@ -405,6 +405,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { it.copy(currentGroupSortOption = option) }
         refreshCurrentGroup()
         scheduleAutoBackup()
+
+        // Refresh parent/root groups to update their preview thumbnails with new sort order
+        viewModelScope.launch {
+            silentRefresh()
+        }
     }
     val uiState: StateFlow<VideoListUiState> = _uiState.asStateFlow()
 
@@ -548,8 +553,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Visible-only list used for the main view and group detail
         val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 
-        // Load groups and split folders into grouped / ungrouped
-        val rootGroups = groupRepository.getRootGroups()
+        // Load all groups first to get their sort preferences
+        val allGroups = groupRepository.getAllGroups()
+        val groupSortOptions = allGroups.associate { group ->
+            group.groupId to preferences.getGroupSortOption(group.groupId).id
+        }
+        val groupCustomOrders = preferences.allCustomGroupItemsOrders()
+
+        // Get root groups with sort data for proper preview generation
+        val rootGroups = groupRepository.getRootGroups(
+            groupSortOptions = groupSortOptions,
+            groupCustomOrders = groupCustomOrders
+        )
         val groupedIds = groupRepository.getGroupedBucketIds()
 
         // allUngroupedFolders (including hidden) feeds applyCustomMixedOrder so hidden
@@ -580,9 +595,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             sortMixedItems(visibleGroups + ungroupedFolders, s.sortOption, s.groupsAlwaysOnTop)
         }
 
-        // Load all groups (root + nested) to ensure their sort preferences are available
-        val allGroups = groupRepository.getAllGroups()
-
         _uiState.update {
             it.copy(
                 videos               = videos,
@@ -590,10 +602,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 rootGroups           = rootGroups,
                 ungroupedFolders     = ungroupedFolders,
                 orderedMixedItems    = orderedMixed,
-                allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
-                allGroupSortOptions  = allGroups.associate { group ->
-                    group.groupId to preferences.getGroupSortOption(group.groupId).id
-                },
+                allGroupCustomOrders = groupCustomOrders,
+                allGroupSortOptions  = groupSortOptions,
                 isLoading            = false,
                 scrollToTopTrigger   = if (scrollToTop) it.scrollToTopTrigger + 1 else it.scrollToTopTrigger
             )
@@ -605,7 +615,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val openGroupId = _uiState.value.currentGroupId
         if (openGroupId != null) {
             val gBucketIds    = groupRepository.getFolderBucketIdsForGroup(openGroupId).toSet()
-            val gAllSubGroups = groupRepository.getChildGroups(openGroupId)
+            val gAllSubGroups = groupRepository.getChildGroups(
+                parentGroupId = openGroupId,
+                groupSortOptions = groupSortOptions,
+                groupCustomOrders = groupCustomOrders
+            )
             val gFolders      = folders.filter { it.bucketId in gBucketIds }
             // Hide sub-groups whose every direct album is hidden (same rule as root)
             val gSubGroups    = gAllSubGroups.filter { sub ->
@@ -1278,7 +1292,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 .filter { it.id in s.selectedVideoIds }
                 .map { it.contentUri }
             if (uris.isEmpty()) return@launch
-            
+
             // Use ACTION_SEND for single item, ACTION_SEND_MULTIPLE for multiple items
             val intent = if (uris.size == 1) {
                 Intent(Intent.ACTION_SEND).apply {

@@ -422,6 +422,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { it.copy(currentGroupSortOption = option) }
         refreshCurrentGroup()
         scheduleAutoBackup()
+        
+        // Refresh parent/root groups to update their preview thumbnails with new sort order
+        viewModelScope.launch {
+            silentRefresh()
+        }
     }
 
     // Copy/Move progress
@@ -550,13 +555,23 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         // Visible-only list used for the main view and group detail
         val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 
-        val rootGroups = groupRepository.getRootGroups()
+        // Load all groups first to get their sort preferences
+        val allGroups = groupRepository.getAllGroups()
+        val groupSortOptions = allGroups.associate { group ->
+            group.groupId to preferences.getGroupSortOption(group.groupId).id
+        }
+        val groupCustomOrders = preferences.allCustomGroupItemsOrders()
+
+        // Get root groups with sort data for proper preview generation
+        val rootGroups = groupRepository.getRootGroups(
+            groupSortOptions = groupSortOptions,
+            groupCustomOrders = groupCustomOrders
+        )
         val groupedBucketIds = groupRepository.getGroupedBucketIds()
         // allUngroupedFolders (including hidden) feeds applyCustomMixedOrder so hidden
         // folder keys stay in customMixedOrder; ungroupedFolders is the display list.
         val allUngroupedFolders = allFolders.filter { it.bucketId !in groupedBucketIds }
         val ungroupedFolders    = allUngroupedFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
-        val allGroups = groupRepository.getAllGroups()
 
         // Lookup: bucketId → path, used to determine group visibility
         val bucketPathMap = allFolders.associate { it.bucketId to it.path }
@@ -589,10 +604,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 ungroupedFolders = ungroupedFolders,
                 orderedMixedItems = orderedMixed,
                 allGroups = allGroups,
-                allGroupCustomOrders = preferences.allCustomGroupItemsOrders(),
-                allGroupSortOptions = allGroups.associate { group -> 
-                    group.groupId to preferences.getGroupSortOption(group.groupId).id 
-                },
+                allGroupCustomOrders = groupCustomOrders,
+                allGroupSortOptions = groupSortOptions,
                 isLoading = false
             )
         }
@@ -603,7 +616,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val openGroupId = _uiState.value.currentGroupId
         if (openGroupId != null) {
             val gBucketIds    = groupRepository.getFolderBucketIdsForGroup(openGroupId).toSet()
-            val gAllSubGroups = groupRepository.getChildGroups(openGroupId)
+            val gAllSubGroups = groupRepository.getChildGroups(
+                parentGroupId = openGroupId,
+                groupSortOptions = groupSortOptions,
+                groupCustomOrders = groupCustomOrders
+            )
             val gFolders      = folders.filter { it.bucketId in gBucketIds }
             // Hide sub-groups whose every direct album is hidden (same rule as root)
             val gSubGroups    = gAllSubGroups.filter { sub ->
