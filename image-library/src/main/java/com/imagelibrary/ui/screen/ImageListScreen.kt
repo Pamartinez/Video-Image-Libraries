@@ -343,14 +343,133 @@ fun ImageListScreen(
     if (state.currentGroupId != null) {
         // Full-screen pickers that overlay group detail (must be checked before GroupDetailScreen renders)
         if (state.showAddFolderToGroup) {
-            val groupOrderedItemsMap = if (state.currentGroupId != null) {
-                mapOf(state.currentGroupId!! to state.currentGroupOrderedMixedItems)
-            } else {
-                emptyMap()
+            // Build groupOrderedItems map for ALL groups + root level
+            val groupOrderedItemsMap = buildMap<Long, List<Any>> {
+                // Add ROOT level ordered items
+                put(-1L, state.orderedMixedItems)
+
+                // Add CURRENT group's ordered items (use pre-calculated data)
+                if (state.currentGroupId != null) {
+                    put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
+                }
+
+                // Add each OTHER group's ordered items with FULL sort logic
+                state.allGroups.forEach { group ->
+                    // Skip current group - already added above with pre-calculated data
+                    if (group.groupId == state.currentGroupId) return@forEach
+
+                    // Get this group's folders and sub-groups
+                    val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
+                    val subGroups = state.allGroups.filter { it.parentGroupId == group.groupId }
+
+                    // Get sort option for this group
+                    val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
+                    val sortOption = com.imagelibrary.data.model.SortOption.entries.find { it.id == sortOptionId }
+                        ?: com.imagelibrary.data.model.SortOption.CUSTOM_ORDER
+
+                    // Build raw mixed list
+                    val rawMixed = buildList<Any> {
+                        addAll(subGroups)
+                        addAll(memberFolders)
+                    }
+
+                    // Apply sorting based on group's sort option
+                    val orderedItems: List<Any> = when (sortOption) {
+                        com.imagelibrary.data.model.SortOption.CUSTOM_ORDER -> {
+                            val customOrder = state.allGroupCustomOrders[group.groupId] ?: emptyList()
+                            if (customOrder.isNotEmpty()) {
+                                buildList {
+                                    // Add items in custom order
+                                    customOrder.forEach { key ->
+                                        rawMixed.find { item ->
+                                            when (item) {
+                                                is com.example.common.data.model.GroupItem -> "group_${item.groupId}" == key
+                                                is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}" == key
+                                                else -> false
+                                            }
+                                        }?.let { add(it) }
+                                    }
+                                    // Add new items not in custom order
+                                    rawMixed.filter { item ->
+                                        val itemKey = when (item) {
+                                            is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
+                                            is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                                            else -> ""
+                                        }
+                                        itemKey !in customOrder
+                                    }.forEach { add(it) }
+                                }
+                            } else rawMixed
+                        }
+                        com.imagelibrary.data.model.SortOption.NAME_A_TO_Z -> {
+                            if (state.groupsAlwaysOnTop) {
+                                subGroups.sortedBy { it.name.lowercase() } + memberFolders.sortedBy { it.name.lowercase() }
+                            } else {
+                                rawMixed.sortedBy { item ->
+                                    when (item) {
+                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
+                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
+                                        else -> ""
+                                    }
+                                }
+                            }
+                        }
+                        com.imagelibrary.data.model.SortOption.NAME_Z_TO_A -> {
+                            if (state.groupsAlwaysOnTop) {
+                                subGroups.sortedByDescending { it.name.lowercase() } + memberFolders.sortedByDescending { it.name.lowercase() }
+                            } else {
+                                rawMixed.sortedByDescending { item ->
+                                    when (item) {
+                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
+                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
+                                        else -> ""
+                                    }
+                                }
+                            }
+                        }
+                        com.imagelibrary.data.model.SortOption.ITEMS_MOST_FIRST -> {
+                            if (state.groupsAlwaysOnTop) {
+                                buildList<Any> {
+                                    addAll(subGroups.sortedByDescending { it.totalItemCount })
+                                    addAll(memberFolders.sortedByDescending { it.itemCount })
+                                }
+                            } else {
+                                rawMixed.sortedByDescending { item ->
+                                    when (item) {
+                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
+                                        is com.example.common.data.model.FolderItem -> item.itemCount
+                                        else -> 0
+                                    }
+                                }
+                            }
+                        }
+                        com.imagelibrary.data.model.SortOption.ITEMS_FEWEST_FIRST -> {
+                            if (state.groupsAlwaysOnTop) {
+                                buildList<Any> {
+                                    addAll(subGroups.sortedBy { it.totalItemCount })
+                                    addAll(memberFolders.sortedBy { it.itemCount })
+                                }
+                            } else {
+                                rawMixed.sortedBy { item ->
+                                    when (item) {
+                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
+                                        is com.example.common.data.model.FolderItem -> item.itemCount
+                                        else -> 0
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (orderedItems.isNotEmpty()) {
+                        put(group.groupId, orderedItems)
+                    }
+                }
             }
+
             AddFolderToGroupScreen(
-                folders = state.ungroupedFolders,
-                groups = state.rootGroups,
+                folders = state.folders,
+                groups = state.allGroups,
                 currentGroupId = state.currentGroupId!!,
                 viewType = state.viewType,
                 groupOrderedItems = groupOrderedItemsMap,

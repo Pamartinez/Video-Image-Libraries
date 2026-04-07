@@ -73,6 +73,7 @@ fun AddFolderToGroupScreen(
     folderGridItem: @Composable (
         folder: FolderItem,
         isSelected: Boolean,
+        isSelectable: Boolean,
         viewType: ViewType,
         onClick: () -> Unit,
         onLongClick: (() -> Unit)?,
@@ -123,13 +124,26 @@ fun AddFolderToGroupScreen(
             }
         }
     } else {
-        // Root level: root groups + folders not belonging to any group
-        val groupedBucketIds = groups.flatMap { it.memberBucketIds }.toSet()
-        val ungroupedFolders = folders.filter { it.bucketId !in groupedBucketIds }
-        val rootGroups       = filteredGroups.filter { it.parentGroupId == null }
-        buildList {
-            rootGroups.forEach        { add(MixedItem.Group(it))  }
-            ungroupedFolders.forEach  { add(MixedItem.Folder(it)) }
+        // Root level: check for pre-calculated root items (groupId = -1)
+        val preCalculatedRoot = groupOrderedItems[-1L]
+        if (preCalculatedRoot != null) {
+            // Use exact items from root's sort order
+            preCalculatedRoot.mapNotNull { item ->
+                when (item) {
+                    is FolderItem -> MixedItem.Folder(item)
+                    is GroupItem -> MixedItem.Group(item)
+                    else -> null
+                }
+            }
+        } else {
+            // Fallback: re-calculate root items (old behavior)
+            val groupedBucketIds = groups.flatMap { it.memberBucketIds }.toSet()
+            val ungroupedFolders = folders.filter { it.bucketId !in groupedBucketIds }
+            val rootGroups       = filteredGroups.filter { it.parentGroupId == null }
+            buildList {
+                rootGroups.forEach        { add(MixedItem.Group(it))  }
+                ungroupedFolders.forEach  { add(MixedItem.Folder(it)) }
+            }
         }
     }
 
@@ -213,15 +227,20 @@ fun AddFolderToGroupScreen(
                         when (item) {
                             is MixedItem.Folder -> {
                                 val folder     = item.folder
-                                val isSelected = selectedFolderIds.contains(folder.bucketId)
+                                // If browsing the current group being edited, folders are non-selectable (already in group)
+                                val isSelectable = currentBrowseGroupId != currentGroupId
+                                val isSelected = isSelectable && selectedFolderIds.contains(folder.bucketId)
                                 val toggle: () -> Unit = {
-                                    selectedFolderIds =
-                                        if (isSelected) selectedFolderIds - folder.bucketId
-                                        else            selectedFolderIds + folder.bucketId
+                                    if (isSelectable) {
+                                        selectedFolderIds =
+                                            if (isSelected) selectedFolderIds - folder.bucketId
+                                            else            selectedFolderIds + folder.bucketId
+                                    }
                                 }
                                 folderGridItem(
                                     folder,
                                     isSelected,
+                                    isSelectable,
                                     viewType,
                                     toggle,
                                     toggle,

@@ -35,11 +35,11 @@ fun AddFolderToGroupScreen(
         groupOrderedItems = groupOrderedItems,
         onSave          = onSave,
         onCancel        = onCancel,
-        folderGridItem  = { folder, isSelected, vt, onClick, onLongClick, mod ->
+        folderGridItem  = { folder, isSelected, isSelectable, vt, onClick, onLongClick, mod ->
             FolderGridItem(
                 folder          = folder,
                 isSelected      = isSelected,
-                isSelectionMode = true,
+                isSelectionMode = isSelectable, // Show checkbox only if item is selectable
                 viewType        = vt,
                 onClick         = onClick,
                 onLongClick     = onLongClick,
