@@ -97,9 +97,9 @@ fun GroupDetailScreen(
         onReorderFolders = onReorderFolders,
         onReorderDone = onReorderDone,
         lazyGridState = lazyGridState,
-        
+
         colors = LocalImageColors.current,
-        
+
         albumCreationDescription = "Create a new album and add pictures and videos manually.",
         isLargeGrid = { it == ViewType.GRID_LARGE },
         getColumnCount = { if (it == ViewType.GRID_LARGE) 2 else 3 },
@@ -126,7 +126,7 @@ fun GroupDetailScreen(
                 SortOption.CUSTOM_ORDER -> items
             }
         },
-        
+
         folderGridItem = { folder, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
             FolderGridItem(
                 folder = folder,
@@ -139,7 +139,7 @@ fun GroupDetailScreen(
                 modifier = mod
             )
         },
-        
+
         groupGridItem = { group, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
             GroupGridItem(
                 group = group,
@@ -152,7 +152,7 @@ fun GroupDetailScreen(
                 modifier = mod
             )
         },
-        
+
         sortDialog = { current, onSelected, onDismiss ->
             SortDialog(
                 currentSortOption = current,
@@ -160,20 +160,20 @@ fun GroupDetailScreen(
                 onDismiss = onDismiss
             )
         },
-        
-        selectionHeader = { count, total, allSel, onAll, onCancel ->
+
+        selectionHeader = { count, total, _, onAll, onCancel ->
             SelectionHeader(
                 selectedCount = count,
-                allSelected = allSel,
+                totalCount = total,
                 onSelectAll = onAll,
                 onCancel = onCancel
             )
         },
-        
+
         viewTypeToggle = { vt, onClick ->
             ViewTypeToggleButton(viewType = vt, onClick = onClick)
         },
-        
+
         modifier = modifier
     )
 }

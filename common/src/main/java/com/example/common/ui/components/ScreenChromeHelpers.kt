@@ -354,79 +354,33 @@ fun RowScope.SelectionModeHeader(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SelectionHeader  (image-library style — same two-pill layout as SelectionModeHeader)
+// SelectionHeader  (standardized — identical to SelectionModeHeader)
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
  * Selection-mode header used by image-library.
- * Same two dark rounded-rect pill layout as [SelectionModeHeader]:
- *  left pill = circle toggle + count,  right pill = Cancel.
+ * Identical to [SelectionModeHeader] — both libraries now use the same pattern.
+ *
+ * Layout:
+ *  ┌──────────────────┐          ┌──────────────┐
+ *  │  ○  0            │  spacer  │    Cancel    │
+ *  └──────────────────┘          └──────────────┘
+ *
+ * The left pill is the select-all toggle (circle icon + count).
+ * The right pill dismisses selection mode.
  */
 @Composable
 fun RowScope.SelectionHeader(
     selectedCount: Int,
-    allSelected: Boolean,
+    totalCount: Int,
     onSelectAll: () -> Unit,
     onCancel: () -> Unit
-) {
-    val pillColor = Color(0xCC2A2A2A)
-    val pillShape = RoundedCornerShape(14.dp)
-
-    // ── Left pill: circle icon + count ───────────────────────────────────
-    Surface(
-        modifier = Modifier.clickable(onClick = onSelectAll),
-        shape    = pillShape,
-        color    = pillColor
-    ) {
-        Row(
-            modifier              = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment     = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(24.dp)
-                    .then(
-                        if (allSelected) Modifier.background(Color.White, CircleShape)
-                        else Modifier.border(2.dp, Color.White, CircleShape)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                if (allSelected) {
-                    Icon(
-                        Icons.Default.Check,
-                        contentDescription = "Deselect all",
-                        tint               = Color.Black,
-                        modifier           = Modifier.size(16.dp)
-                    )
-                }
-            }
-            Text(
-                text       = "$selectedCount",
-                fontSize   = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color      = Color.White
-            )
-        }
-    }
-
-    Spacer(Modifier.weight(1f))
-
-    // ── Right pill: Cancel ────────────────────────────────────────────────
-    Surface(
-        modifier = Modifier.clickable(onClick = onCancel),
-        shape    = pillShape,
-        color    = pillColor
-    ) {
-        Text(
-            text       = "Cancel",
-            fontSize   = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color      = Color.White,
-            modifier   = Modifier.padding(horizontal = 20.dp, vertical = 12.dp)
-        )
-    }
-}
+) = SelectionModeHeader(
+    selectedCount = selectedCount,
+    totalCount    = totalCount,
+    onSelectAll   = onSelectAll,
+    onCancel      = onCancel
+)
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PillButton

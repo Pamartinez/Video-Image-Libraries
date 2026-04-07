@@ -663,7 +663,7 @@ fun ImageListScreen(
                         val totalItems = state.ungroupedFolders.size + state.rootGroups.size
                         SelectionHeader(
                             selectedCount = count,
-                            allSelected = totalItems > 0 && count == totalItems,
+                            totalCount = totalItems,
                             onSelectAll = { viewModel.selectAllFoldersAndGroups() },
                             onCancel = { viewModel.exitSelectionMode() }
                         )

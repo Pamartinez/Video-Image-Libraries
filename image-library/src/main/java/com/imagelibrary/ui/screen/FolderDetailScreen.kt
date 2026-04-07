@@ -75,10 +75,10 @@ fun FolderDetailScreen(
         gridSpacing = 2.dp,
         emptyMessage = "No images",
 
-        selectionHeader = { count, total, allSel, onAll, onCancel ->
+        selectionHeader = { count, total, _, onAll, onCancel ->
             SelectionHeader(
                 selectedCount = count,
-                allSelected = allSel,
+                totalCount = total,
                 onSelectAll = onAll,
                 onCancel = onCancel
             )

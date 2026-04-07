@@ -10,17 +10,17 @@ import com.example.common.ui.components.SelectionHeader as CommonSelectionHeader
 /**
  * Delegates to the shared [CommonSelectionHeader] in common.
  * Kept here so existing import paths in image-library screens stay unchanged.
+ * Now uses standardized signature (totalCount instead of allSelected).
  */
 @Composable
 fun RowScope.SelectionHeader(
     selectedCount: Int,
-    allSelected: Boolean,
+    totalCount: Int,
     onSelectAll: () -> Unit,
-    onCancel: () -> Unit,
-    modifier: Modifier = Modifier
+    onCancel: () -> Unit
 ) = CommonSelectionHeader(
     selectedCount = selectedCount,
-    allSelected   = allSelected,
+    totalCount    = totalCount,
     onSelectAll   = onSelectAll,
     onCancel      = onCancel
 )
