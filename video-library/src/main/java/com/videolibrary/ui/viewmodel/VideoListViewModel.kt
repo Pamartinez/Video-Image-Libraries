@@ -23,8 +23,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import com.example.common.data.model.ConflictResolution
+import com.example.common.data.model.CopyMoveProgress
+import com.example.common.data.model.FileConflict
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
+import com.example.common.data.util.MixedItemSorter
+import com.example.common.util.FilePathUtils
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -152,18 +156,7 @@ data class VideoListUiState(
     val folderDetailScrollToTopTrigger: Int = 0,
 )
 
-data class CopyMoveProgress(
-    val isActive: Boolean = false,
-    val title: String = "",
-    val current: Int = 0,
-    val total: Int = 0
-)
-
-data class FileConflict(
-    val fileName: String,
-    val deferred: CompletableDeferred<ConflictResolution>,
-    var applyToAll: Boolean = false
-)
+// CopyMoveProgress and FileConflict moved to common module
 
 class VideoListViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = VideoRepository(application)
@@ -686,65 +679,29 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Restores the saved interleaved drag order; appends brand-new items at the end. */
+    /** Delegates to MixedItemSorter.applyCustomMixedOrder in common module. */
     private fun applyCustomMixedOrder(
         groups: List<GroupItem>,
         folders: List<FolderItem>
     ): List<Any> {
-        val saved     = preferences.customMixedOrder
-        val groupMap  = groups.associateBy  { "g_${it.groupId}" }
-        val folderMap = folders.associateBy { "f_${it.bucketId}" }
-
-        if (saved.isEmpty()) {
-            val initial: List<Any> = groups + folders
-            preferences.customMixedOrder = initial.map {
-                if (it is GroupItem) "g_${it.groupId}" else "f_${(it as FolderItem).bucketId}"
-            }
-            return initial
-        }
-
-        val ordered   = saved.mapNotNull { groupMap[it] ?: folderMap[it] }
-        val savedSet  = saved.toSet()
-        // New groups and folders are prepended at the beginning (now matches expected behavior)
-        val newGroups: List<Any>  = groups.filter  { "g_${it.groupId}"  !in savedSet }
-        val newFolders: List<Any> = folders.filter { "f_${it.bucketId}" !in savedSet }
-        val result: List<Any> = newGroups + newFolders + ordered
-
-        preferences.customMixedOrder = result.map {
-            if (it is GroupItem) "g_${it.groupId}" else "f_${(it as FolderItem).bucketId}"
-        }
+        val savedOrder = preferences.customMixedOrder
+        val (result, newOrder) = MixedItemSorter.applyCustomMixedOrder(groups, folders, savedOrder)
+        preferences.customMixedOrder = newOrder
         return result
     }
 
+    /** Delegates to MixedItemSorter.sortMixedItems in common module. */
     private fun sortMixedItems(
         items: List<Any>,
         option: FolderSortOption,
         groupsAlwaysOnTop: Boolean = false
     ): List<Any> {
-        fun name(i: Any)  = if (i is GroupItem) i.name  else (i as FolderItem).name
-        fun count(i: Any) = if (i is GroupItem) i.totalItemCount else (i as FolderItem).itemCount
-        fun sortList(list: List<Any>): List<Any> = when (option) {
-            FolderSortOption.NAME_A_TO_Z        -> list.sortedBy           { name(it).lowercase()  }
-            FolderSortOption.NAME_Z_TO_A        -> list.sortedByDescending { name(it).lowercase()  }
-            FolderSortOption.ITEMS_MOST_FIRST   -> list.sortedByDescending { count(it)             }
-            FolderSortOption.ITEMS_FEWEST_FIRST -> list.sortedBy           { count(it)             }
-            FolderSortOption.CUSTOM_ORDER       -> list
-        }
-        return if (groupsAlwaysOnTop) {
-            val groups  = items.filterIsInstance<GroupItem>()
-            val folders = items.filterIsInstance<FolderItem>()
-            sortList(groups) + sortList(folders)
-        } else {
-            sortList(items)
-        }
+        return MixedItemSorter.sortMixedItems(items, option, groupsAlwaysOnTop)
     }
 
     /**
-     * Sorts [groups] and [folders] for the Hide Folders screen using [sortOption].
-     * For CUSTOM_ORDER, restores the saved drag order (read-only — nothing is persisted).
-     * Returns (sortedGroups, sortedFolders) as separate lists matching the screen's contract.
-     *
-     * @param groupId Non-null → use the group's saved mixed order; null → use root mixed order.
+     * Sorts [groups] and [folders] for the Hide Folders screen.
+     * Delegates to MixedItemSorter.sortHideScreenItems in common module.
      */
     private fun sortHideScreenItems(
         groups: List<GroupItem>,
@@ -753,23 +710,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         groupsAlwaysOnTop: Boolean,
         groupId: Long?
     ): Pair<List<GroupItem>, List<FolderItem>> {
-        if (sortOption == FolderSortOption.CUSTOM_ORDER) {
-            val savedOrder = if (groupId != null)
-                preferences.getGroupMixedOrder(groupId)
-            else
-                preferences.customMixedOrder
-            if (savedOrder.isEmpty()) return groups to folders
-            val groupMap  = groups.associateBy  { "g_${it.groupId}"  }
-            val folderMap = folders.associateBy { "f_${it.bucketId}" }
-            val savedSet  = savedOrder.toSet()
-            val newGroups  = groups.filter  { "g_${it.groupId}"  !in savedSet }
-            val newFolders = folders.filter { "f_${it.bucketId}" !in savedSet }
-            val ordered    = savedOrder.mapNotNull { groupMap[it] ?: folderMap[it] }
-            val result     = newGroups + newFolders + ordered
-            return result.filterIsInstance<GroupItem>() to result.filterIsInstance<FolderItem>()
-        }
-        val sorted = sortMixedItems(groups + folders, sortOption, groupsAlwaysOnTop)
-        return sorted.filterIsInstance<GroupItem>() to sorted.filterIsInstance<FolderItem>()
+        val savedOrder = if (groupId != null)
+            preferences.getGroupMixedOrder(groupId)
+        else
+            preferences.customMixedOrder
+        return MixedItemSorter.sortHideScreenItems(groups, folders, sortOption, groupsAlwaysOnTop, savedOrder)
     }
 
     fun selectTab(tab: Int) { preferences.selectedTab = tab; _uiState.update { it.copy(selectedTab = tab) } }
@@ -1043,11 +988,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    /** Delegates to FilePathUtils.generateUniqueGroupName in common module. */
     private fun generateUniqueGroupName(existingNames: Set<String>): String {
-        val lower = existingNames.map { it.lowercase() }
-        var counter = 1
-        while (lower.contains("group $counter")) counter++
-        return "Group $counter"
+        return FilePathUtils.generateUniqueGroupName("Group", existingNames)
     }
 
     fun toggleGroupCreationFolderSelection(bucketId: Int) {
@@ -1549,7 +1492,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     private fun destFolderName(path: String): String {
-        return path.trimEnd('/').substringAfterLast('/')
+        return FilePathUtils.destFolderName(path)
     }
 
     fun cancelCopyMove() {
