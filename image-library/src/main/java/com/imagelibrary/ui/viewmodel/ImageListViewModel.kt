@@ -922,6 +922,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         setFolderViewType(next)
     }
     fun setSortOption(s: SortOption) { preferences.sortOption = s; _uiState.update { it.copy(sortOption = s) }; silentRefresh(); scheduleAutoBackup() }
+    
+    /** Images tab sort (Custom, Name, Date created, Date modified) - for root/all images view. */
     fun setImageSortOption(s: ImageSortOption) {
         preferences.imageSortOption = s
         // Sort existing folder images in-memory immediately so that both
@@ -940,6 +942,44 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         refreshFolderImages()
         scheduleAutoBackup()
     }
+    
+    /**
+     * Change the sort for the currently open folder (independent of the main tab sort).
+     * 
+     * ⚠️ CRITICAL: Independent sort is ALWAYS enabled.
+     * ALWAYS saves album-specific sort (per bucketId).
+     * DO NOT add back any checks or toggles - independent sort is mandatory!
+     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
+     */
+    fun setFolderImageSortOption(s: ImageSortOption) {
+        val bucketId = _uiState.value.currentFolderBucketId ?: return
+        // Always save album-specific sort (independent sort is now always enabled)
+        preferences.saveFolderImageSortOption(bucketId, s)
+        // Sort existing folder images in-memory immediately so that both
+        // imageSortOption and folderImages change in the same recomposition frame.
+        // This prevents LazyVerticalGrid's stable keys from re-scrolling when
+        // the async data arrives later.
+        val sorted = sortImagesInMemory(_uiState.value.folderImages, s)
+        _uiState.update {
+            it.copy(
+                imageSortOption = s,
+                folderImages = sorted,
+                folderDetailScrollToTopTrigger = it.folderDetailScrollToTopTrigger + 1
+            )
+        }
+        // Refresh the folder images from MediaStore to ensure consistency
+        refreshFolderImages()
+        // Refresh album preview images on the Folders tab to reflect the new sort
+        viewModelScope.launch {
+            silentRefresh()
+        }
+        // If we're inside a group, refresh the group view to update album preview
+        if (_uiState.value.currentGroupId != null) {
+            refreshCurrentGroup()
+        }
+        scheduleAutoBackup()
+    }
+    
     fun setGroupSortOption(s: SortOption) { preferences.groupSortOption = s; _uiState.update { it.copy(groupSortOption = s) }; scheduleAutoBackup() }
 
     private fun sortImagesInMemory(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {

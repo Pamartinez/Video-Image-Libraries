@@ -311,7 +311,22 @@ fun ImageListScreen(
             )
         }
         if (state.showDetailsDialog && state.detailsTarget != null) { ImageDetailsDialog(image = state.detailsTarget!!, onDismiss = { viewModel.dismissImageDetails() }) }
-        if (state.showSortDialog) { SortDialog(options = ImageSortOption.entries, labelFor = { it.label }, currentOption = state.imageSortOption, onOptionSelected = { viewModel.setImageSortOption(it) }, onDismiss = { viewModel.dismissSortDialog() }) }
+        if (state.showSortDialog) {
+            SortDialog(
+                options = ImageSortOption.entries,
+                labelFor = { it.label },
+                currentOption = state.imageSortOption,
+                onOptionSelected = { option ->
+                    // If inside an album, save per-album sort; otherwise save global sort
+                    if (state.currentFolderBucketId != null) {
+                        viewModel.setFolderImageSortOption(option)
+                    } else {
+                        viewModel.setImageSortOption(option)
+                    }
+                },
+                onDismiss = { viewModel.dismissSortDialog() }
+            )
+        }
         if (state.showViewAsDialog) { ViewAsDialog(currentViewType = state.folderViewType, onViewTypeSelected = { viewModel.setFolderViewType(it) }, onDismiss = { viewModel.dismissViewAsDialog() }) }
         if (state.showMoveFolderPicker) {
             val pickerItems = if (state.currentGroupId != null && state.currentFolderBucketId == null) state.currentGroupOrderedMixedItems else state.orderedMixedItems
