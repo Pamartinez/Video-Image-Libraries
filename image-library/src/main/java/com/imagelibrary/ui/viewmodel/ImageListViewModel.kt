@@ -564,8 +564,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         // Fetch ALL folders from MediaStore (hidden ones are still there — app-local approach).
         // The mixed order is computed/saved across ALL so hidden folder keys are retained
         // in customMixedOrder — their slot is preserved when they're un-hidden (Bug 1 fix).
-        // Pass imageSortOption so preview images respect the current sort order.
-        val allFolders = repository.getFolders(s.sortOption, s.imageSortOption)
+        // Use getFoldersWithIndependentSort to respect each album's sort option for preview generation.
+        val allFolders = repository.getFoldersWithIndependentSort(
+            sortOption = s.sortOption,
+            getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+        )
         // Visible-only list used for the main view and group detail
         val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
 

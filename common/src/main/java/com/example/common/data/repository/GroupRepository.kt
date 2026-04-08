@@ -5,6 +5,7 @@ import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupEntity
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.GroupMemberEntity
+import com.example.common.data.util.PreviewGenerator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -168,25 +169,41 @@ open class GroupRepository(
         val childGroups     = store.getChildGroups(entity.groupId)
         val allFolders      = getFolders()
 
-        // Build ordered list of items (folders and sub-groups) respecting the group's sort
-        val orderedItems = buildOrderedGroupItems(
-            entity.groupId,
-            memberBucketIds,
-            childGroups,
-            allFolders,
-            groupSortOptions,
-            groupCustomOrders
-        )
+        // Get this group's sort option and custom order
+        val sortOption = groupSortOptions[entity.groupId] ?: 0
+        val customOrder = groupCustomOrders[entity.groupId] ?: emptyList()
 
-        // Extract first 4 FOLDERS ONLY (skip groups) for preview
-        val previewUris = orderedItems
-            .filterIsInstance<FolderItem>()
-            .take(4)
-            .mapNotNull { folder ->
-                android.util.Log.d("GroupRepository", "buildGroupItem(${entity.groupId}): Preview folder bucketId=${folder.bucketId}, name=${folder.name}")
-                folder.latestItemUri
+        // Generate preview using PreviewGenerator (first 4 folders after applying this group's sort)
+        val previewUris = PreviewGenerator.generateGroupPreview(
+            groupId = entity.groupId,
+            memberBucketIds = memberBucketIds,
+            childGroups = childGroups,
+            allFolders = allFolders,
+            groupSortOption = sortOption,
+            groupCustomOrder = customOrder,
+            getChildGroupPreviews = { childGroupId ->
+                // Recursively get child group previews
+                val childEntity = store.getGroupById(childGroupId)
+                if (childEntity != null) {
+                    val childMemberIds = store.getBucketIdsForGroup(childGroupId)
+                    val childGroups = store.getChildGroups(childGroupId)
+                    val childSortOption = groupSortOptions[childGroupId] ?: 0
+                    val childCustomOrder = groupCustomOrders[childGroupId] ?: emptyList()
+
+                    PreviewGenerator.generateGroupPreview(
+                        groupId = childGroupId,
+                        memberBucketIds = childMemberIds,
+                        childGroups = childGroups,
+                        allFolders = allFolders,
+                        groupSortOption = childSortOption,
+                        groupCustomOrder = childCustomOrder,
+                        getChildGroupPreviews = { emptyList() } // Don't recurse further for now
+                    )
+                } else {
+                    emptyList()
+                }
             }
-        android.util.Log.d("GroupRepository", "buildGroupItem(${entity.groupId}): sortOption=${groupSortOptions[entity.groupId]}, hasCustomOrder=${groupCustomOrders[entity.groupId]?.isNotEmpty()}, previewCount=${previewUris.size}")
+        )
 
         return GroupItem(
             groupId         = entity.groupId,

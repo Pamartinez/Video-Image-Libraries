@@ -169,7 +169,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     private val repository = VideoRepository(application)
     val preferences = AppPreferences(application)
     private val groupStore = GroupStore(application)
-    private val groupRepository = GroupRepository(groupStore, repository)
+    private val groupRepository = GroupRepository(groupStore, repository, preferences)
     private val _uiState = MutableStateFlow(
         VideoListUiState(
             selectedTab          = preferences.selectedTab,

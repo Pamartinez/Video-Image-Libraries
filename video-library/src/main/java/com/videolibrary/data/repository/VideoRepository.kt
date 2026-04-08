@@ -107,7 +107,9 @@ class VideoRepository(private val context: Context) {
 
     /**
      * Get folders with album-specific sort options for preview generation.
-     * When [independentSortEnabled] is true, each album's preview respects its own sort.
+     * Each album's preview is generated using THE FIRST VIDEO according to that album's own sort order.
+     *
+     * ⚠️ CRITICAL: This method ensures each album's preview reflects its own sort settings.
      */
     suspend fun getFoldersWithIndependentSort(
         folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
@@ -185,18 +187,19 @@ class VideoRepository(private val context: Context) {
             Log.e("VideoRepository", "Failed to load videos for folders", e)
         }
 
-        // Build FolderItem for each bucket, respecting its individual sort
+        // Build FolderItem for each bucket, generating preview from THE FIRST VIDEO using that album's sort
         val folderMap = mutableMapOf<Int, FolderItem>()
         for ((bucketId, videos) in allVideos) {
             if (videos.isEmpty()) continue
 
             val bucketName = videos.first().bucketName
             val folderPath = File(videos.first().path).parent ?: ""
-            val sortOption = getFolderSortOption(bucketId)
 
-            // Sort videos according to this bucket's sort option
-            val sortedVideos = sortVideos(videos, sortOption)
-            val previewVideo = sortedVideos.firstOrNull()
+            // Get this album's specific sort option
+            val albumSort = getFolderSortOption(bucketId)
+
+            // Generate preview: Get the first video according to this album's sort
+            val previewVideo = getFirstVideoForAlbum(videos, albumSort)
 
             folderMap[bucketId] = FolderItem(
                 bucketId = bucketId,
@@ -210,7 +213,7 @@ class VideoRepository(private val context: Context) {
 
         // Apply folder-level sorting
         val folders = folderMap.values.toList()
-        when (folderSortOption) {
+        return@withContext when (folderSortOption) {
             FolderSortOption.CUSTOM_ORDER -> folders.sortedByDescending { it.latestDateModified }
             FolderSortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
             FolderSortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
@@ -219,17 +222,23 @@ class VideoRepository(private val context: Context) {
         }
     }
 
-    private fun sortVideos(videos: List<VideoItem>, option: VideoSortOption): List<VideoItem> {
-        return when (option) {
-            VideoSortOption.CUSTOM_ORDER -> videos.sortedWith(compareByDescending<VideoItem> { it.dateModified }.thenBy { it.id })
-            VideoSortOption.NAME_A_TO_Z -> videos.sortedBy { it.displayName.lowercase() }
-            VideoSortOption.NAME_Z_TO_A -> videos.sortedByDescending { it.displayName.lowercase() }
-            VideoSortOption.DURATION_ASC -> videos.sortedBy { it.duration }
-            VideoSortOption.DURATION_DESC -> videos.sortedByDescending { it.duration }
-            VideoSortOption.DATE_CREATED_ASC -> videos.sortedBy { it.id }
-            VideoSortOption.DATE_CREATED_DESC -> videos.sortedByDescending { it.id }
-            VideoSortOption.DATE_MODIFIED_ASC -> videos.sortedBy { it.dateModified }
-            VideoSortOption.DATE_MODIFIED_DESC -> videos.sortedByDescending { it.dateModified }
+    /**
+     * Get the first video for an album according to the specified sort option.
+     * This is used for album preview generation.
+     */
+    private fun getFirstVideoForAlbum(videos: List<VideoItem>, sortOption: VideoSortOption): VideoItem? {
+        if (videos.isEmpty()) return null
+
+        return when (sortOption) {
+            VideoSortOption.CUSTOM_ORDER -> videos.maxWithOrNull(compareBy<VideoItem> { it.dateModified }.thenBy { it.id })
+            VideoSortOption.NAME_A_TO_Z -> videos.minByOrNull { it.displayName.lowercase() }
+            VideoSortOption.NAME_Z_TO_A -> videos.maxByOrNull { it.displayName.lowercase() }
+            VideoSortOption.DURATION_ASC -> videos.minByOrNull { it.duration }
+            VideoSortOption.DURATION_DESC -> videos.maxByOrNull { it.duration }
+            VideoSortOption.DATE_CREATED_ASC -> videos.minByOrNull { it.id }
+            VideoSortOption.DATE_CREATED_DESC -> videos.maxByOrNull { it.id }
+            VideoSortOption.DATE_MODIFIED_ASC -> videos.minByOrNull { it.dateModified }
+            VideoSortOption.DATE_MODIFIED_DESC -> videos.maxByOrNull { it.dateModified }
         }
     }
 
@@ -300,7 +309,7 @@ class VideoRepository(private val context: Context) {
 
         // Apply sorting
         val folders = folderMap.values.toList()
-        when (folderSortOption) {
+        return@withContext when (folderSortOption) {
             FolderSortOption.CUSTOM_ORDER -> folders.sortedByDescending { it.latestDateModified }
             FolderSortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
             FolderSortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }

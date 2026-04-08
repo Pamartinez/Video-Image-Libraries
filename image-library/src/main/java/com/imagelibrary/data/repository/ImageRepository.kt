@@ -107,10 +107,10 @@ class ImageRepository(private val context: Context) {
 
     /**
      * Get folders with album-specific sort options for preview generation.
-     * Each album's preview respects its own sort option.
+     * Each album's preview is generated using THE FIRST IMAGE according to that album's own sort order.
      *
-     * ⚠️ CRITICAL: This method MUST be used instead of getFolders() when independent sort is enabled.
-     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md
+     * ⚠️ CRITICAL: This method MUST be used when independent sort is enabled to ensure
+     * each album's preview reflects its own sort settings, not the global sort.
      */
     suspend fun getFoldersWithIndependentSort(
         sortOption: SortOption = SortOption.CUSTOM_ORDER,
@@ -178,18 +178,19 @@ class ImageRepository(private val context: Context) {
             Log.e("ImageRepository", "Failed to load images for folders", e)
         }
 
-        // Build FolderItem for each bucket, respecting its individual sort
+        // Build FolderItem for each bucket, generating preview from THE FIRST IMAGE using that album's sort
         val folderMap = mutableMapOf<Int, FolderItem>()
         for ((bucketId, images) in allImages) {
             if (images.isEmpty()) continue
 
             val bucketName = images.first().bucketName
             val folderPath = File(images.first().path).parent ?: ""
+
+            // Get this album's specific sort option
             val albumSort = getFolderSortOption(bucketId)
 
-            // Sort images according to this bucket's sort option
-            val sortedImages = sortImages(images, albumSort)
-            val previewImage = sortedImages.firstOrNull()
+            // Generate preview: Sort images according to this album's sort, then take the first one
+            val previewImage = getFirstImageForAlbum(images, albumSort)
 
             folderMap[bucketId] = FolderItem(
                 bucketId = bucketId,
@@ -203,7 +204,7 @@ class ImageRepository(private val context: Context) {
 
         // Apply folder-level sorting
         val folders = folderMap.values.toList()
-        when (sortOption) {
+        return@withContext when (sortOption) {
             SortOption.CUSTOM_ORDER -> folders  // raw order; ViewModel applies persisted custom order
             SortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
             SortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
@@ -212,15 +213,21 @@ class ImageRepository(private val context: Context) {
         }
     }
 
-    private fun sortImages(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {
-        return when (option) {
-            ImageSortOption.CUSTOM_ORDER -> images.sortedWith(compareByDescending<ImageItem> { it.dateModified }.thenBy { it.id })
-            ImageSortOption.NAME_A_TO_Z -> images.sortedBy { it.displayName.lowercase() }
-            ImageSortOption.NAME_Z_TO_A -> images.sortedByDescending { it.displayName.lowercase() }
-            ImageSortOption.DATE_CREATED_ASC -> images.sortedBy { it.id }
-            ImageSortOption.DATE_CREATED_DESC -> images.sortedByDescending { it.id }
-            ImageSortOption.DATE_MODIFIED_ASC -> images.sortedBy { it.dateModified }
-            ImageSortOption.DATE_MODIFIED_DESC -> images.sortedByDescending { it.dateModified }
+    /**
+     * Get the first image for an album according to the specified sort option.
+     * This is used for album preview generation.
+     */
+    private fun getFirstImageForAlbum(images: List<ImageItem>, sortOption: ImageSortOption): ImageItem? {
+        if (images.isEmpty()) return null
+
+        return when (sortOption) {
+            ImageSortOption.CUSTOM_ORDER -> images.maxWithOrNull(compareBy<ImageItem> { it.dateModified }.thenBy { it.id })
+            ImageSortOption.NAME_A_TO_Z -> images.minByOrNull { it.displayName.lowercase() }
+            ImageSortOption.NAME_Z_TO_A -> images.maxByOrNull { it.displayName.lowercase() }
+            ImageSortOption.DATE_CREATED_ASC -> images.minByOrNull { it.id }
+            ImageSortOption.DATE_CREATED_DESC -> images.maxByOrNull { it.id }
+            ImageSortOption.DATE_MODIFIED_ASC -> images.minByOrNull { it.dateModified }
+            ImageSortOption.DATE_MODIFIED_DESC -> images.maxByOrNull { it.dateModified }
         }
     }
 
@@ -295,7 +302,7 @@ class ImageRepository(private val context: Context) {
 
         // Apply sorting
         val folders = folderMap.values.toList()
-        when (sortOption) {
+        return@withContext when (sortOption) {
             SortOption.CUSTOM_ORDER       -> folders  // raw order; ViewModel applies persisted custom order
             SortOption.NAME_A_TO_Z        -> folders.sortedBy { it.name.lowercase() }
             SortOption.NAME_Z_TO_A        -> folders.sortedByDescending { it.name.lowercase() }
