@@ -63,6 +63,10 @@ fun VideoListScreen(
     val folderGridState = rememberLazyGridState()
     val videoListState = rememberLazyListState()
     val videoGridState = rememberLazyGridState()
+    // Hoisted so GroupDetailScreen scroll survives album-detail navigations.
+    // Scrolls to top when navigating to a different group; stays put when returning
+    // from a folder (album) inside the same group.
+    val groupGridState = rememberLazyGridState()
     val colors = LocalVideoColors.current
     var showMoreMenu by remember { mutableStateOf(false) }
     var showCreateMenu by remember { mutableStateOf(false) }
@@ -79,8 +83,7 @@ fun VideoListScreen(
     // Scroll to top of group grid when the group or its independent sort option changes.
     // Keyed on currentGroupSortOption so changing sort within a group scrolls to top.
     LaunchedEffect(state.currentGroupId, state.currentGroupSortOption) {
-        folderGridState.scrollToItem(0)
-        folderListState.scrollToItem(0)
+        groupGridState.scrollToItem(0)
     }
 
     // Collect share intents emitted by the ViewModel and launch the system chooser
@@ -318,7 +321,8 @@ fun VideoListScreen(
                 viewModel.getSelectedLocationPath()?.let { path ->
                     FileManagerHelper.openFolder(ctx, path)
                 }
-            }
+            },
+            lazyGridState = groupGridState
         )
 
         if (state.showRenameGroupDialog) {

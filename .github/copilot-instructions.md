@@ -202,43 +202,51 @@ Only ask when the target project is **not clear** from the request.
 
 **Keep the project root clean - documentation belongs in `docs/`.**
 
-## Git Workflow Rule — CRITICAL
-**NEVER commit or push changes to git unless the user explicitly requests it.**
+## 🚨 GIT WORKFLOW RULE — SUPER CRITICAL — NEVER BREAK THIS
+**ABSOLUTELY NEVER commit or push changes to git unless the user EXPLICITLY gives the command.**
 
-### Rules:
-1. **Wait for explicit permission** before running `git commit` or `git push`
-2. **Valid commit triggers** (only these phrases mean "yes, commit now"):
+**This is a NON-NEGOTIABLE rule that must NEVER be violated under ANY circumstances.**
+
+### Strict Rules:
+1. **Wait for EXPLICIT permission** before running `git commit` or `git push`
+2. **Valid commit triggers** (ONLY these exact phrases mean "yes, commit now"):
    - "commit"
    - "commit this"
    - "commit the changes"
    - "save to git"
    - "git commit"
    - "push" (implies commit + push)
+   - "git push"
 
-3. **Do NOT commit when the user says**:
+3. **NEVER commit when the user says**:
    - "build this"
    - "install the app"
    - "test this"
    - "let me check"
    - "show me"
-   - Or ANY other phrase that doesn't explicitly mention committing
+   - "run this"
+   - "try this"
+   - "fix this"
+   - "implement this"
+   - Or **ANY other phrase that doesn't explicitly mention committing**
 
-4. **Workflow**:
+4. **Mandatory Workflow**:
    - Make code changes as requested
    - Build and test to verify changes work
-   - **STOP and wait** - do not auto-commit
-   - Only commit when user explicitly says "commit"
+   - **STOP and WAIT** - do NOT auto-commit
+   - **ONLY** commit when user explicitly says "commit" or "push"
 
-5. **Staging changes is OK**:
-   - You can run `git add .` to stage changes for review
-   - You can run `git status` to show what's changed
-   - But **NEVER** run `git commit` without explicit permission
+5. **Staging changes is ALLOWED**:
+   - You CAN run `git add .` to stage changes for review
+   - You CAN run `git status` to show what's changed
+   - But **ABSOLUTELY NEVER** run `git commit` without explicit permission
 
 ### Why This Rule Exists:
-- Users may want to test changes before committing
-- Users may want to review diffs before committing
-- Users may want to adjust the commit message
-- Premature commits create messy git history
+- Users want to test changes before committing
+- Users want to review diffs before committing
+- Users want to adjust the commit message
+- Users want full control over their git history
+- Premature commits create messy git history and frustration
 
 ### Examples:
 ✅ **CORRECT:**  
@@ -246,14 +254,25 @@ User: "install the app"
 AI: *builds and installs, does NOT commit*
 
 ✅ **CORRECT:**  
+User: "build and test this"  
+AI: *builds, tests, shows results, does NOT commit*
+
+✅ **CORRECT:**  
 User: "commit"  
 AI: *runs git add . && git commit with descriptive message*
 
 ❌ **WRONG:**  
 User: "build this"  
-AI: *builds, installs, AND commits* ← **NEVER DO THIS**
+AI: *builds, installs, AND commits* ← **NEVER EVER DO THIS**
 
-**When in doubt: DON'T commit. Wait for the user to say "commit".**
+❌ **WRONG:**  
+User: "fix the bug and install"  
+AI: *fixes, builds, installs, AND commits* ← **NEVER EVER DO THIS**
+
+### Enforcement:
+**When in doubt about whether to commit: DON'T commit. ALWAYS wait for the user to say "commit" or "push".**
+
+**Violating this rule is NEVER acceptable. This is the user's #1 priority.**
 
 ## Common-First Rule — Mandatory Before Every Code Change
 **Before writing or placing ANY new code**, ask and answer these questions in order:

@@ -59,6 +59,7 @@ fun GroupDetailScreen(
     onMove: () -> Unit = {},
     onRemoveFromGroup: () -> Unit = {},
     onOpenLocation: () -> Unit = {},
+    lazyGridState: LazyGridState = rememberLazyGridState(),
     modifier: Modifier = Modifier
 ) {
     SharedGroupDetailScreen(
@@ -96,8 +97,8 @@ fun GroupDetailScreen(
         orderedMixedItems = orderedMixedItems,
         onReorderFolders = onReorderFolders,
         onReorderDone = onReorderDone,
-        lazyGridState = rememberLazyGridState(),
-        
+        lazyGridState = lazyGridState,
+
         colors = LocalVideoColors.current,
         
         albumCreationDescription = "Create a new album and add videos manually.",
