@@ -298,6 +298,7 @@ fun ImageListScreen(
             onViewAs = { viewModel.showViewAsDialog() },
             onSettings = { viewModel.showSettings() },
             onAbout = { viewModel.showAbout() },
+            scrollToTopTrigger = state.folderDetailScrollToTopTrigger,
             lazyGridState = imageGridState
         )
         if (state.showDeleteDialog) {

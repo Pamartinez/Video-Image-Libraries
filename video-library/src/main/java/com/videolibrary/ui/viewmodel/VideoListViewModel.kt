@@ -202,7 +202,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showHideFoldersScreen() {
         val s = _uiState.value
         viewModelScope.launch {
-            val mediaStoreFolders = repository.getFolders(s.sortOption, s.videoSortOption)
+            val mediaStoreFolders = repository.getFoldersWithIndependentSort(
+                folderSortOption = s.sortOption,
+                independentSortEnabled = s.independentSortEnabled,
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+            )
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -262,7 +266,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val groupId   = s.currentGroupId   ?: return
         val groupName = s.currentGroupName
         viewModelScope.launch {
-            val mediaStoreFolders = repository.getFolders(s.sortOption, s.videoSortOption)
+            val mediaStoreFolders = repository.getFoldersWithIndependentSort(
+                folderSortOption = s.sortOption,
+                independentSortEnabled = s.independentSortEnabled,
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+            )
             val hiddenMeta        = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths   = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -546,8 +554,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Fetch ALL folders from MediaStore first (hidden ones are still there — app-local).
         // The custom order is applied and saved across ALL folders so hidden folder bucket IDs
         // are retained in the saved order — their slot is preserved on un-hide (Bug 1 fix).
-        // Pass videoSortOption so preview videos respect the current sort order.
-        var allFolders = repository.getFolders(s.sortOption, s.videoSortOption)
+        // Use getFoldersWithIndependentSort to respect each album's sort option for preview generation.
+        var allFolders = repository.getFoldersWithIndependentSort(
+            folderSortOption = s.sortOption,
+            independentSortEnabled = s.independentSortEnabled,
+            getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+        )
 
         if (s.sortOption == FolderSortOption.CUSTOM_ORDER) {
             val savedOrder = preferences.getCustomFolderOrder()
@@ -1296,7 +1308,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 folderDetailScrollToTopTrigger = it.folderDetailScrollToTopTrigger + 1
             )
         }
+        // Refresh the folder videos from MediaStore to ensure consistency
         refreshFolderVideos()
+        // Refresh album preview images on the Folders tab to reflect the new sort
+        viewModelScope.launch {
+            silentRefresh()
+        }
         scheduleAutoBackup()
     }
 

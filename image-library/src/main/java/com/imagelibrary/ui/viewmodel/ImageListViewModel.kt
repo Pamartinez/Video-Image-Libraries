@@ -140,7 +140,9 @@ data class ImageListUiState(
     /** Sub-groups inside the currently-open hide-screen group (mirrors root structure). */
     val hideScreenGroupSubGroups: List<GroupItem> = emptyList(),
     /** True when hide screen was opened from inside a group — back exits entirely. */
-    val hideScreenStartedInsideGroup: Boolean = false
+    val hideScreenStartedInsideGroup: Boolean = false,
+    /** Increment this to trigger scroll-to-top in folder detail screen (album view). */
+    val folderDetailScrollToTopTrigger: Int = 0
 )
 
 data class CopyMoveProgress(
@@ -924,7 +926,13 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         // This prevents LazyVerticalGrid's stable keys from re-scrolling when
         // the async data arrives later.
         val sorted = sortImagesInMemory(_uiState.value.folderImages, s)
-        _uiState.update { it.copy(imageSortOption = s, folderImages = sorted) }
+        _uiState.update { 
+            it.copy(
+                imageSortOption = s, 
+                folderImages = sorted,
+                folderDetailScrollToTopTrigger = it.folderDetailScrollToTopTrigger + 1
+            ) 
+        }
         silentRefresh()
         refreshFolderImages()
         scheduleAutoBackup()

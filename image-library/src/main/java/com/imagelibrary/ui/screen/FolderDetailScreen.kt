@@ -3,6 +3,7 @@ package com.imagelibrary.ui.screen
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.common.ui.screen.SharedFolderDetailScreen
@@ -41,8 +42,16 @@ fun FolderDetailScreen(
     onViewAs: () -> Unit = {},
     onSettings: () -> Unit = {},
     onAbout: () -> Unit = {},
+    scrollToTopTrigger: Int = 0,
     lazyGridState: LazyGridState = rememberLazyGridState()
 ) {
+    // Scroll to top when sort changes in the album
+    LaunchedEffect(scrollToTopTrigger) {
+        if (scrollToTopTrigger > 0) {
+            lazyGridState.scrollToItem(0)
+        }
+    }
+
     SharedFolderDetailScreen(
         folderName = folderName,
         items = images,

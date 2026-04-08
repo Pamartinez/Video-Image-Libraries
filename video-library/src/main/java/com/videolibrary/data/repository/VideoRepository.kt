@@ -105,6 +105,134 @@ class VideoRepository(private val context: Context) {
 
     // ── Get Folders ─────────────────────────────────────────────────────
 
+    /**
+     * Get folders with album-specific sort options for preview generation.
+     * When [independentSortEnabled] is true, each album's preview respects its own sort.
+     */
+    suspend fun getFoldersWithIndependentSort(
+        folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
+        independentSortEnabled: Boolean = false,
+        getFolderSortOption: (Int) -> VideoSortOption = { VideoSortOption.CUSTOM_ORDER }
+    ): List<FolderItem> = withContext(Dispatchers.IO) {
+        if (!independentSortEnabled) {
+            // Fall back to standard implementation when independent sort is disabled
+            return@withContext getFolders(folderSortOption, getFolderSortOption(0))
+        }
+
+        // Load ALL videos from MediaStore
+        val allVideos = mutableMapOf<Int, MutableList<VideoItem>>()
+
+        @Suppress("DEPRECATION")
+        val projection = arrayOf(
+            MediaStore.Video.Media._ID,
+            MediaStore.Video.Media.BUCKET_ID,
+            MediaStore.Video.Media.BUCKET_DISPLAY_NAME,
+            MediaStore.Video.Media.DATE_MODIFIED,
+            MediaStore.Video.Media.DATA,
+            MediaStore.Video.Media.DURATION,
+            MediaStore.Video.Media.DATE_ADDED,
+            MediaStore.Video.Media.DISPLAY_NAME
+        )
+
+        @Suppress("DEPRECATION")
+        val selection = "length(trim(${MediaStore.Video.Media.DATA})) > 0"
+
+        try {
+            contentResolver.query(videoUri, projection, selection, null, null)?.use { cursor ->
+                val idCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID)
+                @Suppress("DEPRECATION")
+                val bucketIdCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.BUCKET_ID)
+                @Suppress("DEPRECATION")
+                val bucketNameCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
+                val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATE_MODIFIED)
+                @Suppress("DEPRECATION")
+                val dataCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+                val durationCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION)
+                val dateAddedCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATE_ADDED)
+                val displayNameCol = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME)
+
+                while (cursor.moveToNext()) {
+                    val id = cursor.getLong(idCol)
+                    val bId = cursor.getInt(bucketIdCol)
+                    val bName = cursor.getString(bucketNameCol) ?: ""
+                    val dateModified = cursor.getLong(dateModifiedCol)
+                    val dataPath = cursor.getString(dataCol) ?: ""
+                    val duration = cursor.getLong(durationCol)
+                    val dateAdded = cursor.getLong(dateAddedCol)
+                    val displayName = cursor.getString(displayNameCol) ?: ""
+
+                    val video = VideoItem(
+                        id = id,
+                        displayName = displayName,
+                        dateModified = dateModified,
+                        bucketId = bId,
+                        bucketName = bName,
+                        path = dataPath,
+                        duration = duration,
+                        dateAdded = dateAdded,
+                        title = "",
+                        size = 0,
+                        mimeType = "video/*",
+                        contentUri = ContentUris.withAppendedId(videoUri, id),
+                        width = 0,
+                        height = 0
+                    )
+
+                    allVideos.getOrPut(bId) { mutableListOf() }.add(video)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("VideoRepository", "Failed to load videos for folders", e)
+        }
+
+        // Build FolderItem for each bucket, respecting its individual sort
+        val folderMap = mutableMapOf<Int, FolderItem>()
+        for ((bucketId, videos) in allVideos) {
+            if (videos.isEmpty()) continue
+
+            val bucketName = videos.first().bucketName
+            val folderPath = File(videos.first().path).parent ?: ""
+            val sortOption = getFolderSortOption(bucketId)
+
+            // Sort videos according to this bucket's sort option
+            val sortedVideos = sortVideos(videos, sortOption)
+            val previewVideo = sortedVideos.firstOrNull()
+
+            folderMap[bucketId] = FolderItem(
+                bucketId = bucketId,
+                name = bucketName,
+                itemCount = videos.size,
+                latestItemUri = previewVideo?.contentUri,
+                latestDateModified = videos.maxOfOrNull { it.dateModified } ?: 0L,
+                path = folderPath
+            )
+        }
+
+        // Apply folder-level sorting
+        val folders = folderMap.values.toList()
+        when (folderSortOption) {
+            FolderSortOption.CUSTOM_ORDER -> folders.sortedByDescending { it.latestDateModified }
+            FolderSortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
+            FolderSortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
+            FolderSortOption.ITEMS_MOST_FIRST -> folders.sortedByDescending { it.itemCount }
+            FolderSortOption.ITEMS_FEWEST_FIRST -> folders.sortedBy { it.itemCount }
+        }
+    }
+
+    private fun sortVideos(videos: List<VideoItem>, option: VideoSortOption): List<VideoItem> {
+        return when (option) {
+            VideoSortOption.CUSTOM_ORDER -> videos.sortedWith(compareByDescending<VideoItem> { it.dateModified }.thenBy { it.id })
+            VideoSortOption.NAME_A_TO_Z -> videos.sortedBy { it.displayName.lowercase() }
+            VideoSortOption.NAME_Z_TO_A -> videos.sortedByDescending { it.displayName.lowercase() }
+            VideoSortOption.DURATION_ASC -> videos.sortedBy { it.duration }
+            VideoSortOption.DURATION_DESC -> videos.sortedByDescending { it.duration }
+            VideoSortOption.DATE_CREATED_ASC -> videos.sortedBy { it.id }
+            VideoSortOption.DATE_CREATED_DESC -> videos.sortedByDescending { it.id }
+            VideoSortOption.DATE_MODIFIED_ASC -> videos.sortedBy { it.dateModified }
+            VideoSortOption.DATE_MODIFIED_DESC -> videos.sortedByDescending { it.dateModified }
+        }
+    }
+
     suspend fun getFolders(
         folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
         videoSortOption: VideoSortOption = VideoSortOption.CUSTOM_ORDER
