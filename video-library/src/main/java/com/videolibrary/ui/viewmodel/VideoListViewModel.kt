@@ -799,18 +799,51 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         else s.groupStack
         // Load the persisted sort for this group (defaults to CUSTOM_ORDER if not yet set)
         val groupSort = preferences.getGroupSortOption(groupId)
-        _uiState.update {
-            it.copy(
-                currentGroupId      = groupId,
-                currentGroupName    = name,
-                groupStack          = newStack,
-                isSelectionMode     = false,
-                selectedFolderIds   = emptySet(),
-                selectedGroupIds    = emptySet(),
-                currentGroupSortOption = groupSort
+
+        // Load group data FIRST, then update state with everything together to avoid empty state flash
+        viewModelScope.launch {
+            val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
+            // Reload sort options from preferences to get the latest changes
+            val allGroups = groupRepository.getAllGroups()
+            val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+            val groupCustomOrders = allGroups.associate { it.groupId to preferences.getGroupMixedOrder(it.groupId) }
+            val allSubGroups = groupRepository.getChildGroups(
+                parentGroupId = groupId,
+                groupSortOptions = groupSortOptions,
+                groupCustomOrders = groupCustomOrders
             )
+            // Filter from the globally-sorted folders list so non-custom sorts display correctly
+            val bucketIdSet = bucketIds.toSet()
+            val folders = s.folders.filter { it.bucketId in bucketIdSet }
+            // Hide sub-groups whose every direct album is hidden
+            val visibleBucketSet = s.folders.map { it.bucketId }.toSet()
+            val subGroups = allSubGroups.filter { sub ->
+                sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
+            }
+            // Use the group's own independent sort option
+            val groupSortOption = groupSort
+            val orderedMixed = if (groupSortOption == FolderSortOption.CUSTOM_ORDER) {
+                applyCustomGroupMixedOrder(groupId, subGroups, folders)
+            } else {
+                sortMixedItems(subGroups + folders, groupSortOption, s.groupsAlwaysOnTop)
+            }
+
+            // Update state with group ID and data together — no empty state flash
+            _uiState.update {
+                it.copy(
+                    currentGroupId                = groupId,
+                    currentGroupName              = name,
+                    groupStack                    = newStack,
+                    isSelectionMode               = false,
+                    selectedFolderIds             = emptySet(),
+                    selectedGroupIds              = emptySet(),
+                    currentGroupSortOption        = groupSort,
+                    currentGroupFolders           = folders,
+                    currentGroupSubGroups         = subGroups,
+                    currentGroupOrderedMixedItems = orderedMixed
+                )
+            }
         }
-        refreshCurrentGroup()
     }
 
     fun closeGroup() {
@@ -1251,17 +1284,34 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         } else {
             preferences.videoSortOption = s
         }
+        // Sort existing folder videos in-memory immediately so that both
+        // currentFolderSortOption and folderVideos change in the same recomposition frame.
+        // This prevents LazyVerticalGrid's stable keys from re-scrolling when
+        // the async data arrives later.
+        val sorted = sortVideosInMemory(_uiState.value.folderVideos, s)
         _uiState.update {
             it.copy(
                 currentFolderSortOption = s,
+                folderVideos = sorted,
                 folderDetailScrollToTopTrigger = it.folderDetailScrollToTopTrigger + 1
             )
         }
-        viewModelScope.launch {
-            val videos = repository.getVideos(videoSortOption = s, bucketId = bucketId)
-            _uiState.update { it.copy(folderVideos = videos) }
-        }
+        refreshFolderVideos()
         scheduleAutoBackup()
+    }
+
+    private fun sortVideosInMemory(videos: List<VideoItem>, option: VideoSortOption): List<VideoItem> {
+        return when (option) {
+            VideoSortOption.CUSTOM_ORDER -> videos.sortedWith(compareByDescending<VideoItem> { it.dateModified }.thenBy { it.id })
+            VideoSortOption.NAME_A_TO_Z -> videos.sortedBy { it.displayName.lowercase() }
+            VideoSortOption.NAME_Z_TO_A -> videos.sortedByDescending { it.displayName.lowercase() }
+            VideoSortOption.DURATION_ASC -> videos.sortedBy { it.duration }
+            VideoSortOption.DURATION_DESC -> videos.sortedByDescending { it.duration }
+            VideoSortOption.DATE_CREATED_ASC -> videos.sortedBy { it.id }
+            VideoSortOption.DATE_CREATED_DESC -> videos.sortedByDescending { it.id }
+            VideoSortOption.DATE_MODIFIED_ASC -> videos.sortedBy { it.dateModified }
+            VideoSortOption.DATE_MODIFIED_DESC -> videos.sortedByDescending { it.dateModified }
+        }
     }
 
     // Selection mode

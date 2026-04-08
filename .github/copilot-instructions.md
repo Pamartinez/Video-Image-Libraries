@@ -205,7 +205,7 @@ Only ask when the target project is **not clear** from the request.
 ## 🚨 GIT WORKFLOW RULE — SUPER CRITICAL — NEVER BREAK THIS
 **ABSOLUTELY NEVER commit or push changes to git unless the user EXPLICITLY gives the command.**
 
-**This is a NON-NEGOTIABLE rule that must NEVER be violated under ANY circumstances.**
+*This is a NON-NEGOTIABLE rule that must NEVER be violated under ANY circumstances.**
 
 ### Strict Rules:
 1. **Wait for EXPLICIT permission** before running `git commit` or `git push`
@@ -238,7 +238,7 @@ Only ask when the target project is **not clear** from the request.
 
 5. **Staging changes is ALLOWED**:
    - You CAN run `git add .` to stage changes for review
-   - You CAN run `git status` to show what's changed
+   - You CAN run `git statu*s` to show what's changed
    - But **ABSOLUTELY NEVER** run `git commit` without explicit permission
 
 ### Why This Rule Exists:

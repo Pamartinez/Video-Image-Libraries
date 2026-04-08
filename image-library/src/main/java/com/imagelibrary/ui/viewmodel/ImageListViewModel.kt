@@ -1606,15 +1606,71 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         // Load the persisted sort for this group (defaults to CUSTOM_ORDER if not yet set)
         val groupSort = preferences.getGroupSortOption(groupId)
-        _uiState.update {
-            it.copy(
-                currentGroupId = groupId,
-                currentGroupName = name,
-                groupStack = newStack,
-                currentGroupSortOption = groupSort
+
+        // Load group data FIRST, then update state with everything together to avoid empty state flash
+        viewModelScope.launch {
+            val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
+            val allFolders = s.folders.ifEmpty { repository.getFolders(s.sortOption, s.imageSortOption) }
+            // Filter from the globally-sorted list so non-custom sorts display correctly
+            val bucketIdSet  = bucketIds.toSet()
+            val groupFolders = allFolders.filter { it.bucketId in bucketIdSet }
+            // Reload sort options from preferences to get the latest changes
+            val allGroups = groupRepository.getAllGroups()
+            val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+            val groupCustomOrders = allGroups.associate { it.groupId to preferences.customGroupItemsOrder(it.groupId) }
+            val allSubGroups = groupRepository.getChildGroups(
+                parentGroupId = groupId,
+                groupSortOptions = groupSortOptions,
+                groupCustomOrders = groupCustomOrders
             )
+            // Hide sub-groups whose every direct album is hidden
+            val visibleBucketSet = allFolders.map { it.bucketId }.toSet()
+            val subGroups = allSubGroups.filter { sub ->
+                sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
+            }
+            // Use the group's own sort option (independent of the root sort)
+            val groupSortOption = groupSort
+
+            val orderedMixed: List<Any> = if (groupSortOption == SortOption.CUSTOM_ORDER) {
+                val savedOrder = preferences.customGroupItemsOrder(groupId)
+                if (savedOrder.isEmpty()) {
+                    buildList {
+                        subGroups.forEach    { add(it) }
+                        groupFolders.forEach { add(it) }
+                    }
+                } else {
+                    val byGroupKey  = subGroups.associateBy    { "g_${it.groupId}"  }
+                    val byFolderKey = groupFolders.associateBy { "f_${it.bucketId}" }
+                    val savedSet    = savedOrder.toSet()
+                    buildList {
+                        // New items prepended at the top
+                        subGroups.forEach    { g -> if ("g_${g.groupId}"  !in savedSet) add(g) }
+                        groupFolders.forEach { f -> if ("f_${f.bucketId}" !in savedSet) add(f) }
+                        // Restore saved order, skipping deleted items
+                        for (key in savedOrder) {
+                            val item = byGroupKey[key] ?: byFolderKey[key]
+                            if (item != null) add(item)
+                        }
+                    }
+                }
+            } else {
+                // Non-custom sort: sort all items by the group's own sort option
+                sortMixedItems(subGroups + groupFolders, groupSortOption, s.groupsAlwaysOnTop)
+            }
+
+            // Update state with group ID and data together — no empty state flash
+            _uiState.update {
+                it.copy(
+                    currentGroupId                = groupId,
+                    currentGroupName              = name,
+                    groupStack                    = newStack,
+                    currentGroupSortOption        = groupSort,
+                    currentGroupFolders           = groupFolders,
+                    currentGroupSubGroups         = subGroups,
+                    currentGroupOrderedMixedItems = orderedMixed
+                )
+            }
         }
-        refreshCurrentGroup()
     }
 
     fun closeGroup() {
