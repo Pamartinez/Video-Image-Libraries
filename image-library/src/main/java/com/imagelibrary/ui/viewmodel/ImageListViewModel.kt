@@ -187,7 +187,10 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showHideFoldersScreen() {
         val s = _uiState.value
         viewModelScope.launch {
-            val mediaStoreFolders = repository.getFolders(s.sortOption)
+            val mediaStoreFolders = repository.getFoldersWithIndependentSort(
+                sortOption = s.sortOption,
+                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+            )
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
             val ghosts = hiddenMeta
@@ -996,22 +999,41 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun openFolder(bucketId: Int, name: String) {
+        // Load this album's specific sort option
+        val albumSort = preferences.getFolderImageSortOption(bucketId)
         _uiState.update {
             it.copy(
                 currentFolderBucketId = bucketId,
                 currentFolderName = name,
+                imageSortOption = albumSort, // Set to album-specific sort
                 isSelectionMode = false,
                 selectedFolderIds = emptySet(),
                 selectedImageIds = emptySet()
             )
         }
         viewModelScope.launch {
-            val v = repository.getImages(_uiState.value.imageSortOption, bucketId = bucketId)
+            val v = repository.getImages(albumSort, bucketId = bucketId)
             _uiState.update { it.copy(folderImages = v) }
         }
     }
 
-    fun closeFolder() = _uiState.update { it.copy(currentFolderBucketId = null, currentFolderName = "", folderImages = emptyList()) }
+    /**
+     * Closes the currently open album and returns to root view.
+     *
+     * ⚠️ CRITICAL: Restores root-level sort option.
+     * DO NOT forget to restore imageSortOption to preferences.imageSortOption!
+     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
+     */
+    fun closeFolder() {
+        _uiState.update {
+            it.copy(
+                currentFolderBucketId = null,
+                currentFolderName = "",
+                folderImages = emptyList(),
+                imageSortOption = preferences.imageSortOption // Restore root-level sort
+            )
+        }
+    }
 
     // Carousel
     fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
@@ -1717,7 +1739,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
-            val allFolders = s.folders.ifEmpty { repository.getFolders(s.sortOption, s.imageSortOption) }
+            // Always fetch fresh folder data to ensure previews reflect current sort order
+            val allFolders = repository.getFoldersWithIndependentSort(
+                sortOption = s.sortOption,
+                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+            )
             // Filter from the globally-sorted list so non-custom sorts display correctly
             val bucketIdSet  = bucketIds.toSet()
             val groupFolders = allFolders.filter { it.bucketId in bucketIdSet }

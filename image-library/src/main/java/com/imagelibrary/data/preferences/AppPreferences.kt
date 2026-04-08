@@ -24,6 +24,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_FOLDER_NEW_MARK          = "folder_new_mark"
         private const val KEY_CUSTOM_ALBUM_ORDER       = "custom_album_order"
         private const val KEY_IMAGE_SORT_OPTION        = "image_sort_option"
+        private const val KEY_FOLDER_IMAGE_SORT_OPTIONS = "folder_image_sort_options"
         private const val KEY_CAROUSEL_SHOW_BARS_ON_OPEN = "carousel_show_bars_on_open"
         private const val KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY = "carousel_always_hide_overlay"
     }
@@ -82,4 +83,62 @@ class AppPreferences(context: Context) : SharedAppPreferences(
     var carouselAlwaysHideOverlay: Boolean
         get() = prefs.getBoolean(KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY, false)
         set(value) = prefs.edit().putBoolean(KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY, value).apply()
+
+    // Per-album image sort (inside album): stored as "bucketId:sortOptionId,..."
+    fun getFolderImageSortOption(bucketId: Int): ImageSortOption {
+        val raw = prefs.getString(KEY_FOLDER_IMAGE_SORT_OPTIONS, "") ?: ""
+        val id = raw.split(",")
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2 && parts[0].toIntOrNull() == bucketId) parts[1].toIntOrNull()
+                else null
+            }
+            .firstOrNull()
+        return if (id != null) ImageSortOption.fromId(id) else ImageSortOption.CUSTOM_ORDER
+    }
+
+    fun saveFolderImageSortOption(bucketId: Int, sortOption: ImageSortOption) {
+        val raw = prefs.getString(KEY_FOLDER_IMAGE_SORT_OPTIONS, "") ?: ""
+        val map = raw.split(",")
+            .filter { it.contains(":") }
+            .associate {
+                val parts = it.split(":")
+                (parts[0].toIntOrNull() ?: 0) to (parts[1].toIntOrNull() ?: 0)
+            }
+            .toMutableMap()
+        map[bucketId] = sortOption.id
+        val entries = map.entries.toList().takeLast(200)
+        prefs.edit().putString(KEY_FOLDER_IMAGE_SORT_OPTIONS,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
+    }
+
+    /**
+     * Returns all per-album image sort options as a Map of bucketId → sortOptionId.
+     * Used by BackupManager to export all per-album sort settings.
+     */
+    fun getAllFolderImageSortOptions(): Map<Int, Int> {
+        val raw = prefs.getString(KEY_FOLDER_IMAGE_SORT_OPTIONS, "") ?: ""
+        if (raw.isBlank()) return emptyMap()
+        return raw.split(",")
+            .filter { it.contains(":") }
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2) {
+                    val bucketId = parts[0].trim().toIntOrNull() ?: return@mapNotNull null
+                    val sortId   = parts[1].trim().toIntOrNull() ?: return@mapNotNull null
+                    bucketId to sortId
+                } else null
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-album image sort options from a Map of bucketId → sortOptionId.
+     * Used by BackupManager to import per-album sort settings.
+     */
+    fun restoreAllFolderImageSortOptions(options: Map<Int, Int>) {
+        val entries = options.entries.toList().takeLast(200)
+        prefs.edit().putString(KEY_FOLDER_IMAGE_SORT_OPTIONS,
+            entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
 }

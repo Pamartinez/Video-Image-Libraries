@@ -557,7 +557,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Use getFoldersWithIndependentSort to respect each album's sort option for preview generation.
         var allFolders = repository.getFoldersWithIndependentSort(
             folderSortOption = s.sortOption,
-            independentSortEnabled = s.independentSortEnabled,
+            independentSortEnabled = true, // Always use per-album sort
             getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
         )
 
@@ -897,6 +897,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s         = _uiState.value
             val bucketIds = groupRepository.getFolderBucketIdsForGroup(groupId)
+            // Always fetch fresh folder data to ensure previews reflect current sort order
+            val allFolders = repository.getFoldersWithIndependentSort(
+                folderSortOption = s.sortOption,
+                independentSortEnabled = true, // Always use per-album sort
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+            )
             // Reload sort options from preferences to get the latest changes
             val allGroups = groupRepository.getAllGroups()
             val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
@@ -908,9 +914,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             )
             // Filter from the globally-sorted folders list so non-custom sorts display correctly
             val bucketIdSet = bucketIds.toSet()
-            val folders = s.folders.filter { it.bucketId in bucketIdSet }
+            val folders = allFolders.filter { it.bucketId in bucketIdSet }
             // Hide sub-groups whose every direct album is hidden
-            val visibleBucketSet = s.folders.map { it.bucketId }.toSet()
+            val visibleBucketSet = allFolders.map { it.bucketId }.toSet()
             val subGroups = allSubGroups.filter { sub ->
                 sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
             }
@@ -1288,14 +1294,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     /** Videos tab sort (Custom, Name, Date created, Date modified). */
     fun setVideoSortOption(s: VideoSortOption) { preferences.videoSortOption = s; _uiState.update { it.copy(videoSortOption = s) }; silentRefresh(scrollToTop = true); scheduleAutoBackup() }
 
-    /** Change the sort for the currently open folder (independent of the main tab sort). */
+    /**
+     * Change the sort for the currently open folder (independent of the main tab sort).
+     * 
+     * ⚠️ CRITICAL: Independent sort is ALWAYS enabled.
+     * ALWAYS saves album-specific sort (per bucketId).
+     * DO NOT add back any checks or toggles - independent sort is mandatory!
+     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
+     */
     fun setFolderSortOption(s: VideoSortOption) {
         val bucketId = _uiState.value.currentFolderBucketId ?: return
-        if (preferences.independentSortEnabled) {
-            preferences.saveFolderVideoSortOption(bucketId, s)
-        } else {
-            preferences.videoSortOption = s
-        }
+        // Always save album-specific sort (independent sort is now always enabled)
+        preferences.saveFolderVideoSortOption(bucketId, s)
         // Sort existing folder videos in-memory immediately so that both
         // currentFolderSortOption and folderVideos change in the same recomposition frame.
         // This prevents LazyVerticalGrid's stable keys from re-scrolling when
@@ -1313,6 +1323,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Refresh album preview images on the Folders tab to reflect the new sort
         viewModelScope.launch {
             silentRefresh()
+        }
+        // If we're inside a group, refresh the group view to update album preview
+        if (_uiState.value.currentGroupId != null) {
+            refreshCurrentGroup()
         }
         scheduleAutoBackup()
     }
@@ -1949,12 +1963,14 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         catch (_: Exception) { Toast.makeText(ctx, "Unable to play video.", Toast.LENGTH_SHORT).show() }
     }
 
-    /** Returns the correct sort option for a folder (album) based on independentSortEnabled. */
+    /**
+     * Returns the correct sort option for a folder (album). Always uses per-album sort.
+     *
+     * ⚠️ CRITICAL: ALWAYS returns album-specific sort.
+     * DO NOT add back any conditional logic based on independentSortEnabled!
+     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
+     */
     private fun getEffectiveFolderSortOption(bucketId: Int): VideoSortOption {
-        return if (preferences.independentSortEnabled) {
-            preferences.getFolderVideoSortOption(bucketId)
-        } else {
-            preferences.videoSortOption
-        }
+        return preferences.getFolderVideoSortOption(bucketId)
     }
 }

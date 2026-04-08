@@ -105,6 +105,125 @@ class ImageRepository(private val context: Context) {
 
     // ── Get Folders ─────────────────────────────────────────────────────
 
+    /**
+     * Get folders with album-specific sort options for preview generation.
+     * Each album's preview respects its own sort option.
+     *
+     * ⚠️ CRITICAL: This method MUST be used instead of getFolders() when independent sort is enabled.
+     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md
+     */
+    suspend fun getFoldersWithIndependentSort(
+        sortOption: SortOption = SortOption.CUSTOM_ORDER,
+        getFolderSortOption: (Int) -> ImageSortOption = { ImageSortOption.CUSTOM_ORDER }
+    ): List<FolderItem> = withContext(Dispatchers.IO) {
+        // Load ALL images from MediaStore
+        val allImages = mutableMapOf<Int, MutableList<ImageItem>>()
+
+        @Suppress("DEPRECATION")
+        val projection = arrayOf(
+            MediaStore.Images.Media._ID,
+            MediaStore.Images.Media.BUCKET_ID,
+            MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+            MediaStore.Images.Media.DATE_MODIFIED,
+            MediaStore.Images.Media.DATE_TAKEN,
+            MediaStore.Images.Media.DATA,
+            MediaStore.Images.Media.DISPLAY_NAME
+        )
+
+        @Suppress("DEPRECATION")
+        val selection = "length(trim(${MediaStore.Images.Media.DATA})) > 0"
+
+        try {
+            contentResolver.query(imageUri, projection, selection, null, null)?.use { cursor ->
+                val idCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
+                @Suppress("DEPRECATION")
+                val bucketIdCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_ID)
+                @Suppress("DEPRECATION")
+                val bucketNameCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+                val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_MODIFIED)
+                val dateTakenCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
+                @Suppress("DEPRECATION")
+                val dataCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+                val displayNameCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
+
+                while (cursor.moveToNext()) {
+                    val id = cursor.getLong(idCol)
+                    val bId = cursor.getInt(bucketIdCol)
+                    val bName = cursor.getString(bucketNameCol) ?: ""
+                    val dateModified = cursor.getLong(dateModifiedCol)
+                    val dateTaken = cursor.getLong(dateTakenCol)
+                    val dataPath = cursor.getString(dataCol) ?: ""
+                    val displayName = cursor.getString(displayNameCol) ?: ""
+
+                    val image = ImageItem(
+                        id = id,
+                        title = "",
+                        displayName = displayName,
+                        path = dataPath,
+                        size = 0,
+                        dateModified = dateModified,
+                        dateTaken = dateTaken,
+                        bucketId = bId,
+                        bucketName = bName,
+                        mimeType = "image/*",
+                        contentUri = ContentUris.withAppendedId(imageUri, id),
+                        width = 0,
+                        height = 0
+                    )
+
+                    allImages.getOrPut(bId) { mutableListOf() }.add(image)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("ImageRepository", "Failed to load images for folders", e)
+        }
+
+        // Build FolderItem for each bucket, respecting its individual sort
+        val folderMap = mutableMapOf<Int, FolderItem>()
+        for ((bucketId, images) in allImages) {
+            if (images.isEmpty()) continue
+
+            val bucketName = images.first().bucketName
+            val folderPath = File(images.first().path).parent ?: ""
+            val albumSort = getFolderSortOption(bucketId)
+
+            // Sort images according to this bucket's sort option
+            val sortedImages = sortImages(images, albumSort)
+            val previewImage = sortedImages.firstOrNull()
+
+            folderMap[bucketId] = FolderItem(
+                bucketId = bucketId,
+                name = bucketName,
+                itemCount = images.size,
+                latestItemUri = previewImage?.contentUri,
+                latestDateModified = images.maxOfOrNull { it.dateModified } ?: 0L,
+                path = folderPath
+            )
+        }
+
+        // Apply folder-level sorting
+        val folders = folderMap.values.toList()
+        when (sortOption) {
+            SortOption.CUSTOM_ORDER -> folders  // raw order; ViewModel applies persisted custom order
+            SortOption.NAME_A_TO_Z -> folders.sortedBy { it.name.lowercase() }
+            SortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
+            SortOption.ITEMS_MOST_FIRST -> folders.sortedByDescending { it.itemCount }
+            SortOption.ITEMS_FEWEST_FIRST -> folders.sortedBy { it.itemCount }
+        }
+    }
+
+    private fun sortImages(images: List<ImageItem>, option: ImageSortOption): List<ImageItem> {
+        return when (option) {
+            ImageSortOption.CUSTOM_ORDER -> images.sortedWith(compareByDescending<ImageItem> { it.dateModified }.thenBy { it.id })
+            ImageSortOption.NAME_A_TO_Z -> images.sortedBy { it.displayName.lowercase() }
+            ImageSortOption.NAME_Z_TO_A -> images.sortedByDescending { it.displayName.lowercase() }
+            ImageSortOption.DATE_CREATED_ASC -> images.sortedBy { it.id }
+            ImageSortOption.DATE_CREATED_DESC -> images.sortedByDescending { it.id }
+            ImageSortOption.DATE_MODIFIED_ASC -> images.sortedBy { it.dateModified }
+            ImageSortOption.DATE_MODIFIED_DESC -> images.sortedByDescending { it.dateModified }
+        }
+    }
+
     suspend fun getFolders(
         sortOption: SortOption = SortOption.CUSTOM_ORDER,
         imageSortOption: ImageSortOption = ImageSortOption.CUSTOM_ORDER
