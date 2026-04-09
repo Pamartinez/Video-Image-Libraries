@@ -1133,6 +1133,13 @@ fun VideoListScreen(
             onDismiss = { viewModel.dismissMoveToGroupPicker() }
         )
     }
+    if (state.showCreateAlbumDialog && state.currentFolderBucketId == null) {
+        CreateAlbumDialog(
+            existingDcimNames = state.dcimFolderNames,
+            onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
+            onDismiss = { viewModel.dismissCreateAlbumDialog() }
+        )
+    }
 
     // ── "Choose what to create" bottom sheet ──
     if (showCreateMenu) {
