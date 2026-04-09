@@ -76,8 +76,7 @@ fun ImageListScreen(
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
             state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
             showMoreMenu || showCreateMenu ||
-            state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog ||
-            state.showCreateAlbumDialog
+            state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
 
     // Collect share intents and launch system chooser
     LaunchedEffect(Unit) {
@@ -97,7 +96,6 @@ fun ImageListScreen(
             progress.isActive -> {}
             showMoreMenu -> showMoreMenu = false
             showCreateMenu -> showCreateMenu = false
-            state.showCreateAlbumDialog -> viewModel.dismissCreateAlbumDialog()
             state.showGroupNameDialog -> viewModel.dismissGroupNameDialog()
             state.showRenameGroupDialog -> viewModel.dismissRenameGroupDialog()
             state.showDestroyGroupDialog -> viewModel.dismissDestroyGroupDialog()
@@ -582,13 +580,6 @@ fun ImageListScreen(
                     else viewModel.createGroupFromCreationMode(name)
                 },
                 onDismiss = { viewModel.dismissGroupNameDialog() }
-            )
-        }
-        if (state.showCreateAlbumDialog) {
-            CreateAlbumDialog(
-                existingDcimNames = state.dcimFolderNames,
-                onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
-                onDismiss = { viewModel.dismissCreateAlbumDialog() }
             )
         }
         return

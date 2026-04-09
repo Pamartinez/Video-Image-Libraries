@@ -98,7 +98,7 @@ fun VideoListScreen(
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
             state.showGroupNameDialog || state.showRenameGroupDialog ||
             state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
-            state.showMoveToGroupPicker || showMoreMenu || showCreateMenu || state.showCreateAlbumDialog
+            state.showMoveToGroupPicker || showMoreMenu || showCreateMenu
 
     BackHandler(
         enabled = hasOverlay || state.isGroupCreationMode || state.isSelectionMode ||
@@ -378,13 +378,6 @@ fun VideoListScreen(
                 currentViewType    = state.folderViewType,
                 onViewTypeSelected = { viewModel.setFolderViewType(it) },
                 onDismiss          = { viewModel.dismissViewAsDialog() }
-            )
-        }
-        if (state.showCreateAlbumDialog) {
-            CreateAlbumDialog(
-                existingDcimNames = state.dcimFolderNames,
-                onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
-                onDismiss = { viewModel.dismissCreateAlbumDialog() }
             )
         }
         if (state.showAddFolderToGroup) {
