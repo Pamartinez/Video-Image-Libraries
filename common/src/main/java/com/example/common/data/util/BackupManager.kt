@@ -99,7 +99,7 @@ abstract class BackupManager(
             val dir = backupDirectory
             if (!dir.exists()) dir.mkdirs()
             val file = File(dir, BACKUP_FILE_NAME)
-            if (file.exists()) file.setWritable(true)
+            if (file.exists()) file.delete()
             file.writeText(createBackup(context))
             file.setReadOnly()
             true
