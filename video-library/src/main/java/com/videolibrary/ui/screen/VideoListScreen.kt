@@ -80,10 +80,15 @@ fun VideoListScreen(
         }
     }
 
-    // Scroll to top of group grid when the group or its independent sort option changes.
-    // Keyed on currentGroupSortOption so changing sort within a group scrolls to top.
-    LaunchedEffect(state.currentGroupId, state.currentGroupSortOption) {
-        groupGridState.scrollToItem(0)
+    // Scroll to top of group grid when the group changes OR when its independent sort option changes.
+    // Split into two effects: one for group navigation (instant), one for sort change (after items arrive).
+    LaunchedEffect(state.currentGroupId) { groupGridState.scrollToItem(0) }
+    val lastGroupSortForScroll = remember { mutableStateOf<com.example.common.data.model.FolderSortOption>(state.currentGroupSortOption) }
+    LaunchedEffect(state.currentGroupOrderedMixedItems) {
+        if (state.currentGroupSortOption != lastGroupSortForScroll.value) {
+            lastGroupSortForScroll.value = state.currentGroupSortOption
+            groupGridState.scrollToItem(0)
+        }
     }
 
     // Collect share intents emitted by the ViewModel and launch the system chooser

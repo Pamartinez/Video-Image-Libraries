@@ -1035,12 +1035,20 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun createGroupFromCreationMode(name: String) {
         val s = _uiState.value
         viewModelScope.launch {
-            groupRepository.createGroup(
+            val newGroupId = groupRepository.createGroup(
                 name            = name,
                 folderBucketIds = s.groupCreationSelectedFolderIds.toList(),
                 subGroupIds     = s.groupCreationSelectedGroupIds.toList(),
                 parentGroupId   = s.currentGroupId
             )
+            // If created inside a group with custom sort, prepend the new subgroup at position 0
+            if (s.currentGroupId != null && preferences.getGroupSortOption(s.currentGroupId) == FolderSortOption.CUSTOM_ORDER) {
+                val newKey = "g_$newGroupId"
+                val existingOrder = preferences.getGroupMixedOrder(s.currentGroupId)
+                if (newKey !in existingOrder) {
+                    preferences.saveGroupMixedOrder(s.currentGroupId, listOf(newKey) + existingOrder)
+                }
+            }
             exitGroupCreationMode()
             silentRefresh()
             if (s.currentGroupId != null) refreshCurrentGroup()
@@ -1903,12 +1911,19 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
             // If album was created inside a group, add it to that group
             if (parentGroupId != null) {
-                // Wait briefly for MediaStore to index the new folder
-                delay(300)
-                // Find the newly created folder's bucketId
+                // Query repository directly (retrying) — UI state may be stale because
+                // silentRefresh() fires a separate coroutine and may not have completed yet.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
+                    // If the group uses custom sort, prepend the new album at the top of the saved order
+                    if (preferences.getGroupSortOption(parentGroupId) == FolderSortOption.CUSTOM_ORDER) {
+                        val newKey = "f_$newBucketId"
+                        val existingOrder = preferences.getGroupMixedOrder(parentGroupId)
+                        if (newKey !in existingOrder) {
+                            preferences.saveGroupMixedOrder(parentGroupId, listOf(newKey) + existingOrder)
+                        }
+                    }
                     silentRefresh()
                     refreshCurrentGroup()
                 }
@@ -1918,10 +1933,19 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Find the bucketId of a folder by its name. Returns null if not found. */
+    /**
+     * Find the bucketId of a newly created folder by its name.
+     * Queries the repository directly (not UI state) with retries so that MediaStore
+     * has time to index the new folder before we give up.
+     */
     private suspend fun findFolderBucketIdByName(folderName: String): Int? {
-        val currentFolders = _uiState.value.folders
-        return currentFolders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
+        repeat(6) { attempt ->
+            val folders = repository.getFolders()
+            val found = folders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
+            if (found != null) return found
+            delay(500) // wait for MediaStore to index the new folder, then retry
+        }
+        return null
     }
 
     fun playVideo(ctx: android.content.Context, video: VideoItem) {

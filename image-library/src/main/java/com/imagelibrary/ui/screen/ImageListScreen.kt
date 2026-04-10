@@ -64,9 +64,22 @@ fun ImageListScreen(
     // from a folder (album) inside the same group.
     val groupGridState = rememberLazyGridState()
 
-    LaunchedEffect(state.sortOption) { folderGridState.scrollToItem(0) }
-    // Scroll group grid to top when the group changes OR when its independent sort changes.
-    LaunchedEffect(state.currentGroupId, state.currentGroupSortOption) { groupGridState.scrollToItem(0) }
+    // Root grid: scroll to top AFTER orderedMixedItems arrives with the new sort
+    // (triggers from scrollToTopTrigger set inside loadDataCore, not from sortOption directly,
+    //  so animateItem() cannot fight the scroll by restoring the old position).
+    LaunchedEffect(state.scrollToTopTrigger) {
+        if (state.scrollToTopTrigger > 0) folderGridState.scrollToItem(0)
+    }
+    // Group grid: scroll to top when navigating to a different group
+    LaunchedEffect(state.currentGroupId) { groupGridState.scrollToItem(0) }
+    // Group grid: scroll to top AFTER group items refresh when the sort option changes
+    val lastGroupSortForScroll = remember { mutableStateOf<com.example.common.data.model.FolderSortOption>(state.currentGroupSortOption) }
+    LaunchedEffect(state.currentGroupOrderedMixedItems) {
+        if (state.currentGroupSortOption != lastGroupSortForScroll.value) {
+            lastGroupSortForScroll.value = state.currentGroupSortOption
+            groupGridState.scrollToItem(0)
+        }
+    }
     LaunchedEffect(state.currentFolderBucketId) {
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
     }

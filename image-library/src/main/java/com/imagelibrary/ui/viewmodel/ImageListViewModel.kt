@@ -112,6 +112,9 @@ data class ImageListUiState(
     val moveToGroupGroupIds: Set<Long> = emptySet(),
 
     val autoBackupEnabled: Boolean = false,
+    /** Incremented by loadDataCore when a sort-change refresh completes, so the
+     *  screen can scroll to top AFTER new items arrive (avoids animateItem fighting the scroll). */
+    val scrollToTopTrigger: Int = 0,
 
     // ── Create Album flow ──
     val showCreateAlbumDialog: Boolean = false,
@@ -534,7 +537,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     /** Shared data-loading body. Updates state without touching isLoading. */
-    private suspend fun loadDataCore() {
+    private suspend fun loadDataCore(scrollToTop: Boolean = false) {
         val s = _uiState.value
         val images = repository.getImages(s.imageSortOption)
 
@@ -601,7 +604,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 allGroups = allGroups,
                 allGroupCustomOrders = groupCustomOrders,
                 allGroupSortOptions = groupSortOptions,
-                isLoading = false
+                isLoading = false,
+                scrollToTopTrigger = if (scrollToTop) it.scrollToTopTrigger + 1 else it.scrollToTopTrigger
             )
         }
         // Allow ContentObserver to fire again after our explicit refresh is done
@@ -649,9 +653,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Reload all data in the background without showing any loading indicator. */
-    private fun silentRefresh() {
-        viewModelScope.launch { loadDataCore() }
+    /** Reload all data in the background without showing any loading indicator.
+     *  Set [scrollToTop] = true to increment [scrollToTopTrigger] after the refresh,
+     *  signalling the screen to scroll to position 0 once new items have arrived. */
+    private fun silentRefresh(scrollToTop: Boolean = false) {
+        viewModelScope.launch { loadDataCore(scrollToTop) }
     }
 
     /** Force refresh album preview images by reloading folder data. */
@@ -836,8 +842,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         setFolderViewType(next)
     }
-    fun setSortOption(s: SortOption) { preferences.sortOption = s; _uiState.update { it.copy(sortOption = s) }; silentRefresh(); scheduleAutoBackup() }
-    
+    fun setSortOption(s: SortOption) { preferences.sortOption = s; _uiState.update { it.copy(sortOption = s) }; silentRefresh(scrollToTop = true); scheduleAutoBackup() }
+
     /** Images tab sort (Custom, Name, Date created, Date modified) - for root/all images view. */
     fun setImageSortOption(s: ImageSortOption) {
         preferences.imageSortOption = s
@@ -1537,12 +1543,20 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val parentGroupId = s.currentGroupId
 
         viewModelScope.launch {
-            groupRepository.createGroup(
+            val newGroupId = groupRepository.createGroup(
                 name = name,
                 folderBucketIds = folderIds,
                 subGroupIds = groupIds,
                 parentGroupId = parentGroupId
             )
+            // If created inside a group with custom sort, prepend the new subgroup at position 0
+            if (parentGroupId != null && preferences.getGroupSortOption(parentGroupId) == SortOption.CUSTOM_ORDER) {
+                val newKey = "g_$newGroupId"
+                val existingOrder = preferences.customGroupItemsOrder(parentGroupId)
+                if (newKey !in existingOrder) {
+                    preferences.setCustomGroupItemsOrder(parentGroupId, listOf(newKey) + existingOrder)
+                }
+            }
             exitGroupCreationMode()
             silentRefresh()
             if (s.currentGroupId != null) {
@@ -2074,12 +2088,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
             // If album was created inside a group, add it to that group
             if (parentGroupId != null) {
-                // Wait briefly for MediaStore to index the new folder
-                delay(300)
-                // Find the newly created folder's bucketId
+                // Query repository directly (retrying) — UI state may be stale because
+                // silentRefresh() fires a separate coroutine and may not have completed yet.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
+                    // If the group uses custom sort, prepend the new album at the top of the saved order
+                    if (preferences.getGroupSortOption(parentGroupId) == SortOption.CUSTOM_ORDER) {
+                        val newKey = "f_$newBucketId"
+                        val existingOrder = preferences.customGroupItemsOrder(parentGroupId)
+                        if (newKey !in existingOrder) {
+                            preferences.setCustomGroupItemsOrder(parentGroupId, listOf(newKey) + existingOrder)
+                        }
+                    }
                     silentRefresh()
                     refreshCurrentGroup()
                 }
@@ -2089,10 +2110,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Find the bucketId of a folder by its name. Returns null if not found. */
+    /**
+     * Find the bucketId of a newly created folder by its name.
+     * Queries the repository directly (not UI state) with retries so that MediaStore
+     * has time to index the new folder before we give up.
+     */
     private suspend fun findFolderBucketIdByName(folderName: String): Int? {
-        val currentFolders = _uiState.value.folders
-        return currentFolders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
+        repeat(6) { attempt ->
+            val folders = repository.getFolders()
+            val found = folders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
+            if (found != null) return found
+            delay(500) // wait for MediaStore to index the new folder, then retry
+        }
+        return null
     }
 
 }
