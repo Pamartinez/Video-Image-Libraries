@@ -1041,13 +1041,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 subGroupIds     = s.groupCreationSelectedGroupIds.toList(),
                 parentGroupId   = s.currentGroupId
             )
-            // If created inside a group with custom sort, prepend the new subgroup at position 0
-            if (s.currentGroupId != null && preferences.getGroupSortOption(s.currentGroupId) == FolderSortOption.CUSTOM_ORDER) {
-                val newKey = "g_$newGroupId"
-                val existingOrder = preferences.getGroupMixedOrder(s.currentGroupId)
-                if (newKey !in existingOrder) {
-                    preferences.saveGroupMixedOrder(s.currentGroupId, listOf(newKey) + existingOrder)
-                }
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            // If sort isn't CUSTOM_ORDER yet, snapshot the current visible order first.
+            if (s.currentGroupId == null) {
+                prependToRootOrder("g_$newGroupId", s)
+            } else {
+                prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
             exitGroupCreationMode()
             silentRefresh()
@@ -1061,12 +1060,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun createGroupFromSelection(name: String) {
         val s = _uiState.value
         viewModelScope.launch {
-            groupRepository.createGroup(
+            val newGroupId = groupRepository.createGroup(
                 name            = name,
                 folderBucketIds = s.selectedFolderIds.toList(),
                 subGroupIds     = s.selectedGroupIds.toList(),
                 parentGroupId   = s.currentGroupId
             )
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            if (s.currentGroupId == null) {
+                prependToRootOrder("g_$newGroupId", s)
+            } else {
+                prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
+            }
             _uiState.update { it.copy(showGroupNameDialog = false) }
             exitSelectionMode()
             silentRefresh()
@@ -1188,12 +1193,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun createGroupAndMoveSelection(name: String) {
         val s = _uiState.value
         viewModelScope.launch {
-            groupRepository.createGroup(
+            val newGroupId = groupRepository.createGroup(
                 name            = name,
                 folderBucketIds = s.selectedFolderIds.toList(),
                 subGroupIds     = s.selectedGroupIds.toList(),
                 parentGroupId   = s.currentGroupId
             )
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            if (s.currentGroupId == null) {
+                prependToRootOrder("g_$newGroupId", s)
+            } else {
+                prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
+            }
             _uiState.update { it.copy(showGroupNameDialog = false) }
             exitSelectionMode()
             silentRefresh()
@@ -1909,23 +1920,23 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
 
-            // If album was created inside a group, add it to that group
+            // After creation, ensure the new album appears at position 0 — always,
+            // regardless of the current sort option. Switches to CUSTOM_ORDER if needed.
             if (parentGroupId != null) {
-                // Query repository directly (retrying) — UI state may be stale because
-                // silentRefresh() fires a separate coroutine and may not have completed yet.
+                // Inside a group: add the album to the group and prepend it at position 0.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
-                    // If the group uses custom sort, prepend the new album at the top of the saved order
-                    if (preferences.getGroupSortOption(parentGroupId) == FolderSortOption.CUSTOM_ORDER) {
-                        val newKey = "f_$newBucketId"
-                        val existingOrder = preferences.getGroupMixedOrder(parentGroupId)
-                        if (newKey !in existingOrder) {
-                            preferences.saveGroupMixedOrder(parentGroupId, listOf(newKey) + existingOrder)
-                        }
-                    }
+                    prependToGroupOrder("f_$newBucketId", parentGroupId, s)
                     silentRefresh()
                     refreshCurrentGroup()
+                }
+            } else {
+                // Root level: find the new bucket ID and prepend at position 0.
+                val newBucketId = findFolderBucketIdByName(folderName)
+                if (newBucketId != null) {
+                    prependToRootOrder("f_$newBucketId", s)
+                    silentRefresh()
                 }
             }
 
@@ -1962,5 +1973,53 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
      */
     private fun getEffectiveFolderSortOption(bucketId: Int): VideoSortOption {
         return preferences.getFolderVideoSortOption(bucketId)
+    }
+
+    /**
+     * Ensures the root-level sort is CUSTOM_ORDER (snapshotting the current visible order
+     * if needed), then prepends [newKey] so the new item always appears at position 0.
+     */
+    private fun prependToRootOrder(newKey: String, s: VideoListUiState) {
+        if (s.sortOption != FolderSortOption.CUSTOM_ORDER) {
+            // Snapshot the current visible order and switch sort to CUSTOM_ORDER
+            val snapshot = s.orderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.folderSortOption = FolderSortOption.CUSTOM_ORDER
+            preferences.customMixedOrder = snapshot
+            _uiState.update { it.copy(sortOption = FolderSortOption.CUSTOM_ORDER) }
+        }
+        val existing = preferences.customMixedOrder
+        if (newKey !in existing) {
+            preferences.customMixedOrder = listOf(newKey) + existing
+        }
+    }
+
+    /**
+     * Ensures the given group's sort is CUSTOM_ORDER (snapshotting the current visible order
+     * if needed), then prepends [newKey] so the new item always appears at position 0.
+     */
+    private fun prependToGroupOrder(newKey: String, groupId: Long, s: VideoListUiState) {
+        if (preferences.getGroupSortOption(groupId) != FolderSortOption.CUSTOM_ORDER) {
+            // Snapshot the current group order and switch sort to CUSTOM_ORDER
+            val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.saveGroupSortOption(groupId, FolderSortOption.CUSTOM_ORDER)
+            preferences.saveGroupMixedOrder(groupId, snapshot)
+            _uiState.update { it.copy(currentGroupSortOption = FolderSortOption.CUSTOM_ORDER) }
+        }
+        val existing = preferences.getGroupMixedOrder(groupId)
+        if (newKey !in existing) {
+            preferences.saveGroupMixedOrder(groupId, listOf(newKey) + existing)
+        }
     }
 }

@@ -1549,13 +1549,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 subGroupIds = groupIds,
                 parentGroupId = parentGroupId
             )
-            // If created inside a group with custom sort, prepend the new subgroup at position 0
-            if (parentGroupId != null && preferences.getGroupSortOption(parentGroupId) == SortOption.CUSTOM_ORDER) {
-                val newKey = "g_$newGroupId"
-                val existingOrder = preferences.customGroupItemsOrder(parentGroupId)
-                if (newKey !in existingOrder) {
-                    preferences.setCustomGroupItemsOrder(parentGroupId, listOf(newKey) + existingOrder)
-                }
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            // If sort isn't CUSTOM_ORDER yet, snapshot the current visible order first.
+            if (parentGroupId == null) {
+                prependToRootOrder("g_$newGroupId", s)
+            } else {
+                prependToGroupOrder("g_$newGroupId", parentGroupId, s)
             }
             exitGroupCreationMode()
             silentRefresh()
@@ -1578,12 +1577,18 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val parentGroupId = s.currentGroupId
 
         viewModelScope.launch {
-            groupRepository.createGroup(
+            val newGroupId = groupRepository.createGroup(
                 name = name,
                 folderBucketIds = folderIds,
                 subGroupIds = groupIds,
                 parentGroupId = parentGroupId
             )
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            if (parentGroupId == null) {
+                prependToRootOrder("g_$newGroupId", s)
+            } else {
+                prependToGroupOrder("g_$newGroupId", parentGroupId, s)
+            }
             exitSelectionMode()
             silentRefresh()
             if (s.currentGroupId != null) {
@@ -1936,6 +1941,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 parentGroupId = null
             )
             groupRepository.moveItemsToGroup(folderIds, groupIds, newGroupId)
+            // Prepend the new group at position 0 — always, regardless of current sort option.
+            prependToRootOrder("g_$newGroupId", s)
             dismissMoveToGroupPicker()
             silentRefresh()
             if (s.currentGroupId != null) {
@@ -2086,23 +2093,24 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             silentRefresh()
             refreshFolderImages()
 
-            // If album was created inside a group, add it to that group
+            // After creation, ensure the new album appears at position 0 — always,
+            // regardless of the current sort option. Switches to CUSTOM_ORDER if needed.
             if (parentGroupId != null) {
-                // Query repository directly (retrying) — UI state may be stale because
-                // silentRefresh() fires a separate coroutine and may not have completed yet.
+                // Inside a group: add the album to the group and prepend it at position 0.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
-                    // If the group uses custom sort, prepend the new album at the top of the saved order
-                    if (preferences.getGroupSortOption(parentGroupId) == SortOption.CUSTOM_ORDER) {
-                        val newKey = "f_$newBucketId"
-                        val existingOrder = preferences.customGroupItemsOrder(parentGroupId)
-                        if (newKey !in existingOrder) {
-                            preferences.setCustomGroupItemsOrder(parentGroupId, listOf(newKey) + existingOrder)
-                        }
-                    }
+                    // Prepend at position 0 — switches to CUSTOM_ORDER if needed.
+                    prependToGroupOrder("f_$newBucketId", parentGroupId, s)
                     silentRefresh()
                     refreshCurrentGroup()
+                }
+            } else {
+                // Root level: find the new bucket ID and prepend at position 0.
+                val newBucketId = findFolderBucketIdByName(folderName)
+                if (newBucketId != null) {
+                    prependToRootOrder("f_$newBucketId", s)
+                    silentRefresh()
                 }
             }
 
@@ -2123,6 +2131,54 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             delay(500) // wait for MediaStore to index the new folder, then retry
         }
         return null
+    }
+
+    /**
+     * Ensures the root-level sort is CUSTOM_ORDER (snapshotting the current visible order
+     * if needed), then prepends [newKey] so the new item always appears at position 0.
+     */
+    private fun prependToRootOrder(newKey: String, s: ImageListUiState) {
+        if (s.sortOption != SortOption.CUSTOM_ORDER) {
+            // Snapshot the current visible order and switch sort to CUSTOM_ORDER
+            val snapshot = s.orderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.sortOption = SortOption.CUSTOM_ORDER
+            preferences.customMixedOrder = snapshot
+            _uiState.update { it.copy(sortOption = SortOption.CUSTOM_ORDER) }
+        }
+        val existing = preferences.customMixedOrder
+        if (newKey !in existing) {
+            preferences.customMixedOrder = listOf(newKey) + existing
+        }
+    }
+
+    /**
+     * Ensures the given group's sort is CUSTOM_ORDER (snapshotting the current visible order
+     * if needed), then prepends [newKey] so the new item always appears at position 0.
+     */
+    private fun prependToGroupOrder(newKey: String, groupId: Long, s: ImageListUiState) {
+        if (preferences.getGroupSortOption(groupId) != SortOption.CUSTOM_ORDER) {
+            // Snapshot the current group order and switch sort to CUSTOM_ORDER
+            val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.saveGroupSortOption(groupId, SortOption.CUSTOM_ORDER)
+            preferences.saveGroupMixedOrder(groupId, snapshot)
+            _uiState.update { it.copy(currentGroupSortOption = SortOption.CUSTOM_ORDER) }
+        }
+        val existing = preferences.getGroupMixedOrder(groupId)
+        if (newKey !in existing) {
+            preferences.saveGroupMixedOrder(groupId, listOf(newKey) + existing)
+        }
     }
 
 }
