@@ -2016,6 +2016,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
         val images = s.images.filter { it.id in imageIds }
 
+        // Capture the current group context before clearing UI state
+        val parentGroupId = s.currentGroupId
+
         _uiState.update {
             it.copy(
                 showCreateAlbumPicker = false,
@@ -2068,8 +2071,28 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
             refreshFolderImages()
+
+            // If album was created inside a group, add it to that group
+            if (parentGroupId != null) {
+                // Wait briefly for MediaStore to index the new folder
+                delay(300)
+                // Find the newly created folder's bucketId
+                val newBucketId = findFolderBucketIdByName(folderName)
+                if (newBucketId != null) {
+                    groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
+                    silentRefresh()
+                    refreshCurrentGroup()
+                }
+            }
+
             scheduleAutoBackup()
         }
+    }
+
+    /** Find the bucketId of a folder by its name. Returns null if not found. */
+    private suspend fun findFolderBucketIdByName(folderName: String): Int? {
+        val currentFolders = _uiState.value.folders
+        return currentFolders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
     }
 
 }

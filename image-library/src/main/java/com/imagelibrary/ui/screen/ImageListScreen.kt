@@ -582,6 +582,13 @@ fun ImageListScreen(
                 onDismiss = { viewModel.dismissGroupNameDialog() }
             )
         }
+        if (state.showCreateAlbumDialog) {
+            CreateAlbumDialog(
+                existingDcimNames = state.dcimFolderNames,
+                onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
+                onDismiss = { viewModel.dismissCreateAlbumDialog() }
+            )
+        }
         return
     }
 

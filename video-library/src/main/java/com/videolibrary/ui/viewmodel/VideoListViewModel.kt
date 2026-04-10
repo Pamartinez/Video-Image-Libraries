@@ -1847,6 +1847,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
         val videos = s.videos.filter { it.id in videoIds }
 
+        // Capture the current group context before clearing UI state
+        val parentGroupId = s.currentGroupId
+
         _uiState.update {
             it.copy(
                 showCreateAlbumPicker = false,
@@ -1897,8 +1900,28 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
             silentRefresh()
+
+            // If album was created inside a group, add it to that group
+            if (parentGroupId != null) {
+                // Wait briefly for MediaStore to index the new folder
+                delay(300)
+                // Find the newly created folder's bucketId
+                val newBucketId = findFolderBucketIdByName(folderName)
+                if (newBucketId != null) {
+                    groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
+                    silentRefresh()
+                    refreshCurrentGroup()
+                }
+            }
+
             scheduleAutoBackup()
         }
+    }
+
+    /** Find the bucketId of a folder by its name. Returns null if not found. */
+    private suspend fun findFolderBucketIdByName(folderName: String): Int? {
+        val currentFolders = _uiState.value.folders
+        return currentFolders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
     }
 
     fun playVideo(ctx: android.content.Context, video: VideoItem) {

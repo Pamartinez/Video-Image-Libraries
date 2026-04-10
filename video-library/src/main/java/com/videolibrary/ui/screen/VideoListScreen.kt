@@ -522,6 +522,13 @@ fun VideoListScreen(
                 onDismiss = { viewModel.dismissMoveToGroupPicker() }
             )
         }
+        if (state.showCreateAlbumDialog) {
+            CreateAlbumDialog(
+                existingDcimNames = state.dcimFolderNames,
+                onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
+                onDismiss = { viewModel.dismissCreateAlbumDialog() }
+            )
+        }
         return
     }
 
