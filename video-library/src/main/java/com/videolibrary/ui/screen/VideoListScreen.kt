@@ -1162,94 +1162,91 @@ fun VideoListScreen(
             shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
             dragHandle = null
         ) {
-            Text(
-                text = "Choose what to create",
-                fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
-                color = colors.listFirstText,
-                modifier = Modifier.padding(start = 24.dp, top = 28.dp, end = 24.dp, bottom = 12.dp)
-            )
+            Column(modifier = Modifier.navigationBarsPadding().padding(bottom = 8.dp)) {
+                Text(
+                    text = "Choose what to create",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    color = colors.listFirstText,
+                    modifier = Modifier.padding(start = 24.dp, top = 28.dp, end = 24.dp, bottom = 12.dp)
+                )
 
-            // ── Album row ──
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { showCreateMenu = false; viewModel.showCreateAlbumDialog() }
-                    .padding(horizontal = 24.dp, vertical = 14.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(
+                // ── Album row ──
+                Row(
                     modifier = Modifier
-                        .size(52.dp)
-                        .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
-                    contentAlignment = Alignment.Center
+                        .fillMaxWidth()
+                        .clickable { showCreateMenu = false; viewModel.showCreateAlbumDialog() }
+                        .padding(horizontal = 24.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        Icons.Default.Collections,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.size(26.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .size(52.dp)
+                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            Icons.Default.Collections,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    }
+                    Spacer(Modifier.width(18.dp))
+                    Column {
+                        Text(
+                            "Album",
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 16.sp,
+                            color = colors.listFirstText
+                        )
+                        Text(
+                            "Create a new album and add pictures and videos manually.",
+                            fontSize = 13.sp,
+                            lineHeight = 18.sp,
+                            color = colors.listSecondText
+                        )
+                    }
                 }
-                Spacer(Modifier.width(16.dp))
-                Column {
-                    Text(
-                        "Album",
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 16.sp,
-                        color = colors.listFirstText
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        "Create a new album and add pictures and videos manually.",
-                        fontSize = 13.sp,
-                        lineHeight = 18.sp,
-                        color = colors.listSecondText
-                    )
+
+                // ── Group row ──
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { showCreateMenu = false; viewModel.showGroupNameForCreation() }
+                        .padding(horizontal = 24.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(52.dp)
+                            .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            Icons.Default.Folder,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    }
+                    Spacer(Modifier.width(18.dp))
+                    Column {
+                        Text(
+                            "Group",
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 16.sp,
+                            color = colors.listFirstText
+                        )
+                        Text(
+                            "Create a group of related albums.",
+                            fontSize = 13.sp,
+                            lineHeight = 18.sp,
+                            color = colors.listSecondText
+                        )
+                    }
                 }
             }
-
-            // ── Group row ──
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { showCreateMenu = false; viewModel.showGroupNameForCreation() }
-                    .padding(horizontal = 24.dp, vertical = 14.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(52.dp)
-                        .background(Color(0xFF3A3A3C), RoundedCornerShape(14.dp)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        Icons.Default.Folder,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier.size(26.dp)
-                    )
-                }
-                Spacer(Modifier.width(16.dp))
-                Column {
-                    Text(
-                        "Group",
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 16.sp,
-                        color = colors.listFirstText
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        "Create a group of related albums.",
-                        fontSize = 13.sp,
-                        lineHeight = 18.sp,
-                        color = colors.listSecondText
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(16.dp))
-            Spacer(Modifier.navigationBarsPadding())
         }
     }
 }

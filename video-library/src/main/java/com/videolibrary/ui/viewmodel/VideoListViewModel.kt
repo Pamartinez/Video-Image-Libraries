@@ -1044,7 +1044,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             // Prepend the new group at position 0 — always, regardless of current sort option.
             // If sort isn't CUSTOM_ORDER yet, snapshot the current visible order first.
             if (s.currentGroupId == null) {
-                prependToRootOrder("g_$newGroupId", s)
+                prependToRootOrder("g_$newGroupId")
             } else {
                 prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
@@ -1068,7 +1068,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             )
             // Prepend the new group at position 0 — always, regardless of current sort option.
             if (s.currentGroupId == null) {
-                prependToRootOrder("g_$newGroupId", s)
+                prependToRootOrder("g_$newGroupId")
             } else {
                 prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
@@ -1201,7 +1201,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             )
             // Prepend the new group at position 0 — always, regardless of current sort option.
             if (s.currentGroupId == null) {
-                prependToRootOrder("g_$newGroupId", s)
+                prependToRootOrder("g_$newGroupId")
             } else {
                 prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
@@ -1918,25 +1918,44 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             _copyMoveProgress.value = _copyMoveProgress.value.copy(current = videos.size)
             delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
-            silentRefresh()
 
-            // After creation, ensure the new album appears at position 0 — always,
-            // regardless of the current sort option. Switches to CUSTOM_ORDER if needed.
+            // Prepend the new album at position 0 BEFORE calling loadDataCore().
+            // loadDataCore() is called directly (not via silentRefresh) so we can
+            // await its completion and verify/fix the position as a safety net.
             if (parentGroupId != null) {
-                // Inside a group: add the album to the group and prepend it at position 0.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
                     prependToGroupOrder("f_$newBucketId", parentGroupId, s)
-                    silentRefresh()
+                    loadDataCore()
                     refreshCurrentGroup()
+                } else {
+                    loadDataCore() // fallback: bucket not found, still refresh
                 }
             } else {
-                // Root level: find the new bucket ID and prepend at position 0.
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
-                    prependToRootOrder("f_$newBucketId", s)
-                    silentRefresh()
+                    prependToRootOrder("f_$newBucketId")
+                }
+                loadDataCore() // single refresh after prepend (or as fallback)
+                // Safety net: if the new album landed somewhere other than position 0,
+                // forcefully move it to the top (covers any remaining timing edge-cases).
+                if (newBucketId != null) {
+                    val key = "f_$newBucketId"
+                    val idx = _uiState.value.orderedMixedItems.indexOfFirst {
+                        it is FolderItem && it.bucketId == newBucketId
+                    }
+                    if (idx > 0) {
+                        val reordered = listOf(key) +
+                                preferences.customMixedOrder.filter { it != key }
+                        preferences.customMixedOrder = reordered
+                        _uiState.update { state ->
+                            val mixed = state.orderedMixedItems.toMutableList()
+                            val item = mixed.removeAt(idx)
+                            mixed.add(0, item)
+                            state.copy(orderedMixedItems = mixed)
+                        }
+                    }
                 }
             }
 
@@ -1978,11 +1997,20 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     /**
      * Ensures the root-level sort is CUSTOM_ORDER (snapshotting the current visible order
      * if needed), then prepends [newKey] so the new item always appears at position 0.
+     *
+     * Uses the CURRENT live UIState (not a stale snapshot) so the order is always accurate
+     * even when called after a long-running async operation.
+     *
+     * IMPORTANT: Also snapshots when sort is already CUSTOM_ORDER but no order has been saved
+     * yet (never manually reordered). Without this snapshot, all existing items would be
+     * treated as "new" by applyCustomMixedOrder and placed BEFORE the new item, pushing it
+     * to the end of the list.
      */
-    private fun prependToRootOrder(newKey: String, s: VideoListUiState) {
-        if (s.sortOption != FolderSortOption.CUSTOM_ORDER) {
+    private fun prependToRootOrder(newKey: String) {
+        val current = _uiState.value
+        if (current.sortOption != FolderSortOption.CUSTOM_ORDER) {
             // Snapshot the current visible order and switch sort to CUSTOM_ORDER
-            val snapshot = s.orderedMixedItems.mapNotNull { item ->
+            val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
                     is GroupItem  -> "g_${item.groupId}"
                     is FolderItem -> "f_${item.bucketId}"
@@ -1992,6 +2020,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             preferences.folderSortOption = FolderSortOption.CUSTOM_ORDER
             preferences.customMixedOrder = snapshot
             _uiState.update { it.copy(sortOption = FolderSortOption.CUSTOM_ORDER) }
+        } else if (preferences.customMixedOrder.isEmpty()) {
+            // Sort is already CUSTOM_ORDER but the root has never been explicitly ordered.
+            // Snapshot current items so they are in savedSet; the new item will then be
+            // prepended at position 0 instead of appearing at the end.
+            val snapshot = current.orderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.customMixedOrder = snapshot
         }
         val existing = preferences.customMixedOrder
         if (newKey !in existing) {
@@ -2016,6 +2056,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             preferences.saveGroupSortOption(groupId, FolderSortOption.CUSTOM_ORDER)
             preferences.saveGroupMixedOrder(groupId, snapshot)
             _uiState.update { it.copy(currentGroupSortOption = FolderSortOption.CUSTOM_ORDER) }
+        } else if (preferences.getGroupMixedOrder(groupId).isEmpty()) {
+            // Sort is already CUSTOM_ORDER but the group has never been explicitly ordered.
+            // Snapshot current items so they are in savedSet; the new item will then be
+            // prepended at position 0 instead of appearing at the end.
+            val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> "g_${item.groupId}"
+                    is FolderItem -> "f_${item.bucketId}"
+                    else          -> null
+                }
+            }
+            preferences.saveGroupMixedOrder(groupId, snapshot)
         }
         val existing = preferences.getGroupMixedOrder(groupId)
         if (newKey !in existing) {
