@@ -185,16 +185,23 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
 
     // Drag-to-reorder setup
     val canDrag = isCustomOrder(sortOption)
+    // Check if there's a header row in the grid (when floating mode is on and not in selection mode)
+    val hasHeaderRow = floatingTopBarEnabled && !isSelectionMode
     val dragDropState = rememberDragDropGridState(
         lazyGridState = lazyGridState,
         onMove = { from, to ->
-            if (from >= 0 && to >= 0 && from < mixedItems.size && to < mixedItems.size) {
-                onReorderFolders(from, to)
+            // Convert layout indices to data indices (account for optional header row)
+            val dataFrom = if (hasHeaderRow) from - 1 else from
+            val dataTo = if (hasHeaderRow) to - 1 else to
+            if (dataFrom >= 0 && dataTo >= 0 && dataFrom < mixedItems.size && dataTo < mixedItems.size) {
+                onReorderFolders(dataFrom, dataTo)
             }
         },
         onDragEnd = onReorderDone,
-        onLongPressWithoutDrag = { index ->
-            mixedItems.getOrNull(index)?.let { item ->
+        onLongPressWithoutDrag = { layoutIndex ->
+            // Convert layout index to data index (account for optional header row)
+            val dataIndex = if (hasHeaderRow) layoutIndex - 1 else layoutIndex
+            mixedItems.getOrNull(dataIndex)?.let { item ->
                 when (item) {
                     is MixedItem.Folder -> onFolderLongClick(item.folder)
                     is MixedItem.Group  -> onGroupLongClick(item.group)
@@ -202,7 +209,8 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
             }
         },
         isInSelectionMode = { isSelectionMode },
-        onEnterDragMode = {}
+        onEnterDragMode = {},
+        minDragIndex = if (hasHeaderRow) 1 else 0
     )
 
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
@@ -399,8 +407,10 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         }
 
                         // ── ALBUM AND GROUP ITEMS ──
-                        itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { index, item ->
-                            val itemIsDragging = canDrag && dragDropState.draggedIndex == index
+                        itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { dataIndex, item ->
+                            // Convert data index to layout index for comparison with dragDropState
+                            val layoutIndex = if (hasHeaderRow) dataIndex + 1 else dataIndex
+                            val itemIsDragging = canDrag && dragDropState.draggedIndex == layoutIndex
                             val anyDragActive = canDrag && dragDropState.isDragging
                             val dimModifier = if (anyDragActive && !itemIsDragging)
                                 Modifier.graphicsLayer { alpha = 0.65f } else Modifier
@@ -438,7 +448,9 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                     if (canDrag && dragDropState.isDragging) {
                         val overlayPos = dragDropState.overlayPosition
                         val itemSizePx = dragDropState.capturedItemSize
-                        val draggedItem = mixedItems.getOrNull(dragDropState.draggedIndex)
+                        // Convert layout index to data index to get the correct item
+                        val draggedDataIndex = if (hasHeaderRow) dragDropState.draggedIndex - 1 else dragDropState.draggedIndex
+                        val draggedItem = mixedItems.getOrNull(draggedDataIndex)
 
                         if (draggedItem != null && itemSizePx != null) {
                             val density = LocalDensity.current
