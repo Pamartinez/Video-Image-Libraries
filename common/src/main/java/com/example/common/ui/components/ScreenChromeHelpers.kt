@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -22,7 +21,6 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.automirrored.filled.ViewList
 import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -39,9 +37,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.common.ui.theme.LocalLibraryColors
 import androidx.compose.ui.unit.sp
 import com.example.common.data.model.ViewType
+import com.example.common.ui.theme.LocalLibraryColors
 
 // ── Back button ──────────────────────────────────────────────────────────────
 
@@ -103,7 +101,7 @@ fun ActionsPill(
 ) {
     Surface(
         shape = RoundedCornerShape(24.dp),
-        color = Color(0x4D808080),
+        color = Color(0x8C000000),  // 55% opacity black for Samsung Gallery style
         modifier = modifier
     ) {
         Row(

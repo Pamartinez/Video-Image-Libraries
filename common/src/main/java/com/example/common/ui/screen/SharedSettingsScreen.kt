@@ -31,9 +31,11 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param autoBackupEnabled        Current value of the auto-backup toggle.
  * @param independentSortEnabled   Current value of the independent sort toggle.
  * @param groupsAlwaysOnTop        Current value of the groups-always-on-top toggle.
+ * @param floatingTopBarEnabled    Current value of the floating top bar toggle.
  * @param onAutoBackupChange       Invoked when the auto-backup toggle changes.
  * @param onIndependentSortChange  Invoked when the independent sort toggle changes.
  * @param onGroupsAlwaysOnTopChange Invoked when the groups-always-on-top toggle changes.
+ * @param onFloatingTopBarChange   Invoked when the floating top bar toggle changes.
  * @param onBackup                 Suspending action that saves the backup; returns true on success.
  * @param onRestore                Suspending action that restores from backup; returns true on success.
  * @param onRefreshAlbumPreviews   Action that refreshes album preview images.
@@ -47,9 +49,11 @@ fun SharedSettingsScreen(
     autoBackupEnabled: Boolean,
     independentSortEnabled: Boolean,
     groupsAlwaysOnTop: Boolean,
+    floatingTopBarEnabled: Boolean,
     onAutoBackupChange: (Boolean) -> Unit,
     onIndependentSortChange: (Boolean) -> Unit,
     onGroupsAlwaysOnTopChange: (Boolean) -> Unit,
+    onFloatingTopBarChange: (Boolean) -> Unit,
     onBackup: suspend () -> Boolean,
     onRestore: suspend () -> Boolean,
     onRefreshAlbumPreviews: () -> Unit,
@@ -86,6 +90,16 @@ fun SharedSettingsScreen(
 
             // ── App-specific sections (e.g. Carousel for image-library) ──
             extraContent()
+
+            // ── Interface section ─────────────────────────────────────
+            SettingsSection(title = "Interface") {
+                SettingsToggleRow(
+                    title           = "Floating top bar",
+                    subtitle        = "Samsung Gallery style: floating buttons over full-screen content when scrolling",
+                    checked         = floatingTopBarEnabled,
+                    onCheckedChange = onFloatingTopBarChange
+                )
+            }
 
             // ── Sorting section ───────────────────────────────────────
             SettingsSection(title = "Sorting") {

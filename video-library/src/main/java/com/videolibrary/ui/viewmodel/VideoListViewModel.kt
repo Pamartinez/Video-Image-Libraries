@@ -75,6 +75,8 @@ data class VideoListUiState(
     val independentSortEnabled: Boolean = true,
     /** When true, groups are pinned to the top of sorted lists; ungrouped albums follow. */
     val groupsAlwaysOnTop: Boolean = false,
+    /** When true, use Samsung Gallery-style floating top bar with full-screen content. */
+    val floatingTopBarEnabled: Boolean = false,
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
     /** Whether the Hide Folders full-screen is shown. */
@@ -174,6 +176,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             autoBackupEnabled    = preferences.autoBackupEnabled,
             independentSortEnabled = preferences.independentSortEnabled,
             groupsAlwaysOnTop    = preferences.groupsAlwaysOnTop,
+            floatingTopBarEnabled = preferences.floatingTopBarEnabled,
             hiddenFolderPaths    = preferences.hiddenFolderPaths
         )
     )
@@ -187,6 +190,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         preferences.groupsAlwaysOnTop = value
         _uiState.update { it.copy(groupsAlwaysOnTop = value) }
         silentRefresh()
+        scheduleAutoBackup()
+    }
+
+    fun updateFloatingTopBarEnabled(value: Boolean) {
+        preferences.floatingTopBarEnabled = value
+        _uiState.update { it.copy(floatingTopBarEnabled = value) }
         scheduleAutoBackup()
     }
 
@@ -1760,7 +1769,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     sortOption           = preferences.folderSortOption,
                     videoSortOption      = preferences.videoSortOption,
                     instantPlayerEnabled = preferences.instantPlayerEnabled,
-                    autoBackupEnabled    = preferences.autoBackupEnabled
+                    autoBackupEnabled    = preferences.autoBackupEnabled,
+                    independentSortEnabled = preferences.independentSortEnabled,
+                    groupsAlwaysOnTop    = preferences.groupsAlwaysOnTop,
+                    floatingTopBarEnabled = preferences.floatingTopBarEnabled
                 )
             }
             // Await full reload so the UI is settled before the caller navigates away

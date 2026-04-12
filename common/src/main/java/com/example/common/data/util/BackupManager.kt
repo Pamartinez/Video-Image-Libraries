@@ -25,6 +25,7 @@ import java.io.File
  *     "independentSortEnabled": Boolean,
  *     "groupsAlwaysOnTop":      Boolean,
  *     "autoBackupEnabled":      Boolean,
+ *     "floatingTopBarEnabled":  Boolean,
  *     "hiddenFolderPaths":      [String, ...],
  *     "hiddenFolderMeta":       { "<path>": { "name": String, "bucketId": Int, "itemCount": Int }, ... },
  *
@@ -81,6 +82,7 @@ abstract class BackupManager(
         val independentSortEnabled: Boolean?,
         val groupsAlwaysOnTop:      Boolean?,
         val autoBackupEnabled:      Boolean?,
+        val floatingTopBarEnabled:  Boolean?,
         val hiddenFolderPaths:      Set<String>?,
         val hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>?
     )
@@ -193,6 +195,7 @@ abstract class BackupManager(
         independentSortEnabled: Boolean,
         groupsAlwaysOnTop:      Boolean,
         autoBackupEnabled:      Boolean,
+        floatingTopBarEnabled:  Boolean,
         hiddenFolderPaths:      Set<String>,
         hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>
     ) {
@@ -210,6 +213,7 @@ abstract class BackupManager(
         settings.put("independentSortEnabled", independentSortEnabled)
         settings.put("groupsAlwaysOnTop",      groupsAlwaysOnTop)
         settings.put("autoBackupEnabled",      autoBackupEnabled)
+        settings.put("floatingTopBarEnabled",  floatingTopBarEnabled)
         settings.put("hiddenFolderPaths", JSONArray(hiddenFolderPaths.toList()))
         val metaObj = JSONObject()
         hiddenFolderMeta.forEach { (path, triple) ->
@@ -262,6 +266,9 @@ abstract class BackupManager(
         val autoBackupEnabled: Boolean? =
             if (settings.has("autoBackupEnabled")) settings.getBoolean("autoBackupEnabled") else null
 
+        val floatingTopBarEnabled: Boolean? =
+            if (settings.has("floatingTopBarEnabled")) settings.getBoolean("floatingTopBarEnabled") else null
+
         val hiddenFolderPaths: Set<String>? = if (settings.has("hiddenFolderPaths")) {
             val arr = settings.getJSONArray("hiddenFolderPaths")
             (0 until arr.length()).map { arr.getString(it) }.toSet()
@@ -282,7 +289,8 @@ abstract class BackupManager(
 
         return SharedSettings(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
-            independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled, hiddenFolderPaths, hiddenFolderMeta
+            independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled, floatingTopBarEnabled,
+            hiddenFolderPaths, hiddenFolderMeta
         )
     }
 

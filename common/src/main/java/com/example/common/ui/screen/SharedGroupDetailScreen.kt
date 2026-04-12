@@ -13,9 +13,11 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.Folder
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -85,6 +87,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     onMove: () -> Unit,
     onOpenLocation: () -> Unit,
     groupsAlwaysOnTop: Boolean,
+    floatingTopBarEnabled: Boolean,
     orderedMixedItems: List<Any>,
     onReorderFolders: (Int, Int) -> Unit,
     onReorderDone: () -> Unit,
@@ -194,56 +197,66 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
 
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         Column(Modifier.fillMaxSize()) {
-            // ── Header ──
-            ScreenTopBar {
-                if (isSelectionMode) {
-                    val allSelected = totalItems > 0 && totalSelected == totalItems
-                    selectionHeader(totalSelected, totalItems, allSelected, onSelectAll, onCancelSelection)
-                } else {
-                    CircularBackButton(onClick = onBack)
-                    Spacer(Modifier.width(12.dp))
-                    Column(Modifier.weight(1f)) {
-                        Text(
-                            text = groupName,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color = colors.listFirstText,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        val groupCount = subGroups.size
-                        val albumCount = folders.size
-                        val subtitleParts = buildList {
-                            if (groupCount > 0) add("$groupCount ${if (groupCount == 1) "group" else "groups"}")
-                            if (albumCount > 0) add("$albumCount ${if (albumCount == 1) "album" else "albums"}")
-                        }
-                        if (subtitleParts.isNotEmpty()) {
-                            Text(
-                                text = subtitleParts.joinToString(" "),
-                                fontSize = 13.sp,
-                                color = colors.listSecondText
+            // ── Header (only shown when floating mode is OFF) ──
+            if (!floatingTopBarEnabled) {
+                ScreenTopBar {
+                    if (isSelectionMode) {
+                        val allSelected = totalItems > 0 && totalSelected == totalItems
+                        selectionHeader(totalSelected, totalItems, allSelected, onSelectAll, onCancelSelection)
+                    } else {
+                        // Regular back button (no circular background - ScreenTopBar already has dark bg)
+                        IconButton(onClick = onBack, modifier = Modifier.size(44.dp)) {
+                            Icon(
+                                Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back",
+                                tint = colors.iconColor,
+                                modifier = Modifier.size(22.dp)
                             )
                         }
-                    }
-                    ActionsPill {
-                        IconButton(onClick = { showCreateMenu = true }, modifier = Modifier.size(40.dp)) {
-                            Icon(Icons.Default.Add, contentDescription = "Create", tint = colors.iconColor, modifier = Modifier.size(22.dp))
+                        Spacer(Modifier.width(12.dp))
+                        Column(Modifier.weight(1f)) {
+                            Text(
+                                text = groupName,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = colors.listFirstText,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                            val groupCount = subGroups.size
+                            val albumCount = folders.size
+                            val subtitleParts = buildList {
+                                if (groupCount > 0) add("$groupCount ${if (groupCount == 1) "group" else "groups"}")
+                                if (albumCount > 0) add("$albumCount ${if (albumCount == 1) "album" else "albums"}")
+                            }
+                            if (subtitleParts.isNotEmpty()) {
+                                Text(
+                                    text = subtitleParts.joinToString(" "),
+                                    fontSize = 13.sp,
+                                    color = colors.listSecondText
+                                )
+                            }
                         }
-                        viewTypeToggle(viewType, onCycleViewType)
-                        AppMoreMenuButton(
-                            expanded = showMoreMenu,
-                            onExpand = { showMoreMenu = true },
-                            onDismiss = { showMoreMenu = false },
-                            onSortBy = { showSortDialog = true },
-                            onViewAs = onViewAs,
-                            onSettings = onSettings,
-                            onAbout = onAbout
-                        ) { dismiss ->
-                            AppMenuItem("Add album(s)", onDismiss = dismiss, onClick = onAddFolder, textColor = colors.listFirstText)
-                            AppMenuItem("Rename group", onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
-                            AppMenuItem("Hide album(s)", onDismiss = dismiss, onClick = onHideAlbums, textColor = colors.listFirstText)
-                            AppMenuDivider(color = colors.dividerColor)
-                            AppMenuItem("Destroy group", onDismiss = dismiss, onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
+                        ActionsPill {
+                            IconButton(onClick = { showCreateMenu = true }, modifier = Modifier.size(40.dp)) {
+                                Icon(Icons.Default.Add, contentDescription = "Create", tint = colors.iconColor, modifier = Modifier.size(22.dp))
+                            }
+                            viewTypeToggle(viewType, onCycleViewType)
+                            AppMoreMenuButton(
+                                expanded = showMoreMenu,
+                                onExpand = { showMoreMenu = true },
+                                onDismiss = { showMoreMenu = false },
+                                onSortBy = { showSortDialog = true },
+                                onViewAs = onViewAs,
+                                onSettings = onSettings,
+                                onAbout = onAbout
+                            ) { dismiss ->
+                                AppMenuItem("Add album(s)", onDismiss = dismiss, onClick = onAddFolder, textColor = colors.listFirstText)
+                                AppMenuItem("Rename group", onDismiss = dismiss, onClick = onRenameGroup, textColor = colors.listFirstText)
+                                AppMenuItem("Hide album(s)", onDismiss = dismiss, onClick = onHideAlbums, textColor = colors.listFirstText)
+                                AppMenuDivider(color = colors.dividerColor)
+                                AppMenuItem("Destroy group", onDismiss = dismiss, onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
+                            }
                         }
                     }
                 }
@@ -284,6 +297,95 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         verticalArrangement = Arrangement.spacedBy(spacing),
                         userScrollEnabled = !(canDrag && dragDropState.isDragging)
                     ) {
+                        // ── HEADER AS FIRST ITEM (scrolls naturally with content) ──
+                        if (!isSelectionMode && floatingTopBarEnabled) {
+                            item(span = { androidx.compose.foundation.lazy.grid.GridItemSpan(maxLineSpan) }) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .statusBarsPadding()
+                                        .padding(horizontal = 6.dp, vertical = 12.dp)
+                                        .heightIn(min = 56.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    // Circular back button
+                                    Box(
+                                        modifier = Modifier
+                                            .size(48.dp)
+                                            .background(Color(0x8C000000), RoundedCornerShape(24.dp))
+                                            .clickable(onClick = onBack),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                            contentDescription = "Back",
+                                            tint = Color.White,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                    }
+
+                                    Spacer(Modifier.width(12.dp))
+
+                                    // Title and subtitle
+                                    Column(Modifier.weight(1f)) {
+                                        Text(
+                                            text = groupName,
+                                            fontSize = 20.sp,
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = Color.White,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
+                                        )
+                                        val groupCount = subGroups.size
+                                        val albumCount = folders.size
+                                        val subtitleParts = buildList {
+                                            if (groupCount > 0) add("$groupCount ${if (groupCount == 1) "group" else "groups"}")
+                                            if (albumCount > 0) add("$albumCount ${if (albumCount == 1) "album" else "albums"}")
+                                        }
+                                        if (subtitleParts.isNotEmpty()) {
+                                            Text(
+                                                text = subtitleParts.joinToString(" "),
+                                                fontSize = 13.sp,
+                                                color = Color(0xFFBBBBBB)
+                                            )
+                                        }
+                                    }
+
+                                    // ActionsPill with 3 buttons
+                                    ActionsPill {
+                                        IconButton(onClick = { showCreateMenu = true }, modifier = Modifier.size(40.dp)) {
+                                            Icon(Icons.Default.Add, contentDescription = "Create", tint = Color.White, modifier = Modifier.size(22.dp))
+                                        }
+                                        viewTypeToggle(viewType, onCycleViewType)
+                                        Box {
+                                            IconButton(onClick = { showMoreMenu = !showMoreMenu }, modifier = Modifier.size(40.dp)) {
+                                                Icon(Icons.Default.MoreVert, contentDescription = "More", tint = Color.White, modifier = Modifier.size(22.dp))
+                                            }
+                                            DropdownMenu(
+                                                expanded = showMoreMenu,
+                                                onDismissRequest = { showMoreMenu = false },
+                                                modifier = Modifier
+                                                    .background(colors.menuBg, RoundedCornerShape(16.dp))
+                                                    .widthIn(min = 200.dp)
+                                            ) {
+                                                AppMenuItem("Add album(s)", onDismiss = { showMoreMenu = false }, onClick = onAddFolder, textColor = colors.listFirstText)
+                                                AppMenuItem("Rename group", onDismiss = { showMoreMenu = false }, onClick = onRenameGroup, textColor = colors.listFirstText)
+                                                AppMenuItem("Hide album(s)", onDismiss = { showMoreMenu = false }, onClick = onHideAlbums, textColor = colors.listFirstText)
+                                                AppMenuDivider(color = colors.dividerColor)
+                                                AppMenuItem("Destroy group", onDismiss = { showMoreMenu = false }, onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
+                                                AppMenuDivider(color = colors.dividerColor)
+                                                AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = { showSortDialog = true }, textColor = colors.listFirstText)
+                                                AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
+                                                AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
+                                                AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // ── ALBUM AND GROUP ITEMS ──
                         itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { index, item ->
                             val itemIsDragging = canDrag && dragDropState.draggedIndex == index
                             val anyDragActive = canDrag && dragDropState.isDragging
@@ -368,6 +470,72 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                     )
                                 }
                             }
+                        }
+                    }
+                }
+
+                // ── Floating overlay buttons (when header scrolled away) ──
+                if (floatingTopBarEnabled && !isSelectionMode && lazyGridState.firstVisibleItemIndex > 0) {
+                    // Back button (top-left)
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.TopStart)
+                            .statusBarsPadding()
+                            .padding(start = 16.dp, top = 12.dp)
+                            .size(48.dp)
+                            .background(Color(0x8C000000), RoundedCornerShape(24.dp))
+                            .clickable(onClick = onBack)
+                            .zIndex(20f),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = Color.White,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+
+                    // Menu button (top-right)
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .statusBarsPadding()
+                            .padding(end = 16.dp, top = 12.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(Color(0x8C000000), RoundedCornerShape(24.dp))
+                                .clickable { showMoreMenu = !showMoreMenu }
+                                .zIndex(20f),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.MoreVert,
+                                contentDescription = "More",
+                                tint = Color.White,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+
+                        DropdownMenu(
+                            expanded = showMoreMenu,
+                            onDismissRequest = { showMoreMenu = false },
+                            modifier = Modifier
+                                .background(colors.menuBg, RoundedCornerShape(16.dp))
+                                .widthIn(min = 200.dp)
+                        ) {
+                            AppMenuItem("Add album(s)", onDismiss = { showMoreMenu = false }, onClick = onAddFolder, textColor = colors.listFirstText)
+                            AppMenuItem("Rename group", onDismiss = { showMoreMenu = false }, onClick = onRenameGroup, textColor = colors.listFirstText)
+                            AppMenuItem("Hide album(s)", onDismiss = { showMoreMenu = false }, onClick = onHideAlbums, textColor = colors.listFirstText)
+                            AppMenuDivider(color = colors.dividerColor)
+                            AppMenuItem("Destroy group", onDismiss = { showMoreMenu = false }, onClick = onDestroyGroup, textColor = Color(0xFFEF5350))
+                            AppMenuDivider(color = colors.dividerColor)
+                            AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = { showSortDialog = true }, textColor = colors.listFirstText)
+                            AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
+                            AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
+                            AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
                         }
                     }
                 }
@@ -471,4 +639,3 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
         }
     }
 }
-

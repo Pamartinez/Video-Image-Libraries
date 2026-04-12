@@ -25,6 +25,7 @@ fun FolderDetailScreen(
     viewType: ViewType,
     isSelectionMode: Boolean,
     selectedIds: Set<Long>,
+    floatingTopBarEnabled: Boolean = false,
     onBack: () -> Unit,
     onImageClick: (ImageItem, Int) -> Unit,
     onImageLongClick: (ImageItem) -> Unit,
@@ -78,6 +79,7 @@ fun FolderDetailScreen(
         lazyGridState = lazyGridState,
 
         colors = LocalImageColors.current,
+        floatingTopBarEnabled = floatingTopBarEnabled,
 
         isLargeGrid = { it == ViewType.GRID_LARGE },
         getColumnCount = { if (it == ViewType.GRID_LARGE) 2 else 3 },

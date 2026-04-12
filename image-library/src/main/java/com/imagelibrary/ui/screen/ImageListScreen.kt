@@ -286,6 +286,7 @@ fun ImageListScreen(
             viewType = state.folderViewType,
             isSelectionMode = state.isSelectionMode,
             selectedIds = state.selectedImageIds,
+            floatingTopBarEnabled = state.floatingTopBarEnabled,
             onBack = { viewModel.exitSelectionMode(); viewModel.closeFolder() },
             onImageClick = { _, index -> viewModel.openCarousel(index) },
             onImageLongClick = { image -> viewModel.enterSelectionMode(); viewModel.toggleImageSelection(image.id) },
@@ -530,6 +531,7 @@ fun ImageListScreen(
             isSelectionMode = state.isSelectionMode,
             selectedFolderIds = state.selectedFolderIds,
             selectedGroupIds = state.selectedGroupIds,
+            floatingTopBarEnabled = state.floatingTopBarEnabled,
             onBack = { viewModel.exitSelectionMode(); viewModel.closeGroup() },
             onFolderClick = { folder ->
                 // Read directly from the live StateFlow value — avoids any stale Compose

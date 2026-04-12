@@ -131,6 +131,9 @@ data class ImageListUiState(
     /** When true, groups are pinned to the top of sorted lists; ungrouped albums follow. */
     val groupsAlwaysOnTop: Boolean = false,
 
+    /** When true, use Samsung Gallery-style floating top bar with full-screen content. */
+    val floatingTopBarEnabled: Boolean = false,
+
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: SortOption = SortOption.CUSTOM_ORDER,
     val showHideFolders: Boolean = false,
@@ -175,6 +178,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         preferences.groupsAlwaysOnTop = value
         _uiState.update { it.copy(groupsAlwaysOnTop = value) }
         silentRefresh()
+        scheduleAutoBackup()
+    }
+
+    fun updateFloatingTopBarEnabled(value: Boolean) {
+        preferences.floatingTopBarEnabled = value
+        _uiState.update { it.copy(floatingTopBarEnabled = value) }
         scheduleAutoBackup()
     }
 
@@ -503,6 +512,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 autoBackupEnabled = preferences.autoBackupEnabled,
                 independentSortEnabled = preferences.independentSortEnabled,
                 groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
+                floatingTopBarEnabled = preferences.floatingTopBarEnabled,
                 hiddenFolderPaths = preferences.hiddenFolderPaths
             )
         }
@@ -1426,7 +1436,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     carouselShowBarsOnOpen    = preferences.carouselShowBarsOnOpen,
                     carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                     autoBackupEnabled         = preferences.autoBackupEnabled,
-                    groupsAlwaysOnTop         = preferences.groupsAlwaysOnTop
+                    independentSortEnabled    = preferences.independentSortEnabled,
+                    groupsAlwaysOnTop         = preferences.groupsAlwaysOnTop,
+                    floatingTopBarEnabled     = preferences.floatingTopBarEnabled
                 )
             }
             // Await full reload so the UI is settled before the caller navigates away
@@ -1454,7 +1466,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 carouselShowBarsOnOpen = preferences.carouselShowBarsOnOpen,
                 carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                 autoBackupEnabled = preferences.autoBackupEnabled,
-                groupsAlwaysOnTop = preferences.groupsAlwaysOnTop
+                independentSortEnabled = preferences.independentSortEnabled,
+                groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
+                floatingTopBarEnabled = preferences.floatingTopBarEnabled
             )
         }
         loadData()

@@ -25,6 +25,7 @@ fun FolderDetailScreen(
     viewType: ViewType,
     isSelectionMode: Boolean,
     selectedIds: Set<Long>,
+    floatingTopBarEnabled: Boolean = false,
     onBack: () -> Unit,
     onVideoClick: (VideoItem) -> Unit,
     onVideoLongClick: (VideoItem) -> Unit,
@@ -59,6 +60,7 @@ fun FolderDetailScreen(
         viewType = viewType,
         isSelectionMode = isSelectionMode,
         selectedIds = selectedIds,
+        floatingTopBarEnabled = floatingTopBarEnabled,
         getItemId = { it.id },
         onBack = onBack,
         onItemClick = { video, _ -> onVideoClick(video) },  // Video doesn't use index

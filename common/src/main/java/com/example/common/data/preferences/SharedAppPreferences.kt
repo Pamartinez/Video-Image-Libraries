@@ -35,6 +35,7 @@ open class SharedAppPreferences(
         private const val KEY_AUTO_BACKUP          = "auto_backup_enabled"
         private const val KEY_CUSTOM_MIXED_ORDER   = "custom_mixed_order"
         private const val KEY_CUSTOM_GROUP_ORDER   = "custom_group_order"
+        private const val KEY_FLOATING_TOP_BAR     = "floating_top_bar_enabled"
     }
 
     // ── Sort / display toggles ───────────────────────────────────────────────
@@ -54,6 +55,14 @@ open class SharedAppPreferences(
     var groupsAlwaysOnTop: Boolean
         get() = prefs.getBoolean(KEY_GROUPS_ALWAYS_ON_TOP, false)
         set(value) = prefs.edit().putBoolean(KEY_GROUPS_ALWAYS_ON_TOP, value).apply()
+
+    /**
+     * When true, use Samsung Gallery-style floating top bar with full-screen content
+     * and floating back/menu buttons. When false, use traditional fixed top bar.
+     */
+    var floatingTopBarEnabled: Boolean
+        get() = prefs.getBoolean(KEY_FLOATING_TOP_BAR, false)
+        set(value) = prefs.edit().putBoolean(KEY_FLOATING_TOP_BAR, value).apply()
 
     // ── Per-group sort option ────────────────────────────────────────────────
 

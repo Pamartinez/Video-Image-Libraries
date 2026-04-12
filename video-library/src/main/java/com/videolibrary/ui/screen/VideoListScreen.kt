@@ -262,6 +262,7 @@ fun VideoListScreen(
             viewType          = state.folderViewType,
             sortOption        = state.currentGroupSortOption,
             groupsAlwaysOnTop = state.groupsAlwaysOnTop,
+            floatingTopBarEnabled = state.floatingTopBarEnabled,
             isSelectionMode   = state.isSelectionMode,
             selectedFolderIds = state.selectedFolderIds,
             selectedGroupIds  = state.selectedGroupIds,
@@ -545,6 +546,7 @@ fun VideoListScreen(
             viewType        = state.folderViewType,
             isSelectionMode = state.isSelectionMode,
             selectedIds     = state.selectedVideoIds,
+            floatingTopBarEnabled = state.floatingTopBarEnabled,
             onBack = {
                 viewModel.exitSelectionMode()
                 viewModel.closeFolder()

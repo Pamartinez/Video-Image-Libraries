@@ -14,17 +14,19 @@ fun SettingsScreen(
     val state by viewModel.uiState.collectAsState()
 
     SharedSettingsScreen(
-        onBack                    = onBack,
-        autoBackupEnabled         = state.autoBackupEnabled,
-        independentSortEnabled    = state.independentSortEnabled,
-        groupsAlwaysOnTop         = state.groupsAlwaysOnTop,
-        onAutoBackupChange        = { viewModel.updateAutoBackupEnabled(it) },
-        onIndependentSortChange   = { viewModel.updateIndependentSortEnabled(it) },
-        onGroupsAlwaysOnTopChange = { viewModel.updateGroupsAlwaysOnTop(it) },
-        onBackup                  = { viewModel.saveBackupToFile() },
-        onRestore                 = { viewModel.restoreBackupFromFile() },
-        onRefreshAlbumPreviews    = { viewModel.refreshAlbumPreviews() },
-        backupPath                = "Documents/VideoLibrary/backups/",
-        modifier                  = modifier
+        onBack                     = onBack,
+        autoBackupEnabled          = state.autoBackupEnabled,
+        independentSortEnabled     = state.independentSortEnabled,
+        groupsAlwaysOnTop          = state.groupsAlwaysOnTop,
+        floatingTopBarEnabled      = state.floatingTopBarEnabled,
+        onAutoBackupChange         = { viewModel.updateAutoBackupEnabled(it) },
+        onIndependentSortChange    = { viewModel.updateIndependentSortEnabled(it) },
+        onGroupsAlwaysOnTopChange  = { viewModel.updateGroupsAlwaysOnTop(it) },
+        onFloatingTopBarChange     = { viewModel.updateFloatingTopBarEnabled(it) },
+        onBackup                   = { viewModel.saveBackupToFile() },
+        onRestore                  = { viewModel.restoreBackupFromFile() },
+        onRefreshAlbumPreviews     = { viewModel.refreshAlbumPreviews() },
+        backupPath                 = "Documents/VideoLibrary/backups/",
+        modifier                   = modifier
     )
 }

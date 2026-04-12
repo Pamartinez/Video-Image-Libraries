@@ -19,18 +19,20 @@ fun SettingsScreen(
     BackHandler { onBack() }
 
     SharedSettingsScreen(
-        onBack                    = onBack,
-        autoBackupEnabled         = state.autoBackupEnabled,
-        independentSortEnabled    = state.independentSortEnabled,
-        groupsAlwaysOnTop         = state.groupsAlwaysOnTop,
-        onAutoBackupChange        = { viewModel.updateAutoBackupEnabled(it) },
-        onIndependentSortChange   = { viewModel.updateIndependentSortEnabled(it) },
-        onGroupsAlwaysOnTopChange = { viewModel.updateGroupsAlwaysOnTop(it) },
-        onBackup                  = { viewModel.saveBackupToFile() },
-        onRestore                 = { viewModel.restoreBackupFromFile() },
-        onRefreshAlbumPreviews    = { viewModel.refreshAlbumPreviews() },
-        backupPath                = "Documents/ImageLibrary/backups/",
-        modifier                  = modifier,
+        onBack                     = onBack,
+        autoBackupEnabled          = state.autoBackupEnabled,
+        independentSortEnabled     = state.independentSortEnabled,
+        groupsAlwaysOnTop          = state.groupsAlwaysOnTop,
+        floatingTopBarEnabled      = state.floatingTopBarEnabled,
+        onAutoBackupChange         = { viewModel.updateAutoBackupEnabled(it) },
+        onIndependentSortChange    = { viewModel.updateIndependentSortEnabled(it) },
+        onGroupsAlwaysOnTopChange  = { viewModel.updateGroupsAlwaysOnTop(it) },
+        onFloatingTopBarChange     = { viewModel.updateFloatingTopBarEnabled(it) },
+        onBackup                   = { viewModel.saveBackupToFile() },
+        onRestore                  = { viewModel.restoreBackupFromFile() },
+        onRefreshAlbumPreviews     = { viewModel.refreshAlbumPreviews() },
+        backupPath                 = "Documents/ImageLibrary/backups/",
+        modifier                   = modifier,
         extraContent            = {
             // ── Carousel section (image-library only) ──
             SettingsSection(title = "Carousel") {
