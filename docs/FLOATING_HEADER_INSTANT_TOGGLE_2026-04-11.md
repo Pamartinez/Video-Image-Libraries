@@ -5,6 +5,10 @@
 ## Summary
 Changed the floating header behavior from alpha-based fade transitions to instant visibility toggle to eliminate visual overlap between inline and floating header elements. The header now instantly disappears when scrolling starts and the floating buttons instantly appear, keeping the header row height constant to prevent content jumping.
 
+**Applied to both:**
+- `SharedFolderDetailScreen.kt` (album/folder detail view)
+- `SharedGroupDetailScreen.kt` (group detail view)
+
 ## Problem
 The previous implementation used smooth alpha-based fade transitions (`FastOutSlowInEasing`) between inline and floating headers. This caused:
 - **Visual overlap** during the transition period (inline and floating buttons both partially visible)
@@ -156,7 +160,17 @@ This ensures both buttons (< and ⋮) stay in the **exact same visual position**
    - Replaced alpha calculation with boolean toggle
    - Changed inline header to conditional rendering
    - Changed floating buttons to conditional rendering
+   - Standardized button sizes (48dp buttons, 24dp icons)
+   - Fixed alignment (back: 16dp from left, menu: 24dp from right, both 16dp from top)
    - Removed unused imports
+
+2. **`common/src/main/java/com/example/common/ui/screen/SharedGroupDetailScreen.kt`**
+   - Applied identical changes to group detail screen
+   - Replaced threshold-based scroll detection with instant toggle
+   - Changed inline header to conditional rendering
+   - Changed floating buttons to conditional rendering
+   - Standardized button sizes (48dp buttons, 24dp icons)
+   - Fixed alignment (back: 16dp from left, menu: 24dp from right, both 16dp from top)
 
 ## Impact
 - ✅ Affects both libraries (shared component)
@@ -178,6 +192,8 @@ This ensures both buttons (< and ⋮) stay in the **exact same visual position**
 
 ---
 **Status:** ✅ Complete and tested
+
+
 
 
 
