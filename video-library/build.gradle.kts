@@ -60,21 +60,3 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
-
-// Custom task to show APK size after installation
-tasks.register("showApkSize") {
-    doLast {
-        val apkDir = file("${layout.buildDirectory.get()}/outputs/apk/debug")
-        if (apkDir.exists()) {
-            apkDir.listFiles()?.filter { it.extension == "apk" }?.forEach { apk ->
-                val sizeInMB = apk.length() / (1024.0 * 1024.0)
-                println("✅ video-library: Installed on device (%.2f MB)".format(sizeInMB))
-            }
-        }
-    }
-}
-
-// Hook the showApkSize task to run after installDebug
-afterEvaluate {
-    tasks.findByName("installDebug")?.finalizedBy("showApkSize")
-}

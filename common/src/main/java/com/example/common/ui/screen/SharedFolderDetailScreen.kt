@@ -25,12 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.common.ui.components.ActionsPill
-import com.example.common.ui.components.AppMenuDivider
-import com.example.common.ui.components.AppMenuItem
 import com.example.common.ui.components.AppMenuItem
 import com.example.common.ui.components.AppMoreMenuButton
 import com.example.common.ui.components.BottomActionBar
-import com.example.common.ui.components.CircularBackButton
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
 
@@ -102,10 +99,20 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
 ) {
     var showMoreMenu by remember { mutableStateOf(false) }
 
+    // ── Calculate scroll state for visibility control ──
+    val scrollOffset = if (floatingTopBarEnabled && !isSelectionMode) {
+        lazyGridState.firstVisibleItemScrollOffset
+    } else 0
+
+    // Simple toggle: invisible when scrolling, visible when at top
+    val isScrolled = scrollOffset > 0
+    val showInline = !isScrolled
+    val showFloating = isScrolled
+
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         Column(modifier = Modifier.fillMaxSize()) {
-            // ── Header (only shown when floating mode is OFF) ──
-            if (!floatingTopBarEnabled) {
+            // ── Header (shown when floating mode is OFF OR in selection mode) ──
+            if (!floatingTopBarEnabled || isSelectionMode) {
                 ScreenTopBar {
                     if (isSelectionMode) {
                         val allSelected = items.isNotEmpty() && selectedIds.size == items.size
@@ -173,57 +180,63 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .statusBarsPadding()
-                                    .padding(horizontal = 6.dp, vertical = 12.dp)
+                                    .padding(horizontal = 16.dp, vertical = 12.dp)
                                     .heightIn(min = 56.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                // Circular back button
-                                Box(
-                                    modifier = Modifier
-                                        .size(48.dp)
-                                        .background(Color(0x8C000000), RoundedCornerShape(24.dp))
-                                        .clickable(onClick = onBack),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                        contentDescription = "Back",
-                                        tint = Color.White,
-                                        modifier = Modifier.size(24.dp)
+                                // Only show inline header content when not scrolled
+                                if (showInline) {
+                                    // Circular back button
+                                    Box(
+                                        modifier = Modifier
+                                            .size(48.dp)
+                                            .background(Color(0x8C000000), RoundedCornerShape(24.dp))
+                                            .clickable(onClick = onBack),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                            contentDescription = "Back",
+                                            tint = Color.White,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                    }
+
+                                    Spacer(Modifier.width(12.dp))
+
+                                    // Title
+                                    Text(
+                                        text = folderName,
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.SemiBold,
+                                        color = Color.White,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis,
+                                        modifier = Modifier.weight(1f)
                                     )
-                                }
 
-                                Spacer(Modifier.width(12.dp))
-
-                                // Title
-                                Text(
-                                    text = folderName,
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.SemiBold,
-                                    color = Color.White,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis,
-                                    modifier = Modifier.weight(1f)
-                                )
-
-                                // ActionsPill with view type + menu
-                                ActionsPill {
-                                    viewTypeToggle(viewType, onCycleViewType)
-                                    Box {
-                                        IconButton(onClick = { showMoreMenu = !showMoreMenu }, modifier = Modifier.size(40.dp)) {
-                                            Icon(Icons.Default.MoreVert, contentDescription = "More", tint = Color.White, modifier = Modifier.size(22.dp))
-                                        }
-                                        DropdownMenu(
-                                            expanded = showMoreMenu,
-                                            onDismissRequest = { showMoreMenu = false },
-                                            modifier = Modifier
-                                                .background(colors.menuBg, RoundedCornerShape(16.dp))
-                                                .widthIn(min = 200.dp)
-                                        ) {
-                                            AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = onSortBy, textColor = colors.listFirstText)
-                                            AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
-                                            AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
-                                            AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
+                                    // ActionsPill with view type + menu
+                                    ActionsPill {
+                                        viewTypeToggle(viewType, onCycleViewType)
+                                        Box {
+                                            IconButton(
+                                                onClick = { showMoreMenu = !showMoreMenu },
+                                                modifier = Modifier.size(48.dp)
+                                            ) {
+                                                Icon(Icons.Default.MoreVert, contentDescription = "More", tint = Color.White, modifier = Modifier.size(24.dp))
+                                            }
+                                            DropdownMenu(
+                                                expanded = showMoreMenu,
+                                                onDismissRequest = { showMoreMenu = false },
+                                                modifier = Modifier
+                                                    .background(colors.menuBg, RoundedCornerShape(16.dp))
+                                                    .widthIn(min = 200.dp)
+                                            ) {
+                                                AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = onSortBy, textColor = colors.listFirstText)
+                                                AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
+                                                AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
+                                                AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
+                                            }
                                         }
                                     }
                                 }
@@ -254,14 +267,14 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                     }
                 }
 
-                    // ── Floating overlay buttons (when header scrolled away) ──
-                    if (floatingTopBarEnabled && !isSelectionMode && lazyGridState.firstVisibleItemIndex > 0) {
-                    // Back button (top-left)
+                    // ── Floating overlay buttons (shown when scrolled) ──
+                    if (floatingTopBarEnabled && !isSelectionMode && showFloating) {
+                    // Back button (top-left) - aligned with inline header position
                     Box(
                         modifier = Modifier
                             .align(Alignment.TopStart)
                             .statusBarsPadding()
-                            .padding(start = 16.dp, top = 12.dp)
+                            .padding(start = 16.dp, top = 16.dp)
                             .size(48.dp)
                             .background(Color(0x8C000000), RoundedCornerShape(24.dp))
                             .clickable(onClick = onBack)
@@ -276,18 +289,18 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                         )
                     }
 
-                    // Menu button (top-right)
+                    // Menu button (top-right) - aligned with inline header position (compensating for ActionsPill padding)
                     Box(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
                             .statusBarsPadding()
-                            .padding(end = 16.dp, top = 12.dp)
+                            .padding(end = 24.dp, top = 16.dp)  // 24dp = 16dp Row padding + 8dp ActionsPill padding
                     ) {
                         Box(
                             modifier = Modifier
                                 .size(48.dp)
                                 .background(Color(0x8C000000), RoundedCornerShape(24.dp))
-                                .clickable { showMoreMenu = !showMoreMenu }
+                                .clickable(onClick = { showMoreMenu = !showMoreMenu })
                                 .zIndex(20f),
                             contentAlignment = Alignment.Center
                         ) {
@@ -334,3 +347,4 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
         )
     }
 }
+

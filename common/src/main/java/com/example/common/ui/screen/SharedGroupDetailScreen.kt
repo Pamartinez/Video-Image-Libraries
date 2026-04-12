@@ -197,8 +197,8 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
 
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         Column(Modifier.fillMaxSize()) {
-            // ── Header (only shown when floating mode is OFF) ──
-            if (!floatingTopBarEnabled) {
+            // ── Header (shown when floating mode is OFF OR in selection mode) ──
+            if (!floatingTopBarEnabled || isSelectionMode) {
                 ScreenTopBar {
                     if (isSelectionMode) {
                         val allSelected = totalItems > 0 && totalSelected == totalItems
@@ -475,7 +475,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                 }
 
                 // ── Floating overlay buttons (when header scrolled away) ──
-                if (floatingTopBarEnabled && !isSelectionMode && lazyGridState.firstVisibleItemIndex > 0) {
+                if (floatingTopBarEnabled && !isSelectionMode && (lazyGridState.firstVisibleItemIndex >= 1 || lazyGridState.firstVisibleItemScrollOffset > 50)) {
                     // Back button (top-left)
                     Box(
                         modifier = Modifier
