@@ -179,6 +179,7 @@ fun ImageCarouselScreen(
             )
             BottomActionBar(
                 visible = bottomBarVisible,
+                selectedCount = 1,
                 onCopy    = { currentImage?.let(onCopy) },
                 onMove    = { currentImage?.let(onMove) },
                 onShare   = { currentImage?.let(onShare) },

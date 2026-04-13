@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -61,6 +59,7 @@ fun BottomActionBar(
     onDelete: () -> Unit,
     onDetails: () -> Unit,
     modifier: Modifier = Modifier,
+    selectedCount: Int = 1,
     showAllActions: Boolean = true,
     showDetails: Boolean = true,
     onOpenLocation: () -> Unit = {},
@@ -72,7 +71,7 @@ fun BottomActionBar(
     onShare: () -> Unit = {}
 ) {
     AnimatedVisibility(
-        visible = visible,
+        visible = visible && selectedCount > 0,
         enter = slideInVertically(initialOffsetY = { it }) + fadeIn(),
         exit  = slideOutVertically(targetOffsetY  = { it }) + fadeOut(),
         modifier = modifier
@@ -91,21 +90,21 @@ fun BottomActionBar(
                 //   bottom_bar_layout_container_padding_horizontal = 8 dp
                 //   bottom_menu_list_circle_item_horizontal_gap    = 4 dp
                 //   vertical padding (top + bottom inside pill)    = 10 dp each side
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 10.dp),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.padding(horizontal = 4.dp, vertical = 5.dp),
+                horizontalArrangement = Arrangement.spacedBy(1.dp),
                 verticalAlignment     = Alignment.CenterVertically
             ) {
                 if (showGroup) {
                     BottomBarItem(icon = Icons.Default.CreateNewFolder, label = "Group",   onClick = onGroup)
                 }
                 if (showAllActions) {
-                    BottomBarItem(icon = Icons.Default.ContentCopy,             label = "Copy",    onClick = onCopy)
+                    BottomBarItem(icon = Icons.Default.ContentCopy, label = "Copy",    onClick = onCopy)
                 }
                 if (showAllActions || showMove) {
                     BottomBarItem(icon = Icons.AutoMirrored.Filled.DriveFileMove, label = "Move",  onClick = onMove)
                 }
                 if (showShare) {
-                    BottomBarItem(icon = Icons.Default.Share,                   label = "Share",   onClick = onShare)
+                    BottomBarItem(icon = Icons.Default.Share, label = "Share",   onClick = onShare)
                 }
                 BottomBarItem(icon = Icons.Outlined.Delete, label = "Delete", onClick = onDelete)
 
@@ -203,7 +202,7 @@ fun BottomBarItem(
         //Spacer(modifier = Modifier.height(4.dp))  // bottom_menu_list_circle_item_text_margin_top
         Text(
             text       = label,
-            fontSize   = 12.sp,              // bottom_menu_list_view_holder_text_size
+            fontSize   = 11.sp,              // bottom_menu_list_view_holder_text_size
             fontWeight = FontWeight.Light,
             maxLines   = 1,
             color      = Color.White

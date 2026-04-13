@@ -1166,7 +1166,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update {
             val newSet = if (groupId in it.selectedGroupIds)
                 it.selectedGroupIds - groupId else it.selectedGroupIds + groupId
-            it.copy(selectedGroupIds = newSet, isSelectionMode = true)
+            // Don't force selection mode - it's controlled by enterSelectionMode/exitSelectionMode
+            it.copy(selectedGroupIds = newSet)
         }
     }
 
@@ -1334,7 +1335,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun toggleFolderSelection(bucketId: Int) {
         _uiState.update {
             val newSet = if (bucketId in it.selectedFolderIds) it.selectedFolderIds - bucketId else it.selectedFolderIds + bucketId
-            it.copy(selectedFolderIds = newSet, isSelectionMode = true)
+            // Don't force selection mode - it's controlled by enterSelectionMode/exitSelectionMode
+            it.copy(selectedFolderIds = newSet)
         }
     }
     fun selectAllVideos() { _uiState.update { it.copy(selectedVideoIds = it.videos.map { v -> v.id }.toSet()) } }

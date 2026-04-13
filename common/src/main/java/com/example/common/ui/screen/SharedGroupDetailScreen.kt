@@ -570,6 +570,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
         // ── Bottom action bar ──
         BottomActionBar(
             visible = isSelectionMode,
+            selectedCount = totalSelected,
             onCopy = {},
             onMove = onMove,
             onDelete = onDelete,

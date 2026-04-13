@@ -333,6 +333,7 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
         // ── Bottom action bar ──
         BottomActionBar(
             visible = isSelectionMode,
+            selectedCount = selectedIds.size,
             onCopy = onCopy,
             onMove = onMove,
             onDelete = onDelete,

@@ -793,6 +793,7 @@ fun ImageListScreen(
             val totalSelected = state.selectedFolderIds.size + state.selectedGroupIds.size
             BottomActionBar(
                 visible = state.isSelectionMode,
+                selectedCount = totalSelected,
             onCopy = { viewModel.showCopyFolderPicker() },
             onMove = { viewModel.showMoveToGroupPicker() },
             onDelete = { viewModel.showDeleteDialog() },

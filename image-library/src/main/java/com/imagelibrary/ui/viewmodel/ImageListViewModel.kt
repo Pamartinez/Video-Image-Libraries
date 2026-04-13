@@ -932,7 +932,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { s ->
             val sel = s.selectedImageIds.toMutableSet()
             if (sel.contains(id)) sel.remove(id) else { if (sel.size >= 1000) return@update s; sel.add(id) }
-            s.copy(selectedImageIds = sel, isSelectionMode = sel.isNotEmpty() || s.selectedFolderIds.isNotEmpty())
+            // Keep selection mode active even when deselecting the last item (Samsung Gallery behavior)
+            s.copy(selectedImageIds = sel)
         }
     }
 
@@ -940,7 +941,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { s ->
             val sel = s.selectedFolderIds.toMutableSet()
             if (sel.contains(id)) sel.remove(id) else sel.add(id)
-            s.copy(selectedFolderIds = sel, isSelectionMode = sel.isNotEmpty() || s.selectedImageIds.isNotEmpty() || s.selectedGroupIds.isNotEmpty())
+            // Keep selection mode active even when deselecting the last item (Samsung Gallery behavior)
+            s.copy(selectedFolderIds = sel)
         }
     }
 
@@ -948,7 +950,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update { s ->
             val sel = s.selectedGroupIds.toMutableSet()
             if (sel.contains(id)) sel.remove(id) else sel.add(id)
-            s.copy(selectedGroupIds = sel, isSelectionMode = sel.isNotEmpty() || s.selectedFolderIds.isNotEmpty() || s.selectedImageIds.isNotEmpty())
+            // Keep selection mode active even when deselecting the last item (Samsung Gallery behavior)
+            s.copy(selectedGroupIds = sel)
         }
     }
 

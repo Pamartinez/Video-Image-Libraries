@@ -1016,6 +1016,7 @@ fun VideoListScreen(
         val showGroupBtn = state.selectedTab == 1 && selectedCount >= 1
         BottomActionBar(
             visible = state.isSelectionMode,
+            selectedCount = selectedCount,
             onCopy = { viewModel.showCopyFolderPicker() },
             onMove = {
                 if (state.selectedTab == 1) viewModel.showMoveToGroupPicker()
