@@ -588,6 +588,10 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
             onShare = onShare,
             showOpenLocation = totalSelected == 1 && selectedGroupIds.isEmpty(),
             onOpenLocation = onOpenLocation,
+            showRename = totalSelected == 1 && selectedGroupIds.isEmpty(),
+            onRename = { /* Album rename handled in parent screen */ },
+            showRenameGroup = totalSelected == 1 && hasGroupsSelected,
+            onRenameGroup = onRenameGroup,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
     }

@@ -71,7 +71,9 @@ fun BottomActionBar(
     showShare: Boolean = false,
     onShare: () -> Unit = {},
     onRename: () -> Unit = {},
-    showRename: Boolean = false
+    showRename: Boolean = false,
+    onRenameGroup: () -> Unit = {},
+    showRenameGroup: Boolean = false
 ) {
     // Hide instantly without animation
     if (visible && selectedCount > 0) {
@@ -110,8 +112,8 @@ fun BottomActionBar(
                 }
                 BottomBarItem(icon = Icons.Default.Delete, label = "Delete", onClick = onDelete)
 
-                // "More" button with submenu for Rename, Details & Open location
-                val hasMoreItems = showRename || (showAllActions && showDetails) || showOpenLocation
+                // "More" button with submenu for Rename, Rename Group, Details & Open location
+                val hasMoreItems = showRename || showRenameGroup || (showAllActions && showDetails) || showOpenLocation
                 if (hasMoreItems) {
                     var showMoreMenu by remember { mutableStateOf(false) }
                     Box {
@@ -143,7 +145,23 @@ fun BottomActionBar(
                                     }
                                 )
                             }
-                            if (showRename && (showAllActions && showDetails)) {
+                            if (showRenameGroup) {
+                                AppMenuItem(
+                                    text      = "Rename",
+                                    onDismiss = { showMoreMenu = false },
+                                    onClick   = onRenameGroup,
+                                    textColor = Color.White,
+                                    leadingIcon = {
+                                        Icon(
+                                            Icons.Default.Edit,
+                                            contentDescription = null,
+                                            tint     = Color.White,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                )
+                            }
+                            if ((showRename || showRenameGroup) && (showAllActions && showDetails)) {
                                 AppMenuDivider(color = Color(0x40FFFFFF), thickness = 0.5.dp)
                             }
                             if (showAllActions && showDetails) {

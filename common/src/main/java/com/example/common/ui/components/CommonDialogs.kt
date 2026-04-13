@@ -623,6 +623,7 @@ fun GroupNameDialog(
     title: String = "Create group",
     confirmLabel: String = "Create",
     existingNames: Collection<String> = emptyList(),
+    allowDuplicates: Boolean = false,
     onConfirm: (String) -> Unit,
     onDismiss: () -> Unit
 ) {
@@ -663,7 +664,7 @@ fun GroupNameDialog(
                     value         = fieldValue,
                     onValueChange = {
                         fieldValue = it
-                        error = if (existingNames.any { n -> n.equals(it.text.trim(), ignoreCase = true) })
+                        error = if (!allowDuplicates && existingNames.any { n -> n.equals(it.text.trim(), ignoreCase = true) })
                             "A group with this name already exists." else null
                     },
                     singleLine = true,

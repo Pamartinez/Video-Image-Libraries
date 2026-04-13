@@ -338,6 +338,7 @@ fun VideoListScreen(
                 initialName  = state.currentGroupName,
                 title        = "Rename group",
                 confirmLabel = "Rename",
+                allowDuplicates = true,
                 onConfirm    = { viewModel.renameCurrentGroup(it) },
                 onDismiss    = { viewModel.dismissRenameGroupDialog() }
             )
@@ -1044,6 +1045,8 @@ fun VideoListScreen(
             onUngroup = { viewModel.ungroupSelectedGroups() },
             showRename = state.selectedTab == 1 && selectedCount == 1 && state.selectedGroupIds.isEmpty(),
             onRename = { viewModel.showRenameAlbumDialog() },
+            showRenameGroup = state.selectedTab == 1 && selectedCount == 1 && hasGroupsSelected,
+            onRenameGroup = { viewModel.showRenameGroupDialog() },
             modifier  = Modifier.align(Alignment.BottomCenter)
         )
 

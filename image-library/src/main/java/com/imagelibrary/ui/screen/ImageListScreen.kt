@@ -584,7 +584,7 @@ fun ImageListScreen(
             onReorderDone = { viewModel.persistGroupOrder() },
             lazyGridState = groupGridState
         )
-        if (state.showRenameGroupDialog) { GroupNameDialog(title = "Rename group", confirmLabel = "Rename", initialName = state.currentGroupName, existingNames = state.allGroups.map { it.name }, onConfirm = { viewModel.renameCurrentGroup(it) }, onDismiss = { viewModel.dismissRenameGroupDialog() }) }
+        if (state.showRenameGroupDialog) { GroupNameDialog(title = "Rename group", confirmLabel = "Rename", initialName = state.currentGroupName, allowDuplicates = true, onConfirm = { viewModel.renameCurrentGroup(it) }, onDismiss = { viewModel.dismissRenameGroupDialog() }) }
         if (state.showDestroyGroupDialog) { DestroyGroupDialog(groupName = state.currentGroupName, onConfirm = { viewModel.destroyCurrentGroup() }, onDismiss = { viewModel.dismissDestroyGroupDialog() }) }
         if (state.showGroupNameDialog) {
             val existingNames = state.allGroups.map { it.name }
@@ -816,6 +816,8 @@ fun ImageListScreen(
                 },
                 showRename = totalSelected == 1 && state.selectedGroupIds.isEmpty(),
                 onRename = { viewModel.showRenameAlbumDialog() },
+                showRenameGroup = totalSelected == 1 && hasGroupsSelected,
+                onRenameGroup = { viewModel.showRenameGroupDialog() },
                 modifier = Modifier.align(Alignment.BottomCenter)
             )
         }
