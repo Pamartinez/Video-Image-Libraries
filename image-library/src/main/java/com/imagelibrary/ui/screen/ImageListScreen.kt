@@ -567,6 +567,7 @@ fun ImageListScreen(
             onAbout = { viewModel.showAbout() },
             onDelete = { viewModel.removeSelectedFromGroup() },
             onGroup = { viewModel.showGroupNameDialogForBottomBar() },
+            onUngroup = { viewModel.ungroupSelectedGroups() },
             onSelectAll = { viewModel.selectAllInGroup() },
             onCancelSelection = { viewModel.exitSelectionMode() },
             onShare = { viewModel.shareSelectedFolders() },
@@ -791,6 +792,7 @@ fun ImageListScreen(
         // ── Selection bottom bar: Group | Move | Share | Delete ──
         if (!state.isGroupCreationMode) {
             val totalSelected = state.selectedFolderIds.size + state.selectedGroupIds.size
+            val hasGroupsSelected = state.selectedGroupIds.isNotEmpty()
             BottomActionBar(
                 visible = state.isSelectionMode,
                 selectedCount = totalSelected,
@@ -801,6 +803,8 @@ fun ImageListScreen(
                 showAllActions = false, showDetails = false,
                 showGroup = totalSelected >= 1,
                 onGroup = { viewModel.showGroupNameDialogForBottomBar() },
+                showUngroup = hasGroupsSelected,
+                onUngroup = { viewModel.ungroupSelectedGroups() },
                 showMove = totalSelected >= 1,
                 showShare = true,
                 onShare = { viewModel.shareSelectedFolders() },

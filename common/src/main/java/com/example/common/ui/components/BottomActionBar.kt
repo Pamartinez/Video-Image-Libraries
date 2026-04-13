@@ -1,10 +1,5 @@
 package com.example.common.ui.components
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,9 +13,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DriveFileMove
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.CreateNewFolder
+import androidx.compose.material.icons.filled.FolderDelete
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.DropdownMenu
@@ -66,18 +63,16 @@ fun BottomActionBar(
     showOpenLocation: Boolean = false,
     onGroup: () -> Unit = {},
     showGroup: Boolean = false,
+    onUngroup: () -> Unit = {},
+    showUngroup: Boolean = false,
     showMove: Boolean = false,
     showShare: Boolean = false,
     onShare: () -> Unit = {}
 ) {
-    AnimatedVisibility(
-        visible = visible && selectedCount > 0,
-        enter = slideInVertically(initialOffsetY = { it }) + fadeIn(),
-        exit  = slideOutVertically(targetOffsetY  = { it }) + fadeOut(),
-        modifier = modifier
-    ) {
+    // Hide instantly without animation
+    if (visible && selectedCount > 0) {
         Surface(
-            modifier = Modifier
+            modifier = modifier
                 .navigationBarsPadding()
                 .padding(bottom = 20.dp),
             shape          = RoundedCornerShape(50.dp),
@@ -94,7 +89,10 @@ fun BottomActionBar(
                 horizontalArrangement = Arrangement.spacedBy(1.dp),
                 verticalAlignment     = Alignment.CenterVertically
             ) {
-                if (showGroup) {
+                if (showUngroup && selectedCount == 1) {
+                    BottomBarItem(icon = Icons.Default.FolderDelete, label = "Ungroup", onClick = onUngroup)
+                }
+                if ((showGroup && !showUngroup) || (showGroup && selectedCount > 1)) {
                     BottomBarItem(icon = Icons.Default.CreateNewFolder, label = "Group",   onClick = onGroup)
                 }
                 if (showAllActions) {

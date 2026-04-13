@@ -77,6 +77,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     onSortOptionSelected: (SortOptionEnum) -> Unit,
     onDelete: () -> Unit,
     onGroup: () -> Unit,
+    onUngroup: () -> Unit,
     onSelectAll: () -> Unit,
     onCancelSelection: () -> Unit,
     onCreateAlbum: () -> Unit,
@@ -568,6 +569,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
         }
 
         // ── Bottom action bar ──
+        val hasGroupsSelected = selectedGroupIds.isNotEmpty()
         BottomActionBar(
             visible = isSelectionMode,
             selectedCount = totalSelected,
@@ -579,6 +581,8 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
             showDetails = false,
             showGroup = totalSelected >= 1,
             onGroup = onGroup,
+            showUngroup = hasGroupsSelected,
+            onUngroup = onUngroup,
             showMove = totalSelected >= 1,
             showShare = true,
             onShare = onShare,

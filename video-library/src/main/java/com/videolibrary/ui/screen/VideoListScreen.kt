@@ -298,6 +298,7 @@ fun VideoListScreen(
             onSortOptionSelected = { viewModel.setCurrentGroupSortOption(it) },
             onDelete             = { viewModel.showDeleteDialog() },
             onGroup              = { viewModel.showGroupNameDialogForBottomBar() },
+            onUngroup            = { viewModel.ungroupSelectedGroups() },
             onSelectAll          = { viewModel.selectAllInGroup() },
             onCancelSelection    = { viewModel.exitSelectionMode() },
             onCreateAlbum        = { viewModel.showCreateAlbumDialog() },
@@ -1014,6 +1015,7 @@ fun VideoListScreen(
         val selectedCount = if (state.selectedTab == 0) state.selectedVideoIds.size
             else state.selectedFolderIds.size + state.selectedGroupIds.size
         val showGroupBtn = state.selectedTab == 1 && selectedCount >= 1
+        val hasGroupsSelected = state.selectedTab == 1 && state.selectedGroupIds.isNotEmpty()
         BottomActionBar(
             visible = state.isSelectionMode,
             selectedCount = selectedCount,
@@ -1037,6 +1039,8 @@ fun VideoListScreen(
             showOpenLocation = selectedCount == 1,
             showGroup = showGroupBtn,
             onGroup   = { viewModel.showGroupNameDialogForBottomBar() },
+            showUngroup = hasGroupsSelected,
+            onUngroup = { viewModel.ungroupSelectedGroups() },
             modifier  = Modifier.align(Alignment.BottomCenter)
         )
 
