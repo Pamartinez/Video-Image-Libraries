@@ -36,6 +36,7 @@ import com.example.common.ui.components.CopyMoveAlbumDialog
 import com.example.common.ui.components.CreateFolderDialog
 import com.example.common.ui.components.DestroyGroupDialog
 import com.example.common.ui.components.RenameDialog
+import com.example.common.ui.components.AlbumRenameDialog
 import com.example.common.ui.components.AppMoreMenuButton
 import com.example.common.ui.components.ScreenTopBar
 import com.imagelibrary.ui.components.*
@@ -813,6 +814,8 @@ fun ImageListScreen(
                     viewModel.getSelectedLocationPath()
                         ?.let { FileManagerHelper.openFolder(ctx, it) }
                 },
+                showRename = totalSelected == 1 && state.selectedGroupIds.isEmpty(),
+                onRename = { viewModel.showRenameAlbumDialog() },
                 modifier = Modifier.align(Alignment.BottomCenter)
             )
         }
@@ -838,6 +841,14 @@ fun ImageListScreen(
     if (state.showSortDialog) { SortDialog(options = SortOption.entries, labelFor = { it.label }, currentOption = state.sortOption, onOptionSelected = { viewModel.setSortOption(it) }, onDismiss = { viewModel.dismissSortDialog() }) }
     if (state.showViewAsDialog) { ViewAsDialog(currentViewType = state.viewType, onViewTypeSelected = { viewModel.setViewType(it) }, onDismiss = { viewModel.dismissViewAsDialog() }) }
     if (state.showRenameDialog && state.renameTarget != null) { RenameDialog(currentName = state.renameTarget!!.displayName, title = "Rename image", onRename = { viewModel.renameImage(state.renameTarget!!.id, it) }, onDismiss = { viewModel.dismissRenameDialog() }) }
+    if (state.showRenameAlbumDialog && state.renameAlbumTarget != null) {
+        AlbumRenameDialog(
+            currentName = state.renameAlbumTarget!!.name,
+            existingNames = state.dcimFolderNames,
+            onRename = { viewModel.renameSelectedAlbum(it) },
+            onDismiss = { viewModel.dismissRenameAlbumDialog() }
+        )
+    }
     if (state.showDeleteDialog && state.currentFolderBucketId == null && state.currentGroupId == null) {
         val selFolders = state.ungroupedFolders.filter { it.bucketId in state.selectedFolderIds }
         val selGroups  = state.rootGroups.filter { it.groupId in state.selectedGroupIds }

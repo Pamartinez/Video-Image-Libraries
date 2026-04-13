@@ -98,6 +98,8 @@ data class VideoListUiState(
     /** True when hide screen was opened from inside a group — back exits entirely. */
     val hideScreenStartedInsideGroup: Boolean = false,
     val renameTarget: VideoItem? = null,
+    val showRenameAlbumDialog: Boolean = false,
+    val renameAlbumTarget: FolderItem? = null,
     val error: String? = null,
     val total: Int = 0,
     val scrollToTopTrigger: Int = 0,
@@ -1687,146 +1689,91 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = true) }
     fun dismissViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = false) }
     fun dismissRenameDialog() = _uiState.update { it.copy(showRenameDialog = false, renameTarget = null) }
-    fun showDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = true) }
-    fun dismissDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = false) }
-    fun showCreateFolderDialog() = _uiState.update { it.copy(showCreateFolderDialog = true) }
-    fun dismissCreateFolderDialog() = _uiState.update { it.copy(showCreateFolderDialog = false) }
-    fun showMoveFolderPicker() { Log.d("VideoVM", "showMoveFolderPicker: selectedIds=${_uiState.value.selectedVideoIds}"); _uiState.update { it.copy(showMoveFolderPicker = true) } }
-    fun dismissMoveFolderPicker() = _uiState.update { it.copy(showMoveFolderPicker = false) }
-    fun showCopyFolderPicker() { Log.d("VideoVM", "showCopyFolderPicker: selectedIds=${_uiState.value.selectedVideoIds}"); _uiState.update { it.copy(showCopyFolderPicker = true) } }
-    fun dismissCopyFolderPicker() = _uiState.update { it.copy(showCopyFolderPicker = false) }
-    fun showAbout() = _uiState.update { it.copy(showAbout = true) }
-    fun dismissAbout() = _uiState.update { it.copy(showAbout = false) }
 
-    // ── Settings ──────────────────────────────────────────────────────
-
-    fun showSettings()    = _uiState.update { it.copy(showSettings = true) }
-    fun dismissSettings() = _uiState.update { it.copy(showSettings = false) }
-
-    // ── Instant Player toggle ─────────────────────────────────────────
-
-    fun updateInstantPlayerEnabled(value: Boolean) {
-        preferences.instantPlayerEnabled = value
-        _uiState.update { it.copy(instantPlayerEnabled = value) }
-        scheduleAutoBackup()
-    }
-
-    // ── Auto-backup ───────────────────────────────────────────────────
-
-    fun updateAutoBackupEnabled(value: Boolean) {
-        preferences.autoBackupEnabled = value
-        _uiState.update { it.copy(autoBackupEnabled = value) }
-    }
-
-    /**
-     * Cancels any pending backup and schedules a new one to fire after
-     * AUTO_BACKUP_DEBOUNCE_MS on the IO dispatcher.
-     * No-op when auto-backup is disabled or a restore is in progress.
-     */
-    fun scheduleAutoBackup() {
-        if (!preferences.autoBackupEnabled || isRestoringBackup) return
-        autoBackupJob?.cancel()
-        autoBackupJob = viewModelScope.launch {
-            delay(AUTO_BACKUP_DEBOUNCE_MS)
-            withContext(Dispatchers.IO) {
-                com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+    fun showRenameAlbumDialog() {
+        val s = _uiState.value
+        if (s.selectedFolderIds.size == 1) {
+            val bucketId = s.selectedFolderIds.first()
+            val folder = s.folders.find { it.bucketId == bucketId }
+            folder?.let {
+                _uiState.update { state ->
+                    state.copy(showRenameAlbumDialog = true, renameAlbumTarget = folder)
+                }
+                // Also load physical filesystem folder names for validation
+                viewModelScope.launch(Dispatchers.IO) {
+                    val physicalNames = getPhysicalFolderNames(folder.path)
+                    _uiState.update { state ->
+                        // Combine MediaStore DCIM names with physical folder names for complete validation
+                        val allExistingNames = state.dcimFolderNames + physicalNames
+                        state.copy(dcimFolderNames = allExistingNames)
+                    }
+                }
             }
         }
     }
 
     /**
-     * Cancel the debounce and immediately fire an async backup.
-     * Called from MainActivity.onStop() to cover backgrounding and idle.
+     * Returns the names of all directories in the same parent folder as the given path.
+     * Used to validate album renames against physical filesystem, not just MediaStore.
      */
-    fun onAppBackground() {
-        if (!preferences.autoBackupEnabled) return
-        autoBackupJob?.cancel()
-        viewModelScope.launch(Dispatchers.IO) {
-            com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+    private fun getPhysicalFolderNames(folderPath: String): Set<String> {
+        if (folderPath.isBlank()) return emptySet()
+        return try {
+            val folder = java.io.File(folderPath)
+            val parentDir = folder.parentFile ?: return emptySet()
+            parentDir.listFiles()
+                ?.filter { it.isDirectory }
+                ?.map { it.name }
+                ?.toSet()
+                ?: emptySet()
+        } catch (e: Exception) {
+            com.videolibrary.data.util.FileLogger.e("VideoListViewModel", "Failed to get physical folder names", e)
+            emptySet()
         }
     }
 
-    /** Save backup JSON to Documents/VideoLibrary/backups/backup.json — runs on IO. */
-    suspend fun saveBackupToFile(): Boolean = withContext(Dispatchers.IO) {
-        com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+    fun dismissRenameAlbumDialog() = _uiState.update {
+        it.copy(showRenameAlbumDialog = false, renameAlbumTarget = null)
     }
 
-    /**
-     * Restore from Documents/VideoLibrary/backups/backup.json.
-     * Suspends until [loadDataCore] finishes so the caller only receives `true`
-     * once the list is fully settled — hidden albums and custom positions are
-     * already in their final state before navigation occurs.
-     */
-    suspend fun restoreBackupFromFile(): Boolean {
-        isRestoringBackup = true
-        val ok = withContext(Dispatchers.IO) {
-            com.videolibrary.data.util.BackupManager.restoreBackupFromFile(getApplication())
-        }
-        if (ok) {
-            isRestoringBackup = false
-            _uiState.update {
-                it.copy(
-                    viewType             = preferences.viewType,
-                    folderViewType       = preferences.folderViewType,
-                    sortOption           = preferences.folderSortOption,
-                    videoSortOption      = preferences.videoSortOption,
-                    instantPlayerEnabled = preferences.instantPlayerEnabled,
-                    autoBackupEnabled    = preferences.autoBackupEnabled,
-                    independentSortEnabled = preferences.independentSortEnabled,
-                    groupsAlwaysOnTop    = preferences.groupsAlwaysOnTop,
-                    floatingTopBarEnabled = preferences.floatingTopBarEnabled
-                )
-            }
-            // Await full reload so the UI is settled before the caller navigates away
-            loadDataCore()
-        } else {
-            isRestoringBackup = false
-        }
-        return ok
-    }
-
-
-    // ── Create Album flow ─────────────────────────────────────────────────────
-
-    /** Step 1 – show the name dialog, pre-loaded with existing DCIM folder names. */
-    fun showCreateAlbumDialog() {
+    fun renameSelectedAlbum(newName: String) {
+        val target = _uiState.value.renameAlbumTarget ?: return
         viewModelScope.launch {
-            val dcimNames = repository.getExistingDcimFolderNames()
-            _uiState.update { it.copy(showCreateAlbumDialog = true, dcimFolderNames = dcimNames) }
+            isInternalChange.set(true)
+            val success = repository.renameAlbum(target.bucketId, newName)
+            if (success) {
+                exitSelectionMode()
+                silentRefresh()
+                if (_uiState.value.currentGroupId != null) {
+                    refreshCurrentGroup()
+                }
+                scheduleAutoBackup()
+            }
         }
     }
 
-    fun dismissCreateAlbumDialog() =
-        _uiState.update { it.copy(showCreateAlbumDialog = false) }
+    // ── Album Creation ───────────────────────────────────────────────────────
 
-    /** Step 2 – open the full-screen picker after the user confirmed a name. */
-    fun startCreateAlbumPicker(name: String) {
+    fun startCreateAlbumPicker(albumName: String) {
         _uiState.update {
             it.copy(
                 showCreateAlbumDialog = false,
                 showCreateAlbumPicker = true,
-                pendingAlbumName = name,
-                albumCreationSelectedVideoIds = emptySet(),
-                albumCreationBrowsedVideos = emptyList(),
-                albumCreationCurrentBucketId = null,
-                albumCreationCurrentBucketName = ""
+                pendingAlbumName = albumName
             )
         }
     }
 
-    /** Called when the user taps a folder inside the picker. */
     fun loadAlbumCreationVideos(bucketId: Int, name: String) {
         _uiState.update {
             it.copy(albumCreationCurrentBucketId = bucketId, albumCreationCurrentBucketName = name)
         }
         viewModelScope.launch {
-            val sortOption = getEffectiveFolderSortOption(bucketId)
-            val videos = repository.getVideos(sortOption, bucketId = bucketId)
+            val videos = repository.getVideos(_uiState.value.videoSortOption, bucketId = bucketId)
             _uiState.update { it.copy(albumCreationBrowsedVideos = videos) }
         }
     }
 
-    /** Called when the user presses back from inside a folder in the picker. */
     fun closeAlbumCreationFolder() {
         _uiState.update {
             it.copy(
@@ -1837,7 +1784,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Toggle a video's selection in the picker (max 500 enforced). */
     fun toggleAlbumCreationVideoSelection(id: Long) {
         _uiState.update { s ->
             val sel = s.albumCreationSelectedVideoIds.toMutableSet()
@@ -1849,14 +1795,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Step 3 – show the copy/move choice dialog. */
     fun showCreateAlbumCopyMoveDialog() =
         _uiState.update { it.copy(showCreateAlbumCopyMoveDialog = true) }
 
     fun dismissCreateAlbumCopyMoveDialog() =
         _uiState.update { it.copy(showCreateAlbumCopyMoveDialog = false) }
 
-    /** Cancel the entire Create Album flow. */
     fun cancelAlbumCreation() {
         _uiState.update {
             it.copy(
@@ -1871,7 +1815,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Step 4 – create the folder and copy or move the selected videos into it. */
     fun confirmAlbumCreation(copy: Boolean) {
         val s = _uiState.value
         val videoIds = s.albumCreationSelectedVideoIds
@@ -1879,8 +1822,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (videoIds.isEmpty() || folderName.isBlank()) return
 
         val videos = s.videos.filter { it.id in videoIds }
-
-        // Capture the current group context before clearing UI state
         val parentGroupId = s.currentGroupId
 
         _uiState.update {
@@ -1896,11 +1837,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
 
         copyMoveCancelled = false
-        bulkResolution = null
         val verb = if (copy) "Copying" else "Moving"
         _copyMoveProgress.value = CopyMoveProgress(
             isActive = true,
-            title = "$verb items to \"$folderName\"…",
+            title = "$verb items to \"$folderName\"...",
             current = 0,
             total = videos.size
         )
@@ -1911,7 +1851,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             if (path != null) {
                 if (copy) {
                     repository.copyVideos(
-                        videos, path,
+                        videos,
+                        path,
                         onProgress = { cur, tot ->
                             _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
                         },
@@ -1920,7 +1861,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     )
                 } else {
                     repository.moveVideos(
-                        videos, path,
+                        videos,
+                        path,
                         onProgress = { cur, tot ->
                             _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
                         },
@@ -1932,30 +1874,26 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             _copyMoveProgress.value = _copyMoveProgress.value.copy(current = videos.size)
             delay(400)
             _copyMoveProgress.value = CopyMoveProgress()
+            refreshFolderVideos()
 
-            // Prepend the new album at position 0 BEFORE calling loadDataCore().
-            // loadDataCore() is called directly (not via silentRefresh) so we can
-            // await its completion and verify/fix the position as a safety net.
             if (parentGroupId != null) {
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
                     groupRepository.addFoldersToGroup(parentGroupId, listOf(newBucketId))
-                    prependToGroupOrder("f_$newBucketId", parentGroupId, s)
+                    prependToGroupOrder("folder_$newBucketId", parentGroupId, s)
                     loadDataCore()
                     refreshCurrentGroup()
                 } else {
-                    loadDataCore() // fallback: bucket not found, still refresh
+                    loadDataCore()
                 }
             } else {
                 val newBucketId = findFolderBucketIdByName(folderName)
                 if (newBucketId != null) {
-                    prependToRootOrder("f_$newBucketId")
+                    prependToRootOrder("folder_$newBucketId")
                 }
-                loadDataCore() // single refresh after prepend (or as fallback)
-                // Safety net: if the new album landed somewhere other than position 0,
-                // forcefully move it to the top (covers any remaining timing edge-cases).
+                loadDataCore()
                 if (newBucketId != null) {
-                    val key = "f_$newBucketId"
+                    val key = "folder_$newBucketId"
                     val idx = _uiState.value.orderedMixedItems.indexOfFirst {
                         it is FolderItem && it.bucketId == newBucketId
                     }
@@ -1972,77 +1910,147 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     }
                 }
             }
-
             scheduleAutoBackup()
         }
     }
 
-    /**
-     * Find the bucketId of a newly created folder by its name.
-     * Queries the repository directly (not UI state) with retries so that MediaStore
-     * has time to index the new folder before we give up.
-     */
-    private suspend fun findFolderBucketIdByName(folderName: String): Int? {
-        repeat(6) { attempt ->
-            val folders = repository.getFolders()
-            val found = folders.find { it.name.equals(folderName, ignoreCase = true) }?.bucketId
-            if (found != null) return found
-            delay(500) // wait for MediaStore to index the new folder, then retry
+    private suspend fun findFolderBucketIdByName(name: String): Int? {
+        return repository.getFolders().find { it.name == name }?.bucketId
+    }
+
+    // ── Play Video ───────────────────────────────────────────────────────────
+
+    fun playVideo(context: android.content.Context, video: VideoItem) {
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            setDataAndType(video.contentUri, video.mimeType)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        return null
+        context.startActivity(intent)
     }
 
-    fun playVideo(ctx: android.content.Context, video: VideoItem) {
-        try { ctx.startActivity(Intent(Intent.ACTION_VIEW).apply { setDataAndType(video.contentUri, video.mimeType); addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) }) }
-        catch (_: Exception) { Toast.makeText(ctx, "Unable to play video.", Toast.LENGTH_SHORT).show() }
+
+
+    fun showDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = true) }
+    fun dismissDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = false) }
+    fun showCreateFolderDialog() = _uiState.update { it.copy(showCreateFolderDialog = true) }
+    fun dismissCreateFolderDialog() = _uiState.update { it.copy(showCreateFolderDialog = false) }
+    fun showMoveFolderPicker() { _uiState.update { it.copy(showMoveFolderPicker = true) } }
+    fun dismissMoveFolderPicker() = _uiState.update { it.copy(showMoveFolderPicker = false) }
+    fun showCopyFolderPicker() { _uiState.update { it.copy(showCopyFolderPicker = true) } }
+    fun dismissCopyFolderPicker() = _uiState.update { it.copy(showCopyFolderPicker = false) }
+    fun showAbout() = _uiState.update { it.copy(showAbout = true) }
+    fun dismissAbout() = _uiState.update { it.copy(showAbout = false) }
+    fun showSettings() = _uiState.update { it.copy(showSettings = true) }
+    fun dismissSettings() = _uiState.update { it.copy(showSettings = false) }
+
+    fun showCreateAlbumDialog() = _uiState.update { it.copy(showCreateAlbumDialog = true) }
+    fun dismissCreateAlbumDialog() = _uiState.update { it.copy(showCreateAlbumDialog = false) }
+
+    // ── Auto-backup ──────────────────────────────────────────────────────────
+
+    fun updateAutoBackupEnabled(value: Boolean) {
+        preferences.autoBackupEnabled = value
+        _uiState.update { it.copy(autoBackupEnabled = value) }
     }
 
-    /**
-     * Returns the correct sort option for a folder (album). Always uses per-album sort.
-     *
-     * ⚠️ CRITICAL: ALWAYS returns album-specific sort.
-     * DO NOT add back any conditional logic based on independentSortEnabled!
-     * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
-     */
-    private fun getEffectiveFolderSortOption(bucketId: Int): VideoSortOption {
-        return preferences.getFolderVideoSortOption(bucketId)
+    fun scheduleAutoBackup() {
+        if (!preferences.autoBackupEnabled) return
+        autoBackupJob?.cancel()
+        autoBackupJob = viewModelScope.launch {
+            delay(AUTO_BACKUP_DEBOUNCE_MS)
+            withContext(Dispatchers.IO) {
+                com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+            }
+        }
     }
 
-    /**
-     * Ensures the root-level sort is CUSTOM_ORDER (snapshotting the current visible order
-     * if needed), then prepends [newKey] so the new item always appears at position 0.
-     *
-     * Uses the CURRENT live UIState (not a stale snapshot) so the order is always accurate
-     * even when called after a long-running async operation.
-     *
-     * IMPORTANT: Also snapshots when sort is already CUSTOM_ORDER but no order has been saved
-     * yet (never manually reordered). Without this snapshot, all existing items would be
-     * treated as "new" by applyCustomMixedOrder and placed BEFORE the new item, pushing it
-     * to the end of the list.
-     */
+    fun onAppBackground() {
+        if (!preferences.autoBackupEnabled) return
+        autoBackupJob?.cancel()
+        viewModelScope.launch(Dispatchers.IO) {
+            com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+        }
+    }
+
+    fun createBackupJson(): String =
+        com.videolibrary.data.util.BackupManager.createBackup(getApplication())
+
+    suspend fun saveBackupToFile(): Boolean = withContext(Dispatchers.IO) {
+        com.videolibrary.data.util.BackupManager.saveBackupToFile(getApplication())
+    }
+
+    suspend fun restoreBackupFromFile(): Boolean {
+        isRestoringBackup = true
+        val ok = withContext(Dispatchers.IO) {
+            com.videolibrary.data.util.BackupManager.restoreBackupFromFile(getApplication())
+        }
+        if (ok) {
+            isRestoringBackup = false
+            _uiState.update {
+                it.copy(
+                    viewType = preferences.viewType,
+                    folderViewType = preferences.folderViewType,
+                    sortOption = preferences.folderSortOption,
+                    videoSortOption = preferences.videoSortOption,
+                    instantPlayerEnabled = preferences.instantPlayerEnabled,
+                    autoBackupEnabled = preferences.autoBackupEnabled,
+                    independentSortEnabled = preferences.independentSortEnabled,
+                    groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
+                    floatingTopBarEnabled = preferences.floatingTopBarEnabled
+                )
+            }
+            loadDataCore()
+        } else {
+            isRestoringBackup = false
+        }
+        return ok
+    }
+
+    fun restoreBackupJson(json: String): Boolean {
+        val ok = com.videolibrary.data.util.BackupManager.restoreBackup(getApplication(), json)
+        if (ok) refreshStateAfterRestore()
+        return ok
+    }
+
+    private fun refreshStateAfterRestore() {
+        isRestoringBackup = false
+        _uiState.update {
+            it.copy(
+                viewType = preferences.viewType,
+                folderViewType = preferences.folderViewType,
+                sortOption = preferences.folderSortOption,
+                videoSortOption = preferences.videoSortOption,
+                instantPlayerEnabled = preferences.instantPlayerEnabled,
+                autoBackupEnabled = preferences.autoBackupEnabled,
+                independentSortEnabled = preferences.independentSortEnabled,
+                groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
+                floatingTopBarEnabled = preferences.floatingTopBarEnabled
+            )
+        }
+        loadData()
+    }
+
+    // ── Helper methods for custom order ──────────────────────────────────────
+
     private fun prependToRootOrder(newKey: String) {
         val current = _uiState.value
         if (current.sortOption != FolderSortOption.CUSTOM_ORDER) {
-            // Snapshot the current visible order and switch sort to CUSTOM_ORDER
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is GroupItem  -> "g_${item.groupId}"
-                    is FolderItem -> "f_${item.bucketId}"
-                    else          -> null
+                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    else -> null
                 }
             }
             preferences.folderSortOption = FolderSortOption.CUSTOM_ORDER
             preferences.customMixedOrder = snapshot
             _uiState.update { it.copy(sortOption = FolderSortOption.CUSTOM_ORDER) }
         } else if (preferences.customMixedOrder.isEmpty()) {
-            // Sort is already CUSTOM_ORDER but the root has never been explicitly ordered.
-            // Snapshot current items so they are in savedSet; the new item will then be
-            // prepended at position 0 instead of appearing at the end.
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is GroupItem  -> "g_${item.groupId}"
-                    is FolderItem -> "f_${item.bucketId}"
-                    else          -> null
+                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    else -> null
                 }
             }
             preferences.customMixedOrder = snapshot
@@ -2053,32 +2061,24 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /**
-     * Ensures the given group's sort is CUSTOM_ORDER (snapshotting the current visible order
-     * if needed), then prepends [newKey] so the new item always appears at position 0.
-     */
     private fun prependToGroupOrder(newKey: String, groupId: Long, s: VideoListUiState) {
         if (preferences.getGroupSortOption(groupId) != FolderSortOption.CUSTOM_ORDER) {
-            // Snapshot the current group order and switch sort to CUSTOM_ORDER
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is GroupItem  -> "g_${item.groupId}"
-                    is FolderItem -> "f_${item.bucketId}"
-                    else          -> null
+                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    else -> null
                 }
             }
             preferences.saveGroupSortOption(groupId, FolderSortOption.CUSTOM_ORDER)
             preferences.saveGroupMixedOrder(groupId, snapshot)
-            _uiState.update { it.copy(currentGroupSortOption = FolderSortOption.CUSTOM_ORDER) }
+            _uiState.update { it.copy(currentGroupSortOption = com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) }
         } else if (preferences.getGroupMixedOrder(groupId).isEmpty()) {
-            // Sort is already CUSTOM_ORDER but the group has never been explicitly ordered.
-            // Snapshot current items so they are in savedSet; the new item will then be
-            // prepended at position 0 instead of appearing at the end.
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is GroupItem  -> "g_${item.groupId}"
-                    is FolderItem -> "f_${item.bucketId}"
-                    else          -> null
+                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    else -> null
                 }
             }
             preferences.saveGroupMixedOrder(groupId, snapshot)
@@ -2088,4 +2088,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             preferences.saveGroupMixedOrder(groupId, listOf(newKey) + existing)
         }
     }
+
+    private fun getEffectiveFolderSortOption(bucketId: Int): VideoSortOption {
+        // TODO: Implement per-album sort options in AppPreferences
+        return preferences.videoSortOption
+    }
 }
+

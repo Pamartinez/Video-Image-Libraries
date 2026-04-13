@@ -352,6 +352,74 @@ class ImageRepository(private val context: Context) {
         }
     }
 
+    // ── Rename Album ────────────────────────────────────────────────────
+
+    /**
+     * Renames an album (folder) by renaming the physical directory on disk.
+     * All images in the folder will automatically reflect the new bucket name after MediaStore rescans.
+     *
+     * @param bucketId    the bucket ID of the album to rename
+     * @param newName     the new name for the album folder
+     * @return true if rename was successful, false otherwise
+     */
+    suspend fun renameAlbum(bucketId: Int, newName: String): Boolean = withContext(Dispatchers.IO) {
+        try {
+            val cleanName = newName.trim()
+            if (cleanName.isBlank()) return@withContext false
+
+            // Get the folder path for this bucket
+            @Suppress("DEPRECATION")
+            val projection = arrayOf(MediaStore.Images.Media.DATA)
+            @Suppress("DEPRECATION")
+            val selection = "${MediaStore.Images.Media.BUCKET_ID} = ?"
+            val selectionArgs = arrayOf(bucketId.toString())
+
+            var folderPath: String? = null
+            contentResolver.query(imageUri, projection, selection, selectionArgs, null)?.use { cursor ->
+                @Suppress("DEPRECATION")
+                val dataCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+                if (cursor.moveToFirst()) {
+                    val filePath = cursor.getString(dataCol)
+                    folderPath = File(filePath).parent
+                }
+            }
+
+            if (folderPath == null) {
+                Log.e("ImageRepository", "Could not find folder path for bucket $bucketId")
+                return@withContext false
+            }
+
+            val oldFolder = File(folderPath!!)
+            if (!oldFolder.exists() || !oldFolder.isDirectory) {
+                Log.e("ImageRepository", "Folder does not exist: $folderPath")
+                return@withContext false
+            }
+
+            val parentDir = oldFolder.parentFile ?: return@withContext false
+            val newFolder = File(parentDir, cleanName)
+
+            if (newFolder.exists()) {
+                Log.e("ImageRepository", "Target folder already exists: ${newFolder.absolutePath}")
+                return@withContext false
+            }
+
+            // Attempt to rename the directory
+            val renamed = oldFolder.renameTo(newFolder)
+            if (renamed) {
+                // Trigger MediaStore scan for the new folder to update BUCKET_DISPLAY_NAME
+                MediaFileUtils.scanFile(context, newFolder)
+                Log.d("ImageRepository", "Successfully renamed album from ${oldFolder.name} to ${newFolder.name}")
+            } else {
+                Log.e("ImageRepository", "Failed to rename folder: $folderPath")
+            }
+
+            renamed
+        } catch (e: Exception) {
+            Log.e("ImageRepository", "Rename album failed", e)
+            false
+        }
+    }
+
     // ── Move Images ─────────────────────────────────────────────────────
 
     suspend fun moveImages(

@@ -44,6 +44,7 @@ import com.example.common.ui.components.CopyMoveAlbumDialog
 import com.example.common.ui.components.CreateFolderDialog
 import com.example.common.ui.components.DestroyGroupDialog
 import com.example.common.ui.components.RenameDialog
+import com.example.common.ui.components.AlbumRenameDialog
 import com.videolibrary.ui.components.*
 import com.videolibrary.ui.theme.LocalVideoColors
 import com.videolibrary.ui.viewmodel.VideoListViewModel
@@ -1036,11 +1037,13 @@ fun VideoListScreen(
                     FileManagerHelper.openFolder(ctx, path)
                 }
             },
-            showOpenLocation = selectedCount == 1,
+            showOpenLocation = selectedCount == 1 && state.selectedGroupIds.isEmpty(),
             showGroup = showGroupBtn,
             onGroup   = { viewModel.showGroupNameDialogForBottomBar() },
             showUngroup = hasGroupsSelected,
             onUngroup = { viewModel.ungroupSelectedGroups() },
+            showRename = state.selectedTab == 1 && selectedCount == 1 && state.selectedGroupIds.isEmpty(),
+            onRename = { viewModel.showRenameAlbumDialog() },
             modifier  = Modifier.align(Alignment.BottomCenter)
         )
 
@@ -1093,6 +1096,14 @@ fun VideoListScreen(
             title       = "Rename video",
             onRename    = { viewModel.renameVideo(state.renameTarget!!.id, it) },
             onDismiss   = { viewModel.dismissRenameDialog() }
+        )
+    }
+    if (state.showRenameAlbumDialog && state.renameAlbumTarget != null) {
+        AlbumRenameDialog(
+            currentName = state.renameAlbumTarget!!.name,
+            existingNames = state.dcimFolderNames,
+            onRename = { viewModel.renameSelectedAlbum(it) },
+            onDismiss = { viewModel.dismissRenameAlbumDialog() }
         )
     }
     if (state.showDeleteDialog) {

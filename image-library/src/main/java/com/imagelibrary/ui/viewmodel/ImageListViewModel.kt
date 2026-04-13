@@ -60,6 +60,8 @@ data class ImageListUiState(
     val showViewAsDialog: Boolean = false,
     val showRenameDialog: Boolean = false,
     val renameTarget: ImageItem? = null,
+    val showRenameAlbumDialog: Boolean = false,
+    val renameAlbumTarget: FolderItem? = null,
     val showDeleteDialog: Boolean = false,
     val showCreateFolderDialog: Boolean = false,
     val showMoveFolderPicker: Boolean = false,
@@ -1337,6 +1339,68 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = true) }
     fun dismissViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = false) }
     fun dismissRenameDialog() = _uiState.update { it.copy(showRenameDialog = false, renameTarget = null) }
+    
+    fun showRenameAlbumDialog() {
+        val s = _uiState.value
+        if (s.selectedFolderIds.size == 1) {
+            val bucketId = s.selectedFolderIds.first()
+            val folder = s.folders.find { it.bucketId == bucketId }
+            folder?.let {
+                _uiState.update { state ->
+                    state.copy(showRenameAlbumDialog = true, renameAlbumTarget = folder)
+                }
+                // Also load physical filesystem folder names for validation
+                viewModelScope.launch(Dispatchers.IO) {
+                    val physicalNames = getPhysicalFolderNames(folder.path)
+                    _uiState.update { state ->
+                        // Combine MediaStore DCIM names with physical folder names for complete validation
+                        val allExistingNames = state.dcimFolderNames + physicalNames
+                        state.copy(dcimFolderNames = allExistingNames)
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Returns the names of all directories in the same parent folder as the given path.
+     * Used to validate album renames against physical filesystem, not just MediaStore.
+     */
+    private fun getPhysicalFolderNames(folderPath: String): Set<String> {
+        if (folderPath.isBlank()) return emptySet()
+        return try {
+            val folder = java.io.File(folderPath)
+            val parentDir = folder.parentFile ?: return emptySet()
+            parentDir.listFiles()
+                ?.filter { it.isDirectory }
+                ?.map { it.name }
+                ?.toSet()
+                ?: emptySet()
+        } catch (e: Exception) {
+            emptySet()
+        }
+    }
+    
+    fun dismissRenameAlbumDialog() = _uiState.update { 
+        it.copy(showRenameAlbumDialog = false, renameAlbumTarget = null) 
+    }
+    
+    fun renameSelectedAlbum(newName: String) {
+        val target = _uiState.value.renameAlbumTarget ?: return
+        viewModelScope.launch {
+            isInternalChange.set(true)
+            val success = repository.renameAlbum(target.bucketId, newName)
+            if (success) {
+                exitSelectionMode()
+                silentRefresh()
+                if (_uiState.value.currentGroupId != null) {
+                    refreshCurrentGroup()
+                }
+                scheduleAutoBackup()
+            }
+        }
+    }
+    
     fun showDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = true) }
     fun dismissDeleteDialog() = _uiState.update { it.copy(showDeleteDialog = false) }
     fun showCreateFolderDialog() = _uiState.update { it.copy(showCreateFolderDialog = true) }
@@ -1755,7 +1819,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             // Use the group's own sort option (independent of the root sort)
             val groupSortOption = s.currentGroupSortOption
 
-            val orderedMixed: List<Any> = if (groupSortOption == SortOption.CUSTOM_ORDER) {
+            val orderedMixed: List<Any> = if ( groupSortOption == SortOption.CUSTOM_ORDER) {
                 val savedOrder = preferences.customGroupItemsOrder(groupId)
                 if (savedOrder.isEmpty()) {
                     buildList {

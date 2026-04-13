@@ -13,6 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DriveFileMove
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.CreateNewFolder
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FolderDelete
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.Info
@@ -67,7 +69,9 @@ fun BottomActionBar(
     showUngroup: Boolean = false,
     showMove: Boolean = false,
     showShare: Boolean = false,
-    onShare: () -> Unit = {}
+    onShare: () -> Unit = {},
+    onRename: () -> Unit = {},
+    showRename: Boolean = false
 ) {
     // Hide instantly without animation
     if (visible && selectedCount > 0) {
@@ -104,10 +108,10 @@ fun BottomActionBar(
                 if (showShare) {
                     BottomBarItem(icon = Icons.Default.Share, label = "Share",   onClick = onShare)
                 }
-                BottomBarItem(icon = Icons.Outlined.Delete, label = "Delete", onClick = onDelete)
+                BottomBarItem(icon = Icons.Default.Delete, label = "Delete", onClick = onDelete)
 
-                // "More" button with submenu for Details & Open location
-                val hasMoreItems = (showAllActions && showDetails) || showOpenLocation
+                // "More" button with submenu for Rename, Details & Open location
+                val hasMoreItems = showRename || (showAllActions && showDetails) || showOpenLocation
                 if (hasMoreItems) {
                     var showMoreMenu by remember { mutableStateOf(false) }
                     Box {
@@ -123,6 +127,25 @@ fun BottomActionBar(
                             shape            = RoundedCornerShape(16.dp),
                             containerColor   = Color(0xE6303030)
                         ) {
+                            if (showRename) {
+                                AppMenuItem(
+                                    text      = "Rename",
+                                    onDismiss = { showMoreMenu = false },
+                                    onClick   = onRename,
+                                    textColor = Color.White,
+                                    leadingIcon = {
+                                        Icon(
+                                            Icons.Default.Edit,
+                                            contentDescription = null,
+                                            tint     = Color.White,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                )
+                            }
+                            if (showRename && (showAllActions && showDetails)) {
+                                AppMenuDivider(color = Color(0x40FFFFFF), thickness = 0.5.dp)
+                            }
                             if (showAllActions && showDetails) {
                                 AppMenuItem(
                                     text      = "Details",
