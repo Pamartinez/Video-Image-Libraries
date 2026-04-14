@@ -2090,8 +2090,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     private fun getEffectiveFolderSortOption(bucketId: Int): VideoSortOption {
-        // TODO: Implement per-album sort options in AppPreferences
-        return preferences.videoSortOption
+        // Load this album's specific sort option (independent sort is always enabled)
+        return preferences.getFolderVideoSortOption(bucketId)
     }
 }
 
