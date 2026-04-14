@@ -1,8 +1,13 @@
 package com.example.common.ui.screen
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,12 +15,14 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -65,7 +72,11 @@ fun AddFolderToGroupScreen(
     viewType: ViewType = ViewType.GRID_LARGE,
     groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
     headerTitle: (browseGroupName: String?, selectedCount: Int) -> String = { name, count ->
-        if (name != null) "$name ($count selected)" else "Add album(s)"
+        when {
+            name != null -> name  // Browsing inside a group - show group name
+            count > 0 -> "$count selected"  // Items selected - show count
+            else -> "Add albums"  // Default - show "Add albums"
+        }
     },
     saveButtonLabel: String = "Add",
     onSave: (selectedFolderIds: Set<Int>, selectedGroupIds: Set<Long>) -> Unit,
@@ -180,24 +191,7 @@ fun AddFolderToGroupScreen(
                     modifier   = Modifier.weight(1f)
                 )
 
-                // Save / Done pill button
-                Surface(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(50))
-                        .clickable(enabled = canSave) {
-                            onSave(selectedFolderIds, emptySet())
-                        },
-                    color = if (canSave) colors.primary else Color(0xFF3A3A3A),
-                    shape = RoundedCornerShape(50)
-                ) {
-                    Text(
-                        text       = saveButtonLabel,
-                        fontSize   = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        color      = Color.White,
-                        modifier   = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
-                    )
-                }
+                // Top-bar save button removed - now using floating button at bottom
             }
 
             // ── Content grid ─────────────────────────────────────────────
@@ -272,6 +266,44 @@ fun AddFolderToGroupScreen(
                             }
                         }
                     }
+                }
+            }
+        }
+
+        // ── Floating "Add" button (bottom-center) ────────────────────
+        AnimatedVisibility(
+            visible = canSave,
+            enter = fadeIn() + slideInVertically(initialOffsetY = { it / 2 }),
+            exit = fadeOut() + slideOutVertically(targetOffsetY = { it / 2 }),
+            modifier = Modifier.align(Alignment.BottomCenter)
+        ) {
+            Surface(
+                modifier = Modifier
+                    .navigationBarsPadding()
+                    .padding(bottom = 20.dp)
+                    .clickable(onClick = { onSave(selectedFolderIds, emptySet()) }),
+                shape = RoundedCornerShape(50.dp),
+                color = Color(0xE6202020),
+                shadowElevation = 24.dp,
+                tonalElevation = 0.dp
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 14.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = null,
+                        tint = Color.White,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Text(
+                        text = saveButtonLabel,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White
+                    )
                 }
             }
         }

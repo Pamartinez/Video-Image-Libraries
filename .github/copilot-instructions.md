@@ -25,8 +25,35 @@
    - ✅ Does this follow all architectural rules (consistency, common-first, etc.)?
    - ✅ Is the implementation clean, maintainable, and well-documented?
    - ✅ Have I tested edge cases and error scenarios?
+   - ✅ **Have I installed the apps so the user can test immediately?**
 
 **Remember: It's better to ask 10 questions and get it perfect than to implement incorrectly and waste time fixing it.**
+
+---
+
+## 🚀 ALWAYS INSTALL APPS RULE — MANDATORY
+**After ANY code change that affects UI or functionality, ALWAYS install both apps on the connected device.**
+
+### Mandatory Installation Steps:
+1. **After making code changes**, verify builds succeed
+2. **Immediately run:** `./gradlew :image-library:installDebug :video-library:installDebug`
+3. **Do NOT wait** for the user to ask - install proactively
+4. **Confirm installation** in the output (should show "Installed on 1 device")
+
+### Why This Rule Exists:
+- User needs to test changes immediately
+- Manual installation wastes time
+- Testing is essential to verify implementation works
+- Both apps must be installed to verify consistency
+
+### When to Install:
+✅ **ALWAYS** after modifying any `.kt` file in common, image-library, or video-library  
+✅ **ALWAYS** after fixing bugs or adding features  
+✅ **ALWAYS** after refactoring code  
+✅ **ALWAYS** after updating UI components or screens  
+❌ **SKIP** only when making documentation-only changes (`.md` files)
+
+**Bottom line: If code changed, install the apps. No exceptions.**
 
 ---
 
