@@ -606,6 +606,13 @@ fun ImageListScreen(
                 onDismiss = { viewModel.dismissCreateAlbumDialog() }
             )
         }
+        if (state.showViewAsDialog) {
+            ViewAsDialog(
+                currentViewType = state.viewType,
+                onViewTypeSelected = { viewModel.setViewType(it) },
+                onDismiss = { viewModel.dismissViewAsDialog() }
+            )
+        }
         return
     }
 
