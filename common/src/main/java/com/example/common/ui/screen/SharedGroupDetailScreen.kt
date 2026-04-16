@@ -166,23 +166,28 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     val totalSelected = selectedFolderIds.size + selectedGroupIds.size
     val totalItems = folders.size + subGroups.size
 
-    // Build the display list
-    val rawMixed: List<MixedItem> = if (orderedMixedItems.isNotEmpty()) {
-        orderedMixedItems.mapNotNull { item ->
-            when (item) {
-                is GroupItem  -> MixedItem.Group(item)
-                is FolderItem -> MixedItem.Folder(item)
-                else          -> null
+    // Build the display list - memoize to prevent expensive recomputations
+    val rawMixed: List<MixedItem> = remember(orderedMixedItems, folders, subGroups) {
+        if (orderedMixedItems.isNotEmpty()) {
+            orderedMixedItems.mapNotNull { item ->
+                when (item) {
+                    is GroupItem  -> MixedItem.Group(item)
+                    is FolderItem -> MixedItem.Folder(item)
+                    else          -> null
+                }
             }
-        }
-    } else {
-        buildList {
-            subGroups.forEach { add(MixedItem.Group(it)) }
-            folders.forEach { add(MixedItem.Folder(it)) }
+        } else {
+            buildList {
+                subGroups.forEach { add(MixedItem.Group(it)) }
+                folders.forEach { add(MixedItem.Folder(it)) }
+            }
         }
     }
 
-    val mixedItems: List<MixedItem> = sortMixedItems(rawMixed, sortOption, groupsAlwaysOnTop)
+    // Memoize sorted list to prevent expensive sorting on every recomposition
+    val mixedItems: List<MixedItem> = remember(rawMixed, sortOption, groupsAlwaysOnTop) {
+        sortMixedItems(rawMixed, sortOption, groupsAlwaysOnTop)
+    }
 
     // Drag-to-reorder setup
     val canDrag = isCustomOrder(sortOption)

@@ -29,6 +29,7 @@ import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.util.MixedItemSorter
 import com.example.common.util.FilePathUtils
+import com.example.common.util.GroupMixedOrderUtil
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -652,7 +653,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             }
             val gSortOpt   = _uiState.value.currentGroupSortOption
             val gOrdered   = if (gSortOpt == FolderSortOption.CUSTOM_ORDER)
-                applyCustomGroupMixedOrder(openGroupId, gSubGroups, gFolders)
+                GroupMixedOrderUtil.applyCustomGroupMixedOrder(openGroupId, gSubGroups, gFolders, preferences)
             else
                 sortMixedItems(gSubGroups + gFolders, gSortOpt, _uiState.value.groupsAlwaysOnTop)
             _uiState.update {
@@ -791,7 +792,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             // Use the group's own independent sort option
             val groupSortOption = groupSort
             val orderedMixed = if (groupSortOption == FolderSortOption.CUSTOM_ORDER) {
-                applyCustomGroupMixedOrder(groupId, subGroups, folders)
+                GroupMixedOrderUtil.applyCustomGroupMixedOrder(groupId, subGroups, folders, preferences)
             } else {
                 sortMixedItems(subGroups + folders, groupSortOption, s.groupsAlwaysOnTop)
             }
@@ -879,7 +880,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             // Use the group's own independent sort option
             val groupSortOption = s.currentGroupSortOption
             val orderedMixed = if (groupSortOption == FolderSortOption.CUSTOM_ORDER) {
-                applyCustomGroupMixedOrder(groupId, subGroups, folders)
+                GroupMixedOrderUtil.applyCustomGroupMixedOrder(groupId, subGroups, folders, preferences)
             } else {
                 sortMixedItems(subGroups + folders, groupSortOption, s.groupsAlwaysOnTop)
             }
@@ -893,29 +894,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /**
-     * Restores the saved drag order for items inside a specific group.
-     * New items (sub-groups or folders) are prepended so they always appear at the top.
-     * Deleted items are dropped.
-     */
-    private fun applyCustomGroupMixedOrder(
-        groupId: Long,
-        groups: List<GroupItem>,
-        folders: List<FolderItem>
-    ): List<Any> {
-        val saved     = preferences.getGroupMixedOrder(groupId)
-        val groupMap  = groups.associateBy  { "g_${it.groupId}" }
-        val folderMap = folders.associateBy { "f_${it.bucketId}" }
-
-        if (saved.isEmpty()) return groups + folders
-
-        val ordered    = saved.mapNotNull { groupMap[it] ?: folderMap[it] }
-        val savedSet   = saved.toSet()
-        val newGroups: List<Any>  = groups.filter  { "g_${it.groupId}"  !in savedSet }
-        val newFolders: List<Any> = folders.filter { "f_${it.bucketId}" !in savedSet }
-        // New items are prepended so they always appear at the top
-        return newGroups + newFolders + ordered
-    }
 
     /**
      * Move a mixed item inside the current group during a drag.
