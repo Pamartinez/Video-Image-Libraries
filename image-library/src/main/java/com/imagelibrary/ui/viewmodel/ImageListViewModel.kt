@@ -1495,6 +1495,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         if (ok) {
             isRestoringBackup = false
+
+            // Refresh UI state with restored preferences
             _uiState.update {
                 it.copy(
                     viewType                  = preferences.viewType,
@@ -1509,8 +1511,17 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     floatingTopBarEnabled     = preferences.floatingTopBarEnabled
                 )
             }
+
             // Await full reload so the UI is settled before the caller navigates away
             loadDataCore()
+
+            // If inside a group, refresh to apply restored group sort option
+            val currentGroupId = _uiState.value.currentGroupId
+            if (currentGroupId != null) {
+                val restoredGroupSort = preferences.getGroupSortOption(currentGroupId)
+                _uiState.update { it.copy(currentGroupSortOption = restoredGroupSort) }
+                refreshCurrentGroup()
+            }
         } else {
             isRestoringBackup = false
         }

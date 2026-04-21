@@ -76,6 +76,35 @@ open class SharedAppPreferences(
         prefs.edit().putInt("$KEY_GROUP_SORT_PREFIX$groupId", option.id).apply()
     }
 
+    /**
+     * Returns all per-group sort options currently stored, keyed by group ID.
+     * Used by BackupManager to export all group sort preferences.
+     */
+    fun getAllGroupSortOptions(): Map<Long, Int> {
+        return prefs.all
+            .entries
+            .filter { it.key.startsWith(KEY_GROUP_SORT_PREFIX) }
+            .mapNotNull { (key, value) ->
+                val groupId = key.removePrefix(KEY_GROUP_SORT_PREFIX).toLongOrNull()
+                    ?: return@mapNotNull null
+                val sortId = (value as? Int) ?: return@mapNotNull null
+                groupId to sortId
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-group sort options from a Map of groupId → sortOptionId.
+     * Used by BackupManager to import all group sort preferences.
+     */
+    fun saveAllGroupSortOptions(options: Map<Long, Int>) {
+        val editor = prefs.edit()
+        options.forEach { (groupId, sortId) ->
+            editor.putInt("$KEY_GROUP_SORT_PREFIX$groupId", sortId)
+        }
+        editor.apply()
+    }
+
     // ── Hidden folders ───────────────────────────────────────────────────────
 
     /** Set of folder paths currently marked as hidden (have a .nomedia file). */

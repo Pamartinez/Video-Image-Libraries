@@ -1964,6 +1964,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         if (ok) {
             isRestoringBackup = false
+
+            // Refresh UI state with restored preferences
             _uiState.update {
                 it.copy(
                     viewType = preferences.viewType,
@@ -1977,7 +1979,25 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     floatingTopBarEnabled = preferences.floatingTopBarEnabled
                 )
             }
+
+            // Reload all data to reflect restored preferences
             loadDataCore()
+
+            // If inside a group, refresh to apply restored group sort option
+            val currentGroupId = _uiState.value.currentGroupId
+            if (currentGroupId != null) {
+                val restoredGroupSort = preferences.getGroupSortOption(currentGroupId)
+                _uiState.update { it.copy(currentGroupSortOption = restoredGroupSort) }
+                refreshCurrentGroup()
+            }
+
+            // If inside a folder, refresh to apply restored folder video sort option
+            val currentFolderBucketId = _uiState.value.currentFolderBucketId
+            if (currentFolderBucketId != null) {
+                val restoredFolderSort = preferences.getFolderVideoSortOption(currentFolderBucketId)
+                _uiState.update { it.copy(currentFolderSortOption = restoredFolderSort) }
+                refreshCurrentFolderIfOpen()
+            }
         } else {
             isRestoringBackup = false
         }

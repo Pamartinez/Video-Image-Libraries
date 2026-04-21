@@ -5,14 +5,16 @@ import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.util.LruCache
-import android.util.Size
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,24 +23,34 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.videolibrary.ui.theme.LocalVideoColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
+ * Holds a video thumbnail bitmap along with the timestamp (in seconds) where it was captured.
+ */
+private data class ThumbnailData(
+    val bitmap: Bitmap,
+    val timestampSeconds: Int
+)
+
+/**
  * Reliable video thumbnail with **brightness-aware frame selection**.
  *
- * 1. Tries the system-cached `ContentResolver.loadThumbnail()` first.
- * 2. If the result is too dark (fade-from-black, black intro, etc.),
- *    uses `MediaMetadataRetriever` to seek forward 1 second at a time
- *    (up to [MAX_SEEK_SEC] seconds) until a frame with acceptable
- *    brightness is found.
- * 3. Falls back to a movie-icon placeholder if everything fails.
+ * 1. Linearly seeks through the video from 1 to [MAX_SEEK_SEC] seconds,
+ *    checking each second for brightness and selecting the brightest frame.
+ * 2. Uses `MediaMetadataRetriever` to extract frames at precise timestamps.
+ * 3. Falls back to a movie-icon placeholder if extraction fails.
+ * 4. Shows the timestamp (in seconds) where the thumbnail was captured.
  *
  * Results are cached in an in-memory LRU cache so scrolling back to
  * an already-resolved thumbnail is instant.
@@ -60,14 +72,14 @@ fun VideoThumbnail(
     }
 
     // Fast path: check memory cache synchronously
-    var bitmap by remember(contentUri) {
+    var thumbnailData by remember(contentUri) {
         mutableStateOf(smartThumbnailCache.get(contentUri.toString()))
     }
-    var loading by remember(contentUri) { mutableStateOf(bitmap == null) }
+    var loading by remember(contentUri) { mutableStateOf(thumbnailData == null) }
 
     // Async smart-thumbnail extraction
     LaunchedEffect(contentUri) {
-        if (bitmap != null) return@LaunchedEffect          // cache hit
+        if (thumbnailData != null) return@LaunchedEffect          // cache hit
         loading = true
         val result = withContext(Dispatchers.IO) {
             loadSmartThumbnail(context, contentUri)
@@ -75,13 +87,13 @@ fun VideoThumbnail(
         if (result != null) {
             smartThumbnailCache.put(contentUri.toString(), result)
         }
-        bitmap = result
+        thumbnailData = result
         loading = false
     }
 
     when {
-        bitmap != null -> Image(
-            bitmap = bitmap!!.asImageBitmap(),
+        thumbnailData != null -> Image(
+            bitmap = thumbnailData!!.bitmap.asImageBitmap(),
             contentDescription = contentDescription,
             contentScale = contentScale,
             modifier = modifier
@@ -123,36 +135,31 @@ private const val BRIGHTNESS_THRESHOLD = 28f
 /** Maximum seconds to seek forward looking for a bright frame. */
 private const val MAX_SEEK_SEC = 10
 
-/** LRU cache – ~24 MB (about 24 × 512×512 ARGB_8888 bitmaps). */
-private val smartThumbnailCache = object : LruCache<String, Bitmap>(24 * 1024) {
-    override fun sizeOf(key: String, value: Bitmap): Int = value.byteCount / 1024
+/** LRU cache – ~200 MB (about 200 × 512×512 ARGB_8888 bitmaps). */
+private val smartThumbnailCache = object : LruCache<String, ThumbnailData>(200 * 1024) {
+    override fun sizeOf(key: String, value: ThumbnailData): Int = value.bitmap.byteCount / 1024
 }
 
 /**
- * Loads a thumbnail for [uri], skipping dark frames.
- *
- * 1. Gets the system thumbnail via `ContentResolver.loadThumbnail()`.
- * 2. If bright enough → returns immediately.
- * 3. Otherwise opens a `MediaMetadataRetriever` and seeks 1 s, 2 s, …
- *    up to [MAX_SEEK_SEC] seconds, keeping the brightest frame found.
- * 4. Returns the best frame, or `null` on total failure.
+ * Clears all cached video thumbnails, forcing regeneration on next display.
+ * Call this to refresh thumbnails after changing thumbnail generation settings.
  */
-private fun loadSmartThumbnail(context: Context, uri: Uri): Bitmap? {
-    // ── Step 1: system thumbnail ──
-    val systemThumb = try {
-        context.contentResolver.loadThumbnail(uri, Size(512, 512), null)
-    } catch (_: Exception) {
-        null
-    }
+fun clearVideoThumbnailCache() {
+    smartThumbnailCache.evictAll()
+}
 
-    val systemBrightness = systemThumb?.let { averageBrightness(it) } ?: 0f
-    if (systemBrightness >= BRIGHTNESS_THRESHOLD) {
-        return systemThumb                               // fast path
-    }
-
-    // ── Step 2: seek through the video for a brighter frame ──
-    var bestFrame: Bitmap? = systemThumb
-    var bestBrightness = systemBrightness
+/**
+ * Loads a thumbnail for [uri], always performing linear seeking.
+ *
+ * 1. Opens a `MediaMetadataRetriever` and linearly seeks 1 s, 2 s, 3 s, …
+ *    up to [MAX_SEEK_SEC] seconds, keeping the brightest frame found.
+ * 2. Returns the brightest frame from the linear search with its timestamp, or `null` on total failure.
+ */
+private fun loadSmartThumbnail(context: Context, uri: Uri): ThumbnailData? {
+    // ── Linear seeking from 1-10 seconds (no system thumbnail) ──
+    var bestFrame: Bitmap? = null
+    var bestBrightness = 0f
+    var bestTimestamp = 1  // Track which second gave us the best frame
 
     val retriever = MediaMetadataRetriever()
     try {
@@ -160,7 +167,7 @@ private fun loadSmartThumbnail(context: Context, uri: Uri): Bitmap? {
 
         val durationMs = retriever.extractMetadata(
             MediaMetadataRetriever.METADATA_KEY_DURATION
-        )?.toLongOrNull() ?: return bestFrame
+        )?.toLongOrNull() ?: return null
 
         for (sec in 1..MAX_SEEK_SEC) {
             val timeUs = sec * 1_000_000L
@@ -174,9 +181,10 @@ private fun loadSmartThumbnail(context: Context, uri: Uri): Bitmap? {
 
             if (brightness > bestBrightness) {
                 // Keep the brighter frame, recycle the old one
-                if (bestFrame !== systemThumb) bestFrame?.recycle()
+                bestFrame?.recycle()
                 bestFrame = frame
                 bestBrightness = brightness
+                bestTimestamp = sec  // Remember which second this came from
             } else {
                 frame.recycle()
             }
@@ -193,7 +201,7 @@ private fun loadSmartThumbnail(context: Context, uri: Uri): Bitmap? {
         }
     }
 
-    return bestFrame
+    return bestFrame?.let { ThumbnailData(it, bestTimestamp) }
 }
 
 // ── Brightness measurement ─────────────────────────────────────────────
@@ -229,3 +237,5 @@ private fun averageBrightness(bitmap: Bitmap): Float {
 
     return if (count > 0) sum / count else 0f
 }
+
+

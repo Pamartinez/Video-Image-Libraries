@@ -40,6 +40,7 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param onRestore                Suspending action that restores from backup; returns true on success.
  * @param onRefreshAlbumPreviews   Action that refreshes album preview images.
  * @param backupPath               Human-readable folder path (e.g. "Documents/VideoLibrary/backups/").
+ * @param onClearVideoThumbnails   Optional action to clear video thumbnail cache (video-library only).
  * @param extraContent             Optional app-specific settings sections placed above Sorting
  *                                 (e.g. the Carousel section in image-library).
  */
@@ -59,6 +60,7 @@ fun SharedSettingsScreen(
     onRefreshAlbumPreviews: () -> Unit,
     backupPath: String,
     modifier: Modifier = Modifier,
+    onClearVideoThumbnails: (() -> Unit)? = null,
     extraContent: @Composable ColumnScope.() -> Unit = {}
 ) {
     val ctx    = LocalContext.current
@@ -180,6 +182,20 @@ fun SharedSettingsScreen(
                 ) {
                     onRefreshAlbumPreviews()
                     Toast.makeText(ctx, "Album previews refreshed", Toast.LENGTH_SHORT).show()
+                }
+
+                // ── Clear Video Thumbnails (video-library only) ──
+                onClearVideoThumbnails?.let { clearAction ->
+                    Spacer(Modifier.height(8.dp))
+
+                    SettingsActionButton(
+                        icon     = Icons.Default.Refresh,
+                        title    = "Clear Video Thumbnails",
+                        subtitle = "Remove all cached thumbnails and regenerate them from videos"
+                    ) {
+                        clearAction()
+                        Toast.makeText(ctx, "Video thumbnails cleared - will regenerate", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 Spacer(Modifier.height(4.dp))

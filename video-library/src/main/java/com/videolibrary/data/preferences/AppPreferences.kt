@@ -18,6 +18,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_TAB_TYPE                = "tab_type"
         private const val KEY_CUSTOM_FOLDER_ORDER     = "custom_folder_order"
         private const val KEY_FOLDER_VIDEO_SORT_OPTIONS = "folder_video_sort_options"
+        private const val KEY_GROUP_VIDEO_SORT_OPTIONS = "group_video_sort_options"
         private const val KEY_INSTANT_PLAYER          = "instant_player_enabled"
     }
 
@@ -102,6 +103,71 @@ class AppPreferences(context: Context) : SharedAppPreferences(
      */
     fun saveAllFolderVideoSortOptions(options: Map<Int, Int>) {
         prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS,
+            options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
+
+    // ── Per-group video sort options ──────────────────────────────────────────
+
+    /**
+     * Gets the video sort option for a specific group.
+     * Returns CUSTOM_ORDER if not set.
+     */
+    fun getGroupVideoSortOption(groupId: Long): VideoSortOption {
+        val raw = prefs.getString(KEY_GROUP_VIDEO_SORT_OPTIONS, "") ?: ""
+        val id = raw.split(",")
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2 && parts[0].toLongOrNull() == groupId) parts[1].toIntOrNull()
+                else null
+            }
+            .firstOrNull()
+        return if (id != null) VideoSortOption.fromId(id) else VideoSortOption.CUSTOM_ORDER
+    }
+
+    /**
+     * Saves the video sort option for a specific group.
+     */
+    fun saveGroupVideoSortOption(groupId: Long, sortOption: VideoSortOption) {
+        val raw = prefs.getString(KEY_GROUP_VIDEO_SORT_OPTIONS, "") ?: ""
+        val map = raw.split(",")
+            .filter { it.contains(":") }
+            .associate {
+                val parts = it.split(":")
+                (parts[0].toLongOrNull() ?: 0L) to (parts[1].toIntOrNull() ?: 0)
+            }
+            .toMutableMap()
+        map[groupId] = sortOption.id
+        val entries = map.entries.toList().takeLast(200)
+        prefs.edit().putString(KEY_GROUP_VIDEO_SORT_OPTIONS,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
+    }
+
+    /**
+     * Returns all per-group video sort options as a Map of groupId → sortOptionId.
+     * Used by BackupManager to export all per-group sort settings.
+     */
+    fun getAllGroupVideoSortOptions(): Map<Long, Int> {
+        val raw = prefs.getString(KEY_GROUP_VIDEO_SORT_OPTIONS, "") ?: ""
+        if (raw.isBlank()) return emptyMap()
+        return raw.split(",")
+            .filter { it.contains(":") }
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2) {
+                    val groupId = parts[0].trim().toLongOrNull() ?: return@mapNotNull null
+                    val sortId  = parts[1].trim().toIntOrNull() ?: return@mapNotNull null
+                    groupId to sortId
+                } else null
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-group video sort options from a Map of groupId → sortOptionId.
+     * Used by BackupManager to import all per-group sort settings.
+     */
+    fun saveAllGroupVideoSortOptions(options: Map<Long, Int>) {
+        prefs.edit().putString(KEY_GROUP_VIDEO_SORT_OPTIONS,
             options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
     }
 

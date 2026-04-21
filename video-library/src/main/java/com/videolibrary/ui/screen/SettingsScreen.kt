@@ -3,6 +3,7 @@ package com.videolibrary.ui.screen
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.example.common.ui.screen.SharedSettingsScreen
+import com.videolibrary.ui.components.clearVideoThumbnailCache
 import com.videolibrary.ui.viewmodel.VideoListViewModel
 
 @Composable
@@ -26,6 +27,7 @@ fun SettingsScreen(
         onBackup                   = { viewModel.saveBackupToFile() },
         onRestore                  = { viewModel.restoreBackupFromFile() },
         onRefreshAlbumPreviews     = { viewModel.refreshAlbumPreviews() },
+        onClearVideoThumbnails     = { clearVideoThumbnailCache() },
         backupPath                 = "Documents/VideoLibrary/backups/",
         modifier                   = modifier
     )

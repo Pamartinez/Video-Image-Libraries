@@ -22,6 +22,7 @@ import java.io.File
  *     "customGroupOrder":       [Long, ...],
  *     "customMixedOrder":       [String, ...],
  *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
+ *     "groupSortOptions":       { "<groupId>": Int, ... },
  *     "independentSortEnabled": Boolean,
  *     "groupsAlwaysOnTop":      Boolean,
  *     "autoBackupEnabled":      Boolean,
@@ -37,6 +38,7 @@ import java.io.File
  *     "carouselShowBarsOnOpen": Boolean,
  *     "carouselAlwaysHideOverlay": Boolean,
  *     "customAlbumOrder":       [Int, ...],
+ *     "folderImageSortOptions": { "<bucketId>": Int, ... },
  *
  *     // Video-library specific:
  *     "folderSortOption":       Int,
@@ -44,7 +46,8 @@ import java.io.File
  *     "selectedTab":            Int,
  *     "instantPlayerEnabled":   Boolean,
  *     "customFolderOrder":      [Int, ...],
- *     "folderVideoSortOptions": { "<bucketId>": Int, ... }
+ *     "folderVideoSortOptions": { "<bucketId>": Int, ... },
+ *     "groupVideoSortOptions":  { "<groupId>": Int, ... }
  *   },
  *   "groupData": { "groups": [...], "members": [...], "nextGroupId": Long }
  * }
@@ -78,6 +81,7 @@ abstract class BackupManager(
         val customGroupOrder:       List<Long>?,
         val customMixedOrder:       List<String>?,
         val customGroupItemsOrders: Map<Long, List<String>>?,
+        val groupSortOptions:       Map<Long, Int>?,
         // Shared across both libraries
         val independentSortEnabled: Boolean?,
         val groupsAlwaysOnTop:      Boolean?,
@@ -192,6 +196,7 @@ abstract class BackupManager(
         customGroupOrder:       List<Long>,
         customMixedOrder:       List<String>,
         customGroupItemsOrders: Map<Long, List<String>>,
+        groupSortOptions:       Map<Long, Int>,
         independentSortEnabled: Boolean,
         groupsAlwaysOnTop:      Boolean,
         autoBackupEnabled:      Boolean,
@@ -208,6 +213,13 @@ abstract class BackupManager(
             groupItemsObj.put(id.toString(), JSONArray(order))
         }
         settings.put("customGroupItemsOrders", groupItemsObj)
+
+        // Per-group sort options → JSONObject { "groupId": sortOptionId }
+        val groupSortsObj = JSONObject()
+        groupSortOptions.forEach { (groupId, sortId) ->
+            groupSortsObj.put(groupId.toString(), sortId)
+        }
+        settings.put("groupSortOptions", groupSortsObj)
 
         // Shared across both libraries
         settings.put("independentSortEnabled", independentSortEnabled)
@@ -256,6 +268,16 @@ abstract class BackupManager(
             map
         } else null
 
+        val groupSortOptions: Map<Long, Int>? = if (settings.has("groupSortOptions")) {
+            val obj = settings.getJSONObject("groupSortOptions")
+            val map = mutableMapOf<Long, Int>()
+            for (key in obj.keys()) {
+                val groupId = key.toLongOrNull() ?: continue
+                map[groupId] = obj.getInt(key)
+            }
+            map
+        } else null
+
         // Shared across both libraries
         val independentSortEnabled: Boolean? =
             if (settings.has("independentSortEnabled")) settings.getBoolean("independentSortEnabled") else null
@@ -289,6 +311,7 @@ abstract class BackupManager(
 
         return SharedSettings(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
+            groupSortOptions,
             independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled, floatingTopBarEnabled,
             hiddenFolderPaths, hiddenFolderMeta
         )

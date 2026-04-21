@@ -37,6 +37,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 customGroupOrder       = prefs.customGroupOrder,
                 customMixedOrder       = prefs.customMixedOrder,
                 customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
+                groupSortOptions       = prefs.getAllGroupSortOptions(),
                 independentSortEnabled = prefs.independentSortEnabled,
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
@@ -70,6 +71,9 @@ object BackupManager : com.example.common.data.util.BackupManager(
         shared.customGroupItemsOrders?.forEach { (groupId, order) ->
             prefs.setCustomGroupItemsOrder(groupId, order)
         }
+        shared.groupSortOptions?.forEach { (groupId, sortId) ->
+            prefs.saveGroupSortOption(groupId, SortOption.fromId(sortId))
+        }
         shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
@@ -95,6 +99,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
         if (settings.has("customAlbumOrder")) {
             val arr = settings.getJSONArray("customAlbumOrder")
             prefs.customAlbumOrder = (0 until arr.length()).map { arr.getInt(it) }
+        }
+
+        // Per-album image sort options — JSONObject { "bucketId": sortOptionId }
+        if (settings.has("folderImageSortOptions")) {
+            val obj = settings.getJSONObject("folderImageSortOptions")
+            val map = mutableMapOf<Int, Int>()
+            for (key in obj.keys()) {
+                val bucketId = key.toIntOrNull() ?: continue
+                map[bucketId] = obj.getInt(key)
+            }
+            prefs.restoreAllFolderImageSortOptions(map)
         }
     }
 }

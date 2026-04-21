@@ -35,6 +35,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 customGroupOrder       = prefs.customGroupOrder,
                 customMixedOrder       = prefs.customMixedOrder,
                 customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
+                groupSortOptions       = prefs.getAllGroupSortOptions(),
                 independentSortEnabled = prefs.independentSortEnabled,
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
@@ -75,6 +76,9 @@ object BackupManager : com.example.common.data.util.BackupManager(
         shared.customGroupItemsOrders?.forEach { (groupId, order) ->
             prefs.saveGroupMixedOrder(groupId, order)
         }
+        shared.groupSortOptions?.forEach { (groupId, sortId) ->
+            prefs.saveGroupSortOption(groupId, com.videolibrary.data.model.FolderSortOption.fromId(sortId))
+        }
         shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
@@ -109,6 +113,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.saveAllFolderVideoSortOptions(map)
+        }
+
+        // Per-group video sort options — JSONObject { "groupId": sortOptionId }
+        if (settings.has("groupVideoSortOptions")) {
+            val obj = settings.getJSONObject("groupVideoSortOptions")
+            val map = mutableMapOf<Long, Int>()
+            for (key in obj.keys()) {
+                val groupId = key.toLongOrNull() ?: continue
+                map[groupId] = obj.getInt(key)
+            }
+            prefs.saveAllGroupVideoSortOptions(map)
         }
     }
 
