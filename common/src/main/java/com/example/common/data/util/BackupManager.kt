@@ -1,3 +1,4 @@
+ *     "folderVideoSortOptions": { "<bucketId>": Int, ... }
 package com.example.common.data.util
 
 import android.content.Context
@@ -21,9 +22,8 @@ import java.io.File
  *     "folderViewType":         Int,
  *     "customGroupOrder":       [Long, ...],
  *     "customMixedOrder":       [String, ...],
- *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
  *     "groupSortOptions":       { "<groupId>": Int, ... },
- *     "independentSortEnabled": Boolean,
+ *     "customGroupItemsOrders": { "<groupId>": [String, ...], ... },
  *     "groupsAlwaysOnTop":      Boolean,
  *     "autoBackupEnabled":      Boolean,
  *     "floatingTopBarEnabled":  Boolean,
