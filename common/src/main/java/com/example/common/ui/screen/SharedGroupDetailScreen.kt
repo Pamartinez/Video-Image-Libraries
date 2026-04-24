@@ -153,16 +153,6 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     var showSortDialog by remember { mutableStateOf(false) }
     var showCreateMenu by remember { mutableStateOf(false) }
 
-    // ── Calculate scroll state for visibility control ──
-    val scrollOffset = if (floatingTopBarEnabled && !isSelectionMode) {
-        lazyGridState.firstVisibleItemScrollOffset
-    } else 0
-
-    // Simple toggle: invisible when scrolling, visible when at top
-    val isScrolled = scrollOffset > 0
-    val showInline = !isScrolled
-    val showFloating = isScrolled
-
     val totalSelected = selectedFolderIds.size + selectedGroupIds.size
     val totalItems = folders.size + subGroups.size
 
@@ -184,10 +174,23 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
         }
     }
 
+    // Build the display list
     // Memoize sorted list to prevent expensive sorting on every recomposition
     val mixedItems: List<MixedItem> = remember(rawMixed, sortOption, groupsAlwaysOnTop) {
         sortMixedItems(rawMixed, sortOption, groupsAlwaysOnTop)
     }
+
+    // Scroll state tracking for floating header behavior
+    val firstVisibleItemIndex by remember {
+        derivedStateOf { lazyGridState.firstVisibleItemIndex }
+    }
+    val firstVisibleItemScrollOffset by remember {
+        derivedStateOf { lazyGridState.firstVisibleItemScrollOffset }
+    }
+
+    // Determine visibility of inline vs floating headers
+    val showInline = firstVisibleItemIndex == 0 && firstVisibleItemScrollOffset < 10
+    val showFloating = !showInline
 
     // Drag-to-reorder setup
     val canDrag = isCustomOrder(sortOption)

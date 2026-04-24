@@ -36,7 +36,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 customMixedOrder       = prefs.customMixedOrder,
                 customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
                 groupSortOptions       = prefs.getAllGroupSortOptions(),
-                independentSortEnabled = prefs.independentSortEnabled,
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
                 floatingTopBarEnabled  = prefs.floatingTopBarEnabled,
@@ -76,10 +75,10 @@ object BackupManager : com.example.common.data.util.BackupManager(
         shared.customGroupItemsOrders?.forEach { (groupId, order) ->
             prefs.saveGroupMixedOrder(groupId, order)
         }
+        shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
         shared.groupSortOptions?.forEach { (groupId, sortId) ->
             prefs.saveGroupSortOption(groupId, com.videolibrary.data.model.FolderSortOption.fromId(sortId))
         }
-        shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
         shared.floatingTopBarEnabled?.let  { prefs.floatingTopBarEnabled  = it }
@@ -113,7 +112,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.saveAllFolderVideoSortOptions(map)
-        }
+    }
+
 
         // Per-group video sort options — JSONObject { "groupId": sortOptionId }
         if (settings.has("groupVideoSortOptions")) {
@@ -125,8 +125,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
             }
             prefs.saveAllGroupVideoSortOptions(map)
         }
-    }
-
     // ── v1 → v2 migration ────────────────────────────────────────────
 
     /**
