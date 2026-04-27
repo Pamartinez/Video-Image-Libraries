@@ -1148,10 +1148,15 @@ fun VideoListScreen(
         )
     }
     if (state.showMoveToGroupPicker) {
-        MoveToGroupPickerDialog(
-            groups    = state.rootGroups,
-            onMove    = { viewModel.moveSelectionToGroup(it) },
-            onDismiss = { viewModel.dismissMoveToGroupPicker() }
+        MoveToGroupScreen(
+            folders = state.folders,
+            groups = state.rootGroups,
+            movingFolderIds = state.moveToGroupFolderIds,
+            movingGroupIds = state.moveToGroupGroupIds,
+            viewType = state.viewType,
+            onMoveHere = { viewModel.moveSelectionToGroup(it) },
+            onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
+            onCancel = { viewModel.dismissMoveToGroupPicker() }
         )
     }
     if (state.showCreateAlbumDialog && state.currentFolderBucketId == null) {
