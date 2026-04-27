@@ -58,9 +58,9 @@ fun SharedSettingsScreen(
     onRestore: suspend () -> Boolean,
     onRefreshAlbumPreviews: () -> Unit,
     backupPath: String,
-    modifier: Modifier = Modifier,
-    extraContent: @Composable ColumnScope.() -> Unit = {}
+    extraContent: @Composable ColumnScope.() -> Unit = {},
     onClearVideoThumbnails: (() -> Unit)? = null,
+    modifier: Modifier = Modifier
 ) {
     val ctx    = LocalContext.current
     val colors = LocalLibraryColors.current
@@ -180,9 +180,9 @@ fun SharedSettingsScreen(
                     subtitle = "Update album cover images to reflect current sort order and content"
                 ) {
                     onRefreshAlbumPreviews()
+                }
+
                     Toast.makeText(ctx, "Album previews refreshed", Toast.LENGTH_SHORT).show()
-                Spacer(Modifier.height(4.dp))
-            }
 
                 // ── Clear Video Thumbnails (video-library only) ──
                 onClearVideoThumbnails?.let { clearAction ->
@@ -197,8 +197,8 @@ fun SharedSettingsScreen(
                         Toast.makeText(ctx, "Video thumbnails cleared - will regenerate", Toast.LENGTH_SHORT).show()
                     }
                 }
+            }
 
-            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }

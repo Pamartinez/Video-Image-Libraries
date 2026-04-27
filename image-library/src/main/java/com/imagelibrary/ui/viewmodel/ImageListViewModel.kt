@@ -154,6 +154,10 @@ data class ImageListUiState(
     val hideScreenGroupSubGroups: List<GroupItem> = emptyList(),
     /** True when hide screen was opened from inside a group — back exits entirely. */
     val hideScreenStartedInsideGroup: Boolean = false,
+    /** Pre-calculated hidden state for root groups (includes nested descendants). */
+    val groupHiddenStateForHideScreen: Map<Long, Boolean> = emptyMap(),
+    /** Pre-calculated hidden state for sub-groups in hide screen (includes nested descendants). */
+    val groupSubGroupHiddenStateForHideScreen: Map<Long, Boolean> = emptyMap(),
     /** Increment this to trigger scroll-to-top in folder detail screen (album view). */
     val folderDetailScrollToTopTrigger: Int = 0
 )
@@ -221,6 +225,17 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 groupsAlwaysOnTop = s.groupsAlwaysOnTop,
                 groupId           = null
             )
+
+            // Calculate hidden state for each group (including nested descendants)
+            val groupHiddenState = sortedGroups.associate { group ->
+                val allBucketIds = groupRepository.getAllDescendantBucketIds(group.groupId)
+                val paths = allFolders
+                    .filter { it.bucketId in allBucketIds }
+                    .map { it.path }
+                    .filter { it.isNotBlank() }
+                group.groupId to (paths.isNotEmpty() && paths.all { it in preferences.hiddenFolderPaths })
+            }
+
             _uiState.update {
                 it.copy(
                     showHideFolders         = true,
@@ -228,6 +243,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     rootGroupsForHide       = sortedGroups,
                     ungroupedFoldersForHide = sortedUngrouped,
                     hiddenFolderPaths       = preferences.hiddenFolderPaths,
+                    groupHiddenStateForHideScreen = groupHiddenState,
                     hideScreenGroupId       = null,
                     hideScreenGroupName     = "",
                     hideScreenGroupFolders  = emptyList()
@@ -286,6 +302,17 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 groupsAlwaysOnTop = s.groupsAlwaysOnTop,
                 groupId           = groupId
             )
+
+            // Calculate hidden state for sub-groups (including nested descendants)
+            val groupSubGroupHiddenState = sortedSubGroups.associate { sub ->
+                val allBucketIds = groupRepository.getAllDescendantBucketIds(sub.groupId)
+                val paths = allFolders
+                    .filter { it.bucketId in allBucketIds }
+                    .map { it.path }
+                    .filter { it.isNotBlank() }
+                sub.groupId to (paths.isNotEmpty() && paths.all { it in preferences.hiddenFolderPaths })
+            }
+
             _uiState.update {
                 it.copy(
                     showHideFolders              = true,
@@ -293,6 +320,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     hiddenFolderPaths            = preferences.hiddenFolderPaths,
                     rootGroupsForHide            = emptyList(),
                     ungroupedFoldersForHide      = emptyList(),
+                    groupSubGroupHiddenStateForHideScreen = groupSubGroupHiddenState,
                     hideScreenGroupId            = groupId,
                     hideScreenGroupName          = groupName,
                     hideScreenGroupFolders       = sortedFolders,
@@ -321,25 +349,50 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 groupsAlwaysOnTop = _uiState.value.groupsAlwaysOnTop,
                 groupId           = group.groupId
             )
+
+            // Calculate hidden state for sub-groups (including nested descendants)
+            val groupSubGroupHiddenState = sortedSubGroups.associate { sub ->
+                val allBucketIds = groupRepository.getAllDescendantBucketIds(sub.groupId)
+                val paths = s.allFoldersForHide
+                    .filter { it.bucketId in allBucketIds }
+                    .map { it.path }
+                    .filter { it.isNotBlank() }
+                sub.groupId to (paths.isNotEmpty() && paths.all { it in s.hiddenFolderPaths })
+            }
+
             _uiState.update {
                 it.copy(
                     hideScreenGroupId        = group.groupId,
                     hideScreenGroupName      = group.name,
                     hideScreenGroupFolders   = sortedFolders,
-                    hideScreenGroupSubGroups = sortedSubGroups
+                    hideScreenGroupSubGroups = sortedSubGroups,
+                    groupSubGroupHiddenStateForHideScreen = groupSubGroupHiddenState
                 )
             }
         }
     }
 
     fun closeGroupInHideScreen() {
-        _uiState.update {
-            it.copy(
-                hideScreenGroupId        = null,
-                hideScreenGroupName      = "",
-                hideScreenGroupFolders   = emptyList(),
-                hideScreenGroupSubGroups = emptyList()
-            )
+        viewModelScope.launch {
+            val s = _uiState.value
+            // Recalculate hidden state for root groups when returning to root level
+            val groupHiddenState = s.rootGroupsForHide.associate { group ->
+                val allBucketIds = groupRepository.getAllDescendantBucketIds(group.groupId)
+                val paths = s.allFoldersForHide
+                    .filter { it.bucketId in allBucketIds }
+                    .map { it.path }
+                    .filter { it.isNotBlank() }
+                group.groupId to (paths.isNotEmpty() && paths.all { it in s.hiddenFolderPaths })
+            }
+            _uiState.update {
+                it.copy(
+                    hideScreenGroupId        = null,
+                    hideScreenGroupName      = "",
+                    hideScreenGroupFolders   = emptyList(),
+                    hideScreenGroupSubGroups = emptyList(),
+                    groupHiddenStateForHideScreen = groupHiddenState
+                )
+            }
         }
     }
 
@@ -362,13 +415,37 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun toggleGroupHidden(group: GroupItem) {
-        val allFolders = _uiState.value.allFoldersForHide
-        val groupFolders = allFolders.filter { it.bucketId in group.memberBucketIds }
-        val paths = groupFolders.map { it.path }.filter { it.isNotBlank() }
-        if (paths.isEmpty()) return
-        val currentHidden = _uiState.value.hiddenFolderPaths
-        val allAlreadyHidden = paths.all { it in currentHidden }
         viewModelScope.launch {
+            val allFolders = _uiState.value.allFoldersForHide
+            
+            android.util.Log.d("HideDebug", "=== toggleGroupHidden START ===")
+            android.util.Log.d("HideDebug", "Group: '${group.name}' (ID ${group.groupId})")
+            android.util.Log.d("HideDebug", "Group.memberBucketIds from GroupItem = ${group.memberBucketIds}")
+            
+            android.util.Log.d("HideDebug", "allFoldersForHide (${allFolders.size} folders):")
+            allFolders.forEach { folder ->
+                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
+            }
+            
+            // Get ALL descendant bucket IDs (including nested sub-groups)
+            val allBucketIds = groupRepository.getAllDescendantBucketIds(group.groupId)
+            android.util.Log.d("HideDebug", "allBucketIds result = $allBucketIds")
+            
+            val groupFolders = allFolders.filter { it.bucketId in allBucketIds }
+            android.util.Log.d("HideDebug", "Filtered groupFolders (${groupFolders.size} folders):")
+            groupFolders.forEach { folder ->
+                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
+            }
+            
+            val paths = groupFolders.map { it.path }.filter { it.isNotBlank() }
+            android.util.Log.d("HideDebug", "Paths to hide (${paths.size}): $paths")
+            
+            if (paths.isEmpty()) {
+                android.util.Log.d("HideDebug", "No paths found, returning")
+                return@launch
+            }
+            val currentHidden = _uiState.value.hiddenFolderPaths
+            val allAlreadyHidden = paths.all { it in currentHidden }
             if (allAlreadyHidden) {
                 paths.forEach { path -> preferences.removeHiddenFolderMeta(path) }
                 val newPaths = currentHidden - paths.toSet()
@@ -383,6 +460,27 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 preferences.hiddenFolderPaths = newPaths
                 _uiState.update { it.copy(hiddenFolderPaths = newPaths) }
             }
+            
+            // Recalculate group hidden states
+            val s = _uiState.value
+            if (s.hideScreenGroupId == null) {
+                // At root level - recalculate root groups
+                val groupHiddenState = s.rootGroupsForHide.associate { g ->
+                    val allBucketIds = groupRepository.getAllDescendantBucketIds(g.groupId)
+                    val p = s.allFoldersForHide.filter { it.bucketId in allBucketIds }.map { it.path }.filter { it.isNotBlank() }
+                    g.groupId to (p.isNotEmpty() && p.all { it in preferences.hiddenFolderPaths })
+                }
+                _uiState.update { it.copy(groupHiddenStateForHideScreen = groupHiddenState) }
+            } else {
+                // Inside a group - recalculate sub-groups
+                val groupSubGroupHiddenState = s.hideScreenGroupSubGroups.associate { g ->
+                    val allBucketIds = groupRepository.getAllDescendantBucketIds(g.groupId)
+                    val p = s.allFoldersForHide.filter { it.bucketId in allBucketIds }.map { it.path }.filter { it.isNotBlank() }
+                    g.groupId to (p.isNotEmpty() && p.all { it in preferences.hiddenFolderPaths })
+                }
+                _uiState.update { it.copy(groupSubGroupHiddenStateForHideScreen = groupSubGroupHiddenState) }
+            }
+            
             silentRefresh()
             // Only back up hidden-album changes when auto-backup is enabled
             if (preferences.autoBackupEnabled) {

@@ -92,6 +92,44 @@ open class GroupRepository(
         store.getBucketIdsForGroup(groupId)
     }
 
+    /**
+     * Get ALL folder bucket IDs for a group including nested sub-groups.
+     * Uses iterative breadth-first traversal to avoid recursion.
+     *
+     * @param groupId The root group ID to start from
+     * @return Set of all bucket IDs from this group and all descendant sub-groups
+     */
+    suspend fun getAllDescendantBucketIds(groupId: Long): Set<Int> = withContext(Dispatchers.IO) {
+        android.util.Log.d("HideDebug", "getAllDescendantBucketIds called for groupId=$groupId")
+        val result = mutableSetOf<Int>()
+        val queue = mutableListOf(groupId)
+        val visited = mutableSetOf<Long>()
+
+        while (queue.isNotEmpty()) {
+            val currentGroupId = queue.removeAt(0)
+            android.util.Log.d("HideDebug", "  Processing groupId=$currentGroupId")
+
+            // Skip if already visited (circular reference protection)
+            if (!visited.add(currentGroupId)) {
+                android.util.Log.d("HideDebug", "  Already visited, skipping")
+                continue
+            }
+
+            // Add all direct member folder bucket IDs
+            val bucketIds = store.getBucketIdsForGroup(currentGroupId)
+            android.util.Log.d("HideDebug", "  Direct bucket IDs for group $currentGroupId: $bucketIds")
+            result.addAll(bucketIds)
+
+            // Add all child groups to the queue for processing
+            val childGroups = store.getChildGroups(currentGroupId)
+            android.util.Log.d("HideDebug", "  Child groups: ${childGroups.map { it.groupId }}")
+            queue.addAll(childGroups.map { it.groupId })
+        }
+
+        android.util.Log.d("HideDebug", "getAllDescendantBucketIds result for groupId=$groupId: $result")
+        result
+    }
+
     /** Get raw group entity by ID (useful for checking parentGroupId). */
     suspend fun getGroupById(id: Long): GroupEntity? = withContext(Dispatchers.IO) {
         store.getGroupById(id)
@@ -308,6 +346,8 @@ open class GroupRepository(
         }
     }
 }
+
+
 
 
 

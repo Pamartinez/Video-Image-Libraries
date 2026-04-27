@@ -215,20 +215,8 @@ fun VideoListScreen(
     // Must be checked BEFORE GroupDetailScreen so clicking "Hide album(s)" inside
     // a group actually shows the hide screen instead of staying on the group.
     if (state.showHideFolders) {
-        val groupHiddenState = state.rootGroupsForHide.associate { group ->
-            val paths = state.allFoldersForHide
-                .filter { it.bucketId in group.memberBucketIds }
-                .map { it.path }
-                .filter { it.isNotBlank() }
-            group.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
-        }
-        val groupSubGroupHiddenState = state.hideScreenGroupSubGroups.associate { sub ->
-            val paths = state.allFoldersForHide
-                .filter { it.bucketId in sub.memberBucketIds }
-                .map { it.path }
-                .filter { it.isNotBlank() }
-            sub.groupId to (paths.isNotEmpty() && paths.all { it in state.hiddenFolderPaths })
-        }
+        val groupHiddenState = state.groupHiddenStateForHideScreen
+        val groupSubGroupHiddenState = state.groupSubGroupHiddenStateForHideScreen
         HideFoldersScreen(
             groups                   = state.rootGroupsForHide,
             ungroupedFolders         = state.ungroupedFoldersForHide,

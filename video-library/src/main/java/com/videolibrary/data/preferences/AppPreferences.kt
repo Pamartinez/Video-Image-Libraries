@@ -19,6 +19,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_CUSTOM_FOLDER_ORDER     = "custom_folder_order"
         private const val KEY_FOLDER_VIDEO_SORT_OPTIONS = "folder_video_sort_options"
         private const val KEY_GROUP_VIDEO_SORT_OPTIONS = "group_video_sort_options"
+        private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
     }
 
     // ── Video-library specific ───────────────────────────────────────────────
@@ -102,9 +103,13 @@ class AppPreferences(context: Context) : SharedAppPreferences(
      */
     fun saveAllFolderVideoSortOptions(options: Map<Int, Int>) {
         prefs.edit().putString(KEY_FOLDER_VIDEO_SORT_OPTIONS,
+            options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
 
     /** When true, tapping a video starts playback immediately without entering the detail screen. */
     var instantPlayerEnabled: Boolean
+        get()  = prefs.getBoolean(KEY_INSTANT_PLAYER, false)
+        set(v) = prefs.edit().putBoolean(KEY_INSTANT_PLAYER, v).apply()
 
     // ── Per-group video sort options ──────────────────────────────────────────
 
@@ -170,6 +175,4 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         prefs.edit().putString(KEY_GROUP_VIDEO_SORT_OPTIONS,
             options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
     }
-        get()  = prefs.getBoolean(KEY_INSTANT_PLAYER, false)
-        set(v) = prefs.edit().putBoolean(KEY_INSTANT_PLAYER, v).apply()
 }

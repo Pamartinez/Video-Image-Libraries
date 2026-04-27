@@ -39,6 +39,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
                 floatingTopBarEnabled  = prefs.floatingTopBarEnabled,
+                independentSortEnabled = prefs.independentSortEnabled,
                 hiddenFolderPaths      = prefs.hiddenFolderPaths,
                 hiddenFolderMeta       = prefs.getAllHiddenFolderMeta()
             )
@@ -112,8 +113,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.saveAllFolderVideoSortOptions(map)
-    }
-
+        }
 
         // Per-group video sort options — JSONObject { "groupId": sortOptionId }
         if (settings.has("groupVideoSortOptions")) {
@@ -125,6 +125,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
             }
             prefs.saveAllGroupVideoSortOptions(map)
         }
+    }
+
     // ── v1 → v2 migration ────────────────────────────────────────────
 
     /**
