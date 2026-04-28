@@ -520,6 +520,9 @@ fun ImageListScreen(
             isSelectionMode = state.isSelectionMode,
             selectedFolderIds = state.selectedFolderIds,
             selectedGroupIds = state.selectedGroupIds,
+            // Group creation mode support
+            isGroupCreationMode = state.isGroupCreationMode,
+            groupCreationSelectedFolderIds = state.groupCreationSelectedFolderIds,
             floatingTopBarEnabled = state.floatingTopBarEnabled,
             onBack = { viewModel.exitSelectionMode(); viewModel.closeGroup() },
             onFolderClick = { folder ->
@@ -555,7 +558,7 @@ fun ImageListScreen(
             onSettings = { viewModel.showSettings() },
             onAbout = { viewModel.showAbout() },
             onDelete = { viewModel.removeSelectedFromGroup() },
-            onGroup = { viewModel.showGroupNameDialogForBottomBar() },
+            onGroup = { viewModel.showGroupNameForCreation() },
             onUngroup = { viewModel.ungroupSelectedGroups() },
             onSelectAll = { viewModel.selectAllInGroup() },
             onCancelSelection = { viewModel.exitSelectionMode() },
@@ -575,14 +578,15 @@ fun ImageListScreen(
         if (state.showRenameGroupDialog) { GroupNameDialog(title = "Rename group", confirmLabel = "Rename", initialName = state.currentGroupName, allowDuplicates = true, onConfirm = { viewModel.renameCurrentGroup(it) }, onDismiss = { viewModel.dismissRenameGroupDialog() }) }
         if (state.showDestroyGroupDialog) { DestroyGroupDialog(groupName = state.currentGroupName, onConfirm = { viewModel.destroyCurrentGroup() }, onDismiss = { viewModel.dismissDestroyGroupDialog() }) }
         if (state.showGroupNameDialog) {
-            val existingNames = state.allGroups.map { it.name }
+            val isCreation = state.groupNameDialogForCreation
             GroupNameDialog(
-                title = "Create group",
-                initialName = generateUniqueGroupName(existingNames),
-                existingNames = existingNames,
+                initialName  = if (isCreation) state.suggestedGroupName else "Group 1",
+                title        = if (isCreation) "New group" else "Create group",
+                confirmLabel = "Create",
+                existingNames = if (isCreation) state.existingGroupNames else emptySet(),
                 onConfirm = { name ->
-                    if (state.groupNameDialogForBottomBar) viewModel.createGroupFromSelection(name)
-                    else viewModel.createGroupFromCreationMode(name)
+                    // ALWAYS enter checkbox selection mode (never create immediately)
+                    viewModel.enterGroupCreationModeWithName(name)
                 },
                 onDismiss = { viewModel.dismissGroupNameDialog() }
             )
@@ -673,12 +677,11 @@ fun ImageListScreen(
                 when {
                     state.isGroupCreationMode -> {
                         // Save / Cancel bar
-                        val totalSelected = state.groupCreationSelectedFolderIds.size +
-                                state.groupCreationSelectedGroupIds.size
+                        val totalSelected = state.groupCreationSelectedFolderIds.size // Only count folders
                         val headerText = if (state.pendingGroupCreationName.isNotBlank())
                             "Add to \"${state.pendingGroupCreationName}\" ($totalSelected)"
                         else
-                            "Select items ($totalSelected)"
+                            "Select albums ($totalSelected)"
                         Text(
                             text = headerText,
                             fontSize = 18.sp, fontWeight = FontWeight.SemiBold,
@@ -687,8 +690,8 @@ fun ImageListScreen(
                         PillButton(
                             text = "Save",
                             onClick = { viewModel.showGroupNameDialog() },
-                            enabled = totalSelected >= 2,
-                            containerColor = if (totalSelected >= 2) colors.primary else Color(0xFF3A3A3A)
+                            enabled = totalSelected >= 1, // Changed from 2 to 1 - allow single album
+                            containerColor = if (totalSelected >= 1) colors.primary else Color(0xFF3A3A3A)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         PillButton(text = "Cancel", onClick = { viewModel.exitGroupCreationMode() })
@@ -745,12 +748,13 @@ fun ImageListScreen(
                     folders = state.ungroupedFolders, groups = state.rootGroups,
                     viewType = state.viewType, isSelectionMode = false,
                     selectedFolderIds = state.groupCreationSelectedFolderIds,
-                    selectedGroupIds = state.groupCreationSelectedGroupIds,
+                    selectedGroupIds = emptySet(), // Groups are NOT selectable during group creation
                     isLoading = state.isLoading, showCheckboxes = true,
                     onFolderClick = { viewModel.toggleGroupCreationFolderSelection(it.bucketId) },
                     onFolderLongClick = { viewModel.toggleGroupCreationFolderSelection(it.bucketId) },
-                    onGroupClick = { viewModel.toggleGroupCreationGroupSelection(it.groupId) },
-                    onGroupLongClick = { viewModel.toggleGroupCreationGroupSelection(it.groupId) },
+                    // Groups should be navigable, not selectable during group creation
+                    onGroupClick = { group -> viewModel.openGroup(group.groupId, group.name) },
+                    onGroupLongClick = { group -> viewModel.openGroup(group.groupId, group.name) },
                     lazyGridState = folderGridState, sortOption = state.sortOption
                 )
             } else {

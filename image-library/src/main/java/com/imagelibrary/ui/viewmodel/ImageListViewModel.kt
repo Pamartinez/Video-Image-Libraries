@@ -97,6 +97,9 @@ data class ImageListUiState(
     val groupNameDialogForBottomBar: Boolean = false,
     val groupNameDialogForCreation: Boolean = false,
     val pendingGroupCreationName: String = "",
+    val pendingGroupCreationParentId: Long? = null,
+    val existingGroupNames: Set<String> = emptySet(),
+    val suggestedGroupName: String = "Group 1",
 
     // ── Unified ordered mixed display list (groups + ungrouped folders interleaved) ──
     val orderedMixedItems: List<Any> = emptyList(),
@@ -1710,19 +1713,51 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     /** Show the name dialog FIRST, then enter creation mode (called from + → Group) */
     fun showGroupNameForCreation() {
-        _uiState.update { it.copy(showGroupNameDialog = true, groupNameDialogForCreation = true) }
+        viewModelScope.launch {
+            val allNames = groupRepository.getAllGroups().map { it.name }.toSet()
+            val suggested = generateUniqueGroupName(allNames)
+            _uiState.update {
+                it.copy(
+                    showGroupNameDialog        = true,
+                    groupNameDialogForCreation = true,
+                    existingGroupNames         = allNames,
+                    suggestedGroupName         = suggested
+                )
+            }
+        }
+    }
+
+    /** Delegates to FilePathUtils.generateUniqueGroupName in common module. */
+    private fun generateUniqueGroupName(existingNames: Set<String>): String {
+        return FilePathUtils.generateUniqueGroupName("Group", existingNames)
     }
 
     /** Enters group creation mode with an already-chosen name (skips the name dialog at the end) */
     fun enterGroupCreationModeWithName(name: String) {
+        // Preserve any pre-populated selections (from bottom bar flow)
+        val s = _uiState.value
         _uiState.update {
             it.copy(
                 showGroupNameDialog = false,
                 groupNameDialogForCreation = false,
                 isGroupCreationMode = true,
+                isSelectionMode = false, // Exit regular selection mode
                 pendingGroupCreationName = name,
-                groupCreationSelectedFolderIds = emptySet(),
-                groupCreationSelectedGroupIds = emptySet()
+                // Save the current group ID as the parent for the new nested group
+                pendingGroupCreationParentId = s.currentGroupId,
+                // Keep pre-populated folder selections, but clear group selections (groups not selectable)
+                groupCreationSelectedFolderIds = s.groupCreationSelectedFolderIds,
+                groupCreationSelectedGroupIds = emptySet(),
+                // Clear regular selection state to prevent groups from appearing selected
+                selectedFolderIds = emptySet(),
+                selectedGroupIds = emptySet(),
+                selectedImageIds = emptySet(),
+                // Temporarily exit group view to show checkbox selection at root level
+                currentGroupId = null,
+                currentGroupName = "",
+                currentGroupFolders = emptyList(),
+                currentGroupSubGroups = emptyList(),
+                currentGroupOrderedMixedItems = emptyList()
             )
         }
     }
@@ -1730,8 +1765,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun createGroupFromCreationMode(name: String) {
         val s = _uiState.value
         val folderIds = s.groupCreationSelectedFolderIds.toList()
-        val groupIds = s.groupCreationSelectedGroupIds.toList()
-        val parentGroupId = s.currentGroupId
+        val groupIds = emptyList<Long>() // Groups are not selectable during creation
+        val parentGroupId = s.pendingGroupCreationParentId
 
         viewModelScope.launch {
             val newGroupId = groupRepository.createGroup(
@@ -1749,8 +1784,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             }
             exitGroupCreationMode()
             silentRefresh()
-            if (s.currentGroupId != null) {
-                refreshCurrentGroup()
+            // If we created a nested group, navigate back into the parent group
+            if (parentGroupId != null) {
+                val parentGroup = groupRepository.getGroupById(parentGroupId)
+                parentGroup?.let { group ->
+                    openGroup(group.groupId, group.name)
+                }
             }
             scheduleAutoBackup()
         }
@@ -1758,7 +1797,19 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     /** Called from bottom bar flow (long-press selection → Group button → name dialog) */
     fun showGroupNameDialogForBottomBar() {
-        _uiState.update { it.copy(showGroupNameDialog = true, groupNameDialogForBottomBar = true) }
+        // Pre-populate creation selections with current selection
+        val s = _uiState.value
+        _uiState.update {
+            it.copy(
+                showGroupNameDialog = true,
+                groupNameDialogForCreation = true,
+                // Pre-populate with already-selected items
+                groupCreationSelectedFolderIds = s.selectedFolderIds,
+                groupCreationSelectedGroupIds = s.selectedGroupIds
+            )
+        }
+        // Exit selection mode since we're entering creation mode
+        exitSelectionMode()
     }
 
     fun createGroupFromSelection(name: String) {

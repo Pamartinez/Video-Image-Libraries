@@ -120,6 +120,151 @@ This is a **non-negotiable architectural principle** that supersedes all other c
 
 **When in doubt: implement it in BOTH apps.**
 
+---
+
+## 📋 MANDATORY CONSISTENCY VERIFICATION CHECKLIST — REQUIRED BEFORE COMPLETION
+**Before marking ANY task as complete, you MUST verify ALL of the following:**
+
+### Pre-Completion Checklist:
+- [ ] **Have I tested this in BOTH image-library AND video-library?**
+- [ ] **Have I tested this in BOTH root view AND group view contexts?**
+- [ ] **Are method signatures identical between ImageListViewModel and VideoListViewModel?**
+- [ ] **Are dialogs rendered exactly ONCE per screen (not duplicated)?**
+- [ ] **Are dialogs shown unconditionally when their state flag is true (no context-based conditionals)?**
+- [ ] **Have I run `./scripts/verify-consistency.ps1` to verify no regressions?**
+- [ ] **Have I installed BOTH apps to verify behavior is identical?**
+
+### When to Use This Checklist:
+✅ After adding ANY new feature
+✅ After fixing ANY bug
+✅ After refactoring ANY code
+✅ After modifying ANY ViewModel method
+✅ After adding ANY dialog or UI component
+
+**If you cannot check ALL items, the task is NOT complete. Go back and finish it properly.**
+
+---
+
+## 🎨 DIALOG RENDERING RULE — MANDATORY
+**Each dialog component MUST be rendered exactly ONCE per screen composable, at the bottom, with NO conditional rendering based on context (root vs group).**
+
+### The Rule:
+- **ONE location per screen** - Render each dialog in exactly one place
+- **At the bottom** - Place all dialog renderings at the end of the composable
+- **Unconditional** - Show when `state.showXxxDialog == true`, regardless of `currentGroupId` or `currentFolderBucketId`
+
+### ❌ WRONG - Multiple Locations:
+```kotlin
+// Inside FoldersTab
+if (state.showCreateAlbumDialog) { CreateAlbumDialog(...) }
+
+// Inside CreateAlbumPickerScreen  
+if (state.showCreateAlbumDialog) { CreateAlbumDialog(...) }
+
+// At bottom
+if (state.showCreateAlbumDialog) { CreateAlbumDialog(...) }
+```
+
+### ❌ WRONG - Context-Based Conditional:
+```kotlin
+// Only shows in root view, hidden in group view
+if (state.showCreateAlbumDialog && state.currentGroupId == null) {
+    CreateAlbumDialog(...)
+}
+
+// Only shows when not in a folder
+if (state.showCreateAlbumDialog && state.currentFolderBucketId == null) {
+    CreateAlbumDialog(...)
+}
+```
+
+### ✅ CORRECT - Single Location, Unconditional:
+```kotlin
+// At bottom of main screen composable, rendered ONCE
+if (state.showCreateAlbumDialog) {
+    CreateAlbumDialog(
+        existingDcimNames = state.dcimFolderNames,
+        onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
+        onDismiss = { viewModel.dismissCreateAlbumDialog() }
+    )
+}
+```
+
+### Why This Rule Exists:
+- **Prevents duplicate rendering** - Dialog appears correctly in all contexts
+- **Eliminates context bugs** - No more "dialog works in root but not in group"
+- **Simplifies maintenance** - Only one place to update when dialog changes
+- **Ensures consistency** - Same dialog behavior everywhere
+
+### Enforcement:
+❌ **NEVER** render the same dialog in multiple locations
+❌ **NEVER** use context conditionals (`currentGroupId`, `currentFolderBucketId`) with dialog rendering
+✅ **ALWAYS** render each dialog exactly once at the bottom of the composable
+✅ **ALWAYS** show dialog based solely on its state flag
+
+---
+
+## 🔄 VIEWMODEL PARITY RULE — MANDATORY
+**For ANY common operation, the method signature, parameters, state updates, and async behavior MUST be identical between ImageListViewModel and VideoListViewModel.**
+
+### The Rule:
+When adding or modifying a common operation method:
+1. **Identical signatures** - Same method name, same parameters, same return type
+2. **Identical state properties** - Same property names in ImageListUiState and VideoListUiState
+3. **Identical async patterns** - Both use `viewModelScope.launch`, or neither do
+4. **Identical state updates** - Same `_uiState.update { }` logic
+
+### ❌ WRONG - Inconsistent Implementations:
+```kotlin
+// ImageListViewModel - loads data asynchronously
+fun showCreateAlbumDialog() {
+    viewModelScope.launch {
+        val dcimNames = repository.getExistingDcimFolderNames()
+        _uiState.update { it.copy(showCreateAlbumDialog = true, dcimFolderNames = dcimNames) }
+    }
+}
+
+// VideoListViewModel - doesn't load data (INCONSISTENT!)
+fun showCreateAlbumDialog() = _uiState.update { it.copy(showCreateAlbumDialog = true) }
+```
+
+### ✅ CORRECT - Identical Implementations:
+```kotlin
+// ImageListViewModel
+fun showCreateAlbumDialog() {
+    viewModelScope.launch {
+        val dcimNames = repository.getExistingDcimFolderNames()
+        _uiState.update { it.copy(showCreateAlbumDialog = true, dcimFolderNames = dcimNames) }
+    }
+}
+
+// VideoListViewModel - EXACTLY THE SAME
+fun showCreateAlbumDialog() {
+    viewModelScope.launch {
+        val dcimNames = repository.getExistingDcimFolderNames()
+        _uiState.update { it.copy(showCreateAlbumDialog = true, dcimFolderNames = dcimNames) }
+    }
+}
+```
+
+### When Adding a New Common Operation:
+1. **Implement in BOTH ViewModels** with identical signatures
+2. **Add state properties to BOTH UiState classes** with identical names
+3. **Use identical async patterns** (both async or both sync)
+4. **Update state identically** (same properties updated)
+5. **Run verification script** (`./scripts/verify-consistency.ps1`) to confirm parity
+6. **Test in BOTH apps** to verify identical behavior
+
+### Enforcement:
+❌ **NEVER** implement a common operation differently between ViewModels
+❌ **NEVER** use different state property names for the same data
+❌ **NEVER** make one async and the other sync
+✅ **ALWAYS** keep method signatures identical for common operations
+✅ **ALWAYS** run the verification script after ViewModel changes
+✅ **ALWAYS** test in both apps to confirm identical behavior
+
+---
+
 ## ⚠️ UI COMPONENT CONSISTENCY RULE — MANDATORY
 **ALL UI components, dialogs, and interactive elements MUST be identical across both libraries.**
 

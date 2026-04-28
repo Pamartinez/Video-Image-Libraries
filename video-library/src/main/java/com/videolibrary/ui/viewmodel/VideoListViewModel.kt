@@ -137,6 +137,7 @@ data class VideoListUiState(
     val selectedGroupIds: Set<Long> = emptySet(),
     val isGroupCreationMode: Boolean = false,
     val pendingGroupCreationName: String = "",
+    val pendingGroupCreationParentId: Long? = null,
     val groupCreationSelectedFolderIds: Set<Int> = emptySet(),
     val groupCreationSelectedGroupIds: Set<Long> = emptySet(),
     // -- Group Dialogs --
@@ -1062,14 +1063,30 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     /** Transitions from name dialog → checkbox selection mode. */
     fun enterGroupCreationModeWithName(name: String) {
+        // Preserve any pre-populated selections (from bottom bar flow)
+        val s = _uiState.value
         _uiState.update {
             it.copy(
                 showGroupNameDialog            = false,
                 groupNameDialogForCreation     = false,
                 isGroupCreationMode            = true,
+                isSelectionMode                = false, // Exit regular selection mode
                 pendingGroupCreationName       = name,
-                groupCreationSelectedFolderIds = emptySet(),
-                groupCreationSelectedGroupIds  = emptySet()
+                // Save the current group ID as the parent for the new nested group
+                pendingGroupCreationParentId   = s.currentGroupId,
+                // Keep pre-populated folder selections, but clear group selections (groups not selectable)
+                groupCreationSelectedFolderIds = s.groupCreationSelectedFolderIds,
+                groupCreationSelectedGroupIds  = emptySet(),
+                // Clear regular selection state to prevent groups from appearing selected
+                selectedFolderIds = emptySet(),
+                selectedGroupIds  = emptySet(),
+                selectedVideoIds  = emptySet(),
+                // Temporarily exit group view to show checkbox selection at root level
+                currentGroupId = null,
+                currentGroupName = "",
+                currentGroupFolders = emptyList(),
+                currentGroupSubGroups = emptyList(),
+                currentGroupOrderedMixedItems = emptyList()
             )
         }
     }
@@ -1109,7 +1126,19 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun showGroupNameDialogForBottomBar() {
-        _uiState.update { it.copy(showGroupNameDialog = true, groupNameDialogForBottomBar = true) }
+        // Pre-populate creation selections with current selection
+        val s = _uiState.value
+        _uiState.update {
+            it.copy(
+                showGroupNameDialog = true,
+                groupNameDialogForCreation = true,
+                // Pre-populate with already-selected items
+                groupCreationSelectedFolderIds = s.selectedFolderIds,
+                groupCreationSelectedGroupIds = s.selectedGroupIds
+            )
+        }
+        // Exit selection mode since we're entering creation mode
+        exitSelectionMode()
     }
 
     fun dismissGroupNameDialog() {
@@ -1121,22 +1150,29 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun createGroupFromCreationMode(name: String) {
         val s = _uiState.value
         viewModelScope.launch {
+            val parentGroupId = s.pendingGroupCreationParentId
             val newGroupId = groupRepository.createGroup(
                 name            = name,
                 folderBucketIds = s.groupCreationSelectedFolderIds.toList(),
-                subGroupIds     = s.groupCreationSelectedGroupIds.toList(),
-                parentGroupId   = s.currentGroupId
+                subGroupIds     = emptyList(), // Groups not selectable during creation
+                parentGroupId   = parentGroupId
             )
             // Prepend the new group at position 0 — always, regardless of current sort option.
             // If sort isn't CUSTOM_ORDER yet, snapshot the current visible order first.
-            if (s.currentGroupId == null) {
+            if (parentGroupId == null) {
                 prependToRootOrder("g_$newGroupId")
             } else {
-                prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
+                prependToGroupOrder("g_$newGroupId", parentGroupId, s)
             }
             exitGroupCreationMode()
             silentRefresh()
-            if (s.currentGroupId != null) refreshCurrentGroup()
+            // If we created a nested group, navigate back into the parent group
+            if (parentGroupId != null) {
+                val parentGroup = groupRepository.getGroupById(parentGroupId)
+                parentGroup?.let { group ->
+                    openGroup(group.groupId, group.name)
+                }
+            }
             scheduleAutoBackup()
         }
     }

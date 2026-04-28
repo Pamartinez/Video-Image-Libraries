@@ -34,6 +34,9 @@ fun GroupDetailScreen(
     isSelectionMode: Boolean,
     selectedFolderIds: Set<Int>,
     selectedGroupIds: Set<Long>,
+    // Group creation mode support
+    isGroupCreationMode: Boolean = false,
+    groupCreationSelectedFolderIds: Set<Int> = emptySet(),
     onBack: () -> Unit,
     onFolderClick: (FolderItem) -> Unit,
     onFolderLongClick: (FolderItem) -> Unit,
@@ -73,6 +76,9 @@ fun GroupDetailScreen(
         isSelectionMode = isSelectionMode,
         selectedFolderIds = selectedFolderIds,
         selectedGroupIds = selectedGroupIds,
+        // Group creation mode support
+        isGroupCreationMode = isGroupCreationMode,
+        groupCreationSelectedFolderIds = groupCreationSelectedFolderIds,
         onBack = onBack,
         onFolderClick = onFolderClick,
         onFolderLongClick = onFolderLongClick,
@@ -182,6 +188,8 @@ fun GroupDetailScreen(
         modifier = modifier
     )
 }
+
+
 
 
 

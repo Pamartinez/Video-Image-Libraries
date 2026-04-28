@@ -255,6 +255,9 @@ fun VideoListScreen(
             isSelectionMode   = state.isSelectionMode,
             selectedFolderIds = state.selectedFolderIds,
             selectedGroupIds  = state.selectedGroupIds,
+            // Group creation mode support
+            isGroupCreationMode = state.isGroupCreationMode,
+            groupCreationSelectedFolderIds = state.groupCreationSelectedFolderIds,
             onBack = { viewModel.closeGroup() },
             onFolderClick = { folder ->
                 // Read the LIVE StateFlow value — not the lambda-captured 'state' snapshot —
@@ -286,7 +289,7 @@ fun VideoListScreen(
             onDestroyGroup       = { viewModel.showDestroyGroupDialog() },
             onSortOptionSelected = { viewModel.setCurrentGroupSortOption(it) },
             onDelete             = { viewModel.showDeleteDialog() },
-            onGroup              = { viewModel.showGroupNameDialogForBottomBar() },
+            onGroup              = { viewModel.showGroupNameForCreation() },
             onUngroup            = { viewModel.ungroupSelectedGroups() },
             onSelectAll          = { viewModel.selectAllInGroup() },
             onCancelSelection    = { viewModel.exitSelectionMode() },
@@ -346,11 +349,8 @@ fun VideoListScreen(
                 confirmLabel = "Create",
                 existingNames = if (isCreation) state.existingGroupNames else emptySet(),
                 onConfirm = { name ->
-                    when {
-                        isCreation                        -> viewModel.enterGroupCreationModeWithName(name)
-                        state.groupNameDialogForBottomBar -> viewModel.createGroupFromSelection(name)
-                        else                              -> viewModel.createGroupFromCreationMode(name)
-                    }
+                    // ALWAYS enter checkbox selection mode (never create immediately)
+                    viewModel.enterGroupCreationModeWithName(name)
                 },
                 onDismiss = { viewModel.dismissGroupNameDialog() }
             )
@@ -769,19 +769,18 @@ fun VideoListScreen(
                     )
                 } else if (state.isGroupCreationMode) {
                     // ── Group creation mode header ──
-                    val gcCount = state.groupCreationSelectedFolderIds.size +
-                            state.groupCreationSelectedGroupIds.size
+                    val gcCount = state.groupCreationSelectedFolderIds.size // Only folders
                     val gcLabel = if (state.pendingGroupCreationName.isNotBlank())
                         "Add to \"${state.pendingGroupCreationName}\" ($gcCount)"
                     else
-                        "Select items ($gcCount)"
+                        "Select albums ($gcCount)"
                     Text(
                         gcLabel,
                         fontSize = 20.sp, fontWeight = FontWeight.SemiBold,
                         color = colors.listFirstText, modifier = Modifier.weight(1f)
                     )
                     Spacer(Modifier.width(8.dp))
-                    val canSave = gcCount >= 2
+                    val canSave = gcCount >= 1 // Changed from 2 to 1
                     Surface(
                         modifier = Modifier
                             .clip(RoundedCornerShape(50))
@@ -955,7 +954,7 @@ fun VideoListScreen(
                         selectedGroupIds = state.selectedGroupIds,
                         isGroupCreationMode = state.isGroupCreationMode,
                         groupCreationSelectedFolderIds = state.groupCreationSelectedFolderIds,
-                        groupCreationSelectedGroupIds  = state.groupCreationSelectedGroupIds,
+                        groupCreationSelectedGroupIds  = emptySet(), // Groups not selectable during creation
                         onFolderClick = { folder ->
                             when {
                                 state.isGroupCreationMode ->
@@ -975,8 +974,9 @@ fun VideoListScreen(
                         },
                         onGroupClick = { group ->
                             when {
+                                // During group creation, groups are navigable, not selectable
                                 state.isGroupCreationMode ->
-                                    viewModel.toggleGroupCreationGroupSelection(group.groupId)
+                                    viewModel.openGroup(group.groupId, group.name)
                                 state.isSelectionMode ->
                                     viewModel.toggleGroupSelection(group.groupId)
                                 else -> viewModel.openGroup(group.groupId, group.name)
@@ -984,7 +984,8 @@ fun VideoListScreen(
                         },
                         onGroupLongClick = { group ->
                             if (state.isGroupCreationMode) {
-                                viewModel.toggleGroupCreationGroupSelection(group.groupId)
+                                // During group creation, groups are navigable, not selectable
+                                viewModel.openGroup(group.groupId, group.name)
                             } else {
                                 viewModel.enterSelectionMode()
                                 viewModel.toggleGroupSelection(group.groupId)
@@ -1138,11 +1139,8 @@ fun VideoListScreen(
             confirmLabel = "Create",
             existingNames = if (isCreation) state.existingGroupNames else emptySet(),
             onConfirm = { name ->
-                when {
-                    isCreation                        -> viewModel.enterGroupCreationModeWithName(name)
-                    state.groupNameDialogForBottomBar -> viewModel.createGroupFromSelection(name)
-                    else                              -> viewModel.createGroupFromCreationMode(name)
-                }
+                // ALWAYS enter checkbox selection mode (never create immediately)
+                viewModel.enterGroupCreationModeWithName(name)
             },
             onDismiss = { viewModel.dismissGroupNameDialog() }
         )

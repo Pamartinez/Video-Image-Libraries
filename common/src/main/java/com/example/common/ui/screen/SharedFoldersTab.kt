@@ -264,7 +264,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedFoldersTab(
                             groupListItem(
                                 item.group,
                                 effectiveSelected,
-                                isSelectionMode || isGroupCreationMode,
+                                isSelectionMode, // NOT group creation mode - groups shouldn't show checkboxes during creation
                                 { if (!dragDropListState.consumeNextClick()) onGroupClick(item.group) },
                                 if (canDrag) null else ({ onGroupLongClick(item.group) })
                             )
@@ -361,7 +361,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedFoldersTab(
                             groupGridItem(
                                 item.group,
                                 effectiveSelected,
-                                isSelectionMode || isGroupCreationMode,
+                                isSelectionMode, // NOT group creation mode - groups shouldn't show checkboxes during creation
                                 viewType,
                                 { if (!dragDropGridState.consumeNextClick()) onGroupClick(item.group) },
                                 if (canDrag) null else ({ onGroupLongClick(item.group) }),
@@ -459,4 +459,3 @@ fun <ViewTypeEnum, SortOptionEnum> SharedFoldersTab(
         }
     }
 }
-

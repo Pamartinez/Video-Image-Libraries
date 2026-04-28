@@ -64,6 +64,9 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     isSelectionMode: Boolean,
     selectedFolderIds: Set<Int>,
     selectedGroupIds: Set<Long>,
+    // Group creation mode support
+    isGroupCreationMode: Boolean = false,
+    groupCreationSelectedFolderIds: Set<Int> = emptySet(),
     onBack: () -> Unit,
     onFolderClick: (FolderItem) -> Unit,
     onFolderLongClick: (FolderItem) -> Unit,
@@ -425,22 +428,29 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                 Modifier.graphicsLayer { alpha = 0.65f } else Modifier
 
                             when (item) {
-                                is MixedItem.Folder -> folderGridItem(
-                                    item.folder,
-                                    selectedFolderIds.contains(item.folder.bucketId),
-                                    isSelectionMode,
-                                    viewType,
-                                    { if (!dragDropState.consumeNextClick()) onFolderClick(item.folder) },
-                                    if (canDrag) null else ({ onFolderLongClick(item.folder) }),
-                                    itemIsDragging,
-                                    Modifier
-                                        .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                        .then(dimModifier)
-                                )
+                                is MixedItem.Folder -> {
+                                    val effectiveSelected = if (isGroupCreationMode)
+                                        groupCreationSelectedFolderIds.contains(item.folder.bucketId)
+                                    else
+                                        selectedFolderIds.contains(item.folder.bucketId)
+
+                                    folderGridItem(
+                                        item.folder,
+                                        effectiveSelected,
+                                        isSelectionMode || isGroupCreationMode, // Show checkbox in both modes
+                                        viewType,
+                                        { if (!dragDropState.consumeNextClick()) onFolderClick(item.folder) },
+                                        if (canDrag) null else ({ onFolderLongClick(item.folder) }),
+                                        itemIsDragging,
+                                        Modifier
+                                            .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
+                                            .then(dimModifier)
+                                    )
+                                }
                                 is MixedItem.Group -> groupGridItem(
                                     item.group,
                                     selectedGroupIds.contains(item.group.groupId),
-                                    isSelectionMode,
+                                    isSelectionMode, // NOT group creation mode - groups don't get checkboxes
                                     viewType,
                                     { if (!dragDropState.consumeNextClick()) onGroupClick(item.group) },
                                     if (canDrag) null else ({ onGroupLongClick(item.group) }),
