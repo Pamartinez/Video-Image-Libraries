@@ -108,21 +108,24 @@ LaunchedEffect(state.currentCarouselPage) {
 
 ## Video Library Status
 
-**Status:** ⏳ Ready for implementation when carousel is added
+**Status:** ✅ State tracking implemented, ready for carousel screen
 
-The video library has:
-- ✅ Setting: `instantPlayerEnabled` preference exists
+The video library now has:
+- ✅ State properties: `carouselIndex` and `currentCarouselPage` added to `VideoListUiState`
+- ✅ Methods: `openCarousel()`, `closeCarousel()`, `updateCarouselPage()` implemented in `VideoListViewModel`
 - ❌ Player screen: No carousel/player screen implemented yet
-- ✅ Prepared state: Can add identical implementation when player is built
+- ✅ **Identical to image-library**: Method signatures match perfectly
 
-### When Implementing Video Player
+### When Implementing Video Player Screen
 
-Apply the **exact same changes** to maintain behavioral consistency:
+Only need to add:
 
-1. Add `currentCarouselPage` to `VideoListUiState`
-2. Add `updateCarouselPage()` to `VideoListViewModel`
-3. Add `onPageChanged` callback to the player screen
+1. Create the player/carousel screen composable
+2. Add `onPageChanged` callback to the player screen
+3. Wire callback in `VideoListScreen`
 4. Add auto-scroll LaunchedEffect in `VideoListScreen`
+
+**The ViewModel is already ready with identical state management!**
 
 ---
 
@@ -181,7 +184,7 @@ Samsung Gallery uses `scrollToPositionWithOffset()` with no animation. We match 
 - `ImageListScreen.kt`: Wired callback and added auto-scroll effect
 
 ### video-library
-- ⏳ No changes (waiting for carousel implementation)
+- `VideoListViewModel.kt`: Added identical state tracking and update methods (ready for player screen)
 
 ---
 
@@ -218,4 +221,6 @@ Potential improvements (not currently needed):
 The auto-scroll feature is **fully implemented** in image-library and matches Samsung Gallery's behavior. The video library will receive the identical implementation when the carousel/player screen is added, maintaining perfect behavioral consistency between both apps.
 
 **The background album grid now auto-scrolls while you swipe through the carousel!** 🎉
+
+
 

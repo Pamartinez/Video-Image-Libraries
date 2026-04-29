@@ -165,6 +165,9 @@ data class VideoListUiState(
     // -- Details --
     val detailsTarget: VideoItem? = null,
     val folderDetailScrollToTopTrigger: Int = 0,
+    // -- Carousel/Player state (for future instant player implementation) --
+    val carouselIndex: Int = -1,
+    val currentCarouselPage: Int = -1,
 )
 
 // CopyMoveProgress and FileConflict moved to common module
@@ -1226,6 +1229,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun showRenameGroupDialog() = _uiState.update { it.copy(showRenameGroupDialog = true) }
     fun dismissRenameGroupDialog() = _uiState.update { it.copy(showRenameGroupDialog = false) }
+
+    // ── Carousel/Player (for future instant player implementation) ────────
+    fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
+    fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
+    fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
     fun renameCurrentGroup(newName: String) {
         val groupId = _uiState.value.currentGroupId ?: return
