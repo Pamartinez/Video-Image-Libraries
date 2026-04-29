@@ -38,7 +38,9 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 customMixedOrder       = prefs.customMixedOrder,
                 customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
                 groupSortOptions       = prefs.getAllGroupSortOptions(),
+                groupViewTypes         = prefs.getAllGroupViewTypes(),
                 independentSortEnabled = prefs.independentSortEnabled,
+                independentViewTypeEnabled = prefs.independentViewTypeEnabled,
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
                 floatingTopBarEnabled  = prefs.floatingTopBarEnabled,
@@ -54,6 +56,13 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("carouselShowBarsOnOpen", prefs.carouselShowBarsOnOpen)
             put("carouselAlwaysHideOverlay", prefs.carouselAlwaysHideOverlay)
             put("customAlbumOrder",       JSONArray(prefs.customAlbumOrder))
+
+            // Per-folder view types → JSONObject { "bucketId": viewTypeId }
+            val folderViewTypesObj = JSONObject()
+            prefs.getAllFolderViewTypes().forEach { (bucketId, viewTypeId) ->
+                folderViewTypesObj.put(bucketId.toString(), viewTypeId)
+            }
+            put("folderViewTypes", folderViewTypesObj)
         }
     }
 
@@ -74,7 +83,9 @@ object BackupManager : com.example.common.data.util.BackupManager(
         shared.groupSortOptions?.forEach { (groupId, sortId) ->
             prefs.saveGroupSortOption(groupId, SortOption.fromId(sortId))
         }
+        shared.groupViewTypes?.let { prefs.saveAllGroupViewTypes(it) }
         shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
+        shared.independentViewTypeEnabled?.let { prefs.independentViewTypeEnabled = it }
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
         shared.floatingTopBarEnabled?.let  { prefs.floatingTopBarEnabled  = it }
@@ -110,6 +121,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.restoreAllFolderImageSortOptions(map)
+        }
+
+        // Per-folder view types — JSONObject { "bucketId": viewTypeId }
+        if (settings.has("folderViewTypes")) {
+            val obj = settings.getJSONObject("folderViewTypes")
+            val map = mutableMapOf<Int, Int>()
+            for (key in obj.keys()) {
+                val bucketId = key.toIntOrNull() ?: continue
+                map[bucketId] = obj.getInt(key)
+            }
+            prefs.restoreAllFolderViewTypes(map)
         }
     }
 }

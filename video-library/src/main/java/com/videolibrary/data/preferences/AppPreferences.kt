@@ -19,6 +19,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_CUSTOM_FOLDER_ORDER     = "custom_folder_order"
         private const val KEY_FOLDER_VIDEO_SORT_OPTIONS = "folder_video_sort_options"
         private const val KEY_GROUP_VIDEO_SORT_OPTIONS = "group_video_sort_options"
+        private const val KEY_FOLDER_VIEW_TYPES       = "folder_view_types"
         private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
     }
 
@@ -110,6 +111,71 @@ class AppPreferences(context: Context) : SharedAppPreferences(
     var instantPlayerEnabled: Boolean
         get()  = prefs.getBoolean(KEY_INSTANT_PLAYER, false)
         set(v) = prefs.edit().putBoolean(KEY_INSTANT_PLAYER, v).apply()
+
+    // ── Per-folder view type ──────────────────────────────────────────────
+
+    /**
+     * Gets the view type for a specific folder (album).
+     * Returns the global folderViewType if not set.
+     */
+    fun getFolderViewType(bucketId: Int): ViewType {
+        val raw = prefs.getString(KEY_FOLDER_VIEW_TYPES, "") ?: ""
+        val id = raw.split(",")
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2 && parts[0].toIntOrNull() == bucketId) parts[1].toIntOrNull()
+                else null
+            }
+            .firstOrNull()
+        return if (id != null) ViewType.fromId(id) else folderViewType
+    }
+
+    /**
+     * Saves the view type for a specific folder (album).
+     */
+    fun saveFolderViewType(bucketId: Int, viewType: ViewType) {
+        val raw = prefs.getString(KEY_FOLDER_VIEW_TYPES, "") ?: ""
+        val map = raw.split(",")
+            .filter { it.contains(":") }
+            .associate {
+                val parts = it.split(":")
+                (parts[0].toIntOrNull() ?: 0) to (parts[1].toIntOrNull() ?: 0)
+            }
+            .toMutableMap()
+        map[bucketId] = viewType.id
+        val entries = map.entries.toList().takeLast(200)
+        prefs.edit().putString(KEY_FOLDER_VIEW_TYPES,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
+    }
+
+    /**
+     * Returns all per-folder view types as a Map of bucketId → viewTypeId.
+     * Used by BackupManager to export all per-folder view type settings.
+     */
+    fun getAllFolderViewTypes(): Map<Int, Int> {
+        val raw = prefs.getString(KEY_FOLDER_VIEW_TYPES, "") ?: ""
+        if (raw.isBlank()) return emptyMap()
+        return raw.split(",")
+            .filter { it.contains(":") }
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2) {
+                    val bucketId = parts[0].trim().toIntOrNull() ?: return@mapNotNull null
+                    val viewTypeId = parts[1].trim().toIntOrNull() ?: return@mapNotNull null
+                    bucketId to viewTypeId
+                } else null
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-folder view types from a Map of bucketId → viewTypeId.
+     * Used by BackupManager to import all per-folder view type settings.
+     */
+    fun saveAllFolderViewTypes(options: Map<Int, Int>) {
+        prefs.edit().putString(KEY_FOLDER_VIEW_TYPES,
+            options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
 
     // ── Per-group video sort options ──────────────────────────────────────────
 

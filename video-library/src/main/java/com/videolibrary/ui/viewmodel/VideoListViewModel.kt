@@ -74,6 +74,7 @@ data class VideoListUiState(
     val showSettings: Boolean = false,
     val autoBackupEnabled: Boolean = false,
     val independentSortEnabled: Boolean = true,
+    val independentViewTypeEnabled: Boolean = false,
     /** When true, groups are pinned to the top of sorted lists; ungrouped albums follow. */
     val groupsAlwaysOnTop: Boolean = false,
     /** When true, use Samsung Gallery-style floating top bar with full-screen content. */
@@ -183,6 +184,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             instantPlayerEnabled = preferences.instantPlayerEnabled,
             autoBackupEnabled    = preferences.autoBackupEnabled,
             independentSortEnabled = preferences.independentSortEnabled,
+            independentViewTypeEnabled = preferences.independentViewTypeEnabled,
             groupsAlwaysOnTop    = preferences.groupsAlwaysOnTop,
             floatingTopBarEnabled = preferences.floatingTopBarEnabled,
             hiddenFolderPaths    = preferences.hiddenFolderPaths
@@ -193,6 +195,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 _uiState.update { it.copy(independentSortEnabled = value) }
                 scheduleAutoBackup()
             }
+
+    fun updateIndependentViewTypeEnabled(value: Boolean) {
+        preferences.independentViewTypeEnabled = value
+        _uiState.update { it.copy(independentViewTypeEnabled = value) }
+        scheduleAutoBackup()
+    }
 
     fun updateGroupsAlwaysOnTop(value: Boolean) {
         preferences.groupsAlwaysOnTop = value
@@ -895,6 +903,13 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortMixedItems(subGroups + folders, groupSortOption, s.groupsAlwaysOnTop)
             }
 
+            // Load group-specific view type if independent mode is enabled
+            val groupViewType = if (s.independentViewTypeEnabled) {
+                preferences.getGroupViewType(groupId)
+            } else {
+                preferences.viewType
+            }
+
             // Update state with group ID and data together — no empty state flash
             _uiState.update {
                 it.copy(
@@ -907,7 +922,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     currentGroupSortOption        = groupSort,
                     currentGroupFolders           = folders,
                     currentGroupSubGroups         = subGroups,
-                    currentGroupOrderedMixedItems = orderedMixed
+                    currentGroupOrderedMixedItems = orderedMixed,
+                    viewType                      = groupViewType
                 )
             }
         }
@@ -918,6 +934,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (s.groupStack.isNotEmpty()) {
             val (prevId, prevName) = s.groupStack.last()
             val parentSort = preferences.getGroupSortOption(prevId)
+            val parentViewType = if (s.independentViewTypeEnabled) {
+                preferences.getGroupViewType(prevId)
+            } else {
+                preferences.viewType
+            }
             _uiState.update {
                 it.copy(
                     currentGroupId     = prevId,
@@ -926,11 +947,14 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     isSelectionMode    = false,
                     selectedFolderIds  = emptySet(),
                     selectedGroupIds   = emptySet(),
-                    currentGroupSortOption = parentSort
+                    currentGroupSortOption = parentSort,
+                    viewType           = parentViewType
                 )
             }
             refreshCurrentGroup()
         } else {
+            // Returning to root - restore root view type
+            val rootViewType = preferences.viewType
             _uiState.update {
                 it.copy(
                     currentGroupId        = null,
@@ -941,7 +965,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     isSelectionMode       = false,
                     selectedFolderIds     = emptySet(),
                     selectedGroupIds      = emptySet(),
-                    currentGroupSortOption = FolderSortOption.CUSTOM_ORDER
+                    currentGroupSortOption = FolderSortOption.CUSTOM_ORDER,
+                    viewType              = rootViewType
                 )
             }
         }
@@ -1350,7 +1375,22 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             )
         }
     }
-    fun setViewType(v: ViewType) { preferences.viewType = v; _uiState.update { it.copy(viewType = v) }; scheduleAutoBackup() }
+    fun setViewType(v: ViewType) {
+        val s = _uiState.value
+        val groupId = s.currentGroupId
+
+        if (s.independentViewTypeEnabled && groupId != null) {
+            // Save to per-group storage when inside a group and independent mode is on
+            preferences.saveGroupViewType(groupId, v)
+        } else {
+            // Save to global viewType for root view
+            preferences.viewType = v
+        }
+
+        _uiState.update { it.copy(viewType = v) }
+        scheduleAutoBackup()
+    }
+
     fun cycleViewType() {
         val next = when (_uiState.value.viewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -1359,7 +1399,23 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         setViewType(next)
     }
-    fun setFolderViewType(v: ViewType) { preferences.folderViewType = v; _uiState.update { it.copy(folderViewType = v) }; scheduleAutoBackup() }
+
+    fun setFolderViewType(v: ViewType) {
+        val s = _uiState.value
+        val bucketId = s.currentFolderBucketId
+
+        if (s.independentViewTypeEnabled && bucketId != null) {
+            // Save to per-album storage when inside an album and independent mode is on
+            preferences.saveFolderViewType(bucketId, v)
+        } else {
+            // Save to global folderViewType
+            preferences.folderViewType = v
+        }
+
+        _uiState.update { it.copy(folderViewType = v) }
+        scheduleAutoBackup()
+    }
+
     fun cycleFolderViewType() {
         val next = when (_uiState.value.folderViewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -1526,19 +1582,50 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     // Folder navigation
     fun openFolder(bucketId: Int, name: String) {
         viewModelScope.launch {
+            val s = _uiState.value
             val folderSort = getEffectiveFolderSortOption(bucketId)
             val videos = repository.getVideos(videoSortOption = folderSort, bucketId = bucketId)
+
+            // Load folder-specific view type if independent mode is enabled
+            val folderViewType = if (s.independentViewTypeEnabled) {
+                preferences.getFolderViewType(bucketId)
+            } else {
+                preferences.folderViewType
+            }
+
             _uiState.update {
                 it.copy(
                     currentFolderBucketId = bucketId,
                     currentFolderName = name,
                     currentFolderSortOption = folderSort,
-                    folderVideos = videos
+                    folderVideos = videos,
+                    folderViewType = folderViewType
                 )
             }
         }
     }
-    fun closeFolder() { _uiState.update { it.copy(currentFolderBucketId = null, currentFolderName = "", currentFolderSortOption = VideoSortOption.CUSTOM_ORDER, folderVideos = emptyList()) } }
+
+    fun closeFolder() {
+        // Restore the previous context's view type when closing folder
+        val s = _uiState.value
+        val restoredFolderViewType = if (s.currentGroupId != null && s.independentViewTypeEnabled) {
+            // We're in a group, so restore the group's view type to the viewType slot
+            // (since groups use viewType, not folderViewType)
+            preferences.folderViewType
+        } else {
+            preferences.folderViewType
+        }
+
+        _uiState.update {
+            it.copy(
+                currentFolderBucketId = null,
+                currentFolderName = "",
+                currentFolderSortOption = VideoSortOption.CUSTOM_ORDER,
+                folderVideos = emptyList(),
+                folderViewType = restoredFolderViewType
+            )
+        }
+    }
     private fun refreshCurrentFolderIfOpen() {
         val bucketId = _uiState.value.currentFolderBucketId ?: return
         viewModelScope.launch {
@@ -2103,6 +2190,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     instantPlayerEnabled = preferences.instantPlayerEnabled,
                     autoBackupEnabled = preferences.autoBackupEnabled,
                     independentSortEnabled = preferences.independentSortEnabled,
+                    independentViewTypeEnabled = preferences.independentViewTypeEnabled,
                     groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
                     floatingTopBarEnabled = preferences.floatingTopBarEnabled
                 )
@@ -2111,19 +2199,39 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             // Reload all data to reflect restored preferences
             loadDataCore()
 
-            // If inside a group, refresh to apply restored group sort option
+            // If inside a group, refresh to apply restored group sort option and view type
             val currentGroupId = _uiState.value.currentGroupId
             if (currentGroupId != null) {
                 val restoredGroupSort = preferences.getGroupSortOption(currentGroupId)
-                _uiState.update { it.copy(currentGroupSortOption = restoredGroupSort) }
+                val restoredGroupViewType = if (preferences.independentViewTypeEnabled) {
+                    preferences.getGroupViewType(currentGroupId)
+                } else {
+                    preferences.viewType
+                }
+                _uiState.update {
+                    it.copy(
+                        currentGroupSortOption = restoredGroupSort,
+                        viewType = restoredGroupViewType
+                    )
+                }
                 refreshCurrentGroup()
             }
 
-            // If inside a folder, refresh to apply restored folder video sort option
+            // If inside a folder, refresh to apply restored folder video sort option and view type
             val currentFolderBucketId = _uiState.value.currentFolderBucketId
             if (currentFolderBucketId != null) {
                 val restoredFolderSort = preferences.getFolderVideoSortOption(currentFolderBucketId)
-                _uiState.update { it.copy(currentFolderSortOption = restoredFolderSort) }
+                val restoredFolderViewType = if (preferences.independentViewTypeEnabled) {
+                    preferences.getFolderViewType(currentFolderBucketId)
+                } else {
+                    preferences.folderViewType
+                }
+                _uiState.update {
+                    it.copy(
+                        currentFolderSortOption = restoredFolderSort,
+                        folderViewType = restoredFolderViewType
+                    )
+                }
                 refreshCurrentFolderIfOpen()
             }
         } else {
