@@ -53,7 +53,8 @@ fun ImageCarouselScreen(
     initialBarsVisible: Boolean = false,
     alwaysHideBottomOverlay: Boolean = false,
     onSettings: () -> Unit = {},
-    onAbout: () -> Unit = {}
+    onAbout: () -> Unit = {},
+    onPageChanged: (Int) -> Unit = {}
 ) {
     val context = LocalContext.current
     val view = LocalView.current
@@ -96,6 +97,7 @@ fun ImageCarouselScreen(
     LaunchedEffect(pagerState.currentPage) {
         isCurrentPageZoomed = false
         thumbnailListState.animateScrollToItem(pagerState.currentPage)
+        onPageChanged(pagerState.currentPage)
     }
 
     val currentImage = images.getOrNull(pagerState.currentPage)

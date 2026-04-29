@@ -85,6 +85,13 @@ fun ImageListScreen(
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
     }
 
+    // Auto-scroll album grid to match carousel page (Samsung Gallery behavior)
+    LaunchedEffect(state.currentCarouselPage) {
+        if (state.carouselIndex >= 0 && state.currentCarouselPage >= 0) {
+            imageGridState.scrollToItem(state.currentCarouselPage)
+        }
+    }
+
     val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
@@ -204,6 +211,7 @@ fun ImageListScreen(
             alwaysHideBottomOverlay = state.carouselAlwaysHideOverlay,
             onSettings = { viewModel.showSettings() },
             onAbout = { viewModel.showAbout() },
+            onPageChanged = { page -> viewModel.updateCarouselPage(page) },
             onShare = { image ->
                 val intent = Intent(Intent.ACTION_SEND).apply {
                     type = image.mimeType

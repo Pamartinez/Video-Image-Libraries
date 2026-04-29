@@ -74,6 +74,7 @@ data class ImageListUiState(
     val showDetailsDialog: Boolean = false,
     val detailsTarget: ImageItem? = null,
     val carouselIndex: Int = -1,
+    val currentCarouselPage: Int = -1,
     val error: String? = null,
 
     // ── Group state ──
@@ -1165,7 +1166,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     // Carousel
     fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
-    fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1) }
+    fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
+    fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
     /** Delete a single image directly from the carousel overlay (no selection mode required). */
     fun deleteCarouselImage(imageId: Long) {
