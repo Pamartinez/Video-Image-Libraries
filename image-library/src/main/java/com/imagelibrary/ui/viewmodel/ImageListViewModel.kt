@@ -133,6 +133,7 @@ data class ImageListUiState(
     val albumCreationCurrentBucketName: String = "",
     val dcimFolderNames: Set<String> = emptySet(),
     val independentSortEnabled: Boolean = true,
+    val independentViewTypeEnabled: Boolean = false,
 
     /** When true, groups are pinned to the top of sorted lists; ungrouped albums follow. */
     val groupsAlwaysOnTop: Boolean = false,
@@ -173,7 +174,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     val preferences = AppPreferences(application)
     private val _uiState = MutableStateFlow(
         ImageListUiState(
-            independentSortEnabled = preferences.independentSortEnabled
+            independentSortEnabled = preferences.independentSortEnabled,
+            independentViewTypeEnabled = preferences.independentViewTypeEnabled
         )
     )
     val uiState: StateFlow<ImageListUiState> = _uiState.asStateFlow()
@@ -181,6 +183,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun updateIndependentSortEnabled(value: Boolean) {
         preferences.independentSortEnabled = value
         _uiState.update { it.copy(independentSortEnabled = value) }
+        scheduleAutoBackup()
+    }
+
+    fun updateIndependentViewTypeEnabled(value: Boolean) {
+        preferences.independentViewTypeEnabled = value
+        _uiState.update { it.copy(independentViewTypeEnabled = value) }
         scheduleAutoBackup()
     }
 
@@ -940,7 +948,22 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         scheduleAutoBackup()
     }
 
-    fun setViewType(v: ViewType) { preferences.viewType = v; _uiState.update { it.copy(viewType = v) }; scheduleAutoBackup() }
+    fun setViewType(v: ViewType) {
+        val s = _uiState.value
+        val groupId = s.currentGroupId
+
+        if (s.independentViewTypeEnabled && groupId != null) {
+            // Save to per-group storage when inside a group and independent mode is on
+            preferences.saveGroupViewType(groupId, v)
+        } else {
+            // Save to global viewType for root view
+            preferences.viewType = v
+        }
+
+        _uiState.update { it.copy(viewType = v) }
+        scheduleAutoBackup()
+    }
+
     fun cycleViewType() {
         val next = when (_uiState.value.viewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -948,7 +971,23 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         setViewType(next)
     }
-    fun setFolderViewType(v: ViewType) { preferences.folderViewType = v; _uiState.update { it.copy(folderViewType = v) }; scheduleAutoBackup() }
+
+    fun setFolderViewType(v: ViewType) {
+        val s = _uiState.value
+        val bucketId = s.currentFolderBucketId
+
+        if (s.independentViewTypeEnabled && bucketId != null) {
+            // Save to per-album storage when inside an album and independent mode is on
+            preferences.saveFolderViewType(bucketId, v)
+        } else {
+            // Save to global folderViewType
+            preferences.folderViewType = v
+        }
+
+        _uiState.update { it.copy(folderViewType = v) }
+        scheduleAutoBackup()
+    }
+
     fun cycleFolderViewType() {
         val next = when (_uiState.value.folderViewType) {
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
@@ -1077,13 +1116,22 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun openFolder(bucketId: Int, name: String) {
+        val s = _uiState.value
         // Load this album's specific sort option
         val albumSort = preferences.getFolderImageSortOption(bucketId)
+        // Load folder-specific view type if independent mode is enabled
+        val folderViewType = if (s.independentViewTypeEnabled) {
+            preferences.getFolderViewType(bucketId)
+        } else {
+            preferences.folderViewType
+        }
+
         _uiState.update {
             it.copy(
                 currentFolderBucketId = bucketId,
                 currentFolderName = name,
                 imageSortOption = albumSort, // Set to album-specific sort
+                folderViewType = folderViewType,
                 isSelectionMode = false,
                 selectedFolderIds = emptySet(),
                 selectedImageIds = emptySet()
@@ -1103,12 +1151,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
      * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
      */
     fun closeFolder() {
+        // Restore global folderViewType when closing
         _uiState.update {
             it.copy(
                 currentFolderBucketId = null,
                 currentFolderName = "",
                 folderImages = emptyList(),
-                imageSortOption = preferences.imageSortOption // Restore root-level sort
+                imageSortOption = preferences.imageSortOption, // Restore root-level sort
+                folderViewType = preferences.folderViewType // Restore global view type
             )
         }
     }
@@ -1608,6 +1658,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                     autoBackupEnabled         = preferences.autoBackupEnabled,
                     independentSortEnabled    = preferences.independentSortEnabled,
+                    independentViewTypeEnabled = preferences.independentViewTypeEnabled,
                     groupsAlwaysOnTop         = preferences.groupsAlwaysOnTop,
                     floatingTopBarEnabled     = preferences.floatingTopBarEnabled
                 )
@@ -1616,12 +1667,44 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             // Await full reload so the UI is settled before the caller navigates away
             loadDataCore()
 
-            // If inside a group, refresh to apply restored group sort option
+            // If inside a group, refresh to apply restored group sort option and view type
             val currentGroupId = _uiState.value.currentGroupId
             if (currentGroupId != null) {
                 val restoredGroupSort = preferences.getGroupSortOption(currentGroupId)
-                _uiState.update { it.copy(currentGroupSortOption = restoredGroupSort) }
+                val restoredGroupViewType = if (preferences.independentViewTypeEnabled) {
+                    preferences.getGroupViewType(currentGroupId)
+                } else {
+                    preferences.viewType
+                }
+                _uiState.update {
+                    it.copy(
+                        currentGroupSortOption = restoredGroupSort,
+                        viewType = restoredGroupViewType
+                    )
+                }
                 refreshCurrentGroup()
+            }
+
+            // If inside a folder, refresh to apply restored folder sort option and view type
+            val currentFolderBucketId = _uiState.value.currentFolderBucketId
+            if (currentFolderBucketId != null) {
+                val restoredFolderSort = preferences.getFolderImageSortOption(currentFolderBucketId)
+                val restoredFolderViewType = if (preferences.independentViewTypeEnabled) {
+                    preferences.getFolderViewType(currentFolderBucketId)
+                } else {
+                    preferences.folderViewType
+                }
+                _uiState.update {
+                    it.copy(
+                        imageSortOption = restoredFolderSort,
+                        folderViewType = restoredFolderViewType
+                    )
+                }
+                // Reload folder images with restored sort
+                viewModelScope.launch {
+                    val v = repository.getImages(restoredFolderSort, bucketId = currentFolderBucketId)
+                    _uiState.update { it.copy(folderImages = v) }
+                }
             }
         } else {
             isRestoringBackup = false
@@ -1647,6 +1730,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 carouselAlwaysHideOverlay = preferences.carouselAlwaysHideOverlay,
                 autoBackupEnabled = preferences.autoBackupEnabled,
                 independentSortEnabled = preferences.independentSortEnabled,
+                independentViewTypeEnabled = preferences.independentViewTypeEnabled,
                 groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
                 floatingTopBarEnabled = preferences.floatingTopBarEnabled
             )
@@ -1881,6 +1965,13 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortMixedItems(subGroups + groupFolders, groupSortOption, s.groupsAlwaysOnTop)
             }
 
+            // Load group-specific view type if independent mode is enabled
+            val groupViewType = if (s.independentViewTypeEnabled) {
+                preferences.getGroupViewType(groupId)
+            } else {
+                preferences.viewType
+            }
+
             // Update state with group ID and data together — no empty state flash
             _uiState.update {
                 it.copy(
@@ -1890,7 +1981,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     currentGroupSortOption        = groupSort,
                     currentGroupFolders           = groupFolders,
                     currentGroupSubGroups         = subGroups,
-                    currentGroupOrderedMixedItems = orderedMixed
+                    currentGroupOrderedMixedItems = orderedMixed,
+                    viewType                      = groupViewType
                 )
             }
         }
@@ -1902,6 +1994,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             // Pop from stack
             val (prevId, prevName) = s.groupStack.last()
             val parentSort = preferences.getGroupSortOption(prevId)
+            val parentViewType = if (s.independentViewTypeEnabled) {
+                preferences.getGroupViewType(prevId)
+            } else {
+                preferences.viewType
+            }
             _uiState.update {
                 it.copy(
                     currentGroupId = prevId,
@@ -1909,11 +2006,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     groupStack = s.groupStack.dropLast(1),
                     currentGroupFolders = emptyList(),
                     currentGroupSubGroups = emptyList(),
-                    currentGroupSortOption = parentSort
+                    currentGroupSortOption = parentSort,
+                    viewType = parentViewType
                 )
             }
             refreshCurrentGroup()
         } else {
+            // Returning to root - restore root view type
+            val rootViewType = preferences.viewType
             _uiState.update {
                 it.copy(
                     currentGroupId = null,
@@ -1921,7 +2021,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     currentGroupFolders = emptyList(),
                     currentGroupSubGroups = emptyList(),
                     groupStack = emptyList(),
-                    currentGroupSortOption = SortOption.CUSTOM_ORDER
+                    currentGroupSortOption = SortOption.CUSTOM_ORDER,
+                    viewType = rootViewType
                 )
             }
         }

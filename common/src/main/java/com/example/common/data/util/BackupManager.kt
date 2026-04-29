@@ -82,8 +82,10 @@ abstract class BackupManager(
         val customMixedOrder:       List<String>?,
         val customGroupItemsOrders: Map<Long, List<String>>?,
         val groupSortOptions:       Map<Long, Int>?,
+        val groupViewTypes:         Map<Long, Int>?,
         // Shared across both libraries
         val independentSortEnabled: Boolean?,
+        val independentViewTypeEnabled: Boolean?,
         val groupsAlwaysOnTop:      Boolean?,
         val autoBackupEnabled:      Boolean?,
         val floatingTopBarEnabled:  Boolean?,
@@ -197,7 +199,9 @@ abstract class BackupManager(
         customMixedOrder:       List<String>,
         customGroupItemsOrders: Map<Long, List<String>>,
         groupSortOptions:       Map<Long, Int>,
+        groupViewTypes:         Map<Long, Int>,
         independentSortEnabled: Boolean,
+        independentViewTypeEnabled: Boolean,
         groupsAlwaysOnTop:      Boolean,
         autoBackupEnabled:      Boolean,
         floatingTopBarEnabled:  Boolean,
@@ -221,8 +225,16 @@ abstract class BackupManager(
         }
         settings.put("groupSortOptions", groupSortsObj)
 
+        // Per-group view types → JSONObject { "groupId": viewTypeId }
+        val groupViewTypesObj = JSONObject()
+        groupViewTypes.forEach { (groupId, viewTypeId) ->
+            groupViewTypesObj.put(groupId.toString(), viewTypeId)
+        }
+        settings.put("groupViewTypes", groupViewTypesObj)
+
         // Shared across both libraries
         settings.put("independentSortEnabled", independentSortEnabled)
+        settings.put("independentViewTypeEnabled", independentViewTypeEnabled)
         settings.put("groupsAlwaysOnTop",      groupsAlwaysOnTop)
         settings.put("autoBackupEnabled",      autoBackupEnabled)
         settings.put("floatingTopBarEnabled",  floatingTopBarEnabled)
@@ -278,9 +290,22 @@ abstract class BackupManager(
             map
         } else null
 
+        val groupViewTypes: Map<Long, Int>? = if (settings.has("groupViewTypes")) {
+            val obj = settings.getJSONObject("groupViewTypes")
+            val map = mutableMapOf<Long, Int>()
+            for (key in obj.keys()) {
+                val groupId = key.toLongOrNull() ?: continue
+                map[groupId] = obj.getInt(key)
+            }
+            map
+        } else null
+
         // Shared across both libraries
         val independentSortEnabled: Boolean? =
             if (settings.has("independentSortEnabled")) settings.getBoolean("independentSortEnabled") else null
+
+        val independentViewTypeEnabled: Boolean? =
+            if (settings.has("independentViewTypeEnabled")) settings.getBoolean("independentViewTypeEnabled") else null
 
         val groupsAlwaysOnTop: Boolean? =
             if (settings.has("groupsAlwaysOnTop")) settings.getBoolean("groupsAlwaysOnTop") else null
@@ -311,8 +336,8 @@ abstract class BackupManager(
 
         return SharedSettings(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
-            groupSortOptions,
-            independentSortEnabled, groupsAlwaysOnTop, autoBackupEnabled, floatingTopBarEnabled,
+            groupSortOptions, groupViewTypes,
+            independentSortEnabled, independentViewTypeEnabled, groupsAlwaysOnTop, autoBackupEnabled, floatingTopBarEnabled,
             hiddenFolderPaths, hiddenFolderMeta
         )
     }

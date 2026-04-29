@@ -36,10 +36,12 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 customMixedOrder       = prefs.customMixedOrder,
                 customGroupItemsOrders = prefs.allCustomGroupItemsOrders(),
                 groupSortOptions       = prefs.getAllGroupSortOptions(),
+                groupViewTypes         = prefs.getAllGroupViewTypes(),
+                independentSortEnabled = prefs.independentSortEnabled,
+                independentViewTypeEnabled = prefs.independentViewTypeEnabled,
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
                 floatingTopBarEnabled  = prefs.floatingTopBarEnabled,
-                independentSortEnabled = prefs.independentSortEnabled,
                 hiddenFolderPaths      = prefs.hiddenFolderPaths,
                 hiddenFolderMeta       = prefs.getAllHiddenFolderMeta()
             )
@@ -59,6 +61,13 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 folderVideoSortsObj.put(bucketId.toString(), sortId)
             }
             put("folderVideoSortOptions", folderVideoSortsObj)
+
+            // Per-folder view types → JSONObject { "bucketId": viewTypeId }
+            val folderViewTypesObj = JSONObject()
+            prefs.getAllFolderViewTypes().forEach { (bucketId, viewTypeId) ->
+                folderViewTypesObj.put(bucketId.toString(), viewTypeId)
+            }
+            put("folderViewTypes", folderViewTypesObj)
         }
     }
 
@@ -77,9 +86,11 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.saveGroupMixedOrder(groupId, order)
         }
         shared.independentSortEnabled?.let { prefs.independentSortEnabled = it }
+        shared.independentViewTypeEnabled?.let { prefs.independentViewTypeEnabled = it }
         shared.groupSortOptions?.forEach { (groupId, sortId) ->
             prefs.saveGroupSortOption(groupId, com.videolibrary.data.model.FolderSortOption.fromId(sortId))
         }
+        shared.groupViewTypes?.let { prefs.saveAllGroupViewTypes(it) }
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
         shared.floatingTopBarEnabled?.let  { prefs.floatingTopBarEnabled  = it }
@@ -113,6 +124,17 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.saveAllFolderVideoSortOptions(map)
+        }
+
+        // Per-folder view types — JSONObject { "bucketId": viewTypeId }
+        if (settings.has("folderViewTypes")) {
+            val obj = settings.getJSONObject("folderViewTypes")
+            val map = mutableMapOf<Int, Int>()
+            for (key in obj.keys()) {
+                val bucketId = key.toIntOrNull() ?: continue
+                map[bucketId] = obj.getInt(key)
+            }
+            prefs.saveAllFolderViewTypes(map)
         }
 
         // Per-group video sort options — JSONObject { "groupId": sortOptionId }

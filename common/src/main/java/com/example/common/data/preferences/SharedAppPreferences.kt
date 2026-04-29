@@ -28,8 +28,10 @@ open class SharedAppPreferences(
         private const val KEY_VIEW_TYPE            = "viewas_files"
         private const val KEY_FOLDER_VIEW_TYPE     = "viewas_folder_detail"
         private const val KEY_INDEPENDENT_SORT     = "independent_sort_enabled"
+        private const val KEY_INDEPENDENT_VIEW_TYPE = "independent_view_type_enabled"
         private const val KEY_GROUPS_ALWAYS_ON_TOP = "groups_always_on_top"
         private const val KEY_GROUP_SORT_PREFIX    = "group_sort_option_"
+        private const val KEY_GROUP_VIEW_TYPE_PREFIX = "group_view_type_"
         private const val KEY_HIDDEN_FOLDER_PATHS  = "hidden_folder_paths"
         private const val KEY_HIDDEN_FOLDER_META   = "hidden_folder_meta"
         private const val KEY_AUTO_BACKUP          = "auto_backup_enabled"
@@ -49,11 +51,19 @@ open class SharedAppPreferences(
         set(value) = prefs.edit().putBoolean(KEY_INDEPENDENT_SORT, value).apply()
 
     /**
+     * When true, each album/group can have its own view type (grid size).
+     * When false, all albums/groups use the global view types.
+     */
+    var independentViewTypeEnabled: Boolean
+        get() = prefs.getBoolean(KEY_INDEPENDENT_VIEW_TYPE, true)
+        set(value) = prefs.edit().putBoolean(KEY_INDEPENDENT_VIEW_TYPE, value).apply()
+
+    /**
      * When true, groups are always shown at the top of the sorted list,
      * sorted among themselves, followed by ungrouped albums sorted separately.
      */
     var groupsAlwaysOnTop: Boolean
-        get() = prefs.getBoolean(KEY_GROUPS_ALWAYS_ON_TOP, false)
+        get() = prefs.getBoolean(KEY_GROUPS_ALWAYS_ON_TOP, true)
         set(value) = prefs.edit().putBoolean(KEY_GROUPS_ALWAYS_ON_TOP, value).apply()
 
     /**
@@ -101,6 +111,47 @@ open class SharedAppPreferences(
         val editor = prefs.edit()
         options.forEach { (groupId, sortId) ->
             editor.putInt("$KEY_GROUP_SORT_PREFIX$groupId", sortId)
+        }
+        editor.apply()
+    }
+
+    // ── Per-group view type ──────────────────────────────────────────────
+
+    /** Returns the per-group view type, defaulting to the library's defaultViewTypeId. */
+    fun getGroupViewType(groupId: Long): ViewType {
+        val id = prefs.getInt("$KEY_GROUP_VIEW_TYPE_PREFIX$groupId", -1)
+        return if (id == -1) ViewType.fromId(defaultViewTypeId) else ViewType.fromId(id)
+    }
+
+    fun saveGroupViewType(groupId: Long, viewType: ViewType) {
+        prefs.edit().putInt("$KEY_GROUP_VIEW_TYPE_PREFIX$groupId", viewType.id).apply()
+    }
+
+    /**
+     * Returns all per-group view types currently stored, keyed by group ID.
+     * Used by BackupManager to export all group view type preferences.
+     */
+    fun getAllGroupViewTypes(): Map<Long, Int> {
+        return prefs.all
+            .entries
+            .filter { it.key.startsWith(KEY_GROUP_VIEW_TYPE_PREFIX) }
+            .mapNotNull { (key, value) ->
+                val groupId = key.removePrefix(KEY_GROUP_VIEW_TYPE_PREFIX).toLongOrNull()
+                    ?: return@mapNotNull null
+                val viewTypeId = (value as? Int) ?: return@mapNotNull null
+                groupId to viewTypeId
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-group view types from a Map of groupId → viewTypeId.
+     * Used by BackupManager to import all group view type preferences.
+     */
+    fun saveAllGroupViewTypes(options: Map<Long, Int>) {
+        val editor = prefs.edit()
+        options.forEach { (groupId, viewTypeId) ->
+            editor.putInt("$KEY_GROUP_VIEW_TYPE_PREFIX$groupId", viewTypeId)
         }
         editor.apply()
     }
@@ -245,4 +296,3 @@ open class SharedAppPreferences(
             .toMap()
     }
 }
-

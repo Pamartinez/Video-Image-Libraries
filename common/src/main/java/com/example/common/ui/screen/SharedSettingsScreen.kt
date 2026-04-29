@@ -30,10 +30,12 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param onBack                   Navigate back.
  * @param autoBackupEnabled        Current value of the auto-backup toggle.
  * @param independentSortEnabled   Current value of the independent sort toggle.
+ * @param independentViewTypeEnabled Current value of the independent view type toggle.
  * @param groupsAlwaysOnTop        Current value of the groups-always-on-top toggle.
  * @param floatingTopBarEnabled    Current value of the floating top bar toggle.
  * @param onAutoBackupChange       Invoked when the auto-backup toggle changes.
  * @param onIndependentSortChange  Invoked when the independent sort toggle changes.
+ * @param onIndependentViewTypeChange Invoked when the independent view type toggle changes.
  * @param onGroupsAlwaysOnTopChange Invoked when the groups-always-on-top toggle changes.
  * @param onFloatingTopBarChange   Invoked when the floating top bar toggle changes.
  * @param onBackup                 Suspending action that saves the backup; returns true on success.
@@ -48,10 +50,12 @@ fun SharedSettingsScreen(
     onBack: () -> Unit,
     autoBackupEnabled: Boolean,
     independentSortEnabled: Boolean,
+    independentViewTypeEnabled: Boolean,
     groupsAlwaysOnTop: Boolean,
     floatingTopBarEnabled: Boolean,
     onAutoBackupChange: (Boolean) -> Unit,
     onIndependentSortChange: (Boolean) -> Unit,
+    onIndependentViewTypeChange: (Boolean) -> Unit,
     onGroupsAlwaysOnTopChange: (Boolean) -> Unit,
     onFloatingTopBarChange: (Boolean) -> Unit,
     onBackup: suspend () -> Boolean,
@@ -99,6 +103,16 @@ fun SharedSettingsScreen(
                     subtitle        = "Samsung Gallery style: floating buttons over full-screen content when scrolling",
                     checked         = floatingTopBarEnabled,
                     onCheckedChange = onFloatingTopBarChange
+                )
+            }
+
+            // ── View section ──────────────────────────────────────────
+            SettingsSection(title = "View") {
+                SettingsToggleRow(
+                    title           = "Independent album/group view type",
+                    subtitle        = "Allow each album or group to remember its own grid size (large/small). If off, all use the global view type.",
+                    checked         = independentViewTypeEnabled,
+                    onCheckedChange = onIndependentViewTypeChange
                 )
             }
 
@@ -201,4 +215,3 @@ fun SharedSettingsScreen(
         }
     }
 }
-
