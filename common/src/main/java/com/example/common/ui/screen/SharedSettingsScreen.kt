@@ -180,9 +180,8 @@ fun SharedSettingsScreen(
                     subtitle = "Update album cover images to reflect current sort order and content"
                 ) {
                     onRefreshAlbumPreviews()
-                }
-
                     Toast.makeText(ctx, "Album previews refreshed", Toast.LENGTH_SHORT).show()
+                }
 
                 // ── Clear Video Thumbnails (video-library only) ──
                 onClearVideoThumbnails?.let { clearAction ->
