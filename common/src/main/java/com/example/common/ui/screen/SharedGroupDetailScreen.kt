@@ -396,9 +396,8 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                                 DropdownMenu(
                                                     expanded = showMoreMenu,
                                                     onDismissRequest = { showMoreMenu = false },
-                                                    modifier = Modifier
-                                                        .background(colors.menuBg, RoundedCornerShape(16.dp))
-                                                        .widthIn(min = 200.dp)
+                                                    shape = RoundedCornerShape(16.dp),
+                                                    containerColor = colors.menuBg
                                                 ) {
                                                     AppMenuItem("Add album(s)", onDismiss = { showMoreMenu = false }, onClick = onAddFolder, textColor = colors.listFirstText)
                                                     AppMenuItem("Rename group", onDismiss = { showMoreMenu = false }, onClick = onRenameGroup, textColor = colors.listFirstText)
@@ -525,7 +524,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         modifier = Modifier
                             .align(Alignment.TopStart)
                             .statusBarsPadding()
-                            .padding(start = 16.dp, top = 16.dp)
+                            .padding(start = 16.dp, top = 26.dp)
                             .size(48.dp)
                             .background(Color(0x8C000000), RoundedCornerShape(24.dp))
                             .clickable(onClick = onBack)
@@ -545,7 +544,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
                             .statusBarsPadding()
-                            .padding(end = 24.dp, top = 16.dp)  // 24dp = 16dp Row padding + 8dp ActionsPill padding
+                            .padding(end = 24.dp, top = 26.dp)  // 24dp = 16dp Row padding + 8dp ActionsPill padding
                     ) {
                         Box(
                             modifier = Modifier
@@ -566,9 +565,8 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         DropdownMenu(
                             expanded = showMoreMenu,
                             onDismissRequest = { showMoreMenu = false },
-                            modifier = Modifier
-                                .background(colors.menuBg, RoundedCornerShape(16.dp))
-                                .widthIn(min = 200.dp)
+                            shape = RoundedCornerShape(16.dp),
+                            containerColor = colors.menuBg
                         ) {
                             AppMenuItem("Add album(s)", onDismiss = { showMoreMenu = false }, onClick = onAddFolder, textColor = colors.listFirstText)
                             AppMenuItem("Rename group", onDismiss = { showMoreMenu = false }, onClick = onRenameGroup, textColor = colors.listFirstText)

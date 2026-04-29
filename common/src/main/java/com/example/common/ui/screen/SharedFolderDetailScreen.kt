@@ -228,9 +228,8 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                                             DropdownMenu(
                                                 expanded = showMoreMenu,
                                                 onDismissRequest = { showMoreMenu = false },
-                                                modifier = Modifier
-                                                    .background(colors.menuBg, RoundedCornerShape(16.dp))
-                                                    .widthIn(min = 200.dp)
+                                                shape = RoundedCornerShape(16.dp),
+                                                containerColor = colors.menuBg
                                             ) {
                                                 AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = onSortBy, textColor = colors.listFirstText)
                                                 AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
@@ -268,7 +267,7 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                 }
 
                     // ── Floating overlay buttons (shown when scrolled) ──
-                    if (floatingTopBarEnabled && !isSelectionMode && showFloating) {
+        if (floatingTopBarEnabled && !isSelectionMode && showFloating) {
                     // Back button (top-left) - aligned with inline header position
                     Box(
                         modifier = Modifier
@@ -315,9 +314,8 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                         DropdownMenu(
                             expanded = showMoreMenu,
                             onDismissRequest = { showMoreMenu = false },
-                            modifier = Modifier
-                                .background(colors.menuBg, RoundedCornerShape(16.dp))
-                                .widthIn(min = 200.dp)
+                            shape = RoundedCornerShape(16.dp),
+                            containerColor = colors.menuBg
                         ) {
                             AppMenuItem("Sort", onDismiss = { showMoreMenu = false }, onClick = onSortBy, textColor = colors.listFirstText)
                             AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
