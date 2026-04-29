@@ -17,6 +17,7 @@ import com.imagelibrary.ui.components.SelectionHeader
 import com.imagelibrary.ui.components.SortDialog
 import com.imagelibrary.ui.components.ViewTypeToggleButton
 import com.imagelibrary.ui.theme.LocalImageColors
+import com.example.common.ui.util.MixedItemSorting
 
 /**
  * Image-library GroupDetailScreen.
@@ -116,25 +117,7 @@ fun GroupDetailScreen(
         getSpacing = { if (it == ViewType.GRID_LARGE) 18.dp else 12.dp },
         isCustomOrder = { it == SortOption.CUSTOM_ORDER },
         sortMixedItems = { items, sort, groupsTop ->
-            when (sort) {
-                SortOption.NAME_A_TO_Z -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
-                } else items.sortedBy { it.sortKey.lowercase() }
-                SortOption.NAME_Z_TO_A -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
-                } else items.sortedByDescending { it.sortKey.lowercase() }
-                SortOption.ITEMS_MOST_FIRST -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
-                } else items.sortedByDescending { it.itemCount }
-                SortOption.ITEMS_FEWEST_FIRST -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
-                } else items.sortedBy { it.itemCount }
-                SortOption.CUSTOM_ORDER -> items
-            }
+            MixedItemSorting.sortMixedItems(items, sort.toSortType(), groupsTop)
         },
 
         folderGridItem = { folder, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
@@ -187,3 +170,5 @@ fun GroupDetailScreen(
         modifier = modifier
     )
 }
+
+

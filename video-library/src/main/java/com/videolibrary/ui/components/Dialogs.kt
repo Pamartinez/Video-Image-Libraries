@@ -13,7 +13,7 @@ import com.example.common.ui.components.SortDialog
 
 /**
  * Delegates to [com.example.common.ui.components.ViewAsDialog].
- * Video-library shows List / Grid / Expand options.
+ * Video-library shows Grid / Expand options.
  */
 @Composable
 fun ViewAsDialog(
@@ -22,12 +22,12 @@ fun ViewAsDialog(
     onDismiss: () -> Unit
 ) {
     com.example.common.ui.components.ViewAsDialog(
-        options           = listOf(ViewType.LIST, ViewType.GRID_SMALL, ViewType.GRID_LARGE),
+        options           = listOf(ViewType.GRID_SMALL, ViewType.GRID_LARGE),
         labelFor          = { vt ->
             when (vt) {
-                ViewType.LIST       -> "List view"
                 ViewType.GRID_SMALL -> "Grid view"
                 ViewType.GRID_LARGE -> "Expand view"
+                else -> "Unknown" // Should never happen since LIST is not in options
             }
         },
         currentViewType    = currentViewType,

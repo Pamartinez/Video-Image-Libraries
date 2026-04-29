@@ -1715,7 +1715,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showGroupNameForCreation() {
         viewModelScope.launch {
             val allNames = groupRepository.getAllGroups().map { it.name }.toSet()
-            val suggested = generateUniqueGroupName(allNames)
+            val suggested = com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
             _uiState.update {
                 it.copy(
                     showGroupNameDialog        = true,
@@ -1727,9 +1727,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    /** Delegates to FilePathUtils.generateUniqueGroupName in common module. */
+    /** Delegates to GroupCreationUtils.generateUniqueGroupName in common module. */
     private fun generateUniqueGroupName(existingNames: Set<String>): String {
-        return FilePathUtils.generateUniqueGroupName("Group", existingNames)
+        return com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(existingNames)
     }
 
     /** Enters group creation mode with an already-chosen name (skips the name dialog at the end) */

@@ -1049,7 +1049,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showGroupNameForCreation() {
         viewModelScope.launch {
             val allNames = groupRepository.getAllGroups().map { it.name }.toSet()
-            val suggested = generateUniqueGroupName(allNames)
+            val suggested = com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
             _uiState.update {
                 it.copy(
                     showGroupNameDialog        = true,
@@ -1089,11 +1089,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 currentGroupOrderedMixedItems = emptyList()
             )
         }
-    }
-
-    /** Delegates to FilePathUtils.generateUniqueGroupName in common module. */
-    private fun generateUniqueGroupName(existingNames: Set<String>): String {
-        return FilePathUtils.generateUniqueGroupName("Group", existingNames)
     }
 
     fun toggleGroupCreationFolderSelection(bucketId: Int) {
@@ -1358,18 +1353,18 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun setViewType(v: ViewType) { preferences.viewType = v; _uiState.update { it.copy(viewType = v) }; scheduleAutoBackup() }
     fun cycleViewType() {
         val next = when (_uiState.value.viewType) {
-            ViewType.LIST -> ViewType.GRID_LARGE
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
-            ViewType.GRID_SMALL -> ViewType.LIST
+            ViewType.GRID_SMALL -> ViewType.GRID_LARGE
+            ViewType.LIST -> ViewType.GRID_LARGE // Fallback for legacy settings
         }
         setViewType(next)
     }
     fun setFolderViewType(v: ViewType) { preferences.folderViewType = v; _uiState.update { it.copy(folderViewType = v) }; scheduleAutoBackup() }
     fun cycleFolderViewType() {
         val next = when (_uiState.value.folderViewType) {
-            ViewType.LIST -> ViewType.GRID_LARGE
             ViewType.GRID_LARGE -> ViewType.GRID_SMALL
-            ViewType.GRID_SMALL -> ViewType.LIST
+            ViewType.GRID_SMALL -> ViewType.GRID_LARGE
+            ViewType.LIST -> ViewType.GRID_LARGE // Fallback for legacy settings
         }
         setFolderViewType(next)
     }

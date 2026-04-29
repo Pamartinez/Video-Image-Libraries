@@ -17,6 +17,7 @@ import com.videolibrary.ui.components.FolderSortDialog
 import com.videolibrary.ui.components.SelectionModeHeader
 import com.videolibrary.ui.components.ViewTypeToggleButton
 import com.videolibrary.ui.theme.LocalVideoColors
+import com.example.common.ui.util.MixedItemSorting
 
 /**
  * Video-library GroupDetailScreen.
@@ -117,25 +118,7 @@ fun GroupDetailScreen(
         getSpacing = { if (it == ViewType.GRID_LARGE) 18.dp else 12.dp },
         isCustomOrder = { it == FolderSortOption.CUSTOM_ORDER },
         sortMixedItems = { items, sort, groupsTop ->
-            when (sort) {
-                FolderSortOption.NAME_A_TO_Z -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.sortKey.lowercase() } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.sortKey.lowercase() }
-                } else items.sortedBy { it.sortKey.lowercase() }
-                FolderSortOption.NAME_Z_TO_A -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.sortKey.lowercase() } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.sortKey.lowercase() }
-                } else items.sortedByDescending { it.sortKey.lowercase() }
-                FolderSortOption.ITEMS_MOST_FIRST -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedByDescending { it.itemCount } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedByDescending { it.itemCount }
-                } else items.sortedByDescending { it.itemCount }
-                FolderSortOption.ITEMS_FEWEST_FIRST -> if (groupsTop) {
-                    items.filterIsInstance<MixedItem.Group>().sortedBy { it.itemCount } +
-                    items.filterIsInstance<MixedItem.Folder>().sortedBy { it.itemCount }
-                } else items.sortedBy { it.itemCount }
-                FolderSortOption.CUSTOM_ORDER -> items
-            }
+            MixedItemSorting.sortMixedItems(items, sort.toSortType(), groupsTop)
         },
         
         folderGridItem = { folder, isSelected, isSelMode, vt, onClick, onLongClick, isDragging, mod ->
@@ -188,6 +171,8 @@ fun GroupDetailScreen(
         modifier = modifier
     )
 }
+
+
 
 
 

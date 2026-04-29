@@ -8,8 +8,8 @@ import com.videolibrary.data.model.VideoSortOption
 
 class AppPreferences(context: Context) : SharedAppPreferences(
     prefs                    = context.getSharedPreferences("video_library_prefs", Context.MODE_PRIVATE),
-    defaultViewTypeId        = ViewType.LIST.id,
-    defaultFolderViewTypeId  = ViewType.LIST.id,
+    defaultViewTypeId        = ViewType.GRID_LARGE.id,
+    defaultFolderViewTypeId  = ViewType.GRID_LARGE.id,
     groupItemsOrderKeyPrefix = "group_mixed_order_"
 ) {
     companion object {

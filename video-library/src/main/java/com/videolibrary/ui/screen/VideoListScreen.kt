@@ -60,9 +60,7 @@ fun VideoListScreen(
     val conflict by viewModel.fileConflict.collectAsState()
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
-    val folderListState = rememberLazyListState()
     val folderGridState = rememberLazyGridState()
-    val videoListState = rememberLazyListState()
     val videoGridState = rememberLazyGridState()
     // Hoisted so GroupDetailScreen scroll survives album-detail navigations.
     // Scrolls to top when navigating to a different group; stays put when returning
@@ -74,9 +72,7 @@ fun VideoListScreen(
 
     LaunchedEffect(state.scrollToTopTrigger) {
         if (state.scrollToTopTrigger > 0) {
-            folderListState.scrollToItem(0)
             folderGridState.scrollToItem(0)
-            videoListState.scrollToItem(0)
             videoGridState.scrollToItem(0)
         }
     }
@@ -939,7 +935,6 @@ fun VideoListScreen(
                             viewModel.enterSelectionMode()
                             viewModel.toggleVideoSelection(video.id)
                         },
-                        lazyListState = videoListState,
                         lazyGridState = videoGridState
                     )
 
@@ -994,7 +989,6 @@ fun VideoListScreen(
                         onReorderFolders = { from, to -> viewModel.reorderMixedItem(from, to) },
                         onReorderDone = { viewModel.persistFolderOrder() },
                         onExitSelectionForDrag = {},
-                        lazyListState = folderListState,
                         lazyGridState = folderGridState
                     )
                 }

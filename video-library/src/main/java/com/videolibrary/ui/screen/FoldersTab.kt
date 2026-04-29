@@ -1,6 +1,5 @@
 ﻿package com.videolibrary.ui.screen
 
-import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -14,14 +13,12 @@ import com.example.common.ui.screen.SharedFoldersTab
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.FolderGridItem
-import com.videolibrary.ui.components.FolderListItem
 import com.videolibrary.ui.components.GroupGridItem
-import com.videolibrary.ui.components.GroupListItem
 import com.videolibrary.ui.theme.LocalVideoColors
 
 /**
  * Video-library FoldersTab.
- * Delegates to [SharedFoldersTab] with video-specific configuration (supports LIST view).
+ * Delegates to [SharedFoldersTab] with video-specific configuration (grid views only).
  */
 @Composable
 fun FoldersTab(
@@ -44,7 +41,6 @@ fun FoldersTab(
     onReorderDone: () -> Unit = {},
     onExitSelectionForDrag: () -> Unit = {},
     modifier: Modifier = Modifier,
-    lazyListState: LazyListState = rememberLazyListState(),
     lazyGridState: LazyGridState = rememberLazyGridState()
 ) {
     // Build ordered items list
@@ -73,13 +69,13 @@ fun FoldersTab(
         onReorderFolders = onReorderFolders,
         onReorderDone = onReorderDone,
         onExitSelectionForDrag = onExitSelectionForDrag,
-        lazyListState = lazyListState,
+        lazyListState = rememberLazyListState(),
         lazyGridState = lazyGridState,
 
         colors = LocalVideoColors.current,
 
         isCustomOrder = { it == FolderSortOption.CUSTOM_ORDER },
-        supportsListView = true,
+        supportsListView = false,
         showHeaderRow = true,
         emptyStateMessage = "No video folders found on this device.",
         gridSpacing = if (isLargeGrid) 18.dp else 12.dp,
@@ -111,27 +107,8 @@ fun FoldersTab(
             )
         },
 
-        folderListItem = { folder, isSelected, isSelMode, onClick, onLongClick, isDragging, dragOffset ->
-            FolderListItem(
-                folder = folder,
-                isSelected = isSelected,
-                isSelectionMode = isSelMode,
-                onClick = onClick,
-                onLongClick = onLongClick,
-                isDragging = isDragging,
-                dragOffset = dragOffset
-            )
-        },
-
-        groupListItem = { group, isSelected, isSelMode, onClick, onLongClick ->
-            GroupListItem(
-                group = group,
-                isSelected = isSelected,
-                isSelectionMode = isSelMode,
-                onClick = onClick,
-                onLongClick = onLongClick
-            )
-        },
+        folderListItem = { _, _, _, _, _, _, _ -> }, // Not used in video-library (grid views only)
+        groupListItem = { _, _, _, _, _ -> }, // Not used in video-library (grid views only)
 
         modifier = modifier
     )
