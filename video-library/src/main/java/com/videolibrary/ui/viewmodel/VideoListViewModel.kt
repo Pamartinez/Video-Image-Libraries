@@ -38,6 +38,8 @@ import com.videolibrary.data.preferences.AppPreferences
 import com.videolibrary.data.db.GroupStore
 import com.videolibrary.data.repository.GroupRepository
 import com.videolibrary.data.repository.VideoRepository
+import com.videolibrary.data.cache.VideoThumbnailCache
+import com.videolibrary.data.service.ThumbnailGenerationService
 import com.videolibrary.data.util.FileLogger as Log
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -616,6 +618,9 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     init {
+        // Initialize Samsung Gallery-style two-tier thumbnail cache
+        VideoThumbnailCache.init(getApplication())
+        
         // Register observer for video MediaStore changes (notifyForDescendants
         // = true so we also catch per-row URI notifications)
         getApplication<Application>().contentResolver.registerContentObserver(
@@ -1610,6 +1615,15 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     folderViewType = folderViewType
                 )
             }
+            
+            // Start background thumbnail generation for all videos in this album
+            // This eliminates scroll-dependent generation (Samsung Gallery pattern)
+            val videoUrisWithTimestamp = videos.map { video ->
+                video.contentUri to video.dateModified
+            }
+            ThumbnailGenerationService.getInstance(getApplication()).preloadThumbnails(videoUrisWithTimestamp)
+            
+            Log.i("VideoListViewModel", "Opened folder '$name' with ${videos.size} videos, started background thumbnail preload")
         }
     }
 
