@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import com.example.common.ui.screen.SharedSettingsScreen
 import com.videolibrary.ui.components.clearVideoThumbnailCache
 import com.videolibrary.ui.viewmodel.VideoListViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsScreen(
@@ -13,6 +14,7 @@ fun SettingsScreen(
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
+    val scope = rememberCoroutineScope()
 
     SharedSettingsScreen(
         onBack                     = onBack,
@@ -29,7 +31,7 @@ fun SettingsScreen(
         onBackup                   = { viewModel.saveBackupToFile() },
         onRestore                  = { viewModel.restoreBackupFromFile() },
         onRefreshAlbumPreviews     = { viewModel.refreshAlbumPreviews() },
-        onClearVideoThumbnails     = { clearVideoThumbnailCache() },
+        onClearVideoThumbnails     = { scope.launch { clearVideoThumbnailCache() } },
         backupPath                 = "Documents/VideoLibrary/backups/",
         modifier                   = modifier
     )

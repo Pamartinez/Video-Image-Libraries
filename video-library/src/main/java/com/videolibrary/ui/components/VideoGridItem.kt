@@ -64,6 +64,7 @@ fun VideoGridItem(
                     contentUri = video.contentUri,
                     contentDescription = video.title,
                     contentScale = ContentScale.Crop,
+                    dateModified = video.dateModified,
                     modifier = Modifier.fillMaxSize()
                 )
 
