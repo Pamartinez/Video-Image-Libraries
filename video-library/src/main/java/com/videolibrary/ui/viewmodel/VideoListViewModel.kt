@@ -40,7 +40,6 @@ import com.videolibrary.data.repository.GroupRepository
 import com.videolibrary.data.repository.VideoRepository
 import com.videolibrary.data.cache.VideoThumbnailCache
 import com.videolibrary.data.service.ThumbnailGenerationService
-import com.videolibrary.data.util.FileLogger as Log
 import java.util.concurrent.atomic.AtomicBoolean
 
 data class VideoListUiState(
@@ -167,10 +166,10 @@ data class VideoListUiState(
     // -- Details --
     val detailsTarget: VideoItem? = null,
     val folderDetailScrollToTopTrigger: Int = 0,
+)
     // -- Carousel/Player state (for future instant player implementation) --
     val carouselIndex: Int = -1,
     val currentCarouselPage: Int = -1,
-)
 
 // CopyMoveProgress and FileConflict moved to common module
 
@@ -618,10 +617,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     init {
+        // Register observer for video MediaStore changes (notifyForDescendants
         // Initialize Samsung Gallery-style two-tier thumbnail cache
         VideoThumbnailCache.init(getApplication())
-        
-        // Register observer for video MediaStore changes (notifyForDescendants
+
         // = true so we also catch per-row URI notifications)
         getApplication<Application>().contentResolver.registerContentObserver(
             MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
@@ -1237,6 +1236,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     // ── Carousel/Player (for future instant player implementation) ────────
     fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
+            _uiState.update { it.copy(currentGroupName = newName, showRenameGroupDialog = false) }
     fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
     fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
@@ -1244,7 +1244,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val groupId = _uiState.value.currentGroupId ?: return
         viewModelScope.launch {
             groupRepository.renameGroup(groupId, newName)
-            _uiState.update { it.copy(currentGroupName = newName, showRenameGroupDialog = false) }
             silentRefresh()
             scheduleAutoBackup()
         }
@@ -1615,16 +1614,16 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     folderViewType = folderViewType
                 )
             }
-            
+        }
+
             // Start background thumbnail generation for all videos in this album
             // This eliminates scroll-dependent generation (Samsung Gallery pattern)
             val videoUrisWithTimestamp = videos.map { video ->
                 video.contentUri to video.dateModified
             }
             ThumbnailGenerationService.getInstance(getApplication()).preloadThumbnails(videoUrisWithTimestamp)
-            
+
             Log.i("VideoListViewModel", "Opened folder '$name' with ${videos.size} videos, started background thumbnail preload")
-        }
     }
 
     fun closeFolder() {

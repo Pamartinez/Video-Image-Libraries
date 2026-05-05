@@ -92,19 +92,19 @@ fun ImageListScreen(
         }
     }
 
-    val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
-            state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
-            state.showMoveFolderPicker || state.showCopyFolderPicker ||
-            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
-            showMoreMenu || showCreateMenu ||
-            state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
-
     // Collect share intents and launch system chooser
     LaunchedEffect(Unit) {
         viewModel.shareIntent.collect { intent ->
             ctx.startActivity(Intent.createChooser(intent, null))
         }
     }
+
+    val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
+            state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
+            state.showMoveFolderPicker || state.showCopyFolderPicker ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
+            showMoreMenu || showCreateMenu ||
+            state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
 
     BackHandler(
         enabled = hasOverlay || state.isSelectionMode || state.currentFolderBucketId != null ||
@@ -565,7 +565,7 @@ fun ImageListScreen(
             onViewAs = { viewModel.showViewAsDialog() },
             onSettings = { viewModel.showSettings() },
             onAbout = { viewModel.showAbout() },
-            onDelete = { viewModel.removeSelectedFromGroup() },
+            onDelete = { viewModel.showDeleteDialog() },
             onGroup = { viewModel.showGroupNameForCreation() },
             onUngroup = { viewModel.ungroupSelectedGroups() },
             onSelectAll = { viewModel.selectAllInGroup() },
@@ -604,6 +604,21 @@ fun ImageListScreen(
                 existingDcimNames = state.dcimFolderNames,
                 onConfirm = { name -> viewModel.startCreateAlbumPicker(name) },
                 onDismiss = { viewModel.dismissCreateAlbumDialog() }
+            )
+        }
+        if (state.showDeleteDialog) {
+            val selFolders = state.currentGroupFolders.filter { it.bucketId in state.selectedFolderIds }
+            val selGroups  = state.currentGroupSubGroups.filter { it.groupId in state.selectedGroupIds }
+            DeleteConfirmDialog(
+                count          = state.selectedFolderIds.size + state.selectedGroupIds.size,
+                isFolder       = true,
+                albumCount     = selFolders.size,
+                groupCount     = selGroups.size,
+                totalItemCount = selFolders.sumOf { it.itemCount } + selGroups.sumOf { it.totalItemCount },
+                itemName       = "image",
+                folderName     = "album",
+                onConfirm      = { viewModel.deleteSelectedFolders() },
+                onDismiss      = { viewModel.dismissDeleteDialog() }
             )
         }
         if (state.showViewAsDialog) {
@@ -858,11 +873,12 @@ fun ImageListScreen(
             onDismiss = { viewModel.dismissRenameAlbumDialog() }
         )
     }
-    if (state.showDeleteDialog && state.currentFolderBucketId == null && state.currentGroupId == null) {
+    // Delete confirmation for folders/albums/groups in root view (context checks removed - always true here)
+    if (state.showDeleteDialog) {
         val selFolders = state.ungroupedFolders.filter { it.bucketId in state.selectedFolderIds }
         val selGroups  = state.rootGroups.filter { it.groupId in state.selectedGroupIds }
         DeleteConfirmDialog(
-            count          = state.selectedFolderIds.size,
+            count          = state.selectedFolderIds.size + state.selectedGroupIds.size,
             isFolder       = true,
             albumCount     = selFolders.size,
             groupCount     = selGroups.size,

@@ -4,41 +4,41 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Movie
-import androidx.compose.material3.Icon
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+ * Clears all cached video thumbnails, forcing regeneration on next display.
+ * Call this to refresh thumbnails after changing thumbnail generation settings.
+/** LRU cache – ~200 MB (about 200 × 512×512 ARGB_8888 bitmaps). */
+    override fun sizeOf(key: String, value: ThumbnailData): Int = value.bitmap.byteCount / 1024
+
+        thumbnailData != null -> Image(
+            bitmap = thumbnailData!!.bitmap.asImageBitmap(),
+            loadSmartThumbnail(context, contentUri)
+        }
+        if (result != null) {
+            smartThumbnailCache.put(contentUri.toString(), result)
+    // Async smart-thumbnail extraction
+    LaunchedEffect(contentUri) {
+        if (thumbnailData != null) return@LaunchedEffect          // cache hit
+    // Fast path: check memory cache synchronously
+        mutableStateOf(smartThumbnailCache.get(contentUri.toString()))
+    }
+    var loading by remember(contentUri) { mutableStateOf(thumbnailData == null) }
+ * Results are cached in an in-memory LRU cache so scrolling back to
+ * an already-resolved thumbnail is instant.
 import com.videolibrary.data.cache.VideoThumbnailCache
-import com.videolibrary.ui.theme.LocalVideoColors
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-
-
-/**
+ *    checking each second for brightness and selecting the brightest frame.
+ * 2. Uses `MediaMetadataRetriever` to extract frames at precise timestamps.
+ * 3. Falls back to a movie-icon placeholder if extraction fails.
+ * 4. Shows the timestamp (in seconds) where the thumbnail was captured.
+)
+import androidx.compose.ui.unit.sp
  * Reliable video thumbnail with **Samsung Gallery-style persistent caching**.
- *
+import androidx.compose.ui.graphics.Color
  * **Architecture:**
  * 1. Check two-tier cache (memory → disk) for instant load
  * 2. If cache miss, extract thumbnail with brightness-aware frame selection
  * 3. Save to both memory and disk cache for future use
  * 4. Disk cache persists across app restarts (generate once, use forever)
- *
+private fun loadSmartThumbnail(context: Context, uri: Uri): ThumbnailData? {
  * **Brightness-aware extraction:**
  * - Linearly seeks through video from 1 to [MAX_SEEK_SEC] seconds
  * - Selects brightest frame (avoids black frames)
@@ -48,32 +48,32 @@ import kotlinx.coroutines.withContext
  * - Memory: 200MB LRU (instant access)
  * - Disk: 100MB persistent JPEG cache (survives app restarts)
  * - Automatic cache trimming and memory pressure handling
- */
-@Composable
-fun VideoThumbnail(
-    contentUri: Uri?,
-    contentDescription: String?,
-    modifier: Modifier = Modifier,
-    contentScale: ContentScale = ContentScale.Crop,
+ * 1. Opens a `MediaMetadataRetriever` and linearly seeks 1 s, 2 s, 3 s, …
+ *    up to [MAX_SEEK_SEC] seconds, keeping the brightest frame found.
+ * 2. Returns the brightest frame from the linear search with its timestamp, or `null` on total failure.
+    smartThumbnailCache.evictAll()
+import android.util.LruCache
+import android.util.LruCache
+    var bestTimestamp = 0  // Track which second gave us the best frame
     iconSize: Dp = 40.dp,
     dateModified: Long = 0L  // For cache validation (will be used in Phase 3)
-) {
-    val context = LocalContext.current
-    val colors = LocalVideoColors.current
-
-    if (contentUri == null) {
-        ThumbnailPlaceholder(modifier, colors.cardBackground, iconSize, colors.listSecondText)
-        return
-    }
-
+    // ── Linear seeking from 1-10 seconds (no system thumbnail) ──
+ *
+ * 1. Opens a `MediaMetadataRetriever` and linearly seeks 1 s, 2 s, 3 s, …
+ *    up to [MAX_SEEK_SEC] seconds, keeping the brightest frame found.
+ * 2. Returns the brightest frame from the linear search with its timestamp, or `null` on total failure.
+    smartThumbnailCache.evictAll()
+import android.util.LruCache
+import android.util.LruCache
+import androidx.compose.foundation.Image
     var thumbnail by remember(contentUri, dateModified) { mutableStateOf<Bitmap?>(null) }
     var loading by remember(contentUri, dateModified) { mutableStateOf(true) }
-
+import androidx.compose.material.icons.Icons
     // Load thumbnail from cache or generate new one
     LaunchedEffect(contentUri, dateModified) {
-        loading = true
+import androidx.compose.runtime.Composable
 
-        val result = withContext(Dispatchers.IO) {
+import androidx.compose.runtime.LaunchedEffect
             try {
                 // Try to get cache instance (may not be initialized yet in this phase)
                 val cache = try {
@@ -101,16 +101,83 @@ fun VideoThumbnail(
             } catch (e: Exception) {
                 null
             }
-        }
+import androidx.compose.ui.Alignment
 
         thumbnail = result
-        loading = false
-    }
-
-    when {
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
         thumbnail != null -> Image(
             bitmap = thumbnail!!.asImageBitmap(),
-            contentDescription = contentDescription,
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.videolibrary.ui.theme.LocalVideoColors
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+/**
+ * Holds a video thumbnail bitmap along with the timestamp (in seconds) where it was captured.
+ */
+private data class ThumbnailData(
+    val bitmap: Bitmap,
+    val timestampSeconds: Int
+)
+
+/**
+ * Reliable video thumbnail with **brightness-aware frame selection**.
+ *
+ * 1. Linearly seeks through the video from 1 to [MAX_SEEK_SEC] seconds,
+ *    checking each second for brightness and selecting the brightest frame.
+ * 2. Uses `MediaMetadataRetriever` to extract frames at precise timestamps.
+ * 3. Falls back to a movie-icon placeholder if extraction fails.
+ * 4. Shows the timestamp (in seconds) where the thumbnail was captured.
+ *
+ * Results are cached in an in-memory LRU cache so scrolling back to
+ * an already-resolved thumbnail is instant.
+ */
+@Composable
+fun VideoThumbnail(
+    contentUri: Uri?,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Crop,
+    iconSize: Dp = 40.dp
+) {
+    val context = LocalContext.current
+    val colors = LocalVideoColors.current
+
+    if (contentUri == null) {
+        ThumbnailPlaceholder(modifier, colors.cardBackground, iconSize, colors.listSecondText)
+        return
+    }
+    var loading by remember(contentUri) { mutableStateOf(thumbnailData == null) }
+ * Clears all cached video thumbnails (memory + disk).
+ * Call this to refresh thumbnails after changing settings.
+    LaunchedEffect(contentUri) {
+suspend fun clearVideoThumbnailCache() {
+    try {
+        VideoThumbnailCache.getInstance().clear()
+    } catch (e: IllegalStateException) {
+        // Cache not initialized, nothing to clear
+    }
+        val result = withContext(Dispatchers.IO) {
+            loadSmartThumbnail(context, contentUri)
+        }
+ * Extracts a thumbnail for [uri] using brightness-aware frame selection.
+            smartThumbnailCache.put(contentUri.toString(), result)
+ * **Algorithm:**
+ * 1. Opens `MediaMetadataRetriever` and seeks through video 1s, 2s, 3s, … up to [MAX_SEEK_SEC]
+ * 2. Measures brightness of each frame using ITU-R BT.601 luminance
+ * 3. Keeps the brightest frame found (avoids black frames)
+ * 4. Returns best frame, or null on failure
+ *
+ * **Note:** This is the extraction logic only. Caching is handled by VideoThumbnailCache.
+    }
+private fun extractThumbnail(context: Context, uri: Uri): Bitmap? {
+    // ── Brightness-aware frame extraction ──
+        thumbnailData != null -> Image(
+            bitmap = thumbnailData!!.bitmap.asImageBitmap(),
             contentScale = contentScale,
             modifier = modifier
         )
@@ -135,7 +202,6 @@ private fun ThumbnailPlaceholder(
         contentAlignment = Alignment.Center
     ) {
         Icon(
-            imageVector = Icons.Default.Movie,
             contentDescription = null,
             modifier = Modifier.size(iconSize),
             tint = iconTint.copy(alpha = 0.45f)
@@ -151,33 +217,31 @@ private const val BRIGHTNESS_THRESHOLD = 28f
 /** Maximum seconds to seek forward looking for a bright frame. */
 private const val MAX_SEEK_SEC = 10
 
-/**
- * Clears all cached video thumbnails (memory + disk).
- * Call this to refresh thumbnails after changing settings.
- */
-suspend fun clearVideoThumbnailCache() {
-    try {
-        VideoThumbnailCache.getInstance().clear()
-    } catch (e: IllegalStateException) {
-        // Cache not initialized, nothing to clear
-    }
+/** LRU cache – ~200 MB (about 200 × 512×512 ARGB_8888 bitmaps). */
+    return bestFrame
+    override fun sizeOf(key: String, value: ThumbnailData): Int = value.bitmap.byteCount / 1024
 }
 
 /**
- * Extracts a thumbnail for [uri] using brightness-aware frame selection.
- *
- * **Algorithm:**
- * 1. Opens `MediaMetadataRetriever` and seeks through video 1s, 2s, 3s, … up to [MAX_SEEK_SEC]
- * 2. Measures brightness of each frame using ITU-R BT.601 luminance
- * 3. Keeps the brightest frame found (avoids black frames)
- * 4. Returns best frame, or null on failure
- *
- * **Note:** This is the extraction logic only. Caching is handled by VideoThumbnailCache.
+ * Clears all cached video thumbnails, forcing regeneration on next display.
+ * Call this to refresh thumbnails after changing thumbnail generation settings.
  */
-private fun extractThumbnail(context: Context, uri: Uri): Bitmap? {
-    // ── Brightness-aware frame extraction ──
+fun clearVideoThumbnailCache() {
+    smartThumbnailCache.evictAll()
+}
+
+/**
+ * Loads a thumbnail for [uri], always performing linear seeking.
+ *
+ * 1. Opens a `MediaMetadataRetriever` and linearly seeks 1 s, 2 s, 3 s, …
+ *    up to [MAX_SEEK_SEC] seconds, keeping the brightest frame found.
+ * 2. Returns the brightest frame from the linear search with its timestamp, or `null` on total failure.
+ */
+private fun loadSmartThumbnail(context: Context, uri: Uri): ThumbnailData? {
+    // ── Linear seeking from 1-10 seconds (no system thumbnail) ──
     var bestFrame: Bitmap? = null
     var bestBrightness = 0f
+    var bestTimestamp = 0  // Track which second gave us the best frame
 
     val retriever = MediaMetadataRetriever()
     try {
@@ -202,6 +266,7 @@ private fun extractThumbnail(context: Context, uri: Uri): Bitmap? {
                 bestFrame?.recycle()
                 bestFrame = frame
                 bestBrightness = brightness
+                bestTimestamp = sec  // Remember which second this came from
             } else {
                 frame.recycle()
             }
@@ -218,7 +283,7 @@ private fun extractThumbnail(context: Context, uri: Uri): Bitmap? {
         }
     }
 
-    return bestFrame
+    return bestFrame?.let { ThumbnailData(it, bestTimestamp) }
 }
 
 // ── Brightness measurement ─────────────────────────────────────────────
