@@ -146,6 +146,9 @@ data class ImageListUiState(
     /** When true, users can drag-and-drop to reorder media items in Custom sort mode. */
     val allowMediaReordering: Boolean = false,
 
+    /** Flag to refresh album previews when closing folder after media reorder. */
+    val needsAlbumPreviewRefresh: Boolean = false,
+
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: SortOption = SortOption.CUSTOM_ORDER,
     val showHideFolders: Boolean = false,
@@ -218,14 +221,25 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
      * Only active when allowMediaReordering is true and sort is CUSTOM_ORDER.
      */
     fun reorderFolderMedia(fromIndex: Int, toIndex: Int) {
-        if (_uiState.value.currentFolderBucketId == null) return
-        val currentImages = _uiState.value.folderImages.toMutableList()
-        
-        if (fromIndex !in currentImages.indices || toIndex !in currentImages.indices) return
-        
+        val s = _uiState.value
+        android.util.Log.d("DragReorder", "reorderFolderMedia called: from=$fromIndex, to=$toIndex, bucketId=${s.currentFolderBucketId}, images=${s.folderImages.size}")
+
+        if (s.currentFolderBucketId == null) {
+            android.util.Log.w("DragReorder", "No current folder open, ignoring reorder")
+            return
+        }
+
+        val currentImages = s.folderImages.toMutableList()
+
+        if (fromIndex !in currentImages.indices || toIndex !in currentImages.indices) {
+            android.util.Log.w("DragReorder", "Invalid indices: from=$fromIndex, to=$toIndex, size=${currentImages.size}")
+            return
+        }
+
         val item = currentImages.removeAt(fromIndex)
         currentImages.add(toIndex, item)
-        
+
+        android.util.Log.i("DragReorder", "Reordered image: ${item.displayName} from $fromIndex to $toIndex")
         _uiState.update { it.copy(folderImages = currentImages) }
     }
 
@@ -238,6 +252,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         val imageIds = _uiState.value.folderImages.map { it.id }
         preferences.saveFolderMediaCustomOrder(currentBucketId, imageIds)
         scheduleAutoBackup()
+
+        // Mark that we need to refresh album previews when closing folder
+        _uiState.update { it.copy(needsAlbumPreviewRefresh = true) }
     }
 
     /**
@@ -278,7 +295,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val mediaStoreFolders = repository.getFoldersWithIndependentSort(
                 sortOption = s.sortOption,
-                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) },
+                getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
             )
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
@@ -751,7 +769,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         // Use getFoldersWithIndependentSort to respect each album's sort option for preview generation.
         val allFolders = repository.getFoldersWithIndependentSort(
             sortOption = s.sortOption,
-            getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+            getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) },
+            getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
         )
         // Visible-only list used for the main view and group detail
         val folders = allFolders.filter { it.path.isBlank() || it.path !in hiddenPaths }
@@ -885,7 +904,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     private fun refreshFolderImages(preserveOrder: Boolean = false) {
         val bucketId = _uiState.value.currentFolderBucketId ?: return
         viewModelScope.launch {
-            val imgs = repository.getImages(_uiState.value.imageSortOption, bucketId = bucketId)
+            val imgs = repository.getImages(
+                imageSortOption = _uiState.value.imageSortOption,
+                bucketId = bucketId,
+                allowMediaReordering = _uiState.value.allowMediaReordering,
+                customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            )
 
             if (preserveOrder && _uiState.value.imageSortOption == ImageSortOption.CUSTOM_ORDER) {
                 val existing      = _uiState.value.folderImages
@@ -1237,6 +1261,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
      * See docs/INDEPENDENT_SORT_ARCHITECTURE.md for details.
      */
     fun closeFolder() {
+        // Capture refresh flag before updating state
+        val needsRefresh = _uiState.value.needsAlbumPreviewRefresh
+
         // Restore global folderViewType when closing
         _uiState.update {
             it.copy(
@@ -1244,8 +1271,16 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                 currentFolderName = "",
                 folderImages = emptyList(),
                 imageSortOption = preferences.imageSortOption, // Restore root-level sort
-                folderViewType = preferences.folderViewType // Restore global view type
+                folderViewType = preferences.folderViewType, // Restore global view type
+                needsAlbumPreviewRefresh = false
             )
+        }
+
+        // Refresh album previews if media was reordered
+        if (needsRefresh) {
+            viewModelScope.launch {
+                silentRefresh()
+            }
         }
     }
 
@@ -2166,7 +2201,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             // Always fetch fresh folder data to ensure previews reflect current sort order
             val allFolders = repository.getFoldersWithIndependentSort(
                 sortOption = s.sortOption,
-                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) }
+                getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) },
+                getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
             )
             // Filter from the globally-sorted list so non-custom sorts display correctly
             val bucketIdSet  = bucketIds.toSet()

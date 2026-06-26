@@ -86,6 +86,9 @@ data class VideoListUiState(
     /** When true, users can drag-and-drop to reorder media items in Custom sort mode. */
     val allowMediaReordering: Boolean = false,
 
+    /** Flag to refresh album previews when closing folder after media reorder. */
+    val needsAlbumPreviewRefresh: Boolean = false,
+
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
     /** Whether the Hide Folders full-screen is shown. */
@@ -239,12 +242,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun reorderFolderMedia(fromIndex: Int, toIndex: Int) {
         if (_uiState.value.currentFolderBucketId == null) return
         val currentVideos = _uiState.value.folderVideos.toMutableList()
-        
+
         if (fromIndex !in currentVideos.indices || toIndex !in currentVideos.indices) return
-        
+
         val item = currentVideos.removeAt(fromIndex)
         currentVideos.add(toIndex, item)
-        
+
         _uiState.update { it.copy(folderVideos = currentVideos) }
     }
 
@@ -255,8 +258,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun onFolderMediaReorderDone() {
         val currentBucketId = _uiState.value.currentFolderBucketId ?: return
         val videoIds = _uiState.value.folderVideos.map { it.id }
+        Log.i("DragReorder", "Persisting order for bucket $currentBucketId: ${videoIds.size} videos")
         preferences.saveFolderMediaCustomOrder(currentBucketId, videoIds)
         scheduleAutoBackup()
+
+        // Mark that we need to refresh album previews when closing folder
+        _uiState.update { it.copy(needsAlbumPreviewRefresh = true) }
     }
 
     /**
@@ -292,7 +299,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             val mediaStoreFolders = repository.getFoldersWithIndependentSort(
                 folderSortOption = s.sortOption,
                 independentSortEnabled = s.independentSortEnabled,
-                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) },
+                getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
             )
             val hiddenMeta      = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths = mediaStoreFolders.map { it.path }.toSet()
@@ -368,7 +376,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             val mediaStoreFolders = repository.getFoldersWithIndependentSort(
                 folderSortOption = s.sortOption,
                 independentSortEnabled = s.independentSortEnabled,
-                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) },
+                getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
             )
             val hiddenMeta        = preferences.getAllHiddenFolderMeta()
             val mediaStorePaths   = mediaStoreFolders.map { it.path }.toSet()
@@ -755,7 +764,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         var allFolders = repository.getFoldersWithIndependentSort(
             folderSortOption = s.sortOption,
             independentSortEnabled = true, // Always use per-album sort
-            getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+            getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) },
+            getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
         )
 
         if (s.sortOption == FolderSortOption.CUSTOM_ORDER) {
@@ -1072,7 +1082,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             val allFolders = repository.getFoldersWithIndependentSort(
                 folderSortOption = s.sortOption,
                 independentSortEnabled = true, // Always use per-album sort
-                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) }
+                getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) },
+                getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
             )
             // Reload sort options from preferences to get the latest changes
             val allGroups = groupRepository.getAllGroups()
@@ -1679,7 +1690,25 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             val s = _uiState.value
             val folderSort = getEffectiveFolderSortOption(bucketId)
-            val videos = repository.getVideos(videoSortOption = folderSort, bucketId = bucketId)
+            val customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+
+            Log.d("DragReorder", "openFolder: bucketId=$bucketId, name=$name")
+            Log.d("DragReorder", "  allowMediaReordering=${s.allowMediaReordering}")
+            Log.d("DragReorder", "  folderSort=$folderSort")
+            Log.d("DragReorder", "  customOrder.size=${customOrder.size}")
+
+            // Show toast with drag state
+            val canDragMessage = "Drag: allow=${s.allowMediaReordering}, sort=$folderSort, isCustom=${folderSort == VideoSortOption.CUSTOM_ORDER}"
+            withContext(Dispatchers.Main) {
+                Toast.makeText(getApplication(), canDragMessage, Toast.LENGTH_LONG).show()
+            }
+
+            val videos = repository.getVideos(
+                videoSortOption = folderSort,
+                bucketId = bucketId,
+                allowMediaReordering = s.allowMediaReordering,
+                customOrder = customOrder
+            )
 
             // Load folder-specific view type if independent mode is enabled
             val folderViewType = if (s.independentViewTypeEnabled) {
@@ -1726,15 +1755,28 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 currentFolderName = "",
                 currentFolderSortOption = VideoSortOption.CUSTOM_ORDER,
                 folderVideos = emptyList(),
-                folderViewType = restoredFolderViewType
+                folderViewType = restoredFolderViewType,
+                needsAlbumPreviewRefresh = false
             )
+        }
+
+        // Refresh album previews if media was reordered
+        if (s.needsAlbumPreviewRefresh) {
+            viewModelScope.launch {
+                silentRefresh()
+            }
         }
     }
     private fun refreshCurrentFolderIfOpen() {
         val bucketId = _uiState.value.currentFolderBucketId ?: return
         viewModelScope.launch {
             val s = _uiState.value
-            val videos = repository.getVideos(videoSortOption = s.currentFolderSortOption, bucketId = bucketId)
+            val videos = repository.getVideos(
+                videoSortOption = s.currentFolderSortOption,
+                bucketId = bucketId,
+                allowMediaReordering = s.allowMediaReordering,
+                customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            )
             _uiState.update { it.copy(folderVideos = videos) }
         }
     }

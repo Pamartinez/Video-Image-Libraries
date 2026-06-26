@@ -544,6 +544,12 @@ fun VideoListScreen(
 
     // ── Folder detail screen ─────────────────────────────────────────────────
     if (state.currentFolderBucketId != null) {
+        val isCustomSort = state.currentFolderSortOption == VideoSortOption.CUSTOM_ORDER
+        android.util.Log.d("DragReorder", "Folder detail screen params:")
+        android.util.Log.d("DragReorder", "  allowMediaReordering=${state.allowMediaReordering}")
+        android.util.Log.d("DragReorder", "  isCustomSortMode=$isCustomSort (currentFolderSortOption=${state.currentFolderSortOption})")
+        android.util.Log.d("DragReorder", "  folderVideos.size=${state.folderVideos.size}")
+        
         FolderDetailScreen(
             folderName      = state.currentFolderName,
             videos          = state.folderVideos,
@@ -551,6 +557,8 @@ fun VideoListScreen(
             isSelectionMode = state.isSelectionMode,
             selectedIds     = state.selectedVideoIds,
             floatingTopBarEnabled = state.floatingTopBarEnabled,
+            allowMediaReordering = state.allowMediaReordering,
+            isCustomSortMode = isCustomSort,
             onBack = {
                 viewModel.exitSelectionMode()
                 viewModel.closeFolder()
@@ -590,6 +598,8 @@ fun VideoListScreen(
             onViewAs           = { viewModel.showViewAsDialog() },
             onSettings         = { viewModel.showSettings() },
             onAbout            = { viewModel.showAbout() },
+            onReorderItem      = { fromIndex, toIndex -> viewModel.reorderFolderMedia(fromIndex, toIndex) },
+            onReorderDone      = { viewModel.onFolderMediaReorderDone() },
             scrollToTopTrigger = state.folderDetailScrollToTopTrigger
         )
 

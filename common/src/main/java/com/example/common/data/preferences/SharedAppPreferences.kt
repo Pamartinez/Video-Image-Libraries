@@ -79,10 +79,10 @@ open class SharedAppPreferences(
     /**
      * When true, users can drag-and-drop to reorder media items within albums/folders
      * when in Custom sort mode. When false, media always follows MediaStore order.
-     * Default: false (feature opt-in).
+     * Default: true (feature enabled by default for testing).
      */
     var allowMediaReordering: Boolean
-        get() = prefs.getBoolean(KEY_ALLOW_MEDIA_REORDERING, false)
+        get() = prefs.getBoolean(KEY_ALLOW_MEDIA_REORDERING, true)  // Changed to true for testing
         set(value) = prefs.edit().putBoolean(KEY_ALLOW_MEDIA_REORDERING, value).apply()
 
     // ── Per-group sort option ────────────────────────────────────────────────

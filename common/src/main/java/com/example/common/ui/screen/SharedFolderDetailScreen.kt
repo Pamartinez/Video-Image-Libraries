@@ -3,6 +3,7 @@ package com.example.common.ui.screen
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -18,6 +19,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -30,6 +32,9 @@ import com.example.common.ui.components.AppMoreMenuButton
 import com.example.common.ui.components.BottomActionBar
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
+import com.example.common.ui.util.dragToReorderGrid
+import com.example.common.ui.util.rememberDragDropGridState
+import kotlin.math.roundToInt
 
 /**
  * Shared FolderDetailScreen used by both image-library and video-library.
@@ -61,6 +66,12 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
     onAbout: () -> Unit,
     lazyGridState: LazyGridState,
 
+    // Drag-and-drop support
+    allowMediaReordering: Boolean,
+    onReorderItem: (Int, Int) -> Unit,
+    onReorderDone: () -> Unit,
+    isCustomSortMode: Boolean,
+
     // Injected dependencies
     colors: LibraryColors,
     floatingTopBarEnabled: Boolean,
@@ -91,13 +102,51 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
         isSelectionMode: Boolean,
         isLargeGrid: Boolean,
         onClick: () -> Unit,
-        onLongClick: () -> Unit,
+        onLongClick: (() -> Unit)?,
         modifier: Modifier
     ) -> Unit,
 
     modifier: Modifier = Modifier
 ) {
     var showMoreMenu by remember { mutableStateOf(false) }
+
+    // ── Drag-and-drop state ──
+    val hasHeaderRow = floatingTopBarEnabled && !isSelectionMode
+    val canDrag = allowMediaReordering && isCustomSortMode && !isSelectionMode
+
+    // Critical debug logging
+    android.util.Log.e("DragReorder", "═══ SharedFolderDetailScreen Render ═══")
+    android.util.Log.e("DragReorder", "allowMediaReordering = $allowMediaReordering")
+    android.util.Log.e("DragReorder", "isCustomSortMode = $isCustomSortMode")
+    android.util.Log.e("DragReorder", "isSelectionMode = $isSelectionMode")
+    android.util.Log.e("DragReorder", "canDrag = $canDrag")
+    android.util.Log.e("DragReorder", "items.size = ${items.size}")
+    android.util.Log.e("DragReorder", "═══════════════════════════════════════")
+
+    val dragDropState = rememberDragDropGridState(
+        lazyGridState = lazyGridState,
+        onMove = { from, to ->
+            // Convert layout indices to data indices (account for optional header row)
+            val dataFrom = if (hasHeaderRow) from - 1 else from
+            val dataTo = if (hasHeaderRow) to - 1 else to
+            if (dataFrom >= 0 && dataTo >= 0 && dataFrom < items.size && dataTo < items.size) {
+                onReorderItem(dataFrom, dataTo)
+            }
+        },
+        onDragEnd = onReorderDone,
+        // CRITICAL FIX: Only pass onLongPressWithoutDrag when drag is DISABLED
+        // If we pass it when canDrag=true, it enters selection mode which blocks dragging!
+        onLongPressWithoutDrag = if (canDrag) null else { layoutIndex ->
+            // Convert layout index to data index (account for optional header row)
+            val dataIndex = if (hasHeaderRow) layoutIndex - 1 else layoutIndex
+            items.getOrNull(dataIndex)?.let { item ->
+                onItemLongClick(item)
+            }
+        },
+        isInSelectionMode = { isSelectionMode },
+        onEnterDragMode = {},
+        minDragIndex = if (hasHeaderRow) 1 else 0
+    )
 
     // ── Calculate scroll state for visibility control ──
     val scrollOffset = if (floatingTopBarEnabled && !isSelectionMode) {
@@ -168,10 +217,13 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(columnCount),
                         state = lazyGridState,
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .then(if (canDrag) Modifier.dragToReorderGrid(dragDropState) else Modifier),
                         contentPadding = PaddingValues(0.dp),
                         horizontalArrangement = Arrangement.spacedBy(gridSpacing),
-                        verticalArrangement = Arrangement.spacedBy(gridSpacing)
+                        verticalArrangement = Arrangement.spacedBy(gridSpacing),
+                        userScrollEnabled = !dragDropState.isDragging
                     ) {
                     // ── HEADER AS FIRST ITEM (scrolls naturally with content) ──
                     if (!isSelectionMode && floatingTopBarEnabled) {
@@ -246,25 +298,86 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                     // ── FOLDER ITEMS ──
                     items(items, key = { getItemId(it) }) { item ->
                         val index = items.indexOf(item)
+                        val layoutIndex = if (hasHeaderRow) index + 1 else index
+                        val itemIsDragging = canDrag && dragDropState.draggedIndex == layoutIndex
+                        val anyDragActive = canDrag && dragDropState.isDragging
+                        val dimModifier = if (anyDragActive && !itemIsDragging)
+                            Modifier.graphicsLayer { alpha = 0.65f }
+                        else if (itemIsDragging)
+                            Modifier.graphicsLayer { alpha = 0f }
+                        else
+                            Modifier
+
                         itemGridCell(
                             item,
                             selectedIds.contains(getItemId(item)),
                             isSelectionMode,
                             isLarge,
                             {
-                                if (isSelectionMode) onItemLongClick(item)
-                                else onItemClick(item, index)
+                                if (dragDropState.consumeNextClick()) {
+                                    // Suppress click after drag ends
+                                } else if (isSelectionMode) {
+                                    onItemLongClick(item)
+                                } else {
+                                    onItemClick(item, index)
+                                }
                             },
-                            { onItemLongClick(item) },
-                            Modifier.animateItem(
-                                placementSpec = spring(
-                                    dampingRatio = Spring.DampingRatioNoBouncy,
-                                    stiffness = 4000f
+                            if (canDrag) {
+                                // Drag handler will manage long-press; grid item should not handle it
+                                null
+                            } else {
+                                { onItemLongClick(item) }
+                            },
+                            Modifier
+                                .animateItem(
+                                    placementSpec = spring(
+                                        dampingRatio = Spring.DampingRatioNoBouncy,
+                                        stiffness = 4000f
+                                    )
                                 )
-                            )
+                                .then(dimModifier)
                         )
                     }
                 }
+
+                    // ── Floating drag overlay ──
+                    if (canDrag && dragDropState.isDragging) {
+                        val overlayPos = dragDropState.overlayPosition
+                        val itemSizePx = dragDropState.capturedItemSize
+                        val draggedIndex = if (hasHeaderRow) dragDropState.draggedIndex - 1 else dragDropState.draggedIndex
+                        val draggedItem = items.getOrNull(draggedIndex)
+
+                        if (draggedItem != null && itemSizePx != null) {
+                            val density = androidx.compose.ui.platform.LocalDensity.current
+                            val itemWidthDp = with(density) { itemSizePx.width.toDp() }
+                            val itemHeightDp = with(density) { itemSizePx.height.toDp() }
+
+                            Box(
+                                modifier = Modifier
+                                    .offset { androidx.compose.ui.unit.IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
+                                    .width(itemWidthDp)
+                                    .height(itemHeightDp)
+                                    .zIndex(10f)
+                                    .graphicsLayer {
+                                        scaleX = 1.08f
+                                        scaleY = 1.08f
+                                        transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 0.5f)
+                                        shadowElevation = 24f
+                                    }
+                                    .border(3.dp, Color(0xFF2196F3), RoundedCornerShape(12.dp))
+                            ) {
+                                itemGridCell(
+                                    draggedItem,
+                                    selectedIds.contains(getItemId(draggedItem)),
+                                    isSelectionMode,
+                                    isLarge,
+                                    {},
+                                    null,
+                                    Modifier
+                                )
+                            }
+                        }
+                    }
 
                     // ── Floating overlay buttons (shown when scrolled) ──
         if (floatingTopBarEnabled && !isSelectionMode && showFloating) {

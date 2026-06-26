@@ -155,7 +155,8 @@ class ImageRepository(private val context: Context) {
      */
     suspend fun getFoldersWithIndependentSort(
         sortOption: SortOption = SortOption.CUSTOM_ORDER,
-        getFolderSortOption: (Int) -> ImageSortOption = { ImageSortOption.CUSTOM_ORDER }
+        getFolderSortOption: (Int) -> ImageSortOption = { ImageSortOption.CUSTOM_ORDER },
+        getCustomMediaOrder: (Int) -> List<Long> = { emptyList() }
     ): List<FolderItem> = withContext(Dispatchers.IO) {
         // Load ALL images from MediaStore
         val allImages = mutableMapOf<Int, MutableList<ImageItem>>()
@@ -231,7 +232,8 @@ class ImageRepository(private val context: Context) {
             val albumSort = getFolderSortOption(bucketId)
 
             // Generate preview: Sort images according to this album's sort, then take the first one
-            val previewImage = getFirstImageForAlbum(images, albumSort)
+            val customOrder = getCustomMediaOrder(bucketId)
+            val previewImage = getFirstImageForAlbum(images, albumSort, customOrder)
 
             folderMap[bucketId] = FolderItem(
                 bucketId = bucketId,
@@ -258,11 +260,24 @@ class ImageRepository(private val context: Context) {
      * Get the first image for an album according to the specified sort option.
      * This is used for album preview generation.
      */
-    private fun getFirstImageForAlbum(images: List<ImageItem>, sortOption: ImageSortOption): ImageItem? {
+    private fun getFirstImageForAlbum(
+        images: List<ImageItem>,
+        sortOption: ImageSortOption,
+        customOrder: List<Long> = emptyList()
+    ): ImageItem? {
         if (images.isEmpty()) return null
 
         return when (sortOption) {
-            ImageSortOption.CUSTOM_ORDER -> images.maxWithOrNull(compareBy<ImageItem> { it.dateModified }.thenBy { it.id })
+            ImageSortOption.CUSTOM_ORDER -> {
+                // If custom order exists, use the first ID from it
+                if (customOrder.isNotEmpty()) {
+                    val imageMap = images.associateBy { it.id }
+                    customOrder.firstOrNull()?.let { imageMap[it] }
+                        ?: images.maxWithOrNull(compareBy<ImageItem> { it.dateModified }.thenBy { it.id })
+                } else {
+                    images.maxWithOrNull(compareBy<ImageItem> { it.dateModified }.thenBy { it.id })
+                }
+            }
             ImageSortOption.NAME_A_TO_Z -> images.minByOrNull { it.displayName.lowercase() }
             ImageSortOption.NAME_Z_TO_A -> images.maxByOrNull { it.displayName.lowercase() }
             ImageSortOption.DATE_CREATED_ASC -> images.minByOrNull { it.id }

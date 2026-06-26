@@ -26,6 +26,8 @@ fun FolderDetailScreen(
     isSelectionMode: Boolean,
     selectedIds: Set<Long>,
     floatingTopBarEnabled: Boolean = false,
+    allowMediaReordering: Boolean = false,
+    isCustomSortMode: Boolean = false,
     onBack: () -> Unit,
     onImageClick: (ImageItem, Int) -> Unit,
     onImageLongClick: (ImageItem) -> Unit,
@@ -43,6 +45,8 @@ fun FolderDetailScreen(
     onViewAs: () -> Unit = {},
     onSettings: () -> Unit = {},
     onAbout: () -> Unit = {},
+    onReorderItem: (Int, Int) -> Unit = { _, _ -> },
+    onReorderDone: () -> Unit = {},
     scrollToTopTrigger: Int = 0,
     lazyGridState: LazyGridState = rememberLazyGridState()
 ) {
@@ -78,6 +82,12 @@ fun FolderDetailScreen(
         onAbout = onAbout,
         lazyGridState = lazyGridState,
 
+        // Drag-and-drop support
+        allowMediaReordering = allowMediaReordering,
+        onReorderItem = onReorderItem,
+        onReorderDone = onReorderDone,
+        isCustomSortMode = isCustomSortMode,
+
         colors = LocalImageColors.current,
         floatingTopBarEnabled = floatingTopBarEnabled,
 
@@ -106,8 +116,9 @@ fun FolderDetailScreen(
                 isSelectionMode = isSelMode,
                 isLargeGrid = isLarge,
                 onClick = onClick,
-                onLongClick = onLongClick,
-                modifier = mod
+                onLongClick = if (allowMediaReordering && isCustomSortMode) null else onLongClick,
+                modifier = mod,
+                isDragReorderEnabled = allowMediaReordering && isCustomSortMode
             )
         },
 

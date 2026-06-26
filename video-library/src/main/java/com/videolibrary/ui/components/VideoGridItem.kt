@@ -1,6 +1,7 @@
 package com.videolibrary.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -35,8 +36,9 @@ fun VideoGridItem(
     isSelectionMode: Boolean,
     isLargeGrid: Boolean = false,
     onClick: () -> Unit,
-    onLongClick: () -> Unit,
-    modifier: Modifier = Modifier
+    onLongClick: (() -> Unit)?,
+    modifier: Modifier = Modifier,
+    isDragReorderEnabled: Boolean = false
 ) {
     val colors = LocalVideoColors.current
     // isLargeGrid == GRID_LARGE == 2 columns (SmallGrid in Blazor)
@@ -50,7 +52,10 @@ fun VideoGridItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(12.dp))
-                .combinedClickable(onClick = onClick, onLongClick = onLongClick)
+                .combinedClickable(
+                    onClick = onClick,
+                    onLongClick = onLongClick
+                )
         ) {
             // Thumbnail area — 1:1 aspect ratio
             Box(

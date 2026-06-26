@@ -155,7 +155,8 @@ class VideoRepository(private val context: Context) {
     suspend fun getFoldersWithIndependentSort(
         folderSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
         independentSortEnabled: Boolean = false,
-        getFolderSortOption: (Int) -> VideoSortOption = { VideoSortOption.CUSTOM_ORDER }
+        getFolderSortOption: (Int) -> VideoSortOption = { VideoSortOption.CUSTOM_ORDER },
+        getCustomMediaOrder: (Int) -> List<Long> = { emptyList() }
     ): List<FolderItem> = withContext(Dispatchers.IO) {
         if (!independentSortEnabled) {
             // Fall back to standard implementation when independent sort is disabled
@@ -240,7 +241,8 @@ class VideoRepository(private val context: Context) {
             val albumSort = getFolderSortOption(bucketId)
 
             // Generate preview: Get the first video according to this album's sort
-            val previewVideo = getFirstVideoForAlbum(videos, albumSort)
+            val customOrder = getCustomMediaOrder(bucketId)
+            val previewVideo = getFirstVideoForAlbum(videos, albumSort, customOrder)
 
             folderMap[bucketId] = FolderItem(
                 bucketId = bucketId,
@@ -267,11 +269,24 @@ class VideoRepository(private val context: Context) {
      * Get the first video for an album according to the specified sort option.
      * This is used for album preview generation.
      */
-    private fun getFirstVideoForAlbum(videos: List<VideoItem>, sortOption: VideoSortOption): VideoItem? {
+    private fun getFirstVideoForAlbum(
+        videos: List<VideoItem>, 
+        sortOption: VideoSortOption,
+        customOrder: List<Long> = emptyList()
+    ): VideoItem? {
         if (videos.isEmpty()) return null
 
         return when (sortOption) {
-            VideoSortOption.CUSTOM_ORDER -> videos.maxWithOrNull(compareBy<VideoItem> { it.dateModified }.thenBy { it.id })
+            VideoSortOption.CUSTOM_ORDER -> {
+                // If custom order exists, use the first ID from it
+                if (customOrder.isNotEmpty()) {
+                    val videoMap = videos.associateBy { it.id }
+                    customOrder.firstOrNull()?.let { videoMap[it] }
+                        ?: videos.maxWithOrNull(compareBy<VideoItem> { it.dateModified }.thenBy { it.id })
+                } else {
+                    videos.maxWithOrNull(compareBy<VideoItem> { it.dateModified }.thenBy { it.id })
+                }
+            }
             VideoSortOption.NAME_A_TO_Z -> videos.minByOrNull { it.displayName.lowercase() }
             VideoSortOption.NAME_Z_TO_A -> videos.maxByOrNull { it.displayName.lowercase() }
             VideoSortOption.DURATION_ASC -> videos.minByOrNull { it.duration }

@@ -301,6 +301,8 @@ fun ImageListScreen(
             isSelectionMode = state.isSelectionMode,
             selectedIds = state.selectedImageIds,
             floatingTopBarEnabled = state.floatingTopBarEnabled,
+            allowMediaReordering = state.allowMediaReordering,
+            isCustomSortMode = state.imageSortOption == ImageSortOption.CUSTOM_ORDER, // imageSortOption is updated to folder's sort when folder is opened
             onBack = { viewModel.exitSelectionMode(); viewModel.closeFolder() },
             onImageClick = { _, index -> viewModel.openCarousel(index) },
             onImageLongClick = { image -> viewModel.enterSelectionMode(); viewModel.toggleImageSelection(image.id) },
@@ -326,6 +328,8 @@ fun ImageListScreen(
             onViewAs = { viewModel.showViewAsDialog() },
             onSettings = { viewModel.showSettings() },
             onAbout = { viewModel.showAbout() },
+            onReorderItem = { fromIndex, toIndex -> viewModel.reorderFolderMedia(fromIndex, toIndex) },
+            onReorderDone = { viewModel.onFolderMediaReorderDone() },
             scrollToTopTrigger = state.folderDetailScrollToTopTrigger,
             lazyGridState = imageGridState
         )
