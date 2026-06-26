@@ -44,6 +44,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 groupsAlwaysOnTop      = prefs.groupsAlwaysOnTop,
                 autoBackupEnabled      = prefs.autoBackupEnabled,
                 floatingTopBarEnabled  = prefs.floatingTopBarEnabled,
+                allowMediaReordering   = prefs.allowMediaReordering,
+                customRootMediaOrder   = prefs.customRootMediaOrder,
                 hiddenFolderPaths      = prefs.hiddenFolderPaths,
                 hiddenFolderMeta       = prefs.getAllHiddenFolderMeta()
             )
@@ -63,6 +65,13 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 folderViewTypesObj.put(bucketId.toString(), viewTypeId)
             }
             put("folderViewTypes", folderViewTypesObj)
+
+            // Per-folder media custom orders → JSONObject { "bucketId": [imageId, ...] }
+            val folderMediaOrdersObj = JSONObject()
+            prefs.getAllFolderMediaCustomOrders().forEach { (bucketId, imageIds) ->
+                folderMediaOrdersObj.put(bucketId.toString(), JSONArray(imageIds))
+            }
+            put("folderMediaCustomOrders", folderMediaOrdersObj)
         }
     }
 
@@ -89,6 +98,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
         shared.groupsAlwaysOnTop?.let      { prefs.groupsAlwaysOnTop      = it }
         shared.autoBackupEnabled?.let      { prefs.autoBackupEnabled      = it }
         shared.floatingTopBarEnabled?.let  { prefs.floatingTopBarEnabled  = it }
+        shared.allowMediaReordering?.let   { prefs.allowMediaReordering   = it }
+        shared.customRootMediaOrder?.let   { prefs.customRootMediaOrder   = it }
         shared.hiddenFolderPaths?.let      { prefs.hiddenFolderPaths     = it }
         shared.hiddenFolderMeta?.forEach   { (path, triple) ->
             prefs.saveHiddenFolderMeta(path, triple.first, triple.second, triple.third)
@@ -132,6 +143,18 @@ object BackupManager : com.example.common.data.util.BackupManager(
                 map[bucketId] = obj.getInt(key)
             }
             prefs.restoreAllFolderViewTypes(map)
+        }
+
+        // Per-folder media custom orders — JSONObject { "bucketId": [imageId, ...] }
+        if (settings.has("folderMediaCustomOrders")) {
+            val obj = settings.getJSONObject("folderMediaCustomOrders")
+            val map = mutableMapOf<Int, List<Long>>()
+            for (key in obj.keys()) {
+                val bucketId = key.toIntOrNull() ?: continue
+                val arr = obj.getJSONArray(key)
+                map[bucketId] = (0 until arr.length()).map { arr.getLong(it) }
+            }
+            prefs.restoreAllFolderMediaCustomOrders(map)
         }
     }
 }

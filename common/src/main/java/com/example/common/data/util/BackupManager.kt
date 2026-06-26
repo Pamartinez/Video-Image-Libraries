@@ -27,6 +27,8 @@ import java.io.File
  *     "groupsAlwaysOnTop":      Boolean,
  *     "autoBackupEnabled":      Boolean,
  *     "floatingTopBarEnabled":  Boolean,
+ *     "allowMediaReordering":   Boolean,
+ *     "customRootMediaOrder":   [Long, ...],
  *     "hiddenFolderPaths":      [String, ...],
  *     "hiddenFolderMeta":       { "<path>": { "name": String, "bucketId": Int, "itemCount": Int }, ... },
  *
@@ -39,6 +41,7 @@ import java.io.File
  *     "carouselAlwaysHideOverlay": Boolean,
  *     "customAlbumOrder":       [Int, ...],
  *     "folderImageSortOptions": { "<bucketId>": Int, ... },
+ *     "folderMediaCustomOrders": { "<bucketId>": [Long, ...], ... },
  *
  *     // Video-library specific:
  *     "folderSortOption":       Int,
@@ -47,7 +50,8 @@ import java.io.File
  *     "instantPlayerEnabled":   Boolean,
  *     "customFolderOrder":      [Int, ...],
  *     "folderVideoSortOptions": { "<bucketId>": Int, ... },
- *     "groupVideoSortOptions":  { "<groupId>": Int, ... }
+ *     "groupVideoSortOptions":  { "<groupId>": Int, ... },
+ *     "folderMediaCustomOrders": { "<bucketId>": [Long, ...], ... }
  *   },
  *   "groupData": { "groups": [...], "members": [...], "nextGroupId": Long }
  * }
@@ -89,6 +93,8 @@ abstract class BackupManager(
         val groupsAlwaysOnTop:      Boolean?,
         val autoBackupEnabled:      Boolean?,
         val floatingTopBarEnabled:  Boolean?,
+        val allowMediaReordering:   Boolean?,
+        val customRootMediaOrder:   List<Long>?,
         val hiddenFolderPaths:      Set<String>?,
         val hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>?
     )
@@ -205,6 +211,8 @@ abstract class BackupManager(
         groupsAlwaysOnTop:      Boolean,
         autoBackupEnabled:      Boolean,
         floatingTopBarEnabled:  Boolean,
+        allowMediaReordering:   Boolean,
+        customRootMediaOrder:   List<Long>,
         hiddenFolderPaths:      Set<String>,
         hiddenFolderMeta:       Map<String, Triple<String, Int, Int>>
     ) {
@@ -238,6 +246,8 @@ abstract class BackupManager(
         settings.put("groupsAlwaysOnTop",      groupsAlwaysOnTop)
         settings.put("autoBackupEnabled",      autoBackupEnabled)
         settings.put("floatingTopBarEnabled",  floatingTopBarEnabled)
+        settings.put("allowMediaReordering",   allowMediaReordering)
+        settings.put("customRootMediaOrder",   JSONArray(customRootMediaOrder))
         settings.put("hiddenFolderPaths", JSONArray(hiddenFolderPaths.toList()))
         val metaObj = JSONObject()
         hiddenFolderMeta.forEach { (path, triple) ->
@@ -316,6 +326,14 @@ abstract class BackupManager(
         val floatingTopBarEnabled: Boolean? =
             if (settings.has("floatingTopBarEnabled")) settings.getBoolean("floatingTopBarEnabled") else null
 
+        val allowMediaReordering: Boolean? =
+            if (settings.has("allowMediaReordering")) settings.getBoolean("allowMediaReordering") else null
+
+        val customRootMediaOrder: List<Long>? = if (settings.has("customRootMediaOrder")) {
+            val arr = settings.getJSONArray("customRootMediaOrder")
+            (0 until arr.length()).map { arr.getLong(it) }
+        } else null
+
         val hiddenFolderPaths: Set<String>? = if (settings.has("hiddenFolderPaths")) {
             val arr = settings.getJSONArray("hiddenFolderPaths")
             (0 until arr.length()).map { arr.getString(it) }.toSet()
@@ -338,6 +356,7 @@ abstract class BackupManager(
             viewType, folderViewType, customGroupOrder, customMixedOrder, customGroupItemsOrders,
             groupSortOptions, groupViewTypes,
             independentSortEnabled, independentViewTypeEnabled, groupsAlwaysOnTop, autoBackupEnabled, floatingTopBarEnabled,
+            allowMediaReordering, customRootMediaOrder,
             hiddenFolderPaths, hiddenFolderMeta
         )
     }
