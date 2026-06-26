@@ -4,6 +4,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -46,7 +48,8 @@ fun SettingsToggleRow(
     subtitle: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    onInfoClick: (() -> Unit)? = null
 ) {
     val colors = LocalLibraryColors.current
     Row(
@@ -72,6 +75,23 @@ fun SettingsToggleRow(
             )
         }
         Spacer(Modifier.width(12.dp))
+
+        // Info icon button (if provided)
+        onInfoClick?.let { onClick ->
+            IconButton(
+                onClick = onClick,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "Info",
+                    tint = colors.primary,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+            Spacer(Modifier.width(4.dp))
+        }
+
         Switch(
             checked         = checked,
             onCheckedChange = onCheckedChange,

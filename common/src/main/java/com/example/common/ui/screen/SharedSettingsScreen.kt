@@ -33,11 +33,13 @@ import com.example.common.ui.theme.LocalLibraryColors
  * @param independentViewTypeEnabled Current value of the independent view type toggle.
  * @param groupsAlwaysOnTop        Current value of the groups-always-on-top toggle.
  * @param floatingTopBarEnabled    Current value of the floating top bar toggle.
+ * @param allowMediaReordering     Current value of the media reordering toggle.
  * @param onAutoBackupChange       Invoked when the auto-backup toggle changes.
  * @param onIndependentSortChange  Invoked when the independent sort toggle changes.
  * @param onIndependentViewTypeChange Invoked when the independent view type toggle changes.
  * @param onGroupsAlwaysOnTopChange Invoked when the groups-always-on-top toggle changes.
  * @param onFloatingTopBarChange   Invoked when the floating top bar toggle changes.
+ * @param onAllowMediaReorderingChange Invoked when the media reordering toggle changes.
  * @param onBackup                 Suspending action that saves the backup; returns true on success.
  * @param onRestore                Suspending action that restores from backup; returns true on success.
  * @param onRefreshAlbumPreviews   Action that refreshes album preview images.
@@ -53,11 +55,13 @@ fun SharedSettingsScreen(
     independentViewTypeEnabled: Boolean,
     groupsAlwaysOnTop: Boolean,
     floatingTopBarEnabled: Boolean,
+    allowMediaReordering: Boolean,
     onAutoBackupChange: (Boolean) -> Unit,
     onIndependentSortChange: (Boolean) -> Unit,
     onIndependentViewTypeChange: (Boolean) -> Unit,
     onGroupsAlwaysOnTopChange: (Boolean) -> Unit,
     onFloatingTopBarChange: (Boolean) -> Unit,
+    onAllowMediaReorderingChange: (Boolean) -> Unit,
     onBackup: suspend () -> Boolean,
     onRestore: suspend () -> Boolean,
     onRefreshAlbumPreviews: () -> Unit,
@@ -104,6 +108,25 @@ fun SharedSettingsScreen(
                     checked         = floatingTopBarEnabled,
                     onCheckedChange = onFloatingTopBarChange
                 )
+
+                HorizontalDivider(
+                    color    = colors.dividerColor,
+                    modifier = Modifier.padding(horizontal = 4.dp)
+                )
+
+                var showInfoDialog by remember { mutableStateOf(false) }
+
+                SettingsToggleRow(
+                    title           = "Drag to reorder media",
+                    subtitle        = "Long-press media items in Custom sort to rearrange them",
+                    checked         = allowMediaReordering,
+                    onCheckedChange = onAllowMediaReorderingChange,
+                    onInfoClick     = { showInfoDialog = true }
+                )
+
+                if (showInfoDialog) {
+                    MediaReorderingInfoDialog(onDismiss = { showInfoDialog = false })
+                }
             }
 
             // ── View section ──────────────────────────────────────────
@@ -215,3 +238,45 @@ fun SharedSettingsScreen(
         }
     }
 }
+
+/**
+ * Info dialog explaining the media drag-to-reorder feature.
+ */
+@Composable
+private fun MediaReorderingInfoDialog(onDismiss: () -> Unit) {
+    val colors = LocalLibraryColors.current
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Got it", color = colors.primary)
+            }
+        },
+        title = {
+            Text(
+                text = "Drag to Reorder Media",
+                color = colors.listFirstText
+            )
+        },
+        text = {
+            Text(
+                text = """
+                    When this feature is enabled, you can reorder photos and videos within albums/folders:
+                    
+                    • Switch to Custom sort mode
+                    • Long-press any photo or video
+                    • Drag it to a new position
+                    • Release to save the order
+                    
+                    Your custom order is saved and will be restored even after adding new media (new items appear at the top).
+                    
+                    Note: This only works in Custom sort mode. Other sort modes (Name, Date, etc.) use automatic ordering.
+                """.trimIndent(),
+                color = colors.listSecondText
+            )
+        },
+        containerColor = colors.cardBackground
+    )
+}
+
