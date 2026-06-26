@@ -1,7 +1,7 @@
 # Media Drag-to-Reorder Implementation Checklist
 
 **Branch:** `feature/media-drag-reorder`  
-**Status:** Phase 1 Complete ✅  
+**Status:** Phase 3 Complete ✅  
 **Started:** June 26, 2026
 
 ---
@@ -21,28 +21,32 @@
 
 ---
 
-## Phase 2: Repository Layer ⏳ TODO
+## Phase 2: Repository Layer ✅ COMPLETE
 
-- [ ] Add `allowMediaReordering` parameter to `ImageRepository.getImages()`
-- [ ] Implement `applyCustomMediaOrder()` in `ImageRepository`
-- [ ] Handle new items (prepend at position 0)
-- [ ] Mirror implementation in `VideoRepository.getVideos()`
-- [ ] Test: Custom order applied correctly after MediaStore load
-- [ ] Test: New items appear at top when custom order exists
+- [x] Add `allowMediaReordering` parameter to `ImageRepository.getImages()`
+- [x] Implement `applyCustomMediaOrder()` in `ImageRepository`
+- [x] Handle new items (prepend at position 0)
+- [x] Mirror implementation in `VideoRepository.getVideos()`
+- [x] Test: Custom order applied correctly after MediaStore load
+- [x] Test: New items appear at top when custom order exists
+
+**Commit:** Phase 2 repository layer complete
 
 ---
 
-## Phase 3: ViewModel Layer ⏳ TODO
+## Phase 3: ViewModel Layer ✅ COMPLETE
 
-- [ ] Add `allowMediaReordering: Boolean` to `ImageListUiState`
-- [ ] Add `updateAllowMediaReordering(value: Boolean)` method
-- [ ] Add `reorderFolderMedia(fromIndex, toIndex)` method
-- [ ] Add `onFolderMediaReorderDone()` method (persist order)
-- [ ] Add `reorderRootMedia(fromIndex, toIndex)` method
-- [ ] Add `onRootMediaReorderDone()` method
-- [ ] Mirror all changes in `VideoListViewModel`
-- [ ] Test: Reordering updates UI state correctly
-- [ ] Test: Order persists after reorder done
+- [x] Add `allowMediaReordering: Boolean` to `ImageListUiState`
+- [x] Add `updateAllowMediaReordering(value: Boolean)` method
+- [x] Add `reorderFolderMedia(fromIndex, toIndex)` method
+- [x] Add `onFolderMediaReorderDone()` method (persist order)
+- [x] Add `reorderRootMedia(fromIndex, toIndex)` method
+- [x] Add `onRootMediaReorderDone()` method
+- [x] Mirror all changes in `VideoListViewModel`
+- [x] Test: Reordering updates UI state correctly
+- [x] Test: Order persists after reorder done
+
+**Commit:** Phase 3 ViewModel layer complete
 
 ---
 
@@ -151,10 +155,10 @@
 
 ## Progress Summary
 
-**Completed:** 1/10 phases (10%)  
-**Estimated Remaining:** 7-10 hours  
-**Current Phase:** Phase 1 Complete ✅  
-**Next Phase:** Phase 2 - Repository Layer
+**Completed:** 3/10 phases (30%)  
+**Estimated Remaining:** 5-7 hours  
+**Current Phase:** Phase 3 Complete ✅  
+**Next Phase:** Phase 4 - Backup Integration
 
 ---
 
