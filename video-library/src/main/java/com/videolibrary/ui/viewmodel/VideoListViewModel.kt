@@ -2,6 +2,7 @@
 
 import android.app.Application
 import android.content.Intent
+import android.content.IntentSender
 import android.database.ContentObserver
 import android.os.Handler
 import android.os.Looper
@@ -34,11 +35,12 @@ import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
 import com.videolibrary.data.model.ViewType
+import com.videolibrary.data.util.FileLogger as Log
 import com.videolibrary.data.preferences.AppPreferences
 import com.videolibrary.data.db.GroupStore
 import com.videolibrary.data.repository.GroupRepository
-import com.videolibrary.data.repository.VideoRepository
 import com.videolibrary.data.cache.VideoThumbnailCache
+import com.videolibrary.data.repository.VideoRepository
 import com.videolibrary.data.service.ThumbnailGenerationService
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -163,13 +165,11 @@ data class VideoListUiState(
     val albumCreationCurrentBucketName: String = "",
     // -- Create Album name suggestions --
     val dcimFolderNames: Set<String> = emptySet(),
-    // -- Details --
     val detailsTarget: VideoItem? = null,
     val folderDetailScrollToTopTrigger: Int = 0,
-)
-    // -- Carousel/Player state (for future instant player implementation) --
     val carouselIndex: Int = -1,
-    val currentCarouselPage: Int = -1,
+    val currentCarouselPage: Int = -1
+)
 
 // CopyMoveProgress and FileConflict moved to common module
 
@@ -555,6 +555,16 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     // Share intent — collected once at root screen level
     private val _shareIntent = MutableSharedFlow<Intent>(extraBufferCapacity = 1)
     val shareIntent: SharedFlow<Intent> = _shareIntent.asSharedFlow()
+
+    // Trash request — collected once at root screen level; UI launches the system dialog
+    private val _trashRequest = MutableSharedFlow<IntentSender>(extraBufferCapacity = 1)
+    val trashRequest: SharedFlow<IntentSender> = _trashRequest.asSharedFlow()
+
+    private sealed class PendingTrash {
+        data class SelectedVideos(val ids: Set<Long>) : PendingTrash()
+        data class SelectedFolders(val folderIds: Set<Int>) : PendingTrash()
+    }
+    private var pendingTrash: PendingTrash? = null
 
     // Auto-backup
     private companion object { const val AUTO_BACKUP_DEBOUNCE_MS = 5_000L }
@@ -1233,14 +1243,13 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun showRenameGroupDialog() = _uiState.update { it.copy(showRenameGroupDialog = true) }
     fun dismissRenameGroupDialog() = _uiState.update { it.copy(showRenameGroupDialog = false) }
-
     // ── Carousel/Player (for future instant player implementation) ────────
     fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
-            _uiState.update { it.copy(currentGroupName = newName, showRenameGroupDialog = false) }
     fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
     fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
     fun renameCurrentGroup(newName: String) {
+        _uiState.update { it.copy(currentGroupName = newName, showRenameGroupDialog = false) }
         val groupId = _uiState.value.currentGroupId ?: return
         viewModelScope.launch {
             groupRepository.renameGroup(groupId, newName)
@@ -1614,7 +1623,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     folderViewType = folderViewType
                 )
             }
-        }
 
             // Start background thumbnail generation for all videos in this album
             // This eliminates scroll-dependent generation (Samsung Gallery pattern)
@@ -1624,6 +1632,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             ThumbnailGenerationService.getInstance(getApplication()).preloadThumbnails(videoUrisWithTimestamp)
 
             Log.i("VideoListViewModel", "Opened folder '$name' with ${videos.size} videos, started background thumbnail preload")
+        }
     }
 
     fun closeFolder() {
@@ -1658,49 +1667,79 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun deleteSelectedVideos() {
         val idsToDelete = _uiState.value.selectedVideoIds
-
-        // ① Optimistic removal — Compose's animateItem plays the exit animation immediately.
-        _uiState.update { s ->
-            s.copy(
-                folderVideos     = s.folderVideos.filter { it.id !in idsToDelete },
-                videos           = s.videos.filter       { it.id !in idsToDelete },
-                isSelectionMode  = false,
-                selectedVideoIds = emptySet()
-            )
-        }
-
+        if (idsToDelete.isEmpty()) return
+        _uiState.update { it.copy(isSelectionMode = false, selectedVideoIds = emptySet()) }
         viewModelScope.launch {
-            isInternalChange.set(true)        // ② suppress the ContentObserver callback
-            repository.deleteVideos(idsToDelete.toList())
-            silentRefresh()                   // ③ reconcile with MediaStore, no spinner
-            refreshCurrentFolderIfOpen()
+            try {
+                val intentSender = repository.trashVideos(idsToDelete.toList())
+                pendingTrash = PendingTrash.SelectedVideos(idsToDelete)
+                _trashRequest.emit(intentSender)
+            } catch (e: Exception) {
+                Log.e("VideoListViewModel", "Failed to create trash request", e)
+            }
         }
     }
 
     fun deleteSelectedFolders() {
-        val idsToDelete = _uiState.value.selectedFolderIds
-
-        // ① Optimistic removal — remove from every list driving the UI right now.
-        _uiState.update { s ->
-            s.copy(
-                orderedMixedItems = s.orderedMixedItems.filter { item ->
-                    item !is FolderItem || item.bucketId !in idsToDelete
-                },
-                folders           = s.folders.filter          { it.bucketId !in idsToDelete },
-                ungroupedFolders  = s.ungroupedFolders.filter { it.bucketId !in idsToDelete },
-                isSelectionMode   = false,
-                selectedFolderIds = emptySet()
-            )
-        }
-
+        val folderIds = _uiState.value.selectedFolderIds
+        if (folderIds.isEmpty()) return
+        _uiState.update { it.copy(isSelectionMode = false, selectedFolderIds = emptySet()) }
         viewModelScope.launch {
-            isInternalChange.set(true)        // ② suppress the ContentObserver callback
-            for (folderId in idsToDelete) {
-                val videos = repository.getVideos(bucketId = folderId)
-                repository.deleteVideos(videos.map { it.id })
+            try {
+                val allVideoIds = mutableListOf<Long>()
+                for (folderId in folderIds) {
+                    val videos = repository.getVideos(bucketId = folderId)
+                    allVideoIds.addAll(videos.map { it.id })
+                }
+                if (allVideoIds.isEmpty()) return@launch
+                val intentSender = repository.trashVideos(allVideoIds)
+                pendingTrash = PendingTrash.SelectedFolders(folderIds)
+                _trashRequest.emit(intentSender)
+            } catch (e: Exception) {
+                Log.e("VideoListViewModel", "Failed to create trash request", e)
             }
-            silentRefresh()                   // ③ reconcile with MediaStore, no spinner
         }
+    }
+
+    fun onTrashConfirmed() {
+        val pending = pendingTrash ?: return
+        pendingTrash = null
+        when (pending) {
+            is PendingTrash.SelectedVideos -> {
+                val ids = pending.ids
+                _uiState.update { s ->
+                    s.copy(
+                        folderVideos = s.folderVideos.filter { it.id !in ids },
+                        videos       = s.videos.filter       { it.id !in ids }
+                    )
+                }
+                viewModelScope.launch {
+                    isInternalChange.set(true)
+                    silentRefresh()
+                    refreshCurrentFolderIfOpen()
+                }
+            }
+            is PendingTrash.SelectedFolders -> {
+                val ids = pending.folderIds
+                _uiState.update { s ->
+                    s.copy(
+                        orderedMixedItems = s.orderedMixedItems.filter { item ->
+                            item !is FolderItem || item.bucketId !in ids
+                        },
+                        folders          = s.folders.filter          { it.bucketId !in ids },
+                        ungroupedFolders = s.ungroupedFolders.filter { it.bucketId !in ids }
+                    )
+                }
+                viewModelScope.launch {
+                    isInternalChange.set(true)
+                    silentRefresh()
+                }
+            }
+        }
+    }
+
+    fun onTrashCancelled() {
+        pendingTrash = null
     }
 
     fun renameVideo(id: Long, name: String) {

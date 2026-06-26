@@ -28,6 +28,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_FOLDER_VIEW_TYPES        = "folder_view_types"
         private const val KEY_CAROUSEL_SHOW_BARS_ON_OPEN = "carousel_show_bars_on_open"
         private const val KEY_CAROUSEL_ALWAYS_HIDE_OVERLAY = "carousel_always_hide_overlay"
+        private const val KEY_FOLDER_MEDIA_CUSTOM_ORDERS = "folder_media_custom_orders"
     }
 
     // ── Image-library specific ───────────────────────────────────────────────
@@ -207,5 +208,85 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         val entries = options.entries.toList().takeLast(200)
         prefs.edit().putString(KEY_FOLDER_VIEW_TYPES,
             entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
+
+    // ── Per-album media custom order ──────────────────────────────────────
+
+    /**
+     * Gets the custom order of image IDs for a specific album.
+     * Returns empty list if no custom order is set.
+     * Only used when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun getFolderMediaCustomOrder(bucketId: Int): List<Long> {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        val id = raw.split(",")
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2 && parts[0].toIntOrNull() == bucketId) {
+                    // Parse semicolon-separated image IDs
+                    parts[1].split(";").mapNotNull { it.toLongOrNull() }
+                } else null
+            }
+            .firstOrNull()
+        return id ?: emptyList()
+    }
+
+    /**
+     * Saves the custom order of image IDs for a specific album.
+     * Storage format: "bucketId1:id1;id2;id3,bucketId2:id4;id5;id6,..."
+     */
+    fun saveFolderMediaCustomOrder(bucketId: Int, imageIds: List<Long>) {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        val map = raw.split(",")
+            .filter { it.contains(":") }
+            .associate {
+                val parts = it.split(":")
+                val bId = parts[0].toIntOrNull() ?: 0
+                val ids = if (parts.size == 2) parts[1] else ""
+                bId to ids
+            }
+            .toMutableMap()
+
+        // Update or add the order for this bucket
+        if (imageIds.isEmpty()) {
+            map.remove(bucketId)
+        } else {
+            map[bucketId] = imageIds.joinToString(";")
+        }
+
+        // Keep only last 50 albums to prevent excessive storage
+        val entries = map.entries.toList().takeLast(50)
+        prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
+    }
+
+    /**
+     * Returns all per-album media custom orders as a Map of bucketId → List<imageId>.
+     * Used by BackupManager to export all per-album custom order settings.
+     */
+    fun getAllFolderMediaCustomOrders(): Map<Int, List<Long>> {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        if (raw.isBlank()) return emptyMap()
+        return raw.split(",")
+            .filter { it.contains(":") }
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2) {
+                    val bucketId = parts[0].trim().toIntOrNull() ?: return@mapNotNull null
+                    val imageIds = parts[1].split(";").mapNotNull { it.trim().toLongOrNull() }
+                    if (imageIds.isNotEmpty()) bucketId to imageIds else null
+                } else null
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-album media custom orders from a Map of bucketId → List<imageId>.
+     * Used by BackupManager to import per-album custom order settings.
+     */
+    fun restoreAllFolderMediaCustomOrders(orders: Map<Int, List<Long>>) {
+        val entries = orders.entries.toList().takeLast(50)
+        prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
+            entries.joinToString(",") { "${it.key}:${it.value.joinToString(";")}" }).apply()
     }
 }

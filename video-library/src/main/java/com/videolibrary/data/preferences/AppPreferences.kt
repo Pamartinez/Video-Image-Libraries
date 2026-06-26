@@ -21,6 +21,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_GROUP_VIDEO_SORT_OPTIONS = "group_video_sort_options"
         private const val KEY_FOLDER_VIEW_TYPES       = "folder_view_types"
         private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
+        private const val KEY_FOLDER_MEDIA_CUSTOM_ORDERS = "folder_media_custom_orders"
     }
 
     // ── Video-library specific ───────────────────────────────────────────────
@@ -240,5 +241,85 @@ class AppPreferences(context: Context) : SharedAppPreferences(
     fun saveAllGroupVideoSortOptions(options: Map<Long, Int>) {
         prefs.edit().putString(KEY_GROUP_VIDEO_SORT_OPTIONS,
             options.entries.joinToString(",") { "${it.key}:${it.value}" }).apply()
+    }
+
+    // ── Per-folder media custom order ──────────────────────────────────────
+
+    /**
+     * Gets the custom order of video IDs for a specific folder.
+     * Returns empty list if no custom order is set.
+     * Only used when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun getFolderMediaCustomOrder(bucketId: Int): List<Long> {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        val id = raw.split(",")
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2 && parts[0].toIntOrNull() == bucketId) {
+                    // Parse semicolon-separated video IDs
+                    parts[1].split(";").mapNotNull { it.toLongOrNull() }
+                } else null
+            }
+            .firstOrNull()
+        return id ?: emptyList()
+    }
+
+    /**
+     * Saves the custom order of video IDs for a specific folder.
+     * Storage format: "bucketId1:id1;id2;id3,bucketId2:id4;id5;id6,..."
+     */
+    fun saveFolderMediaCustomOrder(bucketId: Int, videoIds: List<Long>) {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        val map = raw.split(",")
+            .filter { it.contains(":") }
+            .associate {
+                val parts = it.split(":")
+                val bId = parts[0].toIntOrNull() ?: 0
+                val ids = if (parts.size == 2) parts[1] else ""
+                bId to ids
+            }
+            .toMutableMap()
+
+        // Update or add the order for this bucket
+        if (videoIds.isEmpty()) {
+            map.remove(bucketId)
+        } else {
+            map[bucketId] = videoIds.joinToString(";")
+        }
+
+        // Keep only last 50 folders to prevent excessive storage
+        val entries = map.entries.toList().takeLast(50)
+        prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
+            entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
+    }
+
+    /**
+     * Returns all per-folder media custom orders as a Map of bucketId → List<videoId>.
+     * Used by BackupManager to export all per-folder custom order settings.
+     */
+    fun getAllFolderMediaCustomOrders(): Map<Int, List<Long>> {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS, "") ?: ""
+        if (raw.isBlank()) return emptyMap()
+        return raw.split(",")
+            .filter { it.contains(":") }
+            .mapNotNull { entry ->
+                val parts = entry.split(":")
+                if (parts.size == 2) {
+                    val bucketId = parts[0].trim().toIntOrNull() ?: return@mapNotNull null
+                    val videoIds = parts[1].split(";").mapNotNull { it.trim().toLongOrNull() }
+                    if (videoIds.isNotEmpty()) bucketId to videoIds else null
+                } else null
+            }
+            .toMap()
+    }
+
+    /**
+     * Restores all per-folder media custom orders from a Map of bucketId → List<videoId>.
+     * Used by BackupManager to import per-folder custom order settings.
+     */
+    fun restoreAllFolderMediaCustomOrders(orders: Map<Int, List<Long>>) {
+        val entries = orders.entries.toList().takeLast(50)
+        prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
+            entries.joinToString(",") { "${it.key}:${it.value.joinToString(";")}" }).apply()
     }
 }

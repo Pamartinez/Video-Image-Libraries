@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
+import android.content.IntentSender
 import android.net.Uri
 import android.provider.MediaStore
 import kotlinx.coroutines.Dispatchers
@@ -338,6 +339,11 @@ class VideoRepository(private val context: Context) {
             Log.e("VideoRepository", "Delete operation failed", e)
             false
         }
+    }
+
+    suspend fun trashVideos(videoIds: List<Long>): IntentSender = withContext(Dispatchers.IO) {
+        val uris = videoIds.map { ContentUris.withAppendedId(videoUri, it) }
+        MediaStore.createTrashRequest(contentResolver, uris, true).intentSender
     }
 
     // ── Rename Video ────────────────────────────────────────────────────

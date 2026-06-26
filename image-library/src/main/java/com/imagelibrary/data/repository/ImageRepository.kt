@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
+import android.content.IntentSender
 import android.net.Uri
 import android.provider.MediaStore
 import kotlinx.coroutines.Dispatchers
@@ -331,6 +332,11 @@ class ImageRepository(private val context: Context) {
             Log.e("ImageRepository", "Delete operation failed", e)
             false
         }
+    }
+
+    suspend fun trashImages(imageIds: List<Long>): IntentSender = withContext(Dispatchers.IO) {
+        val uris = imageIds.map { ContentUris.withAppendedId(imageUri, it) }
+        MediaStore.createTrashRequest(contentResolver, uris, true).intentSender
     }
 
     // ── Rename Image ────────────────────────────────────────────────────

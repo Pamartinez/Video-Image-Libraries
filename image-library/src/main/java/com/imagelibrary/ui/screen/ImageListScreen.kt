@@ -1,7 +1,11 @@
 package com.imagelibrary.ui.screen
 
+import android.app.Activity
 import android.content.Intent
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -96,6 +100,19 @@ fun ImageListScreen(
     LaunchedEffect(Unit) {
         viewModel.shareIntent.collect { intent ->
             ctx.startActivity(Intent.createChooser(intent, null))
+        }
+    }
+
+    // Collect trash requests and launch system trash dialog
+    val trashLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartIntentSenderForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) viewModel.onTrashConfirmed()
+        else viewModel.onTrashCancelled()
+    }
+    LaunchedEffect(Unit) {
+        viewModel.trashRequest.collect { intentSender ->
+            trashLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
         }
     }
 

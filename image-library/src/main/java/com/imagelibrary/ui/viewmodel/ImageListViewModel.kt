@@ -2,6 +2,7 @@ package com.imagelibrary.ui.viewmodel
 
 import android.app.Application
 import android.content.Intent
+import android.content.IntentSender
 import android.database.ContentObserver
 import android.os.Handler
 import android.os.Looper
@@ -576,6 +577,17 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     // Share intent — collected once at root screen level
     private val _shareIntent = MutableSharedFlow<Intent>(extraBufferCapacity = 1)
     val shareIntent: SharedFlow<Intent> = _shareIntent.asSharedFlow()
+
+    // Trash request — collected once at root screen level; UI launches the system dialog
+    private val _trashRequest = MutableSharedFlow<IntentSender>(extraBufferCapacity = 1)
+    val trashRequest: SharedFlow<IntentSender> = _trashRequest.asSharedFlow()
+
+    private sealed class PendingTrash {
+        data class SelectedImages(val ids: Set<Long>) : PendingTrash()
+        data class SelectedFolders(val folderIds: Set<Int>) : PendingTrash()
+        data class CarouselImage(val id: Long) : PendingTrash()
+    }
+    private var pendingTrash: PendingTrash? = null
 
     // File conflict resolution
     private val _fileConflict = MutableStateFlow<FileConflict?>(null)
@@ -1169,21 +1181,16 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
     fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
-    /** Delete a single image directly from the carousel overlay (no selection mode required). */
+    /** Move a single image from the carousel overlay to the system trash. */
     fun deleteCarouselImage(imageId: Long) {
-        // Optimistic: remove from visible lists immediately so the grid updates without a flash
-        _uiState.update { s ->
-            s.copy(
-                folderImages = s.folderImages.filter { it.id != imageId },
-                images = s.images.filter { it.id != imageId }
-            )
-        }
-        closeCarousel()
         viewModelScope.launch {
-            isInternalChange.set(true)
-            repository.deleteImages(listOf(imageId))
-            silentRefresh()
-            refreshFolderImages()
+            try {
+                val intentSender = repository.trashImages(listOf(imageId))
+                pendingTrash = PendingTrash.CarouselImage(imageId)
+                _trashRequest.emit(intentSender)
+            } catch (e: Exception) {
+                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
+            }
         }
     }
 
@@ -1193,45 +1200,93 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun deleteSelectedImages() {
         val idsToDelete = _uiState.value.selectedImageIds
-        // Optimistic: remove images from lists immediately — Compose animates the gaps out
-        _uiState.update { s ->
-            s.copy(
-                folderImages = s.folderImages.filter { it.id !in idsToDelete },
-                images = s.images.filter { it.id !in idsToDelete },
-                isSelectionMode = false,
-                selectedImageIds = emptySet()
-            )
-        }
+        if (idsToDelete.isEmpty()) return
+        _uiState.update { it.copy(isSelectionMode = false, selectedImageIds = emptySet()) }
         viewModelScope.launch {
-            isInternalChange.set(true)
-            repository.deleteImages(idsToDelete.toList())
-            silentRefresh()
-            refreshFolderImages()
+            try {
+                val intentSender = repository.trashImages(idsToDelete.toList())
+                pendingTrash = PendingTrash.SelectedImages(idsToDelete)
+                _trashRequest.emit(intentSender)
+            } catch (e: Exception) {
+                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
+            }
         }
     }
 
     fun deleteSelectedFolders() {
-        val idsToDelete = _uiState.value.selectedFolderIds
-        // Optimistic: remove folders from all visible lists immediately
-        _uiState.update { s ->
-            s.copy(
-                orderedMixedItems = s.orderedMixedItems.filter { item ->
-                    item !is FolderItem || item.bucketId !in idsToDelete
-                },
-                folders = s.folders.filter { it.bucketId !in idsToDelete },
-                ungroupedFolders = s.ungroupedFolders.filter { it.bucketId !in idsToDelete },
-                isSelectionMode = false,
-                selectedFolderIds = emptySet()
-            )
-        }
+        val folderIds = _uiState.value.selectedFolderIds
+        if (folderIds.isEmpty()) return
+        _uiState.update { it.copy(isSelectionMode = false, selectedFolderIds = emptySet()) }
         viewModelScope.launch {
-            isInternalChange.set(true)
-            for (folderId in idsToDelete) {
-                val images = repository.getImages(bucketId = folderId)
-                repository.deleteImages(images.map { it.id })
+            try {
+                val allImageIds = mutableListOf<Long>()
+                for (folderId in folderIds) {
+                    val images = repository.getImages(bucketId = folderId)
+                    allImageIds.addAll(images.map { it.id })
+                }
+                if (allImageIds.isEmpty()) return@launch
+                val intentSender = repository.trashImages(allImageIds)
+                pendingTrash = PendingTrash.SelectedFolders(folderIds)
+                _trashRequest.emit(intentSender)
+            } catch (e: Exception) {
+                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
             }
-            silentRefresh()
         }
+    }
+
+    fun onTrashConfirmed() {
+        val pending = pendingTrash ?: return
+        pendingTrash = null
+        when (pending) {
+            is PendingTrash.CarouselImage -> {
+                _uiState.update { s ->
+                    s.copy(
+                        folderImages = s.folderImages.filter { it.id != pending.id },
+                        images = s.images.filter { it.id != pending.id }
+                    )
+                }
+                closeCarousel()
+                viewModelScope.launch {
+                    isInternalChange.set(true)
+                    silentRefresh()
+                    refreshFolderImages()
+                }
+            }
+            is PendingTrash.SelectedImages -> {
+                val ids = pending.ids
+                _uiState.update { s ->
+                    s.copy(
+                        folderImages = s.folderImages.filter { it.id !in ids },
+                        images = s.images.filter { it.id !in ids }
+                    )
+                }
+                viewModelScope.launch {
+                    isInternalChange.set(true)
+                    silentRefresh()
+                    refreshFolderImages()
+                }
+            }
+            is PendingTrash.SelectedFolders -> {
+                val ids = pending.folderIds
+                _uiState.update { s ->
+                    s.copy(
+                        orderedMixedItems = s.orderedMixedItems.filter { item ->
+                            item !is FolderItem || item.bucketId !in ids
+                        },
+                        folders = s.folders.filter { it.bucketId !in ids },
+                        ungroupedFolders = s.ungroupedFolders.filter { it.bucketId !in ids }
+                    )
+                }
+                viewModelScope.launch {
+                    isInternalChange.set(true)
+                    silentRefresh()
+                }
+            }
+        }
+    }
+
+    fun onTrashCancelled() {
+        pendingTrash = null
     }
 
     fun renameImage(id: Long, name: String) {

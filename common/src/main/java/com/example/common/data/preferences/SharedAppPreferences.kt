@@ -38,6 +38,8 @@ open class SharedAppPreferences(
         private const val KEY_CUSTOM_MIXED_ORDER   = "custom_mixed_order"
         private const val KEY_CUSTOM_GROUP_ORDER   = "custom_group_order"
         private const val KEY_FLOATING_TOP_BAR     = "floating_top_bar_enabled"
+        private const val KEY_ALLOW_MEDIA_REORDERING = "allow_media_reordering"
+        private const val KEY_CUSTOM_ROOT_MEDIA_ORDER = "custom_root_media_order"
     }
 
     // ── Sort / display toggles ───────────────────────────────────────────────
@@ -73,6 +75,15 @@ open class SharedAppPreferences(
     var floatingTopBarEnabled: Boolean
         get() = prefs.getBoolean(KEY_FLOATING_TOP_BAR, false)
         set(value) = prefs.edit().putBoolean(KEY_FLOATING_TOP_BAR, value).apply()
+
+    /**
+     * When true, users can drag-and-drop to reorder media items within albums/folders
+     * when in Custom sort mode. When false, media always follows MediaStore order.
+     * Default: false (feature opt-in).
+     */
+    var allowMediaReordering: Boolean
+        get() = prefs.getBoolean(KEY_ALLOW_MEDIA_REORDERING, false)
+        set(value) = prefs.edit().putBoolean(KEY_ALLOW_MEDIA_REORDERING, value).apply()
 
     // ── Per-group sort option ────────────────────────────────────────────────
 
@@ -246,6 +257,17 @@ open class SharedAppPreferences(
             ?.split(",")?.mapNotNull { it.toLongOrNull() } ?: emptyList()
         set(value) = prefs.edit()
             .putString(KEY_CUSTOM_GROUP_ORDER, value.joinToString(",")).apply()
+
+    /**
+     * Custom order for root-level media items (all images/videos view).
+     * Stores MediaStore _ID values in user-defined order.
+     * Only used when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    var customRootMediaOrder: List<Long>
+        get() = prefs.getString(KEY_CUSTOM_ROOT_MEDIA_ORDER, null)
+            ?.split(",")?.mapNotNull { it.toLongOrNull() } ?: emptyList()
+        set(value) = prefs.edit()
+            .putString(KEY_CUSTOM_ROOT_MEDIA_ORDER, value.joinToString(",")).apply()
 
     // ── Per-group item orders ────────────────────────────────────────────────
 
