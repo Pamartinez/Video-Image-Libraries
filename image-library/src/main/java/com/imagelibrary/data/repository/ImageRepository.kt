@@ -31,7 +31,9 @@ class ImageRepository(private val context: Context) {
     suspend fun getImages(
         imageSortOption: ImageSortOption = ImageSortOption.CUSTOM_ORDER,
         bucketId: Int? = null,
-        searchQuery: String? = null
+        searchQuery: String? = null,
+        allowMediaReordering: Boolean = false,
+        customOrder: List<Long> = emptyList()
     ): List<ImageItem> = withContext(Dispatchers.IO) {
         val images = mutableListOf<ImageItem>()
 
@@ -101,7 +103,45 @@ class ImageRepository(private val context: Context) {
             Log.e("ImageRepository", "Failed to load images", e)
         }
 
-        images
+        // Apply custom media order if enabled and in CUSTOM_ORDER sort mode
+        return@withContext if (allowMediaReordering &&
+            imageSortOption == ImageSortOption.CUSTOM_ORDER &&
+            customOrder.isNotEmpty()
+        ) {
+            applyCustomMediaOrder(images, customOrder)
+        } else {
+            images
+        }
+    }
+
+    /**
+     * Applies custom media order to the list of images.
+     * Images in customOrder are placed first in that order, followed by new items (not in customOrder)
+     * prepended at position 0 (consistent with folder/group reordering behavior).
+     *
+     * @param images The images loaded from MediaStore
+     * @param customOrder The persisted order of image IDs
+     * @return Reordered list of images
+     */
+    private fun applyCustomMediaOrder(images: List<ImageItem>, customOrder: List<Long>): List<ImageItem> {
+        val imageMap = images.associateBy { it.id }
+        val result = mutableListOf<ImageItem>()
+        val newItems = mutableListOf<ImageItem>()
+
+        // First, add images in the custom order
+        for (id in customOrder) {
+            imageMap[id]?.let { result.add(it) }
+        }
+
+        // Then, collect new items (not in custom order)
+        for (image in images) {
+            if (!customOrder.contains(image.id)) {
+                newItems.add(image)
+            }
+        }
+
+        // Prepend new items at position 0 (newest first)
+        return newItems + result
     }
 
     // ── Get Folders ─────────────────────────────────────────────────────
