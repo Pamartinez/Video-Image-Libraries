@@ -1,7 +1,7 @@
 # Media Drag-to-Reorder Implementation Checklist
 
 **Branch:** `feature/media-drag-reorder`  
-**Status:** Phase 3 Complete ✅  
+**Status:** Phase 4 Complete ✅  
 **Started:** June 26, 2026
 
 ---
@@ -50,15 +50,17 @@
 
 ---
 
-## Phase 4: Backup Integration ⏳ TODO
+## Phase 4: Backup Integration ✅ COMPLETE
 
-- [ ] Add `allowMediaReordering` to `BackupManager.SharedSettings`
-- [ ] Add `customRootMediaOrder` to shared settings
-- [ ] Add per-album custom orders to library-specific backup
-- [ ] Implement write logic in `writeSharedSettings()`
-- [ ] Implement read logic in `readSharedSettings()`
-- [ ] Test: Backup exports custom media orders
-- [ ] Test: Restore imports custom media orders correctly
+- [x] Add `allowMediaReordering` to `BackupManager.SharedSettings`
+- [x] Add `customRootMediaOrder` to shared settings
+- [x] Add per-album custom orders to library-specific backup
+- [x] Implement write logic in `writeSharedSettings()`
+- [x] Implement read logic in `readSharedSettings()`
+- [x] Test: Backup exports custom media orders
+- [x] Test: Restore imports custom media orders correctly
+
+**Commit:** Phase 4 backup integration complete
 
 ---
 
@@ -155,10 +157,10 @@
 
 ## Progress Summary
 
-**Completed:** 3/10 phases (30%)  
-**Estimated Remaining:** 5-7 hours  
-**Current Phase:** Phase 3 Complete ✅  
-**Next Phase:** Phase 4 - Backup Integration
+**Completed:** 4/10 phases (40%)  
+**Estimated Remaining:** 4-6 hours  
+**Current Phase:** Phase 4 Complete ✅  
+**Next Phase:** Phase 5 - Settings UI
 
 ---
 
