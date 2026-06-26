@@ -1,7 +1,7 @@
 # Media Drag-to-Reorder Implementation Checklist
 
 **Branch:** `feature/media-drag-reorder`  
-**Status:** Phase 4 Complete ✅  
+**Status:** Phase 5 Complete ✅  
 **Started:** June 26, 2026
 
 ---
@@ -64,15 +64,17 @@
 
 ---
 
-## Phase 5: Settings UI ⏳ TODO
+## Phase 5: Settings UI ✅ COMPLETE
 
-- [ ] Add toggle parameter to `SharedSettingsScreen`
-- [ ] Create info dialog composable for feature explanation
-- [ ] Add "Drag to reorder media" row in Interface section
-- [ ] Pass through image-library `SettingsScreen`
-- [ ] Pass through video-library `SettingsScreen`
-- [ ] Test: Toggle updates preference
-- [ ] Test: Info dialog displays correctly
+- [x] Add toggle parameter to `SharedSettingsScreen`
+- [x] Create info dialog composable for feature explanation
+- [x] Add "Drag to reorder media" row in Interface section
+- [x] Pass through image-library `SettingsScreen`
+- [x] Pass through video-library `SettingsScreen`
+- [x] Test: Toggle updates preference
+- [x] Test: Info dialog displays correctly
+
+**Commit:** Phase 5 settings UI complete
 
 ---
 
@@ -157,10 +159,10 @@
 
 ## Progress Summary
 
-**Completed:** 4/10 phases (40%)  
-**Estimated Remaining:** 4-6 hours  
-**Current Phase:** Phase 4 Complete ✅  
-**Next Phase:** Phase 5 - Settings UI
+**Completed:** 5/10 phases (50%)  
+**Estimated Remaining:** 3-5 hours  
+**Current Phase:** Phase 5 Complete ✅  
+**Next Phase:** Phase 6 - Drag-and-Drop UI (Folders)
 
 ---
 
