@@ -143,6 +143,9 @@ data class ImageListUiState(
     /** When true, use Samsung Gallery-style floating top bar with full-screen content. */
     val floatingTopBarEnabled: Boolean = false,
 
+    /** When true, users can drag-and-drop to reorder media items in Custom sort mode. */
+    val allowMediaReordering: Boolean = false,
+
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: SortOption = SortOption.CUSTOM_ORDER,
     val showHideFolders: Boolean = false,
@@ -177,7 +180,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     private val _uiState = MutableStateFlow(
         ImageListUiState(
             independentSortEnabled = preferences.independentSortEnabled,
-            independentViewTypeEnabled = preferences.independentViewTypeEnabled
+            independentViewTypeEnabled = preferences.independentViewTypeEnabled,
+            allowMediaReordering = preferences.allowMediaReordering
         )
     )
     val uiState: StateFlow<ImageListUiState> = _uiState.asStateFlow()
@@ -198,6 +202,66 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         preferences.groupsAlwaysOnTop = value
         _uiState.update { it.copy(groupsAlwaysOnTop = value) }
         silentRefresh()
+        scheduleAutoBackup()
+    }
+
+    fun updateAllowMediaReordering(value: Boolean) {
+        preferences.allowMediaReordering = value
+        _uiState.update { it.copy(allowMediaReordering = value) }
+        scheduleAutoBackup()
+    }
+
+    // ── Media Reordering (Drag-and-Drop) ────────────────────────────────────────
+
+    /**
+     * Reorder media items within the currently-open folder (album).
+     * Only active when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun reorderFolderMedia(fromIndex: Int, toIndex: Int) {
+        if (_uiState.value.currentFolderBucketId == null) return
+        val currentImages = _uiState.value.folderImages.toMutableList()
+        
+        if (fromIndex !in currentImages.indices || toIndex !in currentImages.indices) return
+        
+        val item = currentImages.removeAt(fromIndex)
+        currentImages.add(toIndex, item)
+        
+        _uiState.update { it.copy(folderImages = currentImages) }
+    }
+
+    /**
+     * Persist the reordered folder media to preferences.
+     * Called when drag-and-drop gesture completes.
+     */
+    fun onFolderMediaReorderDone() {
+        val currentBucketId = _uiState.value.currentFolderBucketId ?: return
+        val imageIds = _uiState.value.folderImages.map { it.id }
+        preferences.saveFolderMediaCustomOrder(currentBucketId, imageIds)
+        scheduleAutoBackup()
+    }
+
+    /**
+     * Reorder media items in the root view (all images).
+     * Only active when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun reorderRootMedia(fromIndex: Int, toIndex: Int) {
+        val currentImages = _uiState.value.images.toMutableList()
+
+        if (fromIndex !in currentImages.indices || toIndex !in currentImages.indices) return
+
+        val item = currentImages.removeAt(fromIndex)
+        currentImages.add(toIndex, item)
+
+        _uiState.update { it.copy(images = currentImages) }
+    }
+
+    /**
+     * Persist the reordered root media to preferences.
+     * Called when drag-and-drop gesture completes.
+     */
+    fun onRootMediaReorderDone() {
+        val imageIds = _uiState.value.images.map { it.id }
+        preferences.customRootMediaOrder = imageIds
         scheduleAutoBackup()
     }
 
@@ -674,7 +738,11 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     /** Shared data-loading body. Updates state without touching isLoading. */
     private suspend fun loadDataCore(scrollToTop: Boolean = false) {
         val s = _uiState.value
-        val images = repository.getImages(s.imageSortOption)
+        val images = repository.getImages(
+            imageSortOption = s.imageSortOption,
+            allowMediaReordering = s.allowMediaReordering,
+            customOrder = preferences.customRootMediaOrder
+        )
 
         val hiddenPaths = preferences.hiddenFolderPaths
         // Fetch ALL folders from MediaStore (hidden ones are still there — app-local approach).
@@ -1151,7 +1219,12 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             )
         }
         viewModelScope.launch {
-            val v = repository.getImages(albumSort, bucketId = bucketId)
+            val v = repository.getImages(
+                imageSortOption = albumSort,
+                bucketId = bucketId,
+                allowMediaReordering = _uiState.value.allowMediaReordering,
+                customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            )
             _uiState.update { it.copy(folderImages = v) }
         }
     }

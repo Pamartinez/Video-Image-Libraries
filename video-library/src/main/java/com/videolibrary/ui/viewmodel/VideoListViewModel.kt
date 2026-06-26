@@ -82,6 +82,10 @@ data class VideoListUiState(
     val groupsAlwaysOnTop: Boolean = false,
     /** When true, use Samsung Gallery-style floating top bar with full-screen content. */
     val floatingTopBarEnabled: Boolean = false,
+
+    /** When true, users can drag-and-drop to reorder media items in Custom sort mode. */
+    val allowMediaReordering: Boolean = false,
+
     /** Sort option for the currently-open group (independent from the root sort). */
     val currentGroupSortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
     /** Whether the Hide Folders full-screen is shown. */
@@ -191,6 +195,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             independentViewTypeEnabled = preferences.independentViewTypeEnabled,
             groupsAlwaysOnTop    = preferences.groupsAlwaysOnTop,
             floatingTopBarEnabled = preferences.floatingTopBarEnabled,
+            allowMediaReordering = preferences.allowMediaReordering,
             hiddenFolderPaths    = preferences.hiddenFolderPaths
         )
     )
@@ -216,6 +221,66 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun updateFloatingTopBarEnabled(value: Boolean) {
         preferences.floatingTopBarEnabled = value
         _uiState.update { it.copy(floatingTopBarEnabled = value) }
+        scheduleAutoBackup()
+    }
+
+    fun updateAllowMediaReordering(value: Boolean) {
+        preferences.allowMediaReordering = value
+        _uiState.update { it.copy(allowMediaReordering = value) }
+        scheduleAutoBackup()
+    }
+
+    // ── Media Reordering (Drag-and-Drop) ────────────────────────────────────────
+
+    /**
+     * Reorder media items within the currently-open folder (album).
+     * Only active when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun reorderFolderMedia(fromIndex: Int, toIndex: Int) {
+        if (_uiState.value.currentFolderBucketId == null) return
+        val currentVideos = _uiState.value.folderVideos.toMutableList()
+        
+        if (fromIndex !in currentVideos.indices || toIndex !in currentVideos.indices) return
+        
+        val item = currentVideos.removeAt(fromIndex)
+        currentVideos.add(toIndex, item)
+        
+        _uiState.update { it.copy(folderVideos = currentVideos) }
+    }
+
+    /**
+     * Persist the reordered folder media to preferences.
+     * Called when drag-and-drop gesture completes.
+     */
+    fun onFolderMediaReorderDone() {
+        val currentBucketId = _uiState.value.currentFolderBucketId ?: return
+        val videoIds = _uiState.value.folderVideos.map { it.id }
+        preferences.saveFolderMediaCustomOrder(currentBucketId, videoIds)
+        scheduleAutoBackup()
+    }
+
+    /**
+     * Reorder media items in the root view (all videos).
+     * Only active when allowMediaReordering is true and sort is CUSTOM_ORDER.
+     */
+    fun reorderRootMedia(fromIndex: Int, toIndex: Int) {
+        val currentVideos = _uiState.value.videos.toMutableList()
+
+        if (fromIndex !in currentVideos.indices || toIndex !in currentVideos.indices) return
+
+        val item = currentVideos.removeAt(fromIndex)
+        currentVideos.add(toIndex, item)
+
+        _uiState.update { it.copy(videos = currentVideos) }
+    }
+
+    /**
+     * Persist the reordered root media to preferences.
+     * Called when drag-and-drop gesture completes.
+     */
+    fun onRootMediaReorderDone() {
+        val videoIds = _uiState.value.videos.map { it.id }
+        preferences.customRootMediaOrder = videoIds
         scheduleAutoBackup()
     }
 
@@ -676,7 +741,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
      */
     private suspend fun loadDataCore(scrollToTop: Boolean = false) {
         val s = _uiState.value
-        val videos = repository.getVideos(s.videoSortOption)
+        val videos = repository.getVideos(
+            videoSortOption = s.videoSortOption,
+            allowMediaReordering = s.allowMediaReordering,
+            customOrder = preferences.customRootMediaOrder
+        )
 
         val hiddenPaths = preferences.hiddenFolderPaths
         // Fetch ALL folders from MediaStore first (hidden ones are still there — app-local).
@@ -809,7 +878,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         val bucketId = _uiState.value.currentFolderBucketId ?: return
         viewModelScope.launch {
             val sortOption = getEffectiveFolderSortOption(bucketId)
-            val videos = repository.getVideos(sortOption, bucketId = bucketId)
+            val videos = repository.getVideos(
+                videoSortOption = sortOption,
+                bucketId = bucketId,
+                allowMediaReordering = _uiState.value.allowMediaReordering,
+                customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            )
             _uiState.update { it.copy(folderVideos = videos) }
         }
     }
