@@ -64,10 +64,12 @@ fun ImageListScreen(
 
     val folderGridState = rememberLazyGridState()
     val imageGridState = remember(state.imageSortOption) { LazyGridState() }
-    // Hoisted so GroupDetailScreen scroll survives album-detail navigations.
-    // Scrolls to top when navigating to a different group; stays put when returning
-    // from a folder (album) inside the same group.
-    val groupGridState = rememberLazyGridState()
+    // Keep one grid state per group so back navigation restores the parent's scroll position.
+    val rootGroupGridState = rememberLazyGridState()
+    val groupGridStates = remember { mutableStateMapOf<Long, LazyGridState>() }
+    val groupGridState = state.currentGroupId?.let { groupId ->
+        groupGridStates.getOrPut(groupId) { LazyGridState() }
+    } ?: rootGroupGridState
 
     // Root grid: scroll to top AFTER orderedMixedItems arrives with the new sort
     // (triggers from scrollToTopTrigger set inside loadDataCore, not from sortOption directly,
@@ -75,15 +77,17 @@ fun ImageListScreen(
     LaunchedEffect(state.scrollToTopTrigger) {
         if (state.scrollToTopTrigger > 0) folderGridState.scrollToItem(0)
     }
-    // Group grid: scroll to top when navigating to a different group
-    LaunchedEffect(state.currentGroupId) { groupGridState.scrollToItem(0) }
-    // Group grid: scroll to top AFTER group items refresh when the sort option changes
-    val lastGroupSortForScroll = remember { mutableStateOf<com.example.common.data.model.FolderSortOption>(state.currentGroupSortOption) }
+    // Group grid: scroll to top only when sort changes inside the same currently-open group.
+    val lastGroupSortContext = remember {
+        mutableStateOf(state.currentGroupId to state.currentGroupSortOption)
+    }
     LaunchedEffect(state.currentGroupOrderedMixedItems) {
-        if (state.currentGroupSortOption != lastGroupSortForScroll.value) {
-            lastGroupSortForScroll.value = state.currentGroupSortOption
+        val (lastGroupId, lastSort) = lastGroupSortContext.value
+        val sameGroup = state.currentGroupId != null && state.currentGroupId == lastGroupId
+        if (sameGroup && state.currentGroupSortOption != lastSort) {
             groupGridState.scrollToItem(0)
         }
+        lastGroupSortContext.value = state.currentGroupId to state.currentGroupSortOption
     }
     LaunchedEffect(state.currentFolderBucketId) {
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
@@ -542,6 +546,7 @@ fun ImageListScreen(
 
         GroupDetailScreen(
             groupName = state.currentGroupName,
+            itemKeyNamespace = state.currentGroupId!!,
             folders = state.currentGroupFolders,
             subGroups = state.currentGroupSubGroups,
             orderedMixedItems = state.currentGroupOrderedMixedItems,

@@ -26,6 +26,7 @@ import com.example.common.ui.util.MixedItemSorting
 @Composable
 fun GroupDetailScreen(
     groupName: String,
+    itemKeyNamespace: Any = Unit,
     folders: List<FolderItem>,
     subGroups: List<GroupItem>,
     viewType: ViewType,
@@ -70,6 +71,7 @@ fun GroupDetailScreen(
 ) {
     SharedGroupDetailScreen(
         groupName = groupName,
+        itemKeyNamespace = itemKeyNamespace,
         folders = folders,
         subGroups = subGroups,
         viewType = viewType,
@@ -171,9 +173,6 @@ fun GroupDetailScreen(
         modifier = modifier
     )
 }
-
-
-
 
 
 

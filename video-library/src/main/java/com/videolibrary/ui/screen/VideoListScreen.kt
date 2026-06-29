@@ -12,6 +12,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -66,10 +67,12 @@ fun VideoListScreen(
     val scope = rememberCoroutineScope()
     val folderGridState = rememberLazyGridState()
     val videoGridState = rememberLazyGridState()
-    // Hoisted so GroupDetailScreen scroll survives album-detail navigations.
-    // Scrolls to top when navigating to a different group; stays put when returning
-    // from a folder (album) inside the same group.
-    val groupGridState = rememberLazyGridState()
+    // Keep one grid state per group so back navigation restores the parent's scroll position.
+    val rootGroupGridState = rememberLazyGridState()
+    val groupGridStates = remember { mutableStateMapOf<Long, LazyGridState>() }
+    val groupGridState = state.currentGroupId?.let { groupId ->
+        groupGridStates.getOrPut(groupId) { LazyGridState() }
+    } ?: rootGroupGridState
     val colors = LocalVideoColors.current
     var showMoreMenu by remember { mutableStateOf(false) }
     var showCreateMenu by remember { mutableStateOf(false) }
@@ -81,15 +84,17 @@ fun VideoListScreen(
         }
     }
 
-    // Scroll to top of group grid when the group changes OR when its independent sort option changes.
-    // Split into two effects: one for group navigation (instant), one for sort change (after items arrive).
-    LaunchedEffect(state.currentGroupId) { groupGridState.scrollToItem(0) }
-    val lastGroupSortForScroll = remember { mutableStateOf<com.example.common.data.model.FolderSortOption>(state.currentGroupSortOption) }
+    // Scroll to top only when sort changes inside the same currently-open group.
+    val lastGroupSortContext = remember {
+        mutableStateOf(state.currentGroupId to state.currentGroupSortOption)
+    }
     LaunchedEffect(state.currentGroupOrderedMixedItems) {
-        if (state.currentGroupSortOption != lastGroupSortForScroll.value) {
-            lastGroupSortForScroll.value = state.currentGroupSortOption
+        val (lastGroupId, lastSort) = lastGroupSortContext.value
+        val sameGroup = state.currentGroupId != null && state.currentGroupId == lastGroupId
+        if (sameGroup && state.currentGroupSortOption != lastSort) {
             groupGridState.scrollToItem(0)
         }
+        lastGroupSortContext.value = state.currentGroupId to state.currentGroupSortOption
     }
 
     // Collect share intents emitted by the ViewModel and launch the system chooser
@@ -259,6 +264,7 @@ fun VideoListScreen(
     if (state.currentGroupId != null && state.currentFolderBucketId == null) {
         GroupDetailScreen(
             groupName         = state.currentGroupName,
+            itemKeyNamespace  = state.currentGroupId!!,
             folders           = state.currentGroupFolders,
             subGroups         = state.currentGroupSubGroups,
             viewType          = state.folderViewType,

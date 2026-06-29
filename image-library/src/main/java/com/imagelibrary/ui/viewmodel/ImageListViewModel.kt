@@ -2164,18 +2164,66 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             } else {
                 preferences.viewType
             }
-            _uiState.update {
-                it.copy(
-                    currentGroupId = prevId,
-                    currentGroupName = prevName,
-                    groupStack = s.groupStack.dropLast(1),
-                    currentGroupFolders = emptyList(),
-                    currentGroupSubGroups = emptyList(),
-                    currentGroupSortOption = parentSort,
-                    viewType = parentViewType
+            viewModelScope.launch {
+                val bucketIds = groupRepository.getFolderBucketIdsForGroup(prevId)
+                val allFolders = repository.getFoldersWithIndependentSort(
+                    sortOption = s.sortOption,
+                    getFolderSortOption = { bucketId -> preferences.getFolderImageSortOption(bucketId) },
+                    getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
                 )
+                val bucketIdSet = bucketIds.toSet()
+                val groupFolders = allFolders.filter { it.bucketId in bucketIdSet }
+
+                val allGroups = groupRepository.getAllGroups()
+                val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+                val groupCustomOrders = allGroups.associate { it.groupId to preferences.customGroupItemsOrder(it.groupId) }
+                val allSubGroups = groupRepository.getChildGroups(
+                    parentGroupId = prevId,
+                    groupSortOptions = groupSortOptions,
+                    groupCustomOrders = groupCustomOrders
+                )
+                val visibleBucketSet = allFolders.map { it.bucketId }.toSet()
+                val subGroups = allSubGroups.filter { sub ->
+                    sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
+                }
+
+                val orderedMixed: List<Any> = if (parentSort == SortOption.CUSTOM_ORDER) {
+                    val savedOrder = preferences.customGroupItemsOrder(prevId)
+                    if (savedOrder.isEmpty()) {
+                        buildList {
+                            subGroups.forEach { add(it) }
+                            groupFolders.forEach { add(it) }
+                        }
+                    } else {
+                        val byGroupKey = subGroups.associateBy { "g_${it.groupId}" }
+                        val byFolderKey = groupFolders.associateBy { "f_${it.bucketId}" }
+                        val savedSet = savedOrder.toSet()
+                        buildList {
+                            subGroups.forEach { g -> if ("g_${g.groupId}" !in savedSet) add(g) }
+                            groupFolders.forEach { f -> if ("f_${f.bucketId}" !in savedSet) add(f) }
+                            for (key in savedOrder) {
+                                val item = byGroupKey[key] ?: byFolderKey[key]
+                                if (item != null) add(item)
+                            }
+                        }
+                    }
+                } else {
+                    sortMixedItems(subGroups + groupFolders, parentSort, s.groupsAlwaysOnTop)
+                }
+
+                _uiState.update {
+                    it.copy(
+                        currentGroupId = prevId,
+                        currentGroupName = prevName,
+                        groupStack = s.groupStack.dropLast(1),
+                        currentGroupSortOption = parentSort,
+                        currentGroupFolders = groupFolders,
+                        currentGroupSubGroups = subGroups,
+                        currentGroupOrderedMixedItems = orderedMixed,
+                        viewType = parentViewType
+                    )
+                }
             }
-            refreshCurrentGroup()
         } else {
             // Returning to root - restore root view type
             val rootViewType = preferences.viewType

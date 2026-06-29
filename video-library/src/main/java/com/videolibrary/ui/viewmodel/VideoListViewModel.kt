@@ -7,7 +7,6 @@ import android.database.ContentObserver
 import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CompletableDeferred
@@ -1040,19 +1039,50 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             } else {
                 preferences.viewType
             }
-            _uiState.update {
-                it.copy(
-                    currentGroupId     = prevId,
-                    currentGroupName   = prevName,
-                    groupStack         = s.groupStack.dropLast(1),
-                    isSelectionMode    = false,
-                    selectedFolderIds  = emptySet(),
-                    selectedGroupIds   = emptySet(),
-                    currentGroupSortOption = parentSort,
-                    viewType           = parentViewType
+            viewModelScope.launch {
+                val bucketIds = groupRepository.getFolderBucketIdsForGroup(prevId)
+                val allFolders = repository.getFoldersWithIndependentSort(
+                    folderSortOption = s.sortOption,
+                    independentSortEnabled = s.independentSortEnabled,
+                    getFolderSortOption = { bucketId -> getEffectiveFolderSortOption(bucketId) },
+                    getCustomMediaOrder = { bucketId -> preferences.getFolderMediaCustomOrder(bucketId) }
                 )
+                val allGroups = groupRepository.getAllGroups()
+                val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+                val groupCustomOrders = allGroups.associate { it.groupId to preferences.getGroupMixedOrder(it.groupId) }
+                val allSubGroups = groupRepository.getChildGroups(
+                    parentGroupId = prevId,
+                    groupSortOptions = groupSortOptions,
+                    groupCustomOrders = groupCustomOrders
+                )
+                val bucketIdSet = bucketIds.toSet()
+                val folders = allFolders.filter { it.bucketId in bucketIdSet }
+                val visibleBucketSet = allFolders.map { it.bucketId }.toSet()
+                val subGroups = allSubGroups.filter { sub ->
+                    sub.memberBucketIds.isEmpty() || sub.memberBucketIds.any { it in visibleBucketSet }
+                }
+                val orderedMixed = if (parentSort == FolderSortOption.CUSTOM_ORDER) {
+                    GroupMixedOrderUtil.applyCustomGroupMixedOrder(prevId, subGroups, folders, preferences)
+                } else {
+                    sortMixedItems(subGroups + folders, parentSort, s.groupsAlwaysOnTop)
+                }
+
+                _uiState.update {
+                    it.copy(
+                        currentGroupId     = prevId,
+                        currentGroupName   = prevName,
+                        groupStack         = s.groupStack.dropLast(1),
+                        isSelectionMode    = false,
+                        selectedFolderIds  = emptySet(),
+                        selectedGroupIds   = emptySet(),
+                        currentGroupSortOption = parentSort,
+                        currentGroupFolders = folders,
+                        currentGroupSubGroups = subGroups,
+                        currentGroupOrderedMixedItems = orderedMixed,
+                        viewType           = parentViewType
+                    )
+                }
             }
-            refreshCurrentGroup()
         } else {
             // Returning to root - restore root view type
             val rootViewType = preferences.viewType
@@ -1697,11 +1727,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             Log.d("DragReorder", "  folderSort=$folderSort")
             Log.d("DragReorder", "  customOrder.size=${customOrder.size}")
 
-            // Show toast with drag state
-            val canDragMessage = "Drag: allow=${s.allowMediaReordering}, sort=$folderSort, isCustom=${folderSort == VideoSortOption.CUSTOM_ORDER}"
-            withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), canDragMessage, Toast.LENGTH_LONG).show()
-            }
 
             val videos = repository.getVideos(
                 videoSortOption = folderSort,
@@ -2504,4 +2529,3 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         return preferences.getFolderVideoSortOption(bucketId)
     }
 }
-

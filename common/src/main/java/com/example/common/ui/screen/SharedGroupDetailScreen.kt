@@ -1,7 +1,5 @@
 package com.example.common.ui.screen
 
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -57,6 +55,7 @@ import kotlin.math.roundToInt
 @Composable
 fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     groupName: String,
+    itemKeyNamespace: Any = Unit,
     folders: List<FolderItem>,
     subGroups: List<GroupItem>,
     viewType: ViewTypeEnum,
@@ -418,7 +417,10 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         }
 
                         // ── ALBUM AND GROUP ITEMS ──
-                        itemsIndexed(mixedItems, key = { _, item -> item.uniqueKey }) { dataIndex, item ->
+                        itemsIndexed(
+                            mixedItems,
+                            key = { _, item -> "${itemKeyNamespace}_${item.uniqueKey}" }
+                        ) { dataIndex, item ->
                             // Convert data index to layout index for comparison with dragDropState
                             val layoutIndex = if (hasHeaderRow) dataIndex + 1 else dataIndex
                             val itemIsDragging = canDrag && dragDropState.draggedIndex == layoutIndex
@@ -441,9 +443,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                         { if (!dragDropState.consumeNextClick()) onFolderClick(item.folder) },
                                         if (canDrag) null else ({ onFolderLongClick(item.folder) }),
                                         itemIsDragging,
-                                        Modifier
-                                            .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                            .then(dimModifier)
+                                        Modifier.then(dimModifier)
                                     )
                                 }
                                 is MixedItem.Group -> groupGridItem(
@@ -454,9 +454,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                     { if (!dragDropState.consumeNextClick()) onGroupClick(item.group) },
                                     if (canDrag) null else ({ onGroupLongClick(item.group) }),
                                     itemIsDragging,
-                                    Modifier
-                                        .animateItem(placementSpec = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = 4000f))
-                                        .then(dimModifier)
+                                    Modifier.then(dimModifier)
                                 )
                             }
                         }
