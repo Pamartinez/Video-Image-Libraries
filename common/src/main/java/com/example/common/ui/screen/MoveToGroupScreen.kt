@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -25,6 +26,7 @@ import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
 import com.example.common.ui.components.GroupNameDialog
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.theme.LocalLibraryColors
 
 /**
@@ -64,6 +66,7 @@ fun MoveToGroupScreen(
 ) {
     val colors = LocalLibraryColors.current
     val spacing = gridSpacing.dp
+    val lazyGridState = rememberLazyGridState()
 
     // Navigation stack: list of (groupId, groupName)
     var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
@@ -161,37 +164,55 @@ fun MoveToGroupScreen(
                     )
                 }
             } else {
-                LazyVerticalGrid(
-                    columns               = GridCells.Fixed(columnCount),
-                    modifier              = Modifier.fillMaxWidth().weight(1f),
-                    contentPadding        = PaddingValues(spacing),
-                    horizontalArrangement = Arrangement.spacedBy(spacing),
-                    verticalArrangement   = Arrangement.spacedBy(spacing)
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
                 ) {
-                    items(displayItems, key = { it.uniqueKey }) { item ->
-                        val animMod = Modifier.animateItem(
-                            placementSpec = spring(
-                                dampingRatio = Spring.DampingRatioNoBouncy,
-                                stiffness    = 4000f
-                            )
-                        )
-                        when (item) {
-                            is MixedItem.Folder -> {
-                                // Folders grayed out — non-clickable
-                                Box(modifier = animMod.alpha(0.35f)) {
-                                    folderItemContent(item.folder, Modifier)
-                                }
-                            }
-                            is MixedItem.Group -> {
-                                groupItemContent(
-                                    item.group,
-                                    animMod,
-                                    { browseStack = browseStack + Pair(item.group.groupId, item.group.name) },
-                                    { browseStack = browseStack + Pair(item.group.groupId, item.group.name) }
+                    LazyVerticalGrid(
+                        columns               = GridCells.Fixed(columnCount),
+                        state                 = lazyGridState,
+                        modifier              = Modifier.fillMaxSize(),
+                        contentPadding        = PaddingValues(spacing),
+                        horizontalArrangement = Arrangement.spacedBy(spacing),
+                        verticalArrangement   = Arrangement.spacedBy(spacing)
+                    ) {
+                        items(displayItems, key = { it.uniqueKey }) { item ->
+                            val animMod = Modifier.animateItem(
+                                placementSpec = spring(
+                                    dampingRatio = Spring.DampingRatioNoBouncy,
+                                    stiffness    = 4000f
                                 )
+                            )
+                            when (item) {
+                                is MixedItem.Folder -> {
+                                    // Folders grayed out — non-clickable
+                                    Box(modifier = animMod.alpha(0.35f)) {
+                                        folderItemContent(item.folder, Modifier)
+                                    }
+                                }
+                                is MixedItem.Group -> {
+                                    groupItemContent(
+                                        item.group,
+                                        animMod,
+                                        { browseStack = browseStack + Pair(item.group.groupId, item.group.name) },
+                                        { browseStack = browseStack + Pair(item.group.groupId, item.group.name) }
+                                    )
+                                }
                             }
                         }
                     }
+                    FastScrollerForGrid(
+                        state = lazyGridState,
+                        itemCount = displayItems.size,
+                        sectionLabel = { index ->
+                            when (val item = displayItems.getOrNull(index)) {
+                                is MixedItem.Folder -> item.folder.name
+                                is MixedItem.Group -> item.group.name
+                                null -> ""
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -271,4 +292,3 @@ fun MoveToGroupScreen(
         )
     }
 }
-

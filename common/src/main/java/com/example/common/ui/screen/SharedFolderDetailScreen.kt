@@ -30,6 +30,7 @@ import com.example.common.ui.components.ActionsPill
 import com.example.common.ui.components.AppMenuItem
 import com.example.common.ui.components.AppMoreMenuButton
 import com.example.common.ui.components.BottomActionBar
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.util.dragToReorderGrid
@@ -340,6 +341,23 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                     }
                 }
 
+                    // ── Fast scroller overlay ──
+                    FastScrollerForGrid(
+                        state = lazyGridState,
+                        itemCount = items.size + if (hasHeaderRow) 1 else 0,
+                        blockedByOtherGesture = canDrag && dragDropState.isDragging,
+                        sectionLabel = { index ->
+                            when {
+                                hasHeaderRow && index == 0 -> folderName
+                                else -> {
+                                    val dataIndex = if (hasHeaderRow) index - 1 else index
+                                    val clamped = dataIndex.coerceIn(0, (items.size - 1).coerceAtLeast(0))
+                                    "${clamped + 1}/${items.size}"
+                                }
+                            }
+                        }
+                    )
+
                     // ── Floating drag overlay ──
                     if (canDrag && dragDropState.isDragging) {
                         val overlayPos = dragDropState.overlayPosition
@@ -459,4 +477,3 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
         )
     }
 }
-

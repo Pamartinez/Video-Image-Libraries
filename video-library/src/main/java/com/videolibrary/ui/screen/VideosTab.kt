@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.common.ui.components.FastScrollerForGrid
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.VideoGridItem
@@ -76,30 +77,40 @@ fun VideosTab(
         val spacing = if (isLargeGrid) 18.dp else 12.dp
         val columnCount = if (isLargeGrid) 2 else 3
 
-        LazyVerticalGrid(
-            state = lazyGridState,
-            columns = GridCells.Fixed(columnCount),
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(spacing),
-            horizontalArrangement = Arrangement.spacedBy(spacing),
-            verticalArrangement = Arrangement.spacedBy(spacing)
-        ) {
-            items(videos, key = { it.id }) { video ->
-                VideoGridItem(
-                    video = video,
-                    isSelected = selectedIds.contains(video.id),
-                    isSelectionMode = isSelectionMode,
-                    isLargeGrid = isLargeGrid,
-                    onClick = { onVideoClick(video) },
-                    onLongClick = { onVideoLongClick(video) },
-                    modifier = Modifier.animateItem(
-                        placementSpec = spring(
-                            dampingRatio = Spring.DampingRatioNoBouncy,
-                            stiffness = 4000f
+        Box(modifier = Modifier.fillMaxSize()) {
+            LazyVerticalGrid(
+                state = lazyGridState,
+                columns = GridCells.Fixed(columnCount),
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(spacing),
+                horizontalArrangement = Arrangement.spacedBy(spacing),
+                verticalArrangement = Arrangement.spacedBy(spacing)
+            ) {
+                items(videos, key = { it.id }) { video ->
+                    VideoGridItem(
+                        video = video,
+                        isSelected = selectedIds.contains(video.id),
+                        isSelectionMode = isSelectionMode,
+                        isLargeGrid = isLargeGrid,
+                        onClick = { onVideoClick(video) },
+                        onLongClick = { onVideoLongClick(video) },
+                        modifier = Modifier.animateItem(
+                            placementSpec = spring(
+                                dampingRatio = Spring.DampingRatioNoBouncy,
+                                stiffness = 4000f
+                            )
                         )
                     )
-                )
+                }
             }
+            FastScrollerForGrid(
+                state = lazyGridState,
+                itemCount = videos.size,
+                sectionLabel = { index ->
+                    val clamped = index.coerceIn(0, (videos.size - 1).coerceAtLeast(0))
+                    "${clamped + 1}/${videos.size}"
+                }
+            )
         }
     }
 }

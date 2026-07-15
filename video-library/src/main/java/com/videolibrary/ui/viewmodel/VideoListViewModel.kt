@@ -654,8 +654,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun toggleConflictApplyToAll() {
         _fileConflict.value?.let { conflict ->
-            conflict.applyToAll = !conflict.applyToAll
-            _fileConflict.value = conflict.copy(applyToAll = conflict.applyToAll)
+            _fileConflict.value = conflict.copy(applyToAll = !conflict.applyToAll)
         }
     }
 
@@ -1639,7 +1638,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             it.copy(selectedFolderIds = newSet)
         }
     }
-    fun selectAllVideos() { _uiState.update { it.copy(selectedVideoIds = it.videos.map { v -> v.id }.toSet()) } }
+    fun selectAllVideos() {
+        _uiState.update { state ->
+            val source = if (state.currentFolderBucketId != null) state.folderVideos else state.videos
+            state.copy(selectedVideoIds = source.map { v -> v.id }.toSet())
+        }
+    }
     fun deselectAllVideos() { _uiState.update { it.copy(selectedVideoIds = emptySet()) } }
     fun selectAllFolders() { _uiState.update { it.copy(selectedFolderIds = it.folders.map { f -> f.bucketId }.toSet()) } }
     fun deselectAllFolders() { _uiState.update { it.copy(selectedFolderIds = emptySet(), selectedGroupIds = emptySet()) } }
@@ -1748,7 +1752,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     currentFolderName = name,
                     currentFolderSortOption = folderSort,
                     folderVideos = videos,
-                    folderViewType = folderViewType
+                    folderViewType = folderViewType,
+                    isSelectionMode = false,
+                    selectedVideoIds = emptySet(),
+                    selectedFolderIds = emptySet(),
+                    selectedGroupIds = emptySet()
                 )
             }
 
@@ -2164,7 +2172,14 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         viewModelScope.launch {
             val videos = repository.getVideos(_uiState.value.videoSortOption, bucketId = bucketId)
-            _uiState.update { it.copy(albumCreationBrowsedVideos = videos) }
+            // Apply custom order if it exists for this folder
+            val customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            val sortedVideos = if (customOrder.isNotEmpty()) {
+                videos.sortedBy { video -> customOrder.indexOf(video.id).takeIf { it >= 0 } ?: Int.MAX_VALUE }
+            } else {
+                videos
+            }
+            _uiState.update { it.copy(albumCreationBrowsedVideos = sortedVideos) }
         }
     }
 
@@ -2247,8 +2262,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     repository.copyVideos(
                         videos,
                         path,
-                        onProgress = { cur, tot ->
-                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
+                        onProgress = { cur, _ ->
+                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur)
                         },
                         isCancelled = { copyMoveCancelled },
                         onConflict = { fileName -> askConflictResolution(fileName) }
@@ -2257,8 +2272,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     repository.moveVideos(
                         videos,
                         path,
-                        onProgress = { cur, tot ->
-                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
+                        onProgress = { cur, _ ->
+                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur)
                         },
                         isCancelled = { copyMoveCancelled },
                         onConflict = { fileName -> askConflictResolution(fileName) }

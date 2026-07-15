@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -32,6 +33,7 @@ import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
 import com.example.common.data.model.ViewType
 import com.example.common.ui.components.CircularBackButton
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LocalLibraryColors
 
@@ -99,6 +101,7 @@ fun AddFolderToGroupScreen(
     ) -> Unit
 ) {
     val colors = LocalLibraryColors.current
+    val lazyGridState = rememberLazyGridState()
 
     var selectedFolderIds by remember { mutableStateOf(emptySet<Int>()) }
 
@@ -210,62 +213,76 @@ fun AddFolderToGroupScreen(
                     )
                 }
             } else {
-                LazyVerticalGrid(
-                    columns             = GridCells.Fixed(columnCount),
-                    modifier            = Modifier.fillMaxSize(),
-                    contentPadding      = PaddingValues(spacing),
-                    horizontalArrangement = Arrangement.spacedBy(spacing),
-                    verticalArrangement   = Arrangement.spacedBy(spacing)
-                ) {
-                    items(displayItems, key = { it.uniqueKey }) { item ->
-                        when (item) {
-                            is MixedItem.Folder -> {
-                                val folder     = item.folder
-                                // If browsing the current group being edited, folders are non-selectable (already in group)
-                                val isSelectable = currentBrowseGroupId != currentGroupId
-                                val isSelected = isSelectable && selectedFolderIds.contains(folder.bucketId)
-                                val toggle: () -> Unit = {
-                                    if (isSelectable) {
-                                        selectedFolderIds =
-                                            if (isSelected) selectedFolderIds - folder.bucketId
-                                            else            selectedFolderIds + folder.bucketId
+                Box(modifier = Modifier.fillMaxSize()) {
+                    LazyVerticalGrid(
+                        columns             = GridCells.Fixed(columnCount),
+                        state               = lazyGridState,
+                        modifier            = Modifier.fillMaxSize(),
+                        contentPadding      = PaddingValues(spacing),
+                        horizontalArrangement = Arrangement.spacedBy(spacing),
+                        verticalArrangement   = Arrangement.spacedBy(spacing)
+                    ) {
+                        items(displayItems, key = { it.uniqueKey }) { item ->
+                            when (item) {
+                                is MixedItem.Folder -> {
+                                    val folder     = item.folder
+                                    // If browsing the current group being edited, folders are non-selectable (already in group)
+                                    val isSelectable = currentBrowseGroupId != currentGroupId
+                                    val isSelected = isSelectable && selectedFolderIds.contains(folder.bucketId)
+                                    val toggle: () -> Unit = {
+                                        if (isSelectable) {
+                                            selectedFolderIds =
+                                                if (isSelected) selectedFolderIds - folder.bucketId
+                                                else            selectedFolderIds + folder.bucketId
+                                        }
                                     }
-                                }
-                                folderGridItem(
-                                    folder,
-                                    isSelected,
-                                    isSelectable,
-                                    viewType,
-                                    toggle,
-                                    toggle,
-                                    Modifier.animateItem(
-                                        placementSpec = spring(
-                                            dampingRatio = Spring.DampingRatioNoBouncy,
-                                            stiffness    = 4000f
+                                    folderGridItem(
+                                        folder,
+                                        isSelected,
+                                        isSelectable,
+                                        viewType,
+                                        toggle,
+                                        toggle,
+                                        Modifier.animateItem(
+                                            placementSpec = spring(
+                                                dampingRatio = Spring.DampingRatioNoBouncy,
+                                                stiffness    = 4000f
+                                            )
                                         )
                                     )
-                                )
-                            }
-                            is MixedItem.Group -> {
-                                val group = item.group
-                                val navigateIn: () -> Unit = {
-                                    browseStack = browseStack + (group.groupId to group.name)
                                 }
-                                groupGridItem(
-                                    group,
-                                    viewType,
-                                    navigateIn,
-                                    navigateIn,
-                                    Modifier.animateItem(
-                                        placementSpec = spring(
-                                            dampingRatio = Spring.DampingRatioNoBouncy,
-                                            stiffness    = 4000f
+                                is MixedItem.Group -> {
+                                    val group = item.group
+                                    val navigateIn: () -> Unit = {
+                                        browseStack = browseStack + (group.groupId to group.name)
+                                    }
+                                    groupGridItem(
+                                        group,
+                                        viewType,
+                                        navigateIn,
+                                        navigateIn,
+                                        Modifier.animateItem(
+                                            placementSpec = spring(
+                                                dampingRatio = Spring.DampingRatioNoBouncy,
+                                                stiffness    = 4000f
+                                            )
                                         )
                                     )
-                                )
+                                }
                             }
                         }
                     }
+                    FastScrollerForGrid(
+                        state = lazyGridState,
+                        itemCount = displayItems.size,
+                        sectionLabel = { index ->
+                            when (val item = displayItems.getOrNull(index)) {
+                                is MixedItem.Folder -> item.folder.name
+                                is MixedItem.Group -> item.group.name
+                                null -> ""
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -309,7 +326,6 @@ fun AddFolderToGroupScreen(
         }
     }
 }
-
 
 
 

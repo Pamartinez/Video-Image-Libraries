@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -33,6 +34,7 @@ import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
 import com.example.common.ui.components.CircularBackButton
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.components.ScreenTopBar
 
 /**
@@ -107,6 +109,14 @@ fun <T> CreateAlbumPickerScreen(
 
     val columnCount = if (isLargeGrid) 2 else 3
     val gridSpacing = if (isLargeGrid) 18.dp else 12.dp
+    val lazyGridState = rememberLazyGridState()
+
+    // Reset scroll position when entering/exiting folders
+    LaunchedEffect(currentBucketId, browseStack) {
+        if (currentBucketId != null || browseStack.isNotEmpty()) {
+            lazyGridState.scrollToItem(0)
+        }
+    }
 
     // Handle Android back button
     BackHandler {
@@ -260,28 +270,39 @@ fun <T> CreateAlbumPickerScreen(
                         )
                     }
                 } else {
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(columnCount),
-                        modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(2.dp),
-                        horizontalArrangement = Arrangement.spacedBy(2.dp),
-                        verticalArrangement = Arrangement.spacedBy(2.dp)
-                    ) {
-                        items(browsedItems, key = { getItemId(it) }) { item ->
-                            val itemId = getItemId(item)
-                            itemGridContent(
-                                item,
-                                itemId in selectedItemIds,
-                                { onToggleItem(itemId) },
-                                { onToggleItem(itemId) },
-                                Modifier.animateItem(
-                                    placementSpec = spring(
-                                        dampingRatio = Spring.DampingRatioNoBouncy,
-                                        stiffness = 4000f
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(columnCount),
+                            state = lazyGridState,
+                            modifier = Modifier.fillMaxSize(),
+                            contentPadding = PaddingValues(2.dp),
+                            horizontalArrangement = Arrangement.spacedBy(2.dp),
+                            verticalArrangement = Arrangement.spacedBy(2.dp)
+                        ) {
+                            items(browsedItems, key = { getItemId(it) }) { item ->
+                                val itemId = getItemId(item)
+                                itemGridContent(
+                                    item,
+                                    itemId in selectedItemIds,
+                                    { onToggleItem(itemId) },
+                                    { onToggleItem(itemId) },
+                                    Modifier.animateItem(
+                                        placementSpec = spring(
+                                            dampingRatio = Spring.DampingRatioNoBouncy,
+                                            stiffness = 4000f
+                                        )
                                     )
                                 )
-                            )
+                            }
                         }
+                        FastScrollerForGrid(
+                            state = lazyGridState,
+                            itemCount = browsedItems.size,
+                            sectionLabel = { index ->
+                                val clamped = index.coerceIn(0, (browsedItems.size - 1).coerceAtLeast(0))
+                                "${clamped + 1}/${browsedItems.size}"
+                            }
+                        )
                     }
                 }
             } else {
@@ -299,43 +320,57 @@ fun <T> CreateAlbumPickerScreen(
                         )
                     }
                 } else {
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(columnCount),
-                        modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(10.dp),
-                        horizontalArrangement = Arrangement.spacedBy(gridSpacing),
-                        verticalArrangement = Arrangement.spacedBy(gridSpacing)
-                    ) {
-                        items(displayItems, key = { it.uniqueKey }) { item ->
-                            when (item) {
-                                is MixedItem.Folder -> {
-                                    folderGridContent(
-                                        item.folder,
-                                        { onFolderOpen(item.folder) },
-                                        { onFolderOpen(item.folder) },
-                                        Modifier.animateItem(
-                                            placementSpec = spring(
-                                                dampingRatio = Spring.DampingRatioNoBouncy,
-                                                stiffness = 4000f
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(columnCount),
+                            state = lazyGridState,
+                            modifier = Modifier.fillMaxSize(),
+                            contentPadding = PaddingValues(10.dp),
+                            horizontalArrangement = Arrangement.spacedBy(gridSpacing),
+                            verticalArrangement = Arrangement.spacedBy(gridSpacing)
+                        ) {
+                            items(displayItems, key = { it.uniqueKey }) { item ->
+                                when (item) {
+                                    is MixedItem.Folder -> {
+                                        folderGridContent(
+                                            item.folder,
+                                            { onFolderOpen(item.folder) },
+                                            { onFolderOpen(item.folder) },
+                                            Modifier.animateItem(
+                                                placementSpec = spring(
+                                                    dampingRatio = Spring.DampingRatioNoBouncy,
+                                                    stiffness = 4000f
+                                                )
                                             )
                                         )
-                                    )
-                                }
-                                is MixedItem.Group -> {
-                                    groupGridContent(
-                                        item.group,
-                                        { browseStack = browseStack + (item.group.groupId to item.group.name) },
-                                        { browseStack = browseStack + (item.group.groupId to item.group.name) },
-                                        Modifier.animateItem(
-                                            placementSpec = spring(
-                                                dampingRatio = Spring.DampingRatioNoBouncy,
-                                                stiffness = 4000f
+                                    }
+                                    is MixedItem.Group -> {
+                                        groupGridContent(
+                                            item.group,
+                                            { browseStack = browseStack + (item.group.groupId to item.group.name) },
+                                            { browseStack = browseStack + (item.group.groupId to item.group.name) },
+                                            Modifier.animateItem(
+                                                placementSpec = spring(
+                                                    dampingRatio = Spring.DampingRatioNoBouncy,
+                                                    stiffness = 4000f
+                                                )
                                             )
                                         )
-                                    )
+                                    }
                                 }
                             }
                         }
+                        FastScrollerForGrid(
+                            state = lazyGridState,
+                            itemCount = displayItems.size,
+                            sectionLabel = { index ->
+                                when (val item = displayItems.getOrNull(index)) {
+                                    is MixedItem.Folder -> item.folder.name
+                                    is MixedItem.Group -> item.group.name
+                                    null -> ""
+                                }
+                            }
+                        )
                     }
                 }
             }
@@ -412,8 +447,6 @@ private fun <T> SelectedItemsTray(
         }
     }
 }
-
-
 
 
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.ui.components.CircularBackButton
+import com.example.common.ui.components.FastScrollerForList
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.theme.LocalLibraryColors
@@ -79,6 +81,7 @@ fun HideFoldersScreen(
     modifier: Modifier = Modifier
 ) {
     val colors = LocalLibraryColors.current
+    val lazyListState = rememberLazyListState()
 
     Column(
         modifier = modifier
@@ -112,111 +115,136 @@ fun HideFoldersScreen(
         HorizontalDivider(color = colors.dividerColor)
 
         // ── List ─────────────────────────────────────────────────────────
-        LazyColumn(
-            modifier        = Modifier.fillMaxSize(),
-            contentPadding  = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp)
-        ) {
-            if (currentGroupId != null) {
-                // ── Group detail: sub-groups first, then member folders ──
-                if (groupSubGroups.isNotEmpty()) {
-                    item {
-                        Text(
-                            text       = "GROUPS",
-                            fontSize   = 11.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color      = colors.listSecondText,
-                            modifier   = Modifier.padding(start = 4.dp, top = 4.dp, bottom = 2.dp)
-                        )
-                    }
-                    items(groupSubGroups, key = { "sg_${it.groupId}" }) { subGroup ->
-                        HideGroupRow(
-                            group       = subGroup,
-                            isHidden    = groupSubGroupHiddenState[subGroup.groupId] == true,
-                            onOpen      = { onGroupOpen(subGroup) },
-                            onToggle    = { onGroupToggle(subGroup) },
-                            colors      = colors,
-                            previewCell = groupThumbnailContent
-                        )
-                    }
-                }
-                if (groupFolders.isNotEmpty()) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            LazyColumn(
+                state = lazyListState,
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                if (currentGroupId != null) {
+                    // ── Group detail: sub-groups first, then member folders ──
                     if (groupSubGroups.isNotEmpty()) {
                         item {
                             Text(
-                                text       = "ALBUMS",
+                                text       = "GROUPS",
                                 fontSize   = 11.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color      = colors.listSecondText,
-                                modifier   = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 2.dp)
+                                modifier   = Modifier.padding(start = 4.dp, top = 4.dp, bottom = 2.dp)
+                            )
+                        }
+                        items(groupSubGroups, key = { "sg_${it.groupId}" }) { subGroup ->
+                            HideGroupRow(
+                                group       = subGroup,
+                                isHidden    = groupSubGroupHiddenState[subGroup.groupId] == true,
+                                onOpen      = { onGroupOpen(subGroup) },
+                                onToggle    = { onGroupToggle(subGroup) },
+                                colors      = colors,
+                                previewCell = groupThumbnailContent
                             )
                         }
                     }
-                    items(groupFolders, key = { it.path.ifBlank { it.bucketId.toString() } }) { folder ->
-                        HideFolderRow(
-                            folder           = folder,
-                            isHidden         = folder.path in hiddenFolderPaths,
-                            onToggle         = { onFolderToggle(folder) },
-                            thumbnailContent = thumbnailContent,
-                            colors           = colors
-                        )
+                    if (groupFolders.isNotEmpty()) {
+                        if (groupSubGroups.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text       = "ALBUMS",
+                                    fontSize   = 11.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color      = colors.listSecondText,
+                                    modifier   = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 2.dp)
+                                )
+                            }
+                        }
+                        items(groupFolders, key = { it.path.ifBlank { it.bucketId.toString() } }) { folder ->
+                            HideFolderRow(
+                                folder           = folder,
+                                isHidden         = folder.path in hiddenFolderPaths,
+                                onToggle         = { onFolderToggle(folder) },
+                                thumbnailContent = thumbnailContent,
+                                colors           = colors
+                            )
+                        }
                     }
-                }
-                if (groupSubGroups.isEmpty() && groupFolders.isEmpty()) {
-                    item {
-                        Text(
-                            text     = "No albums in this group.",
-                            color    = colors.listSecondText,
-                            modifier = Modifier.padding(16.dp)
-                        )
+                    if (groupSubGroups.isEmpty() && groupFolders.isEmpty()) {
+                        item {
+                            Text(
+                                text     = "No albums in this group.",
+                                color    = colors.listSecondText,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                        }
                     }
-                }
-            } else {
-                // ── Root: groups first ──
-                if (groups.isNotEmpty()) {
-                    item {
-                        Text(
-                            text     = "GROUPS",
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color    = colors.listSecondText,
-                            modifier = Modifier.padding(start = 4.dp, top = 4.dp, bottom = 2.dp)
-                        )
+                } else {
+                    // ── Root: groups first ──
+                    if (groups.isNotEmpty()) {
+                        item {
+                            Text(
+                                text     = "GROUPS",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color    = colors.listSecondText,
+                                modifier = Modifier.padding(start = 4.dp, top = 4.dp, bottom = 2.dp)
+                            )
+                        }
+                        items(groups, key = { "g_${it.groupId}" }) { group ->
+                            HideGroupRow(
+                                group          = group,
+                                isHidden       = groupHiddenState[group.groupId] == true,
+                                onOpen         = { onGroupOpen(group) },
+                                onToggle       = { onGroupToggle(group) },
+                                colors         = colors,
+                                previewCell    = groupThumbnailContent
+                            )
+                        }
                     }
-                    items(groups, key = { "g_${it.groupId}" }) { group ->
-                        HideGroupRow(
-                            group          = group,
-                            isHidden       = groupHiddenState[group.groupId] == true,
-                            onOpen         = { onGroupOpen(group) },
-                            onToggle       = { onGroupToggle(group) },
-                            colors         = colors,
-                            previewCell    = groupThumbnailContent
-                        )
-                    }
-                }
 
-                // ── Root: ungrouped albums ──
-                if (ungroupedFolders.isNotEmpty()) {
-                    item {
-                        Text(
-                            text     = if (groups.isEmpty()) "ALBUMS" else "OTHER ALBUMS",
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color    = colors.listSecondText,
-                            modifier = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 2.dp)
-                        )
-                    }
-                    items(ungroupedFolders, key = { "f_${it.path.ifBlank { it.bucketId.toString() }}" }) { folder ->
-                        HideFolderRow(
-                            folder           = folder,
-                            isHidden         = folder.path in hiddenFolderPaths,
-                            onToggle         = { onFolderToggle(folder) },
-                            thumbnailContent = thumbnailContent,
-                            colors           = colors
-                        )
+                    // ── Root: ungrouped albums ──
+                    if (ungroupedFolders.isNotEmpty()) {
+                        item {
+                            Text(
+                                text     = if (groups.isEmpty()) "ALBUMS" else "OTHER ALBUMS",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color    = colors.listSecondText,
+                                modifier = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 2.dp)
+                            )
+                        }
+                        items(ungroupedFolders, key = { "f_${it.path.ifBlank { it.bucketId.toString() }}" }) { folder ->
+                            HideFolderRow(
+                                folder           = folder,
+                                isHidden         = folder.path in hiddenFolderPaths,
+                                onToggle         = { onFolderToggle(folder) },
+                                thumbnailContent = thumbnailContent,
+                                colors           = colors
+                            )
+                        }
                     }
                 }
             }
+            val estimatedCount =
+                if (currentGroupId != null) groupSubGroups.size + groupFolders.size + 2
+                else groups.size + ungroupedFolders.size + 2
+            FastScrollerForList(
+                state = lazyListState,
+                itemCount = estimatedCount,
+                sectionLabel = { index ->
+                    if (currentGroupId != null) {
+                        val groupBoundary = groupSubGroups.size
+                        when {
+                            index < groupBoundary -> groupSubGroups.getOrNull(index)?.name ?: ""
+                            else -> groupFolders.getOrNull((index - groupBoundary).coerceAtLeast(0))?.name ?: ""
+                        }
+                    } else {
+                        val groupBoundary = groups.size
+                        when {
+                            index < groupBoundary -> groups.getOrNull(index)?.name ?: ""
+                            else -> ungroupedFolders.getOrNull((index - groupBoundary).coerceAtLeast(0))?.name ?: ""
+                        }
+                    }
+                }
+            )
         }
     }
 }
@@ -422,6 +450,4 @@ private fun HideFolderRow(
         }
     }
 }
-
-
 

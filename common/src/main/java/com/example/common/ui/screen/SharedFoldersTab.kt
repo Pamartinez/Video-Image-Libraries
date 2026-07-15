@@ -36,6 +36,8 @@ import androidx.compose.ui.zIndex
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
+import com.example.common.ui.components.FastScrollerForGrid
+import com.example.common.ui.components.FastScrollerForList
 import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.util.dragToReorderGrid
 import com.example.common.ui.util.dragToReorderList
@@ -214,63 +216,78 @@ fun <ViewTypeEnum, SortOptionEnum> SharedFoldersTab(
                 minDragIndex = 1
             )
 
-            LazyColumn(
-                state = lazyListState,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .then(if (canDrag) Modifier.dragToReorderList(dragDropListState) else Modifier),
-                contentPadding = PaddingValues(vertical = 0.dp),
-                userScrollEnabled = !(canDrag && dragDropListState.isDragging)
-            ) {
-                item(key = "header_all_albums") {
-                    Text(
-                        text = "All albums",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = colors.listFirstText,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp)
-                    )
-                }
-                itemsIndexed(resolvedItems, key = { _, item -> item.uniqueKey }) { index, item ->
-                    val isDragging = canDrag && dragDropListState.draggedIndex == index + 1
-                    val anyDragActive = canDrag && dragDropListState.isDragging
-                    val dimModifier = if (anyDragActive && !isDragging)
-                        Modifier.graphicsLayer { alpha = 0.65f }
-                    else Modifier
+            Box(modifier = Modifier.fillMaxSize()) {
+                LazyColumn(
+                    state = lazyListState,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .then(if (canDrag) Modifier.dragToReorderList(dragDropListState) else Modifier),
+                    contentPadding = PaddingValues(vertical = 0.dp),
+                    userScrollEnabled = !(canDrag && dragDropListState.isDragging)
+                ) {
+                    item(key = "header_all_albums") {
+                        Text(
+                            text = "All albums",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = colors.listFirstText,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 8.dp)
+                        )
+                    }
+                    itemsIndexed(resolvedItems, key = { _, item -> item.uniqueKey }) { index, item ->
+                        val isDragging = canDrag && dragDropListState.draggedIndex == index + 1
+                        val anyDragActive = canDrag && dragDropListState.isDragging
+                        val dimModifier = if (anyDragActive && !isDragging)
+                            Modifier.graphicsLayer { alpha = 0.65f }
+                        else Modifier
 
-                    when (item) {
-                        is MixedItem.Folder -> {
-                            val effectiveSelected = if (isGroupCreationMode)
-                                groupCreationSelectedFolderIds.contains(item.folder.bucketId)
-                            else selectedFolderIds.contains(item.folder.bucketId)
+                        when (item) {
+                            is MixedItem.Folder -> {
+                                val effectiveSelected = if (isGroupCreationMode)
+                                    groupCreationSelectedFolderIds.contains(item.folder.bucketId)
+                                else selectedFolderIds.contains(item.folder.bucketId)
 
-                            folderListItem(
-                                item.folder,
-                                effectiveSelected,
-                                isSelectionMode || isGroupCreationMode,
-                                { if (!dragDropListState.consumeNextClick()) onFolderClick(item.folder) },
-                                if (canDrag) null else ({ onFolderLongClick(item.folder) }),
-                                isDragging,
-                                if (isDragging) dragDropListState.draggedOffset else Offset.Zero
-                            )
-                        }
-                        is MixedItem.Group -> {
-                            val effectiveSelected = if (isGroupCreationMode)
-                                groupCreationSelectedGroupIds.contains(item.group.groupId)
-                            else selectedGroupIds.contains(item.group.groupId)
+                                folderListItem(
+                                    item.folder,
+                                    effectiveSelected,
+                                    isSelectionMode || isGroupCreationMode,
+                                    { if (!dragDropListState.consumeNextClick()) onFolderClick(item.folder) },
+                                    if (canDrag) null else ({ onFolderLongClick(item.folder) }),
+                                    isDragging,
+                                    if (isDragging) dragDropListState.draggedOffset else Offset.Zero
+                                )
+                            }
+                            is MixedItem.Group -> {
+                                val effectiveSelected = if (isGroupCreationMode)
+                                    groupCreationSelectedGroupIds.contains(item.group.groupId)
+                                else selectedGroupIds.contains(item.group.groupId)
 
-                            groupListItem(
-                                item.group,
-                                effectiveSelected,
-                                isSelectionMode, // NOT group creation mode - groups shouldn't show checkboxes during creation
-                                { if (!dragDropListState.consumeNextClick()) onGroupClick(item.group) },
-                                if (canDrag) null else ({ onGroupLongClick(item.group) })
-                            )
+                                groupListItem(
+                                    item.group,
+                                    effectiveSelected,
+                                    isSelectionMode, // NOT group creation mode - groups shouldn't show checkboxes during creation
+                                    { if (!dragDropListState.consumeNextClick()) onGroupClick(item.group) },
+                                    if (canDrag) null else ({ onGroupLongClick(item.group) })
+                                )
+                            }
                         }
                     }
                 }
+                FastScrollerForList(
+                    state = lazyListState,
+                    itemCount = resolvedItems.size + 1,
+                    blockedByOtherGesture = canDrag && dragDropListState.isDragging,
+                    sectionLabel = { index ->
+                        if (index <= 0) "All albums"
+                        else when (val item = resolvedItems.getOrNull(index - 1)) {
+                            is MixedItem.Folder -> item.folder.name
+                            is MixedItem.Group -> item.group.name
+                            null -> ""
+                        }
+                    }
+                )
             }
         }
     } else {
@@ -374,6 +391,23 @@ fun <ViewTypeEnum, SortOptionEnum> SharedFoldersTab(
                     }
                 }
             }
+
+            FastScrollerForGrid(
+                state = lazyGridState,
+                itemCount = resolvedItems.size + if (showHeaderRow) 1 else 0,
+                blockedByOtherGesture = canDrag && dragDropGridState.isDragging,
+                sectionLabel = { index ->
+                    if (showHeaderRow && index == 0) "All albums"
+                    else {
+                        val dataIndex = if (showHeaderRow) index - 1 else index
+                        when (val item = resolvedItems.getOrNull(dataIndex)) {
+                            is MixedItem.Folder -> item.folder.name
+                            is MixedItem.Group -> item.group.name
+                            null -> ""
+                        }
+                    }
+                }
+            )
 
             // ── Floating drag overlay ──
             if (canDrag && dragDropGridState.isDragging) {

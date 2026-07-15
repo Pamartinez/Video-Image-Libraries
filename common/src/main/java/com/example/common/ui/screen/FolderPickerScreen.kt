@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -32,6 +33,7 @@ import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
 import com.example.common.data.model.MixedItem
 import com.example.common.ui.components.GridItemOverlay
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.theme.LocalLibraryColors
 import java.io.File
 
@@ -89,6 +91,7 @@ fun FolderPickerScreen(
 ) {
     val colors = LocalLibraryColors.current
     var showCreateDialog by remember { mutableStateOf(false) }
+    val lazyGridState = rememberLazyGridState()
 
     // ── Selection state ──
     var isSelectionMode by remember { mutableStateOf(false) }
@@ -374,41 +377,57 @@ fun FolderPickerScreen(
                 }
             }
         } else {
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(3),
+            Box(
                 modifier = Modifier
                     .weight(1f)
-                    .fillMaxWidth(),
-                contentPadding = PaddingValues(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+                    .fillMaxWidth()
             ) {
-                items(displayItems, key = { it.uniqueKey }) { item ->
-                    when (item) {
-                        is MixedItem.Folder -> {
-                            val folder = item.folder
-                            val isSelected = selectedIds.contains(folder.bucketId)
-                            FolderPickerGridItem(
-                                folder = folder,
-                                isSelected = isSelected,
-                                isSelectionMode = isSelectionMode,
-                                thumbnailContent = thumbnailContent,
-                                onClick = {
-                                    if (isSelectionMode) toggleSelection(folder.bucketId)
-                                    else onFolderSelected(folder.path)
-                                },
-                                onLongClick = { toggleSelection(folder.bucketId) }
-                            )
-                        }
-                        is MixedItem.Group -> {
-                            groupItemContent(
-                                item.group,
-                                { browseStack = browseStack + (item.group.groupId to item.group.name) },
-                                { browseStack = browseStack + (item.group.groupId to item.group.name) }
-                            )
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(3),
+                    state = lazyGridState,
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(displayItems, key = { it.uniqueKey }) { item ->
+                        when (item) {
+                            is MixedItem.Folder -> {
+                                val folder = item.folder
+                                val isSelected = selectedIds.contains(folder.bucketId)
+                                FolderPickerGridItem(
+                                    folder = folder,
+                                    isSelected = isSelected,
+                                    isSelectionMode = isSelectionMode,
+                                    thumbnailContent = thumbnailContent,
+                                    onClick = {
+                                        if (isSelectionMode) toggleSelection(folder.bucketId)
+                                        else onFolderSelected(folder.path)
+                                    },
+                                    onLongClick = { toggleSelection(folder.bucketId) }
+                                )
+                            }
+                            is MixedItem.Group -> {
+                                groupItemContent(
+                                    item.group,
+                                    { browseStack = browseStack + (item.group.groupId to item.group.name) },
+                                    { browseStack = browseStack + (item.group.groupId to item.group.name) }
+                                )
+                            }
                         }
                     }
                 }
+                FastScrollerForGrid(
+                    state = lazyGridState,
+                    itemCount = displayItems.size,
+                    sectionLabel = { index ->
+                        when (val item = displayItems.getOrNull(index)) {
+                            is MixedItem.Folder -> item.folder.name
+                            is MixedItem.Group -> item.group.name
+                            null -> ""
+                        }
+                    }
+                )
             }
         }
 
@@ -518,7 +537,6 @@ private fun FolderPickerGridItem(
         )
     }
 }
-
 
 
 

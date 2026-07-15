@@ -40,6 +40,7 @@ import com.example.common.ui.components.AppMenuItem
 import com.example.common.ui.components.AppMoreMenuButton
 import com.example.common.ui.components.BottomActionBar
 import com.example.common.ui.components.CircularBackButton
+import com.example.common.ui.components.FastScrollerForGrid
 import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.util.dragToReorderGrid
@@ -459,6 +460,23 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                             }
                         }
                     }
+
+                    FastScrollerForGrid(
+                        state = lazyGridState,
+                        itemCount = mixedItems.size + if (hasHeaderRow) 1 else 0,
+                        blockedByOtherGesture = canDrag && dragDropState.isDragging,
+                        sectionLabel = { index ->
+                            if (hasHeaderRow && index == 0) groupName
+                            else {
+                                val dataIndex = if (hasHeaderRow) index - 1 else index
+                                when (val item = mixedItems.getOrNull(dataIndex)) {
+                                    is MixedItem.Folder -> item.folder.name
+                                    is MixedItem.Group -> item.group.name
+                                    null -> ""
+                                }
+                            }
+                        }
+                    )
 
                     // ── Floating drag overlay ──
                     if (canDrag && dragDropState.isDragging) {

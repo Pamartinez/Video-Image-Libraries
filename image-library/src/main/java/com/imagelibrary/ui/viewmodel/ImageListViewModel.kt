@@ -677,8 +677,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun toggleConflictApplyToAll() {
         _fileConflict.value?.let { conflict ->
-            conflict.applyToAll = !conflict.applyToAll
-            _fileConflict.value = conflict.copy(applyToAll = conflict.applyToAll)
+            _fileConflict.value = conflict.copy(applyToAll = !conflict.applyToAll)
         }
     }
 
@@ -2518,7 +2517,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         }
         viewModelScope.launch {
             val images = repository.getImages(_uiState.value.imageSortOption, bucketId = bucketId)
-            _uiState.update { it.copy(albumCreationBrowsedImages = images) }
+            // Apply custom order if it exists for this folder
+            val customOrder = preferences.getFolderMediaCustomOrder(bucketId)
+            val sortedImages = if (customOrder.isNotEmpty()) {
+                images.sortedBy { img -> customOrder.indexOf(img.id).takeIf { it >= 0 } ?: Int.MAX_VALUE }
+            } else {
+                images
+            }
+            _uiState.update { it.copy(albumCreationBrowsedImages = sortedImages) }
         }
     }
 
@@ -2603,8 +2609,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     repository.copyImages(
                         images,
                         path,
-                        onProgress = { cur, tot ->
-                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
+                        onProgress = { cur, _ ->
+                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur)
                         },
                         isCancelled = { copyMoveCancelled },
                         onConflict = { fileName -> askConflictResolution(fileName) }
@@ -2613,8 +2619,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
                     repository.moveImages(
                         images,
                         path,
-                        onProgress = { cur, tot ->
-                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur, total = tot)
+                        onProgress = { cur, _ ->
+                            _copyMoveProgress.value = _copyMoveProgress.value.copy(current = cur)
                         },
                         isCancelled = { copyMoveCancelled },
                         onConflict = { fileName -> askConflictResolution(fileName) }

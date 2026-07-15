@@ -254,8 +254,8 @@ class AppPreferences(context: Context) : SharedAppPreferences(
             map[bucketId] = imageIds.joinToString(";")
         }
 
-        // Keep only last 50 albums to prevent excessive storage
-        val entries = map.entries.toList().takeLast(50)
+        // Keep last 500 albums to prevent data loss (increased from 50)
+        val entries = map.entries.toList().takeLast(500)
         prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
             entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
     }

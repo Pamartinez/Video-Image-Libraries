@@ -287,8 +287,8 @@ class AppPreferences(context: Context) : SharedAppPreferences(
             map[bucketId] = videoIds.joinToString(";")
         }
 
-        // Keep only last 50 folders to prevent excessive storage
-        val entries = map.entries.toList().takeLast(50)
+        // Keep only last 500 folders to prevent data loss (increased from 50)
+        val entries = map.entries.toList().takeLast(500)
         prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
             entries.joinToString(",") { e -> "${e.key}:${e.value}" }).apply()
     }
@@ -318,7 +318,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
      * Used by BackupManager to import per-folder custom order settings.
      */
     fun restoreAllFolderMediaCustomOrders(orders: Map<Int, List<Long>>) {
-        val entries = orders.entries.toList().takeLast(50)
+        val entries = orders.entries.toList().takeLast(500)
         prefs.edit().putString(KEY_FOLDER_MEDIA_CUSTOM_ORDERS,
             entries.joinToString(",") { "${it.key}:${it.value.joinToString(";")}" }).apply()
     }
