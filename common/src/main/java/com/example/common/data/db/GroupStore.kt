@@ -152,9 +152,7 @@ class GroupStore(context: Context) {
     }
 
     fun getBucketIdsForGroup(groupId: Long): List<Int> {
-        val result = loadMembers().filter { it.groupId == groupId }.map { it.folderBucketId }
-        android.util.Log.d("HideDebug", "GroupStore.getBucketIdsForGroup($groupId) = $result")
-        return result
+        return loadMembers().filter { it.groupId == groupId }.map { it.folderBucketId }
     }
 
     fun deleteAllMembersOfGroup(groupId: Long) {

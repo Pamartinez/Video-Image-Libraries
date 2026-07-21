@@ -34,7 +34,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 private const val FAST_SCROLL_MIN_ITEMS = 5
-private const val HIDE_DELAY_MS = 3000L  // 3 seconds before auto-hide
+private const val HIDE_DELAY_MS = 6000L  // 6 seconds before auto-hide
 
 @Composable
 fun FastScrollerForGrid(
@@ -105,27 +105,28 @@ private fun FastScrollerOverlay(
     
     val thumbAlpha = if (isVisible) 1f else 0f
 
-    // Show scroller when dragging or scrolling, hide after delay
+    // Show scroller when dragging or scrolling, hide after HIDE_DELAY_MS of no scrolling.
+    // The effect restarts whenever `currentIndex` changes, cancelling the previous delay so
+    // the bar only hides once scrolling has been idle for the full delay.
     LaunchedEffect(dragging, currentIndex) {
         if (dragging) {
             // Always visible while dragging
             isVisible = true
             lastScrollTime = System.currentTimeMillis()
-        } else if (currentIndex != prevCurrentIndex) {
-            // Scrolling detected (currentIndex changed)
-            isVisible = true
-            lastScrollTime = System.currentTimeMillis()
-            prevCurrentIndex = currentIndex
-            
-            // Schedule hide after delay
-            scrollCoroutine.launch {
+        } else {
+            if (currentIndex != prevCurrentIndex) {
+                // Scrolling detected (currentIndex changed)
+                isVisible = true
+                lastScrollTime = System.currentTimeMillis()
+                prevCurrentIndex = currentIndex
+            }
+
+            targetIndex = currentIndex.coerceIn(0, (itemCount - 1).coerceAtLeast(0))
+
+            if (isVisible) {
                 delay(HIDE_DELAY_MS)
                 isVisible = false
             }
-        }
-
-        if (!dragging) {
-            targetIndex = currentIndex.coerceIn(0, (itemCount - 1).coerceAtLeast(0))
         }
     }
 

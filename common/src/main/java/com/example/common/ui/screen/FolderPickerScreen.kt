@@ -104,12 +104,6 @@ fun FolderPickerScreen(
             // If we have pre-calculated ordered items for this group, use them directly
             val preCalculated = groupOrderedItems[currentBrowseGroupId]
             if (preCalculated != null) {
-                android.util.Log.d("FolderPicker", "═══ Using PRE-CALCULATED items for group $currentBrowseGroupId ═══")
-                android.util.Log.d("FolderPicker", "  Items: ${preCalculated.map { when(it) { 
-                    is FolderItem -> "F:${it.name}"
-                    is GroupItem -> "G:${it.name}"
-                    else -> it.toString()
-                }}}")
                 preCalculated.mapNotNull { item ->
                     when (item) {
                         is FolderItem -> MixedItem.Folder(item)
@@ -120,22 +114,16 @@ fun FolderPickerScreen(
             } else {
                 // Fallback: calculate from memberBucketIds (old behavior)
                 val browsedGroup = groups.find { it.groupId == currentBrowseGroupId }
-                android.util.Log.d("FolderPicker", "═══ CALCULATING items for group ${browsedGroup?.name} (ID: $currentBrowseGroupId) ═══")
-                android.util.Log.d("FolderPicker", "  memberBucketIds: ${browsedGroup?.memberBucketIds}")
-                
+
                 val memberFolders = (browsedGroup?.memberBucketIds ?: emptyList())
                     .mapNotNull { bid -> folders.find { it.bucketId == bid } }
-                android.util.Log.d("FolderPicker", "  memberFolders found: ${memberFolders.map { "${it.name}(${it.bucketId})" }}")
-                android.util.Log.d("FolderPicker", "  Total folders available: ${folders.size} -> ${folders.map { "${it.name}(${it.bucketId})" }}")
-                
+
                 val subGroups = groups.filter { it.parentGroupId == currentBrowseGroupId }
 
                 // Get the group's sort option (from groupSortOptions map)
                 val groupSortId = groupSortOptions[currentBrowseGroupId] ?: 0 // 0 = CUSTOM_ORDER
-                android.util.Log.d("FolderPicker", "  groupSortId: $groupSortId (0=CUSTOM)")
-                
+
                 val customOrder = groupCustomOrders[currentBrowseGroupId]
-                android.util.Log.d("FolderPicker", "  customOrder: $customOrder")
 
                 when (groupSortId) {
                 0 -> {  // CUSTOM_ORDER

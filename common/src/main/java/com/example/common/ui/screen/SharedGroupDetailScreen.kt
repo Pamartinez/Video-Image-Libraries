@@ -75,6 +75,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
     onCycleViewType: () -> Unit,
     onAddFolder: () -> Unit,
     onRenameGroup: () -> Unit,
+    onRename: () -> Unit = {},
     onHideAlbums: () -> Unit,
     onDestroyGroup: () -> Unit,
     onSortOptionSelected: (SortOptionEnum) -> Unit,
@@ -621,7 +622,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
             showOpenLocation = totalSelected == 1 && selectedGroupIds.isEmpty(),
             onOpenLocation = onOpenLocation,
             showRename = totalSelected == 1 && selectedGroupIds.isEmpty(),
-            onRename = { /* Album rename handled in parent screen */ },
+            onRename = onRename,
             showRenameGroup = totalSelected == 1 && hasGroupsSelected,
             onRenameGroup = onRenameGroup,
             modifier = Modifier.align(Alignment.BottomCenter)

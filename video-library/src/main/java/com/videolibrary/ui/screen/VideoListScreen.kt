@@ -304,6 +304,7 @@ fun VideoListScreen(
             onCycleViewType      = { viewModel.cycleFolderViewType() },
             onAddFolder          = { viewModel.showAddFolderToGroup() },
             onRenameGroup        = { viewModel.showRenameGroupDialog() },
+            onRename             = { viewModel.showRenameAlbumDialog() },
             onHideAlbums         = { viewModel.showHideFoldersScreenForCurrentGroup() },
             onDestroyGroup       = { viewModel.showDestroyGroupDialog() },
             onSortOptionSelected = { viewModel.setCurrentGroupSortOption(it) },
@@ -545,17 +546,21 @@ fun VideoListScreen(
                 onDismiss = { viewModel.dismissCreateAlbumDialog() }
             )
         }
+        if (state.showRenameAlbumDialog && state.renameAlbumTarget != null) {
+            AlbumRenameDialog(
+                currentName = state.renameAlbumTarget!!.name,
+                existingNames = state.dcimFolderNames,
+                onRename = { viewModel.renameSelectedAlbum(it) },
+                onDismiss = { viewModel.dismissRenameAlbumDialog() }
+            )
+        }
         return
     }
 
     // ── Folder detail screen ─────────────────────────────────────────────────
     if (state.currentFolderBucketId != null) {
         val isCustomSort = state.currentFolderSortOption == VideoSortOption.CUSTOM_ORDER
-        android.util.Log.d("DragReorder", "Folder detail screen params:")
-        android.util.Log.d("DragReorder", "  allowMediaReordering=${state.allowMediaReordering}")
-        android.util.Log.d("DragReorder", "  isCustomSortMode=$isCustomSort (currentFolderSortOption=${state.currentFolderSortOption})")
-        android.util.Log.d("DragReorder", "  folderVideos.size=${state.folderVideos.size}")
-        
+
         FolderDetailScreen(
             folderName      = state.currentFolderName,
             videos          = state.folderVideos,

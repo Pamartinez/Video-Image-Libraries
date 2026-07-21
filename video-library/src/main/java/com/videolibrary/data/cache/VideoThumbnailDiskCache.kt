@@ -67,7 +67,7 @@ class VideoThumbnailDiskCache(context: Context) {
      * Including dateModified ensures cache invalidation when video is edited.
      */
     private fun getCacheKey(uri: Uri, dateModified: Long): String {
-        val keyString = "${uri}_${dateModified}"
+        val keyString = "${uri}_${dateModified}_v3"
         return Crc64.hashToHex(keyString)
     }
 
@@ -203,8 +203,6 @@ class VideoThumbnailDiskCache(context: Context) {
             val targetSize = (MAX_CACHE_SIZE_BYTES * TRIM_TO_PERCENT).toLong()
 
             var currentSize = totalSize
-            var deletedCount = 0
-            var deletedBytes = 0L
 
             // Delete oldest files until under target
             for (file in sortedFiles) {
@@ -215,15 +213,8 @@ class VideoThumbnailDiskCache(context: Context) {
                 val fileSize = file.length()
                 if (file.delete()) {
                     currentSize -= fileSize
-                    deletedBytes += fileSize
-                    deletedCount++
                 }
             }
-
-            Log.i("VideoThumbnailDiskCache",
-                "Trimmed cache: deleted $deletedCount files (${deletedBytes / 1024 / 1024}MB), " +
-                "size: ${totalSize / 1024 / 1024}MB → ${currentSize / 1024 / 1024}MB"
-            )
         }
     }
 
@@ -251,7 +242,6 @@ class VideoThumbnailDiskCache(context: Context) {
                     file.delete()
                 }
             }
-            Log.i("VideoThumbnailDiskCache", "Cache cleared")
         }
     }
 

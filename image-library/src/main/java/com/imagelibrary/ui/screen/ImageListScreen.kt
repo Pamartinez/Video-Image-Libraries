@@ -586,6 +586,7 @@ fun ImageListScreen(
             onCreateAlbum = { viewModel.showCreateAlbumDialog() },
             onAddFolder = { viewModel.showAddFolderToGroup() },
             onRenameGroup = { viewModel.showRenameGroupDialog() },
+            onRename = { viewModel.showRenameAlbumDialog() },
             onHideAlbums  = { viewModel.showHideFoldersScreenForCurrentGroup() },
             onDestroyGroup = { viewModel.showDestroyGroupDialog() },
             onViewAs = { viewModel.showViewAsDialog() },
@@ -652,6 +653,14 @@ fun ImageListScreen(
                 currentViewType = state.viewType,
                 onViewTypeSelected = { viewModel.setViewType(it) },
                 onDismiss = { viewModel.dismissViewAsDialog() }
+            )
+        }
+        if (state.showRenameAlbumDialog && state.renameAlbumTarget != null) {
+            AlbumRenameDialog(
+                currentName = state.renameAlbumTarget!!.name,
+                existingNames = state.dcimFolderNames,
+                onRename = { viewModel.renameSelectedAlbum(it) },
+                onDismiss = { viewModel.dismissRenameAlbumDialog() }
             )
         }
         return

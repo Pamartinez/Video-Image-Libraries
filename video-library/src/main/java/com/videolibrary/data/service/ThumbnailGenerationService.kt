@@ -3,10 +3,10 @@ package com.videolibrary.data.service
 import android.content.Context
 import android.net.Uri
 import com.videolibrary.data.cache.VideoThumbnailCache
+import com.videolibrary.data.util.VideoThumbnailExtractor
 import com.videolibrary.data.util.FileLogger as Log
 import kotlinx.coroutines.*
 import java.util.concurrent.atomic.AtomicBoolean
-import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Background thumbnail generation service.
@@ -66,14 +66,11 @@ class ThumbnailGenerationService(private val context: Context) {
 
         currentJob = scope.launch {
             isRunning.set(true)
-            val processed = AtomicInteger(0)
-            val total = videoUris.size
 
             try {
                 val cache = try {
                     VideoThumbnailCache.getInstance()
                 } catch (e: IllegalStateException) {
-                    Log.w("ThumbnailGenerationService", "Cache not initialized, skipping preload")
                     return@launch
                 }
 
@@ -83,13 +80,8 @@ class ThumbnailGenerationService(private val context: Context) {
                 }
 
                 if (uncachedVideos.isEmpty()) {
-                    Log.i("ThumbnailGenerationService", "All $total thumbnails already cached")
                     return@launch
                 }
-
-                Log.i("ThumbnailGenerationService",
-                    "Starting preload: ${uncachedVideos.size}/$total need generation"
-                )
 
                 // Process queue with limited concurrency (Samsung's pattern)
                 uncachedVideos.chunked(MAX_CONCURRENCY).forEach { batch ->
@@ -110,14 +102,6 @@ class ThumbnailGenerationService(private val context: Context) {
                                 // Save to cache
                                 if (thumbnail != null) {
                                     cache.put(uri, dateModified, thumbnail)
-                                    val count = processed.incrementAndGet()
-
-                                    // Log progress every 10 thumbnails
-                                    if (count % 10 == 0) {
-                                        Log.i("ThumbnailGenerationService",
-                                            "Progress: $count/${uncachedVideos.size} generated"
-                                        )
-                                    }
                                 }
                             } catch (e: Exception) {
                                 Log.w("ThumbnailGenerationService", "Failed to generate thumbnail: ${e.message}")
@@ -125,10 +109,6 @@ class ThumbnailGenerationService(private val context: Context) {
                         }
                     }.awaitAll()
                 }
-
-                Log.i("ThumbnailGenerationService",
-                    "Preload complete: ${processed.get()}/${uncachedVideos.size} generated successfully"
-                )
 
             } finally {
                 isRunning.set(false)
@@ -150,85 +130,9 @@ class ThumbnailGenerationService(private val context: Context) {
     fun isGenerating(): Boolean = isRunning.get()
 
     /**
-     * Extracts a thumbnail using the same brightness-aware algorithm.
-     * (Copied from VideoThumbnail.kt to avoid UI dependencies)
+     * Extracts a thumbnail using the same Samsung-style embedded art / frame sampler.
      */
     private fun extractThumbnailForService(context: Context, uri: Uri): android.graphics.Bitmap? {
-        val retriever = android.media.MediaMetadataRetriever()
-        var bestFrame: android.graphics.Bitmap? = null
-        var bestBrightness = 0f
-
-        try {
-            retriever.setDataSource(context, uri)
-
-            val durationMs = retriever.extractMetadata(
-                android.media.MediaMetadataRetriever.METADATA_KEY_DURATION
-            )?.toLongOrNull() ?: return null
-
-            // Seek through video looking for brightest frame
-            for (sec in 1..10) { // MAX_SEEK_SEC = 10
-                val timeUs = sec * 1_000_000L
-                if (timeUs > durationMs * 1_000L) break
-
-                val frame = retriever.getFrameAtTime(
-                    timeUs, android.media.MediaMetadataRetriever.OPTION_CLOSEST_SYNC
-                ) ?: continue
-
-                val brightness = calculateBrightness(frame)
-
-                if (brightness > bestBrightness) {
-                    bestFrame?.recycle()
-                    bestFrame = frame
-                    bestBrightness = brightness
-                } else {
-                    frame.recycle()
-                }
-
-                if (bestBrightness >= 28f) break // BRIGHTNESS_THRESHOLD = 28f
-            }
-        } catch (_: Exception) {
-            // return whatever we have
-        } finally {
-            try {
-                retriever.close()
-            } catch (_: Exception) {
-                try { @Suppress("DEPRECATION") retriever.release() } catch (_: Exception) {}
-            }
-        }
-
-        return bestFrame
-    }
-
-    /**
-     * Calculates average brightness of a bitmap (ITU-R BT.601 luminance).
-     * Samples 8×8 grid for speed.
-     */
-    private fun calculateBrightness(bitmap: android.graphics.Bitmap): Float {
-        val w = bitmap.width
-        val h = bitmap.height
-        if (w == 0 || h == 0) return 0f
-
-        val stepX = (w / 8).coerceAtLeast(1)
-        val stepY = (h / 8).coerceAtLeast(1)
-        var sum = 0f
-        var count = 0
-
-        var y = 0
-        while (y < h) {
-            var x = 0
-            while (x < w) {
-                val pixel = bitmap.getPixel(x, y)
-                val r = (pixel shr 16) and 0xFF
-                val g = (pixel shr 8) and 0xFF
-                val b = pixel and 0xFF
-                sum += 0.299f * r + 0.587f * g + 0.114f * b
-                count++
-                x += stepX
-            }
-            y += stepY
-        }
-
-        return if (count > 0) sum / count else 0f
+        return VideoThumbnailExtractor.extract(context, uri)
     }
 }
-

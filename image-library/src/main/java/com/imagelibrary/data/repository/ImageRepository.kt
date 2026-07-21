@@ -446,13 +446,11 @@ class ImageRepository(private val context: Context) {
             }
 
             if (folderPath == null) {
-                Log.e("ImageRepository", "Could not find folder path for bucket $bucketId")
                 return@withContext false
             }
 
             val oldFolder = File(folderPath!!)
             if (!oldFolder.exists() || !oldFolder.isDirectory) {
-                Log.e("ImageRepository", "Folder does not exist: $folderPath")
                 return@withContext false
             }
 
@@ -460,7 +458,6 @@ class ImageRepository(private val context: Context) {
             val newFolder = File(parentDir, cleanName)
 
             if (newFolder.exists()) {
-                Log.e("ImageRepository", "Target folder already exists: ${newFolder.absolutePath}")
                 return@withContext false
             }
 
@@ -469,9 +466,6 @@ class ImageRepository(private val context: Context) {
             if (renamed) {
                 // Trigger MediaStore scan for the new folder to update BUCKET_DISPLAY_NAME
                 MediaFileUtils.scanFile(context, newFolder)
-                Log.d("ImageRepository", "Successfully renamed album from ${oldFolder.name} to ${newFolder.name}")
-            } else {
-                Log.e("ImageRepository", "Failed to rename folder: $folderPath")
             }
 
             renamed

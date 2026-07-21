@@ -115,15 +115,6 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
     val hasHeaderRow = floatingTopBarEnabled && !isSelectionMode
     val canDrag = allowMediaReordering && isCustomSortMode && !isSelectionMode
 
-    // Critical debug logging
-    android.util.Log.e("DragReorder", "═══ SharedFolderDetailScreen Render ═══")
-    android.util.Log.e("DragReorder", "allowMediaReordering = $allowMediaReordering")
-    android.util.Log.e("DragReorder", "isCustomSortMode = $isCustomSortMode")
-    android.util.Log.e("DragReorder", "isSelectionMode = $isSelectionMode")
-    android.util.Log.e("DragReorder", "canDrag = $canDrag")
-    android.util.Log.e("DragReorder", "items.size = ${items.size}")
-    android.util.Log.e("DragReorder", "═══════════════════════════════════════")
-
     val dragDropState = rememberDragDropGridState(
         lazyGridState = lazyGridState,
         onMove = { from, to ->

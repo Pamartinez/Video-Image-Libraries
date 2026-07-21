@@ -222,24 +222,20 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
      */
     fun reorderFolderMedia(fromIndex: Int, toIndex: Int) {
         val s = _uiState.value
-        android.util.Log.d("DragReorder", "reorderFolderMedia called: from=$fromIndex, to=$toIndex, bucketId=${s.currentFolderBucketId}, images=${s.folderImages.size}")
 
         if (s.currentFolderBucketId == null) {
-            android.util.Log.w("DragReorder", "No current folder open, ignoring reorder")
             return
         }
 
         val currentImages = s.folderImages.toMutableList()
 
         if (fromIndex !in currentImages.indices || toIndex !in currentImages.indices) {
-            android.util.Log.w("DragReorder", "Invalid indices: from=$fromIndex, to=$toIndex, size=${currentImages.size}")
             return
         }
 
         val item = currentImages.removeAt(fromIndex)
         currentImages.add(toIndex, item)
 
-        android.util.Log.i("DragReorder", "Reordered image: ${item.displayName} from $fromIndex to $toIndex")
         _uiState.update { it.copy(folderImages = currentImages) }
     }
 
@@ -512,31 +508,15 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun toggleGroupHidden(group: GroupItem) {
         viewModelScope.launch {
             val allFolders = _uiState.value.allFoldersForHide
-            
-            android.util.Log.d("HideDebug", "=== toggleGroupHidden START ===")
-            android.util.Log.d("HideDebug", "Group: '${group.name}' (ID ${group.groupId})")
-            android.util.Log.d("HideDebug", "Group.memberBucketIds from GroupItem = ${group.memberBucketIds}")
-            
-            android.util.Log.d("HideDebug", "allFoldersForHide (${allFolders.size} folders):")
-            allFolders.forEach { folder ->
-                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
-            }
-            
+
             // Get ALL descendant bucket IDs (including nested sub-groups)
             val allBucketIds = groupRepository.getAllDescendantBucketIds(group.groupId)
-            android.util.Log.d("HideDebug", "allBucketIds result = $allBucketIds")
-            
+
             val groupFolders = allFolders.filter { it.bucketId in allBucketIds }
-            android.util.Log.d("HideDebug", "Filtered groupFolders (${groupFolders.size} folders):")
-            groupFolders.forEach { folder ->
-                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
-            }
-            
+
             val paths = groupFolders.map { it.path }.filter { it.isNotBlank() }
-            android.util.Log.d("HideDebug", "Paths to hide (${paths.size}): $paths")
-            
+
             if (paths.isEmpty()) {
-                android.util.Log.d("HideDebug", "No paths found, returning")
                 return@launch
             }
             val currentHidden = _uiState.value.hiddenFolderPaths
@@ -1482,6 +1462,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         } else {
             val folder = state.selectedFolderIds.firstOrNull()?.let { id ->
                 state.folders.find { it.bucketId == id }
+                    ?: state.currentGroupFolders.find { it.bucketId == id }
             }
             return folder?.path
         }
@@ -1661,6 +1642,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         if (s.selectedFolderIds.size == 1) {
             val bucketId = s.selectedFolderIds.first()
             val folder = s.folders.find { it.bucketId == bucketId }
+                ?: s.currentGroupFolders.find { it.bucketId == bucketId }
             folder?.let {
                 _uiState.update { state ->
                     state.copy(showRenameAlbumDialog = true, renameAlbumTarget = folder)

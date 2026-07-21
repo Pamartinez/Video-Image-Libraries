@@ -59,6 +59,13 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("carouselAlwaysHideOverlay", prefs.carouselAlwaysHideOverlay)
             put("customAlbumOrder",       JSONArray(prefs.customAlbumOrder))
 
+            // Per-folder image sort options → JSONObject { "bucketId": sortOptionId }
+            val folderImageSortsObj = JSONObject()
+            prefs.getAllFolderImageSortOptions().forEach { (bucketId, sortId) ->
+                folderImageSortsObj.put(bucketId.toString(), sortId)
+            }
+            put("folderImageSortOptions", folderImageSortsObj)
+
             // Per-folder view types → JSONObject { "bucketId": viewTypeId }
             val folderViewTypesObj = JSONObject()
             prefs.getAllFolderViewTypes().forEach { (bucketId, viewTypeId) ->

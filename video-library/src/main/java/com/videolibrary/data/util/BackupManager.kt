@@ -64,6 +64,13 @@ object BackupManager : com.example.common.data.util.BackupManager(
             }
             put("folderVideoSortOptions", folderVideoSortsObj)
 
+            // Per-group video sort options → JSONObject { "groupId": sortOptionId }
+            val groupVideoSortsObj = JSONObject()
+            prefs.getAllGroupVideoSortOptions().forEach { (groupId, sortId) ->
+                groupVideoSortsObj.put(groupId.toString(), sortId)
+            }
+            put("groupVideoSortOptions", groupVideoSortsObj)
+
             // Per-folder view types → JSONObject { "bucketId": viewTypeId }
             val folderViewTypesObj = JSONObject()
             prefs.getAllFolderViewTypes().forEach { (bucketId, viewTypeId) ->

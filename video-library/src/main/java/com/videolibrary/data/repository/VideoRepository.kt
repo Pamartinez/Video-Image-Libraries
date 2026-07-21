@@ -453,13 +453,11 @@ class VideoRepository(private val context: Context) {
             }
 
             if (folderPath == null) {
-                Log.e("VideoRepository", "Could not find folder path for bucket $bucketId")
                 return@withContext false
             }
 
             val oldFolder = File(folderPath!!)
             if (!oldFolder.exists() || !oldFolder.isDirectory) {
-                Log.e("VideoRepository", "Folder does not exist: $folderPath")
                 return@withContext false
             }
 
@@ -467,7 +465,6 @@ class VideoRepository(private val context: Context) {
             val newFolder = File(parentDir, cleanName)
 
             if (newFolder.exists()) {
-                Log.e("VideoRepository", "Target folder already exists: ${newFolder.absolutePath}")
                 return@withContext false
             }
 
@@ -476,9 +473,6 @@ class VideoRepository(private val context: Context) {
             if (renamed) {
                 // Trigger MediaStore scan for the new folder to update BUCKET_DISPLAY_NAME
                 MediaFileUtils.scanFile(context, newFolder)
-                Log.d("VideoRepository", "Successfully renamed album from ${oldFolder.name} to ${newFolder.name}")
-            } else {
-                Log.e("VideoRepository", "Failed to rename folder: $folderPath")
             }
 
             renamed

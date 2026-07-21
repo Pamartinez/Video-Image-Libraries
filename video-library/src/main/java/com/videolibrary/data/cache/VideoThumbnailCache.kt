@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.net.Uri
 import android.util.LruCache
-import com.videolibrary.data.util.FileLogger as Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -109,7 +108,6 @@ class VideoThumbnailCache private constructor(
      * Creates a new memory cache with the specified size.
      */
     private fun createMemoryCache(sizeKB: Int): BitmapLruCache {
-        Log.i("VideoThumbnailCache", "Creating memory cache: ${sizeKB / 1024}MB")
         return BitmapLruCache(sizeKB)
     }
 
@@ -241,7 +239,7 @@ class VideoThumbnailCache private constructor(
      * Generates cache key from URI and modification date.
      */
     private fun getCacheKey(uri: Uri, dateModified: Long): String {
-        return "${uri}_${dateModified}"
+        return "${uri}_${dateModified}_v3"
     }
 
     // ── Memory Management (ComponentCallbacks2) ──────────────────────────
@@ -252,21 +250,18 @@ class VideoThumbnailCache private constructor(
             ComponentCallbacks2.TRIM_MEMORY_COMPLETE -> {
                 // Critical: reduce to 50MB and clear half of memory cache
                 resizeMemoryCache(MEMORY_CACHE_SIZE_CRITICAL)
-                Log.w("VideoThumbnailCache", "Memory CRITICAL - reduced to 50MB")
             }
 
             ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW,
             ComponentCallbacks2.TRIM_MEMORY_MODERATE -> {
                 // Low: reduce to 100MB
                 resizeMemoryCache(MEMORY_CACHE_SIZE_REDUCED)
-                Log.w("VideoThumbnailCache", "Memory LOW - reduced to 100MB")
             }
 
             ComponentCallbacks2.TRIM_MEMORY_BACKGROUND,
             ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN -> {
                 // Background: trim to current max (remove oldest entries)
                 memoryCache.trimToSize(memoryCache.maxSize() / 2)
-                Log.i("VideoThumbnailCache", "App backgrounded - trimmed cache")
             }
         }
     }
@@ -290,11 +285,6 @@ class VideoThumbnailCache private constructor(
         }
 
         memoryCache = newCache
-
-        Log.i("VideoThumbnailCache",
-            "Resized memory cache: ${oldCache.maxSize() / 1024}MB → ${newSizeKB / 1024}MB, " +
-            "migrated $migrateCount entries"
-        )
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

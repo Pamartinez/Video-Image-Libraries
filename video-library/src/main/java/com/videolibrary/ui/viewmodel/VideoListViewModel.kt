@@ -257,7 +257,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun onFolderMediaReorderDone() {
         val currentBucketId = _uiState.value.currentFolderBucketId ?: return
         val videoIds = _uiState.value.folderVideos.map { it.id }
-        Log.i("DragReorder", "Persisting order for bucket $currentBucketId: ${videoIds.size} videos")
         preferences.saveFolderMediaCustomOrder(currentBucketId, videoIds)
         scheduleAutoBackup()
 
@@ -500,31 +499,15 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun toggleGroupHidden(group: GroupItem) {
         viewModelScope.launch {
-            android.util.Log.d("HideDebug", "=== toggleGroupHidden START ===")
-            android.util.Log.d("HideDebug", "Group: '${group.name}' (ID ${group.groupId})")
-            android.util.Log.d("HideDebug", "Group.memberBucketIds from GroupItem = ${group.memberBucketIds}")
-            
-            android.util.Log.d("HideDebug", "allFoldersForHide (${_uiState.value.allFoldersForHide.size} folders):")
-            _uiState.value.allFoldersForHide.forEach { folder ->
-                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
-            }
-            
             // Get ALL descendant bucket IDs (including nested sub-groups)
             val allBucketIds = groupRepository.getAllDescendantBucketIds(group.groupId)
-            android.util.Log.d("HideDebug", "allBucketIds result = $allBucketIds")
-            
+
             val groupFolders = _uiState.value.allFoldersForHide
                 .filter { it.bucketId in allBucketIds }
-            android.util.Log.d("HideDebug", "Filtered groupFolders (${groupFolders.size} folders):")
-            groupFolders.forEach { folder ->
-                android.util.Log.d("HideDebug", "  - ${folder.name} (bucketId=${folder.bucketId}, path='${folder.path}')")
-            }
-            
+
             val paths = groupFolders.map { it.path }.filter { it.isNotBlank() }
-            android.util.Log.d("HideDebug", "Paths to hide (${paths.size}): $paths")
-            
+
             if (paths.isEmpty()) {
-                android.util.Log.d("HideDebug", "No paths found, returning")
                 return@launch
             }
             val currentHidden = _uiState.value.hiddenFolderPaths
@@ -691,7 +674,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             mediaObserverJob?.cancel()
             mediaObserverJob = viewModelScope.launch {
                 delay(500L)
-                Log.d("VideoVM", "MediaStore changed — silent refresh")
                 silentRefresh()
                 refreshCurrentFolderIfOpen()
             }
@@ -1726,12 +1708,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             val folderSort = getEffectiveFolderSortOption(bucketId)
             val customOrder = preferences.getFolderMediaCustomOrder(bucketId)
 
-            Log.d("DragReorder", "openFolder: bucketId=$bucketId, name=$name")
-            Log.d("DragReorder", "  allowMediaReordering=${s.allowMediaReordering}")
-            Log.d("DragReorder", "  folderSort=$folderSort")
-            Log.d("DragReorder", "  customOrder.size=${customOrder.size}")
-
-
             val videos = repository.getVideos(
                 videoSortOption = folderSort,
                 bucketId = bucketId,
@@ -1766,8 +1742,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 video.contentUri to video.dateModified
             }
             ThumbnailGenerationService.getInstance(getApplication()).preloadThumbnails(videoUrisWithTimestamp)
-
-            Log.i("VideoListViewModel", "Opened folder '$name' with ${videos.size} videos, started background thumbnail preload")
         }
     }
 
@@ -1920,6 +1894,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             // Folders tab — get the folder path directly
             val folder = state.selectedFolderIds.firstOrNull()?.let { id ->
                 state.folders.find { it.bucketId == id }
+                    ?: state.currentGroupFolders.find { it.bucketId == id }
             }
             return folder?.path
         }
@@ -2097,6 +2072,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (s.selectedFolderIds.size == 1) {
             val bucketId = s.selectedFolderIds.first()
             val folder = s.folders.find { it.bucketId == bucketId }
+                ?: s.currentGroupFolders.find { it.bucketId == bucketId }
             folder?.let {
                 _uiState.update { state ->
                     state.copy(showRenameAlbumDialog = true, renameAlbumTarget = folder)
