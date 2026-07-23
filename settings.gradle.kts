@@ -26,4 +26,5 @@ rootProject.name = "Video-Image-Libraries"
 include(":common")
 include(":video-library")
 include(":image-library")
+include(":gallery-transfer-library")
  

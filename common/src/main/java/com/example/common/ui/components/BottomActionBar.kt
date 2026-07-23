@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DriveFileMove
 import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.filled.CloudUpload
 import androidx.compose.material.icons.filled.CreateNewFolder
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
@@ -73,7 +74,10 @@ fun BottomActionBar(
     onRename: () -> Unit = {},
     showRename: Boolean = false,
     onRenameGroup: () -> Unit = {},
-    showRenameGroup: Boolean = false
+    showRenameGroup: Boolean = false,
+    onUpload: () -> Unit = {},
+    showUpload: Boolean = false,
+    showDelete: Boolean = true
 ) {
     // Hide instantly without animation
     if (visible && selectedCount > 0) {
@@ -101,6 +105,9 @@ fun BottomActionBar(
                 if ((showGroup && !showUngroup) || (showGroup && selectedCount > 1)) {
                     BottomBarItem(icon = Icons.Default.CreateNewFolder, label = "Group",   onClick = onGroup)
                 }
+                if (showUpload) {
+                    BottomBarItem(icon = Icons.Default.CloudUpload, label = "Upload", onClick = onUpload)
+                }
                 if (showAllActions) {
                     BottomBarItem(icon = Icons.Default.ContentCopy, label = "Copy",    onClick = onCopy)
                 }
@@ -110,7 +117,9 @@ fun BottomActionBar(
                 if (showShare) {
                     BottomBarItem(icon = Icons.Default.Share, label = "Share",   onClick = onShare)
                 }
-                BottomBarItem(icon = Icons.Default.Delete, label = "Delete", onClick = onDelete)
+                if (showDelete) {
+                    BottomBarItem(icon = Icons.Default.Delete, label = "Delete", onClick = onDelete)
+                }
 
                 // "More" button with submenu for Rename, Rename Group, Details & Open location
                 val hasMoreItems = showRename || showRenameGroup || (showAllActions && showDetails) || showOpenLocation

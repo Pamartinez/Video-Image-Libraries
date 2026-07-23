@@ -1268,16 +1268,30 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
     fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
+    /**
+     * Delete [imageIds]. When the app holds All-files access the items are permanently deleted
+     * silently (no system dialog) and the UI is updated immediately; otherwise the system
+     * "Move to trash?" dialog is shown via an [IntentSender].
+     */
+    private suspend fun requestTrash(imageIds: List<Long>, pending: PendingTrash) {
+        pendingTrash = pending
+        try {
+            if (repository.canDeleteSilently()) {
+                repository.deleteImagesSilently(imageIds)
+                onTrashConfirmed()
+            } else {
+                _trashRequest.emit(repository.trashImages(imageIds))
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("ImageListViewModel", "Failed to delete images", e)
+            pendingTrash = null
+        }
+    }
+
     /** Move a single image from the carousel overlay to the system trash. */
     fun deleteCarouselImage(imageId: Long) {
         viewModelScope.launch {
-            try {
-                val intentSender = repository.trashImages(listOf(imageId))
-                pendingTrash = PendingTrash.CarouselImage(imageId)
-                _trashRequest.emit(intentSender)
-            } catch (e: Exception) {
-                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
-            }
+            requestTrash(listOf(imageId), PendingTrash.CarouselImage(imageId))
         }
     }
 
@@ -1290,13 +1304,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         if (idsToDelete.isEmpty()) return
         _uiState.update { it.copy(isSelectionMode = false, selectedImageIds = emptySet()) }
         viewModelScope.launch {
-            try {
-                val intentSender = repository.trashImages(idsToDelete.toList())
-                pendingTrash = PendingTrash.SelectedImages(idsToDelete)
-                _trashRequest.emit(intentSender)
-            } catch (e: Exception) {
-                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
-            }
+            requestTrash(idsToDelete.toList(), PendingTrash.SelectedImages(idsToDelete))
         }
     }
 
@@ -1305,19 +1313,13 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         if (folderIds.isEmpty()) return
         _uiState.update { it.copy(isSelectionMode = false, selectedFolderIds = emptySet()) }
         viewModelScope.launch {
-            try {
-                val allImageIds = mutableListOf<Long>()
-                for (folderId in folderIds) {
-                    val images = repository.getImages(bucketId = folderId)
-                    allImageIds.addAll(images.map { it.id })
-                }
-                if (allImageIds.isEmpty()) return@launch
-                val intentSender = repository.trashImages(allImageIds)
-                pendingTrash = PendingTrash.SelectedFolders(folderIds)
-                _trashRequest.emit(intentSender)
-            } catch (e: Exception) {
-                android.util.Log.e("ImageListViewModel", "Failed to create trash request", e)
+            val allImageIds = mutableListOf<Long>()
+            for (folderId in folderIds) {
+                val images = repository.getImages(bucketId = folderId)
+                allImageIds.addAll(images.map { it.id })
             }
+            if (allImageIds.isEmpty()) return@launch
+            requestTrash(allImageIds, PendingTrash.SelectedFolders(folderIds))
         }
     }
 

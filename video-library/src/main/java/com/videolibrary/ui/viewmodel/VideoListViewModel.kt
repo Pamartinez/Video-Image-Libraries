@@ -1788,18 +1788,32 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    /**
+     * Delete [videoIds]. When the app holds All-files access the items are permanently deleted
+     * silently (no system dialog) and the UI is updated immediately; otherwise the system
+     * "Move to trash?" dialog is shown via an [IntentSender].
+     */
+    private suspend fun requestTrash(videoIds: List<Long>, pending: PendingTrash) {
+        pendingTrash = pending
+        try {
+            if (repository.canDeleteSilently()) {
+                repository.deleteVideosSilently(videoIds)
+                onTrashConfirmed()
+            } else {
+                _trashRequest.emit(repository.trashVideos(videoIds))
+            }
+        } catch (e: Exception) {
+            Log.e("VideoListViewModel", "Failed to delete videos", e)
+            pendingTrash = null
+        }
+    }
+
     fun deleteSelectedVideos() {
         val idsToDelete = _uiState.value.selectedVideoIds
         if (idsToDelete.isEmpty()) return
         _uiState.update { it.copy(isSelectionMode = false, selectedVideoIds = emptySet()) }
         viewModelScope.launch {
-            try {
-                val intentSender = repository.trashVideos(idsToDelete.toList())
-                pendingTrash = PendingTrash.SelectedVideos(idsToDelete)
-                _trashRequest.emit(intentSender)
-            } catch (e: Exception) {
-                Log.e("VideoListViewModel", "Failed to create trash request", e)
-            }
+            requestTrash(idsToDelete.toList(), PendingTrash.SelectedVideos(idsToDelete))
         }
     }
 
@@ -1808,19 +1822,13 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (folderIds.isEmpty()) return
         _uiState.update { it.copy(isSelectionMode = false, selectedFolderIds = emptySet()) }
         viewModelScope.launch {
-            try {
-                val allVideoIds = mutableListOf<Long>()
-                for (folderId in folderIds) {
-                    val videos = repository.getVideos(bucketId = folderId)
-                    allVideoIds.addAll(videos.map { it.id })
-                }
-                if (allVideoIds.isEmpty()) return@launch
-                val intentSender = repository.trashVideos(allVideoIds)
-                pendingTrash = PendingTrash.SelectedFolders(folderIds)
-                _trashRequest.emit(intentSender)
-            } catch (e: Exception) {
-                Log.e("VideoListViewModel", "Failed to create trash request", e)
+            val allVideoIds = mutableListOf<Long>()
+            for (folderId in folderIds) {
+                val videos = repository.getVideos(bucketId = folderId)
+                allVideoIds.addAll(videos.map { it.id })
             }
+            if (allVideoIds.isEmpty()) return@launch
+            requestTrash(allVideoIds, PendingTrash.SelectedFolders(folderIds))
         }
     }
 

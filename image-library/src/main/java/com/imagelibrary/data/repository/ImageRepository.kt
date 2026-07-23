@@ -13,6 +13,7 @@ import com.example.common.data.model.ConflictResolution
 import com.example.common.data.model.FolderItem
 import com.example.common.data.util.MediaFileUtils
 import com.example.common.data.util.MediaTransferHelper
+import com.example.common.data.util.MediaTrashHelper
 import com.imagelibrary.data.model.ImageSortOption
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.SortOrder
@@ -391,7 +392,16 @@ class ImageRepository(private val context: Context) {
 
     suspend fun trashImages(imageIds: List<Long>): IntentSender = withContext(Dispatchers.IO) {
         val uris = imageIds.map { ContentUris.withAppendedId(imageUri, it) }
-        MediaStore.createTrashRequest(contentResolver, uris, true).intentSender
+        MediaTrashHelper.createTrashRequest(contentResolver, uris)
+    }
+
+    /** True when the app holds All-files access and can delete media without a system consent dialog. */
+    fun canDeleteSilently(): Boolean = MediaTrashHelper.isExternalStorageManager()
+
+    /** Permanently delete [imageIds] silently (no system dialog) via All-files access. Returns the number deleted. */
+    suspend fun deleteImagesSilently(imageIds: List<Long>): Int = withContext(Dispatchers.IO) {
+        val uris = imageIds.map { ContentUris.withAppendedId(imageUri, it) }
+        MediaTrashHelper.deleteSilently(context, uris)
     }
 
     // ── Rename Image ────────────────────────────────────────────────────

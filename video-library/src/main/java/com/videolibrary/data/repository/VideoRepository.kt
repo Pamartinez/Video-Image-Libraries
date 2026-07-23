@@ -13,6 +13,7 @@ import com.example.common.data.model.ConflictResolution
 import com.example.common.data.model.FolderItem
 import com.example.common.data.util.MediaFileUtils
 import com.example.common.data.util.MediaTransferHelper
+import com.example.common.data.util.MediaTrashHelper
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -398,7 +399,16 @@ class VideoRepository(private val context: Context) {
 
     suspend fun trashVideos(videoIds: List<Long>): IntentSender = withContext(Dispatchers.IO) {
         val uris = videoIds.map { ContentUris.withAppendedId(videoUri, it) }
-        MediaStore.createTrashRequest(contentResolver, uris, true).intentSender
+        MediaTrashHelper.createTrashRequest(contentResolver, uris)
+    }
+
+    /** True when the app holds All-files access and can delete media without a system consent dialog. */
+    fun canDeleteSilently(): Boolean = MediaTrashHelper.isExternalStorageManager()
+
+    /** Permanently delete [videoIds] silently (no system dialog) via All-files access. Returns the number deleted. */
+    suspend fun deleteVideosSilently(videoIds: List<Long>): Int = withContext(Dispatchers.IO) {
+        val uris = videoIds.map { ContentUris.withAppendedId(videoUri, it) }
+        MediaTrashHelper.deleteSilently(context, uris)
     }
 
     // ── Rename Video ────────────────────────────────────────────────────

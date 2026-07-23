@@ -112,17 +112,19 @@ fun SettingsActionButton(
     icon: ImageVector,
     title: String,
     subtitle: String,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     val colors = LocalLibraryColors.current
+    val contentAlpha = if (enabled) 1f else 0.4f
     Surface(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 4.dp)
             .clip(RoundedCornerShape(14.dp))
-            .border(1.dp, colors.primary.copy(alpha = 0.45f), RoundedCornerShape(14.dp))
-            .clickable(onClick = onClick),
-        color          = colors.primary.copy(alpha = 0.10f),
+            .border(1.dp, colors.primary.copy(alpha = if (enabled) 0.45f else 0.20f), RoundedCornerShape(14.dp))
+            .clickable(enabled = enabled, onClick = onClick),
+        color          = colors.primary.copy(alpha = if (enabled) 0.10f else 0.04f),
         shape          = RoundedCornerShape(14.dp),
         tonalElevation = 0.dp
     ) {
@@ -133,7 +135,7 @@ fun SettingsActionButton(
             Icon(
                 imageVector        = icon,
                 contentDescription = null,
-                tint               = colors.primary,
+                tint               = colors.primary.copy(alpha = contentAlpha),
                 modifier           = Modifier.size(26.dp)
             )
             Spacer(Modifier.width(14.dp))
@@ -142,13 +144,13 @@ fun SettingsActionButton(
                     text       = title,
                     fontSize   = 15.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color      = colors.primary
+                    color      = colors.primary.copy(alpha = contentAlpha)
                 )
                 Spacer(Modifier.height(2.dp))
                 Text(
                     text       = subtitle,
                     fontSize   = 11.sp,
-                    color      = colors.listSecondText,
+                    color      = colors.listSecondText.copy(alpha = contentAlpha),
                     lineHeight = 15.sp
                 )
             }
