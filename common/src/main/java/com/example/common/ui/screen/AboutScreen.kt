@@ -16,6 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.common.AppVersion
 import com.example.common.data.util.FileManagerHelper
 import com.example.common.ui.theme.LocalLibraryColors
 import java.io.File
@@ -39,9 +40,7 @@ fun AboutScreen(
 ) {
     val ctx    = LocalContext.current
     val colors = LocalLibraryColors.current
-    val versionName = try {
-        ctx.packageManager.getPackageInfo(ctx.packageName, 0).versionName ?: "1.0"
-    } catch (_: Exception) { "1.0" }
+    val versionName = AppVersion.displayName
 
     Column(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         // ── Header ──────────────────────────────────────────────────────

@@ -42,6 +42,7 @@ import com.example.common.ui.components.DestroyGroupDialog
 import com.example.common.ui.components.RenameDialog
 import com.example.common.ui.components.AlbumRenameDialog
 import com.example.common.ui.components.AppMoreMenuButton
+import com.example.common.ui.screen.SharedTrashScreen
 import com.example.common.ui.components.ScreenTopBar
 import com.imagelibrary.ui.components.*
 import com.imagelibrary.ui.theme.LocalImageColors
@@ -123,7 +124,7 @@ fun ImageListScreen(
     val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
-            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.showTrash || state.isSearchActive ||
             showMoreMenu || showCreateMenu ||
             state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
 
@@ -155,6 +156,8 @@ fun ImageListScreen(
             state.isSelectionMode -> viewModel.exitSelectionMode()
             state.showAbout -> viewModel.dismissAbout()
             state.showSettings -> viewModel.dismissSettings()
+            state.showTrash && state.trashSelectionMode -> viewModel.exitTrashSelection()
+            state.showTrash -> viewModel.dismissTrashScreen()
             state.showHideFolders && state.hideScreenGroupId != null -> {
                 if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
                 else viewModel.closeGroupInHideScreen()
@@ -220,6 +223,24 @@ fun ImageListScreen(
 
     // ── Settings / About ── (must be checked before carousel so they can overlay)
     if (state.showSettings) { SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() }); return }
+    if (state.showTrash) {
+        SharedTrashScreen(
+            entries = state.trashItems,
+            selectedIds = state.trashSelectedIds,
+            selectionMode = state.trashSelectionMode,
+            isLoading = state.isTrashLoading,
+            retentionDays = com.example.common.data.util.TrashManager.DEFAULT_RETENTION_DAYS,
+            onBack = { viewModel.dismissTrashScreen() },
+            onToggleSelect = { viewModel.toggleTrashSelection(it) },
+            onLongPress = { viewModel.startTrashSelectionWith(it) },
+            onSelectAll = { viewModel.selectAllTrash() },
+            onExitSelection = { viewModel.exitTrashSelection() },
+            onRestore = { viewModel.restoreSelectedTrash() },
+            onDeleteForever = { viewModel.deleteSelectedTrashForever() },
+            onEmptyAll = { viewModel.emptyTrash() }
+        )
+        return
+    }
     if (state.showAbout) { AboutScreen(onBack = { viewModel.dismissAbout() }); return }
 
     // ── Carousel ──
@@ -783,6 +804,7 @@ fun ImageListScreen(
                                 onViewAs = { viewModel.showViewAsDialog() },
                                 onSettings = { viewModel.showSettings() },
                                 onAbout = { viewModel.showAbout() },
+                                onTrash = { viewModel.showTrashScreen() },
                                 extraTopContent = { dismiss ->
                                     com.example.common.ui.components.AppMenuItem(
                                         text      = "Hide album(s)",

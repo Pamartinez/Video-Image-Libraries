@@ -30,6 +30,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material.icons.extended)
 
+    // Coil — thumbnails for the shared internal-Trash screen (images + video frames)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.video)
+
     // Dropbox stack (shared across all apps) — networking, secure token storage, background upload
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)

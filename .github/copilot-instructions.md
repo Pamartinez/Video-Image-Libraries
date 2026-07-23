@@ -1,5 +1,31 @@
 # Copilot Instructions
 
+## 🔢 VERSION MANAGEMENT RULE — SUPER CRITICAL — FOLLOW 100% OF THE TIME
+**This rule is NON-NEGOTIABLE and MUST be followed EVERY SINGLE TIME without exception.**
+
+**The app version lives in `common/src/main/java/com/example/common/AppVersion.kt`** as `VERSION` (e.g. `"1.1"`) and `BUILD` (an integer counter). It is displayed as `VERSION.BUILD` (e.g. `1.1.0`) in every About screen.
+
+### Rule 1 — Increment BUILD before EVERY install (100% of the time):
+- **EVERY time an app is installed on the phone** (ANY `installDebug` for gallery-transfer, image-library, or video-library — including verification builds, test installs, single-app installs, or all-three installs), **increment `BUILD` by 1 in `AppVersion.kt` BEFORE running the install.**
+- The counter starts at `0`. So the first install after a reset shows `.1`, the next `.2`, etc.
+- **NO EXCEPTIONS.** If you run `installDebug`, you MUST have bumped `BUILD` first.
+
+### Rule 2 — On EVERY push to `main` (100% of the time):
+- **Reset `BUILD` back to `0`.**
+- **Bump `VERSION` by one tenth**: `1.1` → `1.2`, `1.2` → `1.3`, … and when the tenths reach `.9` it rolls to the next whole number: `1.9` → `2.0`.
+- Do this as part of the push workflow (edit `AppVersion.kt`, then commit + push). **NO EXCEPTIONS.**
+
+### Enforcement (ZERO tolerance):
+✅ **ALWAYS** bump `BUILD` in `AppVersion.kt` before ANY `installDebug` — every single time.
+✅ **ALWAYS** reset `BUILD=0` and bump `VERSION` when pushing to `main` — every single time.
+❌ **NEVER** install without first incrementing `BUILD`.
+❌ **NEVER** push to `main` without bumping `VERSION` and resetting `BUILD`.
+❌ **NEVER** skip these steps "just this once" — there is no "just this once".
+
+**These two rules must be applied 100% of the time. Forgetting or skipping them is NEVER acceptable.**
+
+
+
 ## 🎯 QUALITY FIRST RULE — FOUNDATIONAL PRINCIPLE
 **Go slow. Double-check. Triple-check. Get it right the first time.**
 

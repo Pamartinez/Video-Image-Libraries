@@ -6,6 +6,7 @@ import com.example.common.data.dropbox.DropboxClientFactory
 import com.example.common.data.dropbox.DropboxConfig
 import com.example.common.upload.UploadManager
 import com.gallerytransferlibrary.BuildConfig
+import com.gallerytransferlibrary.data.util.FileLogger
 
 /**
  * Process-wide holder that lazily builds the reusable `common` Dropbox stack for this app,
@@ -30,7 +31,11 @@ object DropboxHolder {
     fun uploadManager(context: Context): UploadManager {
         val c = client(context)
         return manager ?: synchronized(this) {
-            manager ?: UploadManager(c.repository, c.authManager).also { manager = it }
+            manager ?: UploadManager(
+                c.repository,
+                c.authManager,
+                logFailure = { message, throwable -> FileLogger.e("DropboxUpload", message, throwable) }
+            ).also { manager = it }
         }
     }
 }

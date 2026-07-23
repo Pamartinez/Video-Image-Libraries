@@ -35,6 +35,7 @@ import kotlinx.coroutines.launch
 import com.example.common.data.util.FileManagerHelper
 import com.example.common.ui.components.ActionsPill
 import com.example.common.ui.components.AppMoreMenuButton
+import com.example.common.ui.screen.SharedTrashScreen
 import com.example.common.ui.components.CopyMoveAndConflictOverlayHost
 import com.example.common.ui.components.ScreenTopBar
 import com.videolibrary.data.model.ViewType
@@ -121,7 +122,7 @@ fun VideoListScreen(
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
             state.showGroupNameDialog || state.showRenameGroupDialog ||
-            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.showTrash || state.isSearchActive ||
             state.showMoveToGroupPicker || showMoreMenu || showCreateMenu
 
     BackHandler(
@@ -146,6 +147,8 @@ fun VideoListScreen(
             state.showMoveFolderPicker   -> viewModel.dismissMoveFolderPicker()
             state.showAbout              -> viewModel.dismissAbout()
             state.showSettings           -> viewModel.dismissSettings()
+            state.showTrash && state.trashSelectionMode -> viewModel.exitTrashSelection()
+            state.showTrash              -> viewModel.dismissTrashScreen()
             state.showHideFolders && state.hideScreenGroupId != null -> {
                 if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
                 else viewModel.closeGroupInHideScreen()
@@ -226,6 +229,25 @@ fun VideoListScreen(
     // opened from within a group or folder.
     if (state.showSettings) {
         SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() })
+        return
+    }
+
+    if (state.showTrash) {
+        SharedTrashScreen(
+            entries = state.trashItems,
+            selectedIds = state.trashSelectedIds,
+            selectionMode = state.trashSelectionMode,
+            isLoading = state.isTrashLoading,
+            retentionDays = com.example.common.data.util.TrashManager.DEFAULT_RETENTION_DAYS,
+            onBack = { viewModel.dismissTrashScreen() },
+            onToggleSelect = { viewModel.toggleTrashSelection(it) },
+            onLongPress = { viewModel.startTrashSelectionWith(it) },
+            onSelectAll = { viewModel.selectAllTrash() },
+            onExitSelection = { viewModel.exitTrashSelection() },
+            onRestore = { viewModel.restoreSelectedTrash() },
+            onDeleteForever = { viewModel.deleteSelectedTrashForever() },
+            onEmptyAll = { viewModel.emptyTrash() }
+        )
         return
     }
 
@@ -883,6 +905,7 @@ fun VideoListScreen(
                             onViewAs   = { viewModel.showViewAsDialog() },
                             onSettings = { viewModel.showSettings() },
                             onAbout    = { viewModel.showAbout() },
+                            onTrash    = { viewModel.showTrashScreen() },
                             extraTopContent = { dismiss ->
                                 com.example.common.ui.components.AppMenuItem(
                                     text      = "Hide album(s)",

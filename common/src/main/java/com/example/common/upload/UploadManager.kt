@@ -33,7 +33,13 @@ enum class ConflictResolution { REPLACE, KEEP_BOTH, SKIP }
 class UploadManager(
     private val repository: DropboxRepository,
     private val authManager: DropboxAuthManager,
-    private val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO),
+    /**
+     * Optional hook invoked whenever an upload fails (per-file error, batch exception, or missing
+     * auth). App-agnostic: apps may wire this to their own file logger. Defaults to a no-op so
+     * existing callers are unaffected.
+     */
+    private val logFailure: (message: String, throwable: Throwable?) -> Unit = { _, _ -> }
 ) {
     data class State(
         val isUploading: Boolean = false,
@@ -126,6 +132,7 @@ class UploadManager(
         val batch = pendingBatch ?: return
         try {
             if (!ensureAuth()) {
+                logFailure("Upload aborted: sign-in required to upload.", null)
                 _state.update { State(errorMessage = "Sign-in required to upload.") }
                 return
             }
@@ -158,6 +165,7 @@ class UploadManager(
                 )
             }
         } catch (e: Exception) {
+            logFailure("Upload batch failed: ${e.message ?: "unknown error"}", e)
             _state.update { State(errorMessage = e.message ?: "Upload failed.") }
         } finally {
             pendingBatch = null
@@ -224,6 +232,11 @@ class UploadManager(
             is UploadResult.Success -> Outcome.UPLOADED
             is UploadResult.Conflict -> Outcome.SKIPPED
             is UploadResult.Error -> {
+                logFailure(
+                    "Failed to upload '${item.name}' to $destPath (code ${result.code}): " +
+                        (result.message ?: "unknown error"),
+                    null
+                )
                 _state.update { it.copy(errorMessage = "Failed to upload ${item.name}") }
                 Outcome.FAILED
             }

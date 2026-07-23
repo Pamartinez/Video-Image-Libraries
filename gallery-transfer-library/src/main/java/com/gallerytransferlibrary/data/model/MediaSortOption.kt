@@ -2,6 +2,7 @@ package com.gallerytransferlibrary.data.model
 
 /** Sort options for media items inside a folder. */
 enum class MediaSortOption(val id: Int, val label: String) {
+    CUSTOM_ORDER(4, "Custom order"),
     DATE_NEWEST(0, "Date (newest first)"),
     DATE_OLDEST(1, "Date (oldest first)"),
     NAME_A_TO_Z(2, "Name (A to Z)"),

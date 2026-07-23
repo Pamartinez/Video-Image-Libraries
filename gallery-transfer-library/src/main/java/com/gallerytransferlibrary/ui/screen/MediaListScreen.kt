@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -31,18 +32,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import androidx.compose.foundation.border
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.decode.VideoFrameDecoder
 import coil.request.ImageRequest
+import kotlin.math.roundToInt
 import com.example.common.data.model.FolderSortOption
 import com.example.common.data.model.ViewType
 import com.example.common.data.util.FileManagerHelper
@@ -58,6 +66,8 @@ import com.example.common.upload.UploadScheduler
 import com.example.common.ui.components.SortDialog
 import com.example.common.ui.components.ViewAsDialog
 import com.example.common.ui.components.ViewTypeToggleButton
+import com.example.common.ui.util.dragToReorderGrid
+import com.example.common.ui.util.rememberDragDropGridState
 import com.example.common.ui.screen.AboutScreen
 import com.gallerytransferlibrary.data.model.MediaItem
 import com.gallerytransferlibrary.data.model.FilterSortOption
@@ -65,6 +75,7 @@ import com.gallerytransferlibrary.data.model.FilterType
 import com.gallerytransferlibrary.data.model.MediaSortOption
 import com.gallerytransferlibrary.data.model.SizeFilter
 import com.gallerytransferlibrary.data.preferences.AppPreferences
+import com.gallerytransferlibrary.data.util.FileLogger
 import com.gallerytransferlibrary.dropbox.DropboxHolder
 import com.gallerytransferlibrary.ui.components.MediaThumbnail
 import com.gallerytransferlibrary.upload.AutoUploadScheduler
@@ -77,7 +88,7 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER }
+private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER, TRASH }
 
 @Composable
 fun MediaListScreen(
@@ -139,8 +150,9 @@ fun MediaListScreen(
     }
 
     // After a delete-after-upload batch, the manager surfaces the uploaded items' URIs. When the app
-    // holds All-files access the items are permanently deleted silently (no dialog); otherwise the
-    // system asks for consent (one dialog) to move them to the trash. Either way we refresh.
+    // holds All-files access the items are moved to the shared internal Trash silently (no dialog);
+    // otherwise the system asks for consent (one dialog) to move them to the system trash. Either way
+    // we refresh.
     val trashLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
@@ -152,7 +164,7 @@ fun MediaListScreen(
         if (uris.isNotEmpty()) {
             if (com.example.common.data.util.MediaTrashHelper.isExternalStorageManager()) {
                 withContext(Dispatchers.IO) {
-                    com.example.common.data.util.MediaTrashHelper.deleteSilently(context, uris)
+                    com.example.common.data.util.TrashManager.moveUrisToTrash(context, uris)
                 }
                 viewModel.refreshCurrent()
                 uploadManager.clearUploadedUris()
@@ -223,6 +235,7 @@ fun MediaListScreen(
             viewerIndex != null -> viewerIndex = null
             state.filterSelectionMode && overlay == Overlay.FILTER -> viewModel.exitFilterSelection()
             overlay == Overlay.FILTER -> { overlay = Overlay.NONE; viewModel.closeFilter() }
+            state.trashSelectionMode && overlay == Overlay.TRASH -> viewModel.exitTrashSelection()
             overlay != Overlay.NONE -> overlay = Overlay.NONE
             else -> viewModel.onBack()
         }
@@ -232,7 +245,8 @@ fun MediaListScreen(
         when (overlay) {
             Overlay.ABOUT -> AboutScreen(
                 appName = "Gallery Transfer",
-                logDirectory = context.filesDir,
+                logDirectory = FileLogger.logDirectory,
+                onLogEvent = { tag, message -> FileLogger.d(tag, message) },
                 onBack = { overlay = Overlay.NONE }
             )
             Overlay.SETTINGS -> SettingsScreen(
@@ -255,6 +269,8 @@ fun MediaListScreen(
                     keepFolderStructure = it
                     prefs.keepFolderStructure = it
                 },
+                allowMediaReordering = state.allowMediaReordering,
+                onAllowMediaReorderingChange = { viewModel.updateAllowMediaReordering(it) },
                 autoUploadEnabled = autoUploadEnabled,
                 onAutoUploadEnabledChange = {
                     autoUploadEnabled = it
@@ -281,6 +297,17 @@ fun MediaListScreen(
                 onBackupOldItems = backupOldItems,
                 onConnect = { manualSignIn = true },
                 onPickDestination = { if (connected) showFolderPicker = true else manualSignIn = true }
+            )
+            Overlay.TRASH -> TrashScreen(
+                state = state,
+                onBack = { viewModel.exitTrashSelection(); overlay = Overlay.NONE },
+                onToggleSelect = { viewModel.toggleTrashSelection(it) },
+                onLongPress = { viewModel.startTrashSelectionWith(it) },
+                onSelectAll = { viewModel.selectAllTrash() },
+                onExitSelection = { viewModel.exitTrashSelection() },
+                onRestore = { viewModel.restoreSelectedTrash() },
+                onDeleteForever = { viewModel.deleteSelectedTrashForever() },
+                onEmptyAll = { viewModel.emptyTrash() }
             )
             Overlay.FILTER -> Box(Modifier.fillMaxSize()) {
                 Column(Modifier.fillMaxSize().statusBarsPadding()) {
@@ -322,12 +349,15 @@ fun MediaListScreen(
                                 selectedKeys = state.filterSelectedKeys,
                                 selectionMode = state.filterSelectionMode,
                                 viewType = state.viewType,
+                                canDrag = false,
                                 onItemClick = { index, item ->
                                     if (state.filterSelectionMode) viewModel.toggleFilterSelection(item.uniqueKey)
                                     else if (item.isVideo) playVideo(context, item)
                                     else filterViewerIndex = index
                                 },
-                                onItemLongClick = { item -> viewModel.startFilterSelectionWith(item.uniqueKey) }
+                                onItemLongClick = { item -> viewModel.startFilterSelectionWith(item.uniqueKey) },
+                                onReorder = { _, _ -> },
+                                onReorderDone = {}
                             )
                         }
                     }
@@ -341,11 +371,11 @@ fun MediaListScreen(
                     showMove = false,
                     showShare = false,
                     showDetails = false,
-                    showDelete = false,
+                    showDelete = true,
                     showUpload = true,
                     onUpload = { launchUpload { viewModel.exitFilterSelection() } },
                     showOpenLocation = false,
-                    onCopy = {}, onMove = {}, onDelete = {}, onDetails = {}, onOpenLocation = {}
+                    onCopy = {}, onMove = {}, onDelete = { viewModel.moveSelectedToTrash() }, onDetails = {}, onOpenLocation = {}
                 )
             }
             Overlay.NONE -> Box(Modifier.fillMaxSize()) {
@@ -365,6 +395,7 @@ fun MediaListScreen(
                         onViewAs = { viewModel.showViewAsDialog() },
                         onSettings = { overlay = Overlay.SETTINGS },
                         onAbout = { overlay = Overlay.ABOUT },
+                        onTrash = { viewModel.loadTrash(); overlay = Overlay.TRASH },
                         onFilter = { viewModel.openFilter(); overlay = Overlay.FILTER }
                     )
 
@@ -380,7 +411,9 @@ fun MediaListScreen(
                                 else if (item.isVideo) playVideo(context, item)
                                 else viewerIndex = index
                             },
-                            onItemLongClick = { item -> viewModel.startSelectionWithMedia(item.uniqueKey) }
+                            onItemLongClick = { item -> viewModel.startSelectionWithMedia(item.uniqueKey) },
+                            onReorder = { from, to -> viewModel.reorderMedia(from, to) },
+                            onReorderDone = { viewModel.persistMediaOrder() }
                         )
                     } else {
                         FolderGrid(
@@ -389,7 +422,9 @@ fun MediaListScreen(
                                 if (state.selectionMode) viewModel.toggleFolderSelection(folder.bucketId)
                                 else viewModel.openFolder(folder)
                             },
-                            onFolderLongClick = { folder -> viewModel.startSelectionWithFolder(folder.bucketId) }
+                            onFolderLongClick = { folder -> viewModel.startSelectionWithFolder(folder.bucketId) },
+                            onReorder = { from, to -> viewModel.reorderFolder(from, to) },
+                            onReorderDone = { viewModel.persistFolderOrder() }
                         )
                     }
                 }
@@ -403,7 +438,7 @@ fun MediaListScreen(
                     showMove = false,
                     showShare = false,
                     showDetails = false,
-                    showDelete = false,
+                    showDelete = true,
                     showUpload = true,
                     onUpload = {
                         launchUpload { viewModel.exitSelection() }
@@ -415,7 +450,7 @@ fun MediaListScreen(
                         }
                         viewModel.exitSelection()
                     },
-                    onCopy = {}, onMove = {}, onDelete = {}, onDetails = {}
+                    onCopy = {}, onMove = {}, onDelete = { viewModel.moveSelectedToTrash() }, onDetails = {}
                 )
             }
         }
@@ -577,6 +612,7 @@ private fun TopBar(
     onViewAs: () -> Unit,
     onSettings: () -> Unit,
     onAbout: () -> Unit,
+    onTrash: () -> Unit,
     onFilter: () -> Unit
 ) {
     val colors = LocalGalleryColors.current
@@ -630,6 +666,7 @@ private fun TopBar(
                 onSortBy = onSort,
                 onViewAs = onViewAs,
                 onSettings = onSettings,
+                onTrash = onTrash,
                 onAbout = onAbout
             )
         }
@@ -780,11 +817,14 @@ private fun OlderThanFilterDialog(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun FolderGrid(
     state: MediaListUiState,
     onFolderClick: (com.example.common.data.model.FolderItem) -> Unit,
-    onFolderLongClick: (com.example.common.data.model.FolderItem) -> Unit
+    onFolderLongClick: (com.example.common.data.model.FolderItem) -> Unit,
+    onReorder: (Int, Int) -> Unit,
+    onReorderDone: () -> Unit
 ) {
     val columns = if (state.viewType == ViewType.GRID_SMALL) 3 else 2
     val gridSpacing = if (state.viewType == ViewType.GRID_LARGE) 18.dp else 12.dp
@@ -792,38 +832,100 @@ private fun FolderGrid(
     val loader = remember(context) {
         ImageLoader.Builder(context).components { add(VideoFrameDecoder.Factory()) }.crossfade(true).build()
     }
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(columns),
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(gridSpacing),
-        horizontalArrangement = Arrangement.spacedBy(gridSpacing),
-        verticalArrangement = Arrangement.spacedBy(gridSpacing)
-    ) {
-        items(state.folders, key = { it.bucketId }) { folder ->
-            FolderGridItem(
-                folder = folder,
-                isSelected = folder.bucketId in state.selectedFolderIds,
-                isSelectionMode = state.selectionMode,
-                isSmallGrid = state.viewType == ViewType.GRID_SMALL,
-                onClick = { onFolderClick(folder) },
-                onLongClick = { onFolderLongClick(folder) },
-                thumbnailContent = {
-                    if (folder.latestItemUri != null) {
-                        AsyncImage(
-                            model = ImageRequest.Builder(context).data(folder.latestItemUri).crossfade(true).build(),
-                            imageLoader = loader,
-                            contentDescription = folder.name,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .aspectRatio(0.75f)
-                                .background(Color(0xFF1A1A1A))
-                        )
-                    } else {
-                        FolderThumbnailPlaceholder()
-                    }
-                }
+    val canDrag = state.folderSort == FolderSortOption.CUSTOM_ORDER
+    val gridState = rememberLazyGridState()
+    val dragState = rememberDragDropGridState(
+        lazyGridState = gridState,
+        onMove = { from, to ->
+            if (from in state.folders.indices && to in state.folders.indices) onReorder(from, to)
+        },
+        onDragEnd = onReorderDone,
+        onLongPressWithoutDrag = { index ->
+            state.folders.getOrNull(index)?.let { onFolderLongClick(it) }
+        },
+        isInSelectionMode = { state.selectionMode }
+    )
+
+    val folderThumb: @Composable (com.example.common.data.model.FolderItem) -> Unit = { folder ->
+        if (folder.latestItemUri != null) {
+            AsyncImage(
+                model = ImageRequest.Builder(context).data(folder.latestItemUri).crossfade(true).build(),
+                imageLoader = loader,
+                contentDescription = folder.name,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth().aspectRatio(0.75f).background(Color(0xFF1A1A1A))
             )
+        } else {
+            FolderThumbnailPlaceholder()
+        }
+    }
+
+    Box(Modifier.fillMaxSize()) {
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(columns),
+            state = gridState,
+            modifier = Modifier
+                .fillMaxSize()
+                .then(if (canDrag) Modifier.dragToReorderGrid(dragState) else Modifier),
+            contentPadding = PaddingValues(gridSpacing),
+            horizontalArrangement = Arrangement.spacedBy(gridSpacing),
+            verticalArrangement = Arrangement.spacedBy(gridSpacing),
+            userScrollEnabled = !(canDrag && dragState.isDragging)
+        ) {
+            itemsIndexed(state.folders, key = { _, it -> it.bucketId }) { index, folder ->
+                val itemIsDragging = canDrag && dragState.draggedIndex == index
+                val anyDragActive = canDrag && dragState.isDragging
+                val dimModifier = if (anyDragActive && !itemIsDragging)
+                    Modifier.graphicsLayer { alpha = 0.65f } else Modifier
+                FolderGridItem(
+                    folder = folder,
+                    isSelected = folder.bucketId in state.selectedFolderIds,
+                    isSelectionMode = state.selectionMode,
+                    isSmallGrid = state.viewType == ViewType.GRID_SMALL,
+                    isDragging = itemIsDragging,
+                    onClick = { if (!dragState.consumeNextClick()) onFolderClick(folder) },
+                    onLongClick = if (canDrag) null else { { onFolderLongClick(folder) } },
+                    modifier = dimModifier,
+                    thumbnailContent = { folderThumb(folder) }
+                )
+            }
+        }
+
+        // ── Floating drag overlay ──
+        if (canDrag && dragState.isDragging) {
+            val overlayPos = dragState.overlayPosition
+            val itemSizePx = dragState.capturedItemSize
+            val draggedFolder = state.folders.getOrNull(dragState.draggedIndex)
+            if (draggedFolder != null && itemSizePx != null) {
+                val density = LocalDensity.current
+                val itemWidthDp = with(density) { itemSizePx.width.toDp() }
+                val itemHeightDp = with(density) { itemSizePx.height.toDp() }
+                Box(
+                    modifier = Modifier
+                        .offset { IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
+                        .width(itemWidthDp)
+                        .height(itemHeightDp)
+                        .zIndex(10f)
+                        .graphicsLayer {
+                            scaleX = 1.08f
+                            scaleY = 1.08f
+                            transformOrigin = TransformOrigin(0.5f, 0.5f)
+                            shadowElevation = 24f
+                        }
+                        .border(3.dp, Color(0xFF2196F3), RoundedCornerShape(12.dp))
+                ) {
+                    FolderGridItem(
+                        folder = draggedFolder,
+                        isSelected = draggedFolder.bucketId in state.selectedFolderIds,
+                        isSelectionMode = state.selectionMode,
+                        isSmallGrid = state.viewType == ViewType.GRID_SMALL,
+                        isDragging = false,
+                        onClick = {},
+                        onLongClick = null,
+                        thumbnailContent = { folderThumb(draggedFolder) }
+                    )
+                }
+            }
         }
     }
 }
@@ -833,15 +935,20 @@ private fun FolderGrid(
 private fun MediaGrid(
     state: MediaListUiState,
     onItemClick: (Int, MediaItem) -> Unit,
-    onItemLongClick: (MediaItem) -> Unit
+    onItemLongClick: (MediaItem) -> Unit,
+    onReorder: (Int, Int) -> Unit,
+    onReorderDone: () -> Unit
 ) {
     ItemGrid(
         items = state.media,
         selectedKeys = state.selectedMediaKeys,
         selectionMode = state.selectionMode,
         viewType = state.viewType,
+        canDrag = state.mediaSort == MediaSortOption.CUSTOM_ORDER && state.allowMediaReordering,
         onItemClick = onItemClick,
-        onItemLongClick = onItemLongClick
+        onItemLongClick = onItemLongClick,
+        onReorder = onReorder,
+        onReorderDone = onReorderDone
     )
 }
 
@@ -852,41 +959,94 @@ private fun ItemGrid(
     selectedKeys: Set<String>,
     selectionMode: Boolean,
     viewType: ViewType,
+    canDrag: Boolean,
     onItemClick: (Int, MediaItem) -> Unit,
-    onItemLongClick: (MediaItem) -> Unit
+    onItemLongClick: (MediaItem) -> Unit,
+    onReorder: (Int, Int) -> Unit,
+    onReorderDone: () -> Unit
 ) {
     val colors = LocalGalleryColors.current
     val columns = if (viewType == ViewType.GRID_SMALL) 5 else 3
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(columns),
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(2.dp),
-        horizontalArrangement = Arrangement.spacedBy(2.dp),
-        verticalArrangement = Arrangement.spacedBy(2.dp)
-    ) {
-        itemsIndexed(items, key = { _, item -> item.uniqueKey }) { index, item ->
-            val selected = item.uniqueKey in selectedKeys
-            Box(
-                modifier = Modifier
-                    .aspectRatio(1f)
-                    .clip(RoundedCornerShape(2.dp))
-                    .combinedClickable(
-                        onClick = { onItemClick(index, item) },
-                        onLongClick = { onItemLongClick(item) }
-                    )
-            ) {
-                MediaThumbnail(item = item, modifier = Modifier.fillMaxSize())
-                if (selectionMode) {
-                    Box(
-                        Modifier.fillMaxSize().background(
-                            if (selected) Color(0x662979FF) else Color.Transparent
+    val gridState = rememberLazyGridState()
+    val dragState = rememberDragDropGridState(
+        lazyGridState = gridState,
+        onMove = { from, to -> if (from in items.indices && to in items.indices) onReorder(from, to) },
+        onDragEnd = onReorderDone,
+        onLongPressWithoutDrag = { index -> items.getOrNull(index)?.let { onItemLongClick(it) } },
+        isInSelectionMode = { selectionMode }
+    )
+    Box(Modifier.fillMaxSize()) {
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(columns),
+            state = gridState,
+            modifier = Modifier
+                .fillMaxSize()
+                .then(if (canDrag) Modifier.dragToReorderGrid(dragState) else Modifier),
+            contentPadding = PaddingValues(2.dp),
+            horizontalArrangement = Arrangement.spacedBy(2.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+            userScrollEnabled = !(canDrag && dragState.isDragging)
+        ) {
+            itemsIndexed(items, key = { _, item -> item.uniqueKey }) { index, item ->
+                val selected = item.uniqueKey in selectedKeys
+                val itemIsDragging = canDrag && dragState.draggedIndex == index
+                val anyDragActive = canDrag && dragState.isDragging
+                Box(
+                    modifier = Modifier
+                        .aspectRatio(1f)
+                        .clip(RoundedCornerShape(2.dp))
+                        .graphicsLayer {
+                            alpha = when {
+                                itemIsDragging -> 0f
+                                anyDragActive -> 0.65f
+                                else -> 1f
+                            }
+                        }
+                        .combinedClickable(
+                            onClick = { if (!dragState.consumeNextClick()) onItemClick(index, item) },
+                            onLongClick = if (canDrag) null else { { onItemLongClick(item) } }
                         )
-                    )
-                    CircularCheckIndicator(
-                        isSelected = selected,
-                        selectedColor = colors.primary,
-                        modifier = Modifier.align(Alignment.TopEnd).padding(4.dp)
-                    )
+                ) {
+                    MediaThumbnail(item = item, modifier = Modifier.fillMaxSize())
+                    if (selectionMode) {
+                        Box(
+                            Modifier.fillMaxSize().background(
+                                if (selected) Color(0x662979FF) else Color.Transparent
+                            )
+                        )
+                        CircularCheckIndicator(
+                            isSelected = selected,
+                            selectedColor = colors.primary,
+                            modifier = Modifier.align(Alignment.TopEnd).padding(4.dp)
+                        )
+                    }
+                }
+            }
+        }
+
+        // ── Floating drag overlay ──
+        if (canDrag && dragState.isDragging) {
+            val overlayPos = dragState.overlayPosition
+            val itemSizePx = dragState.capturedItemSize
+            val draggedItem = items.getOrNull(dragState.draggedIndex)
+            if (draggedItem != null && itemSizePx != null) {
+                val density = LocalDensity.current
+                val sizeDp = with(density) { itemSizePx.width.toDp() }
+                Box(
+                    modifier = Modifier
+                        .offset { IntOffset(overlayPos.x.roundToInt(), overlayPos.y.roundToInt()) }
+                        .size(sizeDp)
+                        .zIndex(10f)
+                        .graphicsLayer {
+                            scaleX = 1.08f
+                            scaleY = 1.08f
+                            transformOrigin = TransformOrigin(0.5f, 0.5f)
+                            shadowElevation = 24f
+                        }
+                        .clip(RoundedCornerShape(4.dp))
+                        .border(3.dp, Color(0xFF2196F3), RoundedCornerShape(4.dp))
+                ) {
+                    MediaThumbnail(item = draggedItem, modifier = Modifier.fillMaxSize())
                 }
             }
         }

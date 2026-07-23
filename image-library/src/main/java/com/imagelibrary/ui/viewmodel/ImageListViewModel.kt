@@ -27,7 +27,9 @@ import com.example.common.data.model.CopyMoveProgress
 import com.example.common.data.model.FileConflict
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
+import com.example.common.data.model.TrashEntry
 import com.example.common.data.util.MixedItemSorter
+import com.example.common.data.util.TrashManager
 import com.example.common.util.FilePathUtils
 import com.example.common.util.GroupMixedOrderUtil
 import com.imagelibrary.data.model.ImageSortOption
@@ -171,7 +173,14 @@ data class ImageListUiState(
     /** Pre-calculated hidden state for sub-groups in hide screen (includes nested descendants). */
     val groupSubGroupHiddenStateForHideScreen: Map<Long, Boolean> = emptyMap(),
     /** Increment this to trigger scroll-to-top in folder detail screen (album view). */
-    val folderDetailScrollToTopTrigger: Int = 0
+    val folderDetailScrollToTopTrigger: Int = 0,
+
+    // ── Trash (shared internal trash) ──
+    val showTrash: Boolean = false,
+    val trashItems: List<TrashEntry> = emptyList(),
+    val trashSelectedIds: Set<String> = emptySet(),
+    val trashSelectionMode: Boolean = false,
+    val isTrashLoading: Boolean = false
 )
 
 // CopyMoveProgress and FileConflict moved to common module
@@ -703,6 +712,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             )
         }
         loadData()
+        viewModelScope.launch { TrashManager.emptyExpired() }
         getApplication<Application>().contentResolver.registerContentObserver(
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, mediaObserver
         )
@@ -1277,7 +1287,14 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
         pendingTrash = pending
         try {
             if (repository.canDeleteSilently()) {
-                repository.deleteImagesSilently(imageIds)
+                TrashManager.moveUrisToTrash(
+                    getApplication(),
+                    imageIds.map {
+                        android.content.ContentUris.withAppendedId(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, it
+                        )
+                    }
+                )
                 onTrashConfirmed()
             } else {
                 _trashRequest.emit(repository.trashImages(imageIds))
@@ -1729,6 +1746,97 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun showSettings() = _uiState.update { it.copy(showSettings = true) }
     fun dismissSettings() = _uiState.update { it.copy(showSettings = false) }
+
+    // ── Trash (shared internal trash) ───────────────────────────────────
+
+    /** True when the app can operate the internal trash silently (All-files access held). */
+    fun canUseTrash(): Boolean = TrashManager.canOperateSilently()
+
+    /** Opens the shared trash browser and loads its contents. */
+    fun showTrashScreen() {
+        _uiState.update { it.copy(showTrash = true) }
+        loadTrash()
+    }
+
+    /** Closes the shared trash browser, clearing any selection. */
+    fun dismissTrashScreen() {
+        _uiState.update {
+            it.copy(showTrash = false, trashSelectionMode = false, trashSelectedIds = emptySet())
+        }
+    }
+
+    /** Loads the shared trash contents (newest first) into state. */
+    fun loadTrash() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isTrashLoading = true) }
+            TrashManager.emptyExpired()
+            val items = com.example.common.data.db.TrashStore.getAll()
+                .sortedByDescending { it.deleteTimeMillis }
+            _uiState.update {
+                val ids = items.mapTo(HashSet()) { e -> e.id }
+                it.copy(
+                    trashItems = items,
+                    isTrashLoading = false,
+                    trashSelectedIds = it.trashSelectedIds.intersect(ids),
+                    trashSelectionMode = it.trashSelectionMode && it.trashSelectedIds.intersect(ids).isNotEmpty()
+                )
+            }
+        }
+    }
+
+    fun toggleTrashSelection(id: String) {
+        _uiState.update {
+            val sel = it.trashSelectedIds.toMutableSet()
+            if (!sel.add(id)) sel.remove(id)
+            it.copy(trashSelectedIds = sel, trashSelectionMode = sel.isNotEmpty())
+        }
+    }
+
+    fun startTrashSelectionWith(id: String) {
+        _uiState.update { it.copy(trashSelectionMode = true, trashSelectedIds = setOf(id)) }
+    }
+
+    fun selectAllTrash() {
+        _uiState.update { it.copy(trashSelectedIds = it.trashItems.map { e -> e.id }.toSet()) }
+    }
+
+    fun exitTrashSelection() {
+        _uiState.update { it.copy(trashSelectionMode = false, trashSelectedIds = emptySet()) }
+    }
+
+    fun restoreSelectedTrash() {
+        val entries = selectedTrashEntries()
+        viewModelScope.launch {
+            TrashManager.restore(getApplication(), entries)
+            exitTrashSelection()
+            loadTrash()
+            isInternalChange.set(true)
+            silentRefresh()
+            refreshFolderImages()
+        }
+    }
+
+    fun deleteSelectedTrashForever() {
+        val entries = selectedTrashEntries()
+        viewModelScope.launch {
+            TrashManager.deletePermanently(entries)
+            exitTrashSelection()
+            loadTrash()
+        }
+    }
+
+    fun emptyTrash() {
+        viewModelScope.launch {
+            TrashManager.emptyAll()
+            exitTrashSelection()
+            loadTrash()
+        }
+    }
+
+    private fun selectedTrashEntries(): List<TrashEntry> {
+        val s = _uiState.value
+        return s.trashItems.filter { it.id in s.trashSelectedIds }
+    }
 
     fun updateCarouselShowBarsOnOpen(value: Boolean) {
         preferences.carouselShowBarsOnOpen = value

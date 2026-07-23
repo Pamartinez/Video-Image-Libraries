@@ -173,6 +173,7 @@ fun AppMoreMenuButton(
     modifier: Modifier = Modifier,
     showSort: Boolean = true,
     showViewAs: Boolean = true,
+    onTrash: (() -> Unit)? = null,
     extraTopContent: @Composable (onDismiss: () -> Unit) -> Unit = {}
 ) {
     val colors = LocalLibraryColors.current
@@ -202,6 +203,9 @@ fun AppMoreMenuButton(
                 AppMenuItem("View as",   onDismiss = onDismiss, onClick = onViewAs,   textColor = colors.listFirstText)
             }
             AppMenuItem("Settings",  onDismiss = onDismiss, onClick = onSettings, textColor = colors.listFirstText)
+            if (onTrash != null) {
+                AppMenuItem("Trash", onDismiss = onDismiss, onClick = onTrash, textColor = colors.listFirstText)
+            }
             AppMenuDivider(color = colors.dividerColor)
             AppMenuItem("About App", onDismiss = onDismiss, onClick = onAbout,    textColor = colors.listFirstText)
         }

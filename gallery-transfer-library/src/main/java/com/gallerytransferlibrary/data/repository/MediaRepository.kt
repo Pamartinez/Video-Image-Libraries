@@ -46,7 +46,9 @@ class MediaRepository(private val context: Context) {
             FolderSortOption.NAME_Z_TO_A -> folders.sortedByDescending { it.name.lowercase() }
             FolderSortOption.ITEMS_MOST_FIRST -> folders.sortedByDescending { it.itemCount }
             FolderSortOption.ITEMS_FEWEST_FIRST -> folders.sortedBy { it.itemCount }
-            FolderSortOption.CUSTOM_ORDER -> folders.sortedByDescending { it.latestDateModified }
+            // Base order for custom sort: name A→Z. The ViewModel then applies the
+            // saved custom order on top, appending any new folders in this order.
+            FolderSortOption.CUSTOM_ORDER -> folders.sortedBy { it.name.lowercase() }
         }
 
     // ── Media inside a bucket ───────────────────────────────────────────
@@ -76,6 +78,9 @@ class MediaRepository(private val context: Context) {
             MediaSortOption.DATE_OLDEST -> items.sortedBy { it.dateModified }
             MediaSortOption.NAME_A_TO_Z -> items.sortedBy { it.displayName.lowercase() }
             MediaSortOption.NAME_Z_TO_A -> items.sortedByDescending { it.displayName.lowercase() }
+            // Base order for custom sort: date newest. The ViewModel applies the
+            // saved per-folder custom order on top, appending new items in this order.
+            MediaSortOption.CUSTOM_ORDER -> items.sortedByDescending { it.dateModified }
         }
 
     // ── MediaStore queries ──────────────────────────────────────────────

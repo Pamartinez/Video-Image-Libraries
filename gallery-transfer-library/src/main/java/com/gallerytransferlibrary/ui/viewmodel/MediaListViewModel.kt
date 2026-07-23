@@ -5,7 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.FolderSortOption
+import com.example.common.data.model.TrashEntry
 import com.example.common.data.model.ViewType
+import com.example.common.data.util.TrashManager
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType
 import com.gallerytransferlibrary.data.model.MediaItem
@@ -32,6 +34,8 @@ data class MediaListUiState(
     val selectionMode: Boolean = false,
     val selectedFolderIds: Set<Int> = emptySet(),
     val selectedMediaKeys: Set<String> = emptySet(),
+    // Media reordering (settings toggle)
+    val allowMediaReordering: Boolean = true,
     // Dialogs
     val showSortDialog: Boolean = false,
     val showViewAsDialog: Boolean = false,
@@ -50,6 +54,11 @@ data class MediaListUiState(
     val showFilterSortDialog: Boolean = false,
     val showFilterSizeDialog: Boolean = false,
     val showFilterDateDialog: Boolean = false,
+    // Trash (shared internal trash)
+    val trashItems: List<TrashEntry> = emptyList(),
+    val trashSelectedIds: Set<String> = emptySet(),
+    val trashSelectionMode: Boolean = false,
+    val isTrashLoading: Boolean = false,
 ) {
     val inFolder: Boolean get() = currentBucketId != null
     val selectedCount: Int
@@ -101,13 +110,21 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
             mediaSort = prefs.mediaSort,
             filterType = prefs.filterType,
             filterSort = prefs.filterSort,
-            filterSize = prefs.filterSize
+            filterSize = prefs.filterSize,
+            allowMediaReordering = prefs.allowMediaReordering
         )
     )
     val uiState: StateFlow<MediaListUiState> = _uiState.asStateFlow()
 
     init {
         loadFolders()
+        viewModelScope.launch { TrashManager.emptyExpired() }
+    }
+
+    /** Toggles whether media items can be drag-reordered in Custom sort mode. */
+    fun updateAllowMediaReordering(enabled: Boolean) {
+        prefs.allowMediaReordering = enabled
+        _uiState.update { it.copy(allowMediaReordering = enabled) }
     }
 
     // ── Loading ─────────────────────────────────────────────────────────
@@ -116,7 +133,7 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
             val folders = repository.getFolders(_uiState.value.folderSort)
-            _uiState.update { it.copy(folders = folders, isLoading = false) }
+            _uiState.update { it.copy(folders = orderFolders(folders, it.folderSort), isLoading = false) }
         }
     }
 
@@ -128,10 +145,10 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
             val bucketId = s.currentBucketId
             if (bucketId != null) {
                 val media = repository.getMedia(bucketId, s.mediaSort)
-                _uiState.update { it.copy(media = media) }
+                _uiState.update { it.copy(media = orderMedia(bucketId, media, it.mediaSort)) }
             }
             val folders = repository.getFolders(s.folderSort)
-            _uiState.update { it.copy(folders = folders) }
+            _uiState.update { it.copy(folders = orderFolders(folders, it.folderSort)) }
             // The Filter view renders allMedia, which openFilter() loads separately — refresh it too
             // so trashed items disappear from the filtered grid without leaving/reopening Filter.
             if (s.filterActive || s.allMedia.isNotEmpty()) {
@@ -167,7 +184,7 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
                 )
             }
             val media = repository.getMedia(folder.bucketId, _uiState.value.mediaSort)
-            _uiState.update { it.copy(media = media, isLoading = false) }
+            _uiState.update { it.copy(media = orderMedia(folder.bucketId, media, it.mediaSort), isLoading = false) }
         }
     }
 
@@ -203,7 +220,7 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
         _uiState.value.currentBucketId?.let { bucketId ->
             viewModelScope.launch {
                 val media = repository.getMedia(bucketId, sort)
-                _uiState.update { it.copy(media = media) }
+                _uiState.update { it.copy(media = orderMedia(bucketId, media, sort)) }
             }
         }
     }
@@ -212,6 +229,67 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
     fun dismissSortDialog() = _uiState.update { it.copy(showSortDialog = false) }
     fun showViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = true) }
     fun dismissViewAsDialog() = _uiState.update { it.copy(showViewAsDialog = false) }
+
+    // ── Custom order (drag-to-reorder) ──────────────────────────────────
+
+    /** Applies the saved custom folder order when [sort] is CUSTOM_ORDER. Saved folders keep their
+     *  order; folders not yet in the saved order are appended in [folders]' incoming order. */
+    private fun orderFolders(folders: List<FolderItem>, sort: FolderSortOption): List<FolderItem> {
+        if (sort != FolderSortOption.CUSTOM_ORDER) return folders
+        val order = prefs.customFolderOrder
+        if (order.isEmpty()) return folders
+        val byId = folders.associateBy { it.bucketId }
+        val ordered = ArrayList<FolderItem>(folders.size)
+        val used = HashSet<Int>()
+        for (bucketId in order) byId[bucketId]?.let { ordered += it; used += bucketId }
+        for (folder in folders) if (folder.bucketId !in used) ordered += folder
+        return ordered
+    }
+
+    /** Applies the saved per-folder media order when [sort] is CUSTOM_ORDER. */
+    private fun orderMedia(bucketId: Int, media: List<MediaItem>, sort: MediaSortOption): List<MediaItem> {
+        if (sort != MediaSortOption.CUSTOM_ORDER) return media
+        val order = prefs.getFolderMediaCustomOrder(bucketId)
+        if (order.isEmpty()) return media
+        val byId = media.associateBy { it.id }
+        val ordered = ArrayList<MediaItem>(media.size)
+        val used = HashSet<Long>()
+        for (id in order) byId[id]?.let { ordered += it; used += id }
+        for (item in media) if (item.id !in used) ordered += item
+        return ordered
+    }
+
+    /** Live-reorders the folder grid during a drag (root, custom-order mode). */
+    fun reorderFolder(fromIndex: Int, toIndex: Int) {
+        _uiState.update {
+            val list = it.folders.toMutableList()
+            if (fromIndex !in list.indices || toIndex !in list.indices) return@update it
+            list.add(toIndex, list.removeAt(fromIndex))
+            it.copy(folders = list)
+        }
+    }
+
+    /** Persists (auto-saves) the current folder order after a drag completes. */
+    fun persistFolderOrder() {
+        prefs.customFolderOrder = _uiState.value.folders.map { it.bucketId }
+    }
+
+    /** Live-reorders the in-folder media grid during a drag (custom-order mode). */
+    fun reorderMedia(fromIndex: Int, toIndex: Int) {
+        _uiState.update {
+            val list = it.media.toMutableList()
+            if (fromIndex !in list.indices || toIndex !in list.indices) return@update it
+            list.add(toIndex, list.removeAt(fromIndex))
+            it.copy(media = list)
+        }
+    }
+
+    /** Persists (auto-saves) the current folder's media order after a drag completes. */
+    fun persistMediaOrder() {
+        val s = _uiState.value
+        val bucketId = s.currentBucketId ?: return
+        prefs.saveFolderMediaCustomOrder(bucketId, s.media.map { it.id })
+    }
 
     // ── Selection ───────────────────────────────────────────────────────
 
@@ -376,5 +454,104 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
     suspend fun getMediaOlderThan(days: Int): List<MediaItem> {
         val cutoffSeconds = (System.currentTimeMillis() / 1000L) - days.coerceAtLeast(1) * 86_400L
         return repository.getAllMedia().filter { it.dateModified < cutoffSeconds }
+    }
+
+    // ── Trash (shared internal trash) ───────────────────────────────────
+
+    /** True when the app can operate the internal trash silently (All-files access held). */
+    fun canUseTrash(): Boolean = TrashManager.canOperateSilently()
+
+    /** Loads the shared trash contents (newest first) into state. */
+    fun loadTrash() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isTrashLoading = true) }
+            TrashManager.emptyExpired()
+            val items = com.example.common.data.db.TrashStore.getAll()
+                .sortedByDescending { it.deleteTimeMillis }
+            _uiState.update {
+                val ids = items.mapTo(HashSet()) { e -> e.id }
+                it.copy(
+                    trashItems = items,
+                    isTrashLoading = false,
+                    trashSelectedIds = it.trashSelectedIds.intersect(ids),
+                    trashSelectionMode = it.trashSelectionMode && it.trashSelectedIds.intersect(ids).isNotEmpty()
+                )
+            }
+        }
+    }
+
+    /** Moves the current selection (folder grid or filter view) into the shared trash. */
+    fun moveSelectedToTrash() {
+        viewModelScope.launch {
+            val items = resolveSelectionForUpload().map { it.toTrashItem() }
+            if (items.isNotEmpty()) TrashManager.moveToTrash(getApplication(), items)
+            exitSelection()
+            exitFilterSelection()
+            refreshCurrent()
+        }
+    }
+
+    private fun MediaItem.toTrashItem() = TrashManager.TrashItem(
+        id = id,
+        isVideo = isVideo,
+        path = path,
+        displayName = displayName,
+        size = size,
+        mimeType = mimeType,
+        width = width,
+        height = height,
+        dateModified = dateModified
+    )
+
+    fun toggleTrashSelection(id: String) {
+        _uiState.update {
+            val sel = it.trashSelectedIds.toMutableSet()
+            if (!sel.add(id)) sel.remove(id)
+            it.copy(trashSelectedIds = sel, trashSelectionMode = sel.isNotEmpty())
+        }
+    }
+
+    fun startTrashSelectionWith(id: String) {
+        _uiState.update { it.copy(trashSelectionMode = true, trashSelectedIds = setOf(id)) }
+    }
+
+    fun selectAllTrash() {
+        _uiState.update { it.copy(trashSelectedIds = it.trashItems.map { e -> e.id }.toSet()) }
+    }
+
+    fun exitTrashSelection() {
+        _uiState.update { it.copy(trashSelectionMode = false, trashSelectedIds = emptySet()) }
+    }
+
+    fun restoreSelectedTrash() {
+        val entries = selectedTrashEntries()
+        viewModelScope.launch {
+            TrashManager.restore(getApplication(), entries)
+            exitTrashSelection()
+            loadTrash()
+            refreshCurrent()
+        }
+    }
+
+    fun deleteSelectedTrashForever() {
+        val entries = selectedTrashEntries()
+        viewModelScope.launch {
+            TrashManager.deletePermanently(entries)
+            exitTrashSelection()
+            loadTrash()
+        }
+    }
+
+    fun emptyTrash() {
+        viewModelScope.launch {
+            TrashManager.emptyAll()
+            exitTrashSelection()
+            loadTrash()
+        }
+    }
+
+    private fun selectedTrashEntries(): List<TrashEntry> {
+        val s = _uiState.value
+        return s.trashItems.filter { it.id in s.trashSelectedIds }
     }
 }

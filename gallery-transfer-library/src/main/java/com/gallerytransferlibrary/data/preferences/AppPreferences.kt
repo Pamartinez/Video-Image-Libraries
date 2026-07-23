@@ -51,6 +51,15 @@ class AppPreferences(context: Context) {
         set(value) = prefs.edit().putBoolean(KEY_DELETE_AFTER_UPLOAD, value).apply()
 
     /**
+     * When true, users can long-press media items in Custom sort mode to drag-and-drop them into a
+     * new order (mirrors the image-library / video-library "Drag to reorder media" setting).
+     * Default true.
+     */
+    var allowMediaReordering: Boolean
+        get() = prefs.getBoolean(KEY_ALLOW_MEDIA_REORDERING, true)
+        set(value) = prefs.edit().putBoolean(KEY_ALLOW_MEDIA_REORDERING, value).apply()
+
+    /**
      * When true, uploads preserve the source folder: an item is placed in a sub-folder (named after
      * the folder it lives in on the device) under the chosen Dropbox destination. Default false.
      */
@@ -106,6 +115,55 @@ class AppPreferences(context: Context) {
         autoUploadedKeys = autoUploadedKeys + keys
     }
 
+    // ── Custom sort order (auto-saved on drag-to-reorder) ───────────────
+
+    /** Root folder custom order as a list of bucketIds. Empty = not set yet. */
+    var customFolderOrder: List<Int>
+        get() = prefs.getString(KEY_CUSTOM_FOLDER_ORDER, "")
+            ?.split(',')
+            ?.mapNotNull { it.trim().toIntOrNull() }
+            ?: emptyList()
+        set(value) = prefs.edit()
+            .putString(KEY_CUSTOM_FOLDER_ORDER, value.joinToString(",")).apply()
+
+    /** Per-folder media custom order: bucketId -> ordered list of media ids. */
+    fun getFolderMediaCustomOrder(bucketId: Int): List<Long> {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_ORDERS, "") ?: ""
+        if (raw.isEmpty()) return emptyList()
+        for (entry in raw.split(',')) {
+            val colon = entry.indexOf(':')
+            if (colon <= 0) continue
+            if (entry.substring(0, colon).toIntOrNull() != bucketId) continue
+            val idsPart = entry.substring(colon + 1)
+            if (idsPart.isEmpty()) return emptyList()
+            return idsPart.split(';').mapNotNull { it.toLongOrNull() }
+        }
+        return emptyList()
+    }
+
+    /** Saves the media order for [bucketId]; keeps at most [MAX_MEDIA_ORDER_FOLDERS] folders. */
+    fun saveFolderMediaCustomOrder(bucketId: Int, ids: List<Long>) {
+        val raw = prefs.getString(KEY_FOLDER_MEDIA_ORDERS, "") ?: ""
+        val entries = LinkedHashMap<Int, String>()
+        if (raw.isNotEmpty()) {
+            for (entry in raw.split(',')) {
+                val colon = entry.indexOf(':')
+                if (colon <= 0) continue
+                val bId = entry.substring(0, colon).toIntOrNull() ?: continue
+                entries[bId] = entry.substring(colon + 1)
+            }
+        }
+        entries.remove(bucketId)
+        entries[bucketId] = ids.joinToString(";")
+        val trimmed = if (entries.size > MAX_MEDIA_ORDER_FOLDERS) {
+            entries.entries.toList()
+                .takeLast(MAX_MEDIA_ORDER_FOLDERS)
+                .associate { it.key to it.value }
+        } else entries
+        val serialized = trimmed.entries.joinToString(",") { "${it.key}:${it.value}" }
+        prefs.edit().putString(KEY_FOLDER_MEDIA_ORDERS, serialized).apply()
+    }
+
     companion object {
         private const val PREFS_NAME = "gallery_transfer_prefs"
         private const val KEY_VIEW_TYPE = "view_type"
@@ -114,6 +172,7 @@ class AppPreferences(context: Context) {
         private const val KEY_DROPBOX_DEST = "dropbox_dest_path"
         private const val KEY_OVERWRITE_CONFLICT = "overwrite_on_conflict"
         private const val KEY_DELETE_AFTER_UPLOAD = "delete_after_upload"
+        private const val KEY_ALLOW_MEDIA_REORDERING = "allow_media_reordering"
         private const val KEY_KEEP_FOLDER_STRUCTURE = "keep_folder_structure"
         private const val KEY_FILTER_TYPE = "filter_type"
         private const val KEY_FILTER_SORT = "filter_sort"
@@ -123,5 +182,8 @@ class AppPreferences(context: Context) {
         private const val KEY_AUTO_UPLOAD_FREQ = "auto_upload_frequency"
         private const val KEY_AUTO_UPLOAD_WIFI_ONLY = "auto_upload_wifi_only"
         private const val KEY_AUTO_UPLOADED_KEYS = "auto_uploaded_keys"
+        private const val KEY_CUSTOM_FOLDER_ORDER = "custom_folder_order"
+        private const val KEY_FOLDER_MEDIA_ORDERS = "folder_media_custom_orders"
+        private const val MAX_MEDIA_ORDER_FOLDERS = 500
     }
 }

@@ -60,6 +60,8 @@ fun SettingsScreen(
     onDeleteAfterUploadChange: (Boolean) -> Unit = {},
     keepFolderStructure: Boolean = false,
     onKeepFolderStructureChange: (Boolean) -> Unit = {},
+    allowMediaReordering: Boolean = true,
+    onAllowMediaReorderingChange: (Boolean) -> Unit = {},
     autoUploadEnabled: Boolean = false,
     onAutoUploadEnabledChange: (Boolean) -> Unit = {},
     autoUploadOlderThanDays: Int = 30,
@@ -77,6 +79,7 @@ fun SettingsScreen(
     var showDaysDialog by remember { mutableStateOf(false) }
     var showFrequencyDialog by remember { mutableStateOf(false) }
     var showBackupDaysDialog by remember { mutableStateOf(false) }
+    var showReorderInfoDialog by remember { mutableStateOf(false) }
 
     BackHandler { onBack() }
 
@@ -152,6 +155,17 @@ fun SettingsScreen(
                     subtitle = "For background uploads (app minimized or closed): when a file with the same name already exists, replace it. If off, keep both by uploading a renamed copy. While the app is open you'll still be asked each time.",
                     checked = overwriteOnConflict,
                     onCheckedChange = onOverwriteChange
+                )
+            }
+
+            // ── Reordering section ──────────────────────────────────────
+            SettingsSection(title = "Reordering") {
+                SettingsToggleRow(
+                    title = "Drag to reorder media",
+                    subtitle = "Long-press media items in Custom sort to rearrange them",
+                    checked = allowMediaReordering,
+                    onCheckedChange = onAllowMediaReorderingChange,
+                    onInfoClick = { showReorderInfoDialog = true }
                 )
             }
 
@@ -240,6 +254,44 @@ fun SettingsScreen(
             onDismiss = { showBackupDaysDialog = false }
         )
     }
+
+    if (showReorderInfoDialog) {
+        MediaReorderingInfoDialog(onDismiss = { showReorderInfoDialog = false })
+    }
+}
+
+/** Explains the "Drag to reorder media" feature. Mirrors the image/video-library info dialog. */
+@Composable
+private fun MediaReorderingInfoDialog(onDismiss: () -> Unit) {
+    val colors = LocalLibraryColors.current
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Got it", color = colors.primary)
+            }
+        },
+        title = { Text(text = "Drag to Reorder Media", color = colors.listFirstText) },
+        text = {
+            Text(
+                text = """
+                    When this feature is enabled, you can reorder photos and videos within folders:
+                    
+                    • Switch to Custom sort mode
+                    • Long-press any photo or video
+                    • Drag it to a new position
+                    • Release to save the order
+                    
+                    Your custom order is saved and will be restored even after adding new media (new items appear at the top).
+                    
+                    Note: This only works in Custom sort mode. Other sort modes (Name, Date, etc.) use automatic ordering.
+                """.trimIndent(),
+                color = colors.listSecondText
+            )
+        },
+        containerColor = colors.cardBackground
+    )
 }
 
 /** Simple +/- stepper dialog to pick the "older than N days" threshold (minimum 1 day). */
