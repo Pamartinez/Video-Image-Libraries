@@ -392,7 +392,7 @@ private fun ImageListScreenContent(
                 scope.launch {
                     zoomState.animateOpen(image.id, image, cellCornerPx, image.aspectRatioOrZero())
                     viewModel.openCarousel(index)
-                    zoomState.finish()
+                    zoomState.finishAfterHandoff()
                 }
             },
             onImageLongClick = { image -> viewModel.enterSelectionMode(); viewModel.toggleImageSelection(image.id) },

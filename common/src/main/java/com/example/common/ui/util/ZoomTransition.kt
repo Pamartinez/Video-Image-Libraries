@@ -26,7 +26,9 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 
 /**
@@ -142,6 +144,16 @@ class ZoomTransitionState {
         aspectRatio = 0f
     }
 
+    /**
+     * Keep the overlay up for a couple of frames before clearing it, so the destination (viewer or
+     * grid) has time to draw at least one frame underneath. Without this hand-off hold there is a
+     * one-frame gap where neither the overlay nor the destination is drawn — a visible blink.
+     */
+    suspend fun finishAfterHandoff(frames: Int = 2) {
+        repeat(frames) { withFrameNanos { } }
+        finish()
+    }
+
     private suspend fun awaitBounds(key: Any, timeoutMs: Long): Rect? {
         val start = withFrameNanos { it }
         var now = start
@@ -185,8 +197,16 @@ fun ZoomTransitionOverlay(
     val model = state.model
     if (!state.isActive || model == null) return
 
+    // Seed the container size with the screen size so the overlay draws a correct frame immediately.
+    // Without this it would measure to Zero on the first frame (drawing nothing) while the source
+    // cell is already hidden — a visible blink. onGloballyPositioned then corrects to exact bounds.
+    val density = LocalDensity.current
+    val config = LocalConfiguration.current
+    val seedSize = remember(config.screenWidthDp, config.screenHeightDp) {
+        with(density) { Size(config.screenWidthDp.dp.toPx(), config.screenHeightDp.dp.toPx()) }
+    }
     var origin by remember { mutableStateOf(Offset.Zero) }
-    var containerSize by remember { mutableStateOf(Size.Zero) }
+    var containerSize by remember { mutableStateOf(seedSize) }
 
     Box(
         Modifier
@@ -213,7 +233,6 @@ fun ZoomTransitionOverlay(
         } else { dispW = cw; dispH = ch }
         val dispLeftLocal = (cw - dispW) / 2f      // container-local top-left of the display rect
         val dispTopLocal = (ch - dispH) / 2f
-        val density = LocalDensity.current
         val dispWDp = with(density) { dispW.toDp() }
         val dispHDp = with(density) { dispH.toDp() }
 

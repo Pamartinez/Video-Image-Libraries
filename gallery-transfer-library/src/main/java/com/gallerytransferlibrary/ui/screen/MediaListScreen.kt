@@ -204,7 +204,7 @@ fun MediaListScreen(
         scope.launch {
             zoomState.animateOpen(key, item, cellCornerPx, item.aspectRatioOrZero())
             setIndex()
-            zoomState.finish()
+            zoomState.finishAfterHandoff()
         }
     }
 
