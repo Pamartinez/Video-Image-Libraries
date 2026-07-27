@@ -35,7 +35,6 @@ import kotlinx.coroutines.launch
 import com.example.common.data.util.FileManagerHelper
 import com.example.common.ui.components.ActionsPill
 import com.example.common.ui.components.AppMoreMenuButton
-import com.example.common.ui.screen.SharedTrashScreen
 import com.example.common.ui.components.CopyMoveAndConflictOverlayHost
 import com.example.common.ui.components.ScreenTopBar
 import com.videolibrary.data.model.ViewType
@@ -71,12 +70,24 @@ fun VideoListScreen(
     // Keep one grid state per group so back navigation restores the parent's scroll position.
     val rootGroupGridState = rememberLazyGridState()
     val groupGridStates = remember { mutableStateMapOf<Long, LazyGridState>() }
-    val groupGridState = state.currentGroupId?.let { groupId ->
+    val currentGid = state.currentGroupId
+    // When a folder was just moved/added into a group, discard its remembered scroll position
+    // so it opens at the very top (where the moved item was prepended).
+    val needsFreshTop = currentGid != null && currentGid in state.pendingScrollToTopGroupIds
+    val groupGridState = currentGid?.let { groupId ->
+        if (needsFreshTop) groupGridStates.remove(groupId)
         groupGridStates.getOrPut(groupId) { LazyGridState() }
     } ?: rootGroupGridState
     val colors = LocalVideoColors.current
     var showMoreMenu by remember { mutableStateOf(false) }
     var showCreateMenu by remember { mutableStateOf(false) }
+
+    LaunchedEffect(currentGid, needsFreshTop) {
+        if (needsFreshTop && currentGid != null) {
+            groupGridState.scrollToItem(0)
+            viewModel.consumeGroupScrollToTop(currentGid)
+        }
+    }
 
     LaunchedEffect(state.scrollToTopTrigger) {
         if (state.scrollToTopTrigger > 0) {
@@ -122,7 +133,7 @@ fun VideoListScreen(
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
             state.showGroupNameDialog || state.showRenameGroupDialog ||
-            state.showAbout || state.showSettings || state.showHideFolders || state.showTrash || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
             state.showMoveToGroupPicker || showMoreMenu || showCreateMenu
 
     BackHandler(
@@ -147,8 +158,6 @@ fun VideoListScreen(
             state.showMoveFolderPicker   -> viewModel.dismissMoveFolderPicker()
             state.showAbout              -> viewModel.dismissAbout()
             state.showSettings           -> viewModel.dismissSettings()
-            state.showTrash && state.trashSelectionMode -> viewModel.exitTrashSelection()
-            state.showTrash              -> viewModel.dismissTrashScreen()
             state.showHideFolders && state.hideScreenGroupId != null -> {
                 if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
                 else viewModel.closeGroupInHideScreen()
@@ -229,25 +238,6 @@ fun VideoListScreen(
     // opened from within a group or folder.
     if (state.showSettings) {
         SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() })
-        return
-    }
-
-    if (state.showTrash) {
-        SharedTrashScreen(
-            entries = state.trashItems,
-            selectedIds = state.trashSelectedIds,
-            selectionMode = state.trashSelectionMode,
-            isLoading = state.isTrashLoading,
-            retentionDays = com.example.common.data.util.TrashManager.DEFAULT_RETENTION_DAYS,
-            onBack = { viewModel.dismissTrashScreen() },
-            onToggleSelect = { viewModel.toggleTrashSelection(it) },
-            onLongPress = { viewModel.startTrashSelectionWith(it) },
-            onSelectAll = { viewModel.selectAllTrash() },
-            onExitSelection = { viewModel.exitTrashSelection() },
-            onRestore = { viewModel.restoreSelectedTrash() },
-            onDeleteForever = { viewModel.deleteSelectedTrashForever() },
-            onEmptyAll = { viewModel.emptyTrash() }
-        )
         return
     }
 
@@ -422,127 +412,7 @@ fun VideoListScreen(
         if (state.showAddFolderToGroup) {
             // Build groupOrderedItems map for available groups + root level with FULL sort logic
             val availableGroups = state.rootGroups + state.currentGroupSubGroups
-            val groupOrderedItemsMap = buildMap<Long, List<Any>> {
-                // Add ROOT level ordered items
-                put(-1L, state.orderedMixedItems)
-
-                // Add CURRENT group's pre-calculated ordered items (already correct!)
-                if (state.currentGroupId != null) {
-                    put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
-                }
-
-                // Add ALL groups' ordered items with FULL sort logic
-                availableGroups.forEach { group ->
-                    // Skip current group - already added above with pre-calculated data
-                    if (group.groupId == state.currentGroupId) return@forEach
-
-                    // Get this group's folders and sub-groups
-                    val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
-                    val subGroups = availableGroups.filter { it.parentGroupId == group.groupId }
-
-                    // Get sort option for this group
-                    val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
-                    val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
-
-                    // Build raw mixed list
-                    val rawMixed = buildList<Any> {
-                        addAll(subGroups)
-                        addAll(memberFolders)
-                    }
-
-                    // Apply sorting based on group's sort option
-                    val orderedItems: List<Any> = when (sortOption) {
-                        com.example.common.data.model.FolderSortOption.CUSTOM_ORDER -> {
-                            val customOrder = state.allGroupCustomOrders[group.groupId] ?: emptyList()
-                            if (customOrder.isNotEmpty()) {
-                                buildList {
-                                    // Add items in custom order
-                                    customOrder.forEach { key ->
-                                        rawMixed.find { item ->
-                                            when (item) {
-                                                is com.example.common.data.model.GroupItem -> "group_${item.groupId}" == key
-                                                is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}" == key
-                                                else -> false
-                                            }
-                                        }?.let { add(it) }
-                                    }
-                                    // Add new items not in custom order
-                                    rawMixed.filter { item ->
-                                        val itemKey = when (item) {
-                                            is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                                            is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
-                                            else -> ""
-                                        }
-                                        itemKey !in customOrder
-                                    }.forEach { add(it) }
-                                }
-                            } else rawMixed
-                        }
-                        com.example.common.data.model.FolderSortOption.NAME_A_TO_Z -> {
-                            if (state.groupsAlwaysOnTop) {
-                                subGroups.sortedBy { it.name.lowercase() } + memberFolders.sortedBy { it.name.lowercase() }
-                            } else {
-                                rawMixed.sortedBy { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
-                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
-                                        else -> ""
-                                    }
-                                }
-                            }
-                        }
-                        com.example.common.data.model.FolderSortOption.NAME_Z_TO_A -> {
-                            if (state.groupsAlwaysOnTop) {
-                                subGroups.sortedByDescending { it.name.lowercase() } + memberFolders.sortedByDescending { it.name.lowercase() }
-                            } else {
-                                rawMixed.sortedByDescending { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
-                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
-                                        else -> ""
-                                    }
-                                }
-                            }
-                        }
-                        com.example.common.data.model.FolderSortOption.ITEMS_MOST_FIRST -> {
-                            if (state.groupsAlwaysOnTop) {
-                                buildList<Any> {
-                                    addAll(subGroups.sortedByDescending { it.totalItemCount })
-                                    addAll(memberFolders.sortedByDescending { it.itemCount })
-                                }
-                            } else {
-                                rawMixed.sortedByDescending { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
-                                        is com.example.common.data.model.FolderItem -> item.itemCount
-                                        else -> 0
-                                    }
-                                }
-                            }
-                        }
-                        com.example.common.data.model.FolderSortOption.ITEMS_FEWEST_FIRST -> {
-                            if (state.groupsAlwaysOnTop) {
-                                buildList<Any> {
-                                    addAll(subGroups.sortedBy { it.totalItemCount })
-                                    addAll(memberFolders.sortedBy { it.itemCount })
-                                }
-                            } else {
-                                rawMixed.sortedBy { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
-                                        is com.example.common.data.model.FolderItem -> item.itemCount
-                                        else -> 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (orderedItems.isNotEmpty()) {
-                        put(group.groupId, orderedItems)
-                    }
-                }
-            }
+            val groupOrderedItemsMap = buildGroupOrderedItemsMap(state)
 
             AddFolderToGroupScreen(
                 allFolders     = state.folders,
@@ -905,7 +775,6 @@ fun VideoListScreen(
                             onViewAs   = { viewModel.showViewAsDialog() },
                             onSettings = { viewModel.showSettings() },
                             onAbout    = { viewModel.showAbout() },
-                            onTrash    = { viewModel.showTrashScreen() },
                             extraTopContent = { dismiss ->
                                 com.example.common.ui.components.AppMenuItem(
                                     text      = "Hide album(s)",
@@ -1207,6 +1076,7 @@ fun VideoListScreen(
             movingFolderIds = state.moveToGroupFolderIds,
             movingGroupIds = state.moveToGroupGroupIds,
             viewType = state.viewType,
+            groupOrderedItems = buildGroupOrderedItemsMap(state),
             onMoveHere = { viewModel.moveSelectionToGroup(it) },
             onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
             onCancel = { viewModel.dismissMoveToGroupPicker() }
@@ -1313,6 +1183,60 @@ fun VideoListScreen(
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+/**
+ * Builds the ordered-items map (key -1L = root level, key = groupId for each group) used by the
+ * folder/group pickers (AddFolderToGroupScreen, MoveToGroupScreen) so that albums and groups are
+ * displayed respecting each container's own sort order.
+ */
+private fun buildGroupOrderedItemsMap(
+    state: com.videolibrary.ui.viewmodel.VideoListUiState
+): Map<Long, List<Any>> {
+    val availableGroups = state.rootGroups + state.currentGroupSubGroups
+    return buildMap {
+        // Add ROOT level ordered items
+        put(-1L, state.orderedMixedItems)
+
+        // Add CURRENT group's pre-calculated ordered items (already correct!)
+        if (state.currentGroupId != null) {
+            put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
+        }
+
+        // Add ALL groups' ordered items using the SAME shared utilities the ViewModel
+        // uses for the real group display, so the picker order always matches.
+        availableGroups.forEach { group ->
+            // Skip current group - already added above with pre-calculated data
+            if (group.groupId == state.currentGroupId) return@forEach
+
+            // Get this group's folders and sub-groups
+            val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
+            val subGroups = availableGroups.filter { it.parentGroupId == group.groupId }
+
+            // Get sort option for this group
+            val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
+            val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
+
+            val orderedItems: List<Any> =
+                if (sortOption == com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) {
+                    com.example.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
+                        state.allGroupCustomOrders[group.groupId] ?: emptyList(),
+                        subGroups,
+                        memberFolders
+                    )
+                } else {
+                    com.example.common.data.util.MixedItemSorter.sortMixedItems(
+                        subGroups + memberFolders,
+                        sortOption,
+                        state.groupsAlwaysOnTop
+                    )
+                }
+
+            if (orderedItems.isNotEmpty()) {
+                put(group.groupId, orderedItems)
             }
         }
     }

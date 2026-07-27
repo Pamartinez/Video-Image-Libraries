@@ -98,6 +98,9 @@ fun FolderPickerScreen(
     var selectedIds by remember { mutableStateOf(setOf<Int>()) }
     var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
 
+    // Reset scroll position when entering/exiting a group so each level opens at the top.
+    LaunchedEffect(browseStack) { lazyGridState.scrollToItem(0) }
+
     val currentBrowseGroupId = browseStack.lastOrNull()?.first
     val displayItems: List<MixedItem> = remember(folders, groups, orderedMixedItems, currentBrowseGroupId, groupCustomOrders, groupSortOptions, groupOrderedItems) {
         if (currentBrowseGroupId != null) {

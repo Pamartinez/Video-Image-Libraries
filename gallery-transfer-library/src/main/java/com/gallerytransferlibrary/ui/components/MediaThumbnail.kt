@@ -42,6 +42,7 @@ fun MediaThumbnail(
         AsyncImage(
             model = ImageRequest.Builder(context)
                 .data(item.uri)
+                .memoryCacheKey(item.uri.toString())
                 .crossfade(true)
                 .build(),
             imageLoader = loader,

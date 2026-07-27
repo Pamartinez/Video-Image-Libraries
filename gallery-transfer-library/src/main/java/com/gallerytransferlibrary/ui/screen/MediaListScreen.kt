@@ -67,7 +67,11 @@ import com.example.common.ui.components.SortDialog
 import com.example.common.ui.components.ViewAsDialog
 import com.example.common.ui.components.ViewTypeToggleButton
 import com.example.common.ui.util.dragToReorderGrid
+import com.example.common.ui.util.revealItem
 import com.example.common.ui.util.rememberDragDropGridState
+import com.example.common.ui.util.ZoomTransitionOverlay
+import com.example.common.ui.util.rememberZoomTransitionState
+import com.example.common.ui.util.zoomThumbnail
 import com.example.common.ui.screen.AboutScreen
 import com.gallerytransferlibrary.data.model.MediaItem
 import com.gallerytransferlibrary.data.model.FilterSortOption
@@ -88,7 +92,11 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER, TRASH }
+private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER }
+
+/** width/height aspect ratio for the zoom transition; 0f when the item's dimensions are unknown. */
+private fun MediaItem.aspectRatioOrZero(): Float =
+    if (width > 0 && height > 0) width.toFloat() / height.toFloat() else 0f
 
 @Composable
 fun MediaListScreen(
@@ -150,9 +158,9 @@ fun MediaListScreen(
     }
 
     // After a delete-after-upload batch, the manager surfaces the uploaded items' URIs. When the app
-    // holds All-files access the items are moved to the shared internal Trash silently (no dialog);
-    // otherwise the system asks for consent (one dialog) to move them to the system trash. Either way
-    // we refresh.
+    // holds All-files access the items are moved to the system (Samsung Gallery) trash silently (no
+    // dialog); otherwise the system asks for consent (one dialog) to move them to the system trash.
+    // Either way we refresh.
     val trashLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
@@ -164,7 +172,7 @@ fun MediaListScreen(
         if (uris.isNotEmpty()) {
             if (com.example.common.data.util.MediaTrashHelper.isExternalStorageManager()) {
                 withContext(Dispatchers.IO) {
-                    com.example.common.data.util.TrashManager.moveUrisToTrash(context, uris)
+                    com.example.common.data.util.MediaTrashHelper.trashSilently(context, uris)
                 }
                 viewModel.refreshCurrent()
                 uploadManager.clearUploadedUris()
@@ -182,6 +190,23 @@ fun MediaListScreen(
     var overlay by remember { mutableStateOf(Overlay.NONE) }
     var viewerIndex by remember { mutableStateOf<Int?>(null) }
     var filterViewerIndex by remember { mutableStateOf<Int?>(null) }
+    // Current page within each viewer's image list (videos excluded), for Samsung-style
+    // "track the viewed image on return to the grid".
+    var viewerPage by remember { mutableStateOf(0) }
+    var filterViewerPage by remember { mutableStateOf(0) }
+
+    // Samsung Gallery–style shrink/grow shared-element transition between thumbnail and viewer.
+    val zoomState = rememberZoomTransitionState()
+    val cellCornerPx = with(LocalDensity.current) { 2.dp.toPx() }
+    // Opens the viewer with a grow-from-thumbnail animation; falls back to plain open for the
+    // rare case where the tapped cell isn't tracked.
+    val openImageWithZoom: (String, MediaItem, () -> Unit) -> Unit = { key, item, setIndex ->
+        scope.launch {
+            zoomState.animateOpen(key, item, cellCornerPx, item.aspectRatioOrZero())
+            setIndex()
+            zoomState.finish()
+        }
+    }
 
     // Shared upload trigger: resolves the current selection, exits it, then enqueues the upload
     // using the current Settings (destination, keep-structure, overwrite, delete-after-upload).
@@ -235,7 +260,6 @@ fun MediaListScreen(
             viewerIndex != null -> viewerIndex = null
             state.filterSelectionMode && overlay == Overlay.FILTER -> viewModel.exitFilterSelection()
             overlay == Overlay.FILTER -> { overlay = Overlay.NONE; viewModel.closeFilter() }
-            state.trashSelectionMode && overlay == Overlay.TRASH -> viewModel.exitTrashSelection()
             overlay != Overlay.NONE -> overlay = Overlay.NONE
             else -> viewModel.onBack()
         }
@@ -298,17 +322,6 @@ fun MediaListScreen(
                 onConnect = { manualSignIn = true },
                 onPickDestination = { if (connected) showFolderPicker = true else manualSignIn = true }
             )
-            Overlay.TRASH -> TrashScreen(
-                state = state,
-                onBack = { viewModel.exitTrashSelection(); overlay = Overlay.NONE },
-                onToggleSelect = { viewModel.toggleTrashSelection(it) },
-                onLongPress = { viewModel.startTrashSelectionWith(it) },
-                onSelectAll = { viewModel.selectAllTrash() },
-                onExitSelection = { viewModel.exitTrashSelection() },
-                onRestore = { viewModel.restoreSelectedTrash() },
-                onDeleteForever = { viewModel.deleteSelectedTrashForever() },
-                onEmptyAll = { viewModel.emptyTrash() }
-            )
             Overlay.FILTER -> Box(Modifier.fillMaxSize()) {
                 Column(Modifier.fillMaxSize().statusBarsPadding()) {
                     FilterTopBar(
@@ -344,6 +357,11 @@ fun MediaListScreen(
                                 )
                             }
                         } else {
+                            val filterRevealIndex = if (filterViewerIndex != null) {
+                                filtered.filter { !it.isVideo }.getOrNull(filterViewerPage)?.let { img ->
+                                    filtered.indexOfFirst { it.uniqueKey == img.uniqueKey }
+                                } ?: -1
+                            } else -1
                             ItemGrid(
                                 items = filtered,
                                 selectedKeys = state.filterSelectedKeys,
@@ -353,11 +371,13 @@ fun MediaListScreen(
                                 onItemClick = { index, item ->
                                     if (state.filterSelectionMode) viewModel.toggleFilterSelection(item.uniqueKey)
                                     else if (item.isVideo) playVideo(context, item)
-                                    else filterViewerIndex = index
+                                    else openImageWithZoom(item.uniqueKey, item) { filterViewerIndex = index }
                                 },
                                 onItemLongClick = { item -> viewModel.startFilterSelectionWith(item.uniqueKey) },
                                 onReorder = { _, _ -> },
-                                onReorderDone = {}
+                                onReorderDone = {},
+                                revealIndex = filterRevealIndex,
+                                zoomState = zoomState
                             )
                         }
                     }
@@ -395,7 +415,6 @@ fun MediaListScreen(
                         onViewAs = { viewModel.showViewAsDialog() },
                         onSettings = { overlay = Overlay.SETTINGS },
                         onAbout = { overlay = Overlay.ABOUT },
-                        onTrash = { viewModel.loadTrash(); overlay = Overlay.TRASH },
                         onFilter = { viewModel.openFilter(); overlay = Overlay.FILTER }
                     )
 
@@ -404,16 +423,23 @@ fun MediaListScreen(
                             CircularProgressIndicator(color = colors.primary)
                         }
                     } else if (state.inFolder) {
+                        val mediaRevealIndex = if (viewerIndex != null) {
+                            state.media.filter { !it.isVideo }.getOrNull(viewerPage)?.let { img ->
+                                state.media.indexOfFirst { it.uniqueKey == img.uniqueKey }
+                            } ?: -1
+                        } else -1
                         MediaGrid(
                             state = state,
                             onItemClick = { index, item ->
                                 if (state.selectionMode) viewModel.toggleMediaSelection(item.uniqueKey)
                                 else if (item.isVideo) playVideo(context, item)
-                                else viewerIndex = index
+                                else openImageWithZoom(item.uniqueKey, item) { viewerIndex = index }
                             },
                             onItemLongClick = { item -> viewModel.startSelectionWithMedia(item.uniqueKey) },
                             onReorder = { from, to -> viewModel.reorderMedia(from, to) },
-                            onReorderDone = { viewModel.persistMediaOrder() }
+                            onReorderDone = { viewModel.persistMediaOrder() },
+                            revealIndex = mediaRevealIndex,
+                            zoomState = zoomState
                         )
                     } else {
                         FolderGrid(
@@ -531,7 +557,12 @@ fun MediaListScreen(
             ImageViewer(
                 images = images,
                 startIndex = startInImages,
-                onClose = { viewerIndex = null }
+                onClose = {
+                    val img = images.getOrNull(viewerPage)
+                    viewerIndex = null
+                    if (img != null) scope.launch { zoomState.animateClose(img.uniqueKey, img, cellCornerPx, img.aspectRatioOrZero()) }
+                },
+                onPageChanged = { viewerPage = it }
             )
         }
     }
@@ -547,7 +578,12 @@ fun MediaListScreen(
             ImageViewer(
                 images = images,
                 startIndex = startInImages,
-                onClose = { filterViewerIndex = null }
+                onClose = {
+                    val img = images.getOrNull(filterViewerPage)
+                    filterViewerIndex = null
+                    if (img != null) scope.launch { zoomState.animateClose(img.uniqueKey, img, cellCornerPx, img.aspectRatioOrZero()) }
+                },
+                onPageChanged = { filterViewerPage = it }
             )
         }
     }
@@ -599,6 +635,21 @@ fun MediaListScreen(
             }
         )
     }
+
+    // ── Samsung-style shrink/grow overlay (top of z-order) ──
+    ZoomTransitionOverlay(zoomState) { model ->
+        val item = model as MediaItem
+        AsyncImage(
+            model = ImageRequest.Builder(context)
+                .data(item.uri)
+                .placeholderMemoryCacheKey(item.uri.toString())
+                .crossfade(false)
+                .build(),
+            contentDescription = item.displayName,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+    }
 }
 
 @Composable
@@ -612,7 +663,6 @@ private fun TopBar(
     onViewAs: () -> Unit,
     onSettings: () -> Unit,
     onAbout: () -> Unit,
-    onTrash: () -> Unit,
     onFilter: () -> Unit
 ) {
     val colors = LocalGalleryColors.current
@@ -666,7 +716,6 @@ private fun TopBar(
                 onSortBy = onSort,
                 onViewAs = onViewAs,
                 onSettings = onSettings,
-                onTrash = onTrash,
                 onAbout = onAbout
             )
         }
@@ -937,7 +986,9 @@ private fun MediaGrid(
     onItemClick: (Int, MediaItem) -> Unit,
     onItemLongClick: (MediaItem) -> Unit,
     onReorder: (Int, Int) -> Unit,
-    onReorderDone: () -> Unit
+    onReorderDone: () -> Unit,
+    revealIndex: Int = -1,
+    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
 ) {
     ItemGrid(
         items = state.media,
@@ -948,7 +999,9 @@ private fun MediaGrid(
         onItemClick = onItemClick,
         onItemLongClick = onItemLongClick,
         onReorder = onReorder,
-        onReorderDone = onReorderDone
+        onReorderDone = onReorderDone,
+        revealIndex = revealIndex,
+        zoomState = zoomState
     )
 }
 
@@ -963,11 +1016,18 @@ private fun ItemGrid(
     onItemClick: (Int, MediaItem) -> Unit,
     onItemLongClick: (MediaItem) -> Unit,
     onReorder: (Int, Int) -> Unit,
-    onReorderDone: () -> Unit
+    onReorderDone: () -> Unit,
+    revealIndex: Int = -1,
+    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
 ) {
     val colors = LocalGalleryColors.current
     val columns = if (viewType == ViewType.GRID_SMALL) 5 else 3
     val gridState = rememberLazyGridState()
+    // Track the viewed image on return (Samsung Gallery behavior): minimal nearest-edge
+    // scroll, no-op if already visible. No header row in this grid.
+    LaunchedEffect(revealIndex) {
+        if (revealIndex >= 0) gridState.revealItem(revealIndex, hasHeaderRow = false)
+    }
     val dragState = rememberDragDropGridState(
         lazyGridState = gridState,
         onMove = { from, to -> if (from in items.indices && to in items.indices) onReorder(from, to) },
@@ -995,6 +1055,7 @@ private fun ItemGrid(
                     modifier = Modifier
                         .aspectRatio(1f)
                         .clip(RoundedCornerShape(2.dp))
+                        .then(if (zoomState != null) Modifier.zoomThumbnail(item.uniqueKey, zoomState) else Modifier)
                         .graphicsLayer {
                             alpha = when {
                                 itemIsDragging -> 0f

@@ -1,3 +1,5 @@
+import com.android.build.api.artifact.SingleArtifact
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -16,7 +18,7 @@ android {
         minSdk = 31
         targetSdk = 36
         versionCode = 2
-        versionName = "1.1"
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,7 +26,7 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
+            versionNameSuffix = ".19"
         }
         release {
             isMinifyEnabled = false
@@ -40,6 +42,23 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+}
+
+// Copy the built APK into the shared repo-level `apk/` folder after packaging.
+androidComponents {
+    onVariants { variant ->
+        val capitalized = variant.name.replaceFirstChar { it.uppercase() }
+        val copyApk = tasks.register<Copy>("copy${capitalized}ApkToSharedDir") {
+            from(variant.artifacts.get(SingleArtifact.APK)) {
+                include("*.apk")
+                rename { it.replace("-debug", "") }
+            }
+            into(rootProject.layout.projectDirectory.dir("apk"))
+        }
+        afterEvaluate {
+            tasks.named("package$capitalized").configure { finalizedBy(copyApk) }
+        }
     }
 }
 

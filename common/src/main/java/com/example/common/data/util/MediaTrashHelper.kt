@@ -1,6 +1,7 @@
 package com.example.common.data.util
 
 import android.content.ContentResolver
+import android.content.ContentValues
 import android.content.Context
 import android.content.IntentSender
 import android.net.Uri
@@ -27,40 +28,20 @@ object MediaTrashHelper {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager()
 
     /**
-     * Permanently deletes [uris] without launching a consent dialog. Requires All-files access
-     * (see [isExternalStorageManager]), which lets the app delete media owned by any app. For rows
-     * that MediaStore won't remove directly, falls back to a direct file delete followed by a media
-     * rescan so the stale entry disappears. Returns the number of items deleted.
-     *
-     * Unlike moving to the system trash, this works for media owned by other apps (e.g. camera
-     * photos), but the items are removed permanently and are NOT recoverable from the system trash.
+     * Moves [uris] to the system (Samsung Gallery) trash silently — no consent dialog — by setting
+     * MediaStore's IS_TRASHED flag. The items stay recoverable from the Gallery trash. Requires
+     * All-files access (see [isExternalStorageManager]), which lets the app trash media owned by any
+     * app. Returns the number of items successfully trashed.
      */
-    fun deleteSilently(context: Context, uris: List<Uri>): Int {
+    fun trashSilently(context: Context, uris: List<Uri>): Int {
         if (uris.isEmpty() || !isExternalStorageManager()) return 0
         val resolver = context.contentResolver
+        val values = ContentValues().apply { put(MediaStore.MediaColumns.IS_TRASHED, 1) }
         var count = 0
         for (uri in uris) {
-            val path = pathFor(resolver, uri)
-            val removed = runCatching { resolver.delete(uri, null, null) }.getOrDefault(0) > 0
-            if (removed) {
-                count++
-            } else if (path != null) {
-                val file = java.io.File(path)
-                val gone = runCatching { file.delete() }.getOrDefault(false) || !file.exists()
-                if (gone) {
-                    MediaFileUtils.scanFile(context, file)
-                    count++
-                }
-            }
+            val trashed = runCatching { resolver.update(uri, values, null, null) }.getOrDefault(0) > 0
+            if (trashed) count++
         }
         return count
     }
-
-    /** Look up the absolute filesystem path for [uri] via MediaStore's DATA column, or null. */
-    private fun pathFor(resolver: ContentResolver, uri: Uri): String? =
-        runCatching {
-            resolver.query(uri, arrayOf(MediaStore.MediaColumns.DATA), null, null, null)?.use { c ->
-                if (c.moveToFirst()) c.getString(0) else null
-            }
-        }.getOrNull()
 }

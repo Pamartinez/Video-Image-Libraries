@@ -405,10 +405,10 @@ class VideoRepository(private val context: Context) {
     /** True when the app holds All-files access and can delete media without a system consent dialog. */
     fun canDeleteSilently(): Boolean = MediaTrashHelper.isExternalStorageManager()
 
-    /** Permanently delete [videoIds] silently (no system dialog) via All-files access. Returns the number deleted. */
-    suspend fun deleteVideosSilently(videoIds: List<Long>): Int = withContext(Dispatchers.IO) {
+    /** Move [videoIds] to the system (Samsung Gallery) trash silently via All-files access. Returns the number trashed. */
+    suspend fun trashSilently(videoIds: List<Long>): Int = withContext(Dispatchers.IO) {
         val uris = videoIds.map { ContentUris.withAppendedId(videoUri, it) }
-        MediaTrashHelper.deleteSilently(context, uris)
+        MediaTrashHelper.trashSilently(context, uris)
     }
 
     // ── Rename Video ────────────────────────────────────────────────────

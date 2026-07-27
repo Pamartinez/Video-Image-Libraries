@@ -48,7 +48,8 @@ fun FolderDetailScreen(
     onReorderItem: (Int, Int) -> Unit = { _, _ -> },
     onReorderDone: () -> Unit = {},
     scrollToTopTrigger: Int = 0,
-    lazyGridState: LazyGridState = rememberLazyGridState()
+    lazyGridState: LazyGridState = rememberLazyGridState(),
+    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
 ) {
     // Scroll to top when sort changes in the album
     LaunchedEffect(scrollToTopTrigger) {
@@ -90,6 +91,7 @@ fun FolderDetailScreen(
 
         colors = LocalImageColors.current,
         floatingTopBarEnabled = floatingTopBarEnabled,
+        zoomState = zoomState,
 
         isLargeGrid = { it == ViewType.GRID_LARGE },
         getColumnCount = { if (it == ViewType.GRID_LARGE) 2 else 3 },

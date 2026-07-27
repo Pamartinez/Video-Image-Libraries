@@ -48,6 +48,7 @@ fun MoveToGroupScreen(
     groups: List<GroupItem>,
     movingFolderIds: Set<Int>,
     movingGroupIds: Set<Long>,
+    groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
     columnCount: Int = 3,
     gridSpacing: Float = 16f,
     onMoveHere: (targetGroupId: Long?) -> Unit,
@@ -72,32 +73,51 @@ fun MoveToGroupScreen(
     var browseStack by remember { mutableStateOf(listOf<Pair<Long, String>>()) }
     val currentBrowseGroupId = browseStack.lastOrNull()?.first
 
+    // Reset scroll position when entering/exiting a group so each level opens at the top.
+    LaunchedEffect(browseStack) { lazyGridState.scrollToItem(0) }
+
     // Create group dialog state
     var showCreateGroupDialog by remember { mutableStateOf(false) }
 
     val totalMovingItems = movingFolderIds.size + movingGroupIds.size
     val availableGroups  = groups.filter { it.groupId !in movingGroupIds }
 
-    // Build display items based on browse level
-    val displayItems: List<MixedItem> = if (currentBrowseGroupId != null) {
-        val browsedGroup    = availableGroups.find { it.groupId == currentBrowseGroupId }
-        val memberBucketIds = browsedGroup?.memberBucketIds ?: emptyList()
-        val memberFolders   = memberBucketIds
-            .filter { it !in movingFolderIds }
-            .mapNotNull { bid -> folders.find { it.bucketId == bid } }
-        val subGroups       = availableGroups.filter { it.parentGroupId == currentBrowseGroupId }
-        buildList {
-            subGroups.forEach     { add(MixedItem.Group(it)) }
-            memberFolders.forEach { add(MixedItem.Folder(it)) }
-        }
-    } else {
-        val groupedBucketIds = groups.flatMap { it.memberBucketIds }.toSet()
-        val ungroupedFolders = folders
-            .filter { it.bucketId !in groupedBucketIds && it.bucketId !in movingFolderIds }
-        val rootGroups       = availableGroups.filter { it.parentGroupId == null }
-        buildList {
-            rootGroups.forEach       { add(MixedItem.Group(it)) }
-            ungroupedFolders.forEach { add(MixedItem.Folder(it)) }
+    // Build display items based on browse level.
+    // Prefer the pre-calculated ordered list for this browse level (root = -1L) when available,
+    // filtering out the items currently being moved; otherwise fall back to raw list order.
+    val displayItems: List<MixedItem> = run {
+        val levelKey = currentBrowseGroupId ?: -1L
+        val ordered = groupOrderedItems[levelKey]
+        if (ordered != null) {
+            ordered.mapNotNull { item ->
+                when (item) {
+                    is GroupItem ->
+                        if (item.groupId in movingGroupIds) null else MixedItem.Group(item)
+                    is FolderItem ->
+                        if (item.bucketId in movingFolderIds) null else MixedItem.Folder(item)
+                    else -> null
+                }
+            }
+        } else if (currentBrowseGroupId != null) {
+            val browsedGroup    = availableGroups.find { it.groupId == currentBrowseGroupId }
+            val memberBucketIds = browsedGroup?.memberBucketIds ?: emptyList()
+            val memberFolders   = memberBucketIds
+                .filter { it !in movingFolderIds }
+                .mapNotNull { bid -> folders.find { it.bucketId == bid } }
+            val subGroups       = availableGroups.filter { it.parentGroupId == currentBrowseGroupId }
+            buildList {
+                subGroups.forEach     { add(MixedItem.Group(it)) }
+                memberFolders.forEach { add(MixedItem.Folder(it)) }
+            }
+        } else {
+            val groupedBucketIds = groups.flatMap { it.memberBucketIds }.toSet()
+            val ungroupedFolders = folders
+                .filter { it.bucketId !in groupedBucketIds && it.bucketId !in movingFolderIds }
+            val rootGroups       = availableGroups.filter { it.parentGroupId == null }
+            buildList {
+                rootGroups.forEach       { add(MixedItem.Group(it)) }
+                ungroupedFolders.forEach { add(MixedItem.Folder(it)) }
+            }
         }
     }
 

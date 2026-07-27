@@ -5,9 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.FolderSortOption
-import com.example.common.data.model.TrashEntry
 import com.example.common.data.model.ViewType
-import com.example.common.data.util.TrashManager
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType
 import com.gallerytransferlibrary.data.model.MediaItem
@@ -54,11 +52,6 @@ data class MediaListUiState(
     val showFilterSortDialog: Boolean = false,
     val showFilterSizeDialog: Boolean = false,
     val showFilterDateDialog: Boolean = false,
-    // Trash (shared internal trash)
-    val trashItems: List<TrashEntry> = emptyList(),
-    val trashSelectedIds: Set<String> = emptySet(),
-    val trashSelectionMode: Boolean = false,
-    val isTrashLoading: Boolean = false,
 ) {
     val inFolder: Boolean get() = currentBucketId != null
     val selectedCount: Int
@@ -118,7 +111,6 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
 
     init {
         loadFolders()
-        viewModelScope.launch { TrashManager.emptyExpired() }
     }
 
     /** Toggles whether media items can be drag-reordered in Custom sort mode. */
@@ -456,102 +448,25 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
         return repository.getAllMedia().filter { it.dateModified < cutoffSeconds }
     }
 
-    // ── Trash (shared internal trash) ───────────────────────────────────
+    // ── Delete (move to system/Samsung trash) ───────────────────────────
 
-    /** True when the app can operate the internal trash silently (All-files access held). */
-    fun canUseTrash(): Boolean = TrashManager.canOperateSilently()
-
-    /** Loads the shared trash contents (newest first) into state. */
-    fun loadTrash() {
-        viewModelScope.launch {
-            _uiState.update { it.copy(isTrashLoading = true) }
-            TrashManager.emptyExpired()
-            val items = com.example.common.data.db.TrashStore.getAll()
-                .sortedByDescending { it.deleteTimeMillis }
-            _uiState.update {
-                val ids = items.mapTo(HashSet()) { e -> e.id }
-                it.copy(
-                    trashItems = items,
-                    isTrashLoading = false,
-                    trashSelectedIds = it.trashSelectedIds.intersect(ids),
-                    trashSelectionMode = it.trashSelectionMode && it.trashSelectedIds.intersect(ids).isNotEmpty()
-                )
-            }
-        }
-    }
-
-    /** Moves the current selection (folder grid or filter view) into the shared trash. */
+    /** Moves the current selection (folder grid or filter view) to the system (Samsung Gallery)
+     *  trash silently via All-files access. */
     fun moveSelectedToTrash() {
         viewModelScope.launch {
-            val items = resolveSelectionForUpload().map { it.toTrashItem() }
-            if (items.isNotEmpty()) TrashManager.moveToTrash(getApplication(), items)
+            val uris = resolveSelectionForUpload().map { item ->
+                android.content.ContentUris.withAppendedId(
+                    if (item.isVideo) android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+                    else android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    item.id
+                )
+            }
+            if (uris.isNotEmpty()) {
+                com.example.common.data.util.MediaTrashHelper.trashSilently(getApplication(), uris)
+            }
             exitSelection()
             exitFilterSelection()
             refreshCurrent()
         }
-    }
-
-    private fun MediaItem.toTrashItem() = TrashManager.TrashItem(
-        id = id,
-        isVideo = isVideo,
-        path = path,
-        displayName = displayName,
-        size = size,
-        mimeType = mimeType,
-        width = width,
-        height = height,
-        dateModified = dateModified
-    )
-
-    fun toggleTrashSelection(id: String) {
-        _uiState.update {
-            val sel = it.trashSelectedIds.toMutableSet()
-            if (!sel.add(id)) sel.remove(id)
-            it.copy(trashSelectedIds = sel, trashSelectionMode = sel.isNotEmpty())
-        }
-    }
-
-    fun startTrashSelectionWith(id: String) {
-        _uiState.update { it.copy(trashSelectionMode = true, trashSelectedIds = setOf(id)) }
-    }
-
-    fun selectAllTrash() {
-        _uiState.update { it.copy(trashSelectedIds = it.trashItems.map { e -> e.id }.toSet()) }
-    }
-
-    fun exitTrashSelection() {
-        _uiState.update { it.copy(trashSelectionMode = false, trashSelectedIds = emptySet()) }
-    }
-
-    fun restoreSelectedTrash() {
-        val entries = selectedTrashEntries()
-        viewModelScope.launch {
-            TrashManager.restore(getApplication(), entries)
-            exitTrashSelection()
-            loadTrash()
-            refreshCurrent()
-        }
-    }
-
-    fun deleteSelectedTrashForever() {
-        val entries = selectedTrashEntries()
-        viewModelScope.launch {
-            TrashManager.deletePermanently(entries)
-            exitTrashSelection()
-            loadTrash()
-        }
-    }
-
-    fun emptyTrash() {
-        viewModelScope.launch {
-            TrashManager.emptyAll()
-            exitTrashSelection()
-            loadTrash()
-        }
-    }
-
-    private fun selectedTrashEntries(): List<TrashEntry> {
-        val s = _uiState.value
-        return s.trashItems.filter { it.id in s.trashSelectedIds }
     }
 }

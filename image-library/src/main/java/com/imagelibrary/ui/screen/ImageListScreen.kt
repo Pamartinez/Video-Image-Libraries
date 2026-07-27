@@ -42,19 +42,61 @@ import com.example.common.ui.components.DestroyGroupDialog
 import com.example.common.ui.components.RenameDialog
 import com.example.common.ui.components.AlbumRenameDialog
 import com.example.common.ui.components.AppMoreMenuButton
-import com.example.common.ui.screen.SharedTrashScreen
 import com.example.common.ui.components.ScreenTopBar
+import com.example.common.ui.util.revealItem
+import com.example.common.ui.util.ZoomTransitionOverlay
+import com.example.common.ui.util.rememberZoomTransitionState
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.layout.ContentScale
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import com.imagelibrary.ui.components.*
 import com.imagelibrary.ui.theme.LocalImageColors
 import com.imagelibrary.ui.viewmodel.ImageListViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+/** width/height aspect ratio for the zoom transition; 0f when the item's dimensions are unknown. */
+private fun ImageItem.aspectRatioOrZero(): Float =
+    if (width > 0 && height > 0) width.toFloat() / height.toFloat() else 0f
+
 @Composable
 fun ImageListScreen(
     viewModel: ImageListViewModel,
     modifier: Modifier = Modifier
 ) {
+    val zoomState = rememberZoomTransitionState()
+    val ctx = LocalContext.current
+    ImageListScreenContent(viewModel, zoomState, modifier)
+    // Samsung-style shrink/grow overlay, rendered above all early-return branches (grid, carousel…).
+    ZoomTransitionOverlay(zoomState) { model ->
+        val image = model as ImageItem
+        val cacheKey = if (image.dateModified > 0L) "${image.contentUri}_${image.dateModified}" else image.contentUri.toString()
+        AsyncImage(
+            model = ImageRequest.Builder(ctx)
+                .data(image.contentUri)
+                .memoryCacheKey(cacheKey)
+                .placeholderMemoryCacheKey(cacheKey)
+                .crossfade(false)
+                .build(),
+            contentDescription = image.title,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ImageListScreenContent(
+    viewModel: ImageListViewModel,
+    zoomState: com.example.common.ui.util.ZoomTransitionState,
+    modifier: Modifier = Modifier
+) {
     val state by viewModel.uiState.collectAsState()
+    val scope = rememberCoroutineScope()
+    val cellCornerPx = with(androidx.compose.ui.platform.LocalDensity.current) { 2.dp.toPx() }
     val progress by viewModel.copyMoveProgress.collectAsState()
     val conflict by viewModel.fileConflict.collectAsState()
     val ctx = LocalContext.current
@@ -68,9 +110,21 @@ fun ImageListScreen(
     // Keep one grid state per group so back navigation restores the parent's scroll position.
     val rootGroupGridState = rememberLazyGridState()
     val groupGridStates = remember { mutableStateMapOf<Long, LazyGridState>() }
-    val groupGridState = state.currentGroupId?.let { groupId ->
+    val currentGid = state.currentGroupId
+    // When a folder was just moved/added into a group, discard its remembered scroll position
+    // so it opens at the very top (where the moved item was prepended).
+    val needsFreshTop = currentGid != null && currentGid in state.pendingScrollToTopGroupIds
+    val groupGridState = currentGid?.let { groupId ->
+        if (needsFreshTop) groupGridStates.remove(groupId)
         groupGridStates.getOrPut(groupId) { LazyGridState() }
     } ?: rootGroupGridState
+    LaunchedEffect(currentGid, needsFreshTop) {
+        if (needsFreshTop && currentGid != null) {
+            com.imagelibrary.data.util.FileLogger.d("MoveScrollDbg", "screen scroll-to-top firing group=$currentGid firstVisibleBefore=${groupGridState.firstVisibleItemIndex}")
+            groupGridState.scrollToItem(0)
+            viewModel.consumeGroupScrollToTop(currentGid)
+        }
+    }
 
     // Root grid: scroll to top AFTER orderedMixedItems arrives with the new sort
     // (triggers from scrollToTopTrigger set inside loadDataCore, not from sortOption directly,
@@ -94,10 +148,25 @@ fun ImageListScreen(
         if (state.currentFolderBucketId != null) imageGridState.scrollToItem(0)
     }
 
-    // Auto-scroll album grid to match carousel page (Samsung Gallery behavior)
+    // Track the viewed image on return to the grid (Samsung Gallery behavior).
+    // The carousel replaces the grid in composition, so we can't scroll while it's open —
+    // instead, remember the last-viewed page and, once the grid is laid out again on
+    // return, do a minimal nearest-edge scroll (no-op if already visible), header-aware.
+    var pendingReturnPage by remember { mutableStateOf(-1) }
     LaunchedEffect(state.currentCarouselPage) {
         if (state.carouselIndex >= 0 && state.currentCarouselPage >= 0) {
-            imageGridState.scrollToItem(state.currentCarouselPage)
+            pendingReturnPage = state.currentCarouselPage
+        }
+    }
+    LaunchedEffect(state.carouselIndex) {
+        if (state.carouselIndex < 0 && pendingReturnPage >= 0) {
+            val target = pendingReturnPage
+            pendingReturnPage = -1
+            // Wait until the grid has re-entered composition and laid out.
+            snapshotFlow { imageGridState.layoutInfo.totalItemsCount to imageGridState.layoutInfo.visibleItemsInfo.size }
+                .filter { (total, visible) -> total > 0 && visible > 0 }
+                .first()
+            imageGridState.revealItem(target, hasHeaderRow = state.floatingTopBarEnabled)
         }
     }
 
@@ -124,7 +193,7 @@ fun ImageListScreen(
     val hasOverlay = state.showDeleteDialog || state.showSortDialog || state.showViewAsDialog ||
             state.showRenameDialog || state.showCreateFolderDialog || state.showDetailsDialog ||
             state.showMoveFolderPicker || state.showCopyFolderPicker ||
-            state.showAbout || state.showSettings || state.showHideFolders || state.showTrash || state.isSearchActive ||
+            state.showAbout || state.showSettings || state.showHideFolders || state.isSearchActive ||
             showMoreMenu || showCreateMenu ||
             state.showGroupNameDialog || state.showRenameGroupDialog || state.showDestroyGroupDialog
 
@@ -156,8 +225,6 @@ fun ImageListScreen(
             state.isSelectionMode -> viewModel.exitSelectionMode()
             state.showAbout -> viewModel.dismissAbout()
             state.showSettings -> viewModel.dismissSettings()
-            state.showTrash && state.trashSelectionMode -> viewModel.exitTrashSelection()
-            state.showTrash -> viewModel.dismissTrashScreen()
             state.showHideFolders && state.hideScreenGroupId != null -> {
                 if (state.hideScreenStartedInsideGroup) viewModel.dismissHideFoldersScreen()
                 else viewModel.closeGroupInHideScreen()
@@ -223,24 +290,6 @@ fun ImageListScreen(
 
     // ── Settings / About ── (must be checked before carousel so they can overlay)
     if (state.showSettings) { SettingsScreen(viewModel = viewModel, onBack = { viewModel.dismissSettings() }); return }
-    if (state.showTrash) {
-        SharedTrashScreen(
-            entries = state.trashItems,
-            selectedIds = state.trashSelectedIds,
-            selectionMode = state.trashSelectionMode,
-            isLoading = state.isTrashLoading,
-            retentionDays = com.example.common.data.util.TrashManager.DEFAULT_RETENTION_DAYS,
-            onBack = { viewModel.dismissTrashScreen() },
-            onToggleSelect = { viewModel.toggleTrashSelection(it) },
-            onLongPress = { viewModel.startTrashSelectionWith(it) },
-            onSelectAll = { viewModel.selectAllTrash() },
-            onExitSelection = { viewModel.exitTrashSelection() },
-            onRestore = { viewModel.restoreSelectedTrash() },
-            onDeleteForever = { viewModel.deleteSelectedTrashForever() },
-            onEmptyAll = { viewModel.emptyTrash() }
-        )
-        return
-    }
     if (state.showAbout) { AboutScreen(onBack = { viewModel.dismissAbout() }); return }
 
     // ── Carousel ──
@@ -248,7 +297,17 @@ fun ImageListScreen(
         ImageCarouselScreen(
             images = state.folderImages,
             initialIndex = state.carouselIndex,
-            onBack = { viewModel.closeCarousel() },
+            onBack = {
+                val page = state.currentCarouselPage
+                val img = state.folderImages.getOrNull(page)
+                if (img != null) {
+                    zoomState.beginClose(img.id, img, cellCornerPx, img.aspectRatioOrZero())
+                    viewModel.closeCarousel()
+                    scope.launch { zoomState.finishClose(img.id) }
+                } else {
+                    viewModel.closeCarousel()
+                }
+            },
             initialBarsVisible = state.carouselShowBarsOnOpen,
             alwaysHideBottomOverlay = state.carouselAlwaysHideOverlay,
             onSettings = { viewModel.showSettings() },
@@ -329,7 +388,13 @@ fun ImageListScreen(
             allowMediaReordering = state.allowMediaReordering,
             isCustomSortMode = state.imageSortOption == ImageSortOption.CUSTOM_ORDER, // imageSortOption is updated to folder's sort when folder is opened
             onBack = { viewModel.exitSelectionMode(); viewModel.closeFolder() },
-            onImageClick = { _, index -> viewModel.openCarousel(index) },
+            onImageClick = { image, index ->
+                scope.launch {
+                    zoomState.animateOpen(image.id, image, cellCornerPx, image.aspectRatioOrZero())
+                    viewModel.openCarousel(index)
+                    zoomState.finish()
+                }
+            },
             onImageLongClick = { image -> viewModel.enterSelectionMode(); viewModel.toggleImageSelection(image.id) },
             onCycleViewType = { viewModel.cycleFolderViewType() },
             onCopy = { viewModel.showCopyFolderPicker() },
@@ -356,7 +421,8 @@ fun ImageListScreen(
             onReorderItem = { fromIndex, toIndex -> viewModel.reorderFolderMedia(fromIndex, toIndex) },
             onReorderDone = { viewModel.onFolderMediaReorderDone() },
             scrollToTopTrigger = state.folderDetailScrollToTopTrigger,
-            lazyGridState = imageGridState
+            lazyGridState = imageGridState,
+            zoomState = zoomState
         )
         if (state.showDeleteDialog) {
             DeleteConfirmDialog(
@@ -417,128 +483,7 @@ fun ImageListScreen(
         // Full-screen pickers that overlay group detail (must be checked before GroupDetailScreen renders)
         if (state.showAddFolderToGroup) {
             // Build groupOrderedItems map for ALL groups + root level
-            val groupOrderedItemsMap = buildMap<Long, List<Any>> {
-                // Add ROOT level ordered items
-                put(-1L, state.orderedMixedItems)
-
-                // Add CURRENT group's ordered items (use pre-calculated data)
-                if (state.currentGroupId != null) {
-                    put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
-                }
-
-                // Add each OTHER group's ordered items with FULL sort logic
-                state.allGroups.forEach { group ->
-                    // Skip current group - already added above with pre-calculated data
-                    if (group.groupId == state.currentGroupId) return@forEach
-
-                    // Get this group's folders and sub-groups
-                    val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
-                    val subGroups = state.allGroups.filter { it.parentGroupId == group.groupId }
-
-                    // Get sort option for this group
-                    val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
-                    val sortOption = com.imagelibrary.data.model.SortOption.entries.find { it.id == sortOptionId }
-                        ?: com.imagelibrary.data.model.SortOption.CUSTOM_ORDER
-
-                    // Build raw mixed list
-                    val rawMixed = buildList<Any> {
-                        addAll(subGroups)
-                        addAll(memberFolders)
-                    }
-
-                    // Apply sorting based on group's sort option
-                    val orderedItems: List<Any> = when (sortOption) {
-                        com.imagelibrary.data.model.SortOption.CUSTOM_ORDER -> {
-                            val customOrder = state.allGroupCustomOrders[group.groupId] ?: emptyList()
-                            if (customOrder.isNotEmpty()) {
-                                buildList {
-                                    // Add items in custom order
-                                    customOrder.forEach { key ->
-                                        rawMixed.find { item ->
-                                            when (item) {
-                                                is com.example.common.data.model.GroupItem -> "group_${item.groupId}" == key
-                                                is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}" == key
-                                                else -> false
-                                            }
-                                        }?.let { add(it) }
-                                    }
-                                    // Add new items not in custom order
-                                    rawMixed.filter { item ->
-                                        val itemKey = when (item) {
-                                            is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                                            is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
-                                            else -> ""
-                                        }
-                                        itemKey !in customOrder
-                                    }.forEach { add(it) }
-                                }
-                            } else rawMixed
-                        }
-                        com.imagelibrary.data.model.SortOption.NAME_A_TO_Z -> {
-                            if (state.groupsAlwaysOnTop) {
-                                subGroups.sortedBy { it.name.lowercase() } + memberFolders.sortedBy { it.name.lowercase() }
-                            } else {
-                                rawMixed.sortedBy { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
-                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
-                                        else -> ""
-                                    }
-                                }
-                            }
-                        }
-                        com.imagelibrary.data.model.SortOption.NAME_Z_TO_A -> {
-                            if (state.groupsAlwaysOnTop) {
-                                subGroups.sortedByDescending { it.name.lowercase() } + memberFolders.sortedByDescending { it.name.lowercase() }
-                            } else {
-                                rawMixed.sortedByDescending { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.name.lowercase()
-                                        is com.example.common.data.model.FolderItem -> item.name.lowercase()
-                                        else -> ""
-                                    }
-                                }
-                            }
-                        }
-                        com.imagelibrary.data.model.SortOption.ITEMS_MOST_FIRST -> {
-                            if (state.groupsAlwaysOnTop) {
-                                buildList<Any> {
-                                    addAll(subGroups.sortedByDescending { it.totalItemCount })
-                                    addAll(memberFolders.sortedByDescending { it.itemCount })
-                                }
-                            } else {
-                                rawMixed.sortedByDescending { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
-                                        is com.example.common.data.model.FolderItem -> item.itemCount
-                                        else -> 0
-                                    }
-                                }
-                            }
-                        }
-                        com.imagelibrary.data.model.SortOption.ITEMS_FEWEST_FIRST -> {
-                            if (state.groupsAlwaysOnTop) {
-                                buildList<Any> {
-                                    addAll(subGroups.sortedBy { it.totalItemCount })
-                                    addAll(memberFolders.sortedBy { it.itemCount })
-                                }
-                            } else {
-                                rawMixed.sortedBy { item ->
-                                    when (item) {
-                                        is com.example.common.data.model.GroupItem -> item.totalItemCount
-                                        is com.example.common.data.model.FolderItem -> item.itemCount
-                                        else -> 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (orderedItems.isNotEmpty()) {
-                        put(group.groupId, orderedItems)
-                    }
-                }
-            }
+            val groupOrderedItemsMap = buildGroupOrderedItemsMap(state)
 
             AddFolderToGroupScreen(
                 folders = state.folders,
@@ -558,6 +503,7 @@ fun ImageListScreen(
                 movingFolderIds = state.moveToGroupFolderIds,
                 movingGroupIds = state.moveToGroupGroupIds,
                 viewType = state.viewType,
+                groupOrderedItems = buildGroupOrderedItemsMap(state),
                 onMoveHere = { viewModel.moveSelectionToGroup(it) },
                 onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
                 onCancel = { viewModel.dismissMoveToGroupPicker() }
@@ -741,7 +687,7 @@ fun ImageListScreen(
         return
     }
     if (state.showMoveToGroupPicker) {
-        MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
+        MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, groupOrderedItems = buildGroupOrderedItemsMap(state), onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
         return
     }
 
@@ -804,7 +750,6 @@ fun ImageListScreen(
                                 onViewAs = { viewModel.showViewAsDialog() },
                                 onSettings = { viewModel.showSettings() },
                                 onAbout = { viewModel.showAbout() },
-                                onTrash = { viewModel.showTrashScreen() },
                                 extraTopContent = { dismiss ->
                                     com.example.common.ui.components.AppMenuItem(
                                         text      = "Hide album(s)",
@@ -1047,4 +992,56 @@ private fun generateUniqueGroupName(existingNames: List<String>): String {
     var n = 1
     while (lower.contains("group $n")) n++
     return "Group $n"
+}
+
+/**
+ * Builds the ordered-items map (key -1L = root level, key = groupId for each group) used by the
+ * folder/group pickers (AddFolderToGroupScreen, MoveToGroupScreen) so that albums and groups are
+ * displayed respecting each container's own sort order.
+ */
+private fun buildGroupOrderedItemsMap(
+    state: com.imagelibrary.ui.viewmodel.ImageListUiState
+): Map<Long, List<Any>> = buildMap {
+    // Add ROOT level ordered items
+    put(-1L, state.orderedMixedItems)
+
+    // Add CURRENT group's ordered items (use pre-calculated data)
+    if (state.currentGroupId != null) {
+        put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
+    }
+
+    // Add each OTHER group's ordered items using the SAME shared utilities the ViewModel
+    // uses for the real group display, so the picker order always matches.
+    state.allGroups.forEach { group ->
+        // Skip current group - already added above with pre-calculated data
+        if (group.groupId == state.currentGroupId) return@forEach
+
+        // Get this group's folders and sub-groups
+        val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
+        val subGroups = state.allGroups.filter { it.parentGroupId == group.groupId }
+
+        // Get sort option for this group
+        val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
+        val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
+
+        val orderedItems: List<Any> =
+            if (sortOption == com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) {
+                com.example.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
+                    state.allGroupCustomOrders[group.groupId] ?: emptyList(),
+                    subGroups,
+                    memberFolders
+                )
+            } else {
+                com.example.common.data.util.MixedItemSorter.sortMixedItems(
+                    subGroups + memberFolders,
+                    sortOption,
+                    state.groupsAlwaysOnTop
+                )
+            }
+
+
+        if (orderedItems.isNotEmpty()) {
+            put(group.groupId, orderedItems)
+        }
+    }
 }

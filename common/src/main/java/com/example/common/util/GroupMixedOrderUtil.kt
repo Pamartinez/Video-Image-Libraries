@@ -25,15 +25,27 @@ object GroupMixedOrderUtil {
         groups: List<GroupItem>,
         folders: List<FolderItem>,
         preferences: SharedAppPreferences
+    ): List<Any> =
+        applyCustomGroupMixedOrder(preferences.getGroupMixedOrder(groupId), groups, folders)
+
+    /**
+     * Same as [applyCustomGroupMixedOrder] but takes the already-loaded saved order
+     * directly (list of keys "g_123" / "f_456") instead of reading it from preferences.
+     * Lets UI layers that already hold the saved order (e.g. pickers) reuse the exact
+     * same ordering logic the ViewModel uses for the real group display.
+     */
+    fun applyCustomGroupMixedOrder(
+        savedOrder: List<String>,
+        groups: List<GroupItem>,
+        folders: List<FolderItem>
     ): List<Any> {
-        val saved     = preferences.getGroupMixedOrder(groupId)
         val groupMap  = groups.associateBy  { "g_${it.groupId}" }
         val folderMap = folders.associateBy { "f_${it.bucketId}" }
 
-        if (saved.isEmpty()) return groups + folders
+        if (savedOrder.isEmpty()) return groups + folders
 
-        val ordered    = saved.mapNotNull { groupMap[it] ?: folderMap[it] }
-        val savedSet   = saved.toSet()
+        val ordered    = savedOrder.mapNotNull { groupMap[it] ?: folderMap[it] }
+        val savedSet   = savedOrder.toSet()
         val newGroups: List<Any>  = groups.filter  { "g_${it.groupId}"  !in savedSet }
         val newFolders: List<Any> = folders.filter { "f_${it.bucketId}" !in savedSet }
         // New items are prepended so they always appear at the top

@@ -10,7 +10,6 @@ import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import com.example.common.data.util.MediaTrashHelper
-import com.example.common.data.util.TrashManager
 import com.example.common.upload.UploadItem
 import com.gallerytransferlibrary.data.preferences.AppPreferences
 import com.gallerytransferlibrary.data.repository.MediaRepository
@@ -89,21 +88,9 @@ class AutoUploadWorker(
             prefs.addAutoUploadedKeys(uploadedItems.map { it.uniqueKey })
 
             if (prefs.deleteAfterUpload && MediaTrashHelper.isExternalStorageManager()) {
-                TrashManager.moveToTrash(
+                MediaTrashHelper.trashSilently(
                     applicationContext,
-                    uploadedItems.map { item ->
-                        TrashManager.TrashItem(
-                            id = item.id,
-                            isVideo = item.isVideo,
-                            path = item.path,
-                            displayName = item.displayName,
-                            size = item.size,
-                            mimeType = item.mimeType,
-                            width = item.width,
-                            height = item.height,
-                            dateModified = item.dateModified
-                        )
-                    }
+                    uploadedItems.map { it.uri }
                 )
                 manager.clearUploadedUris()
             }

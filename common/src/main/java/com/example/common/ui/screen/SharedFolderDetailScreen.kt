@@ -35,6 +35,7 @@ import com.example.common.ui.components.ScreenTopBar
 import com.example.common.ui.theme.LibraryColors
 import com.example.common.ui.util.dragToReorderGrid
 import com.example.common.ui.util.rememberDragDropGridState
+import com.example.common.ui.util.zoomThumbnail
 import kotlin.math.roundToInt
 
 /**
@@ -76,6 +77,7 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
     // Injected dependencies
     colors: LibraryColors,
     floatingTopBarEnabled: Boolean,
+    zoomState: com.example.common.ui.util.ZoomTransitionState? = null,
 
     // Configuration
     isLargeGrid: (ViewTypeEnum) -> Boolean,
@@ -112,7 +114,9 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
     var showMoreMenu by remember { mutableStateOf(false) }
 
     // ── Drag-and-drop state ──
-    val hasHeaderRow = floatingTopBarEnabled && !isSelectionMode
+    // When floating mode is on the header row exists in BOTH normal and selection mode
+    // so the selection menu can scroll inline then float, instead of pushing content down.
+    val hasHeaderRow = floatingTopBarEnabled
     val canDrag = allowMediaReordering && isCustomSortMode && !isSelectionMode
 
     val dragDropState = rememberDragDropGridState(
@@ -141,7 +145,7 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
     )
 
     // ── Calculate scroll state for visibility control ──
-    val scrollOffset = if (floatingTopBarEnabled && !isSelectionMode) {
+    val scrollOffset = if (floatingTopBarEnabled) {
         lazyGridState.firstVisibleItemScrollOffset
     } else 0
 
@@ -152,8 +156,10 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
 
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         Column(modifier = Modifier.fillMaxSize()) {
-            // ── Header (shown when floating mode is OFF OR in selection mode) ──
-            if (!floatingTopBarEnabled || isSelectionMode) {
+            // ── Header (shown only when floating mode is OFF) ──
+            // When floating mode is ON, the header (including the selection menu) is
+            // rendered as the first grid item / floating overlay instead.
+            if (!floatingTopBarEnabled) {
                 ScreenTopBar {
                     if (isSelectionMode) {
                         val allSelected = items.isNotEmpty() && selectedIds.size == items.size
@@ -218,7 +224,7 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                         userScrollEnabled = !dragDropState.isDragging
                     ) {
                     // ── HEADER AS FIRST ITEM (scrolls naturally with content) ──
-                    if (!isSelectionMode && floatingTopBarEnabled) {
+                    if (floatingTopBarEnabled) {
                         item(span = { androidx.compose.foundation.lazy.grid.GridItemSpan(maxLineSpan) }) {
                             Row(
                                 modifier = Modifier
@@ -229,7 +235,12 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 // Only show inline header content when not scrolled
-                                if (showInline) {
+                                if (isSelectionMode) {
+                                    if (showInline) {
+                                        val allSelected = items.isNotEmpty() && selectedIds.size == items.size
+                                        selectionHeader(selectedIds.size, items.size, allSelected, onSelectAll, onBack)
+                                    }
+                                } else if (showInline) {
                                     // Circular back button
                                     Box(
                                         modifier = Modifier
@@ -328,6 +339,11 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                                     )
                                 )
                                 .then(dimModifier)
+                                .then(
+                                    if (zoomState != null)
+                                        Modifier.zoomThumbnail(getItemId(item), zoomState)
+                                    else Modifier
+                                )
                         )
                     }
                 }
@@ -446,6 +462,22 @@ fun <MediaItem, ViewTypeEnum> SharedFolderDetailScreen(
                         }
                     }
                 }
+
+                    // ── Floating selection overlay (shown when scrolled, in selection mode) ──
+                    if (floatingTopBarEnabled && isSelectionMode && showFloating) {
+                        val allSelected = items.isNotEmpty() && selectedIds.size == items.size
+                        Row(
+                            modifier = Modifier
+                                .align(Alignment.TopCenter)
+                                .fillMaxWidth()
+                                .statusBarsPadding()
+                                .padding(horizontal = 16.dp, vertical = 16.dp)
+                                .zIndex(20f),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            selectionHeader(selectedIds.size, items.size, allSelected, onSelectAll, onBack)
+                        }
+                    }
                 }
             }
         }

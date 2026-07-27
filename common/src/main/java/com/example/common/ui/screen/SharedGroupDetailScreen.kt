@@ -198,8 +198,10 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
 
     // Drag-to-reorder setup
     val canDrag = isCustomOrder(sortOption)
-    // Check if there's a header row in the grid (when floating mode is on and not in selection mode)
-    val hasHeaderRow = floatingTopBarEnabled && !isSelectionMode
+    // Check if there's a header row in the grid. When floating mode is on the header
+    // row exists in BOTH normal and selection mode so the selection menu can scroll
+    // inline (at the top) and then float, instead of pushing content down.
+    val hasHeaderRow = floatingTopBarEnabled
     val dragDropState = rememberDragDropGridState(
         lazyGridState = lazyGridState,
         onMove = { from, to ->
@@ -228,8 +230,10 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
 
     Box(modifier = modifier.fillMaxSize().background(colors.screenBackground)) {
         Column(Modifier.fillMaxSize()) {
-            // ── Header (shown when floating mode is OFF OR in selection mode) ──
-            if (!floatingTopBarEnabled || isSelectionMode) {
+            // ── Header (shown only when floating mode is OFF) ──
+            // When floating mode is ON, the header (including the selection menu) is
+            // rendered as the first grid item / floating overlay instead.
+            if (!floatingTopBarEnabled) {
                 ScreenTopBar {
                     if (isSelectionMode) {
                         val allSelected = totalItems > 0 && totalSelected == totalItems
@@ -329,7 +333,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         userScrollEnabled = !(canDrag && dragDropState.isDragging)
                     ) {
                         // ── HEADER AS FIRST ITEM (scrolls naturally with content) ──
-                        if (!isSelectionMode && floatingTopBarEnabled) {
+                        if (floatingTopBarEnabled) {
                             item(span = { androidx.compose.foundation.lazy.grid.GridItemSpan(maxLineSpan) }) {
                                 Row(
                                     modifier = Modifier
@@ -340,7 +344,12 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     // Only show inline header content when not scrolled
-                                    if (showInline) {
+                                    if (isSelectionMode) {
+                                        if (showInline) {
+                                            val allSelected = totalItems > 0 && totalSelected == totalItems
+                                            selectionHeader(totalSelected, totalItems, allSelected, onSelectAll, onCancelSelection)
+                                        }
+                                    } else if (showInline) {
                                         // Circular back button
                                         Box(
                                             modifier = Modifier
@@ -596,6 +605,22 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                             AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
                             AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
                         }
+                    }
+                }
+
+                // ── Floating selection overlay (shown when scrolled, in selection mode) ──
+                if (floatingTopBarEnabled && isSelectionMode && showFloating) {
+                    val allSelected = totalItems > 0 && totalSelected == totalItems
+                    Row(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .fillMaxWidth()
+                            .statusBarsPadding()
+                            .padding(horizontal = 6.dp, vertical = 26.dp)
+                            .zIndex(20f),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        selectionHeader(totalSelected, totalItems, allSelected, onSelectAll, onCancelSelection)
                     }
                 }
             }

@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,11 +32,16 @@ import com.gallerytransferlibrary.data.model.MediaItem
 fun ImageViewer(
     images: List<MediaItem>,
     startIndex: Int,
-    onClose: () -> Unit
+    onClose: () -> Unit,
+    onPageChanged: (Int) -> Unit = {}
 ) {
     val context = LocalContext.current
     val pagerState = rememberPagerState(initialPage = startIndex.coerceIn(0, (images.size - 1).coerceAtLeast(0))) {
         images.size
+    }
+    // Report the current page so the grid can track the viewed image on return (Samsung Gallery behavior).
+    LaunchedEffect(pagerState.currentPage) {
+        onPageChanged(pagerState.currentPage)
     }
     Box(Modifier.fillMaxSize().background(Color.Black)) {
         HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->

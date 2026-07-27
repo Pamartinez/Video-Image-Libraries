@@ -13,16 +13,35 @@
 ### Rule 2 — On EVERY push to `main` (100% of the time):
 - **Reset `BUILD` back to `0`.**
 - **Bump `VERSION` by one tenth**: `1.1` → `1.2`, `1.2` → `1.3`, … and when the tenths reach `.9` it rolls to the next whole number: `1.9` → `2.0`.
+- **Keep `versionName` in sync in all three `build.gradle.kts` files** (see Rule 4).
 - Do this as part of the push workflow (edit `AppVersion.kt`, then commit + push). **NO EXCEPTIONS.**
+
+### Rule 3 — After EVERY merge/push to `main`, install ALL apps (100% of the time):
+- **Immediately after merging or pushing to `main`, install ALL THREE apps** on the connected device: `gallery-transfer-library`, `image-library`, and `video-library`.
+- Run: `./gradlew :gallery-transfer-library:installDebug :image-library:installDebug :video-library:installDebug`
+- This install still follows **Rule 1** — bump `BUILD` by 1 BEFORE running the install (note: on push to main `BUILD` was just reset to `0`, so this install makes it `1`).
+- **NO EXCEPTIONS.** Every merge/push to `main` is followed by installing all apps.
+
+### Rule 4 — Keep `versionName` + `versionNameSuffix` in `build.gradle.kts` in sync with `AppVersion` (100% of the time):
+- All three module `build.gradle.kts` files (`gallery-transfer-library/build.gradle.kts`, `image-library/build.gradle.kts`, `video-library/build.gradle.kts`) have a `versionName` under `defaultConfig` and a `versionNameSuffix` under `buildTypes { debug { ... } }`.
+- **Whenever you deploy/install OR `VERSION`/`BUILD` in `AppVersion.kt` changes, update BOTH values in ALL THREE `build.gradle.kts` files so they always match `AppVersion`:**
+  - `versionName` = `AppVersion.VERSION` (e.g. `"1.2"`).
+  - `versionNameSuffix` (debug) = `".<BUILD>"` (e.g. with `BUILD = 3` → `".3"`), so the full debug version resolves exactly to `AppVersion.displayName` (e.g. `1.2.3`).
+- The single source of truth is `AppVersion`; the `build.gradle.kts` values must always mirror it exactly and never drift.
+- **NO EXCEPTIONS.** Every deploy/install and every `VERSION`/`BUILD` change updates all three `versionName` AND `versionNameSuffix` values in the same change (do this together with the Rule 1 `BUILD` bump).
 
 ### Enforcement (ZERO tolerance):
 ✅ **ALWAYS** bump `BUILD` in `AppVersion.kt` before ANY `installDebug` — every single time.
 ✅ **ALWAYS** reset `BUILD=0` and bump `VERSION` when pushing to `main` — every single time.
+✅ **ALWAYS** install ALL THREE apps after merging/pushing to `main` — every single time.
+✅ **ALWAYS** update `versionName` AND `versionNameSuffix` in all three `build.gradle.kts` files to match `AppVersion` (VERSION + BUILD) on every deploy/version change — every single time.
 ❌ **NEVER** install without first incrementing `BUILD`.
 ❌ **NEVER** push to `main` without bumping `VERSION` and resetting `BUILD`.
+❌ **NEVER** merge/push to `main` without then installing all apps.
+❌ **NEVER** let `versionName`/`versionNameSuffix` in `build.gradle.kts` drift from `AppVersion`.
 ❌ **NEVER** skip these steps "just this once" — there is no "just this once".
 
-**These two rules must be applied 100% of the time. Forgetting or skipping them is NEVER acceptable.**
+**These rules must be applied 100% of the time. Forgetting or skipping them is NEVER acceptable.**
 
 
 

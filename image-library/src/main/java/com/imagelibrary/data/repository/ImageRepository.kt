@@ -398,10 +398,10 @@ class ImageRepository(private val context: Context) {
     /** True when the app holds All-files access and can delete media without a system consent dialog. */
     fun canDeleteSilently(): Boolean = MediaTrashHelper.isExternalStorageManager()
 
-    /** Permanently delete [imageIds] silently (no system dialog) via All-files access. Returns the number deleted. */
-    suspend fun deleteImagesSilently(imageIds: List<Long>): Int = withContext(Dispatchers.IO) {
+    /** Move [imageIds] to the system (Samsung Gallery) trash silently via All-files access. Returns the number trashed. */
+    suspend fun trashSilently(imageIds: List<Long>): Int = withContext(Dispatchers.IO) {
         val uris = imageIds.map { ContentUris.withAppendedId(imageUri, it) }
-        MediaTrashHelper.deleteSilently(context, uris)
+        MediaTrashHelper.trashSilently(context, uris)
     }
 
     // ── Rename Image ────────────────────────────────────────────────────

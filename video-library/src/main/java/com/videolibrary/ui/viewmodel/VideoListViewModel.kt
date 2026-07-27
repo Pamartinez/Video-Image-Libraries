@@ -27,9 +27,7 @@ import com.example.common.data.model.CopyMoveProgress
 import com.example.common.data.model.FileConflict
 import com.example.common.data.model.FolderItem
 import com.example.common.data.model.GroupItem
-import com.example.common.data.model.TrashEntry
 import com.example.common.data.util.MixedItemSorter
-import com.example.common.data.util.TrashManager
 import com.example.common.util.FilePathUtils
 import com.example.common.util.GroupMixedOrderUtil
 import com.videolibrary.data.model.FolderSortOption
@@ -121,6 +119,10 @@ data class VideoListUiState(
     val total: Int = 0,
     val scrollToTopTrigger: Int = 0,
 
+    /** Group IDs whose contents just changed (folder moved/added in) and should be
+     *  scrolled to top the next time the group is opened. */
+    val pendingScrollToTopGroupIds: Set<Long> = emptySet(),
+
     // ── Group data ────────────────────────────────────────────────────
     val rootGroups: List<GroupItem> = emptyList(),
     val ungroupedFolders: List<FolderItem> = emptyList(),
@@ -176,14 +178,7 @@ data class VideoListUiState(
     val detailsTarget: VideoItem? = null,
     val folderDetailScrollToTopTrigger: Int = 0,
     val carouselIndex: Int = -1,
-    val currentCarouselPage: Int = -1,
-
-    // ── Trash (shared internal trash) ──
-    val showTrash: Boolean = false,
-    val trashItems: List<TrashEntry> = emptyList(),
-    val trashSelectedIds: Set<String> = emptySet(),
-    val trashSelectionMode: Boolean = false,
-    val isTrashLoading: Boolean = false
+    val currentCarouselPage: Int = -1
 )
 
 // CopyMoveProgress and FileConflict moved to common module
@@ -701,7 +696,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             mediaObserver
         )
         loadData()
-        viewModelScope.launch { TrashManager.emptyExpired() }
     }
 
     override fun onCleared() {
@@ -1020,6 +1014,51 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    /** Clears the pending scroll-to-top flag for a group once the UI has consumed it. */
+    fun consumeGroupScrollToTop(groupId: Long) {
+        _uiState.update { it.copy(pendingScrollToTopGroupIds = it.pendingScrollToTopGroupIds - groupId) }
+    }
+
+    /** Mark a group so it scrolls to the top the next time it's opened (e.g. after a folder
+     *  is moved/added into it and prepended at position 0). */
+    private fun markGroupPendingScrollToTop(groupId: Long) {
+        _uiState.update { it.copy(pendingScrollToTopGroupIds = it.pendingScrollToTopGroupIds + groupId) }
+    }
+
+    /**
+     * Explicitly prepends the just-moved items ([movedKeys], "g_"/"f_") to the top of the
+     * destination group's saved order and switches that group to CUSTOM_ORDER, so the moved
+     * item(s) always land at position 0 the next time the group is opened. Must run AFTER
+     * moveItemsToGroup so the members list already includes the moved items.
+     */
+    private suspend fun prependMovedItemsToTargetGroup(targetGroupId: Long, movedKeys: List<String>) {
+        if (movedKeys.isEmpty()) return
+        val s = _uiState.value
+        val bucketIds = groupRepository.getFolderBucketIdsForGroup(targetGroupId).toSet()
+        val allGroups = groupRepository.getAllGroups()
+        val groupSortOptions = allGroups.associate { it.groupId to preferences.getGroupSortOption(it.groupId).id }
+        val groupCustomOrders = allGroups.associate { it.groupId to preferences.getGroupMixedOrder(it.groupId) }
+        val subGroups = groupRepository.getChildGroups(targetGroupId, groupSortOptions, groupCustomOrders)
+        val folders = s.folders.filter { it.bucketId in bucketIds }
+
+        val groupSort = preferences.getGroupSortOption(targetGroupId)
+        val currentOrdered = if (groupSort == FolderSortOption.CUSTOM_ORDER) {
+            GroupMixedOrderUtil.applyCustomGroupMixedOrder(targetGroupId, subGroups, folders, preferences)
+        } else {
+            sortMixedItems(subGroups + folders, groupSort, s.groupsAlwaysOnTop)
+        }
+        val currentKeys = currentOrdered.mapNotNull { item ->
+            when (item) {
+                is GroupItem  -> "g_${item.groupId}"
+                is FolderItem -> "f_${item.bucketId}"
+                else          -> null
+            }
+        }
+        val newOrder = movedKeys + currentKeys.filter { it !in movedKeys }
+        preferences.saveGroupSortOption(targetGroupId, FolderSortOption.CUSTOM_ORDER)
+        preferences.saveGroupMixedOrder(targetGroupId, newOrder)
+    }
+
     fun closeGroup() {
         val s = _uiState.value
         if (s.groupStack.isNotEmpty()) {
@@ -1308,6 +1347,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 prependToGroupOrder("g_$newGroupId", parentGroupId, s)
             }
             exitGroupCreationMode()
+            markGroupPendingScrollToTop(newGroupId)
             silentRefresh()
             // If we created a nested group, navigate back into the parent group
             if (parentGroupId != null) {
@@ -1338,6 +1378,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
             _uiState.update { it.copy(showGroupNameDialog = false) }
+            markGroupPendingScrollToTop(newGroupId)
             exitSelectionMode()
             silentRefresh()
             if (s.currentGroupId != null) refreshCurrentGroup()
@@ -1388,7 +1429,10 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 groupRepository.addFoldersToGroup(groupId, folderBucketIds.toList())
             if (subGroupIds.isNotEmpty())
                 groupRepository.addSubGroupsToGroup(groupId, subGroupIds.toList())
+            val movedKeys = subGroupIds.map { "g_$it" } + folderBucketIds.map { "f_$it" }
+            prependMovedItemsToTargetGroup(groupId, movedKeys)
             _uiState.update { it.copy(showAddFolderToGroup = false) }
+            markGroupPendingScrollToTop(groupId)
             silentRefresh()
             refreshCurrentGroup()
             scheduleAutoBackup()
@@ -1453,6 +1497,11 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 targetGroupId   = targetGroupId
             )
             _uiState.update { it.copy(showMoveToGroupPicker = false) }
+            if (targetGroupId != null) {
+                val movedKeys = s.moveToGroupGroupIds.map { "g_$it" } + s.moveToGroupFolderIds.map { "f_$it" }
+                prependMovedItemsToTargetGroup(targetGroupId, movedKeys)
+                markGroupPendingScrollToTop(targetGroupId)
+            }
             exitSelectionMode()
             silentRefresh()
             if (s.currentGroupId != null) refreshCurrentGroup()
@@ -1476,6 +1525,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
             }
             _uiState.update { it.copy(showGroupNameDialog = false) }
+            markGroupPendingScrollToTop(newGroupId)
             exitSelectionMode()
             silentRefresh()
             if (s.currentGroupId != null) refreshCurrentGroup()
@@ -1799,22 +1849,15 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     /**
-     * Delete [videoIds]. When the app holds All-files access the items are permanently deleted
-     * silently (no system dialog) and the UI is updated immediately; otherwise the system
-     * "Move to trash?" dialog is shown via an [IntentSender].
+     * Delete [videoIds]. When the app holds All-files access the items are moved to the system
+     * (Samsung Gallery) trash silently (no dialog) and the UI is updated immediately; otherwise the
+     * system "Move to trash?" dialog is shown via an [IntentSender].
      */
     private suspend fun requestTrash(videoIds: List<Long>, pending: PendingTrash) {
         pendingTrash = pending
         try {
             if (repository.canDeleteSilently()) {
-                TrashManager.moveUrisToTrash(
-                    getApplication(),
-                    videoIds.map {
-                        android.content.ContentUris.withAppendedId(
-                            MediaStore.Video.Media.EXTERNAL_CONTENT_URI, it
-                        )
-                    }
-                )
+                repository.trashSilently(videoIds)
                 onTrashConfirmed()
             } else {
                 _trashRequest.emit(repository.trashVideos(videoIds))
@@ -2353,96 +2396,6 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showSettings() = _uiState.update { it.copy(showSettings = true) }
     fun dismissSettings() = _uiState.update { it.copy(showSettings = false) }
 
-    // ── Trash (shared internal trash) ───────────────────────────────────
-
-    /** True when the app can operate the internal trash silently (All-files access held). */
-    fun canUseTrash(): Boolean = TrashManager.canOperateSilently()
-
-    /** Opens the shared trash browser and loads its contents. */
-    fun showTrashScreen() {
-        _uiState.update { it.copy(showTrash = true) }
-        loadTrash()
-    }
-
-    /** Closes the shared trash browser, clearing any selection. */
-    fun dismissTrashScreen() {
-        _uiState.update {
-            it.copy(showTrash = false, trashSelectionMode = false, trashSelectedIds = emptySet())
-        }
-    }
-
-    /** Loads the shared trash contents (newest first) into state. */
-    fun loadTrash() {
-        viewModelScope.launch {
-            _uiState.update { it.copy(isTrashLoading = true) }
-            TrashManager.emptyExpired()
-            val items = com.example.common.data.db.TrashStore.getAll()
-                .sortedByDescending { it.deleteTimeMillis }
-            _uiState.update {
-                val ids = items.mapTo(HashSet()) { e -> e.id }
-                it.copy(
-                    trashItems = items,
-                    isTrashLoading = false,
-                    trashSelectedIds = it.trashSelectedIds.intersect(ids),
-                    trashSelectionMode = it.trashSelectionMode && it.trashSelectedIds.intersect(ids).isNotEmpty()
-                )
-            }
-        }
-    }
-
-    fun toggleTrashSelection(id: String) {
-        _uiState.update {
-            val sel = it.trashSelectedIds.toMutableSet()
-            if (!sel.add(id)) sel.remove(id)
-            it.copy(trashSelectedIds = sel, trashSelectionMode = sel.isNotEmpty())
-        }
-    }
-
-    fun startTrashSelectionWith(id: String) {
-        _uiState.update { it.copy(trashSelectionMode = true, trashSelectedIds = setOf(id)) }
-    }
-
-    fun selectAllTrash() {
-        _uiState.update { it.copy(trashSelectedIds = it.trashItems.map { e -> e.id }.toSet()) }
-    }
-
-    fun exitTrashSelection() {
-        _uiState.update { it.copy(trashSelectionMode = false, trashSelectedIds = emptySet()) }
-    }
-
-    fun restoreSelectedTrash() {
-        val entries = selectedTrashEntries()
-        viewModelScope.launch {
-            TrashManager.restore(getApplication(), entries)
-            exitTrashSelection()
-            loadTrash()
-            silentRefresh()
-            refreshFolderVideos()
-        }
-    }
-
-    fun deleteSelectedTrashForever() {
-        val entries = selectedTrashEntries()
-        viewModelScope.launch {
-            TrashManager.deletePermanently(entries)
-            exitTrashSelection()
-            loadTrash()
-        }
-    }
-
-    fun emptyTrash() {
-        viewModelScope.launch {
-            TrashManager.emptyAll()
-            exitTrashSelection()
-            loadTrash()
-        }
-    }
-
-    private fun selectedTrashEntries(): List<TrashEntry> {
-        val s = _uiState.value
-        return s.trashItems.filter { it.id in s.trashSelectedIds }
-    }
-
     fun showCreateAlbumDialog() = _uiState.update { it.copy(showCreateAlbumDialog = true) }
     fun dismissCreateAlbumDialog() = _uiState.update { it.copy(showCreateAlbumDialog = false) }
 
@@ -2578,8 +2531,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (current.sortOption != FolderSortOption.CUSTOM_ORDER) {
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
@@ -2589,8 +2542,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         } else if (preferences.customMixedOrder.isEmpty()) {
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
@@ -2606,8 +2559,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (preferences.getGroupSortOption(groupId) != FolderSortOption.CUSTOM_ORDER) {
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
@@ -2617,8 +2570,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         } else if (preferences.getGroupMixedOrder(groupId).isEmpty()) {
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "group_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "folder_${item.bucketId}"
+                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
