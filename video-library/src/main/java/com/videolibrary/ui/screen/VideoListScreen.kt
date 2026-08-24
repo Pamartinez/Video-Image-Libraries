@@ -425,10 +425,17 @@ fun VideoListScreen(
             )
         }
         if (state.showMoveToGroupPicker) {
-            MoveToGroupPickerDialog(
-                groups    = state.rootGroups,
-                onMove    = { viewModel.moveSelectionToGroup(it) },
-                onDismiss = { viewModel.dismissMoveToGroupPicker() }
+            MoveToGroupScreen(
+                folders = state.folders,
+                groups = state.allGroups,
+                movingFolderIds = state.moveToGroupFolderIds,
+                movingGroupIds = state.moveToGroupGroupIds,
+                viewType = state.viewType,
+                groupOrderedItems = buildGroupOrderedItemsMap(state),
+                sourceGroupId = state.moveToGroupSourceGroupId,
+                onMoveHere = { viewModel.moveSelectionToGroup(it) },
+                onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
+                onCancel = { viewModel.dismissMoveToGroupPicker() }
             )
         }
         if (state.showCreateAlbumDialog) {
@@ -1072,11 +1079,12 @@ fun VideoListScreen(
     if (state.showMoveToGroupPicker) {
         MoveToGroupScreen(
             folders = state.folders,
-            groups = state.rootGroups,
+            groups = state.allGroups,
             movingFolderIds = state.moveToGroupFolderIds,
             movingGroupIds = state.moveToGroupGroupIds,
             viewType = state.viewType,
             groupOrderedItems = buildGroupOrderedItemsMap(state),
+            sourceGroupId = state.moveToGroupSourceGroupId,
             onMoveHere = { viewModel.moveSelectionToGroup(it) },
             onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
             onCancel = { viewModel.dismissMoveToGroupPicker() }
@@ -1195,49 +1203,46 @@ fun VideoListScreen(
  */
 private fun buildGroupOrderedItemsMap(
     state: com.videolibrary.ui.viewmodel.VideoListUiState
-): Map<Long, List<Any>> {
-    val availableGroups = state.rootGroups + state.currentGroupSubGroups
-    return buildMap {
-        // Add ROOT level ordered items
-        put(-1L, state.orderedMixedItems)
+): Map<Long, List<Any>> = buildMap {
+    // Add ROOT level ordered items
+    put(-1L, state.orderedMixedItems)
 
-        // Add CURRENT group's pre-calculated ordered items (already correct!)
-        if (state.currentGroupId != null) {
-            put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
-        }
+    // Add CURRENT group's pre-calculated ordered items (already correct!)
+    if (state.currentGroupId != null) {
+        put(state.currentGroupId!!, state.currentGroupOrderedMixedItems)
+    }
 
-        // Add ALL groups' ordered items using the SAME shared utilities the ViewModel
-        // uses for the real group display, so the picker order always matches.
-        availableGroups.forEach { group ->
-            // Skip current group - already added above with pre-calculated data
-            if (group.groupId == state.currentGroupId) return@forEach
+    // Add each OTHER group's ordered items using the SAME shared utilities the ViewModel
+    // uses for the real group display, so the picker order always matches.
+    state.allGroups.forEach { group ->
+        // Skip current group - already added above with pre-calculated data
+        if (group.groupId == state.currentGroupId) return@forEach
 
-            // Get this group's folders and sub-groups
-            val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
-            val subGroups = availableGroups.filter { it.parentGroupId == group.groupId }
+        // Get this group's folders and sub-groups
+        val memberFolders = state.folders.filter { it.bucketId in group.memberBucketIds }
+        val subGroups = state.allGroups.filter { it.parentGroupId == group.groupId }
 
-            // Get sort option for this group
-            val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
-            val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
+        // Get sort option for this group
+        val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
+        val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
 
-            val orderedItems: List<Any> =
-                if (sortOption == com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) {
-                    com.example.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
-                        state.allGroupCustomOrders[group.groupId] ?: emptyList(),
-                        subGroups,
-                        memberFolders
-                    )
-                } else {
-                    com.example.common.data.util.MixedItemSorter.sortMixedItems(
-                        subGroups + memberFolders,
-                        sortOption,
-                        state.groupsAlwaysOnTop
-                    )
-                }
-
-            if (orderedItems.isNotEmpty()) {
-                put(group.groupId, orderedItems)
+        val orderedItems: List<Any> =
+            if (sortOption == com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) {
+                com.example.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
+                    state.allGroupCustomOrders[group.groupId] ?: emptyList(),
+                    subGroups,
+                    memberFolders
+                )
+            } else {
+                com.example.common.data.util.MixedItemSorter.sortMixedItems(
+                    subGroups + memberFolders,
+                    sortOption,
+                    state.groupsAlwaysOnTop
+                )
             }
+
+        if (orderedItems.isNotEmpty()) {
+            put(group.groupId, orderedItems)
         }
     }
 }

@@ -97,6 +97,7 @@ private fun ImageListScreenContent(
     val state by viewModel.uiState.collectAsState()
     val scope = rememberCoroutineScope()
     val cellCornerPx = with(androidx.compose.ui.platform.LocalDensity.current) { 2.dp.toPx() }
+    val rootView = androidx.compose.ui.platform.LocalView.current
     val progress by viewModel.copyMoveProgress.collectAsState()
     val conflict by viewModel.fileConflict.collectAsState()
     val ctx = LocalContext.current
@@ -152,6 +153,11 @@ private fun ImageListScreenContent(
     // The carousel replaces the grid in composition, so we can't scroll while it's open —
     // instead, remember the last-viewed page and, once the grid is laid out again on
     // return, do a minimal nearest-edge scroll (no-op if already visible), header-aware.
+    // Samsung Gallery parity: the grid stays where it was while the viewer is open; on return we
+    // scroll it to the last-viewed page. Faithful port of SimpleAutoScroller — a single scroll is
+    // unreliable because the grid re-lays-out over several frames, so we retry across layout passes
+    // (Samsung uses an OnLayoutChangeListener, up to 20 retries) until the target cell is FULLY
+    // visible, then stop.
     var pendingReturnPage by remember { mutableStateOf(-1) }
     LaunchedEffect(state.currentCarouselPage) {
         if (state.carouselIndex >= 0 && state.currentCarouselPage >= 0) {
@@ -162,11 +168,35 @@ private fun ImageListScreenContent(
         if (state.carouselIndex < 0 && pendingReturnPage >= 0) {
             val target = pendingReturnPage
             pendingReturnPage = -1
-            // Wait until the grid has re-entered composition and laid out.
-            snapshotFlow { imageGridState.layoutInfo.totalItemsCount to imageGridState.layoutInfo.visibleItemsInfo.size }
-                .filter { (total, visible) -> total > 0 && visible > 0 }
-                .first()
-            imageGridState.revealItem(target, hasHeaderRow = state.floatingTopBarEnabled)
+            val layoutIndex = if (state.floatingTopBarEnabled) target + 1 else target
+            // Keep the last-viewed image locked in place for the WHOLE settle window instead of
+            // exiting as soon as it first looks visible. When the viewer was in overlay-hidden
+            // immersive mode, closing restores the system bars (ImageCarouselScreen onDispose),
+            // which animates both the grid's position and its usable height for ~15-20 frames
+            // AFTER close. Exiting early lets that late relayout shift the target away — the bug.
+            // Also, the grid draws edge-to-edge UNDER the nav bar, so viewportEndOffset counts the
+            // strip behind it; we read the LIVE nav-bar inset each frame and bottom-align the
+            // target ABOVE the bar. Re-correcting every frame for the full window is idempotent
+            // once settled (revealItem is a no-op when already correctly placed).
+            repeat(45) {
+                withFrameNanos { }
+                val navPx = androidx.core.view.ViewCompat.getRootWindowInsets(rootView)
+                    ?.getInsets(androidx.core.view.WindowInsetsCompat.Type.navigationBars())?.bottom ?: 0
+                val info = imageGridState.layoutInfo
+                if (info.totalItemsCount > 0 && info.visibleItemsInfo.isNotEmpty()) {
+                    val cell = info.visibleItemsInfo.firstOrNull { it.index == layoutIndex }
+                    val effEnd = info.viewportEndOffset - navPx
+                    when {
+                        cell == null || cell.offset.y < info.viewportStartOffset ->
+                            imageGridState.scrollToItem(layoutIndex) // not laid out / off the top → top-align
+                        cell.offset.y + cell.size.height > effEnd -> {
+                            // peeking below the nav bar → bottom-align above it
+                            val viewportH = effEnd - info.viewportStartOffset
+                            imageGridState.scrollToItem(layoutIndex, cell.size.height - viewportH)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -504,6 +534,7 @@ private fun ImageListScreenContent(
                 movingGroupIds = state.moveToGroupGroupIds,
                 viewType = state.viewType,
                 groupOrderedItems = buildGroupOrderedItemsMap(state),
+                sourceGroupId = state.moveToGroupSourceGroupId,
                 onMoveHere = { viewModel.moveSelectionToGroup(it) },
                 onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) },
                 onCancel = { viewModel.dismissMoveToGroupPicker() }
@@ -687,7 +718,7 @@ private fun ImageListScreenContent(
         return
     }
     if (state.showMoveToGroupPicker) {
-        MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, groupOrderedItems = buildGroupOrderedItemsMap(state), onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
+        MoveToGroupScreen(folders = state.folders, groups = state.allGroups, movingFolderIds = state.moveToGroupFolderIds, movingGroupIds = state.moveToGroupGroupIds, viewType = state.viewType, groupOrderedItems = buildGroupOrderedItemsMap(state), sourceGroupId = state.moveToGroupSourceGroupId, onMoveHere = { viewModel.moveSelectionToGroup(it) }, onCreateGroupAndMove = { viewModel.createGroupAndMoveSelection(it) }, onCancel = { viewModel.dismissMoveToGroupPicker() })
         return
     }
 

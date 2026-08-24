@@ -119,6 +119,9 @@ data class ImageListUiState(
     val showMoveToGroupPicker: Boolean = false,
     val moveToGroupFolderIds: Set<Int> = emptySet(),
     val moveToGroupGroupIds: Set<Long> = emptySet(),
+    /** The group the moving items currently live in (null = root); used to disable "Move here"
+     *  at the source location, matching Samsung Gallery behavior. */
+    val moveToGroupSourceGroupId: Long? = null,
 
     val autoBackupEnabled: Boolean = false,
     /** Incremented by loadDataCore when a sort-change refresh completes, so the
@@ -1269,7 +1272,9 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     // Carousel
-    fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index) }
+    // Seed currentCarouselPage with the opened index so the grid can track the last-viewed image
+    // even if the viewer is closed before the pager reports its first page change.
+    fun openCarousel(index: Int) = _uiState.update { it.copy(carouselIndex = index, currentCarouselPage = index) }
     fun closeCarousel() = _uiState.update { it.copy(carouselIndex = -1, currentCarouselPage = -1) }
     fun updateCarouselPage(page: Int) = _uiState.update { it.copy(currentCarouselPage = page) }
 
@@ -2438,7 +2443,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             it.copy(
                 showMoveToGroupPicker = true,
                 moveToGroupFolderIds = s.selectedFolderIds,
-                moveToGroupGroupIds = s.selectedGroupIds
+                moveToGroupGroupIds = s.selectedGroupIds,
+                moveToGroupSourceGroupId = s.currentGroupId
             )
         }
         exitSelectionMode()
@@ -2449,7 +2455,8 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
             it.copy(
                 showMoveToGroupPicker = false,
                 moveToGroupFolderIds = emptySet(),
-                moveToGroupGroupIds = emptySet()
+                moveToGroupGroupIds = emptySet(),
+                moveToGroupSourceGroupId = null
             )
         }
     }

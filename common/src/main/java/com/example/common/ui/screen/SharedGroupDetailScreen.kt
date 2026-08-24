@@ -565,13 +565,28 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                         )
                     }
 
-                    // Menu button (top-right) - aligned with inline header position (compensating for ActionsPill padding)
-                    Box(
+                    // View toggle + menu button (top-right) - aligned with inline header position
+                    Row(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
                             .statusBarsPadding()
-                            .padding(end = 24.dp, top = 26.dp)  // 24dp = 16dp Row padding + 8dp ActionsPill padding
+                            .padding(end = 24.dp, top = 26.dp),  // 24dp = 16dp Row padding + 8dp ActionsPill padding
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
+                        // View-type toggle (one-tap grid density) — mirrors the inline header
+                        Box(
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(Color(0x8C000000), RoundedCornerShape(24.dp))
+                                .zIndex(20f),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            viewTypeToggle(viewType, onCycleViewType)
+                        }
+
+                        Spacer(Modifier.width(8.dp))
+
+                        Box {
                         Box(
                             modifier = Modifier
                                 .size(48.dp)
@@ -604,6 +619,7 @@ fun <ViewTypeEnum, SortOptionEnum> SharedGroupDetailScreen(
                             AppMenuItem("View as", onDismiss = { showMoreMenu = false }, onClick = onViewAs, textColor = colors.listFirstText)
                             AppMenuItem("Settings", onDismiss = { showMoreMenu = false }, onClick = onSettings, textColor = colors.listFirstText)
                             AppMenuItem("About App", onDismiss = { showMoreMenu = false }, onClick = onAbout, textColor = colors.listFirstText)
+                        }
                         }
                     }
                 }

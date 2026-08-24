@@ -125,6 +125,8 @@ data class VideoListUiState(
 
     // ── Group data ────────────────────────────────────────────────────
     val rootGroups: List<GroupItem> = emptyList(),
+    /** All groups (root + nested), used by the move/add pickers to browse into nested groups. */
+    val allGroups: List<GroupItem> = emptyList(),
     val ungroupedFolders: List<FolderItem> = emptyList(),
     /** Interleaved display order of GroupItems and FolderItems for the Folders tab. */
     val orderedMixedItems: List<Any> = emptyList(),
@@ -165,6 +167,9 @@ data class VideoListUiState(
     val showAddFolderToGroup: Boolean = false,
     val showMoveToGroupPicker: Boolean = false,
     val moveToGroupFolderIds: Set<Int> = emptySet(),
+    /** The group the moving items currently live in (null = root); used to disable "Move here"
+     *  at the source location, matching Samsung Gallery behavior. */
+    val moveToGroupSourceGroupId: Long? = null,
     // -- Create Album Flow --
     val showCreateAlbumPicker: Boolean = false,
     val showCreateAlbumCopyMoveDialog: Boolean = false,
@@ -812,6 +817,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 videos               = videos,
                 folders              = folders,
                 rootGroups           = rootGroups,
+                allGroups            = allGroups,
                 ungroupedFolders     = ungroupedFolders,
                 orderedMixedItems    = orderedMixed,
                 allGroupCustomOrders = groupCustomOrders,
@@ -1480,55 +1486,65 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         _uiState.update {
             it.copy(
                 showMoveToGroupPicker = true,
-                moveToGroupFolderIds  = s.selectedFolderIds,
-                moveToGroupGroupIds   = s.selectedGroupIds
+                moveToGroupFolderIds = s.selectedFolderIds,
+                moveToGroupGroupIds = s.selectedGroupIds,
+                moveToGroupSourceGroupId = s.currentGroupId
+            )
+        }
+        exitSelectionMode()
+    }
+
+    fun dismissMoveToGroupPicker() {
+        _uiState.update {
+            it.copy(
+                showMoveToGroupPicker = false,
+                moveToGroupFolderIds = emptySet(),
+                moveToGroupGroupIds = emptySet(),
+                moveToGroupSourceGroupId = null
             )
         }
     }
 
-    fun dismissMoveToGroupPicker() = _uiState.update { it.copy(showMoveToGroupPicker = false) }
-
     fun moveSelectionToGroup(targetGroupId: Long?) {
         val s = _uiState.value
+        val folderIds = s.moveToGroupFolderIds.toList()
+        val groupIds = s.moveToGroupGroupIds.toList()
         viewModelScope.launch {
-            groupRepository.moveItemsToGroup(
-                folderBucketIds = s.moveToGroupFolderIds.toList(),
-                groupIds        = s.moveToGroupGroupIds.toList(),
-                targetGroupId   = targetGroupId
-            )
-            _uiState.update { it.copy(showMoveToGroupPicker = false) }
+            groupRepository.moveItemsToGroup(folderIds, groupIds, targetGroupId)
             if (targetGroupId != null) {
-                val movedKeys = s.moveToGroupGroupIds.map { "g_$it" } + s.moveToGroupFolderIds.map { "f_$it" }
+                val movedKeys = groupIds.map { "g_$it" } + folderIds.map { "f_$it" }
                 prependMovedItemsToTargetGroup(targetGroupId, movedKeys)
                 markGroupPendingScrollToTop(targetGroupId)
             }
-            exitSelectionMode()
+            dismissMoveToGroupPicker()
             silentRefresh()
-            if (s.currentGroupId != null) refreshCurrentGroup()
+            if (s.currentGroupId != null) {
+                refreshCurrentGroup()
+            }
             scheduleAutoBackup()
         }
     }
 
     fun createGroupAndMoveSelection(name: String) {
         val s = _uiState.value
+        val folderIds = s.moveToGroupFolderIds.toList()
+        val groupIds = s.moveToGroupGroupIds.toList()
         viewModelScope.launch {
             val newGroupId = groupRepository.createGroup(
-                name            = name,
-                folderBucketIds = s.selectedFolderIds.toList(),
-                subGroupIds     = s.selectedGroupIds.toList(),
-                parentGroupId   = s.currentGroupId
+                name = name,
+                folderBucketIds = emptyList(),
+                subGroupIds = emptyList(),
+                parentGroupId = null
             )
+            groupRepository.moveItemsToGroup(folderIds, groupIds, newGroupId)
             // Prepend the new group at position 0 — always, regardless of current sort option.
-            if (s.currentGroupId == null) {
-                prependToRootOrder("g_$newGroupId")
-            } else {
-                prependToGroupOrder("g_$newGroupId", s.currentGroupId!!, s)
-            }
-            _uiState.update { it.copy(showGroupNameDialog = false) }
+            prependToRootOrder("g_$newGroupId")
             markGroupPendingScrollToTop(newGroupId)
-            exitSelectionMode()
+            dismissMoveToGroupPicker()
             silentRefresh()
-            if (s.currentGroupId != null) refreshCurrentGroup()
+            if (s.currentGroupId != null) {
+                refreshCurrentGroup()
+            }
             scheduleAutoBackup()
         }
     }

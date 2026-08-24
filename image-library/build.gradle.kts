@@ -18,7 +18,7 @@ android {
         minSdk = 31
         targetSdk = 36
         versionCode = 1
-        versionName = "1.2"
+        versionName = "1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,7 +26,7 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
-            versionNameSuffix = ".20"
+            versionNameSuffix = ".0"
         }
         release {
             isMinifyEnabled = false
@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.coil.compose)
+    implementation(libs.telephoto.zoomable.image.coil)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

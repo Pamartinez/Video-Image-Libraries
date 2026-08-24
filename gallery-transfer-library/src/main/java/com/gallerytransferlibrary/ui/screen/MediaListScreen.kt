@@ -916,7 +916,13 @@ private fun FolderGrid(
             modifier = Modifier
                 .fillMaxSize()
                 .then(if (canDrag) Modifier.dragToReorderGrid(dragState) else Modifier),
-            contentPadding = PaddingValues(gridSpacing),
+            contentPadding = PaddingValues(
+                start = gridSpacing,
+                end = gridSpacing,
+                top = gridSpacing,
+                bottom = WindowInsets.navigationBars.asPaddingValues()
+                    .calculateBottomPadding() + gridSpacing + 16.dp
+            ),
             horizontalArrangement = Arrangement.spacedBy(gridSpacing),
             verticalArrangement = Arrangement.spacedBy(gridSpacing),
             userScrollEnabled = !(canDrag && dragState.isDragging)
@@ -1042,7 +1048,13 @@ private fun ItemGrid(
             modifier = Modifier
                 .fillMaxSize()
                 .then(if (canDrag) Modifier.dragToReorderGrid(dragState) else Modifier),
-            contentPadding = PaddingValues(2.dp),
+            contentPadding = PaddingValues(
+                start = 2.dp,
+                end = 2.dp,
+                top = 2.dp,
+                bottom = WindowInsets.navigationBars.asPaddingValues()
+                    .calculateBottomPadding() + 2.dp + 16.dp
+            ),
             horizontalArrangement = Arrangement.spacedBy(2.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp),
             userScrollEnabled = !(canDrag && dragState.isDragging)

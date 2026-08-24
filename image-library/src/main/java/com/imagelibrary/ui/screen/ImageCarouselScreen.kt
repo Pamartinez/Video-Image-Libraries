@@ -12,19 +12,19 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.common.ui.components.BottomActionBar
-import com.example.common.ui.components.ZoomableImageContainer
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.ui.components.CarouselThumbnailStrip
 import com.imagelibrary.ui.components.CarouselTopBar
+import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
+import me.saket.telephoto.zoomable.rememberZoomableImageState
+import me.saket.telephoto.zoomable.rememberZoomableState
 import kotlinx.coroutines.launch
 
 /**
@@ -65,9 +65,6 @@ fun ImageCarouselScreen(
     // Bottom overlay is hidden if alwaysHideBottomOverlay is true
     var bottomBarVisible by remember { mutableStateOf(initialBarsVisible && !alwaysHideBottomOverlay) }
 
-    // Track whether the current page image is zoomed in; disables pager swiping while true
-    var isCurrentPageZoomed by remember { mutableStateOf(false) }
-
     // Insets controller — hide system bars on entry, restore on leave
     val insetsController = remember(view) {
         val window = (context as Activity).window
@@ -93,11 +90,16 @@ fun ImageCarouselScreen(
 
     val thumbnailListState = rememberLazyListState()
 
-    // Keep thumbnail strip centred on the current page and reset zoom state on navigation
+    // Report the active page IMMEDIATELY on every change, decoupled from the thumbnail-strip
+    // animation. Previously onPageChanged ran only AFTER a suspending animateScrollToItem, so a
+    // quick swipe-then-back cancelled this effect before the page was reported — the grid then
+    // returned to the originally-opened image instead of the last-viewed one (the tracking bug).
+    LaunchedEffect(pagerState) {
+        snapshotFlow { pagerState.currentPage }.collect { page -> onPageChanged(page) }
+    }
+    // Keep thumbnail strip centred on the current page (may suspend; must not gate onPageChanged).
     LaunchedEffect(pagerState.currentPage) {
-        isCurrentPageZoomed = false
         thumbnailListState.animateScrollToItem(pagerState.currentPage)
-        onPageChanged(pagerState.currentPage)
     }
 
     val currentImage = images.getOrNull(pagerState.currentPage)
@@ -108,18 +110,42 @@ fun ImageCarouselScreen(
             .background(Color.Black)
     ) {
         // ── Full-screen pager ───────────────────────────────────────────
+        // Telephoto's ZoomableAsyncImage integrates with HorizontalPager: at min zoom
+        // it hands horizontal swipes to the pager; while zoomed it consumes them for
+        // panning and only releases at the pan boundary. So userScrollEnabled stays on.
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.fillMaxSize(),
-            userScrollEnabled = !isCurrentPageZoomed,
             key = { images.getOrNull(it)?.id ?: it }
         ) { page ->
             val image = images.getOrNull(page) ?: return@HorizontalPager
 
-            ZoomableImageContainer(
-                modifier = Modifier.fillMaxSize(),
+            val zoomableState = rememberZoomableState()
+            val imageState = rememberZoomableImageState(zoomableState)
+            val isCurrentPage = page == pagerState.currentPage
+
+            // Reset zoom when this page is scrolled away so it re-opens un-zoomed.
+            LaunchedEffect(isCurrentPage) {
+                if (!isCurrentPage) zoomableState.resetZoom(androidx.compose.animation.core.snap())
+            }
+
+            ZoomableAsyncImage(
+                model = ImageRequest.Builder(context)
+                    // Cache key includes dateModified so Samsung Gallery edits
+                    // (same URI, bumped mtime) bypass the stale Coil cache entry.
+                    .data(image.contentUri)
+                    .run {
+                        val key = if (image.dateModified > 0L)
+                            "${image.contentUri}_${image.dateModified}"
+                        else image.contentUri.toString()
+                        memoryCacheKey(key).diskCacheKey(key)
+                    }
+                    .crossfade(true)
+                    .build(),
+                contentDescription = image.title,
+                state = imageState,
                 // Single-tap: toggle overlay bars (immersive mode)
-                onSingleTap = {
+                onClick = {
                     topBarVisible = !topBarVisible
                     if (!alwaysHideBottomOverlay) {
                         bottomBarVisible = !bottomBarVisible
@@ -127,29 +153,8 @@ fun ImageCarouselScreen(
                     if (topBarVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
                     else insetsController.hide(WindowInsetsCompat.Type.systemBars())
                 },
-                // Notify parent so it can lock/unlock the pager
-                onScaleChanged = { newScale ->
-                    isCurrentPageZoomed = newScale > 1f
-                }
-            ) {
-                AsyncImage(
-                    model = ImageRequest.Builder(context)
-                        .data(image.contentUri)
-                        // Cache key includes dateModified so Samsung Gallery edits
-                        // (same URI, bumped mtime) bypass the stale Coil cache entry.
-                        .run {
-                            val key = if (image.dateModified > 0L)
-                                "${image.contentUri}_${image.dateModified}"
-                            else image.contentUri.toString()
-                            memoryCacheKey(key).diskCacheKey(key)
-                        }
-                        .crossfade(true)
-                        .build(),
-                    contentDescription = image.title,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+                modifier = Modifier.fillMaxSize()
+            )
         }
 
         // ── Top bar: back button + page counter + settings ──────────────

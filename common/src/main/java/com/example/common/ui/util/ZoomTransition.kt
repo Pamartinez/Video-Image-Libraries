@@ -130,7 +130,12 @@ class ZoomTransitionState {
     /** Wait for the destination cell to lay out, then shrink the overlay into it. */
     suspend fun finishClose(key: Any) {
         progress.snapTo(1f)
-        this.sourceRect = awaitBounds(key, 700)
+        // Wait for the cell's window bounds to STOP MOVING, not just to appear. When the viewer
+        // was in overlay-hidden immersive mode, closing restores the system bars, which animates
+        // the grid's position for several frames. Grabbing the bounds on their first appearance
+        // (mid-animation) shrinks the overlay onto a stale rect — the image lands on the wrong
+        // spot. Waiting for stability makes the shrink target the cell's final resting place.
+        this.sourceRect = awaitStableBounds(key, 900)
         progress.animateTo(0f, tween(SamsungZoomDurationMs, easing = SamsungZoomEasing))
         finish()
     }
@@ -158,6 +163,30 @@ class ZoomTransitionState {
         val start = withFrameNanos { it }
         var now = start
         while (bounds[key] == null && (now - start) / 1_000_000L < timeoutMs) {
+            now = withFrameNanos { it }
+        }
+        return bounds[key]
+    }
+
+    /**
+     * Like [awaitBounds] but waits until the cell's bounds have been UNCHANGED for a few
+     * consecutive frames (layout settled) — used on close so a system-bars restore animation
+     * can't shift the target out from under the shrinking overlay.
+     */
+    private suspend fun awaitStableBounds(key: Any, timeoutMs: Long): Rect? {
+        val start = withFrameNanos { it }
+        var now = start
+        var last: Rect? = null
+        var stableFrames = 0
+        while ((now - start) / 1_000_000L < timeoutMs) {
+            val cur = bounds[key]
+            if (cur != null && cur == last) {
+                stableFrames++
+                if (stableFrames >= 3) return cur
+            } else {
+                stableFrames = 0
+            }
+            last = cur
             now = withFrameNanos { it }
         }
         return bounds[key]

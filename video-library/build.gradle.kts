@@ -18,7 +18,7 @@ android {
         minSdk = 31
         targetSdk = 36
         versionCode = 2
-        versionName = "1.2"
+        versionName = "1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,7 +26,7 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
-            versionNameSuffix = ".20"
+            versionNameSuffix = ".0"
         }
         release {
             isMinifyEnabled = false

@@ -10,8 +10,8 @@ import com.imagelibrary.data.model.SortType
 
 class AppPreferences(context: Context) : SharedAppPreferences(
     prefs                   = context.getSharedPreferences("image_library_prefs", Context.MODE_PRIVATE),
-    defaultViewTypeId       = ViewType.GRID_LARGE.id,
-    defaultFolderViewTypeId = ViewType.GRID_LARGE.id,
+    defaultViewTypeId       = ViewType.GRID_SMALL.id,
+    defaultFolderViewTypeId = ViewType.GRID_SMALL.id,
     groupItemsOrderKeyPrefix = "custom_group_items_order_"
 ) {
     companion object {

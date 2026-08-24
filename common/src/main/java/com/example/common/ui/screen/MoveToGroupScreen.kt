@@ -1,8 +1,6 @@
 package com.example.common.ui.screen
 
 import android.net.Uri
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -49,6 +47,7 @@ fun MoveToGroupScreen(
     movingFolderIds: Set<Int>,
     movingGroupIds: Set<Long>,
     groupOrderedItems: Map<Long, List<Any>> = emptyMap(),
+    sourceGroupId: Long? = null,
     columnCount: Int = 3,
     gridSpacing: Float = 16f,
     onMoveHere: (targetGroupId: Long?) -> Unit,
@@ -85,7 +84,9 @@ fun MoveToGroupScreen(
     // Build display items based on browse level.
     // Prefer the pre-calculated ordered list for this browse level (root = -1L) when available,
     // filtering out the items currently being moved; otherwise fall back to raw list order.
-    val displayItems: List<MixedItem> = run {
+    val displayItems: List<MixedItem> = remember(
+        folders, groups, movingFolderIds, movingGroupIds, groupOrderedItems, currentBrowseGroupId
+    ) {
         val levelKey = currentBrowseGroupId ?: -1L
         val ordered = groupOrderedItems[levelKey]
         if (ordered != null) {
@@ -198,23 +199,17 @@ fun MoveToGroupScreen(
                         verticalArrangement   = Arrangement.spacedBy(spacing)
                     ) {
                         items(displayItems, key = { it.uniqueKey }) { item ->
-                            val animMod = Modifier.animateItem(
-                                placementSpec = spring(
-                                    dampingRatio = Spring.DampingRatioNoBouncy,
-                                    stiffness    = 4000f
-                                )
-                            )
                             when (item) {
                                 is MixedItem.Folder -> {
                                     // Folders grayed out — non-clickable
-                                    Box(modifier = animMod.alpha(0.35f)) {
+                                    Box(modifier = Modifier.alpha(0.35f)) {
                                         folderItemContent(item.folder, Modifier)
                                     }
                                 }
                                 is MixedItem.Group -> {
                                     groupItemContent(
                                         item.group,
-                                        animMod,
+                                        Modifier,
                                         { browseStack = browseStack + Pair(item.group.groupId, item.group.name) },
                                         { browseStack = browseStack + Pair(item.group.groupId, item.group.name) }
                                     )
@@ -279,14 +274,19 @@ fun MoveToGroupScreen(
                 Spacer(modifier = Modifier.width(8.dp))
                 Box(modifier = Modifier.width(1.dp).height(24.dp).background(Color(0x60FFFFFF)))
                 Spacer(modifier = Modifier.width(8.dp))
+                val moveHereEnabled = currentBrowseGroupId != sourceGroupId
                 Text(
                     text       = "Move here",
                     fontSize   = 16.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color      = Color.White,
+                    color      = if (moveHereEnabled) Color.White else Color(0x66FFFFFF),
                     modifier   = Modifier
                         .clip(RoundedCornerShape(8.dp))
-                        .clickable { onMoveHere(currentBrowseGroupId) }
+                        .then(
+                            if (moveHereEnabled)
+                                Modifier.clickable { onMoveHere(currentBrowseGroupId) }
+                            else Modifier
+                        )
                         .padding(horizontal = 12.dp, vertical = 8.dp)
                 )
             }
