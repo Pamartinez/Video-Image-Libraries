@@ -239,7 +239,7 @@ class VideoThumbnailCache private constructor(
      * Generates cache key from URI and modification date.
      */
     private fun getCacheKey(uri: Uri, dateModified: Long): String {
-        return "${uri}_${dateModified}_v3"
+        return "${uri}_${dateModified}_v4"
     }
 
     // ── Memory Management (ComponentCallbacks2) ──────────────────────────

@@ -102,8 +102,12 @@ object VideoThumbnailExtractor {
         var bestScore = -1f
 
         for (timeUs in candidates) {
+            // OPTION_CLOSEST (not CLOSEST_SYNC) decodes the actual frame at the requested time
+            // rather than snapping to the nearest keyframe. With sparse keyframes, CLOSEST_SYNC
+            // made 1s/2s/3s all resolve to the black keyframe at 0s, so the thumbnail drifted to
+            // the 25/50/75% fallbacks (5-10s in). CLOSEST keeps it near the requested ~1s.
             val frame = try {
-                retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST)
             } catch (_: Exception) {
                 null
             } ?: continue
