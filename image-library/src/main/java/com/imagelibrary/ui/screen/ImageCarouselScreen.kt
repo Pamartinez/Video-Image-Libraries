@@ -138,9 +138,12 @@ fun ImageCarouselScreen(
                         val key = if (image.dateModified > 0L)
                             "${image.contentUri}_${image.dateModified}"
                         else image.contentUri.toString()
-                        memoryCacheKey(key).diskCacheKey(key)
+                        // placeholderMemoryCacheKey reuses the warm grid thumbnail so Telephoto
+                        // has a correct-aspect bitmap immediately and computes its fit transform
+                        // up front — no post-open resize. crossfade(false) kills the fade flash.
+                        memoryCacheKey(key).diskCacheKey(key).placeholderMemoryCacheKey(key)
                     }
-                    .crossfade(true)
+                    .crossfade(false)
                     .build(),
                 contentDescription = image.title,
                 state = imageState,

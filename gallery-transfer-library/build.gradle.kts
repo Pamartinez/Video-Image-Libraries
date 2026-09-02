@@ -41,7 +41,7 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
-            versionNameSuffix = ".2"
+            versionNameSuffix = ".14"
         }
         release {
             isMinifyEnabled = false
@@ -58,6 +58,12 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+    // Install only for the primary user (0). Without this, `adb install` targets ALL users, which
+    // re-creates a clone in Samsung's Dual App profile (user 95) on every install.
+    installation {
+        installOptions.add("--user")
+        installOptions.add("0")
     }
 }
 
