@@ -67,7 +67,10 @@ class VideoThumbnailDiskCache(context: Context) {
      * Including dateModified ensures cache invalidation when video is edited.
      */
     private fun getCacheKey(uri: Uri, dateModified: Long): String {
-        val keyString = "${uri}_${dateModified}_v3"
+        // NOTE: this version tag is the real thumbnail-invalidation switch. Bump it whenever the
+        // extraction algorithm changes (it is independent of VideoThumbnailCache's own key). v4:
+        // first-frame extraction. Previously stuck at v3, which masked all extractor changes.
+        val keyString = "${uri}_${dateModified}_v6"
         return Crc64.hashToHex(keyString)
     }
 

@@ -239,7 +239,9 @@ class VideoThumbnailCache private constructor(
      * Generates cache key from URI and modification date.
      */
     private fun getCacheKey(uri: Uri, dateModified: Long): String {
-        return "${uri}_${dateModified}_v3"
+        // v9: first-frame extraction (embedded cover → frame@0 → short dark-nudge). Verified against
+        // Samsung on-device; loadThumbnail/15s both gave mid-video frames. Bump invalidates v8.
+        return "${uri}_${dateModified}_v9"
     }
 
     // ── Memory Management (ComponentCallbacks2) ──────────────────────────

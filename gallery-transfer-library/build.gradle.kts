@@ -30,7 +30,7 @@ android {
         minSdk = 31
         targetSdk = 36
         versionCode = 1
-        versionName = "1.3"
+        versionName = "1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -58,6 +58,12 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+    // Install only for the primary user (0). Without this, `adb install` targets ALL users, which
+    // re-creates a clone in Samsung's Dual App profile (user 95) on every install.
+    installation {
+        installOptions.add("--user")
+        installOptions.add("0")
     }
 }
 

@@ -16,8 +16,19 @@ data class ImageItem(
     val mimeType: String,
     val contentUri: Uri,
     val width: Int = 0,
-    val height: Int = 0
+    val height: Int = 0,
+    /** EXIF display rotation in degrees (0/90/180/270). MediaStore WIDTH/HEIGHT are raw, pre-rotation. */
+    val orientation: Int = 0
 ) {
+    /** Aspect ratio (width/height) as actually displayed, accounting for a 90°/270° EXIF rotation. */
+    val displayAspectRatio: Float
+        get() {
+            if (width <= 0 || height <= 0) return 0f
+            val rotated = orientation % 180 != 0
+            val w = if (rotated) height else width
+            val h = if (rotated) width else height
+            return w.toFloat() / h.toFloat()
+        }
     companion object {
         val PROJECTION = arrayOf(
             MediaStore.Images.Media._ID,
@@ -31,7 +42,8 @@ data class ImageItem(
             MediaStore.Images.Media.MIME_TYPE,
             MediaStore.Images.Media.TITLE,
             MediaStore.Images.Media.WIDTH,
-            MediaStore.Images.Media.HEIGHT
+            MediaStore.Images.Media.HEIGHT,
+            MediaStore.Images.Media.ORIENTATION
         )
     }
 }

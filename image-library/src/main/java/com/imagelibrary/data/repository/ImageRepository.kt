@@ -65,6 +65,7 @@ class ImageRepository(private val context: Context) {
                 val titleCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
                 val widthCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.WIDTH)
                 val heightCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.HEIGHT)
+                val orientationCol = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.ORIENTATION)
 
                 while (cursor.moveToNext()) {
                     val id = cursor.getLong(idCol)
@@ -79,6 +80,7 @@ class ImageRepository(private val context: Context) {
                     val title = cursor.getString(titleCol) ?: displayName.substringBeforeLast('.', displayName)
                     val width = cursor.getInt(widthCol)
                     val height = cursor.getInt(heightCol)
+                    val orientation = cursor.getInt(orientationCol)
                     val contentUri = ContentUris.withAppendedId(imageUri, id)
 
                     images.add(
@@ -95,7 +97,8 @@ class ImageRepository(private val context: Context) {
                             mimeType = mimeType,
                             contentUri = contentUri,
                             width = width,
-                            height = height
+                            height = height,
+                            orientation = orientation
                         )
                     )
                 }

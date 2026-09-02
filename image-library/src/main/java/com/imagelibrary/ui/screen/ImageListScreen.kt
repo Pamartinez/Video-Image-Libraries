@@ -57,9 +57,12 @@ import com.imagelibrary.ui.components.*
 import com.imagelibrary.ui.theme.LocalImageColors
 import com.imagelibrary.ui.viewmodel.ImageListViewModel
 
-/** width/height aspect ratio for the zoom transition; 0f when the item's dimensions are unknown. */
-private fun ImageItem.aspectRatioOrZero(): Float =
-    if (width > 0 && height > 0) width.toFloat() / height.toFloat() else 0f
+/**
+ * Displayed aspect ratio for the zoom transition; 0f when the item's dimensions are unknown.
+ * Uses [ImageItem.displayAspectRatio] so EXIF-rotated images (orientation 90/270, where MediaStore
+ * WIDTH/HEIGHT are raw/pre-rotation) grow into the correctly-shaped rect instead of a wrong one.
+ */
+private fun ImageItem.aspectRatioOrZero(): Float = displayAspectRatio
 
 @Composable
 fun ImageListScreen(

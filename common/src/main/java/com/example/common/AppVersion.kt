@@ -12,7 +12,7 @@ package com.example.common
  * Displayed as "VERSION.BUILD", e.g. "1.1.0".
  */
 object AppVersion {
-    const val VERSION = "1.3"
+    const val VERSION = "1.4"
     const val BUILD = 0
 
     /** Full version string shown in the About screen, e.g. "1.1.0". */
