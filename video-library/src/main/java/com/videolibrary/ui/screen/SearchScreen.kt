@@ -3,7 +3,7 @@ package com.videolibrary.ui.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.common.ui.screen.SharedSearchScreen
+import com.common.ui.screen.SharedSearchScreen
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.ui.components.VideoGridItem
 

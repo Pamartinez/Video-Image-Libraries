@@ -1,8 +1,8 @@
 package com.imagelibrary.data.preferences
 
 import android.content.Context
-import com.example.common.data.model.ViewType
-import com.example.common.data.preferences.SharedAppPreferences
+import com.common.data.model.ViewType
+import com.common.data.preferences.SharedAppPreferences
 import com.imagelibrary.data.model.ImageSortOption
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.SortOrder

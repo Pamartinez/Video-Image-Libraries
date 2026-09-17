@@ -9,8 +9,8 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
-import com.example.common.data.util.MediaTrashHelper
-import com.example.common.upload.UploadItem
+import com.common.data.util.MediaTrashHelper
+import com.common.upload.UploadItem
 import com.gallerytransferlibrary.data.preferences.AppPreferences
 import com.gallerytransferlibrary.data.repository.MediaRepository
 import com.gallerytransferlibrary.dropbox.DropboxHolder
@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
  * Background worker that auto-uploads media older than the user-configured number of days to Dropbox.
  * Runs as a WorkManager foreground service so it keeps going while the app is closed.
  *
- * It reuses the app's singleton [com.example.common.upload.UploadManager] (via [DropboxHolder]) for
+ * It reuses the app's singleton [com.common.upload.UploadManager] (via [DropboxHolder]) for
  * the actual transfer, so conflict resolution follows the user's background policy exactly as
  * interactive uploads do. Items already handled are recorded in [AppPreferences.autoUploadedKeys] so
  * they are never uploaded twice.

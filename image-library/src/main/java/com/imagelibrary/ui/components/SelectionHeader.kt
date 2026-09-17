@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.common.ui.components.PillButton as CommonPillButton
-import com.example.common.ui.components.SelectionHeader as CommonSelectionHeader
+import com.common.ui.components.PillButton as CommonPillButton
+import com.common.ui.components.SelectionHeader as CommonSelectionHeader
 
 /**
  * Delegates to the shared [CommonSelectionHeader] in common.

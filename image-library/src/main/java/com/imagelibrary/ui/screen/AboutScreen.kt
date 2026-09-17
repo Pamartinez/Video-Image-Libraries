@@ -3,7 +3,7 @@ package com.imagelibrary.ui.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.imagelibrary.data.util.FileLogger
-import com.example.common.ui.screen.AboutScreen as CommonAboutScreen
+import com.common.ui.screen.AboutScreen as CommonAboutScreen
 
 @Composable
 fun AboutScreen(

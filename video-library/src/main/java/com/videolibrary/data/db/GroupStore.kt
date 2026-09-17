@@ -1,3 +1,3 @@
 package com.videolibrary.data.db
 
-typealias GroupStore = com.example.common.data.db.GroupStore
+typealias GroupStore = com.common.data.db.GroupStore

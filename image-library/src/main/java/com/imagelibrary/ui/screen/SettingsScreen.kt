@@ -3,9 +3,9 @@ package com.imagelibrary.ui.screen
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.example.common.ui.components.SettingsSection
-import com.example.common.ui.components.SettingsToggleRow
-import com.example.common.ui.screen.SharedSettingsScreen
+import com.common.ui.components.SettingsSection
+import com.common.ui.components.SettingsToggleRow
+import com.common.ui.screen.SharedSettingsScreen
 import com.imagelibrary.ui.viewmodel.ImageListViewModel
 
 @Composable

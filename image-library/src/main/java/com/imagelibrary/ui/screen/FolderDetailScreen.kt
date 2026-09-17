@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.common.ui.screen.SharedFolderDetailScreen
+import com.common.ui.screen.SharedFolderDetailScreen
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.ui.components.ImageGridItem
@@ -49,7 +49,7 @@ fun FolderDetailScreen(
     onReorderDone: () -> Unit = {},
     scrollToTopTrigger: Int = 0,
     lazyGridState: LazyGridState = rememberLazyGridState(),
-    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
+    zoomState: com.common.ui.util.ZoomTransitionState? = null
 ) {
     // Scroll to top when sort changes in the album
     LaunchedEffect(scrollToTopTrigger) {

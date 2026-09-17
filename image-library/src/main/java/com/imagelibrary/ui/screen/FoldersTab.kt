@@ -7,11 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.dp
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.data.model.MixedItem
-import com.example.common.data.model.toMixedItems
-import com.example.common.ui.screen.SharedFoldersTab
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.data.model.MixedItem
+import com.common.data.model.toMixedItems
+import com.common.ui.screen.SharedFoldersTab
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.ui.components.FolderGridItem

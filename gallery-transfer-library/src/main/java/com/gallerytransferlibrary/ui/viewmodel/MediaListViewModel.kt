@@ -3,9 +3,9 @@ package com.gallerytransferlibrary.ui.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.FolderSortOption
-import com.example.common.data.model.ViewType
+import com.common.data.model.FolderItem
+import com.common.data.model.FolderSortOption
+import com.common.data.model.ViewType
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType
 import com.gallerytransferlibrary.data.model.MediaItem
@@ -462,7 +462,7 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
                 )
             }
             if (uris.isNotEmpty()) {
-                com.example.common.data.util.MediaTrashHelper.trashSilently(getApplication(), uris)
+                com.common.data.util.MediaTrashHelper.trashSilently(getApplication(), uris)
             }
             exitSelection()
             exitFilterSelection()

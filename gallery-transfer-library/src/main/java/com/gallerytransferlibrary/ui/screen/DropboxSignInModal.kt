@@ -35,8 +35,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.example.common.data.dropbox.DropboxConfig
-import com.example.common.data.dropbox.PkceSession
+import com.common.data.dropbox.DropboxConfig
+import com.common.data.dropbox.PkceSession
 
 /**
  * Full-screen in-app WebView login modal for Dropbox OAuth (PKCE).

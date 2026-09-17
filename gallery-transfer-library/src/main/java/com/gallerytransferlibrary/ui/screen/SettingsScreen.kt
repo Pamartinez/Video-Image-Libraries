@@ -34,13 +34,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.ui.components.CircularBackButton
-import com.example.common.ui.components.ScreenTopBar
-import com.example.common.ui.components.SettingsActionButton
-import com.example.common.ui.components.SettingsSection
-import com.example.common.ui.components.SettingsToggleRow
-import com.example.common.ui.components.SortDialog
-import com.example.common.ui.theme.LocalLibraryColors
+import com.common.ui.components.CircularBackButton
+import com.common.ui.components.ScreenTopBar
+import com.common.ui.components.SettingsActionButton
+import com.common.ui.components.SettingsSection
+import com.common.ui.components.SettingsToggleRow
+import com.common.ui.components.SortDialog
+import com.common.ui.theme.LocalLibraryColors
 import com.gallerytransferlibrary.data.model.AutoUploadFrequency
 
 /**

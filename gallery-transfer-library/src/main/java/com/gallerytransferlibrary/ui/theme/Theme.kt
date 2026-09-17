@@ -14,19 +14,19 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Density
 import androidx.core.view.WindowCompat
-import com.example.common.ui.theme.LibraryColors
-import com.example.common.ui.theme.LocalLibraryColors
-import com.example.common.ui.theme.CardBackgroundDark
-import com.example.common.ui.theme.CircleButtonBgDark
-import com.example.common.ui.theme.DetailLabelDark
-import com.example.common.ui.theme.DividerColorDark
-import com.example.common.ui.theme.IconColorDark
-import com.example.common.ui.theme.ListFirstTextDark
-import com.example.common.ui.theme.ListSecondTextDark
-import com.example.common.ui.theme.MenuBgDark
-import com.example.common.ui.theme.PopupBgDark
-import com.example.common.ui.theme.PrimaryDark
-import com.example.common.ui.theme.ScreenBackgroundDark
+import com.common.ui.theme.LibraryColors
+import com.common.ui.theme.LocalLibraryColors
+import com.common.ui.theme.CardBackgroundDark
+import com.common.ui.theme.CircleButtonBgDark
+import com.common.ui.theme.DetailLabelDark
+import com.common.ui.theme.DividerColorDark
+import com.common.ui.theme.IconColorDark
+import com.common.ui.theme.ListFirstTextDark
+import com.common.ui.theme.ListSecondTextDark
+import com.common.ui.theme.MenuBgDark
+import com.common.ui.theme.PopupBgDark
+import com.common.ui.theme.PrimaryDark
+import com.common.ui.theme.ScreenBackgroundDark
 
 /**
  * Concrete [LibraryColors] for Gallery Transfer. This app ships dark-theme only to match its

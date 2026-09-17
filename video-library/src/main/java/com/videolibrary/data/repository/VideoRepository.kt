@@ -9,11 +9,11 @@ import android.net.Uri
 import android.provider.MediaStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.example.common.data.model.ConflictResolution
-import com.example.common.data.model.FolderItem
-import com.example.common.data.util.MediaFileUtils
-import com.example.common.data.util.MediaTransferHelper
-import com.example.common.data.util.MediaTrashHelper
+import com.common.data.model.ConflictResolution
+import com.common.data.model.FolderItem
+import com.common.data.util.MediaFileUtils
+import com.common.data.util.MediaTransferHelper
+import com.common.data.util.MediaTrashHelper
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -251,6 +251,7 @@ class VideoRepository(private val context: Context) {
                 itemCount = videos.size,
                 latestItemUri = previewVideo?.contentUri,
                 latestDateModified = videos.maxOfOrNull { it.dateModified } ?: 0L,
+                coverDateModified = previewVideo?.dateModified ?: 0L,
                 path = folderPath
             )
         }
@@ -355,6 +356,7 @@ class VideoRepository(private val context: Context) {
                             itemCount = 1,
                             latestItemUri = ContentUris.withAppendedId(videoUri, id),
                             latestDateModified = dateModified,
+                            coverDateModified = dateModified,
                             path = folderPath
                         )
                     }

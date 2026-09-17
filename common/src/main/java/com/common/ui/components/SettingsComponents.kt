@@ -1,0 +1,160 @@
+package com.common.ui.components
+
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.common.ui.theme.LocalLibraryColors
+
+// ── Section wrapper ──────────────────────────────────────────────────────────
+
+/** Labeled card-style section used on the Settings screen. */
+@Composable
+fun SettingsSection(title: String, content: @Composable ColumnScope.() -> Unit) {
+    val colors = LocalLibraryColors.current
+    Text(
+        text       = title.uppercase(),
+        fontSize   = 11.sp,
+        fontWeight = FontWeight.SemiBold,
+        color      = colors.listSecondText,
+        modifier   = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 4.dp)
+    )
+    Surface(
+        shape          = RoundedCornerShape(16.dp),
+        color          = colors.cardBackground,
+        tonalElevation = 0.dp
+    ) {
+        Column(modifier = Modifier.fillMaxWidth(), content = content)
+    }
+}
+
+// ── Toggle row ───────────────────────────────────────────────────────────────
+
+/** Row with a title, subtitle, and a Switch — used for boolean preference toggles. */
+@Composable
+fun SettingsToggleRow(
+    title: String,
+    subtitle: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    enabled: Boolean = true,
+    onInfoClick: (() -> Unit)? = null
+) {
+    val colors = LocalLibraryColors.current
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(enabled = enabled) { onCheckedChange(!checked) }
+            .padding(horizontal = 16.dp, vertical = 14.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text       = title,
+                fontSize   = 15.sp,
+                fontWeight = FontWeight.Medium,
+                color      = if (enabled) colors.listFirstText else colors.listFirstText.copy(alpha = 0.5f)
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text       = subtitle,
+                fontSize   = 12.sp,
+                color      = if (enabled) colors.listSecondText else colors.listSecondText.copy(alpha = 0.5f),
+                lineHeight = 16.sp
+            )
+        }
+        Spacer(Modifier.width(12.dp))
+
+        // Info icon button (if provided)
+        onInfoClick?.let { onClick ->
+            IconButton(
+                onClick = onClick,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "Info",
+                    tint = colors.primary,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+            Spacer(Modifier.width(4.dp))
+        }
+
+        Switch(
+            checked         = checked,
+            onCheckedChange = onCheckedChange,
+            enabled         = enabled,
+            colors          = SwitchDefaults.colors(
+                checkedThumbColor = colors.cardBackground,
+                checkedTrackColor = colors.primary
+            )
+        )
+    }
+}
+
+// ── Action button ────────────────────────────────────────────────────────────
+
+/** Icon + title + subtitle tappable card — used for Backup and Restore actions. */
+@Composable
+fun SettingsActionButton(
+    icon: ImageVector,
+    title: String,
+    subtitle: String,
+    enabled: Boolean = true,
+    onClick: () -> Unit
+) {
+    val colors = LocalLibraryColors.current
+    val contentAlpha = if (enabled) 1f else 0.4f
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 4.dp)
+            .clip(RoundedCornerShape(14.dp))
+            .border(1.dp, colors.primary.copy(alpha = if (enabled) 0.45f else 0.20f), RoundedCornerShape(14.dp))
+            .clickable(enabled = enabled, onClick = onClick),
+        color          = colors.primary.copy(alpha = if (enabled) 0.10f else 0.04f),
+        shape          = RoundedCornerShape(14.dp),
+        tonalElevation = 0.dp
+    ) {
+        Row(
+            modifier          = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector        = icon,
+                contentDescription = null,
+                tint               = colors.primary.copy(alpha = contentAlpha),
+                modifier           = Modifier.size(26.dp)
+            )
+            Spacer(Modifier.width(14.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text       = title,
+                    fontSize   = 15.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color      = colors.primary.copy(alpha = contentAlpha)
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    text       = subtitle,
+                    fontSize   = 11.sp,
+                    color      = colors.listSecondText.copy(alpha = contentAlpha),
+                    lineHeight = 15.sp
+                )
+            }
+        }
+    }
+}
+

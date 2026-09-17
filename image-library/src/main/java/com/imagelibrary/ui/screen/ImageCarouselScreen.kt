@@ -17,14 +17,14 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.compose.ui.layout.ContentScale
+import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.common.ui.components.BottomActionBar
+import com.common.ui.components.BottomActionBar
+import com.common.ui.components.ZoomableImageContainer
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.ui.components.CarouselThumbnailStrip
 import com.imagelibrary.ui.components.CarouselTopBar
-import me.saket.telephoto.zoomable.coil.ZoomableAsyncImage
-import me.saket.telephoto.zoomable.rememberZoomableImageState
-import me.saket.telephoto.zoomable.rememberZoomableState
 import kotlinx.coroutines.launch
 
 /**
@@ -110,54 +110,55 @@ fun ImageCarouselScreen(
             .background(Color.Black)
     ) {
         // ── Full-screen pager ───────────────────────────────────────────
-        // Telephoto's ZoomableAsyncImage integrates with HorizontalPager: at min zoom
-        // it hands horizontal swipes to the pager; while zoomed it consumes them for
-        // panning and only releases at the pan boundary. So userScrollEnabled stays on.
+        // Pager scrolling is disabled while the current image is zoomed, so panning a
+        // zoomed image never triggers a page swipe (Samsung Gallery behavior).
+        var isZoomed by remember { mutableStateOf(false) }
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.fillMaxSize(),
+            userScrollEnabled = !isZoomed,
             key = { images.getOrNull(it)?.id ?: it }
         ) { page ->
             val image = images.getOrNull(page) ?: return@HorizontalPager
-
-            val zoomableState = rememberZoomableState()
-            val imageState = rememberZoomableImageState(zoomableState)
             val isCurrentPage = page == pagerState.currentPage
 
-            // Reset zoom when this page is scrolled away so it re-opens un-zoomed.
-            LaunchedEffect(isCurrentPage) {
-                if (!isCurrentPage) zoomableState.resetZoom(androidx.compose.animation.core.snap())
+            // Keying on isCurrentPage recreates the container with fresh zoom state
+            // whenever a page stops (or starts) being the current one, so every image
+            // re-opens un-zoomed after you swipe away.
+            key(isCurrentPage) {
+                ZoomableImageContainer(
+                    modifier = Modifier.fillMaxSize(),
+                    onScaleChanged = { s -> if (isCurrentPage) isZoomed = s > 1f },
+                    // Single-tap: toggle overlay bars (immersive mode)
+                    onSingleTap = {
+                        topBarVisible = !topBarVisible
+                        if (!alwaysHideBottomOverlay) {
+                            bottomBarVisible = !bottomBarVisible
+                        }
+                        if (topBarVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
+                        else insetsController.hide(WindowInsetsCompat.Type.systemBars())
+                    }
+                ) {
+                    AsyncImage(
+                        model = ImageRequest.Builder(context)
+                            // Cache key includes dateModified so Samsung Gallery edits
+                            // (same URI, bumped mtime) bypass the stale Coil cache entry.
+                            .data(image.contentUri)
+                            .run {
+                                val cacheKey = if (image.dateModified > 0L)
+                                    "${image.contentUri}_${image.dateModified}"
+                                else image.contentUri.toString()
+                                memoryCacheKey(cacheKey).diskCacheKey(cacheKey)
+                                    .placeholderMemoryCacheKey(cacheKey)
+                            }
+                            .crossfade(false)
+                            .build(),
+                        contentDescription = image.title,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
             }
-
-            ZoomableAsyncImage(
-                model = ImageRequest.Builder(context)
-                    // Cache key includes dateModified so Samsung Gallery edits
-                    // (same URI, bumped mtime) bypass the stale Coil cache entry.
-                    .data(image.contentUri)
-                    .run {
-                        val key = if (image.dateModified > 0L)
-                            "${image.contentUri}_${image.dateModified}"
-                        else image.contentUri.toString()
-                        // placeholderMemoryCacheKey reuses the warm grid thumbnail so Telephoto
-                        // has a correct-aspect bitmap immediately and computes its fit transform
-                        // up front — no post-open resize. crossfade(false) kills the fade flash.
-                        memoryCacheKey(key).diskCacheKey(key).placeholderMemoryCacheKey(key)
-                    }
-                    .crossfade(false)
-                    .build(),
-                contentDescription = image.title,
-                state = imageState,
-                // Single-tap: toggle overlay bars (immersive mode)
-                onClick = {
-                    topBarVisible = !topBarVisible
-                    if (!alwaysHideBottomOverlay) {
-                        bottomBarVisible = !bottomBarVisible
-                    }
-                    if (topBarVisible) insetsController.show(WindowInsetsCompat.Type.systemBars())
-                    else insetsController.hide(WindowInsetsCompat.Type.systemBars())
-                },
-                modifier = Modifier.fillMaxSize()
-            )
         }
 
         // ── Top bar: back button + page counter + settings ──────────────

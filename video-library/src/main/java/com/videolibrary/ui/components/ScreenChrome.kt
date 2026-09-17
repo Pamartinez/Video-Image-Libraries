@@ -3,9 +3,9 @@ package com.videolibrary.ui.components
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.common.data.model.ViewType
-import com.example.common.ui.components.SelectionModeHeader as CommonSelectionModeHeader
-import com.example.common.ui.components.ViewTypeToggleButton as CommonViewTypeToggleButton
+import com.common.data.model.ViewType
+import com.common.ui.components.SelectionModeHeader as CommonSelectionModeHeader
+import com.common.ui.components.ViewTypeToggleButton as CommonViewTypeToggleButton
 
 /**
  * Delegates to the shared [CommonSelectionModeHeader] in common.

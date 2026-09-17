@@ -1,4 +1,4 @@
 package com.videolibrary.data.util
 
-object FileLogger : com.example.common.data.util.FileLogger("VideoLibrary")
+object FileLogger : com.common.data.util.FileLogger("VideoLibrary")
 

@@ -3,7 +3,7 @@ package com.imagelibrary.ui.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.common.ui.screen.SharedSearchScreen
+import com.common.ui.screen.SharedSearchScreen
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.ui.components.ImageGridItem
 

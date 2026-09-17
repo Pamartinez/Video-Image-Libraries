@@ -6,4 +6,4 @@ package com.gallerytransferlibrary.data.util
  * Used primarily to record Dropbox transfer failures so they can be inspected from the
  * About screen's "Open Logs Folder" button.
  */
-object FileLogger : com.example.common.data.util.FileLogger("GalleryTransfer")
+object FileLogger : com.common.data.util.FileLogger("GalleryTransfer")

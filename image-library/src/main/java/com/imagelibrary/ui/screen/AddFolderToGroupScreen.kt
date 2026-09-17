@@ -2,12 +2,12 @@ package com.imagelibrary.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.ui.components.FolderGridItem
 import com.imagelibrary.ui.components.GroupGridItem
-import com.example.common.ui.screen.AddFolderToGroupScreen as CommonAddFolderToGroupScreen
+import com.common.ui.screen.AddFolderToGroupScreen as CommonAddFolderToGroupScreen
 
 /**
  * Image-library entry point for the add-to-group picker.

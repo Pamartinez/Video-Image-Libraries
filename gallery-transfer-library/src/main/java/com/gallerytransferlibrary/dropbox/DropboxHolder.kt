@@ -1,10 +1,10 @@
 package com.gallerytransferlibrary.dropbox
 
 import android.content.Context
-import com.example.common.data.dropbox.DropboxClient
-import com.example.common.data.dropbox.DropboxClientFactory
-import com.example.common.data.dropbox.DropboxConfig
-import com.example.common.upload.UploadManager
+import com.common.data.dropbox.DropboxClient
+import com.common.data.dropbox.DropboxClientFactory
+import com.common.data.dropbox.DropboxConfig
+import com.common.upload.UploadManager
 import com.gallerytransferlibrary.BuildConfig
 import com.gallerytransferlibrary.data.util.FileLogger
 

@@ -5,10 +5,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import com.example.common.data.model.FolderItem
-import com.example.common.ui.components.FolderThumbnailPlaceholder as CommonFolderThumbnailPlaceholder
+import com.common.data.model.FolderItem
+import com.common.ui.components.FolderThumbnailPlaceholder as CommonFolderThumbnailPlaceholder
 import com.videolibrary.data.model.ViewType
-import com.example.common.ui.components.FolderGridItem as CommonFolderGridItem
+import com.common.ui.components.FolderGridItem as CommonFolderGridItem
 
 /**
  * Video-library wrapper for the shared [CommonFolderGridItem].
@@ -45,6 +45,7 @@ fun FolderGridItem(
                     contentUri         = folder.latestItemUri,
                     contentDescription = folder.name,
                     contentScale       = ContentScale.Crop,
+                    dateModified       = folder.coverDateModified,
                     modifier           = Modifier
                         .fillMaxWidth()
                         .aspectRatio(0.75f)

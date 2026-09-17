@@ -15,10 +15,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.ui.components.CircularCheckIndicator
+import com.common.ui.components.CircularCheckIndicator
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.ui.theme.LocalVideoColors
-import com.example.common.util.FormatUtils
+import com.common.util.FormatUtils
 
 /**
  * Grid view video item matching Blazor app.css:

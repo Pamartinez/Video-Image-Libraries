@@ -5,8 +5,8 @@ import android.content.ContentUris
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.FolderSortOption
+import com.common.data.model.FolderItem
+import com.common.data.model.FolderSortOption
 import com.gallerytransferlibrary.data.model.MediaItem
 import com.gallerytransferlibrary.data.model.MediaSortOption
 import kotlinx.coroutines.Dispatchers

@@ -15,9 +15,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.ui.screen.CreateAlbumPickerScreen as CommonCreateAlbumPickerScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.ui.screen.CreateAlbumPickerScreen as CommonCreateAlbumPickerScreen
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.FolderGridItem

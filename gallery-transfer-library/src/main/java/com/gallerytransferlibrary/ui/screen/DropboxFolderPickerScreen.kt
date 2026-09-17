@@ -43,8 +43,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.data.dropbox.DropboxRepository
-import com.example.common.data.dropbox.model.Entry
+import com.common.data.dropbox.DropboxRepository
+import com.common.data.dropbox.model.Entry
 import com.gallerytransferlibrary.ui.theme.LocalGalleryColors
 import kotlinx.coroutines.launch
 

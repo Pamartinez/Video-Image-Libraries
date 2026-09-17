@@ -22,14 +22,14 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import com.example.common.data.model.ConflictResolution
-import com.example.common.data.model.CopyMoveProgress
-import com.example.common.data.model.FileConflict
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.data.util.MixedItemSorter
-import com.example.common.util.FilePathUtils
-import com.example.common.util.GroupMixedOrderUtil
+import com.common.data.model.ConflictResolution
+import com.common.data.model.CopyMoveProgress
+import com.common.data.model.FileConflict
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.data.util.MixedItemSorter
+import com.common.util.FilePathUtils
+import com.common.util.GroupMixedOrderUtil
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.VideoSortOption
@@ -41,6 +41,7 @@ import com.videolibrary.data.repository.GroupRepository
 import com.videolibrary.data.cache.VideoThumbnailCache
 import com.videolibrary.data.repository.VideoRepository
 import com.videolibrary.data.service.ThumbnailGenerationService
+import com.videolibrary.data.work.PreviewGenerationWorker
 import java.util.concurrent.atomic.AtomicBoolean
 
 data class VideoListUiState(
@@ -53,6 +54,7 @@ data class VideoListUiState(
     val sortOption: FolderSortOption = FolderSortOption.CUSTOM_ORDER,
     val videoSortOption: VideoSortOption = VideoSortOption.CUSTOM_ORDER,
     val instantPlayerEnabled: Boolean = true,
+    val backgroundPreviewGenerationEnabled: Boolean = true,
     val isSelectionMode: Boolean = false,
     val selectedVideoIds: Set<Long> = emptySet(),
     val selectedFolderIds: Set<Int> = emptySet(),
@@ -201,6 +203,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
             sortOption           = preferences.folderSortOption,
             videoSortOption      = preferences.videoSortOption,
             instantPlayerEnabled = preferences.instantPlayerEnabled,
+            backgroundPreviewGenerationEnabled = preferences.backgroundPreviewGenerationEnabled,
             autoBackupEnabled    = preferences.autoBackupEnabled,
             independentSortEnabled = preferences.independentSortEnabled,
             independentViewTypeEnabled = preferences.independentViewTypeEnabled,
@@ -233,6 +236,19 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         preferences.floatingTopBarEnabled = value
         _uiState.update { it.copy(floatingTopBarEnabled = value) }
         scheduleAutoBackup()
+    }
+
+    fun updateBackgroundPreviewGenerationEnabled(value: Boolean) {
+        preferences.backgroundPreviewGenerationEnabled = value
+        _uiState.update { it.copy(backgroundPreviewGenerationEnabled = value) }
+        if (value) PreviewGenerationWorker.enqueue(getApplication())
+        else PreviewGenerationWorker.cancel(getApplication())
+        scheduleAutoBackup()
+    }
+
+    /** Force a full preview-generation pass now (Settings "Generate now" action). */
+    fun generatePreviewsNow() {
+        PreviewGenerationWorker.enqueue(getApplication(), replace = true)
     }
 
     fun updateAllowMediaReordering(value: Boolean) {
@@ -693,6 +709,12 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         // Register observer for video MediaStore changes (notifyForDescendants
         // Initialize Samsung Gallery-style two-tier thumbnail cache
         VideoThumbnailCache.init(getApplication())
+
+        // Kick off background preview generation for ALL non-hidden folders (no need to open each
+        // one). KEEP policy so a pass already running from a previous launch isn't restarted.
+        if (preferences.backgroundPreviewGenerationEnabled) {
+            PreviewGenerationWorker.enqueue(getApplication())
+        }
 
         // = true so we also catch per-row URI notifications)
         getApplication<Application>().contentResolver.registerContentObserver(
@@ -1242,7 +1264,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showGroupNameForCreation() {
         viewModelScope.launch {
             val allNames = groupRepository.getAllGroups().map { it.name }.toSet()
-            val suggested = com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
+            val suggested = com.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
             _uiState.update {
                 it.copy(
                     showGroupNameDialog        = true,
@@ -2464,6 +2486,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                     sortOption = preferences.folderSortOption,
                     videoSortOption = preferences.videoSortOption,
                     instantPlayerEnabled = preferences.instantPlayerEnabled,
+            backgroundPreviewGenerationEnabled = preferences.backgroundPreviewGenerationEnabled,
                     autoBackupEnabled = preferences.autoBackupEnabled,
                     independentSortEnabled = preferences.independentSortEnabled,
                     independentViewTypeEnabled = preferences.independentViewTypeEnabled,
@@ -2531,6 +2554,7 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
                 sortOption = preferences.folderSortOption,
                 videoSortOption = preferences.videoSortOption,
                 instantPlayerEnabled = preferences.instantPlayerEnabled,
+            backgroundPreviewGenerationEnabled = preferences.backgroundPreviewGenerationEnabled,
                 autoBackupEnabled = preferences.autoBackupEnabled,
                 independentSortEnabled = preferences.independentSortEnabled,
                 groupsAlwaysOnTop = preferences.groupsAlwaysOnTop,
@@ -2547,8 +2571,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (current.sortOption != FolderSortOption.CUSTOM_ORDER) {
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
+                    is com.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
@@ -2558,8 +2582,8 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         } else if (preferences.customMixedOrder.isEmpty()) {
             val snapshot = current.orderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
+                    is com.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
@@ -2575,19 +2599,19 @@ class VideoListViewModel(application: Application) : AndroidViewModel(applicatio
         if (preferences.getGroupSortOption(groupId) != FolderSortOption.CUSTOM_ORDER) {
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
+                    is com.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }
             preferences.saveGroupSortOption(groupId, FolderSortOption.CUSTOM_ORDER)
             preferences.saveGroupMixedOrder(groupId, snapshot)
-            _uiState.update { it.copy(currentGroupSortOption = com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) }
+            _uiState.update { it.copy(currentGroupSortOption = com.common.data.model.FolderSortOption.CUSTOM_ORDER) }
         } else if (preferences.getGroupMixedOrder(groupId).isEmpty()) {
             val snapshot = s.currentGroupOrderedMixedItems.mapNotNull { item ->
                 when (item) {
-                    is com.example.common.data.model.GroupItem -> "g_${item.groupId}"
-                    is com.example.common.data.model.FolderItem -> "f_${item.bucketId}"
+                    is com.common.data.model.GroupItem -> "g_${item.groupId}"
+                    is com.common.data.model.FolderItem -> "f_${item.bucketId}"
                     else -> null
                 }
             }

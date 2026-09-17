@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.common.util.PermissionUtils
+import com.common.util.PermissionUtils
 import com.videolibrary.ui.screen.VideoListScreen
 import com.videolibrary.ui.theme.VideoLibraryTheme
 import com.videolibrary.ui.viewmodel.VideoListViewModel

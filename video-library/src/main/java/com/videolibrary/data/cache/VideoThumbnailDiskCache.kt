@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import com.example.common.util.Crc64
+import com.common.util.Crc64
 import com.videolibrary.data.util.FileLogger as Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
@@ -38,8 +38,9 @@ class VideoThumbnailDiskCache(context: Context) {
     private val trimMutex = Mutex()
 
     companion object {
-        /** Maximum cache size: 100MB (matches Samsung Gallery) */
-        private const val MAX_CACHE_SIZE_BYTES = 100 * 1024 * 1024L // 100 MB
+        /** Maximum cache size: 300MB (raised from 100MB so background pre-generation of every
+         *  folder's previews survives LRU eviction on large libraries). */
+        private const val MAX_CACHE_SIZE_BYTES = 300 * 1024 * 1024L // 300 MB
 
         /** Trim threshold: reduce to 80% when full (Samsung's strategy) */
         private const val TRIM_TO_PERCENT = 0.80

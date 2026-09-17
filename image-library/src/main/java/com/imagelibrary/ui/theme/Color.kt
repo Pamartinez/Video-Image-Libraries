@@ -8,30 +8,30 @@ package com.imagelibrary.ui.theme
 
 // ── Import all shared colors from common ──
 // These are used by both image-library and video-library
-import com.example.common.ui.theme.PrimaryLight
-import com.example.common.ui.theme.PrimaryDark
-import com.example.common.ui.theme.ScreenBackgroundLight
-import com.example.common.ui.theme.ScreenBackgroundDark
-import com.example.common.ui.theme.ActionBarBgLight
-import com.example.common.ui.theme.ActionBarBgDark
-import com.example.common.ui.theme.ListFirstTextLight
-import com.example.common.ui.theme.ListFirstTextDark
-import com.example.common.ui.theme.ListSecondTextLight
-import com.example.common.ui.theme.ListSecondTextDark
-import com.example.common.ui.theme.DividerColorLight
-import com.example.common.ui.theme.DividerColorDark
-import com.example.common.ui.theme.CardBackgroundLight
-import com.example.common.ui.theme.CardBackgroundDark
-import com.example.common.ui.theme.MenuBgLight
-import com.example.common.ui.theme.MenuBgDark
-import com.example.common.ui.theme.IconColorLight
-import com.example.common.ui.theme.IconColorDark
-import com.example.common.ui.theme.CircleButtonBgLight
-import com.example.common.ui.theme.CircleButtonBgDark
-import com.example.common.ui.theme.PopupBgLight
-import com.example.common.ui.theme.PopupBgDark
-import com.example.common.ui.theme.DetailLabelLight
-import com.example.common.ui.theme.DetailLabelDark
+import com.common.ui.theme.PrimaryLight
+import com.common.ui.theme.PrimaryDark
+import com.common.ui.theme.ScreenBackgroundLight
+import com.common.ui.theme.ScreenBackgroundDark
+import com.common.ui.theme.ActionBarBgLight
+import com.common.ui.theme.ActionBarBgDark
+import com.common.ui.theme.ListFirstTextLight
+import com.common.ui.theme.ListFirstTextDark
+import com.common.ui.theme.ListSecondTextLight
+import com.common.ui.theme.ListSecondTextDark
+import com.common.ui.theme.DividerColorLight
+import com.common.ui.theme.DividerColorDark
+import com.common.ui.theme.CardBackgroundLight
+import com.common.ui.theme.CardBackgroundDark
+import com.common.ui.theme.MenuBgLight
+import com.common.ui.theme.MenuBgDark
+import com.common.ui.theme.IconColorLight
+import com.common.ui.theme.IconColorDark
+import com.common.ui.theme.CircleButtonBgLight
+import com.common.ui.theme.CircleButtonBgDark
+import com.common.ui.theme.PopupBgLight
+import com.common.ui.theme.PopupBgDark
+import com.common.ui.theme.DetailLabelLight
+import com.common.ui.theme.DetailLabelDark
 
 // ── Image-library-specific colors (none currently) ──
 // Add any image-library-specific colors here if needed in the future

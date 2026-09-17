@@ -3,9 +3,9 @@ package com.imagelibrary.ui.screen
 import android.net.Uri
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.runtime.Composable
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.ui.screen.HideFoldersScreen as CommonHideFoldersScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.ui.screen.HideFoldersScreen as CommonHideFoldersScreen
 import com.imagelibrary.ui.components.ImageThumbnail
 
 /**

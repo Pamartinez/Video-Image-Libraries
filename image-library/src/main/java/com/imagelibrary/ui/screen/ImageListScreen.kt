@@ -26,26 +26,26 @@ import androidx.compose.ui.unit.sp
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.ImageSortOption
-import com.example.common.ui.components.SortDialog
-import com.example.common.data.model.ConflictResolution
+import com.common.ui.components.SortDialog
+import com.common.data.model.ConflictResolution
 import com.imagelibrary.data.model.ImageItem
-import com.example.common.data.util.FileManagerHelper
-import com.example.common.ui.components.ActionsPill
-import com.example.common.ui.components.BottomActionBar
-import com.example.common.ui.components.CopyMoveAndConflictOverlayHost
-import com.example.common.ui.components.DeleteConfirmDialog
-import com.example.common.ui.components.GroupNameDialog
-import com.example.common.ui.components.CreateAlbumDialog
-import com.example.common.ui.components.CopyMoveAlbumDialog
-import com.example.common.ui.components.CreateFolderDialog
-import com.example.common.ui.components.DestroyGroupDialog
-import com.example.common.ui.components.RenameDialog
-import com.example.common.ui.components.AlbumRenameDialog
-import com.example.common.ui.components.AppMoreMenuButton
-import com.example.common.ui.components.ScreenTopBar
-import com.example.common.ui.util.revealItem
-import com.example.common.ui.util.ZoomTransitionOverlay
-import com.example.common.ui.util.rememberZoomTransitionState
+import com.common.data.util.FileManagerHelper
+import com.common.ui.components.ActionsPill
+import com.common.ui.components.BottomActionBar
+import com.common.ui.components.CopyMoveAndConflictOverlayHost
+import com.common.ui.components.DeleteConfirmDialog
+import com.common.ui.components.GroupNameDialog
+import com.common.ui.components.CreateAlbumDialog
+import com.common.ui.components.CopyMoveAlbumDialog
+import com.common.ui.components.CreateFolderDialog
+import com.common.ui.components.DestroyGroupDialog
+import com.common.ui.components.RenameDialog
+import com.common.ui.components.AlbumRenameDialog
+import com.common.ui.components.AppMoreMenuButton
+import com.common.ui.components.ScreenTopBar
+import com.common.ui.util.revealItem
+import com.common.ui.util.ZoomTransitionOverlay
+import com.common.ui.util.rememberZoomTransitionState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
@@ -94,7 +94,7 @@ fun ImageListScreen(
 @Composable
 private fun ImageListScreenContent(
     viewModel: ImageListViewModel,
-    zoomState: com.example.common.ui.util.ZoomTransitionState,
+    zoomState: com.common.ui.util.ZoomTransitionState,
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -785,13 +785,13 @@ private fun ImageListScreenContent(
                                 onSettings = { viewModel.showSettings() },
                                 onAbout = { viewModel.showAbout() },
                                 extraTopContent = { dismiss ->
-                                    com.example.common.ui.components.AppMenuItem(
+                                    com.common.ui.components.AppMenuItem(
                                         text      = "Hide album(s)",
                                         onDismiss = dismiss,
                                         onClick   = { viewModel.showHideFoldersScreen() },
                                         textColor = colors.listFirstText
                                     )
-                                    com.example.common.ui.components.AppMenuDivider(
+                                    com.common.ui.components.AppMenuDivider(
                                         color = colors.dividerColor
                                     )
                                 }
@@ -1056,17 +1056,17 @@ private fun buildGroupOrderedItemsMap(
 
         // Get sort option for this group
         val sortOptionId = state.allGroupSortOptions[group.groupId] ?: 0
-        val sortOption = com.example.common.data.model.FolderSortOption.fromId(sortOptionId)
+        val sortOption = com.common.data.model.FolderSortOption.fromId(sortOptionId)
 
         val orderedItems: List<Any> =
-            if (sortOption == com.example.common.data.model.FolderSortOption.CUSTOM_ORDER) {
-                com.example.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
+            if (sortOption == com.common.data.model.FolderSortOption.CUSTOM_ORDER) {
+                com.common.util.GroupMixedOrderUtil.applyCustomGroupMixedOrder(
                     state.allGroupCustomOrders[group.groupId] ?: emptyList(),
                     subGroups,
                     memberFolders
                 )
             } else {
-                com.example.common.data.util.MixedItemSorter.sortMixedItems(
+                com.common.data.util.MixedItemSorter.sortMixedItems(
                     subGroups + memberFolders,
                     sortOption,
                     state.groupsAlwaysOnTop

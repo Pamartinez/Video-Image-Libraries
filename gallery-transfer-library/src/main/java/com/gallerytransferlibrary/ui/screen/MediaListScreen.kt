@@ -51,28 +51,28 @@ import coil.compose.AsyncImage
 import coil.decode.VideoFrameDecoder
 import coil.request.ImageRequest
 import kotlin.math.roundToInt
-import com.example.common.data.model.FolderSortOption
-import com.example.common.data.model.ViewType
-import com.example.common.data.util.FileManagerHelper
-import com.example.common.ui.components.AppMoreMenuButton
-import com.example.common.ui.components.BottomActionBar
-import com.example.common.ui.components.CircularCheckIndicator
-import com.example.common.ui.components.FolderGridItem
-import com.example.common.ui.components.FolderThumbnailPlaceholder
-import com.example.common.ui.components.CopyMoveAndConflictOverlayHost
-import com.example.common.upload.ConflictResolution
-import com.example.common.upload.UploadItem
-import com.example.common.upload.UploadScheduler
-import com.example.common.ui.components.SortDialog
-import com.example.common.ui.components.ViewAsDialog
-import com.example.common.ui.components.ViewTypeToggleButton
-import com.example.common.ui.util.dragToReorderGrid
-import com.example.common.ui.util.revealItem
-import com.example.common.ui.util.rememberDragDropGridState
-import com.example.common.ui.util.ZoomTransitionOverlay
-import com.example.common.ui.util.rememberZoomTransitionState
-import com.example.common.ui.util.zoomThumbnail
-import com.example.common.ui.screen.AboutScreen
+import com.common.data.model.FolderSortOption
+import com.common.data.model.ViewType
+import com.common.data.util.FileManagerHelper
+import com.common.ui.components.AppMoreMenuButton
+import com.common.ui.components.BottomActionBar
+import com.common.ui.components.CircularCheckIndicator
+import com.common.ui.components.FolderGridItem
+import com.common.ui.components.FolderThumbnailPlaceholder
+import com.common.ui.components.CopyMoveAndConflictOverlayHost
+import com.common.upload.ConflictResolution
+import com.common.upload.UploadItem
+import com.common.upload.UploadScheduler
+import com.common.ui.components.SortDialog
+import com.common.ui.components.ViewAsDialog
+import com.common.ui.components.ViewTypeToggleButton
+import com.common.ui.util.dragToReorderGrid
+import com.common.ui.util.revealItem
+import com.common.ui.util.rememberDragDropGridState
+import com.common.ui.util.ZoomTransitionOverlay
+import com.common.ui.util.rememberZoomTransitionState
+import com.common.ui.util.zoomThumbnail
+import com.common.ui.screen.AboutScreen
 import com.gallerytransferlibrary.data.model.MediaItem
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType
@@ -170,14 +170,14 @@ fun MediaListScreen(
     LaunchedEffect(uploadState.uploadedUris) {
         val uris = uploadState.uploadedUris
         if (uris.isNotEmpty()) {
-            if (com.example.common.data.util.MediaTrashHelper.isExternalStorageManager()) {
+            if (com.common.data.util.MediaTrashHelper.isExternalStorageManager()) {
                 withContext(Dispatchers.IO) {
-                    com.example.common.data.util.MediaTrashHelper.trashSilently(context, uris)
+                    com.common.data.util.MediaTrashHelper.trashSilently(context, uris)
                 }
                 viewModel.refreshCurrent()
                 uploadManager.clearUploadedUris()
             } else {
-                val pending = com.example.common.data.util.MediaTrashHelper.createTrashRequest(
+                val pending = com.common.data.util.MediaTrashHelper.createTrashRequest(
                     context.contentResolver, uris
                 )
                 trashLauncher.launch(
@@ -870,8 +870,8 @@ private fun OlderThanFilterDialog(
 @Composable
 private fun FolderGrid(
     state: MediaListUiState,
-    onFolderClick: (com.example.common.data.model.FolderItem) -> Unit,
-    onFolderLongClick: (com.example.common.data.model.FolderItem) -> Unit,
+    onFolderClick: (com.common.data.model.FolderItem) -> Unit,
+    onFolderLongClick: (com.common.data.model.FolderItem) -> Unit,
     onReorder: (Int, Int) -> Unit,
     onReorderDone: () -> Unit
 ) {
@@ -895,7 +895,7 @@ private fun FolderGrid(
         isInSelectionMode = { state.selectionMode }
     )
 
-    val folderThumb: @Composable (com.example.common.data.model.FolderItem) -> Unit = { folder ->
+    val folderThumb: @Composable (com.common.data.model.FolderItem) -> Unit = { folder ->
         if (folder.latestItemUri != null) {
             AsyncImage(
                 model = ImageRequest.Builder(context).data(folder.latestItemUri).crossfade(true).build(),
@@ -994,7 +994,7 @@ private fun MediaGrid(
     onReorder: (Int, Int) -> Unit,
     onReorderDone: () -> Unit,
     revealIndex: Int = -1,
-    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
+    zoomState: com.common.ui.util.ZoomTransitionState? = null
 ) {
     ItemGrid(
         items = state.media,
@@ -1024,7 +1024,7 @@ private fun ItemGrid(
     onReorder: (Int, Int) -> Unit,
     onReorderDone: () -> Unit,
     revealIndex: Int = -1,
-    zoomState: com.example.common.ui.util.ZoomTransitionState? = null
+    zoomState: com.common.ui.util.ZoomTransitionState? = null
 ) {
     val colors = LocalGalleryColors.current
     val columns = if (viewType == ViewType.GRID_SMALL) 5 else 3

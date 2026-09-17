@@ -1,7 +1,7 @@
 package com.imagelibrary.ui.components
 
 import androidx.compose.runtime.Composable
-import com.example.common.data.model.FolderItem
+import com.common.data.model.FolderItem
 
 @Composable
 fun FolderContextMenu(
@@ -11,7 +11,7 @@ fun FolderContextMenu(
     onDelete: (FolderItem) -> Unit,
     onSortBy: () -> Unit
 ) {
-    com.example.common.ui.components.FolderContextMenu(
+    com.common.ui.components.FolderContextMenu(
         expanded  = expanded,
         folder    = folder,
         onDismiss = onDismiss,

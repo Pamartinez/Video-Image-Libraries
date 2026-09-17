@@ -2,7 +2,7 @@ package com.videolibrary.ui.screen
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.example.common.ui.screen.SharedSettingsScreen
+import com.common.ui.screen.SharedSettingsScreen
 import com.videolibrary.ui.components.clearVideoThumbnailCache
 import com.videolibrary.ui.viewmodel.VideoListViewModel
 import kotlinx.coroutines.launch
@@ -34,6 +34,9 @@ fun SettingsScreen(
         onRestore                  = { viewModel.restoreBackupFromFile() },
         onRefreshAlbumPreviews     = { viewModel.refreshAlbumPreviews() },
         onClearVideoThumbnails     = { scope.launch { clearVideoThumbnailCache() } },
+        backgroundPreviewGenerationEnabled  = state.backgroundPreviewGenerationEnabled,
+        onBackgroundPreviewGenerationChange = { viewModel.updateBackgroundPreviewGenerationEnabled(it) },
+        onGeneratePreviewsNow               = { viewModel.generatePreviewsNow() },
         backupPath                 = "Documents/VideoLibrary/backups/",
         modifier                   = modifier
     )

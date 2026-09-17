@@ -5,10 +5,10 @@ import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.data.model.MixedItem
-import com.example.common.ui.screen.SharedGroupDetailScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.data.model.MixedItem
+import com.common.ui.screen.SharedGroupDetailScreen
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.ViewType
 import com.imagelibrary.ui.components.FolderGridItem
@@ -17,7 +17,7 @@ import com.imagelibrary.ui.components.SelectionHeader
 import com.imagelibrary.ui.components.SortDialog
 import com.imagelibrary.ui.components.ViewTypeToggleButton
 import com.imagelibrary.ui.theme.LocalImageColors
-import com.example.common.ui.util.MixedItemSorting
+import com.common.ui.util.MixedItemSorting
 
 /**
  * Image-library GroupDetailScreen.

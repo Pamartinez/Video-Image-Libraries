@@ -14,12 +14,12 @@ import org.json.JSONObject
  * Image-Library backup singleton.
  *
  * All file I/O, group-data persistence, and shared-settings serialisation are
- * handled by [com.example.common.data.util.BackupManager].
+ * handled by [com.common.data.util.BackupManager].
  * Only the image-specific AppPreferences keys are implemented here.
  *
  * Backup file: Documents/ImageLibrary/backups/backup.json
  */
-object BackupManager : com.example.common.data.util.BackupManager(
+object BackupManager : com.common.data.util.BackupManager(
     libraryFolderName = "ImageLibrary",
     logger            = FileLogger
 ) {

@@ -2,8 +2,8 @@ package com.imagelibrary.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.common.data.model.ViewType
-import com.example.common.ui.components.ViewTypeToggleButton as CommonViewTypeToggleButton
+import com.common.data.model.ViewType
+import com.common.ui.components.ViewTypeToggleButton as CommonViewTypeToggleButton
 
 /**
  * Delegates to the shared [CommonViewTypeToggleButton] in common.

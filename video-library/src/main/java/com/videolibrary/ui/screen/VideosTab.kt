@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.common.ui.components.FastScrollerForGrid
+import com.common.ui.components.FastScrollerForGrid
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.VideoGridItem

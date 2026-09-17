@@ -5,14 +5,14 @@ import androidx.compose.ui.platform.LocalContext
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.ViewType
-import com.example.common.util.FormatUtils
-import com.example.common.ui.components.DetailsDialog
-import com.example.common.ui.components.SortDialog
+import com.common.util.FormatUtils
+import com.common.ui.components.DetailsDialog
+import com.common.ui.components.SortDialog
 
 // ── Re-export shared dialogs so callers don't need to change imports ──────────
 
 /**
- * Delegates to [com.example.common.ui.components.ViewAsDialog].
+ * Delegates to [com.common.ui.components.ViewAsDialog].
  * Video-library shows Grid / Expand options.
  */
 @Composable
@@ -21,7 +21,7 @@ fun ViewAsDialog(
     onViewTypeSelected: (ViewType) -> Unit,
     onDismiss: () -> Unit
 ) {
-    com.example.common.ui.components.ViewAsDialog(
+    com.common.ui.components.ViewAsDialog(
         options           = listOf(ViewType.GRID_SMALL, ViewType.GRID_LARGE),
         labelFor          = { vt ->
             when (vt) {
@@ -37,15 +37,15 @@ fun ViewAsDialog(
 }
 
 /**
- * Delegates to [com.example.common.ui.components.MoveToGroupPickerDialog].
+ * Delegates to [com.common.ui.components.MoveToGroupPickerDialog].
  */
 @Composable
 fun MoveToGroupPickerDialog(
-    groups: List<com.example.common.data.model.GroupItem>,
+    groups: List<com.common.data.model.GroupItem>,
     onMove: (targetGroupId: Long?) -> Unit,
     onDismiss: () -> Unit
 ) {
-    com.example.common.ui.components.MoveToGroupPickerDialog(
+    com.common.ui.components.MoveToGroupPickerDialog(
         groups    = groups,
         onMove    = onMove,
         onDismiss = onDismiss

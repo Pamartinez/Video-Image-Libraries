@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.ui.screen.FolderPickerScreen as CommonFolderPickerScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.ui.screen.FolderPickerScreen as CommonFolderPickerScreen
 import com.videolibrary.ui.components.GroupGridItem
 import com.videolibrary.ui.components.VideoThumbnail
 

@@ -12,12 +12,12 @@ import org.json.JSONObject
  * Video-Library backup singleton.
  *
  * All file I/O, group-data persistence, and shared-settings serialisation are
- * handled by [com.example.common.data.util.BackupManager].
+ * handled by [com.common.data.util.BackupManager].
  * Only the video-specific AppPreferences keys are implemented here.
  *
  * Backup file: Documents/VideoLibrary/backups/backup.json
  */
-object BackupManager : com.example.common.data.util.BackupManager(
+object BackupManager : com.common.data.util.BackupManager(
     libraryFolderName = "VideoLibrary",
     logger            = FileLogger
 ) {
@@ -53,6 +53,7 @@ object BackupManager : com.example.common.data.util.BackupManager(
             put("videoSortOption",      prefs.videoSortOption.id)
             put("selectedTab",          prefs.selectedTab)
             put("instantPlayerEnabled", prefs.instantPlayerEnabled)
+            put("backgroundPreviewGenerationEnabled", prefs.backgroundPreviewGenerationEnabled)
 
             // Custom folder order → JSONArray of ints
             put("customFolderOrder", JSONArray(prefs.getCustomFolderOrder()))
@@ -126,6 +127,8 @@ object BackupManager : com.example.common.data.util.BackupManager(
             prefs.selectedTab = settings.getInt("selectedTab")
         if (settings.has("instantPlayerEnabled"))
             prefs.instantPlayerEnabled = settings.getBoolean("instantPlayerEnabled")
+        if (settings.has("backgroundPreviewGenerationEnabled"))
+            prefs.backgroundPreviewGenerationEnabled = settings.getBoolean("backgroundPreviewGenerationEnabled")
 
         // Custom folder order — JSONArray of ints
         if (settings.has("customFolderOrder")) {
@@ -212,6 +215,6 @@ object BackupManager : com.example.common.data.util.BackupManager(
 
     // ── Migration helpers ─────────────────────────────────────────────
     // migrateToIntArray / migrateToLongArray / migrateToStringArray are
-    // inherited as protected methods from com.example.common.data.util.BackupManager.
+    // inherited as protected methods from com.common.data.util.BackupManager.
 }
 

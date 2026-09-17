@@ -6,9 +6,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.ui.screen.FolderPickerScreen as CommonFolderPickerScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.ui.screen.FolderPickerScreen as CommonFolderPickerScreen
 import com.imagelibrary.ui.components.GroupGridItem
 
 /**

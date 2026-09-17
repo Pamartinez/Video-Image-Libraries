@@ -5,9 +5,9 @@ import androidx.compose.ui.platform.LocalContext
 import com.imagelibrary.data.model.ImageItem
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.ViewType
-import com.example.common.util.FormatUtils
-import com.example.common.ui.components.DetailsDialog
-import com.example.common.ui.components.SortDialog
+import com.common.util.FormatUtils
+import com.common.ui.components.DetailsDialog
+import com.common.ui.components.SortDialog
 
 // ── Sort dialog (folder / group sort options) ────────────────────────────────
 
@@ -32,7 +32,7 @@ fun SortDialog(
 // ── ViewAsDialog ─────────────────────────────────────────────────────────────
 
 /**
- * Delegates to [com.example.common.ui.components.ViewAsDialog].
+ * Delegates to [com.common.ui.components.ViewAsDialog].
  * Image-library shows Grid / Expand options (no List).
  */
 @Composable
@@ -41,7 +41,7 @@ fun ViewAsDialog(
     onViewTypeSelected: (ViewType) -> Unit,
     onDismiss: () -> Unit
 ) {
-    com.example.common.ui.components.ViewAsDialog(
+    com.common.ui.components.ViewAsDialog(
         options           = listOf(ViewType.GRID_SMALL, ViewType.GRID_LARGE),
         labelFor          = { vt ->
             when (vt) {
@@ -59,15 +59,15 @@ fun ViewAsDialog(
 // ── MoveToGroupPickerDialog ───────────────────────────────────────────────────
 
 /**
- * Delegates to [com.example.common.ui.components.MoveToGroupPickerDialog].
+ * Delegates to [com.common.ui.components.MoveToGroupPickerDialog].
  */
 @Composable
 fun MoveToGroupPickerDialog(
-    groups: List<com.example.common.data.model.GroupItem>,
+    groups: List<com.common.data.model.GroupItem>,
     onMove: (targetGroupId: Long?) -> Unit,
     onDismiss: () -> Unit
 ) {
-    com.example.common.ui.components.MoveToGroupPickerDialog(
+    com.common.ui.components.MoveToGroupPickerDialog(
         groups    = groups,
         onMove    = onMove,
         onDismiss = onDismiss

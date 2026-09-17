@@ -9,11 +9,11 @@ import android.net.Uri
 import android.provider.MediaStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.example.common.data.model.ConflictResolution
-import com.example.common.data.model.FolderItem
-import com.example.common.data.util.MediaFileUtils
-import com.example.common.data.util.MediaTransferHelper
-import com.example.common.data.util.MediaTrashHelper
+import com.common.data.model.ConflictResolution
+import com.common.data.model.FolderItem
+import com.common.data.util.MediaFileUtils
+import com.common.data.util.MediaTransferHelper
+import com.common.data.util.MediaTrashHelper
 import com.imagelibrary.data.model.ImageSortOption
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.model.SortOrder

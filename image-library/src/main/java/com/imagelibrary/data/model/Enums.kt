@@ -3,13 +3,13 @@ package com.imagelibrary.data.model
 // ── Shared enums (delegated to common) ──────────────────────────────────────
 
 /** Alias for the common ViewType so existing code needs no import changes. */
-typealias ViewType = com.example.common.data.model.ViewType
+typealias ViewType = com.common.data.model.ViewType
 
 /**
  * Alias for the common FolderSortOption.
  * image-library historically called this "SortOption".
  */
-typealias SortOption = com.example.common.data.model.FolderSortOption
+typealias SortOption = com.common.data.model.FolderSortOption
 
 // ── Image-library-specific enums ─────────────────────────────────────────────
 

@@ -2,7 +2,7 @@ package com.videolibrary.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.common.data.model.FolderItem
+import com.common.data.model.FolderItem
 
 @Composable
 fun FolderContextMenu(
@@ -13,7 +13,7 @@ fun FolderContextMenu(
     onSortBy: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    com.example.common.ui.components.FolderContextMenu(
+    com.common.ui.components.FolderContextMenu(
         expanded  = expanded,
         folder    = folder,
         onDismiss = onDismiss,

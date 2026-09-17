@@ -22,15 +22,15 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.example.common.data.model.ConflictResolution
-import com.example.common.data.model.CopyMoveProgress
-import com.example.common.data.model.FileConflict
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
+import com.common.data.model.ConflictResolution
+import com.common.data.model.CopyMoveProgress
+import com.common.data.model.FileConflict
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
 import com.imagelibrary.data.util.FileLogger
-import com.example.common.data.util.MixedItemSorter
-import com.example.common.util.FilePathUtils
-import com.example.common.util.GroupMixedOrderUtil
+import com.common.data.util.MixedItemSorter
+import com.common.util.FilePathUtils
+import com.common.util.GroupMixedOrderUtil
 import com.imagelibrary.data.model.ImageSortOption
 import com.imagelibrary.data.model.SortOption
 import com.imagelibrary.data.repository.GroupRepository
@@ -1957,7 +1957,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
     fun showGroupNameForCreation() {
         viewModelScope.launch {
             val allNames = groupRepository.getAllGroups().map { it.name }.toSet()
-            val suggested = com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
+            val suggested = com.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(allNames)
             _uiState.update {
                 it.copy(
                     showGroupNameDialog        = true,
@@ -1971,7 +1971,7 @@ class ImageListViewModel(application: Application) : AndroidViewModel(applicatio
 
     /** Delegates to GroupCreationUtils.generateUniqueGroupName in common module. */
     private fun generateUniqueGroupName(existingNames: Set<String>): String {
-        return com.example.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(existingNames)
+        return com.common.ui.viewmodel.GroupCreationUtils.generateUniqueGroupName(existingNames)
     }
 
     /** Enters group creation mode with an already-chosen name (skips the name dialog at the end) */

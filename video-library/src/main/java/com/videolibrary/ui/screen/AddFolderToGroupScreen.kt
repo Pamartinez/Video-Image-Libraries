@@ -1,12 +1,12 @@
 package com.videolibrary.ui.screen
 
 import androidx.compose.runtime.Composable
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.FolderGridItem
 import com.videolibrary.ui.components.GroupGridItem
-import com.example.common.ui.screen.AddFolderToGroupScreen as CommonAddFolderToGroupScreen
+import com.common.ui.screen.AddFolderToGroupScreen as CommonAddFolderToGroupScreen
 
 /**
  * Video-library entry point for the add-to-group picker.

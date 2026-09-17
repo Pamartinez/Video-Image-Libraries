@@ -6,10 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.layout.ContentScale
-import com.example.common.data.model.FolderItem
-import com.example.common.ui.components.FolderThumbnailPlaceholder as CommonFolderThumbnailPlaceholder
+import com.common.data.model.FolderItem
+import com.common.ui.components.FolderThumbnailPlaceholder as CommonFolderThumbnailPlaceholder
 import com.imagelibrary.data.model.ViewType
-import com.example.common.ui.components.FolderGridItem as CommonFolderGridItem
+import com.common.ui.components.FolderGridItem as CommonFolderGridItem
 
 /**
  * Image-library wrapper for the shared [CommonFolderGridItem].

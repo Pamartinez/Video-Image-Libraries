@@ -1,8 +1,8 @@
 package com.videolibrary.data.preferences
 
 import android.content.Context
-import com.example.common.data.model.ViewType
-import com.example.common.data.preferences.SharedAppPreferences
+import com.common.data.model.ViewType
+import com.common.data.preferences.SharedAppPreferences
 import com.videolibrary.data.model.FolderSortOption
 import com.videolibrary.data.model.VideoSortOption
 
@@ -22,6 +22,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
         private const val KEY_FOLDER_VIEW_TYPES       = "folder_view_types"
         private const val KEY_INSTANT_PLAYER = "instant_player_enabled"
         private const val KEY_FOLDER_MEDIA_CUSTOM_ORDERS = "folder_media_custom_orders"
+        private const val KEY_BG_PREVIEW_GEN = "background_preview_generation_enabled"
     }
 
     // ── Video-library specific ───────────────────────────────────────────────
@@ -112,6 +113,14 @@ class AppPreferences(context: Context) : SharedAppPreferences(
     var instantPlayerEnabled: Boolean
         get()  = prefs.getBoolean(KEY_INSTANT_PLAYER, false)
         set(v) = prefs.edit().putBoolean(KEY_INSTANT_PLAYER, v).apply()
+
+    /**
+     * When true, video previews are generated for every (non-hidden) folder in the background —
+     * without needing to open each folder first. Enabled by default.
+     */
+    var backgroundPreviewGenerationEnabled: Boolean
+        get()  = prefs.getBoolean(KEY_BG_PREVIEW_GEN, true)
+        set(v) = prefs.edit().putBoolean(KEY_BG_PREVIEW_GEN, v).apply()
 
     // ── Per-folder view type ──────────────────────────────────────────────
 

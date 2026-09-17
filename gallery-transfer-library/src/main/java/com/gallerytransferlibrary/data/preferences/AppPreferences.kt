@@ -1,8 +1,8 @@
 package com.gallerytransferlibrary.data.preferences
 
 import android.content.Context
-import com.example.common.data.model.FolderSortOption
-import com.example.common.data.model.ViewType
+import com.common.data.model.FolderSortOption
+import com.common.data.model.ViewType
 import com.gallerytransferlibrary.data.model.AutoUploadFrequency
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType

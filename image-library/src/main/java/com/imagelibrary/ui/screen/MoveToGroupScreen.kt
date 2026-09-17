@@ -3,10 +3,10 @@ package com.imagelibrary.ui.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.data.model.ViewType
-import com.example.common.ui.screen.MoveToGroupScreen as CommonMoveToGroupScreen
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.data.model.ViewType
+import com.common.ui.screen.MoveToGroupScreen as CommonMoveToGroupScreen
 import com.imagelibrary.ui.components.FolderGridItem
 import com.imagelibrary.ui.components.GroupGridItem
 import com.imagelibrary.ui.components.ImageThumbnail

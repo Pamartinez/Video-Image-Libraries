@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.common.ui.screen.SharedFolderDetailScreen
+import com.common.ui.screen.SharedFolderDetailScreen
 import com.videolibrary.data.model.VideoItem
 import com.videolibrary.data.model.ViewType
 import com.videolibrary.ui.components.SelectionModeHeader

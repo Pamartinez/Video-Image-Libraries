@@ -52,7 +52,7 @@ import com.imagelibrary.data.model.ImageItem
  * Reference Samsung Gallery dimens:
  *   action_bar_menu_item_min_size = 48 dp
  *
- * **MANDATORY**: Uses [com.example.common.ui.components.AppMoreMenuButton] for the 3-dots menu.
+ * **MANDATORY**: Uses [com.common.ui.components.AppMoreMenuButton] for the 3-dots menu.
  */
 @Composable
 fun CarouselTopBar(
@@ -110,7 +110,7 @@ fun CarouselTopBar(
 
             // Overflow menu — right (using AppMoreMenuButton)
             Box(modifier = Modifier.align(Alignment.CenterEnd)) {
-                com.example.common.ui.components.AppMoreMenuButton(
+                com.common.ui.components.AppMoreMenuButton(
                     expanded = showOverflow,
                     onExpand = { showOverflow = true },
                     onDismiss = { showOverflow = false },

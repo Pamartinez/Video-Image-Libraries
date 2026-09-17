@@ -1,9 +1,9 @@
 package com.videolibrary.ui.components
 
-import com.example.common.data.model.FolderItem
-import com.example.common.data.model.GroupItem
-import com.example.common.data.model.MixedItem
-import com.example.common.data.model.toMixedItems
+import com.common.data.model.FolderItem
+import com.common.data.model.GroupItem
+import com.common.data.model.MixedItem
+import com.common.data.model.toMixedItems
 
 /**
  * Typealias kept for source compatibility — all video-library code can still use

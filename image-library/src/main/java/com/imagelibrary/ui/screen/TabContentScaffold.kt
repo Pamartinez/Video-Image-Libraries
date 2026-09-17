@@ -3,8 +3,8 @@ package com.imagelibrary.ui.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.example.common.data.model.ViewType
-import com.example.common.ui.screen.TabContentScaffold as CommonTabContentScaffold
+import com.common.data.model.ViewType
+import com.common.ui.screen.TabContentScaffold as CommonTabContentScaffold
 
 /**
  * Image-library wrapper around [CommonTabContentScaffold].

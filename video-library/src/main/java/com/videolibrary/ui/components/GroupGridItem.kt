@@ -7,9 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import com.example.common.data.model.GroupItem
+import com.common.data.model.GroupItem
 import com.videolibrary.data.model.ViewType
-import com.example.common.ui.components.GroupGridItem as CommonGroupGridItem
+import com.common.ui.components.GroupGridItem as CommonGroupGridItem
 
 /**
  * Video-library wrapper for the shared [CommonGroupGridItem].

@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.util.PermissionUtils
+import com.common.util.PermissionUtils
 import com.imagelibrary.ui.screen.ImageListScreen
 import com.imagelibrary.ui.theme.ImageLibraryTheme
 import com.imagelibrary.ui.viewmodel.ImageListViewModel
