@@ -604,7 +604,8 @@ fun MediaListScreen(
         onReplaceConflict = { uploadManager.resolveConflict(ConflictResolution.REPLACE) },
         onRenameConflict = { uploadManager.resolveConflict(ConflictResolution.KEEP_BOTH) },
         onSkipConflict = { uploadManager.resolveConflict(ConflictResolution.SKIP) },
-        renameActionLabel = "Keep both"
+        renameActionLabel = "Keep both",
+        progressOverride = uploadState.overallProgress
     )
 
     // ── Dropbox folder picker (destination) ──

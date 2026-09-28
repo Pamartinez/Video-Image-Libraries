@@ -49,7 +49,13 @@ fun CopyMoveProgressDialog(
     current: Int,
     total: Int,
     onCancel: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    /**
+     * Optional byte-weighted progress (0..1). When provided, the bar and percent track this
+     * instead of the whole-file `current/total` count, so large uploads advance smoothly. The
+     * `current/total` label is unchanged. Null keeps the file-count behavior (copy/move callers).
+     */
+    progressOverride: Float? = null
 ) {
     // Samsung One UI signature gradient: blue → teal → green
     val gradientColors = listOf(
@@ -62,7 +68,8 @@ fun CopyMoveProgressDialog(
     val trackColor  = Color(0xFF3A3A3A)
     val trackShape  = RoundedCornerShape(50)   // fully pill-shaped
 
-    val fraction = if (total > 0) current.toFloat() / total else 0f
+    val fraction = progressOverride?.coerceIn(0f, 1f)
+        ?: if (total > 0) current.toFloat() / total else 0f
     val animatedFraction by animateFloatAsState(
         targetValue    = fraction,
         animationSpec  = tween(durationMillis = 300),

@@ -24,7 +24,9 @@ fun CopyMoveAndConflictOverlayHost(
     onReplaceConflict: () -> Unit,
     onRenameConflict: () -> Unit,
     onSkipConflict: () -> Unit,
-    renameActionLabel: String = "Rename"
+    renameActionLabel: String = "Rename",
+    /** Optional byte-weighted progress (0..1) for the progress bar; null keeps file-count progress. */
+    progressOverride: Float? = null
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         // Show progress dialog only if no conflict is active
@@ -34,7 +36,8 @@ fun CopyMoveAndConflictOverlayHost(
                 title = progressTitle,
                 current = progressCurrent,
                 total = progressTotal,
-                onCancel = onCancelProgress
+                onCancel = onCancelProgress,
+                progressOverride = progressOverride
             )
         }
 

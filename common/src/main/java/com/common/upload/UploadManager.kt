@@ -47,6 +47,8 @@ class UploadManager(
         val current: Int = 0,
         val total: Int = 0,
         val fileProgress: Float = 0f,
+        /** Batch-wide progress weighted by bytes (0..1): reflects total bytes uploaded across all files. */
+        val overallProgress: Float = 0f,
         val conflictFileName: String? = null,
         val applyToAll: Boolean = false,
         val needsAuth: Boolean = false,
@@ -73,6 +75,10 @@ class UploadManager(
     private var authDeferred: CompletableDeferred<Boolean>? = null
     private var conflictDeferred: CompletableDeferred<ConflictResolution>? = null
     private var bulkResolution: ConflictResolution? = null
+
+    /** Byte budget for the whole batch and bytes from files already finished — used to weight [State.overallProgress]. */
+    private var totalBytes: Long = 1L
+    private var completedBytes: Long = 0L
 
     /** Set by [cancel]; checked between items so cancelling during Phase 1 fully stops the run. */
     @Volatile private var cancelled: Boolean = false
@@ -144,7 +150,9 @@ class UploadManager(
             if (cancelled) return
 
             // ── Phase 2: upload with the resolved modes, now showing the progress bar ──
-            _state.update { it.copy(isPreparing = false, isUploading = true, current = 0) }
+            totalBytes = batch.items.sumOf { it.size }.coerceAtLeast(1L)
+            completedBytes = 0L
+            _state.update { it.copy(isPreparing = false, isUploading = true, current = 0, overallProgress = 0f) }
             var uploaded = 0
             var skipped = 0
             val uploadedUris = ArrayList<Uri>()
@@ -155,6 +163,11 @@ class UploadManager(
                     Outcome.UPLOADED -> { uploaded++; uploadedUris.add(item.uri) }
                     Outcome.SKIPPED -> skipped++
                     Outcome.FAILED -> { /* error already surfaced */ }
+                }
+                // Count the whole file toward the budget regardless of outcome so the bar reaches 100%.
+                completedBytes += item.size
+                _state.update {
+                    it.copy(overallProgress = (completedBytes.toFloat() / totalBytes).coerceIn(0f, 1f))
                 }
             }
             _state.update {
@@ -245,7 +258,13 @@ class UploadManager(
 
     private fun reportProgress(written: Long, total: Long) {
         if (total > 0) {
-            _state.update { it.copy(fileProgress = (written.toFloat() / total).coerceIn(0f, 1f)) }
+            val overall = ((completedBytes + written).toFloat() / totalBytes).coerceIn(0f, 1f)
+            _state.update {
+                it.copy(
+                    fileProgress = (written.toFloat() / total).coerceIn(0f, 1f),
+                    overallProgress = overall
+                )
+            }
         }
     }
 

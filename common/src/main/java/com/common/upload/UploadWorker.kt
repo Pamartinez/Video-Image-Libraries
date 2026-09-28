@@ -27,7 +27,7 @@ class UploadWorker(
     params: WorkerParameters
 ) : CoroutineWorker(appContext, params) {
 
-    override suspend fun getForegroundInfo(): ForegroundInfo = buildForegroundInfo(0, 0)
+    override suspend fun getForegroundInfo(): ForegroundInfo = buildForegroundInfo(0, 0, 0f)
 
     override suspend fun doWork(): Result = coroutineScope {
         val manager = UploadServiceLocator.uploadManager(applicationContext)
@@ -39,7 +39,7 @@ class UploadWorker(
         val notifier = launch {
             manager.state.collectLatest { s ->
                 if (s.isUploading) {
-                    runCatching { setForeground(buildForegroundInfo(s.current, s.total)) }
+                    runCatching { setForeground(buildForegroundInfo(s.current, s.total, s.overallProgress)) }
                 }
             }
         }
@@ -52,7 +52,7 @@ class UploadWorker(
         Result.success()
     }
 
-    private fun buildForegroundInfo(current: Int, total: Int): ForegroundInfo {
+    private fun buildForegroundInfo(current: Int, total: Int, overallProgress: Float): ForegroundInfo {
         createChannel()
         val text = if (total > 0) "Uploading $current of $total" else "Preparing…"
         val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
@@ -60,7 +60,7 @@ class UploadWorker(
             .setContentText(text)
             .setSmallIcon(android.R.drawable.stat_sys_upload)
             .setOngoing(true)
-            .setProgress(total.coerceAtLeast(1), current, total == 0)
+            .setProgress(100, (overallProgress.coerceIn(0f, 1f) * 100).toInt(), total == 0)
             .build()
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ForegroundInfo(NOTIF_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)

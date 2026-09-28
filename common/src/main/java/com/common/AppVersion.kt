@@ -13,7 +13,7 @@ package com.common
  */
 object AppVersion {
     const val VERSION = "1.4"
-    const val BUILD = 6
+    const val BUILD = 7
 
     /** Full version string shown in the About screen, e.g. "1.1.0". */
     val displayName: String

@@ -20,3 +20,4 @@ build_*.txt
 install_*.txt
 *_output.txt
 *_status.txt
+*.apk
