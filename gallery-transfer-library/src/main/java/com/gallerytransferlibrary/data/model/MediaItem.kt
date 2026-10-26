@@ -13,6 +13,12 @@ data class MediaItem(
     val path: String,
     val size: Long,
     val dateModified: Long,
+    /**
+     * Best-effort creation time, epoch SECONDS. Resolved as DATE_TAKEN → DATE_ADDED →
+     * DATE_MODIFIED, because DATE_TAKEN is absent for screenshots, downloads and most videos.
+     * Defaults to 0 so only the repository has to supply it.
+     */
+    val dateCreated: Long = 0L,
     val bucketId: Int,
     val bucketName: String,
     val mimeType: String,

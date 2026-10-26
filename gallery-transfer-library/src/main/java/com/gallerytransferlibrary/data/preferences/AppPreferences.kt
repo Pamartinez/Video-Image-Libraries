@@ -115,6 +115,103 @@ class AppPreferences(context: Context) {
         autoUploadedKeys = autoUploadedKeys + keys
     }
 
+    // ── Bulk upload run ledger ──────────────────────────────────────────
+    //
+    // Deliberately separate from [autoUploadedKeys]: that set is a permanent, global suppression
+    // list, so writing bulk keys into it would silently exclude those items from auto-upload
+    // forever AND make a deliberate re-run of the same bulk upload transfer nothing at all.
+    //
+    // Each ledger is keyed by the worker's WorkManager UUID, which survives retries and process
+    // death but is regenerated on every new enqueue. That gives the semantics we want for free: a
+    // retry resumes where it left off, a fresh tap starts clean.
+    //
+    // Stored per run, not in one shared slot: a run's ledger is seeded at ENQUEUE time with the
+    // items the user unticked, so a second upload queued while the first is still pending would
+    // otherwise overwrite the first one's exclusions and upload items the user had explicitly
+    // deselected. [MAX_BULK_LEDGER_RUNS] bounds the growth; abandoned runs age out.
+
+    /**
+     * uniqueKeys the run [runId] must skip — because it already uploaded them, or because the user
+     * unticked them in the preview before starting (see [seedBulkLedger]).
+     */
+    fun bulkLedgerKeys(runId: String): Set<String> =
+        prefs.getStringSet(KEY_BULK_LEDGER_PREFIX + runId, emptySet()) ?: emptySet()
+
+    /**
+     * Pre-loads [runId]'s skip list with the items the user unticked in the preview, before the work
+     * is enqueued.
+     *
+     * This is how a UI-side selection reaches a worker that otherwise only knows criteria and
+     * re-queries MediaStore itself: the worker's existing "skip what's in the ledger" filter does
+     * the rest, so there is no second exclusion mechanism to keep in sync. Survives process death
+     * and retries for free, like the rest of the ledger. Also avoids WorkManager input data, whose
+     * 10 KB cap a long exclusion list could exceed.
+     */
+    fun seedBulkLedger(runId: String, keys: Set<String>) {
+        registerBulkLedgerRun(runId)
+        prefs.edit().putStringSet(KEY_BULK_LEDGER_PREFIX + runId, keys).apply()
+    }
+
+    /** Claims the ledger for [runId] and returns the keys it must skip. */
+    fun beginBulkLedger(runId: String): Set<String> {
+        registerBulkLedgerRun(runId)
+        return bulkLedgerKeys(runId)
+    }
+
+    /** Records [keys] as uploaded by [runId]. */
+    fun addBulkLedgerKeys(runId: String, keys: Collection<String>) {
+        if (keys.isEmpty()) return
+        prefs.edit()
+            .putStringSet(KEY_BULK_LEDGER_PREFIX + runId, bulkLedgerKeys(runId) + keys)
+            .apply()
+    }
+
+    /** Releases [runId]'s ledger once it finishes. */
+    fun clearBulkLedger(runId: String) {
+        val remaining = bulkLedgerRunIds() - runId
+        prefs.edit()
+            .remove(KEY_BULK_LEDGER_PREFIX + runId)
+            .putString(KEY_BULK_LEDGER_RUNS, remaining.joinToString(","))
+            .apply()
+    }
+
+    private fun bulkLedgerRunIds(): List<String> =
+        prefs.getString(KEY_BULK_LEDGER_RUNS, "")
+            ?.split(',')
+            ?.filter { it.isNotBlank() }
+            ?: emptyList()
+
+    /** Tracks [runId] as active (oldest first) and evicts ledgers beyond the cap. */
+    private fun registerBulkLedgerRun(runId: String) {
+        val known = bulkLedgerRunIds()
+        if (known.lastOrNull() == runId) return
+        val updated = (known - runId) + runId
+        val evicted = updated.dropLast(MAX_BULK_LEDGER_RUNS)
+        val editor = prefs.edit()
+        evicted.forEach { editor.remove(KEY_BULK_LEDGER_PREFIX + it) }
+        editor.putString(
+            KEY_BULK_LEDGER_RUNS,
+            updated.takeLast(MAX_BULK_LEDGER_RUNS).joinToString(",")
+        )
+        editor.apply()
+    }
+
+    // ── Deferred trashing ───────────────────────────────────────────────
+
+    /**
+     * URIs uploaded with delete-after-upload that still need to be trashed, for when the worker
+     * could not do it itself. [MediaTrashHelper.trashSilently] requires All-files access; without it
+     * the only route is a system consent dialog, which needs a UI. The UI drains this on start.
+     */
+    var pendingTrashUris: Set<String>
+        get() = prefs.getStringSet(KEY_PENDING_TRASH_URIS, emptySet()) ?: emptySet()
+        set(value) = prefs.edit().putStringSet(KEY_PENDING_TRASH_URIS, value).apply()
+
+    fun addPendingTrashUris(uris: Collection<String>) {
+        if (uris.isEmpty()) return
+        pendingTrashUris = pendingTrashUris + uris
+    }
+
     // ── Custom sort order (auto-saved on drag-to-reorder) ───────────────
 
     /** Root folder custom order as a list of bucketIds. Empty = not set yet. */
@@ -182,6 +279,11 @@ class AppPreferences(context: Context) {
         private const val KEY_AUTO_UPLOAD_FREQ = "auto_upload_frequency"
         private const val KEY_AUTO_UPLOAD_WIFI_ONLY = "auto_upload_wifi_only"
         private const val KEY_AUTO_UPLOADED_KEYS = "auto_uploaded_keys"
+        private const val KEY_BULK_LEDGER_RUNS = "bulk_ledger_runs"
+        private const val KEY_BULK_LEDGER_PREFIX = "bulk_ledger_keys_"
+        /** How many bulk-upload ledgers to retain; older ones are evicted. */
+        private const val MAX_BULK_LEDGER_RUNS = 4
+        private const val KEY_PENDING_TRASH_URIS = "pending_trash_uris"
         private const val KEY_CUSTOM_FOLDER_ORDER = "custom_folder_order"
         private const val KEY_FOLDER_MEDIA_ORDERS = "folder_media_custom_orders"
         private const val MAX_MEDIA_ORDER_FOLDERS = 500

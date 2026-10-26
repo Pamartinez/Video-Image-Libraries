@@ -100,6 +100,8 @@ class MediaRepository(private val context: Context) {
             MediaStore.MediaColumns.DATA,
             MediaStore.MediaColumns.SIZE,
             MediaStore.MediaColumns.DATE_MODIFIED,
+            MediaStore.MediaColumns.DATE_ADDED,
+            MediaStore.MediaColumns.DATE_TAKEN,
             MediaStore.MediaColumns.BUCKET_ID,
             MediaStore.MediaColumns.BUCKET_DISPLAY_NAME,
             MediaStore.MediaColumns.MIME_TYPE,
@@ -112,7 +114,17 @@ class MediaRepository(private val context: Context) {
         val args = bucketId?.let { arrayOf(it.toString()) }
 
         try {
-            resolver.query(baseUri, projection.toTypedArray(), selection, args, null)?.use { c ->
+            // DATE_TAKEN is the one column an odd OEM MediaStore might reject. Retry without it so
+            // that costs us the field rather than every photo on the device — the catch below would
+            // otherwise swallow the failure and return an empty list for this whole source.
+            val cursor = runCatching {
+                resolver.query(baseUri, projection.toTypedArray(), selection, args, null)
+            }.getOrNull() ?: resolver.query(
+                baseUri,
+                projection.filterNot { it == MediaStore.MediaColumns.DATE_TAKEN }.toTypedArray(),
+                selection, args, null
+            )
+            cursor?.use { c ->
                 val idCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns._ID)
                 val nameCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME)
                 @Suppress("DEPRECATION")
@@ -125,9 +137,15 @@ class MediaRepository(private val context: Context) {
                 val widthCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns.WIDTH)
                 val heightCol = c.getColumnIndexOrThrow(MediaStore.MediaColumns.HEIGHT)
                 val durationCol = if (isVideo) c.getColumnIndex(MediaStore.Video.Media.DURATION) else -1
+                // Soft lookups (like DURATION above): never OrThrow, or a missing column takes the
+                // entire images-or-videos source down via the catch below.
+                val addedCol = c.getColumnIndex(MediaStore.MediaColumns.DATE_ADDED)
+                val takenCol = c.getColumnIndex(MediaStore.MediaColumns.DATE_TAKEN)
+                val nowSec = System.currentTimeMillis() / 1000L
 
                 while (c.moveToNext()) {
                     val id = c.getLong(idCol)
+                    val modifiedSec = c.getLong(dateCol)
                     items.add(
                         MediaItem(
                             id = id,
@@ -135,7 +153,13 @@ class MediaRepository(private val context: Context) {
                             displayName = c.getString(nameCol) ?: "",
                             path = c.getString(dataCol) ?: "",
                             size = c.getLong(sizeCol),
-                            dateModified = c.getLong(dateCol),
+                            dateModified = modifiedSec,
+                            dateCreated = resolveDateCreatedSeconds(
+                                takenMillis = c.longOrZero(takenCol),
+                                addedSec = c.longOrZero(addedCol),
+                                modifiedSec = modifiedSec,
+                                nowSec = nowSec
+                            ),
                             bucketId = c.getInt(bucketIdCol),
                             bucketName = c.getString(bucketNameCol) ?: "",
                             mimeType = c.getString(mimeCol) ?: if (isVideo) "video/*" else "image/*",
@@ -151,5 +175,35 @@ class MediaRepository(private val context: Context) {
             // Cursor/column failures on some OEM MediaStores — skip this source.
         }
         return items
+    }
+
+    /** Reads an optional column, treating "absent" and SQL NULL alike as 0. */
+    private fun android.database.Cursor.longOrZero(col: Int): Long =
+        if (col >= 0 && !isNull(col)) getLong(col) else 0L
+
+    companion object {
+        /** 2000-01-01. Anything earlier is a bogus timestamp, not a real creation date. */
+        private const val MIN_PLAUSIBLE_SEC = 946_684_800L
+
+        /**
+         * Resolves a usable creation time in epoch SECONDS from the three MediaStore date columns.
+         *
+         * DATE_TAKEN is in MILLISECONDS (the other two are seconds) and is 0/NULL for screenshots,
+         * downloads and most videos — using it raw would date those items to 1970 and sweep them
+         * into every "older than" filter. Each candidate is therefore accepted only if it lands in
+         * a plausible window; the upper bound rejects future-dated files (wrong camera clock), which
+         * would otherwise never match any "older than" filter.
+         */
+        internal fun resolveDateCreatedSeconds(
+            takenMillis: Long,
+            addedSec: Long,
+            modifiedSec: Long,
+            nowSec: Long
+        ): Long {
+            val plausible = MIN_PLAUSIBLE_SEC..(nowSec + 86_400L)
+            val taken = (if (takenMillis > 0) takenMillis / 1000L else 0L).takeIf { it in plausible }
+            val added = addedSec.takeIf { it in plausible }
+            return taken ?: added ?: modifiedSec
+        }
     }
 }

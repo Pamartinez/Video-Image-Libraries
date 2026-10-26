@@ -7,8 +7,12 @@ import androidx.work.WorkManager
 
 /**
  * Entry point the UI calls to start an upload. It stages the batch on the app's [UploadManager]
- * (so progress shows immediately) and enqueues a single unique [UploadWorker] to do the work in the
- * background. Enqueuing as unique work (REPLACE) prevents two overlapping uploads of the same queue.
+ * (so progress shows immediately) and enqueues a unique [UploadWorker] to do the work in the
+ * background.
+ *
+ * Enqueued with APPEND_OR_REPLACE so two uploads started in quick succession run one after the
+ * other. REPLACE used to cancel the first worker mid-flight, abandoning whatever was left of that
+ * batch; the user had asked for both.
  */
 object UploadScheduler {
 
@@ -27,7 +31,7 @@ object UploadScheduler {
 
         val request = OneTimeWorkRequestBuilder<UploadWorker>().build()
         WorkManager.getInstance(context.applicationContext)
-            .enqueueUniqueWork(UNIQUE_WORK, ExistingWorkPolicy.REPLACE, request)
+            .enqueueUniqueWork(UNIQUE_WORK, ExistingWorkPolicy.APPEND_OR_REPLACE, request)
     }
 
     fun cancel(context: Context) {

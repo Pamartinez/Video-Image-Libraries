@@ -9,8 +9,9 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
-import com.common.data.util.MediaTrashHelper
 import com.common.upload.UploadItem
+import com.gallerytransferlibrary.data.model.AgeCutoff
+import com.gallerytransferlibrary.data.model.AgeUnit
 import com.gallerytransferlibrary.data.preferences.AppPreferences
 import com.gallerytransferlibrary.data.repository.MediaRepository
 import com.gallerytransferlibrary.dropbox.DropboxHolder
@@ -43,11 +44,14 @@ class AutoUploadWorker(
         if (client.authManager.getValidAccessToken() == null) return@coroutineScope Result.success()
 
         // Select items older than the threshold that we haven't already auto-uploaded.
-        val cutoffSeconds = (System.currentTimeMillis() / 1000L) - prefs.autoUploadOlderThanDays * 86_400L
+        // Rolling cutoff, recomputed every run: this is periodic work expressing a standing intent
+        // ("keep anything older than N days backed up"), unlike the one-shot bulk upload which
+        // freezes its cutoff at enqueue time.
+        val cutoffSeconds = AgeCutoff.cutoffSeconds(prefs.autoUploadOlderThanDays, AgeUnit.DAYS)
         val alreadyUploaded = prefs.autoUploadedKeys
         val repository = MediaRepository(applicationContext)
         val candidates = repository.getAllMedia().filter {
-            it.dateModified < cutoffSeconds && it.uniqueKey !in alreadyUploaded
+            it.dateCreated < cutoffSeconds && it.uniqueKey !in alreadyUploaded
         }
         if (candidates.isEmpty()) return@coroutineScope Result.success()
 
@@ -74,25 +78,34 @@ class AutoUploadWorker(
             }
         }
 
-        try {
-            manager.prepareBatch(uploads, prefs.dropboxDestPath, prefs.overwriteOnConflict, prefs.deleteAfterUpload)
-            manager.runPending()
+        // runBatch (not prepareBatch + runPending) so the outcome comes back directly: reading it off
+        // the shared state afterwards could pick up a *different* batch's uploads and trash the
+        // wrong files.
+        val result = try {
+            manager.runBatch(
+                com.common.upload.UploadManager.Batch(
+                    items = uploads,
+                    destRoot = prefs.dropboxDestPath,
+                    overwrite = prefs.overwriteOnConflict,
+                    deleteAfterUpload = prefs.deleteAfterUpload,
+                    // Trashes from the returned result below; the UI must not double-handle it.
+                    delegateTrashToUi = false
+                )
+            )
         } finally {
             notifier.cancel()
         }
 
         // Record which items uploaded (for dedup) and, if requested, delete them silently.
-        val uploadedUris = manager.state.value.lastUploadedUris.toSet()
+        val uploadedUris = result.uploadedUris.toSet()
         if (uploadedUris.isNotEmpty()) {
             val uploadedItems = candidates.filter { it.uri in uploadedUris }
             prefs.addAutoUploadedKeys(uploadedItems.map { it.uniqueKey })
 
-            if (prefs.deleteAfterUpload && MediaTrashHelper.isExternalStorageManager()) {
-                MediaTrashHelper.trashSilently(
-                    applicationContext,
-                    uploadedItems.map { it.uri }
-                )
-                manager.clearUploadedUris()
+            if (prefs.deleteAfterUpload) {
+                // Defers to the UI's consent flow when we lack All-files access, instead of
+                // silently skipping the deletion as this used to.
+                WorkerTrash.trashOrDefer(applicationContext, prefs, uploadedItems.map { it.uri })
             }
         }
 

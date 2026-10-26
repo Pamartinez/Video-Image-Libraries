@@ -13,6 +13,7 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -54,6 +55,8 @@ import kotlin.math.roundToInt
 import com.common.data.model.FolderSortOption
 import com.common.data.model.ViewType
 import com.common.data.util.FileManagerHelper
+import com.common.ui.components.AppMenuDivider
+import com.common.ui.components.AppMenuItem
 import com.common.ui.components.AppMoreMenuButton
 import com.common.ui.components.BottomActionBar
 import com.common.ui.components.CircularCheckIndicator
@@ -73,6 +76,7 @@ import com.common.ui.util.ZoomTransitionOverlay
 import com.common.ui.util.rememberZoomTransitionState
 import com.common.ui.util.zoomThumbnail
 import com.common.ui.screen.AboutScreen
+import com.gallerytransferlibrary.data.model.BulkUploadCriteria
 import com.gallerytransferlibrary.data.model.MediaItem
 import com.gallerytransferlibrary.data.model.FilterSortOption
 import com.gallerytransferlibrary.data.model.FilterType
@@ -83,7 +87,10 @@ import com.gallerytransferlibrary.data.util.FileLogger
 import com.gallerytransferlibrary.dropbox.DropboxHolder
 import com.gallerytransferlibrary.ui.components.MediaThumbnail
 import com.gallerytransferlibrary.upload.AutoUploadScheduler
+import com.gallerytransferlibrary.upload.BulkUploadScheduler
 import com.gallerytransferlibrary.ui.theme.LocalGalleryColors
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gallerytransferlibrary.ui.viewmodel.BulkUploadViewModel
 import com.gallerytransferlibrary.ui.viewmodel.MediaListUiState
 import com.gallerytransferlibrary.ui.viewmodel.MediaListViewModel
 import kotlinx.coroutines.Dispatchers
@@ -92,7 +99,7 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER }
+private enum class Overlay { NONE, SETTINGS, ABOUT, FILTER, BULK_UPLOAD }
 
 /** width/height aspect ratio for the zoom transition; 0f when the item's dimensions are unknown. */
 private fun MediaItem.aspectRatioOrZero(): Float =
@@ -108,6 +115,12 @@ fun MediaListScreen(
     val scope = rememberCoroutineScope()
 
     val prefs = remember { AppPreferences(context) }
+    // Activity-scoped so the Bulk upload screen's media list stays loaded between visits; its
+    // criteria are reset explicitly on open instead.
+    val bulkUploadViewModel: BulkUploadViewModel = viewModel()
+    val bulkCriteria by bulkUploadViewModel.criteria.collectAsState()
+    val bulkMatchState by bulkUploadViewModel.matchState.collectAsState()
+    val bulkExcludedKeys by bulkUploadViewModel.excludedKeys.collectAsState()
     val client = remember { DropboxHolder.client(context) }
     val uploadManager = remember { DropboxHolder.uploadManager(context) }
     val uploadState by uploadManager.state.collectAsState()
@@ -128,13 +141,21 @@ fun MediaListScreen(
         ActivityResultContracts.RequestPermission()
     ) { /* upload proceeds regardless of the result */ }
 
+    // URIs a background worker uploaded with delete-after-upload but could not trash itself (no
+    // All-files access → needs the system consent dialog, which needs a UI). Re-read on every
+    // ON_START, since the worker may have added more while we were away.
+    var deferredTrash by remember { mutableStateOf<List<String>>(emptyList()) }
+
     // Let the UploadManager know when a UI is present: while it is, filename conflicts show the
     // interactive dialog; once the app is backgrounded, they auto-resolve via the settings policy.
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
-                Lifecycle.Event.ON_START -> uploadManager.setUiActive(true)
+                Lifecycle.Event.ON_START -> {
+                    uploadManager.setUiActive(true)
+                    deferredTrash = prefs.pendingTrashUris.toList()
+                }
                 Lifecycle.Event.ON_STOP -> uploadManager.setUiActive(false)
                 else -> {}
             }
@@ -164,7 +185,10 @@ fun MediaListScreen(
     val trashLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
-        if (result.resultCode == android.app.Activity.RESULT_OK) viewModel.refreshCurrent()
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            viewModel.refreshCurrent()
+            bulkUploadViewModel.markStale()
+        }
         uploadManager.clearUploadedUris()
     }
     LaunchedEffect(uploadState.uploadedUris) {
@@ -175,6 +199,7 @@ fun MediaListScreen(
                     com.common.data.util.MediaTrashHelper.trashSilently(context, uris)
                 }
                 viewModel.refreshCurrent()
+                bulkUploadViewModel.markStale()
                 uploadManager.clearUploadedUris()
             } else {
                 val pending = com.common.data.util.MediaTrashHelper.createTrashRequest(
@@ -185,6 +210,56 @@ fun MediaListScreen(
                 )
             }
         }
+    }
+
+    // Drain the worker's deferred-trash queue through the same consent flow. Without this, a bulk
+    // upload that finished while the app was closed would leave the uploaded files on the device.
+    val deferredTrashLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartIntentSenderForResult()
+    ) { result ->
+        // Clear either way: on denial, re-prompting on every launch would be worse than letting the
+        // user delete them in the gallery.
+        prefs.pendingTrashUris = emptySet()
+        deferredTrash = emptyList()
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            viewModel.refreshCurrent()
+            bulkUploadViewModel.markStale()
+        }
+    }
+    LaunchedEffect(deferredTrash) {
+        val uris = deferredTrash.mapNotNull { runCatching { android.net.Uri.parse(it) }.getOrNull() }
+        if (uris.isEmpty()) return@LaunchedEffect
+        if (com.common.data.util.MediaTrashHelper.isExternalStorageManager()) {
+            withContext(Dispatchers.IO) {
+                com.common.data.util.MediaTrashHelper.trashSilently(context, uris)
+            }
+            prefs.pendingTrashUris = emptySet()
+            deferredTrash = emptyList()
+            viewModel.refreshCurrent()
+            bulkUploadViewModel.markStale()
+        } else {
+            val pending = runCatching {
+                com.common.data.util.MediaTrashHelper.createTrashRequest(context.contentResolver, uris)
+            }.getOrNull()
+            if (pending == null) {
+                // Items already gone (deleted elsewhere) — drop them rather than retrying forever.
+                prefs.pendingTrashUris = emptySet()
+                deferredTrash = emptyList()
+            } else {
+                deferredTrashLauncher.launch(
+                    androidx.activity.result.IntentSenderRequest.Builder(pending).build()
+                )
+            }
+        }
+    }
+
+    // Hoisted above the inFolder branch so opening a folder doesn't discard the folder grid's
+    // scroll position (FolderGrid leaves composition while a folder is open).
+    val folderGridState = rememberLazyGridState()
+    // Scroll to top only once the re-sorted folder list has arrived, so the restored position
+    // isn't reapplied on top of the new order.
+    LaunchedEffect(state.scrollToTopTrigger) {
+        if (state.scrollToTopTrigger > 0) folderGridState.scrollToItem(0)
     }
 
     var overlay by remember { mutableStateOf(Overlay.NONE) }
@@ -229,29 +304,21 @@ fun MediaListScreen(
         }
     }
 
-    // Manual "Back up old items now": upload every item older than [days] via the same interactive
-    // path, so the in-app progress bar + Stop button apply. Closes Settings first so progress is visible.
-    val backupOldItems: (days: Int) -> Unit = { days ->
-        scope.launch {
-            val items = viewModel.getMediaOlderThan(days)
-            overlay = Overlay.NONE
-            if (items.isEmpty()) {
-                Toast.makeText(context, "No items older than $days days", Toast.LENGTH_SHORT).show()
-                return@launch
-            }
-            val uploads = items.map {
-                UploadItem(
-                    uri = it.uri,
-                    name = it.displayName,
-                    size = it.size,
-                    relativePath = if (keepFolderStructure) it.bucketName else ""
-                )
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                notifPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
-            UploadScheduler.enqueue(context, uploads, destPath, overwriteOnConflict, deleteAfterUpload)
+    // Manual "Back up old items now" and the Bulk upload screen both hand the worker *criteria*
+    // rather than a list of files. That is what makes them survive the app being closed: the old
+    // code built the list here and passed it through an in-memory field, so killing the process
+    // lost the batch silently. The worker re-queries MediaStore itself.
+    val enqueueBulkUpload: (BulkUploadCriteria, Set<String>) -> Unit = { criteria, excluded ->
+        overlay = Overlay.NONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            notifPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
+        BulkUploadScheduler.enqueue(context, criteria, excluded)
+        Toast.makeText(context, "Backing up ${criteria.summaryLabel().lowercase()}", Toast.LENGTH_SHORT).show()
+    }
+    val backupOldItems: (days: Int) -> Unit = { days ->
+        // Settings has no per-item preview, so nothing is excluded from this one.
+        enqueueBulkUpload(BulkUploadCriteria.olderThanDays(days), emptySet())
     }
 
     BackHandler(enabled = overlay != Overlay.NONE || viewerIndex != null || filterViewerIndex != null || state.selectionMode || state.inFolder) {
@@ -321,6 +388,25 @@ fun MediaListScreen(
                 onBackupOldItems = backupOldItems,
                 onConnect = { manualSignIn = true },
                 onPickDestination = { if (connected) showFolderPicker = true else manualSignIn = true }
+            )
+            Overlay.BULK_UPLOAD -> BulkUploadScreen(
+                criteria = bulkCriteria,
+                matchState = bulkMatchState,
+                excludedKeys = bulkExcludedKeys,
+                // Only connection matters: an empty destination is the Dropbox root, which is both
+                // valid and the default.
+                canUpload = connected,
+                destinationPath = destPath,
+                deleteAfterUpload = deleteAfterUpload,
+                onToggleItem = { bulkUploadViewModel.toggleExcluded(it) },
+                onSelectAllItems = { bulkUploadViewModel.selectAllMatches() },
+                onMediaTypeChange = { bulkUploadViewModel.setMediaType(it) },
+                onSizeAmountChange = { bulkUploadViewModel.setSizeAmount(it) },
+                onSizeUnitChange = { bulkUploadViewModel.setSizeUnit(it) },
+                onAgeAmountChange = { bulkUploadViewModel.setAgeAmount(it) },
+                onAgeUnitChange = { bulkUploadViewModel.setAgeUnit(it) },
+                onUpload = { enqueueBulkUpload(bulkCriteria, bulkExcludedKeys) },
+                onBack = { overlay = Overlay.NONE }
             )
             Overlay.FILTER -> Box(Modifier.fillMaxSize()) {
                 Column(Modifier.fillMaxSize().statusBarsPadding()) {
@@ -415,7 +501,11 @@ fun MediaListScreen(
                         onViewAs = { viewModel.showViewAsDialog() },
                         onSettings = { overlay = Overlay.SETTINGS },
                         onAbout = { overlay = Overlay.ABOUT },
-                        onFilter = { viewModel.openFilter(); overlay = Overlay.FILTER }
+                        onFilter = { viewModel.openFilter(); overlay = Overlay.FILTER },
+                        onBulkUpload = {
+                            bulkUploadViewModel.onScreenOpened()
+                            overlay = Overlay.BULK_UPLOAD
+                        }
                     )
 
                     if (state.isLoading) {
@@ -450,7 +540,8 @@ fun MediaListScreen(
                             },
                             onFolderLongClick = { folder -> viewModel.startSelectionWithFolder(folder.bucketId) },
                             onReorder = { from, to -> viewModel.reorderFolder(from, to) },
-                            onReorderDone = { viewModel.persistFolderOrder() }
+                            onReorderDone = { viewModel.persistFolderOrder() },
+                            lazyGridState = folderGridState
                         )
                     }
                 }
@@ -597,6 +688,9 @@ fun MediaListScreen(
         onCancelProgress = {
             uploadManager.cancel()
             UploadScheduler.cancel(context)
+            // Also kill the bulk worker — cancelling the manager alone only stops the current
+            // chunk, and the worker would immediately start the next one.
+            BulkUploadScheduler.cancel(context)
         },
         conflictFileName = uploadState.conflictFileName,
         conflictApplyToAll = uploadState.applyToAll,
@@ -664,7 +758,8 @@ private fun TopBar(
     onViewAs: () -> Unit,
     onSettings: () -> Unit,
     onAbout: () -> Unit,
-    onFilter: () -> Unit
+    onFilter: () -> Unit,
+    onBulkUpload: () -> Unit
 ) {
     val colors = LocalGalleryColors.current
     var menuExpanded by remember { mutableStateOf(false) }
@@ -717,7 +812,16 @@ private fun TopBar(
                 onSortBy = onSort,
                 onViewAs = onViewAs,
                 onSettings = onSettings,
-                onAbout = onAbout
+                onAbout = onAbout,
+                extraTopContent = { dismiss ->
+                    AppMenuItem(
+                        text = "Bulk upload",
+                        onDismiss = dismiss,
+                        onClick = onBulkUpload,
+                        textColor = colors.listFirstText
+                    )
+                    AppMenuDivider(color = colors.dividerColor)
+                }
             )
         }
     }
@@ -874,7 +978,8 @@ private fun FolderGrid(
     onFolderClick: (com.common.data.model.FolderItem) -> Unit,
     onFolderLongClick: (com.common.data.model.FolderItem) -> Unit,
     onReorder: (Int, Int) -> Unit,
-    onReorderDone: () -> Unit
+    onReorderDone: () -> Unit,
+    lazyGridState: LazyGridState = rememberLazyGridState()
 ) {
     val columns = if (state.viewType == ViewType.GRID_SMALL) 3 else 2
     val gridSpacing = if (state.viewType == ViewType.GRID_LARGE) 18.dp else 12.dp
@@ -883,7 +988,7 @@ private fun FolderGrid(
         ImageLoader.Builder(context).components { add(VideoFrameDecoder.Factory()) }.crossfade(true).build()
     }
     val canDrag = state.folderSort == FolderSortOption.CUSTOM_ORDER
-    val gridState = rememberLazyGridState()
+    val gridState = lazyGridState
     val dragState = rememberDragDropGridState(
         lazyGridState = gridState,
         onMove = { from, to ->
@@ -1014,7 +1119,7 @@ private fun MediaGrid(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun ItemGrid(
+internal fun ItemGrid(
     items: List<MediaItem>,
     selectedKeys: Set<String>,
     selectionMode: Boolean,
@@ -1127,7 +1232,7 @@ private fun ItemGrid(
     }
 }
 
-private fun playVideo(context: android.content.Context, item: MediaItem) {
+internal fun playVideo(context: android.content.Context, item: MediaItem) {
     try {
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(item.uri, if (item.mimeType.isNotBlank()) item.mimeType else "video/*")

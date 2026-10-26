@@ -211,7 +211,7 @@ fun SettingsScreen(
                     SettingsActionButton(
                         icon = Icons.Default.PlayArrow,
                         title = "Back up old items now",
-                        subtitle = "Pick an age, then upload all items older than that right away. A progress bar shows and you can stop anytime.",
+                        subtitle = "Pick an age, then upload all items created before that right away. Keeps running if you close the app; you can stop it from the progress bar.",
                         onClick = { showBackupDaysDialog = true }
                     )
                 }

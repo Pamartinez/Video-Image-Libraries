@@ -34,6 +34,8 @@ data class MediaListUiState(
     val selectedMediaKeys: Set<String> = emptySet(),
     // Media reordering (settings toggle)
     val allowMediaReordering: Boolean = true,
+    // Bumped after a folder re-sort lands, so the screen scrolls the folder grid back to the top.
+    val scrollToTopTrigger: Int = 0,
     // Dialogs
     val showSortDialog: Boolean = false,
     val showViewAsDialog: Boolean = false,
@@ -203,7 +205,15 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
     fun setFolderSort(sort: FolderSortOption) {
         prefs.folderSort = sort
         _uiState.update { it.copy(folderSort = sort, showSortDialog = false) }
-        loadFolders()
+        viewModelScope.launch {
+            val folders = repository.getFolders(sort)
+            _uiState.update {
+                it.copy(
+                    folders = orderFolders(folders, sort),
+                    scrollToTopTrigger = it.scrollToTopTrigger + 1
+                )
+            }
+        }
     }
 
     fun setMediaSort(sort: MediaSortOption) {
@@ -440,12 +450,6 @@ class MediaListViewModel(app: Application) : AndroidViewModel(app) {
             s.inFolder -> s.media.filter { it.uniqueKey in s.selectedMediaKeys }
             else -> repository.getMediaForBuckets(s.selectedFolderIds)
         }
-    }
-
-    /** All media items modified more than [days] days ago (for the manual "Back up old items" action). */
-    suspend fun getMediaOlderThan(days: Int): List<MediaItem> {
-        val cutoffSeconds = (System.currentTimeMillis() / 1000L) - days.coerceAtLeast(1) * 86_400L
-        return repository.getAllMedia().filter { it.dateModified < cutoffSeconds }
     }
 
     // ── Delete (move to system/Samsung trash) ───────────────────────────

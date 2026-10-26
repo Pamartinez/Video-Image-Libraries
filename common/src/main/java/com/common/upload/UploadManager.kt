@@ -6,13 +6,14 @@ import com.common.data.dropbox.UploadResult
 import android.net.Uri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 /** How the user chose to resolve a filename conflict. */
 enum class ConflictResolution { REPLACE, KEEP_BOTH, SKIP }
@@ -68,10 +69,28 @@ class UploadManager(
         val lastUploadedUris: List<Uri> = emptyList()
     )
 
+    /** Outcome of one completed batch, returned to the caller instead of being read off [state]. */
+    data class BatchResult(
+        val uploadedUris: List<Uri> = emptyList(),
+        val uploaded: Int = 0,
+        val skipped: Int = 0,
+        val failed: Int = 0
+    )
+
     private val _state = MutableStateFlow(State())
     val state: StateFlow<State> = _state.asStateFlow()
 
-    private var uploadJob: Job? = null
+    /**
+     * Serializes batches process-wide. [state], [cancelled], [bulkResolution] and the byte counters
+     * are single-slot shared fields, so two batches running concurrently would clobber each other
+     * (progress resets, one batch's completion nulling the other's work, Stop killing both). A second
+     * caller waits here instead.
+     */
+    private val runMutex = Mutex()
+
+    /** True while a batch is actually uploading — callers can show "waiting" instead of progress. */
+    val isBatchRunning: Boolean get() = runMutex.isLocked
+
     private var authDeferred: CompletableDeferred<Boolean>? = null
     private var conflictDeferred: CompletableDeferred<ConflictResolution>? = null
     private var bulkResolution: ConflictResolution? = null
@@ -88,17 +107,31 @@ class UploadManager(
     /** Background conflict policy (from settings): true = overwrite, false = keep both (autorename). */
     @Volatile private var backgroundOverwrite: Boolean = false
 
-    /** One queued batch, stashed for the [UploadWorker] to pick up (same-process handoff). */
+    /** A batch of work, stashed for the [UploadWorker] to pick up (same-process handoff). */
     data class Batch(
         val items: List<UploadItem>,
         val destRoot: String,
         val overwrite: Boolean,
-        val deleteAfterUpload: Boolean
+        val deleteAfterUpload: Boolean,
+        /**
+         * Whether to publish the uploaded URIs on [State.uploadedUris] for the UI to trash.
+         *
+         * True for the interactive path, where the UI owns deletion. Background workers set this
+         * false and trash from their own [BatchResult] instead — otherwise, with the app open, both
+         * the worker and the UI would act on the same URIs and the user could get asked to confirm
+         * the same deletion twice.
+         */
+        val delegateTrashToUi: Boolean = true
     )
 
-    @Volatile
-    var pendingBatch: Batch? = null
-        private set
+    /**
+     * Batches staged by [prepareBatch] and claimed by [runPending], FIFO. A queue rather than a single
+     * slot: the scheduler can enqueue a second [UploadWorker] while the first is still running, and a
+     * single slot meant the second `prepareBatch` overwrote the first batch — so one of the two was
+     * silently dropped. Guarded by its own lock since producers are UI threads and the consumer is a
+     * worker thread.
+     */
+    private val pendingBatches = ArrayDeque<Batch>()
 
     /**
      * Called by the UI lifecycle. When the UI goes away, any pending conflict prompt is auto-resolved
@@ -115,8 +148,12 @@ class UploadManager(
         if (backgroundOverwrite) ConflictResolution.REPLACE else ConflictResolution.KEEP_BOTH
 
     /**
-     * Stages [items] for upload into [destRoot], resetting state so the UI shows progress immediately.
-     * The actual work is performed by [runPending], invoked from the [UploadWorker].
+     * Stages [items] for upload into [destRoot]. The actual work is performed by [runPending],
+     * invoked from the [UploadWorker].
+     *
+     * Per-batch flags are deliberately NOT reset here — [runBatch] resets them once it actually
+     * starts. Resetting at stage time let a newly queued batch wipe a running batch's progress and,
+     * worse, flip `cancelled` back to false mid-run, resurrecting a batch the user had just stopped.
      */
     fun prepareBatch(
         items: List<UploadItem>,
@@ -124,45 +161,74 @@ class UploadManager(
         overwrite: Boolean,
         deleteAfterUpload: Boolean = false
     ) {
-        pendingBatch = Batch(items, destRoot, overwrite, deleteAfterUpload)
-        backgroundOverwrite = overwrite
-        bulkResolution = null
-        cancelled = false
-        // Note: no progress bar yet — we first run the up-front conflict check (Phase 1) which shows
-        // only the conflict dialog(s). The progress bar appears in Phase 2 (the actual upload).
-        _state.update { State(isPreparing = true, total = items.size, current = 0) }
+        synchronized(pendingBatches) {
+            pendingBatches.addLast(Batch(items, destRoot, overwrite, deleteAfterUpload))
+        }
+        // Show "preparing" immediately so the UI reacts on tap — but only when nothing is running,
+        // so staging a second batch doesn't stomp the live one's progress.
+        if (!runMutex.isLocked) {
+            // No progress bar yet — the up-front conflict check (Phase 1) shows only the conflict
+            // dialog(s). The progress bar appears in Phase 2 (the actual upload).
+            _state.update { State(isPreparing = true, total = items.size, current = 0) }
+        }
     }
 
-    /** Runs the staged [pendingBatch]. Safe to call from a WorkManager [UploadWorker]. */
-    suspend fun runPending() {
-        val batch = pendingBatch ?: return
+    /** Claims and runs the oldest staged batch. Safe to call from a WorkManager [UploadWorker]. */
+    suspend fun runPending(): BatchResult {
+        // Claim it up front: leaving it queued meant a concurrently finishing batch could clear it.
+        val batch = synchronized(pendingBatches) { pendingBatches.removeFirstOrNull() }
+            ?: return BatchResult()
+        return runBatch(batch)
+    }
+
+    /**
+     * Runs [batch] to completion and returns what happened. Serialized process-wide via [runMutex]:
+     * if another batch is already running, this suspends until it finishes rather than corrupting
+     * its state.
+     *
+     * Prefer this over [prepareBatch] + [runPending] for callers that already hold their own item
+     * list (e.g. background workers), since the result comes back directly instead of having to be
+     * read off the shared [state] afterwards — which attributed one batch's uploads to another.
+     */
+    suspend fun runBatch(batch: Batch): BatchResult = runMutex.withLock { runBatchLocked(batch) }
+
+    private suspend fun runBatchLocked(batch: Batch): BatchResult {
+        // Per-batch state is reset here, inside the lock, where it cannot race a queued batch.
+        backgroundOverwrite = batch.overwrite
+        bulkResolution = null
+        cancelled = false
+        totalBytes = batch.items.sumOf { it.size }.coerceAtLeast(1L)
+        completedBytes = 0L
+        _state.update { State(isPreparing = true, total = batch.items.size, current = 0) }
+
+        var uploaded = 0
+        var skipped = 0
+        var failed = 0
+        val uploadedUris = ArrayList<Uri>()
+        fun result() = BatchResult(uploadedUris.toList(), uploaded, skipped, failed)
+
         try {
             if (!ensureAuth()) {
                 logFailure("Upload aborted: sign-in required to upload.", null)
                 _state.update { State(errorMessage = "Sign-in required to upload.") }
-                return
+                return result()
             }
 
             // ── Phase 1: check every destination for name clashes and resolve them up front ──
             // (only the conflict dialog shows here; no progress bar). resolutions[index] == null
             // means "no conflict"; otherwise it's the user's (or background) choice for that file.
             val resolutions = resolveConflictsUpFront(batch)
-            if (cancelled) return
+            if (cancelled) return result()
 
             // ── Phase 2: upload with the resolved modes, now showing the progress bar ──
-            totalBytes = batch.items.sumOf { it.size }.coerceAtLeast(1L)
-            completedBytes = 0L
             _state.update { it.copy(isPreparing = false, isUploading = true, current = 0, overallProgress = 0f) }
-            var uploaded = 0
-            var skipped = 0
-            val uploadedUris = ArrayList<Uri>()
             for ((index, item) in batch.items.withIndex()) {
-                if (cancelled) return
+                if (cancelled) return result()
                 _state.update { it.copy(current = index + 1, fileProgress = 0f) }
                 when (uploadResolved(item, batch.destRoot, resolutions[index])) {
                     Outcome.UPLOADED -> { uploaded++; uploadedUris.add(item.uri) }
                     Outcome.SKIPPED -> skipped++
-                    Outcome.FAILED -> { /* error already surfaced */ }
+                    Outcome.FAILED -> failed++
                 }
                 // Count the whole file toward the budget regardless of outcome so the bar reaches 100%.
                 completedBytes += item.size
@@ -173,15 +239,19 @@ class UploadManager(
             _state.update {
                 State(
                     completedMessage = summary(uploaded, skipped, batch.items.size),
-                    uploadedUris = if (batch.deleteAfterUpload) uploadedUris else emptyList(),
+                    uploadedUris = if (batch.deleteAfterUpload && batch.delegateTrashToUi) {
+                        uploadedUris.toList()
+                    } else {
+                        emptyList()
+                    },
                     lastUploadedUris = uploadedUris.toList()
                 )
             }
+            return result()
         } catch (e: Exception) {
             logFailure("Upload batch failed: ${e.message ?: "unknown error"}", e)
             _state.update { State(errorMessage = e.message ?: "Upload failed.") }
-        } finally {
-            pendingBatch = null
+            return result()
         }
     }
 
@@ -313,12 +383,16 @@ class UploadManager(
 
     // ── Cancellation / dismissal ────────────────────────────────────────
 
+    /**
+     * Stops the running batch and discards anything still staged. Note this cancels the *running*
+     * batch only in the sense that `cancelled` is checked between items; a worker that has already
+     * been enqueued for a later batch must also be cancelled through its scheduler.
+     */
     fun cancel() {
         cancelled = true
         conflictDeferred?.complete(ConflictResolution.SKIP)
         authDeferred?.complete(false)
-        pendingBatch = null
-        uploadJob?.cancel()
+        synchronized(pendingBatches) { pendingBatches.clear() }
         _state.update { State() }
     }
 

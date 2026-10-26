@@ -126,7 +126,8 @@ class AppPreferences(context: Context) : SharedAppPreferences(
 
     /**
      * Gets the view type for a specific folder (album).
-     * Returns the global folderViewType if not set.
+     * Albums with no saved choice always open in Grid view (GRID_SMALL) — deliberately
+     * NOT the global folderViewType, so changing the global never makes new albums open expanded.
      */
     fun getFolderViewType(bucketId: Int): ViewType {
         val raw = prefs.getString(KEY_FOLDER_VIEW_TYPES, "") ?: ""
@@ -137,7 +138,7 @@ class AppPreferences(context: Context) : SharedAppPreferences(
                 else null
             }
             .firstOrNull()
-        return if (id != null) ViewType.fromId(id) else folderViewType
+        return if (id != null) ViewType.fromId(id) else ViewType.GRID_SMALL
     }
 
     /**
